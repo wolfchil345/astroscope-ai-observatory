@@ -4,10 +4,23 @@
 
 AstroScope AI is an intelligent observatory planner and interactive planetarium.
 
-## Initial objectives
+## Implemented
 
-- Calculate celestial-object visibility
-- Create observation schedules
-- Display interactive sky maps
-- Simulate telescope fields of view
-- Explore scientific astronomical catalogues
+- Multilingual interface
+- Observer coordinate input
+- Local time to UTC conversion
+- Julian Date
+- Modified Julian Date
+- Local apparent sidereal time
+
+## Documentation
+
+- [Observer location and astronomical time](observer_time.md)
+
+## Future objectives
+
+- Celestial-coordinate calculations
+- Object visibility calculations
+- Interactive sky maps
+- Telescope field-of-view simulation
+- Astronomical catalogue exploration
