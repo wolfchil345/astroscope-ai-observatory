@@ -3,6 +3,7 @@
 from typing import Final
 
 from astroscope.coordinate_messages import COORDINATE_TRANSLATIONS
+from astroscope.planner_messages import PLANNER_TRANSLATIONS
 from astroscope.sky_map_messages import SKY_MAP_TRANSLATIONS
 from astroscope.solar_system_messages import SOLAR_SYSTEM_TRANSLATIONS
 from astroscope.visibility_messages import VISIBILITY_TRANSLATIONS
@@ -219,6 +220,9 @@ TRANSLATIONS.update(SOLAR_SYSTEM_TRANSLATIONS)
 
 
 TRANSLATIONS.update(SKY_MAP_TRANSLATIONS)
+
+
+TRANSLATIONS.update(PLANNER_TRANSLATIONS)
 
 
 def translate(key: str, language: str) -> str:
