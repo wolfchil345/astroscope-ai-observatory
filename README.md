@@ -13,6 +13,10 @@ An intelligent multilingual observatory planner and interactive planetarium.
 
 ## Implemented features
 
+- Smart observation target ranking
+- Transparent 100-point quality score
+- Moon-separation and darkness filters
+
 - Interactive local all-sky polar map
 - Catalogue and Solar System object layers
 - Multilingual hover information
@@ -47,6 +51,8 @@ Run `make run`.
 Run `make checks`.
 
 ## Documentation
+
+- [Smart observation planner](docs/en/observation_planner.md)
 
 - [Interactive local sky map](docs/en/interactive_sky_map.md)
 

@@ -3,6 +3,7 @@
 from datetime import datetime, time
 from zoneinfo import ZoneInfo
 
+import plotly.graph_objects as go
 import streamlit as st
 
 from astroscope.coordinates import (
@@ -14,6 +15,7 @@ from astroscope.observer import (
     OBSERVER_PRESETS,
     calculate_astronomical_time,
 )
+from astroscope.planner import calculate_observation_plan
 from astroscope.sky_map import (
     SkyMapLabels,
     calculate_sky_map_points,
@@ -694,6 +696,399 @@ if generate_sky_map_button:
                 )
 
                 st.caption(translate("sky_map_note", language))
+
+
+st.divider()
+
+st.header(f"🧠 {translate('planner_section', language)}")
+st.info(translate("planner_explanation", language))
+
+planner_category_columns = st.columns(2)
+
+with planner_category_columns[0]:
+    include_catalog_targets = st.checkbox(
+        translate("include_catalog_targets", language),
+        value=True,
+        key="planner_include_catalog",
+    )
+
+with planner_category_columns[1]:
+    include_solar_system_targets = st.checkbox(
+        translate(
+            "include_solar_system_targets",
+            language,
+        ),
+        value=True,
+        key="planner_include_solar_system",
+    )
+
+planner_filter_columns = st.columns(2)
+
+with planner_filter_columns[0]:
+    minimum_moon_separation = st.slider(
+        translate(
+            "minimum_moon_separation",
+            language,
+        ),
+        min_value=0.0,
+        max_value=180.0,
+        value=30.0,
+        step=5.0,
+    )
+
+with planner_filter_columns[1]:
+    minimum_planner_score = st.slider(
+        translate(
+            "minimum_planner_score",
+            language,
+        ),
+        min_value=0.0,
+        max_value=100.0,
+        value=40.0,
+        step=5.0,
+    )
+
+planner_display_columns = st.columns(2)
+
+with planner_display_columns[0]:
+    maximum_targets = st.slider(
+        translate("maximum_targets", language),
+        min_value=1,
+        max_value=13,
+        value=8,
+        step=1,
+    )
+
+with planner_display_columns[1]:
+    recommended_only = st.checkbox(
+        translate("recommended_only", language),
+        value=True,
+    )
+
+create_plan_button = st.button(
+    translate("create_observation_plan", language),
+    type="primary",
+    width="stretch",
+    key="create_observation_plan_button",
+)
+
+if create_plan_button:
+    if not (include_catalog_targets or include_solar_system_targets):
+        st.warning(translate("no_planner_categories", language))
+    else:
+        try:
+            plan_result = calculate_observation_plan(
+                latitude_deg=float(latitude),
+                longitude_deg=float(longitude),
+                elevation_m=float(elevation),
+                timezone_name=timezone_name,
+                local_date=observation_date,
+                local_time=observation_time,
+                minimum_altitude_degrees=float(minimum_altitude),
+                minimum_moon_separation_degrees=float(minimum_moon_separation),
+                minimum_score=float(minimum_planner_score),
+                include_catalog_targets=(include_catalog_targets),
+                include_solar_system_targets=(include_solar_system_targets),
+            )
+        except ValueError as error:
+            st.error(f"{translate('planner_error', language)}: {error}")
+        else:
+            st.subheader(translate("planner_results", language))
+
+            recommended_entries = tuple(entry for entry in plan_result.entries if entry.recommended)
+
+            if recommended_only:
+                displayed_entries = recommended_entries
+            else:
+                displayed_entries = plan_result.entries
+
+            if not displayed_entries:
+                st.info(
+                    translate(
+                        "no_recommended_targets",
+                        language,
+                    )
+                )
+
+                displayed_entries = plan_result.entries
+
+            displayed_entries = displayed_entries[:maximum_targets]
+
+            planner_metrics = st.columns(4)
+
+            planner_metrics[0].metric(
+                translate(
+                    "recommended_target_count",
+                    language,
+                ),
+                plan_result.recommended_count,
+            )
+
+            planner_metrics[1].metric(
+                translate(
+                    "planner_total_targets",
+                    language,
+                ),
+                plan_result.total_target_count,
+            )
+
+            planner_metrics[2].metric(
+                translate("sun_altitude", language),
+                f"{plan_result.sun_altitude_degrees:.2f}°",
+            )
+
+            if plan_result.entries:
+                highest_ranked_entry = plan_result.entries[0]
+
+                if highest_ranked_entry.category == "catalog":
+                    highest_ranked_name = translate(
+                        (f"object_{highest_ranked_entry.object_key}"),
+                        language,
+                    )
+                else:
+                    highest_ranked_name = translate(
+                        (f"body_{highest_ranked_entry.object_key}"),
+                        language,
+                    )
+
+                planner_metrics[3].metric(
+                    translate("best_target", language),
+                    highest_ranked_name,
+                )
+
+            planner_rows = []
+
+            for rank, entry in enumerate(
+                displayed_entries,
+                start=1,
+            ):
+                if entry.category == "catalog":
+                    target_name = translate(
+                        f"object_{entry.object_key}",
+                        language,
+                    )
+                else:
+                    target_name = translate(
+                        f"body_{entry.object_key}",
+                        language,
+                    )
+
+                category_name = translate(
+                    f"category_{entry.category}",
+                    language,
+                )
+
+                direction_name = translate(
+                    (f"direction_{entry.cardinal_direction}"),
+                    language,
+                )
+
+                status_name = translate(
+                    f"status_{entry.status}",
+                    language,
+                )
+
+                rating_name = translate(
+                    f"rating_{entry.rating}",
+                    language,
+                )
+
+                recommended_name = translate(
+                    ("value_yes" if entry.recommended else "value_no"),
+                    language,
+                )
+
+                planner_rows.append(
+                    {
+                        "rank": rank,
+                        "target": target_name,
+                        "category": category_name,
+                        "score": entry.total_score,
+                        "rating": rating_name,
+                        "altitude": (entry.altitude_degrees),
+                        "azimuth": (entry.azimuth_degrees),
+                        "direction": direction_name,
+                        "airmass": entry.airmass,
+                        "moon_separation": (entry.moon_separation_degrees),
+                        "status": status_name,
+                        "recommended": (recommended_name),
+                    }
+                )
+
+            st.dataframe(
+                planner_rows,
+                width="stretch",
+                hide_index=True,
+                column_config={
+                    "rank": st.column_config.NumberColumn(
+                        translate(
+                            "planner_rank",
+                            language,
+                        ),
+                        format="%d",
+                    ),
+                    "target": translate(
+                        "planner_target",
+                        language,
+                    ),
+                    "category": translate(
+                        "planner_category",
+                        language,
+                    ),
+                    "score": (
+                        st.column_config.ProgressColumn(
+                            translate(
+                                "planner_score",
+                                language,
+                            ),
+                            min_value=0.0,
+                            max_value=100.0,
+                            format="%.1f",
+                        )
+                    ),
+                    "rating": translate(
+                        "planner_rating",
+                        language,
+                    ),
+                    "altitude": (
+                        st.column_config.NumberColumn(
+                            translate(
+                                "planner_altitude",
+                                language,
+                            ),
+                            format="%.2f°",
+                        )
+                    ),
+                    "azimuth": (
+                        st.column_config.NumberColumn(
+                            translate(
+                                "azimuth",
+                                language,
+                            ),
+                            format="%.2f°",
+                        )
+                    ),
+                    "direction": translate(
+                        "cardinal_direction",
+                        language,
+                    ),
+                    "airmass": (
+                        st.column_config.NumberColumn(
+                            translate(
+                                "planner_airmass",
+                                language,
+                            ),
+                            format="%.2f",
+                        )
+                    ),
+                    "moon_separation": (
+                        st.column_config.NumberColumn(
+                            translate(
+                                "planner_moon_separation",
+                                language,
+                            ),
+                            format="%.2f°",
+                        )
+                    ),
+                    "status": translate(
+                        "observation_status",
+                        language,
+                    ),
+                    "recommended": translate(
+                        "planner_recommended",
+                        language,
+                    ),
+                },
+            )
+
+            chart_entries = tuple(reversed(displayed_entries))
+
+            chart_names = []
+
+            for entry in chart_entries:
+                if entry.category == "catalog":
+                    chart_names.append(
+                        translate(
+                            f"object_{entry.object_key}",
+                            language,
+                        )
+                    )
+                else:
+                    chart_names.append(
+                        translate(
+                            f"body_{entry.object_key}",
+                            language,
+                        )
+                    )
+
+            ranking_figure = go.Figure(
+                go.Bar(
+                    x=[entry.total_score for entry in chart_entries],
+                    y=chart_names,
+                    orientation="h",
+                    customdata=[
+                        [
+                            entry.altitude_degrees,
+                            entry.moon_separation_degrees,
+                            translate(
+                                f"rating_{entry.rating}",
+                                language,
+                            ),
+                        ]
+                        for entry in chart_entries
+                    ],
+                    hovertemplate=(
+                        "<b>%{y}</b><br>"
+                        f"{translate('planner_score', language)}: "
+                        "%{x:.1f}<br>"
+                        f"{translate('planner_altitude', language)}: "
+                        "%{customdata[0]:.2f}°<br>"
+                        f"{translate('planner_moon_separation', language)}: "
+                        "%{customdata[1]:.2f}°<br>"
+                        f"{translate('planner_rating', language)}: "
+                        "%{customdata[2]}"
+                        "<extra></extra>"
+                    ),
+                )
+            )
+
+            ranking_figure.update_layout(
+                title=translate(
+                    "ranking_chart",
+                    language,
+                ),
+                xaxis={
+                    "range": [0, 100],
+                    "title": translate(
+                        "planner_score",
+                        language,
+                    ),
+                },
+                yaxis={
+                    "title": translate(
+                        "planner_target",
+                        language,
+                    ),
+                },
+                height=max(
+                    420,
+                    70 * len(chart_entries),
+                ),
+                margin={
+                    "l": 40,
+                    "r": 40,
+                    "t": 70,
+                    "b": 40,
+                },
+            )
+
+            st.plotly_chart(
+                ranking_figure,
+                width="stretch",
+                key="observation_ranking_chart",
+            )
+
+            st.caption(translate("planner_note", language))
 
 
 st.markdown(f"## {translate('future_features', language)}")
