@@ -16,6 +16,11 @@ from astroscope.observer import (
     calculate_astronomical_time,
 )
 from astroscope.planner import calculate_observation_plan
+from astroscope.schedule import (
+    ScheduleChartLabels,
+    calculate_observation_schedule,
+    create_schedule_figure,
+)
 from astroscope.sky_map import (
     SkyMapLabels,
     calculate_sky_map_points,
@@ -1089,6 +1094,327 @@ if create_plan_button:
             )
 
             st.caption(translate("planner_note", language))
+
+
+st.divider()
+
+st.header(f"📅 {translate('schedule_section', language)}")
+st.info(translate("schedule_explanation", language))
+
+schedule_time_columns = st.columns(3)
+
+with schedule_time_columns[0]:
+    schedule_start_time = st.time_input(
+        translate("schedule_start_time", language),
+        value=observation_time,
+        key="schedule_start_time_input",
+    )
+
+with schedule_time_columns[1]:
+    schedule_end_time = st.time_input(
+        translate("schedule_end_time", language),
+        value=time(4, 0),
+        key="schedule_end_time_input",
+    )
+
+with schedule_time_columns[2]:
+    schedule_interval = st.selectbox(
+        translate("sampling_interval", language),
+        options=[30, 60, 90, 120],
+        index=1,
+        format_func=lambda minutes: f"{minutes} {translate('minutes_short', language)}",
+    )
+
+schedule_filter_columns = st.columns(2)
+
+with schedule_filter_columns[0]:
+    schedule_moon_separation = st.slider(
+        translate(
+            "schedule_minimum_moon_separation",
+            language,
+        ),
+        min_value=0.0,
+        max_value=180.0,
+        value=30.0,
+        step=5.0,
+    )
+
+with schedule_filter_columns[1]:
+    schedule_minimum_score = st.slider(
+        translate(
+            "schedule_minimum_score",
+            language,
+        ),
+        min_value=0.0,
+        max_value=100.0,
+        value=40.0,
+        step=5.0,
+    )
+
+schedule_category_columns = st.columns(2)
+
+with schedule_category_columns[0]:
+    schedule_catalog_targets = st.checkbox(
+        translate(
+            "schedule_catalog_targets",
+            language,
+        ),
+        value=True,
+    )
+
+with schedule_category_columns[1]:
+    schedule_solar_targets = st.checkbox(
+        translate(
+            "schedule_solar_targets",
+            language,
+        ),
+        value=True,
+    )
+
+generate_schedule_button = st.button(
+    translate("generate_schedule", language),
+    type="primary",
+    width="stretch",
+    key="generate_night_schedule_button",
+)
+
+if generate_schedule_button:
+    try:
+        schedule_result = calculate_observation_schedule(
+            latitude_deg=float(latitude),
+            longitude_deg=float(longitude),
+            elevation_m=float(elevation),
+            timezone_name=timezone_name,
+            local_date=observation_date,
+            start_time=schedule_start_time,
+            end_time=schedule_end_time,
+            interval_minutes=int(schedule_interval),
+            minimum_altitude_degrees=float(minimum_altitude),
+            minimum_moon_separation_degrees=float(schedule_moon_separation),
+            minimum_score=float(schedule_minimum_score),
+            include_catalog_targets=(schedule_catalog_targets),
+            include_solar_system_targets=(schedule_solar_targets),
+        )
+    except ValueError as error:
+        st.error(f"{translate('schedule_error', language)}: {error}")
+    else:
+        st.subheader(translate("schedule_results", language))
+
+        schedule_display_names = {
+            object_key: translate(
+                f"object_{object_key}",
+                language,
+            )
+            for object_key in CELESTIAL_PRESETS
+        }
+
+        schedule_display_names.update(
+            {
+                body_key: translate(
+                    f"body_{body_key}",
+                    language,
+                )
+                for body_key in SOLAR_SYSTEM_BODIES
+            }
+        )
+
+        schedule_metrics = st.columns(4)
+
+        schedule_metrics[0].metric(
+            translate("schedule_block_count", language),
+            len(schedule_result.schedule_blocks),
+        )
+
+        schedule_metrics[1].metric(
+            translate("scheduled_minutes", language),
+            f"{schedule_result.scheduled_minutes:.0f}",
+        )
+
+        schedule_metrics[2].metric(
+            translate("timeline_samples", language),
+            schedule_result.sample_count,
+        )
+
+        top_target_name = (
+            schedule_display_names.get(
+                schedule_result.top_target_key,
+                schedule_result.top_target_key,
+            )
+            if schedule_result.top_target_key
+            else translate("not_available", language)
+        )
+
+        schedule_metrics[3].metric(
+            translate("schedule_top_target", language),
+            top_target_name,
+        )
+
+        if not schedule_result.schedule_blocks:
+            st.info(translate("no_schedule_blocks", language))
+        else:
+            schedule_rows = []
+
+            for block in schedule_result.schedule_blocks:
+                target_name = schedule_display_names.get(
+                    block.object_key,
+                    block.object_key,
+                )
+
+                category_name = translate(
+                    f"category_{block.category}",
+                    language,
+                )
+
+                schedule_rows.append(
+                    {
+                        "target": target_name,
+                        "category": category_name,
+                        "start": block.start_local.strftime("%Y-%m-%d %H:%M"),
+                        "end": block.end_local.strftime("%Y-%m-%d %H:%M"),
+                        "duration": block.duration_minutes,
+                        "peak_time": (block.peak_local.strftime("%Y-%m-%d %H:%M")),
+                        "peak_score": block.peak_score,
+                        "peak_altitude": (block.peak_altitude_degrees),
+                        "moon_separation": (block.peak_moon_separation_degrees),
+                        "rating": translate(
+                            f"rating_{block.rating}",
+                            language,
+                        ),
+                    }
+                )
+
+            st.dataframe(
+                schedule_rows,
+                width="stretch",
+                hide_index=True,
+                column_config={
+                    "target": translate(
+                        "planner_target",
+                        language,
+                    ),
+                    "category": translate(
+                        "planner_category",
+                        language,
+                    ),
+                    "start": translate(
+                        "schedule_start",
+                        language,
+                    ),
+                    "end": translate(
+                        "schedule_end",
+                        language,
+                    ),
+                    "duration": (
+                        st.column_config.NumberColumn(
+                            translate(
+                                "schedule_duration",
+                                language,
+                            ),
+                            format="%.0f min",
+                        )
+                    ),
+                    "peak_time": translate(
+                        "schedule_peak_time",
+                        language,
+                    ),
+                    "peak_score": (
+                        st.column_config.ProgressColumn(
+                            translate(
+                                "schedule_peak_score",
+                                language,
+                            ),
+                            min_value=0.0,
+                            max_value=100.0,
+                            format="%.1f",
+                        )
+                    ),
+                    "peak_altitude": (
+                        st.column_config.NumberColumn(
+                            translate(
+                                "schedule_peak_altitude",
+                                language,
+                            ),
+                            format="%.2f°",
+                        )
+                    ),
+                    "moon_separation": (
+                        st.column_config.NumberColumn(
+                            translate(
+                                "schedule_peak_moon_separation",
+                                language,
+                            ),
+                            format="%.2f°",
+                        )
+                    ),
+                    "rating": translate(
+                        "planner_rating",
+                        language,
+                    ),
+                },
+            )
+
+        if schedule_result.timeline_points:
+            schedule_rating_names = {
+                rating_key: translate(
+                    f"rating_{rating_key}",
+                    language,
+                )
+                for rating_key in (
+                    "excellent",
+                    "very_good",
+                    "good",
+                    "fair",
+                    "poor",
+                )
+            }
+
+            schedule_chart_labels = ScheduleChartLabels(
+                title=translate(
+                    "schedule_timeline_chart",
+                    language,
+                ),
+                time_axis=translate(
+                    "schedule_time_axis",
+                    language,
+                ),
+                score_axis=translate(
+                    "schedule_score_axis",
+                    language,
+                ),
+                altitude=translate(
+                    "planner_altitude",
+                    language,
+                ),
+                moon_separation=translate(
+                    "planner_moon_separation",
+                    language,
+                ),
+                rating=translate(
+                    "planner_rating",
+                    language,
+                ),
+                recommended=translate(
+                    "planner_recommended",
+                    language,
+                ),
+                yes=translate("value_yes", language),
+                no=translate("value_no", language),
+            )
+
+            schedule_figure = create_schedule_figure(
+                points=schedule_result.timeline_points,
+                display_names=schedule_display_names,
+                rating_names=schedule_rating_names,
+                labels=schedule_chart_labels,
+            )
+
+            st.plotly_chart(
+                schedule_figure,
+                width="stretch",
+                key="night_schedule_timeline",
+            )
+
+        st.caption(translate("schedule_note", language))
 
 
 st.markdown(f"## {translate('future_features', language)}")
