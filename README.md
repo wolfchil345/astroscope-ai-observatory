@@ -13,6 +13,10 @@ An intelligent multilingual observatory planner and interactive planetarium.
 
 ## Implemented features
 
+- Weather-aware observing conditions
+- Hourly cloud, rain, wind, and visibility forecast
+- Observing-weather score and dew-risk warnings
+
 - Full-night observation timeline
 - Automatic chronological target schedule
 - Interactive score-change chart
@@ -55,6 +59,8 @@ Run `make run`.
 Run `make checks`.
 
 ## Documentation
+
+- [Weather-aware observing conditions](docs/en/weather_conditions.md)
 
 - [Night timeline and observation schedule](docs/en/night_schedule.md)
 

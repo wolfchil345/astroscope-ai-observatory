@@ -8,6 +8,7 @@ from astroscope.schedule_messages import SCHEDULE_TRANSLATIONS
 from astroscope.sky_map_messages import SKY_MAP_TRANSLATIONS
 from astroscope.solar_system_messages import SOLAR_SYSTEM_TRANSLATIONS
 from astroscope.visibility_messages import VISIBILITY_TRANSLATIONS
+from astroscope.weather_messages import WEATHER_TRANSLATIONS
 
 SUPPORTED_LANGUAGES: Final[dict[str, str]] = {
     "English": "en",
@@ -227,6 +228,9 @@ TRANSLATIONS.update(PLANNER_TRANSLATIONS)
 
 
 TRANSLATIONS.update(SCHEDULE_TRANSLATIONS)
+
+
+TRANSLATIONS.update(WEATHER_TRANSLATIONS)
 
 
 def translate(key: str, language: str) -> str:
