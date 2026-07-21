@@ -14,6 +14,7 @@ from astroscope.observer import (
     OBSERVER_PRESETS,
     calculate_astronomical_time,
 )
+from astroscope.visibility import calculate_horizontal_coordinates
 
 TIMEZONE_OPTIONS = [
     "Asia/Tokyo",
@@ -263,6 +264,110 @@ if convert_button:
         )
 
         st.caption(translate("coordinate_note", language))
+
+
+st.divider()
+
+st.header(f"🔭 {translate('visibility_section', language)}")
+st.info(translate("visibility_explanation", language))
+
+minimum_altitude = st.slider(
+    translate("minimum_altitude", language),
+    min_value=0.0,
+    max_value=90.0,
+    value=20.0,
+    step=1.0,
+    help=translate("minimum_altitude_help", language),
+)
+
+calculate_visibility_button = st.button(
+    translate("calculate_visibility", language),
+    type="primary",
+    use_container_width=True,
+    key="calculate_visibility_button",
+)
+
+if calculate_visibility_button:
+    try:
+        visibility_result = calculate_horizontal_coordinates(
+            right_ascension=right_ascension,
+            declination=declination,
+            latitude_deg=float(latitude),
+            longitude_deg=float(longitude),
+            elevation_m=float(elevation),
+            timezone_name=timezone_name,
+            local_date=observation_date,
+            local_time=observation_time,
+            minimum_altitude_degrees=float(minimum_altitude),
+        )
+    except ValueError as error:
+        st.error(f"{translate('visibility_error', language)}: {error}")
+    else:
+        st.subheader(translate("horizontal_results", language))
+
+        horizontal_first_row = st.columns(4)
+
+        horizontal_first_row[0].metric(
+            translate("altitude", language),
+            f"{visibility_result.altitude_degrees:.3f}°",
+        )
+
+        horizontal_first_row[1].metric(
+            translate("azimuth", language),
+            f"{visibility_result.azimuth_degrees:.3f}°",
+        )
+
+        horizontal_first_row[2].metric(
+            translate("zenith_distance", language),
+            f"{visibility_result.zenith_distance_degrees:.3f}°",
+        )
+
+        airmass_text = (
+            f"{visibility_result.airmass:.3f}"
+            if visibility_result.airmass is not None
+            else translate("not_available", language)
+        )
+
+        horizontal_first_row[3].metric(
+            translate("airmass", language),
+            airmass_text,
+        )
+
+        horizontal_second_row = st.columns(2)
+
+        direction_key = f"direction_{visibility_result.cardinal_direction}"
+
+        horizontal_second_row[0].metric(
+            translate("cardinal_direction", language),
+            translate(direction_key, language),
+        )
+
+        above_horizon_text = translate(
+            ("value_yes" if visibility_result.is_above_horizon else "value_no"),
+            language,
+        )
+
+        horizontal_second_row[1].metric(
+            translate("above_horizon", language),
+            above_horizon_text,
+        )
+
+        status_text = translate(
+            f"status_{visibility_result.status}",
+            language,
+        )
+
+        st.markdown(f"#### {translate('observation_status', language)}")
+
+        if visibility_result.status == "observable":
+            st.success(status_text)
+        elif visibility_result.status == "low_altitude":
+            st.warning(status_text)
+        else:
+            st.error(status_text)
+
+        st.caption(translate("visibility_note", language))
+
 
 st.divider()
 

@@ -22,6 +22,9 @@
 - ICRS 적경과 적위
 - 은하 좌표 변환
 - 직교 천구 방향 벡터
+- 현지 고도와 방위각
+- 지평선 및 관측 가능성 분류
+- 방향과 근사 대기질량
 
 ## 설치
 
@@ -40,3 +43,4 @@
 - [한국어 문서](docs/ko/index.md)
 - [관측 위치와 천문 시간](docs/ko/observer_time.md)
 - [적도 좌표](docs/ko/equatorial_coordinates.md)
+- [지평 좌표와 가시성](docs/ko/horizontal_visibility.md)

@@ -15,6 +15,8 @@ AstroScope AI คือระบบวางแผนการสังเกต
 
 ## เอกสาร
 
+- [พิกัดขอบฟ้าและการมองเห็น](horizontal_visibility.md)
+
 - [พิกัดศูนย์สูตร](equatorial_coordinates.md)
 
 - [ตำแหน่งผู้สังเกตการณ์และเวลาดาราศาสตร์](observer_time.md)

@@ -15,6 +15,8 @@ AstroScope AIは、インテリジェント観測計画システムとインタ�
 
 ## ドキュメント
 
+- [地平座標と可視性](horizontal_visibility.md)
+
 - [赤道座標](equatorial_coordinates.md)
 
 - [観測地点と天文時刻](observer_time.md)

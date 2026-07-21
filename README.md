@@ -22,6 +22,9 @@ An intelligent multilingual observatory planner and interactive planetarium.
 - ICRS right ascension and declination
 - Galactic-coordinate transformation
 - Cartesian celestial direction vectors
+- Local altitude and azimuth
+- Horizon and observability classification
+- Cardinal direction and approximate airmass
 
 ## Install
 
@@ -40,3 +43,4 @@ Run `make checks`.
 - [English documentation](docs/en/index.md)
 - [Observer location and astronomical time](docs/en/observer_time.md)
 - [Equatorial coordinates](docs/en/equatorial_coordinates.md)
+- [Horizontal coordinates and visibility](docs/en/horizontal_visibility.md)
