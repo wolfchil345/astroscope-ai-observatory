@@ -16,9 +16,7 @@ def test_every_translation_key_has_all_languages() -> None:
     expected_languages = set(SUPPORTED_LANGUAGES.values())
 
     for key, translations in TRANSLATIONS.items():
-        assert set(translations) == expected_languages, (
-            f"Translation key {key!r} is incomplete."
-        )
+        assert set(translations) == expected_languages, f"Translation key {key!r} is incomplete."
 
 
 @pytest.mark.parametrize("language", ["en", "ja", "ko", "th"])

@@ -4,12 +4,12 @@ from datetime import datetime, time
 from zoneinfo import ZoneInfo
 
 import streamlit as st
+
+from astroscope.i18n import SUPPORTED_LANGUAGES, translate
 from astroscope.observer import (
     OBSERVER_PRESETS,
     calculate_astronomical_time,
 )
-
-from astroscope.i18n import SUPPORTED_LANGUAGES, translate
 
 TIMEZONE_OPTIONS = [
     "Asia/Tokyo",
