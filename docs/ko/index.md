@@ -15,6 +15,8 @@ AstroScope AI는 지능형 관측 계획 시스템이자 인터랙티브 플라�
 
 ## 문서
 
+- [야간 타임라인과 관측 일정](night_schedule.md)
+
 - [스마트 관측 플래너](observation_planner.md)
 
 - [인터랙티브 현지 하늘 지도](interactive_sky_map.md)

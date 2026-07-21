@@ -13,6 +13,10 @@ An intelligent multilingual observatory planner and interactive planetarium.
 
 ## Implemented features
 
+- Full-night observation timeline
+- Automatic chronological target schedule
+- Interactive score-change chart
+
 - Smart observation target ranking
 - Transparent 100-point quality score
 - Moon-separation and darkness filters
@@ -51,6 +55,8 @@ Run `make run`.
 Run `make checks`.
 
 ## Documentation
+
+- [Night timeline and observation schedule](docs/en/night_schedule.md)
 
 - [Smart observation planner](docs/en/observation_planner.md)
 
