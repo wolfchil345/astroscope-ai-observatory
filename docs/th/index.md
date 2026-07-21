@@ -15,6 +15,8 @@ AstroScope AI คือระบบวางแผนการสังเกต
 
 ## เอกสาร
 
+- [แผนที่ท้องฟ้าท้องถิ่นแบบโต้ตอบ](interactive_sky_map.md)
+
 - [เครื่องมือสำรวจระบบสุริยะ](solar_system.md)
 
 - [พิกัดขอบฟ้าและการมองเห็น](horizontal_visibility.md)

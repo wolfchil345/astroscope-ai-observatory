@@ -15,6 +15,8 @@ AstroScope AI is an intelligent observatory planner and interactive planetarium.
 
 ## Documentation
 
+- [Interactive local sky map](interactive_sky_map.md)
+
 - [Solar System explorer](solar_system.md)
 
 - [Horizontal coordinates and visibility](horizontal_visibility.md)
