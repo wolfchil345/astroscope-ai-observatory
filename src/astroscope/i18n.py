@@ -3,6 +3,7 @@
 from typing import Final
 
 from astroscope.coordinate_messages import COORDINATE_TRANSLATIONS
+from astroscope.solar_system_messages import SOLAR_SYSTEM_TRANSLATIONS
 from astroscope.visibility_messages import VISIBILITY_TRANSLATIONS
 
 SUPPORTED_LANGUAGES: Final[dict[str, str]] = {
@@ -211,6 +212,9 @@ TRANSLATIONS: Final[dict[str, dict[str, str]]] = {
 
 TRANSLATIONS.update(COORDINATE_TRANSLATIONS)
 TRANSLATIONS.update(VISIBILITY_TRANSLATIONS)
+
+
+TRANSLATIONS.update(SOLAR_SYSTEM_TRANSLATIONS)
 
 
 def translate(key: str, language: str) -> str:

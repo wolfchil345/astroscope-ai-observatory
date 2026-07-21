@@ -14,6 +14,10 @@ from astroscope.observer import (
     OBSERVER_PRESETS,
     calculate_astronomical_time,
 )
+from astroscope.solar_system import (
+    SOLAR_SYSTEM_BODIES,
+    calculate_solar_system_body,
+)
 from astroscope.visibility import calculate_horizontal_coordinates
 
 TIMEZONE_OPTIONS = [
@@ -370,6 +374,135 @@ if calculate_visibility_button:
 
 
 st.divider()
+
+st.divider()
+
+st.header(f"🪐 {translate('solar_system_section', language)}")
+st.info(translate("solar_system_explanation", language))
+
+solar_system_body = st.selectbox(
+    translate("solar_system_body", language),
+    options=list(SOLAR_SYSTEM_BODIES),
+    format_func=lambda body: translate(
+        f"body_{body}",
+        language,
+    ),
+)
+
+calculate_solar_system_button = st.button(
+    translate("calculate_solar_system", language),
+    type="primary",
+    use_container_width=True,
+    key="calculate_solar_system_button",
+)
+
+if calculate_solar_system_button:
+    try:
+        solar_system_result = calculate_solar_system_body(
+            body=solar_system_body,
+            latitude_deg=float(latitude),
+            longitude_deg=float(longitude),
+            elevation_m=float(elevation),
+            timezone_name=timezone_name,
+            local_date=observation_date,
+            local_time=observation_time,
+            minimum_altitude_degrees=float(minimum_altitude),
+        )
+    except ValueError as error:
+        st.error(f"{translate('solar_system_error', language)}: {error}")
+    else:
+        st.subheader(translate("solar_system_results", language))
+
+        solar_coordinate_row = st.columns(4)
+
+        solar_coordinate_row[0].metric(
+            translate("apparent_ra", language),
+            solar_system_result.right_ascension_hms,
+        )
+
+        solar_coordinate_row[1].metric(
+            translate("apparent_dec", language),
+            solar_system_result.declination_dms,
+        )
+
+        solar_coordinate_row[2].metric(
+            translate("distance_au", language),
+            f"{solar_system_result.distance_au:.6f}",
+        )
+
+        solar_coordinate_row[3].metric(
+            translate("distance_km", language),
+            f"{solar_system_result.distance_km:,.0f}",
+        )
+
+        solar_local_row = st.columns(4)
+
+        solar_local_row[0].metric(
+            translate("altitude", language),
+            f"{solar_system_result.altitude_degrees:.3f}°",
+        )
+
+        solar_local_row[1].metric(
+            translate("azimuth", language),
+            f"{solar_system_result.azimuth_degrees:.3f}°",
+        )
+
+        solar_direction_key = f"direction_{solar_system_result.cardinal_direction}"
+
+        solar_local_row[2].metric(
+            translate("cardinal_direction", language),
+            translate(solar_direction_key, language),
+        )
+
+        solar_above_horizon = translate(
+            ("value_yes" if solar_system_result.is_above_horizon else "value_no"),
+            language,
+        )
+
+        solar_local_row[3].metric(
+            translate("above_horizon", language),
+            solar_above_horizon,
+        )
+
+        solar_separation_row = st.columns(3)
+
+        solar_separation_row[0].metric(
+            translate("solar_elongation", language),
+            f"{solar_system_result.solar_elongation_degrees:.3f}°",
+        )
+
+        solar_separation_row[1].metric(
+            translate("moon_separation", language),
+            f"{solar_system_result.moon_separation_degrees:.3f}°",
+        )
+
+        moon_illumination_percent = solar_system_result.moon_illumination_fraction * 100.0
+
+        solar_separation_row[2].metric(
+            translate("moon_illumination", language),
+            f"{moon_illumination_percent:.1f}%",
+        )
+
+        solar_status_text = translate(
+            f"status_{solar_system_result.status}",
+            language,
+        )
+
+        st.markdown(f"#### {translate('observation_status', language)}")
+
+        if solar_system_result.status == "observable":
+            st.success(solar_status_text)
+        elif solar_system_result.status == "low_altitude":
+            st.warning(solar_status_text)
+        else:
+            st.error(solar_status_text)
+
+        st.write(
+            f"**{translate('ephemeris', language)}:** {translate('builtin_ephemeris', language)}"
+        )
+
+        st.caption(translate("solar_system_note", language))
+
 
 st.markdown(f"## {translate('future_features', language)}")
 

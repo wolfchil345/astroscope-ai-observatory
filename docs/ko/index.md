@@ -15,6 +15,8 @@ AstroScope AI는 지능형 관측 계획 시스템이자 인터랙티브 플라�
 
 ## 문서
 
+- [태양계 탐색기](solar_system.md)
+
 - [지평 좌표와 가시성](horizontal_visibility.md)
 
 - [적도 좌표](equatorial_coordinates.md)

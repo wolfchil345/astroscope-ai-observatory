@@ -13,6 +13,10 @@ An intelligent multilingual observatory planner and interactive planetarium.
 
 ## Implemented features
 
+- Solar System apparent-position calculations
+- Sun, Moon, and eight-planet explorer
+- Solar elongation and Moon illumination
+
 - Four-language Streamlit interface
 - Observer latitude, longitude, and elevation
 - Time-zone conversion
@@ -39,6 +43,8 @@ Run `make run`.
 Run `make checks`.
 
 ## Documentation
+
+- [Solar System explorer](docs/en/solar_system.md)
 
 - [English documentation](docs/en/index.md)
 - [Observer location and astronomical time](docs/en/observer_time.md)
