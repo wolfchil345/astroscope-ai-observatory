@@ -31,6 +31,15 @@ from astroscope.solar_system import (
     calculate_solar_system_body,
 )
 from astroscope.visibility import calculate_horizontal_coordinates
+from astroscope.weather import (
+    WeatherServiceError,
+    fetch_observing_weather,
+)
+from astroscope.weather_charts import (
+    WeatherChartLabels,
+    create_weather_conditions_figure,
+    create_weather_score_figure,
+)
 
 TIMEZONE_OPTIONS = [
     "Asia/Tokyo",
@@ -1415,6 +1424,354 @@ if generate_schedule_button:
             )
 
         st.caption(translate("schedule_note", language))
+
+
+st.divider()
+
+st.header(f"🌦️ {translate('weather_section', language)}")
+st.info(translate("weather_explanation", language))
+
+weather_time_columns = st.columns(2)
+
+with weather_time_columns[0]:
+    weather_start_time = st.time_input(
+        translate("weather_start_time", language),
+        value=observation_time,
+        key="weather_start_time_input",
+    )
+
+with weather_time_columns[1]:
+    weather_end_time = st.time_input(
+        translate("weather_end_time", language),
+        value=time(4, 0),
+        key="weather_end_time_input",
+    )
+
+retrieve_weather_button = st.button(
+    translate("fetch_weather_forecast", language),
+    type="primary",
+    width="stretch",
+    key="retrieve_observing_weather_button",
+)
+
+if retrieve_weather_button:
+    try:
+        weather_result = fetch_observing_weather(
+            latitude_deg=float(latitude),
+            longitude_deg=float(longitude),
+            elevation_m=float(elevation),
+            timezone_name=timezone_name,
+            local_date=observation_date,
+            start_time=weather_start_time,
+            end_time=weather_end_time,
+        )
+    except (ValueError, WeatherServiceError) as error:
+        st.error(f"{translate('weather_error', language)}: {error}")
+    else:
+        st.subheader(translate("weather_results", language))
+
+        weather_rating_names = {
+            rating_key: translate(
+                f"weather_rating_{rating_key}",
+                language,
+            )
+            for rating_key in (
+                "excellent",
+                "good",
+                "fair",
+                "poor",
+                "unsuitable",
+            )
+        }
+
+        dew_risk_names = {
+            risk_key: translate(
+                f"dew_risk_{risk_key}",
+                language,
+            )
+            for risk_key in (
+                "low",
+                "moderate",
+                "high",
+                "critical",
+            )
+        }
+
+        weather_metrics = st.columns(5)
+
+        weather_metrics[0].metric(
+            translate("best_weather_hour", language),
+            weather_result.best_point.local_datetime.strftime("%m-%d %H:%M"),
+        )
+
+        weather_metrics[1].metric(
+            translate("best_weather_score", language),
+            f"{weather_result.best_point.observing_score:.1f}",
+        )
+
+        weather_metrics[2].metric(
+            translate("average_weather_score", language),
+            f"{weather_result.average_score:.1f}",
+        )
+
+        weather_metrics[3].metric(
+            translate("maximum_cloud_cover", language),
+            f"{weather_result.maximum_cloud_cover_percent:.0f}%",
+        )
+
+        weather_metrics[4].metric(
+            translate("worst_dew_risk", language),
+            dew_risk_names[weather_result.worst_dew_risk],
+        )
+
+        dew_warning_key = f"dew_warning_{weather_result.worst_dew_risk}"
+
+        if weather_result.worst_dew_risk == "critical":
+            st.error(translate(dew_warning_key, language))
+        elif weather_result.worst_dew_risk in {
+            "moderate",
+            "high",
+        }:
+            st.warning(translate(dew_warning_key, language))
+        else:
+            st.success(translate(dew_warning_key, language))
+
+        unsuitable_weather_points = tuple(
+            point for point in weather_result.points if point.rating == "unsuitable"
+        )
+
+        if unsuitable_weather_points:
+            st.warning(
+                translate(
+                    "unsafe_weather_warning",
+                    language,
+                )
+            )
+
+        weather_rows = []
+
+        for point in weather_result.points:
+            weather_rows.append(
+                {
+                    "time": (point.local_datetime.strftime("%Y-%m-%d %H:%M")),
+                    "score": point.observing_score,
+                    "rating": weather_rating_names[point.rating],
+                    "temperature": point.temperature_c,
+                    "dew_point": point.dew_point_c,
+                    "dew_spread": (point.dew_point_spread_c),
+                    "humidity": (point.relative_humidity_percent),
+                    "cloud_cover": (point.cloud_cover_percent),
+                    "precipitation_probability": (point.precipitation_probability_percent),
+                    "precipitation": (point.precipitation_mm),
+                    "visibility": (point.visibility_m / 1000.0),
+                    "wind_speed": (point.wind_speed_kmh),
+                    "wind_gusts": (point.wind_gusts_kmh),
+                    "dew_risk": dew_risk_names[point.dew_risk],
+                }
+            )
+
+        st.dataframe(
+            weather_rows,
+            width="stretch",
+            hide_index=True,
+            column_config={
+                "time": translate(
+                    "weather_time",
+                    language,
+                ),
+                "score": (
+                    st.column_config.ProgressColumn(
+                        translate(
+                            "weather_score",
+                            language,
+                        ),
+                        min_value=0.0,
+                        max_value=100.0,
+                        format="%.1f",
+                    )
+                ),
+                "rating": translate(
+                    "weather_rating",
+                    language,
+                ),
+                "temperature": (
+                    st.column_config.NumberColumn(
+                        translate(
+                            "temperature_c",
+                            language,
+                        ),
+                        format="%.1f °C",
+                    )
+                ),
+                "dew_point": (
+                    st.column_config.NumberColumn(
+                        translate(
+                            "dew_point_c",
+                            language,
+                        ),
+                        format="%.1f °C",
+                    )
+                ),
+                "dew_spread": (
+                    st.column_config.NumberColumn(
+                        translate(
+                            "dew_spread_c",
+                            language,
+                        ),
+                        format="%.1f °C",
+                    )
+                ),
+                "humidity": (
+                    st.column_config.NumberColumn(
+                        translate(
+                            "relative_humidity",
+                            language,
+                        ),
+                        format="%.0f%%",
+                    )
+                ),
+                "cloud_cover": (
+                    st.column_config.NumberColumn(
+                        translate(
+                            "cloud_cover",
+                            language,
+                        ),
+                        format="%.0f%%",
+                    )
+                ),
+                "precipitation_probability": (
+                    st.column_config.NumberColumn(
+                        translate(
+                            "precipitation_probability",
+                            language,
+                        ),
+                        format="%.0f%%",
+                    )
+                ),
+                "precipitation": (
+                    st.column_config.NumberColumn(
+                        translate(
+                            "precipitation_amount",
+                            language,
+                        ),
+                        format="%.2f mm",
+                    )
+                ),
+                "visibility": (
+                    st.column_config.NumberColumn(
+                        translate(
+                            "visibility_km",
+                            language,
+                        ),
+                        format="%.1f km",
+                    )
+                ),
+                "wind_speed": (
+                    st.column_config.NumberColumn(
+                        translate(
+                            "wind_speed",
+                            language,
+                        ),
+                        format="%.1f km/h",
+                    )
+                ),
+                "wind_gusts": (
+                    st.column_config.NumberColumn(
+                        translate(
+                            "wind_gusts",
+                            language,
+                        ),
+                        format="%.1f km/h",
+                    )
+                ),
+                "dew_risk": translate(
+                    "dew_risk",
+                    language,
+                ),
+            },
+        )
+
+        weather_chart_labels = WeatherChartLabels(
+            score_title=translate(
+                "weather_score_chart",
+                language,
+            ),
+            conditions_title=translate(
+                "weather_conditions_chart",
+                language,
+            ),
+            time_axis=translate(
+                "weather_time_axis",
+                language,
+            ),
+            score_axis=translate(
+                "weather_score",
+                language,
+            ),
+            cloud_cover=translate(
+                "cloud_cover",
+                language,
+            ),
+            precipitation_probability=translate(
+                "precipitation_probability",
+                language,
+            ),
+            precipitation_amount=translate(
+                "precipitation_amount",
+                language,
+            ),
+            humidity=translate(
+                "relative_humidity",
+                language,
+            ),
+            wind_speed=translate(
+                "wind_speed",
+                language,
+            ),
+            rating=translate(
+                "weather_rating",
+                language,
+            ),
+            dew_risk=translate(
+                "dew_risk",
+                language,
+            ),
+        )
+
+        weather_score_figure = create_weather_score_figure(
+            points=weather_result.points,
+            labels=weather_chart_labels,
+            rating_names=weather_rating_names,
+            dew_risk_names=dew_risk_names,
+        )
+
+        st.plotly_chart(
+            weather_score_figure,
+            width="stretch",
+            key="observing_weather_score_chart",
+        )
+
+        weather_conditions_figure = create_weather_conditions_figure(
+            points=weather_result.points,
+            labels=weather_chart_labels,
+        )
+
+        st.plotly_chart(
+            weather_conditions_figure,
+            width="stretch",
+            key="observing_weather_conditions_chart",
+        )
+
+        st.write(f"**{translate('weather_source', language)}:** {weather_result.source_name}")
+
+        st.markdown(translate("weather_attribution", language))
+
+        st.caption(
+            translate(
+                "weather_forecast_note",
+                language,
+            )
+        )
 
 
 st.markdown(f"## {translate('future_features', language)}")

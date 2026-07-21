@@ -15,6 +15,8 @@ AstroScope AI is an intelligent observatory planner and interactive planetarium.
 
 ## Documentation
 
+- [Weather-aware observing conditions](weather_conditions.md)
+
 - [Night timeline and observation schedule](night_schedule.md)
 
 - [Smart observation planner](observation_planner.md)
