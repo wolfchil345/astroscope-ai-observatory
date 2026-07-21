@@ -15,6 +15,8 @@ AstroScope AIは、インテリジェント観測計画システムとインタ�
 
 ## ドキュメント
 
+- [インタラクティブ現地星図](interactive_sky_map.md)
+
 - [太陽系エクスプローラー](solar_system.md)
 
 - [地平座標と可視性](horizontal_visibility.md)

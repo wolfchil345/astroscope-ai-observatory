@@ -13,6 +13,10 @@ An intelligent multilingual observatory planner and interactive planetarium.
 
 ## Implemented features
 
+- Interactive local all-sky polar map
+- Catalogue and Solar System object layers
+- Multilingual hover information
+
 - Solar System apparent-position calculations
 - Sun, Moon, and eight-planet explorer
 - Solar elongation and Moon illumination
@@ -43,6 +47,8 @@ Run `make run`.
 Run `make checks`.
 
 ## Documentation
+
+- [Interactive local sky map](docs/en/interactive_sky_map.md)
 
 - [Solar System explorer](docs/en/solar_system.md)
 

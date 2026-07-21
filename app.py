@@ -14,6 +14,11 @@ from astroscope.observer import (
     OBSERVER_PRESETS,
     calculate_astronomical_time,
 )
+from astroscope.sky_map import (
+    SkyMapLabels,
+    calculate_sky_map_points,
+    create_sky_map_figure,
+)
 from astroscope.solar_system import (
     SOLAR_SYSTEM_BODIES,
     calculate_solar_system_body,
@@ -502,6 +507,193 @@ if calculate_solar_system_button:
         )
 
         st.caption(translate("solar_system_note", language))
+
+
+st.divider()
+
+st.header(f"🌌 {translate('sky_map_section', language)}")
+st.info(translate("sky_map_explanation", language))
+
+sky_map_control_columns = st.columns(2)
+
+with sky_map_control_columns[0]:
+    include_catalog_objects = st.checkbox(
+        translate("include_catalog_objects", language),
+        value=True,
+    )
+
+with sky_map_control_columns[1]:
+    include_solar_system_objects = st.checkbox(
+        translate(
+            "include_solar_system_objects",
+            language,
+        ),
+        value=True,
+    )
+
+generate_sky_map_button = st.button(
+    translate("generate_sky_map", language),
+    type="primary",
+    width="stretch",
+    key="generate_sky_map_button",
+)
+
+if generate_sky_map_button:
+    if not (include_catalog_objects or include_solar_system_objects):
+        st.warning(translate("no_sky_map_category", language))
+    else:
+        try:
+            sky_map_points = calculate_sky_map_points(
+                latitude_deg=float(latitude),
+                longitude_deg=float(longitude),
+                elevation_m=float(elevation),
+                timezone_name=timezone_name,
+                local_date=observation_date,
+                local_time=observation_time,
+                minimum_altitude_degrees=float(minimum_altitude),
+                include_catalog_objects=(include_catalog_objects),
+                include_solar_system_objects=(include_solar_system_objects),
+            )
+        except ValueError as error:
+            st.error(f"{translate('sky_map_error', language)}: {error}")
+        else:
+            visible_sky_points = tuple(point for point in sky_map_points if point.is_above_horizon)
+
+            below_horizon_points = tuple(
+                point for point in sky_map_points if not point.is_above_horizon
+            )
+
+            count_columns = st.columns(2)
+
+            count_columns[0].metric(
+                translate(
+                    "visible_object_count",
+                    language,
+                ),
+                len(visible_sky_points),
+            )
+
+            count_columns[1].metric(
+                translate(
+                    "below_horizon_count",
+                    language,
+                ),
+                len(below_horizon_points),
+            )
+
+            if not visible_sky_points:
+                st.info(
+                    translate(
+                        "no_visible_sky_objects",
+                        language,
+                    )
+                )
+            else:
+                object_display_names = {
+                    object_key: translate(
+                        f"object_{object_key}",
+                        language,
+                    )
+                    for object_key in CELESTIAL_PRESETS
+                }
+
+                object_display_names.update(
+                    {
+                        body_key: translate(
+                            f"body_{body_key}",
+                            language,
+                        )
+                        for body_key in SOLAR_SYSTEM_BODIES
+                    }
+                )
+
+                direction_keys = (
+                    "north",
+                    "northeast",
+                    "east",
+                    "southeast",
+                    "south",
+                    "southwest",
+                    "west",
+                    "northwest",
+                )
+
+                direction_display_names = {
+                    direction_key: translate(
+                        f"direction_{direction_key}",
+                        language,
+                    )
+                    for direction_key in direction_keys
+                }
+
+                status_keys = (
+                    "observable",
+                    "low_altitude",
+                    "below_horizon",
+                )
+
+                status_display_names = {
+                    status_key: translate(
+                        f"status_{status_key}",
+                        language,
+                    )
+                    for status_key in status_keys
+                }
+
+                sky_map_labels = SkyMapLabels(
+                    title=translate(
+                        "sky_map_title",
+                        language,
+                    ),
+                    catalog_trace=translate(
+                        "catalog_trace",
+                        language,
+                    ),
+                    solar_system_trace=translate(
+                        "solar_system_trace",
+                        language,
+                    ),
+                    altitude=translate(
+                        "sky_map_altitude",
+                        language,
+                    ),
+                    azimuth=translate(
+                        "sky_map_azimuth",
+                        language,
+                    ),
+                    direction=translate(
+                        "sky_map_direction",
+                        language,
+                    ),
+                    status=translate(
+                        "sky_map_status",
+                        language,
+                    ),
+                    zenith=translate(
+                        "sky_map_zenith",
+                        language,
+                    ),
+                    horizon=translate(
+                        "sky_map_horizon",
+                        language,
+                    ),
+                )
+
+                sky_map_figure = create_sky_map_figure(
+                    points=sky_map_points,
+                    display_names=object_display_names,
+                    direction_names=(direction_display_names),
+                    status_names=(status_display_names),
+                    labels=sky_map_labels,
+                )
+
+                st.plotly_chart(
+                    sky_map_figure,
+                    width="stretch",
+                    key="interactive_local_sky_map",
+                )
+
+                st.caption(translate("sky_map_note", language))
 
 
 st.markdown(f"## {translate('future_features', language)}")
