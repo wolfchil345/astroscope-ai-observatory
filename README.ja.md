@@ -19,6 +19,9 @@
 - UTC日時
 - ユリウス日と修正ユリウス日
 - 地方視恒星時
+- ICRS赤経・赤緯
+- 銀河座標への変換
+- 天球方向のデカルトベクトル
 
 ## インストール
 
@@ -36,3 +39,4 @@
 
 - [日本語ドキュメント](docs/ja/index.md)
 - [観測地点と天文時刻](docs/ja/observer_time.md)
+- [赤道座標](docs/ja/equatorial_coordinates.md)
