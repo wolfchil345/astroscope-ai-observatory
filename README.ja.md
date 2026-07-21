@@ -22,6 +22,9 @@
 - ICRS赤経・赤緯
 - 銀河座標への変換
 - 天球方向のデカルトベクトル
+- 現地の高度と方位角
+- 地平線と観測可能性の判定
+- 方角と近似エアマス
 
 ## インストール
 
@@ -40,3 +43,4 @@
 - [日本語ドキュメント](docs/ja/index.md)
 - [観測地点と天文時刻](docs/ja/observer_time.md)
 - [赤道座標](docs/ja/equatorial_coordinates.md)
+- [地平座標と可視性](docs/ja/horizontal_visibility.md)
