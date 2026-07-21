@@ -19,6 +19,9 @@
 - UTC 날짜와 시간
 - 율리우스일과 수정 율리우스일
 - 지방 겉보기 항성시
+- ICRS 적경과 적위
+- 은하 좌표 변환
+- 직교 천구 방향 벡터
 
 ## 설치
 
@@ -36,3 +39,4 @@
 
 - [한국어 문서](docs/ko/index.md)
 - [관측 위치와 천문 시간](docs/ko/observer_time.md)
+- [적도 좌표](docs/ko/equatorial_coordinates.md)

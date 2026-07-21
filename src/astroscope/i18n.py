@@ -2,6 +2,8 @@
 
 from typing import Final
 
+from astroscope.coordinate_messages import COORDINATE_TRANSLATIONS
+
 SUPPORTED_LANGUAGES: Final[dict[str, str]] = {
     "English": "en",
     "日本語": "ja",
@@ -204,6 +206,9 @@ TRANSLATIONS: Final[dict[str, dict[str, str]]] = {
         "th": "เครื่องจำลองกล้องโทรทรรศน์และเลนส์ใกล้ตา",
     },
 }
+
+
+TRANSLATIONS.update(COORDINATE_TRANSLATIONS)
 
 
 def translate(key: str, language: str) -> str:

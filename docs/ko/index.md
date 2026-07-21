@@ -15,6 +15,8 @@ AstroScope AI는 지능형 관측 계획 시스템이자 인터랙티브 플라�
 
 ## 문서
 
+- [적도 좌표](equatorial_coordinates.md)
+
 - [관측 위치와 천문 시간](observer_time.md)
 
 ## 향후 목표

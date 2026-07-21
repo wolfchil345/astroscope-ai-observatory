@@ -19,6 +19,9 @@ An intelligent multilingual observatory planner and interactive planetarium.
 - UTC datetime
 - Julian Date and Modified Julian Date
 - Local apparent sidereal time
+- ICRS right ascension and declination
+- Galactic-coordinate transformation
+- Cartesian celestial direction vectors
 
 ## Install
 
@@ -36,3 +39,4 @@ Run `make checks`.
 
 - [English documentation](docs/en/index.md)
 - [Observer location and astronomical time](docs/en/observer_time.md)
+- [Equatorial coordinates](docs/en/equatorial_coordinates.md)
