@@ -15,6 +15,8 @@ AstroScope AIは、インテリジェント観測計画システムとインタ�
 
 ## ドキュメント
 
+- [天体撮影センサー・モザイクプランナー](astrophotography_planner.md)
+
 - [望遠鏡・接眼レンズシミュレーター](telescope_simulator.md)
 
 - [天気を考慮した観測条件](weather_conditions.md)

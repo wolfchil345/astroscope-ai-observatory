@@ -11,6 +11,18 @@ from astroscope.coordinates import (
     calculate_coordinate_details,
 )
 from astroscope.i18n import SUPPORTED_LANGUAGES, translate
+from astroscope.imaging import (
+    CAMERA_PRESETS,
+    IMAGING_TARGET_PRESETS,
+    CameraSensorSpec,
+    calculate_astrophotography_setup,
+    calculate_target_framing,
+    compare_camera_sensors,
+)
+from astroscope.imaging_visuals import (
+    ImagingFrameLabels,
+    create_imaging_frame_figure,
+)
 from astroscope.observer import (
     OBSERVER_PRESETS,
     calculate_astronomical_time,
@@ -2179,6 +2191,559 @@ if run_telescope_simulation:
         )
 
         st.caption(translate("telescope_note", language))
+
+
+st.divider()
+
+st.header(f"📷 {translate('imaging_section', language)}")
+st.info(translate("imaging_explanation", language))
+
+imaging_mode_columns = st.columns(2)
+
+with imaging_mode_columns[0]:
+    imaging_telescope_mode = st.selectbox(
+        translate(
+            "imaging_specification_mode",
+            language,
+        ),
+        options=("preset", "custom"),
+        format_func=lambda mode: translate(
+            f"imaging_mode_{mode}",
+            language,
+        ),
+        key="mission11_telescope_mode",
+    )
+
+with imaging_mode_columns[1]:
+    imaging_camera_mode = st.selectbox(
+        translate(
+            "imaging_specification_mode",
+            language,
+        ),
+        options=("preset", "custom"),
+        format_func=lambda mode: translate(
+            f"imaging_mode_{mode}",
+            language,
+        ),
+        key="mission11_camera_mode",
+    )
+
+if imaging_telescope_mode == "preset":
+    imaging_telescope_key = st.selectbox(
+        translate("telescope_preset", language),
+        options=tuple(TELESCOPE_PRESETS),
+        format_func=lambda preset_key: translate(
+            f"telescope_preset_{preset_key}",
+            language,
+        ),
+        key="mission11_telescope_preset",
+    )
+
+    imaging_telescope = TELESCOPE_PRESETS[imaging_telescope_key]
+else:
+    imaging_telescope_columns = st.columns(2)
+
+    with imaging_telescope_columns[0]:
+        imaging_aperture_mm = st.number_input(
+            translate("telescope_aperture", language),
+            min_value=10.0,
+            max_value=2000.0,
+            value=130.0,
+            step=1.0,
+            format="%.1f",
+            key="mission11_aperture",
+        )
+
+    with imaging_telescope_columns[1]:
+        imaging_focal_length_mm = st.number_input(
+            translate(
+                "telescope_focal_length",
+                language,
+            ),
+            min_value=50.0,
+            max_value=20_000.0,
+            value=650.0,
+            step=10.0,
+            format="%.1f",
+            key="mission11_focal_length",
+        )
+
+    imaging_telescope = TelescopeSpec(
+        aperture_mm=float(imaging_aperture_mm),
+        focal_length_mm=float(imaging_focal_length_mm),
+    )
+
+if imaging_camera_mode == "preset":
+    imaging_camera_key = st.selectbox(
+        translate("camera_preset", language),
+        options=tuple(CAMERA_PRESETS),
+        format_func=lambda preset_key: translate(
+            f"camera_preset_{preset_key}",
+            language,
+        ),
+        key="mission11_camera_preset",
+    )
+
+    imaging_camera = CAMERA_PRESETS[imaging_camera_key]
+else:
+    custom_sensor_columns = st.columns(3)
+
+    with custom_sensor_columns[0]:
+        sensor_width_pixels = st.number_input(
+            translate(
+                "sensor_width_pixels",
+                language,
+            ),
+            min_value=100,
+            max_value=30_000,
+            value=6248,
+            step=100,
+            key="mission11_sensor_width",
+        )
+
+    with custom_sensor_columns[1]:
+        sensor_height_pixels = st.number_input(
+            translate(
+                "sensor_height_pixels",
+                language,
+            ),
+            min_value=100,
+            max_value=30_000,
+            value=4176,
+            step=100,
+            key="mission11_sensor_height",
+        )
+
+    with custom_sensor_columns[2]:
+        sensor_pixel_size_um = st.number_input(
+            translate("pixel_size_um", language),
+            min_value=0.5,
+            max_value=30.0,
+            value=3.76,
+            step=0.01,
+            format="%.2f",
+            key="mission11_pixel_size",
+        )
+
+    imaging_camera = CameraSensorSpec(
+        width_pixels=int(sensor_width_pixels),
+        height_pixels=int(sensor_height_pixels),
+        pixel_size_um=float(sensor_pixel_size_um),
+    )
+
+imaging_environment_columns = st.columns(3)
+
+with imaging_environment_columns[0]:
+    imaging_seeing = st.number_input(
+        translate("seeing_arcseconds", language),
+        min_value=0.3,
+        max_value=10.0,
+        value=2.0,
+        step=0.1,
+        format="%.1f",
+        key="mission11_seeing",
+    )
+
+with imaging_environment_columns[1]:
+    imaging_barlow = st.selectbox(
+        translate("barlow_factor", language),
+        options=(1.0, 1.5, 2.0, 2.5, 3.0),
+        index=0,
+        format_func=lambda factor: f"{factor:.1f}×",
+        key="mission11_barlow",
+    )
+
+with imaging_environment_columns[2]:
+    imaging_reducer = st.selectbox(
+        translate("reducer_factor", language),
+        options=(1.0, 0.8, 0.63, 0.5),
+        index=0,
+        format_func=lambda factor: f"{factor:.2f}×",
+        key="mission11_reducer",
+    )
+
+run_imaging_button = st.button(
+    translate("run_imaging_simulation", language),
+    type="primary",
+    width="stretch",
+    key="mission11_run_imaging",
+)
+
+if run_imaging_button:
+    try:
+        calculated_imaging_result = calculate_astrophotography_setup(
+            telescope=imaging_telescope,
+            camera=imaging_camera,
+            seeing_arcseconds=float(imaging_seeing),
+            barlow_factor=float(imaging_barlow),
+            reducer_factor=float(imaging_reducer),
+        )
+    except ValueError as error:
+        st.session_state.pop(
+            "mission11_imaging_payload",
+            None,
+        )
+
+        st.error(f"{translate('imaging_error', language)}: {error}")
+    else:
+        st.session_state["mission11_imaging_payload"] = {
+            "result": calculated_imaging_result,
+            "telescope": imaging_telescope,
+            "camera": imaging_camera,
+            "seeing": float(imaging_seeing),
+            "barlow": float(imaging_barlow),
+            "reducer": float(imaging_reducer),
+        }
+
+imaging_payload = st.session_state.get("mission11_imaging_payload")
+
+if imaging_payload is not None:
+    imaging_result = imaging_payload["result"]
+
+    st.subheader(translate("imaging_results", language))
+
+    imaging_primary_metrics = st.columns(4)
+
+    imaging_primary_metrics[0].metric(
+        translate("image_scale", language),
+        (f"{imaging_result.image_scale_arcsec_per_pixel:.3f} arcsec/px"),
+    )
+
+    imaging_primary_metrics[1].metric(
+        translate("sensor_field", language),
+        (f"{imaging_result.field_width_degrees:.3f}° × {imaging_result.field_height_degrees:.3f}°"),
+    )
+
+    imaging_primary_metrics[2].metric(
+        translate("seeing_disk_pixels", language),
+        f"{imaging_result.seeing_disk_pixels:.2f} px",
+    )
+
+    imaging_primary_metrics[3].metric(
+        translate("sampling_status", language),
+        imaging_result.sampling_status.replace(
+            "_",
+            " ",
+        ).title(),
+    )
+
+    imaging_secondary_metrics = st.columns(4)
+
+    imaging_secondary_metrics[0].metric(
+        translate(
+            "effective_focal_length",
+            language,
+        ),
+        (f"{imaging_result.effective_focal_length_mm:.1f} mm"),
+    )
+
+    imaging_secondary_metrics[1].metric(
+        translate(
+            "effective_focal_ratio",
+            language,
+        ),
+        (f"f/{imaging_result.effective_focal_ratio:.2f}"),
+    )
+
+    imaging_secondary_metrics[2].metric(
+        translate("sensor_dimensions", language),
+        (f"{imaging_result.sensor_width_mm:.2f} × {imaging_result.sensor_height_mm:.2f} mm"),
+    )
+
+    imaging_secondary_metrics[3].metric(
+        translate("camera_megapixels", language),
+        f"{imaging_result.megapixels:.1f} MP",
+    )
+
+    imaging_resolution_metrics = st.columns(3)
+
+    imaging_resolution_metrics[0].metric(
+        translate("field_diagonal", language),
+        (f"{imaging_result.field_diagonal_degrees:.3f}°"),
+    )
+
+    imaging_resolution_metrics[1].metric(
+        translate(
+            "dawes_sampling_pixels",
+            language,
+        ),
+        (f"{imaging_result.dawes_resolution_pixels:.2f} px"),
+    )
+
+    imaging_resolution_metrics[2].metric(
+        translate("ideal_image_scale", language),
+        (
+            f"{imaging_result.ideal_scale_min_arcsec_per_pixel:.3f}"
+            "–"
+            f"{imaging_result.ideal_scale_max_arcsec_per_pixel:.3f} "
+            "arcsec/px"
+        ),
+    )
+
+    sampling_message = translate(
+        (f"sampling_status_{imaging_result.sampling_status}"),
+        language,
+    )
+
+    if imaging_result.sampling_status == ("well_sampled"):
+        st.success(sampling_message)
+    elif imaging_result.sampling_status in {
+        "oversampled",
+        "undersampled",
+    }:
+        st.info(sampling_message)
+    else:
+        st.warning(sampling_message)
+
+    st.subheader(translate("camera_comparison", language))
+
+    comparison_results = compare_camera_sensors(
+        telescope=imaging_payload["telescope"],
+        cameras=tuple(CAMERA_PRESETS.values()),
+        seeing_arcseconds=imaging_payload["seeing"],
+        barlow_factor=imaging_payload["barlow"],
+        reducer_factor=imaging_payload["reducer"],
+    )
+
+    camera_keys_by_spec = {specification: key for key, specification in CAMERA_PRESETS.items()}
+
+    camera_comparison_rows = []
+
+    for comparison_result in comparison_results:
+        camera_key = camera_keys_by_spec[comparison_result.camera]
+
+        camera_comparison_rows.append(
+            {
+                "camera": translate(
+                    f"camera_preset_{camera_key}",
+                    language,
+                ),
+                "megapixels": (comparison_result.megapixels),
+                "sensor_width": (comparison_result.sensor_width_mm),
+                "sensor_height": (comparison_result.sensor_height_mm),
+                "image_scale": (comparison_result.image_scale_arcsec_per_pixel),
+                "field_width": (comparison_result.field_width_degrees),
+                "field_height": (comparison_result.field_height_degrees),
+                "sampling": translate(
+                    (f"sampling_status_{comparison_result.sampling_status}"),
+                    language,
+                ),
+            }
+        )
+
+    st.dataframe(
+        camera_comparison_rows,
+        width="stretch",
+        hide_index=True,
+        column_config={
+            "camera": translate(
+                "camera_preset",
+                language,
+            ),
+            "megapixels": (
+                st.column_config.NumberColumn(
+                    translate(
+                        "camera_megapixels",
+                        language,
+                    ),
+                    format="%.1f MP",
+                )
+            ),
+            "sensor_width": (
+                st.column_config.NumberColumn(
+                    translate(
+                        "field_width",
+                        language,
+                    ),
+                    format="%.2f mm",
+                )
+            ),
+            "sensor_height": (
+                st.column_config.NumberColumn(
+                    translate(
+                        "field_height",
+                        language,
+                    ),
+                    format="%.2f mm",
+                )
+            ),
+            "image_scale": (
+                st.column_config.NumberColumn(
+                    translate(
+                        "image_scale",
+                        language,
+                    ),
+                    format="%.3f arcsec/px",
+                )
+            ),
+            "field_width": (
+                st.column_config.NumberColumn(
+                    translate(
+                        "field_width",
+                        language,
+                    ),
+                    format="%.3f°",
+                )
+            ),
+            "field_height": (
+                st.column_config.NumberColumn(
+                    translate(
+                        "field_height",
+                        language,
+                    ),
+                    format="%.3f°",
+                )
+            ),
+            "sampling": translate(
+                "sampling_status",
+                language,
+            ),
+        },
+    )
+
+    st.subheader(translate("target_framing", language))
+
+    framing_control_columns = st.columns(3)
+
+    with framing_control_columns[0]:
+        imaging_target_key = st.selectbox(
+            translate("imaging_target", language),
+            options=tuple(IMAGING_TARGET_PRESETS),
+            format_func=lambda target_key: translate(
+                f"target_{target_key}",
+                language,
+            ),
+            key="mission11_target",
+        )
+
+    with framing_control_columns[1]:
+        imaging_overlap = st.slider(
+            translate("mosaic_overlap", language),
+            min_value=0,
+            max_value=50,
+            value=15,
+            step=5,
+            format="%d%%",
+            key="mission11_overlap",
+        )
+
+    with framing_control_columns[2]:
+        imaging_rotation = st.slider(
+            translate("sensor_rotation", language),
+            min_value=0,
+            max_value=175,
+            value=0,
+            step=5,
+            format="%d°",
+            key="mission11_rotation",
+        )
+
+    imaging_target = IMAGING_TARGET_PRESETS[imaging_target_key]
+
+    framing_result = calculate_target_framing(
+        field_width_degrees=(imaging_result.field_width_degrees),
+        field_height_degrees=(imaging_result.field_height_degrees),
+        target=imaging_target,
+        overlap_percent=float(imaging_overlap),
+    )
+
+    framing_message = translate(
+        f"framing_status_{framing_result.status}",
+        language,
+    )
+
+    if framing_result.status == "comfortable":
+        st.success(framing_message)
+    elif framing_result.status == "tight":
+        st.info(framing_message)
+    else:
+        st.warning(framing_message)
+
+    framing_metrics = st.columns(5)
+
+    framing_metrics[0].metric(
+        translate("horizontal_panels", language),
+        framing_result.panels_horizontal,
+    )
+
+    framing_metrics[1].metric(
+        translate("vertical_panels", language),
+        framing_result.panels_vertical,
+    )
+
+    framing_metrics[2].metric(
+        translate("total_panels", language),
+        framing_result.total_panels,
+    )
+
+    framing_metrics[3].metric(
+        translate("width_fill", language),
+        f"{framing_result.width_fill_percent:.1f}%",
+    )
+
+    framing_metrics[4].metric(
+        translate("height_fill", language),
+        f"{framing_result.height_fill_percent:.1f}%",
+    )
+
+    st.write(
+        f"**{translate('covered_field', language)}:** "
+        f"{framing_result.covered_width_degrees:.3f}°"
+        " × "
+        f"{framing_result.covered_height_degrees:.3f}°"
+    )
+
+    imaging_frame_labels = ImagingFrameLabels(
+        title=translate(
+            "imaging_frame_title",
+            language,
+        ),
+        horizontal_axis=translate(
+            "horizontal_angle",
+            language,
+        ),
+        vertical_axis=translate(
+            "vertical_angle",
+            language,
+        ),
+        target=translate(
+            "imaging_target",
+            language,
+        ),
+        sensor_panel=translate(
+            "sensor_panel",
+            language,
+        ),
+        rotation=translate(
+            "sensor_rotation",
+            language,
+        ),
+        mosaic=translate(
+            "mosaic_layout",
+            language,
+        ),
+    )
+
+    imaging_frame_figure = create_imaging_frame_figure(
+        field_width_degrees=(imaging_result.field_width_degrees),
+        field_height_degrees=(imaging_result.field_height_degrees),
+        target=imaging_target,
+        framing=framing_result,
+        rotation_degrees=float(imaging_rotation),
+        target_name=translate(
+            f"target_{imaging_target_key}",
+            language,
+        ),
+        labels=imaging_frame_labels,
+    )
+
+    st.plotly_chart(
+        imaging_frame_figure,
+        width="stretch",
+        key="mission11_imaging_frame_chart",
+    )
+
+    st.caption(translate("imaging_note", language))
 
 
 st.markdown(f"## {translate('future_features', language)}")

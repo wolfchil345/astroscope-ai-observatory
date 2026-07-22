@@ -15,6 +15,8 @@ AstroScope AI는 지능형 관측 계획 시스템이자 인터랙티브 플라�
 
 ## 문서
 
+- [천체사진 센서 및 모자이크 플래너](astrophotography_planner.md)
+
 - [망원경 및 접안렌즈 시뮬레이터](telescope_simulator.md)
 
 - [날씨를 반영한 관측 조건](weather_conditions.md)
