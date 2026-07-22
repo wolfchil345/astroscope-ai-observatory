@@ -30,6 +30,20 @@ from astroscope.solar_system import (
     SOLAR_SYSTEM_BODIES,
     calculate_solar_system_body,
 )
+from astroscope.telescope import (
+    EYEPIECE_PRESETS,
+    TELESCOPE_PRESETS,
+    EyepieceSpec,
+    TelescopeSpec,
+    calculate_optical_simulation,
+    compare_eyepieces,
+)
+from astroscope.telescope_visuals import (
+    ANGULAR_SIZE_PRESETS,
+    FieldOfViewLabels,
+    classify_target_fit,
+    create_field_of_view_figure,
+)
 from astroscope.visibility import calculate_horizontal_coordinates
 from astroscope.weather import (
     WeatherServiceError,
@@ -1772,6 +1786,399 @@ if retrieve_weather_button:
                 language,
             )
         )
+
+
+st.divider()
+
+st.header(f"🔭 {translate('telescope_section', language)}")
+st.info(translate("telescope_explanation", language))
+
+telescope_mode_columns = st.columns(2)
+
+with telescope_mode_columns[0]:
+    telescope_input_mode = st.selectbox(
+        translate("telescope_input_mode", language),
+        options=("preset", "custom"),
+        format_func=lambda mode: translate(
+            f"telescope_mode_{mode}",
+            language,
+        ),
+        key="telescope_input_mode",
+    )
+
+with telescope_mode_columns[1]:
+    eyepiece_input_mode = st.selectbox(
+        translate("telescope_input_mode", language),
+        options=("preset", "custom"),
+        format_func=lambda mode: translate(
+            f"telescope_mode_{mode}",
+            language,
+        ),
+        key="eyepiece_input_mode",
+    )
+
+if telescope_input_mode == "preset":
+    selected_telescope_key = st.selectbox(
+        translate("telescope_preset", language),
+        options=tuple(TELESCOPE_PRESETS),
+        format_func=lambda preset_key: translate(
+            f"telescope_preset_{preset_key}",
+            language,
+        ),
+    )
+
+    telescope_spec = TELESCOPE_PRESETS[selected_telescope_key]
+else:
+    custom_telescope_columns = st.columns(2)
+
+    with custom_telescope_columns[0]:
+        custom_aperture = st.number_input(
+            translate("telescope_aperture", language),
+            min_value=10.0,
+            max_value=2000.0,
+            value=130.0,
+            step=1.0,
+            format="%.1f",
+        )
+
+    with custom_telescope_columns[1]:
+        custom_telescope_focal_length = st.number_input(
+            translate(
+                "telescope_focal_length",
+                language,
+            ),
+            min_value=50.0,
+            max_value=20_000.0,
+            value=650.0,
+            step=10.0,
+            format="%.1f",
+        )
+
+    telescope_spec = TelescopeSpec(
+        aperture_mm=float(custom_aperture),
+        focal_length_mm=float(custom_telescope_focal_length),
+    )
+
+if eyepiece_input_mode == "preset":
+    selected_eyepiece_key = st.selectbox(
+        translate("eyepiece_preset", language),
+        options=tuple(EYEPIECE_PRESETS),
+        format_func=lambda preset_key: translate(
+            f"eyepiece_preset_{preset_key}",
+            language,
+        ),
+    )
+
+    eyepiece_spec = EYEPIECE_PRESETS[selected_eyepiece_key]
+else:
+    custom_eyepiece_columns = st.columns(2)
+
+    with custom_eyepiece_columns[0]:
+        custom_eyepiece_focal_length = st.number_input(
+            translate(
+                "eyepiece_focal_length",
+                language,
+            ),
+            min_value=1.0,
+            max_value=100.0,
+            value=25.0,
+            step=0.5,
+            format="%.1f",
+        )
+
+    with custom_eyepiece_columns[1]:
+        custom_apparent_field = st.number_input(
+            translate("apparent_field", language),
+            min_value=20.0,
+            max_value=180.0,
+            value=50.0,
+            step=1.0,
+            format="%.1f",
+        )
+
+    eyepiece_spec = EyepieceSpec(
+        focal_length_mm=float(custom_eyepiece_focal_length),
+        apparent_field_degrees=float(custom_apparent_field),
+    )
+
+optical_accessory_columns = st.columns(2)
+
+with optical_accessory_columns[0]:
+    selected_barlow_factor = st.selectbox(
+        translate("barlow_factor", language),
+        options=(1.0, 1.5, 2.0, 2.5, 3.0),
+        index=0,
+        format_func=lambda factor: f"{factor:.1f}×",
+    )
+
+with optical_accessory_columns[1]:
+    selected_reducer_factor = st.selectbox(
+        translate("reducer_factor", language),
+        options=(1.0, 0.8, 0.63, 0.5),
+        index=0,
+        format_func=lambda factor: f"{factor:.2f}×",
+    )
+
+run_telescope_simulation = st.button(
+    translate("run_optical_simulation", language),
+    type="primary",
+    width="stretch",
+    key="run_telescope_simulation",
+)
+
+if run_telescope_simulation:
+    try:
+        optical_result = calculate_optical_simulation(
+            telescope=telescope_spec,
+            eyepiece=eyepiece_spec,
+            barlow_factor=float(selected_barlow_factor),
+            reducer_factor=float(selected_reducer_factor),
+        )
+    except ValueError as error:
+        st.error(f"{translate('telescope_error', language)}: {error}")
+    else:
+        st.subheader(translate("optical_results", language))
+
+        primary_metrics = st.columns(3)
+
+        primary_metrics[0].metric(
+            translate("magnification", language),
+            f"{optical_result.magnification:.1f}×",
+        )
+
+        primary_metrics[1].metric(
+            translate("exit_pupil", language),
+            f"{optical_result.exit_pupil_mm:.2f} mm",
+        )
+
+        primary_metrics[2].metric(
+            translate("true_field", language),
+            f"{optical_result.true_field_degrees:.3f}°",
+        )
+
+        secondary_metrics = st.columns(3)
+
+        secondary_metrics[0].metric(
+            translate(
+                "effective_focal_length",
+                language,
+            ),
+            f"{optical_result.effective_focal_length_mm:.1f} mm",
+        )
+
+        secondary_metrics[1].metric(
+            translate(
+                "effective_focal_ratio",
+                language,
+            ),
+            f"f/{optical_result.effective_focal_ratio:.2f}",
+        )
+
+        secondary_metrics[2].metric(
+            translate(
+                "maximum_useful_magnification",
+                language,
+            ),
+            f"{optical_result.maximum_useful_magnification:.0f}×",
+        )
+
+        resolution_metrics = st.columns(3)
+
+        resolution_metrics[0].metric(
+            translate("native_focal_ratio", language),
+            f"f/{optical_result.native_focal_ratio:.2f}",
+        )
+
+        resolution_metrics[1].metric(
+            translate("dawes_resolution", language),
+            f"{optical_result.dawes_resolution_arcseconds:.2f}″",
+        )
+
+        resolution_metrics[2].metric(
+            translate(
+                "rayleigh_resolution",
+                language,
+            ),
+            f"{optical_result.rayleigh_resolution_arcseconds:.2f}″",
+        )
+
+        optical_status_message = translate(
+            f"optical_status_{optical_result.status}",
+            language,
+        )
+
+        if optical_result.status in {
+            "excessive_exit_pupil",
+            "excessive_magnification",
+        }:
+            st.warning(optical_status_message)
+        elif optical_result.status == "high_power":
+            st.info(optical_status_message)
+        else:
+            st.success(optical_status_message)
+
+        st.subheader(translate("eyepiece_comparison", language))
+
+        comparison_results = compare_eyepieces(
+            telescope=telescope_spec,
+            eyepieces=tuple(EYEPIECE_PRESETS.values()),
+            barlow_factor=float(selected_barlow_factor),
+            reducer_factor=float(selected_reducer_factor),
+        )
+
+        eyepiece_keys_by_spec = {
+            specification: key for key, specification in EYEPIECE_PRESETS.items()
+        }
+
+        comparison_rows = []
+
+        for comparison_result in comparison_results:
+            eyepiece_key = eyepiece_keys_by_spec[comparison_result.eyepiece]
+
+            comparison_rows.append(
+                {
+                    "eyepiece": translate(
+                        f"eyepiece_preset_{eyepiece_key}",
+                        language,
+                    ),
+                    "magnification": (comparison_result.magnification),
+                    "exit_pupil": (comparison_result.exit_pupil_mm),
+                    "true_field": (comparison_result.true_field_degrees),
+                    "status": translate(
+                        (f"optical_status_{comparison_result.status}"),
+                        language,
+                    ),
+                }
+            )
+
+        st.dataframe(
+            comparison_rows,
+            width="stretch",
+            hide_index=True,
+            column_config={
+                "eyepiece": translate(
+                    "eyepiece_preset",
+                    language,
+                ),
+                "magnification": (
+                    st.column_config.NumberColumn(
+                        translate(
+                            "magnification",
+                            language,
+                        ),
+                        format="%.1f×",
+                    )
+                ),
+                "exit_pupil": (
+                    st.column_config.NumberColumn(
+                        translate(
+                            "exit_pupil",
+                            language,
+                        ),
+                        format="%.2f mm",
+                    )
+                ),
+                "true_field": (
+                    st.column_config.NumberColumn(
+                        translate(
+                            "true_field",
+                            language,
+                        ),
+                        format="%.3f°",
+                    )
+                ),
+                "status": translate(
+                    "optical_status",
+                    language,
+                ),
+            },
+        )
+
+        st.subheader(translate("fov_visualizer", language))
+
+        selected_angular_target_key = st.selectbox(
+            translate("angular_target", language),
+            options=tuple(ANGULAR_SIZE_PRESETS),
+            format_func=lambda target_key: translate(
+                f"target_{target_key}",
+                language,
+            ),
+            key="telescope_angular_target",
+        )
+
+        angular_target = ANGULAR_SIZE_PRESETS[selected_angular_target_key]
+
+        target_fit = classify_target_fit(
+            true_field_degrees=(optical_result.true_field_degrees),
+            target=angular_target,
+        )
+
+        target_fit_message = translate(
+            f"field_fit_{target_fit}",
+            language,
+        )
+
+        if target_fit == "comfortable":
+            st.success(target_fit_message)
+        elif target_fit == "tight":
+            st.info(target_fit_message)
+        else:
+            st.warning(target_fit_message)
+
+        target_display_name = translate(
+            f"target_{selected_angular_target_key}",
+            language,
+        )
+
+        field_labels = FieldOfViewLabels(
+            title=translate(
+                "fov_chart_title",
+                language,
+            ),
+            angular_distance=translate(
+                "angular_distance",
+                language,
+            ),
+            field_of_view=translate(
+                "true_field",
+                language,
+            ),
+            target=translate(
+                "angular_target",
+                language,
+            ),
+            target_size=translate(
+                "target_angular_size",
+                language,
+            ),
+            fit=translate(
+                "field_fit",
+                language,
+            ),
+        )
+
+        field_figure = create_field_of_view_figure(
+            true_field_degrees=(optical_result.true_field_degrees),
+            target=angular_target,
+            target_name=target_display_name,
+            fit_name=target_fit_message,
+            labels=field_labels,
+        )
+
+        st.plotly_chart(
+            field_figure,
+            width="stretch",
+            key="telescope_field_of_view_chart",
+        )
+
+        st.warning(
+            translate(
+                "telescope_solar_warning",
+                language,
+            )
+        )
+
+        st.caption(translate("telescope_note", language))
 
 
 st.markdown(f"## {translate('future_features', language)}")

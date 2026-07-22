@@ -15,6 +15,8 @@ AstroScope AIは、インテリジェント観測計画システムとインタ�
 
 ## ドキュメント
 
+- [望遠鏡・接眼レンズシミュレーター](telescope_simulator.md)
+
 - [天気を考慮した観測条件](weather_conditions.md)
 
 - [夜間タイムラインと観測スケジュール](night_schedule.md)
