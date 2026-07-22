@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from contextvars import ContextVar
 from dataclasses import dataclass
 from datetime import UTC, date, datetime, time, timedelta
 from typing import Final
@@ -20,6 +21,7 @@ from astroscope.transit_schedule_exports import (
     transit_schedule_to_ics,
     transit_schedule_to_json,
 )
+from astroscope.transit_schedule_i18n import translate_transit
 from astroscope.transit_schedule_visuals import (
     create_schedule_timeline_figure,
     create_transit_altitude_figure,
@@ -36,6 +38,25 @@ _RESULT_SESSION_KEY: Final[str] = "mission15_transit_schedule_result"
 _DEFAULT_OSAKA_LATITUDE: Final[float] = 34.6937
 _DEFAULT_OSAKA_LONGITUDE: Final[float] = 135.5023
 _DEFAULT_OSAKA_ELEVATION: Final[float] = 15.0
+
+
+_CURRENT_LANGUAGE: ContextVar[str] = ContextVar(
+    "mission15_transit_schedule_language",
+    default="English",
+)
+
+
+def _tr(
+    key: str,
+    **values: object,
+) -> str:
+    """Translate one scheduler interface string."""
+
+    return translate_transit(
+        key,
+        _CURRENT_LANGUAGE.get(),
+        **values,
+    )
 
 
 @dataclass(frozen=True, slots=True)
@@ -167,27 +188,27 @@ def ranked_schedule_rows(
 
         rows.append(
             {
-                "Rank": ranked.rank,
-                "Planet": event.planet_name,
-                "Score": round(
+                _tr("column_rank"): ranked.rank,
+                _tr("column_planet"): event.planet_name,
+                _tr("column_score"): round(
                     ranked.score.total_score,
                     1,
                 ),
-                "Mid-transit UTC": midpoint.strftime("%Y-%m-%d %H:%M"),
-                "Observable fraction": round(
+                _tr("column_mid_transit"): midpoint.strftime("%Y-%m-%d %H:%M"),
+                _tr("observable_fraction"): round(
                     visibility.observable_sample_fraction,
                     3,
                 ),
-                "Full window visible": (visibility.full_observation_window_visible),
-                "Midpoint altitude (deg)": round(
+                _tr("column_full_window"): (visibility.full_observation_window_visible),
+                _tr("column_midpoint_altitude"): round(
                     visibility.midpoint_sample.target_altitude_degrees,
                     1,
                 ),
-                "Moon separation (deg)": round(
+                _tr("column_moon_separation"): round(
                     visibility.minimum_moon_separation_degrees,
                     1,
                 ),
-                "Timing uncertainty (h)": round(
+                _tr("column_timing_uncertainty"): round(
                     event.timing_uncertainty_hours,
                     3,
                 ),
@@ -246,18 +267,18 @@ def _render_target_inputs(
         target_number = index + 1
 
         with st.expander(
-            f"Target {target_number}",
+            _tr("target_number", number=target_number),
             expanded=target_number == 1,
         ):
             name_columns = st.columns(2)
 
             planet_name = name_columns[0].text_input(
-                "Planet name",
+                _tr("planet_name"),
                 value=f"Example-{target_number} b",
                 key=f"transit_planet_name_{index}",
             )
             host_star_name = name_columns[1].text_input(
-                "Host-star name",
+                _tr("host_star_name"),
                 value=f"Example Star {target_number}",
                 key=f"transit_host_name_{index}",
             )
@@ -265,7 +286,7 @@ def _render_target_inputs(
             coordinate_columns = st.columns(2)
 
             right_ascension_degrees = coordinate_columns[0].number_input(
-                "Right ascension (degrees)",
+                _tr("right_ascension"),
                 min_value=0.0,
                 max_value=359.999999,
                 value=120.0 + index * 10.0,
@@ -274,7 +295,7 @@ def _render_target_inputs(
                 key=f"transit_ra_{index}",
             )
             declination_degrees = coordinate_columns[1].number_input(
-                "Declination (degrees)",
+                _tr("declination"),
                 min_value=-90.0,
                 max_value=90.0,
                 value=20.0,
@@ -286,7 +307,7 @@ def _render_target_inputs(
             ephemeris_columns = st.columns(3)
 
             orbital_period_days = ephemeris_columns[0].number_input(
-                "Orbital period (days)",
+                _tr("orbital_period"),
                 min_value=0.000001,
                 value=3.0 + index,
                 step=0.1,
@@ -294,7 +315,7 @@ def _render_target_inputs(
                 key=f"transit_period_{index}",
             )
             reference_mid_transit_jd = ephemeris_columns[1].number_input(
-                "Reference midpoint (JD)",
+                _tr("reference_midpoint"),
                 min_value=0.0,
                 value=(default_reference_jd + index * 0.25),
                 step=0.01,
@@ -302,7 +323,7 @@ def _render_target_inputs(
                 key=f"transit_epoch_{index}",
             )
             transit_duration_hours = ephemeris_columns[2].number_input(
-                "Transit duration (hours)",
+                _tr("transit_duration"),
                 min_value=0.000001,
                 value=2.5,
                 step=0.1,
@@ -313,7 +334,7 @@ def _render_target_inputs(
             uncertainty_columns = st.columns(2)
 
             period_uncertainty_days = uncertainty_columns[0].number_input(
-                "Period uncertainty (days)",
+                _tr("period_uncertainty"),
                 min_value=0.0,
                 value=0.0001,
                 step=0.0001,
@@ -321,7 +342,7 @@ def _render_target_inputs(
                 key=f"transit_period_uncertainty_{index}",
             )
             reference_epoch_uncertainty_days = uncertainty_columns[1].number_input(
-                "Epoch uncertainty (days)",
+                _tr("epoch_uncertainty"),
                 min_value=0.0,
                 value=0.001,
                 step=0.0001,
@@ -332,7 +353,7 @@ def _render_target_inputs(
             ranking_columns = st.columns(2)
 
             transit_depth_ppm = ranking_columns[0].number_input(
-                "Transit depth (ppm)",
+                _tr("transit_depth"),
                 min_value=0.0,
                 value=2_000.0,
                 step=100.0,
@@ -340,7 +361,7 @@ def _render_target_inputs(
                 key=f"transit_depth_{index}",
             )
             host_magnitude = ranking_columns[1].number_input(
-                "Host apparent magnitude",
+                _tr("host_magnitude"),
                 min_value=-30.0,
                 max_value=30.0,
                 value=10.0,
@@ -375,7 +396,7 @@ def _render_schedule_downloads(
 
     exports = build_dashboard_exports(result)
 
-    st.subheader("Download schedule")
+    st.subheader(_tr("download_schedule"))
     st.caption(
         "Export the ranked observation plan for analysis, automation, or calendar scheduling."
     )
@@ -383,7 +404,7 @@ def _render_schedule_downloads(
     download_columns = st.columns(3)
 
     download_columns[0].download_button(
-        label="Download CSV",
+        label=_tr("download_csv"),
         data=exports.csv_data,
         file_name=exports.csv_filename,
         mime="text/csv",
@@ -391,7 +412,7 @@ def _render_schedule_downloads(
     )
 
     download_columns[1].download_button(
-        label="Download JSON",
+        label=_tr("download_json"),
         data=exports.json_data,
         file_name=exports.json_filename,
         mime="application/json",
@@ -399,7 +420,7 @@ def _render_schedule_downloads(
     )
 
     download_columns[2].download_button(
-        label="Download calendar",
+        label=_tr("download_calendar"),
         data=exports.calendar_data,
         file_name=exports.calendar_filename,
         mime="text/calendar",
@@ -412,35 +433,32 @@ def _render_schedule_result(
 ) -> None:
     """Render schedule metrics, charts, table, and event inspector."""
 
-    st.subheader("Schedule results")
+    st.subheader(_tr("schedule_results"))
 
     metric_columns = st.columns(4)
 
     metric_columns[0].metric(
-        "Predicted events",
+        _tr("predicted_events"),
         result.predicted_event_count,
     )
     metric_columns[1].metric(
-        "Observable events",
+        _tr("observable_events"),
         result.observable_transit_count,
     )
     metric_columns[2].metric(
-        "Fully visible",
+        _tr("fully_visible"),
         result.fully_visible_count,
     )
     metric_columns[3].metric(
-        "Targets searched",
+        _tr("targets_searched"),
         result.target_count,
     )
 
     if result.targets_without_events:
-        st.info(
-            "No transit midpoint occurred in the selected range for: "
-            + ", ".join(result.targets_without_events)
-        )
+        st.info(_tr("no_midpoint_prefix") + ", ".join(result.targets_without_events))
 
     if not result.ranked_transits:
-        st.warning("No transit events were predicted in the selected date range.")
+        st.warning(_tr("no_events"))
         return
 
     st.plotly_chart(
@@ -460,7 +478,7 @@ def _render_schedule_result(
     _render_schedule_downloads(result)
 
     selected_index = st.selectbox(
-        "Inspect a ranked event",
+        _tr("inspect_event"),
         options=list(range(len(result.ranked_transits))),
         format_func=lambda index: (
             f"#{result.ranked_transits[index].rank} "
@@ -477,19 +495,19 @@ def _render_schedule_result(
     detail_columns = st.columns(4)
 
     detail_columns[0].metric(
-        "Priority score",
+        _tr("priority_score"),
         f"{selected.score.total_score:.1f}/100",
     )
     detail_columns[1].metric(
-        "Midpoint altitude",
+        _tr("midpoint_altitude"),
         (f"{visibility.midpoint_sample.target_altitude_degrees:.1f}°"),
     )
     detail_columns[2].metric(
-        "Observable fraction",
+        _tr("observable_fraction"),
         f"{visibility.observable_sample_fraction:.0%}",
     )
     detail_columns[3].metric(
-        "Timing uncertainty",
+        _tr("timing_uncertainty"),
         f"{event.timing_uncertainty_hours:.3f} h",
     )
 
@@ -523,28 +541,25 @@ def _render_schedule_result(
         )
 
     if selected.score.missing_fields:
-        st.info(
-            "Neutral scores were used for missing fields: "
-            + ", ".join(selected.score.missing_fields)
-        )
+        st.info(_tr("neutral_fields_prefix") + ", ".join(selected.score.missing_fields))
 
 
-def render_transit_schedule_dashboard() -> None:
+def render_transit_schedule_dashboard(
+    language: str = "English",
+) -> None:
     """Render the complete manual transit scheduler dashboard."""
 
-    st.header("Exoplanet Transit Observation Scheduler")
-    st.write(
-        "Predict and rank transit observing windows using ephemerides, "
-        "observer geometry, darkness, Moon separation, timing confidence, "
-        "transit depth, and host-star brightness."
-    )
-    st.caption("All schedule dates and displayed event times use UTC.")
+    _CURRENT_LANGUAGE.set(language)
+
+    st.header(_tr("title"))
+    st.write(_tr("description"))
+    st.caption(_tr("utc_caption"))
 
     today = datetime.now(UTC).date()
 
     target_count = int(
         st.number_input(
-            "Number of targets",
+            _tr("number_targets"),
             min_value=1,
             max_value=5,
             value=1,
@@ -556,17 +571,17 @@ def render_transit_schedule_dashboard() -> None:
     with st.form(
         "transit_schedule_form",
     ):
-        st.subheader("Observer site")
+        st.subheader(_tr("observer_site"))
 
         site_name = st.text_input(
-            "Site name",
+            _tr("site_name"),
             value="Osaka",
         )
 
         site_columns = st.columns(3)
 
         latitude_degrees = site_columns[0].number_input(
-            "Latitude (degrees)",
+            _tr("latitude"),
             min_value=-90.0,
             max_value=90.0,
             value=_DEFAULT_OSAKA_LATITUDE,
@@ -574,7 +589,7 @@ def render_transit_schedule_dashboard() -> None:
             format="%.6f",
         )
         longitude_degrees = site_columns[1].number_input(
-            "Longitude (degrees)",
+            _tr("longitude"),
             min_value=-180.0,
             max_value=180.0,
             value=_DEFAULT_OSAKA_LONGITUDE,
@@ -582,45 +597,45 @@ def render_transit_schedule_dashboard() -> None:
             format="%.6f",
         )
         elevation_meters = site_columns[2].number_input(
-            "Elevation (meters)",
+            _tr("elevation"),
             value=_DEFAULT_OSAKA_ELEVATION,
             step=1.0,
             format="%.1f",
         )
 
-        st.subheader("Schedule range")
+        st.subheader(_tr("schedule_range"))
 
         range_columns = st.columns(2)
 
         start_date = range_columns[0].date_input(
-            "Start date",
+            _tr("start_date"),
             value=today,
         )
         end_date = range_columns[1].date_input(
-            "End date",
+            _tr("end_date"),
             value=today + timedelta(days=7),
         )
 
-        st.subheader("Observation settings")
+        st.subheader(_tr("observation_settings"))
 
         baseline_columns = st.columns(3)
 
         baseline_before_hours = baseline_columns[0].number_input(
-            "Baseline before transit (hours)",
+            _tr("baseline_before"),
             min_value=0.0,
             value=1.0,
             step=0.25,
             format="%.2f",
         )
         baseline_after_hours = baseline_columns[1].number_input(
-            "Baseline after transit (hours)",
+            _tr("baseline_after"),
             min_value=0.0,
             value=1.0,
             step=0.25,
             format="%.2f",
         )
         uncertainty_sigma_multiplier = baseline_columns[2].number_input(
-            "Timing uncertainty multiplier",
+            _tr("uncertainty_multiplier"),
             min_value=0.0,
             value=1.0,
             step=0.5,
@@ -630,7 +645,7 @@ def render_transit_schedule_dashboard() -> None:
         visibility_columns = st.columns(3)
 
         minimum_altitude_degrees = visibility_columns[0].number_input(
-            "Minimum altitude (degrees)",
+            _tr("minimum_altitude"),
             min_value=-90.0,
             max_value=90.0,
             value=20.0,
@@ -638,7 +653,7 @@ def render_transit_schedule_dashboard() -> None:
             format="%.1f",
         )
         darkness_sun_altitude_degrees = visibility_columns[1].number_input(
-            "Maximum Sun altitude (degrees)",
+            _tr("maximum_sun_altitude"),
             min_value=-90.0,
             max_value=90.0,
             value=-18.0,
@@ -647,7 +662,7 @@ def render_transit_schedule_dashboard() -> None:
         )
         visibility_sample_count = int(
             visibility_columns[2].number_input(
-                "Visibility samples",
+                _tr("visibility_samples"),
                 min_value=3,
                 max_value=501,
                 value=25,
@@ -655,7 +670,7 @@ def render_transit_schedule_dashboard() -> None:
             )
         )
 
-        st.subheader("Transit targets")
+        st.subheader(_tr("transit_targets"))
 
         default_reference_jd = utc_datetime_to_julian_date(
             datetime.combine(
@@ -671,7 +686,7 @@ def render_transit_schedule_dashboard() -> None:
         )
 
         submitted = st.form_submit_button(
-            "Generate ranked schedule",
+            _tr("generate_schedule"),
             type="primary",
         )
 
@@ -697,7 +712,7 @@ def render_transit_schedule_dashboard() -> None:
 
             targets = tuple(build_schedule_target(target_input) for target_input in target_inputs)
 
-            with st.spinner("Predicting and ranking transit events..."):
+            with st.spinner(_tr("generating")):
                 result = generate_transit_schedule(
                     targets,
                     site,
@@ -707,7 +722,7 @@ def render_transit_schedule_dashboard() -> None:
             st.session_state[_RESULT_SESSION_KEY] = result
 
         except ValueError as error:
-            st.error(f"Unable to generate schedule: {error}")
+            st.error(_tr("unable_generate", error=error))
             return
 
     stored_result = st.session_state.get(_RESULT_SESSION_KEY)

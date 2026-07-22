@@ -3961,6 +3961,8 @@ if mission12_current_session is not None:
 render_gaia_dashboard(language)
 render_exoplanet_dashboard(language)
 
+render_transit_schedule_dashboard(language)
+
 st.markdown(f"## {translate('future_features', language)}")
 
 st.markdown(
@@ -3974,4 +3976,3 @@ st.markdown(
 )
 
 # Mission 15: Exoplanet transit scheduler
-render_transit_schedule_dashboard()
