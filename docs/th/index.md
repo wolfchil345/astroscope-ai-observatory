@@ -15,6 +15,8 @@ AstroScope AI คือระบบวางแผนการสังเกต
 
 ## เอกสาร
 
+- [เครื่องสำรวจแค็ตตาล็อกดาว Gaia DR3](gaia_explorer.md)
+
 - [สมุดบันทึกการสังเกตการณ์](observation_logbook.md)
 
 - [เครื่องวางแผนเซนเซอร์และภาพโมเสกดาราศาสตร์](astrophotography_planner.md)

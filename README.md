@@ -13,6 +13,10 @@ An intelligent multilingual observatory planner and interactive planetarium.
 
 ## Implemented features
 
+- Gaia DR3 stellar catalogue explorer
+- Interactive sky, colour–magnitude, and proper-motion diagrams
+- Gaia source inspector and CSV export
+
 - Structured observation logbook
 - Visual and astrophotography session summaries
 - JSON, CSV, and Markdown session exports
@@ -71,6 +75,8 @@ Run `make run`.
 Run `make checks`.
 
 ## Documentation
+
+- [Gaia DR3 stellar catalogue explorer](docs/en/gaia_explorer.md)
 
 - [Observation logbook](docs/en/observation_logbook.md)
 

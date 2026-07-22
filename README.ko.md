@@ -13,6 +13,10 @@
 
 ## 구현된 기능
 
+- Gaia DR3 항성 카탈로그 탐색기
+- 하늘 지도, 색–등급도 및 고유운동도
+- Gaia 소스 상세 정보와 CSV 내보내기
+
 - 구조화된 천문 관측 로그북
 - 안시 및 천체 촬영 세션 요약
 - JSON, CSV 및 Markdown 내보내기
@@ -71,6 +75,8 @@
 `make checks`를 실행합니다.
 
 ## 문서
+
+- [Gaia DR3 항성 카탈로그 탐색기](docs/ko/gaia_explorer.md)
 
 - [천문 관측 로그북](docs/ko/observation_logbook.md)
 

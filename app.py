@@ -11,6 +11,7 @@ from astroscope.coordinates import (
     CELESTIAL_PRESETS,
     calculate_coordinate_details,
 )
+from astroscope.gaia_dashboard import render_gaia_dashboard
 from astroscope.i18n import SUPPORTED_LANGUAGES, translate
 from astroscope.imaging import (
     CAMERA_PRESETS,
@@ -3954,6 +3955,8 @@ if mission12_current_session is not None:
     ):
         st.markdown(mission12_markdown_report)
 
+
+render_gaia_dashboard(language)
 
 st.markdown(f"## {translate('future_features', language)}")
 
