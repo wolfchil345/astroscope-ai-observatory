@@ -15,6 +15,8 @@ AstroScope AI는 지능형 관측 계획 시스템이자 인터랙티브 플라�
 
 ## 문서
 
+- [Gaia DR3 항성 카탈로그 탐색기](gaia_explorer.md)
+
 - [천문 관측 로그북](observation_logbook.md)
 
 - [천체사진 센서 및 모자이크 플래너](astrophotography_planner.md)

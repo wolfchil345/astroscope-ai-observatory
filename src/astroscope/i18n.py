@@ -3,6 +3,7 @@
 from typing import Final
 
 from astroscope.coordinate_messages import COORDINATE_TRANSLATIONS
+from astroscope.gaia_messages import GAIA_TRANSLATIONS
 from astroscope.imaging_messages import IMAGING_TRANSLATIONS
 from astroscope.observation_log_messages import OBSERVATION_LOG_TRANSLATIONS
 from astroscope.planner_messages import PLANNER_TRANSLATIONS
@@ -243,6 +244,9 @@ TRANSLATIONS.update(IMAGING_TRANSLATIONS)
 
 
 TRANSLATIONS.update(OBSERVATION_LOG_TRANSLATIONS)
+
+
+TRANSLATIONS.update(GAIA_TRANSLATIONS)
 
 
 def translate(key: str, language: str) -> str:

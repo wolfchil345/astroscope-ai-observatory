@@ -15,6 +15,8 @@ AstroScope AIは、インテリジェント観測計画システムとインタ�
 
 ## ドキュメント
 
+- [Gaia DR3恒星カタログ探索](gaia_explorer.md)
+
 - [天体観測ログブック](observation_logbook.md)
 
 - [天体撮影センサー・モザイクプランナー](astrophotography_planner.md)

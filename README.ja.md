@@ -13,6 +13,10 @@
 
 ## 実装済み機能
 
+- Gaia DR3恒星カタログ探索
+- 星図、色等級図、固有運動図
+- Gaia天体詳細とCSVエクスポート
+
 - 構造化天体観測ログブック
 - 眼視・天体撮影セッション集計
 - JSON、CSV、Markdownエクスポート
@@ -71,6 +75,8 @@
 `make checks`を実行します。
 
 ## ドキュメント
+
+- [Gaia DR3恒星カタログ探索](docs/ja/gaia_explorer.md)
 
 - [天体観測ログブック](docs/ja/observation_logbook.md)
 
