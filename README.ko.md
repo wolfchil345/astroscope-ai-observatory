@@ -13,6 +13,10 @@
 
 ## 구현된 기능
 
+- 구조화된 천문 관측 로그북
+- 안시 및 천체 촬영 세션 요약
+- JSON, CSV 및 Markdown 내보내기
+
 - 천체사진 센서 및 모자이크 플래너
 - 이미지 스케일 및 시상 샘플링 분석
 - 회전 센서 프레임과 모자이크 시각화
@@ -67,6 +71,8 @@
 `make checks`를 실행합니다.
 
 ## 문서
+
+- [천문 관측 로그북](docs/ko/observation_logbook.md)
 
 - [천체사진 센서 및 모자이크 플래너](docs/ko/astrophotography_planner.md)
 

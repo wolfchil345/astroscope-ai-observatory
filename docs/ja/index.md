@@ -15,6 +15,8 @@ AstroScope AIは、インテリジェント観測計画システムとインタ�
 
 ## ドキュメント
 
+- [天体観測ログブック](observation_logbook.md)
+
 - [天体撮影センサー・モザイクプランナー](astrophotography_planner.md)
 
 - [望遠鏡・接眼レンズシミュレーター](telescope_simulator.md)
