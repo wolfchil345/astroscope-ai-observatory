@@ -76,6 +76,7 @@ from astroscope.telescope_visuals import (
     classify_target_fit,
     create_field_of_view_figure,
 )
+from astroscope.transit_schedule_dashboard import render_transit_schedule_dashboard
 from astroscope.visibility import calculate_horizontal_coordinates
 from astroscope.weather import (
     WeatherServiceError,
@@ -3971,3 +3972,6 @@ st.markdown(
         ]
     )
 )
+
+# Mission 15: Exoplanet transit scheduler
+render_transit_schedule_dashboard()
