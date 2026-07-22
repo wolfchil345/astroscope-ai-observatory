@@ -13,6 +13,10 @@ An intelligent multilingual observatory planner and interactive planetarium.
 
 ## Implemented features
 
+- Astrophotography sensor and mosaic planner
+- Image-scale and seeing-sampling analysis
+- Rotatable sensor-frame and mosaic visualization
+
 - Telescope and eyepiece simulator
 - Barlow and focal-reducer calculations
 - Interactive angular field-of-view visualizer
@@ -63,6 +67,8 @@ Run `make run`.
 Run `make checks`.
 
 ## Documentation
+
+- [Astrophotography sensor and mosaic planner](docs/en/astrophotography_planner.md)
 
 - [Telescope and eyepiece simulator](docs/en/telescope_simulator.md)
 
