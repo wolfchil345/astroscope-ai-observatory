@@ -76,6 +76,7 @@ from astroscope.telescope_visuals import (
     classify_target_fit,
     create_field_of_view_figure,
 )
+from astroscope.transit_schedule_dashboard import render_transit_schedule_dashboard
 from astroscope.visibility import calculate_horizontal_coordinates
 from astroscope.weather import (
     WeatherServiceError,
@@ -3960,6 +3961,8 @@ if mission12_current_session is not None:
 render_gaia_dashboard(language)
 render_exoplanet_dashboard(language)
 
+render_transit_schedule_dashboard(language)
+
 st.markdown(f"## {translate('future_features', language)}")
 
 st.markdown(
@@ -3971,3 +3974,5 @@ st.markdown(
         ]
     )
 )
+
+# Mission 15: Exoplanet transit scheduler
