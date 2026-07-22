@@ -13,6 +13,10 @@ An intelligent multilingual observatory planner and interactive planetarium.
 
 ## Implemented features
 
+- Structured observation logbook
+- Visual and astrophotography session summaries
+- JSON, CSV, and Markdown session exports
+
 - Astrophotography sensor and mosaic planner
 - Image-scale and seeing-sampling analysis
 - Rotatable sensor-frame and mosaic visualization
@@ -67,6 +71,8 @@ Run `make run`.
 Run `make checks`.
 
 ## Documentation
+
+- [Observation logbook](docs/en/observation_logbook.md)
 
 - [Astrophotography sensor and mosaic planner](docs/en/astrophotography_planner.md)
 

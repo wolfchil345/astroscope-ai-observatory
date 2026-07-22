@@ -15,6 +15,8 @@ AstroScope AI คือระบบวางแผนการสังเกต
 
 ## เอกสาร
 
+- [สมุดบันทึกการสังเกตการณ์](observation_logbook.md)
+
 - [เครื่องวางแผนเซนเซอร์และภาพโมเสกดาราศาสตร์](astrophotography_planner.md)
 
 - [เครื่องจำลองกล้องโทรทรรศน์และเลนส์ตา](telescope_simulator.md)

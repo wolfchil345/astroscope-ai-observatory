@@ -1,5 +1,6 @@
 """Main Streamlit entry point for AstroScope AI."""
 
+import datetime as dt
 from datetime import datetime, time
 from zoneinfo import ZoneInfo
 
@@ -23,9 +24,26 @@ from astroscope.imaging_visuals import (
     ImagingFrameLabels,
     create_imaging_frame_figure,
 )
+from astroscope.observation_log import (
+    EquipmentSnapshot,
+    ObservationLogError,
+    ObservationSession,
+    TargetObservation,
+    calculate_session_summary,
+    session_from_json,
+    session_observations_to_csv,
+    session_to_json,
+)
+from astroscope.observation_report import (
+    ObservationReportLabels,
+    create_markdown_report,
+)
 from astroscope.observer import (
     OBSERVER_PRESETS,
     calculate_astronomical_time,
+)
+from astroscope.observer import (
+    get_timezone as get_observation_log_timezone,
 )
 from astroscope.planner import calculate_observation_plan
 from astroscope.schedule import (
@@ -2744,6 +2762,1197 @@ if imaging_payload is not None:
     )
 
     st.caption(translate("imaging_note", language))
+
+
+st.divider()
+
+st.header(f"📝 {translate('log_section', language)}")
+st.info(translate("log_explanation", language))
+
+mission12_today = dt.date.today()
+
+mission12_defaults = {
+    "mission12_session_id": (f"session-{mission12_today.isoformat()}"),
+    "mission12_session_title": "",
+    "mission12_observer": "",
+    "mission12_location": "Osaka",
+    "mission12_latitude": 34.6937,
+    "mission12_longitude": 135.5023,
+    "mission12_elevation": 15.0,
+    "mission12_timezone": "Asia/Tokyo",
+    "mission12_start_date": mission12_today,
+    "mission12_start_time": dt.time(20, 0),
+    "mission12_end_date": (mission12_today + dt.timedelta(days=1)),
+    "mission12_end_time": dt.time(0, 0),
+    "mission12_mode": "mixed",
+    "mission12_seeing": 2.0,
+    "mission12_transparency": 4,
+    "mission12_cloud_cover": 10.0,
+    "mission12_general_notes": "",
+    "mission12_telescope_name": "",
+    "mission12_aperture": 0.0,
+    "mission12_focal_length": 0.0,
+    "mission12_eyepiece_name": "",
+    "mission12_camera_name": "",
+    "mission12_pixel_size": 0.0,
+    "mission12_mount_name": "",
+    "mission12_filters": "",
+    "mission12_observations": [],
+    "mission12_observation_counter": 0,
+    "mission12_current_session": None,
+}
+
+for mission12_key, mission12_value in mission12_defaults.items():
+    if mission12_key not in st.session_state:
+        st.session_state[mission12_key] = mission12_value
+
+with st.expander(translate("log_import_title", language)):
+    mission12_uploaded_log = st.file_uploader(
+        translate("log_import_file", language),
+        type=("json",),
+        key="mission12_uploaded_log",
+        width="stretch",
+    )
+
+    mission12_import_button = st.button(
+        translate("log_import_button", language),
+        key="mission12_import_button",
+        width="stretch",
+    )
+
+    if mission12_import_button:
+        if mission12_uploaded_log is None:
+            st.warning(
+                translate(
+                    "log_import_missing",
+                    language,
+                )
+            )
+        else:
+            try:
+                mission12_imported_session = session_from_json(
+                    mission12_uploaded_log.getvalue().decode("utf-8-sig")
+                )
+            except (
+                ObservationLogError,
+                UnicodeDecodeError,
+                ValueError,
+            ) as error:
+                st.error(f"{translate('log_validation_error', language)}: {error}")
+            else:
+                mission12_equipment = mission12_imported_session.equipment
+
+                st.session_state["mission12_session_id"] = mission12_imported_session.session_id
+
+                st.session_state["mission12_session_title"] = mission12_imported_session.title
+
+                st.session_state["mission12_observer"] = mission12_imported_session.observer
+
+                st.session_state["mission12_location"] = mission12_imported_session.location_name
+
+                st.session_state["mission12_latitude"] = mission12_imported_session.latitude_degrees
+
+                st.session_state["mission12_longitude"] = (
+                    mission12_imported_session.longitude_degrees
+                )
+
+                st.session_state["mission12_elevation"] = mission12_imported_session.elevation_m
+
+                st.session_state["mission12_timezone"] = mission12_imported_session.timezone_name
+
+                st.session_state["mission12_start_date"] = (
+                    mission12_imported_session.started_at_local.date()
+                )
+
+                st.session_state["mission12_start_time"] = (
+                    mission12_imported_session.started_at_local.time().replace(tzinfo=None)
+                )
+
+                st.session_state["mission12_end_date"] = (
+                    mission12_imported_session.ended_at_local.date()
+                )
+
+                st.session_state["mission12_end_time"] = (
+                    mission12_imported_session.ended_at_local.time().replace(tzinfo=None)
+                )
+
+                st.session_state["mission12_mode"] = mission12_imported_session.mode
+
+                st.session_state["mission12_seeing"] = (
+                    mission12_imported_session.seeing_arcseconds or 2.0
+                )
+
+                st.session_state["mission12_transparency"] = (
+                    mission12_imported_session.transparency_rating or 3
+                )
+
+                st.session_state["mission12_cloud_cover"] = (
+                    mission12_imported_session.cloud_cover_percent or 0.0
+                )
+
+                st.session_state["mission12_general_notes"] = (
+                    mission12_imported_session.general_notes
+                )
+
+                st.session_state["mission12_telescope_name"] = mission12_equipment.telescope_name
+
+                st.session_state["mission12_aperture"] = mission12_equipment.aperture_mm or 0.0
+
+                st.session_state["mission12_focal_length"] = (
+                    mission12_equipment.focal_length_mm or 0.0
+                )
+
+                st.session_state["mission12_eyepiece_name"] = mission12_equipment.eyepiece_name
+
+                st.session_state["mission12_camera_name"] = mission12_equipment.camera_name
+
+                st.session_state["mission12_pixel_size"] = mission12_equipment.pixel_size_um or 0.0
+
+                st.session_state["mission12_mount_name"] = mission12_equipment.mount_name
+
+                st.session_state["mission12_filters"] = ", ".join(mission12_equipment.filters)
+
+                st.session_state["mission12_observations"] = list(
+                    mission12_imported_session.observations
+                )
+
+                st.session_state["mission12_observation_counter"] = len(
+                    mission12_imported_session.observations
+                )
+
+                st.session_state["mission12_current_session"] = mission12_imported_session
+
+                st.success(
+                    translate(
+                        "log_import_success",
+                        language,
+                    )
+                )
+
+with st.expander(
+    translate("log_session_metadata", language),
+    expanded=True,
+):
+    mission12_identity_columns = st.columns(3)
+
+    with mission12_identity_columns[0]:
+        mission12_session_id = st.text_input(
+            translate("log_session_id", language),
+            key="mission12_session_id",
+        )
+
+    with mission12_identity_columns[1]:
+        mission12_session_title = st.text_input(
+            translate(
+                "log_session_title",
+                language,
+            ),
+            key="mission12_session_title",
+        )
+
+    with mission12_identity_columns[2]:
+        mission12_observer = st.text_input(
+            translate("log_observer", language),
+            key="mission12_observer",
+        )
+
+    mission12_location_columns = st.columns(4)
+
+    with mission12_location_columns[0]:
+        mission12_location = st.text_input(
+            translate("log_location", language),
+            key="mission12_location",
+        )
+
+    with mission12_location_columns[1]:
+        mission12_latitude = st.number_input(
+            translate("log_latitude", language),
+            min_value=-90.0,
+            max_value=90.0,
+            step=0.0001,
+            format="%.4f",
+            key="mission12_latitude",
+        )
+
+    with mission12_location_columns[2]:
+        mission12_longitude = st.number_input(
+            translate("log_longitude", language),
+            min_value=-180.0,
+            max_value=180.0,
+            step=0.0001,
+            format="%.4f",
+            key="mission12_longitude",
+        )
+
+    with mission12_location_columns[3]:
+        mission12_elevation = st.number_input(
+            translate("log_elevation", language),
+            step=1.0,
+            format="%.1f",
+            key="mission12_elevation",
+        )
+
+    mission12_time_columns = st.columns(5)
+
+    with mission12_time_columns[0]:
+        mission12_timezone = st.text_input(
+            translate("log_timezone", language),
+            key="mission12_timezone",
+        )
+
+    with mission12_time_columns[1]:
+        mission12_start_date = st.date_input(
+            translate("log_start_date", language),
+            key="mission12_start_date",
+        )
+
+    with mission12_time_columns[2]:
+        mission12_start_time = st.time_input(
+            translate("log_start_time", language),
+            key="mission12_start_time",
+        )
+
+    with mission12_time_columns[3]:
+        mission12_end_date = st.date_input(
+            translate("log_end_date", language),
+            key="mission12_end_date",
+        )
+
+    with mission12_time_columns[4]:
+        mission12_end_time = st.time_input(
+            translate("log_end_time", language),
+            key="mission12_end_time",
+        )
+
+    mission12_mode = st.selectbox(
+        translate("log_mode", language),
+        options=("visual", "imaging", "mixed"),
+        format_func=lambda mode_key: translate(
+            f"log_mode_{mode_key}",
+            language,
+        ),
+        key="mission12_mode",
+    )
+
+with st.expander(translate("log_conditions", language)):
+    mission12_condition_columns = st.columns(3)
+
+    with mission12_condition_columns[0]:
+        mission12_seeing = st.number_input(
+            translate(
+                "seeing_arcseconds",
+                language,
+            ),
+            min_value=0.1,
+            max_value=20.0,
+            step=0.1,
+            format="%.1f",
+            key="mission12_seeing",
+        )
+
+    with mission12_condition_columns[1]:
+        mission12_transparency = st.slider(
+            translate(
+                "log_transparency",
+                language,
+            ),
+            min_value=1,
+            max_value=5,
+            key="mission12_transparency",
+        )
+
+    with mission12_condition_columns[2]:
+        mission12_cloud_cover = st.slider(
+            translate("cloud_cover", language),
+            min_value=0.0,
+            max_value=100.0,
+            step=1.0,
+            format="%.0f%%",
+            key="mission12_cloud_cover",
+        )
+
+    mission12_general_notes = st.text_area(
+        translate("log_general_notes", language),
+        key="mission12_general_notes",
+    )
+
+with st.expander(translate("log_equipment", language)):
+    mission12_equipment_name_columns = st.columns(4)
+
+    with mission12_equipment_name_columns[0]:
+        mission12_telescope_name = st.text_input(
+            translate(
+                "log_telescope_name",
+                language,
+            ),
+            key="mission12_telescope_name",
+        )
+
+    with mission12_equipment_name_columns[1]:
+        mission12_eyepiece_name = st.text_input(
+            translate(
+                "log_eyepiece_name",
+                language,
+            ),
+            key="mission12_eyepiece_name",
+        )
+
+    with mission12_equipment_name_columns[2]:
+        mission12_camera_name = st.text_input(
+            translate(
+                "log_camera_name",
+                language,
+            ),
+            key="mission12_camera_name",
+        )
+
+    with mission12_equipment_name_columns[3]:
+        mission12_mount_name = st.text_input(
+            translate(
+                "log_mount_name",
+                language,
+            ),
+            key="mission12_mount_name",
+        )
+
+    mission12_equipment_value_columns = st.columns(3)
+
+    with mission12_equipment_value_columns[0]:
+        mission12_aperture = st.number_input(
+            translate(
+                "telescope_aperture",
+                language,
+            ),
+            min_value=0.0,
+            max_value=5000.0,
+            step=1.0,
+            format="%.1f",
+            key="mission12_aperture",
+        )
+
+    with mission12_equipment_value_columns[1]:
+        mission12_focal_length = st.number_input(
+            translate(
+                "telescope_focal_length",
+                language,
+            ),
+            min_value=0.0,
+            max_value=50_000.0,
+            step=10.0,
+            format="%.1f",
+            key="mission12_focal_length",
+        )
+
+    with mission12_equipment_value_columns[2]:
+        mission12_pixel_size = st.number_input(
+            translate("pixel_size_um", language),
+            min_value=0.0,
+            max_value=100.0,
+            step=0.01,
+            format="%.2f",
+            key="mission12_pixel_size",
+        )
+
+    mission12_filters = st.text_input(
+        translate("log_filters", language),
+        key="mission12_filters",
+    )
+
+st.subheader(translate("log_target_entries", language))
+
+mission12_categories = (
+    "galaxy",
+    "nebula",
+    "cluster",
+    "star",
+    "double_star",
+    "solar_system",
+    "moon",
+    "deep_sky",
+    "other",
+)
+
+with st.form(
+    "mission12_add_observation_form",
+    clear_on_submit=True,
+):
+    mission12_target_identity_columns = st.columns(3)
+
+    with mission12_target_identity_columns[0]:
+        mission12_object_key = st.text_input(translate("log_object_key", language))
+
+    with mission12_target_identity_columns[1]:
+        mission12_display_name = st.text_input(translate("log_display_name", language))
+
+    with mission12_target_identity_columns[2]:
+        mission12_category = st.selectbox(
+            translate("log_category", language),
+            options=mission12_categories,
+            format_func=lambda category_key: translate(
+                f"log_category_{category_key}",
+                language,
+            ),
+        )
+
+    mission12_target_time_columns = st.columns(3)
+
+    with mission12_target_time_columns[0]:
+        mission12_observation_date = st.date_input(
+            translate(
+                "log_observation_date",
+                language,
+            ),
+            value=mission12_start_date,
+        )
+
+    with mission12_target_time_columns[1]:
+        mission12_observation_start = st.time_input(
+            translate(
+                "log_observation_start",
+                language,
+            ),
+            value=mission12_start_time,
+        )
+
+    with mission12_target_time_columns[2]:
+        mission12_observation_end = st.time_input(
+            translate(
+                "log_observation_end",
+                language,
+            ),
+            value=(
+                dt.datetime.combine(
+                    mission12_start_date,
+                    mission12_start_time,
+                )
+                + dt.timedelta(minutes=30)
+            ).time(),
+        )
+
+    mission12_target_result_columns = st.columns(4)
+
+    with mission12_target_result_columns[0]:
+        mission12_outcome = st.selectbox(
+            translate("log_outcome", language),
+            options=(
+                "observed",
+                "partial",
+                "not_observed",
+            ),
+            format_func=lambda outcome_key: translate(
+                f"log_outcome_{outcome_key}",
+                language,
+            ),
+        )
+
+    with mission12_target_result_columns[1]:
+        mission12_quality = st.slider(
+            translate("log_quality", language),
+            min_value=1,
+            max_value=5,
+            value=3,
+        )
+
+    with mission12_target_result_columns[2]:
+        mission12_altitude = st.number_input(
+            translate("log_altitude", language),
+            min_value=-90.0,
+            max_value=90.0,
+            value=45.0,
+            step=1.0,
+            format="%.1f",
+        )
+
+    with mission12_target_result_columns[3]:
+        mission12_exposure = st.number_input(
+            translate("log_exposure", language),
+            min_value=0.0,
+            max_value=86_400.0,
+            value=0.0,
+            step=1.0,
+            format="%.1f",
+        )
+
+    mission12_frame_columns = st.columns(2)
+
+    with mission12_frame_columns[0]:
+        mission12_frames_captured = st.number_input(
+            translate(
+                "log_frames_captured",
+                language,
+            ),
+            min_value=0,
+            max_value=1_000_000,
+            value=0,
+            step=1,
+        )
+
+    with mission12_frame_columns[1]:
+        mission12_frames_accepted = st.number_input(
+            translate(
+                "log_frames_accepted",
+                language,
+            ),
+            min_value=0,
+            max_value=1_000_000,
+            value=0,
+            step=1,
+        )
+
+    mission12_observation_notes = st.text_area(
+        translate(
+            "log_observation_notes",
+            language,
+        )
+    )
+
+    mission12_add_observation = st.form_submit_button(
+        translate(
+            "log_add_observation",
+            language,
+        )
+    )
+
+if mission12_add_observation:
+    try:
+        mission12_log_timezone = get_observation_log_timezone(mission12_timezone)
+
+        mission12_target_start = dt.datetime.combine(
+            mission12_observation_date,
+            mission12_observation_start,
+            tzinfo=mission12_log_timezone,
+        )
+
+        mission12_target_end = dt.datetime.combine(
+            mission12_observation_date,
+            mission12_observation_end,
+            tzinfo=mission12_log_timezone,
+        )
+
+        if mission12_target_end <= mission12_target_start:
+            mission12_target_end += dt.timedelta(days=1)
+
+        mission12_counter = st.session_state["mission12_observation_counter"] + 1
+
+        mission12_existing_ids = {
+            observation.observation_id for observation in st.session_state["mission12_observations"]
+        }
+
+        mission12_observation_id = f"obs-{mission12_counter:03d}"
+
+        while mission12_observation_id in mission12_existing_ids:
+            mission12_counter += 1
+            mission12_observation_id = f"obs-{mission12_counter:03d}"
+
+        mission12_new_observation = TargetObservation(
+            observation_id=(mission12_observation_id),
+            object_key=mission12_object_key,
+            display_name=(mission12_display_name),
+            category=mission12_category,
+            started_at_local=(mission12_target_start),
+            ended_at_local=(mission12_target_end),
+            outcome=mission12_outcome,
+            quality_rating=int(mission12_quality),
+            altitude_degrees=float(mission12_altitude),
+            notes=mission12_observation_notes,
+            exposure_seconds=float(mission12_exposure),
+            frames_captured=int(mission12_frames_captured),
+            frames_accepted=int(mission12_frames_accepted),
+        )
+    except ValueError as error:
+        st.error(f"{translate('log_validation_error', language)}: {error}")
+    else:
+        st.session_state["mission12_observations"].append(mission12_new_observation)
+
+        st.session_state["mission12_observation_counter"] = mission12_counter
+
+        st.session_state["mission12_current_session"] = None
+
+        st.success(
+            translate(
+                "log_observation_added",
+                language,
+            )
+        )
+
+mission12_observations = st.session_state["mission12_observations"]
+
+if mission12_observations:
+    mission12_remove_id = st.selectbox(
+        translate(
+            "log_remove_observation",
+            language,
+        ),
+        options=tuple(observation.observation_id for observation in mission12_observations),
+        format_func=lambda observation_id: next(
+            (
+                f"{observation.display_name} ({observation_id})"
+                for observation in mission12_observations
+                if (observation.observation_id == observation_id)
+            ),
+            observation_id,
+        ),
+        key="mission12_remove_id",
+    )
+
+    mission12_remove_columns = st.columns(2)
+
+    with mission12_remove_columns[0]:
+        mission12_remove_button = st.button(
+            translate(
+                "log_remove_observation",
+                language,
+            ),
+            key="mission12_remove_button",
+            width="stretch",
+        )
+
+    with mission12_remove_columns[1]:
+        mission12_clear_button = st.button(
+            translate(
+                "log_clear_observations",
+                language,
+            ),
+            key="mission12_clear_button",
+            width="stretch",
+        )
+
+    if mission12_remove_button:
+        st.session_state["mission12_observations"] = [
+            observation
+            for observation in mission12_observations
+            if (observation.observation_id != mission12_remove_id)
+        ]
+
+        st.session_state["mission12_current_session"] = None
+
+        st.success(
+            translate(
+                "log_observation_removed",
+                language,
+            )
+        )
+
+    if mission12_clear_button:
+        st.session_state["mission12_observations"] = []
+
+        st.session_state["mission12_current_session"] = None
+
+        st.success(
+            translate(
+                "log_observations_cleared",
+                language,
+            )
+        )
+
+mission12_observations = st.session_state["mission12_observations"]
+
+if mission12_observations:
+    mission12_observation_rows = []
+
+    for mission12_observation in mission12_observations:
+        mission12_category_key = mission12_observation.category
+
+        if mission12_category_key in mission12_categories:
+            mission12_category_name = translate(
+                (f"log_category_{mission12_category_key}"),
+                language,
+            )
+        else:
+            mission12_category_name = mission12_category_key
+
+        mission12_observation_rows.append(
+            {
+                "object": (mission12_observation.display_name),
+                "category": (mission12_category_name),
+                "start": (mission12_observation.started_at_local.strftime("%Y-%m-%d %H:%M")),
+                "end": (mission12_observation.ended_at_local.strftime("%Y-%m-%d %H:%M")),
+                "outcome": translate(
+                    (f"log_outcome_{mission12_observation.outcome}"),
+                    language,
+                ),
+                "quality": (mission12_observation.quality_rating),
+                "altitude": (mission12_observation.altitude_degrees),
+                "exposure": (mission12_observation.exposure_seconds),
+                "captured": (mission12_observation.frames_captured),
+                "accepted": (mission12_observation.frames_accepted),
+                "notes": (mission12_observation.notes),
+            }
+        )
+
+    st.dataframe(
+        mission12_observation_rows,
+        width="stretch",
+        hide_index=True,
+        column_config={
+            "object": translate(
+                "log_display_name",
+                language,
+            ),
+            "category": translate(
+                "log_category",
+                language,
+            ),
+            "start": translate(
+                "log_observation_start",
+                language,
+            ),
+            "end": translate(
+                "log_observation_end",
+                language,
+            ),
+            "outcome": translate(
+                "log_outcome",
+                language,
+            ),
+            "quality": translate(
+                "log_quality",
+                language,
+            ),
+            "altitude": (
+                st.column_config.NumberColumn(
+                    translate(
+                        "log_altitude",
+                        language,
+                    ),
+                    format="%.1f°",
+                )
+            ),
+            "exposure": (
+                st.column_config.NumberColumn(
+                    translate(
+                        "log_exposure",
+                        language,
+                    ),
+                    format="%.1f s",
+                )
+            ),
+            "captured": translate(
+                "log_frames_captured",
+                language,
+            ),
+            "accepted": translate(
+                "log_frames_accepted",
+                language,
+            ),
+            "notes": translate(
+                "log_observation_notes",
+                language,
+            ),
+        },
+    )
+else:
+    st.info(
+        translate(
+            "log_no_observations",
+            language,
+        )
+    )
+
+
+def build_mission12_session() -> ObservationSession:
+    """Build the current logbook session."""
+
+    mission12_log_timezone = get_observation_log_timezone(mission12_timezone)
+
+    mission12_session_start = dt.datetime.combine(
+        mission12_start_date,
+        mission12_start_time,
+        tzinfo=mission12_log_timezone,
+    )
+
+    mission12_session_end = dt.datetime.combine(
+        mission12_end_date,
+        mission12_end_time,
+        tzinfo=mission12_log_timezone,
+    )
+
+    mission12_filter_values = tuple(
+        filter_name.strip() for filter_name in mission12_filters.split(",") if filter_name.strip()
+    )
+
+    mission12_equipment_snapshot = EquipmentSnapshot(
+        telescope_name=(mission12_telescope_name),
+        aperture_mm=(None if mission12_aperture == 0.0 else float(mission12_aperture)),
+        focal_length_mm=(None if mission12_focal_length == 0.0 else float(mission12_focal_length)),
+        eyepiece_name=(mission12_eyepiece_name),
+        camera_name=mission12_camera_name,
+        pixel_size_um=(None if mission12_pixel_size == 0.0 else float(mission12_pixel_size)),
+        mount_name=mission12_mount_name,
+        filters=mission12_filter_values,
+    )
+
+    return ObservationSession(
+        session_id=mission12_session_id,
+        title=mission12_session_title,
+        observer=mission12_observer,
+        location_name=mission12_location,
+        latitude_degrees=float(mission12_latitude),
+        longitude_degrees=float(mission12_longitude),
+        elevation_m=float(mission12_elevation),
+        timezone_name=mission12_timezone,
+        started_at_local=mission12_session_start,
+        ended_at_local=mission12_session_end,
+        mode=mission12_mode,
+        equipment=mission12_equipment_snapshot,
+        observations=tuple(st.session_state["mission12_observations"]),
+        seeing_arcseconds=float(mission12_seeing),
+        transparency_rating=int(mission12_transparency),
+        cloud_cover_percent=float(mission12_cloud_cover),
+        general_notes=mission12_general_notes,
+    )
+
+
+mission12_build_button = st.button(
+    translate("log_build_session", language),
+    type="primary",
+    key="mission12_build_button",
+    width="stretch",
+)
+
+if mission12_build_button:
+    try:
+        mission12_built_session = build_mission12_session()
+    except ValueError as error:
+        st.error(f"{translate('log_validation_error', language)}: {error}")
+    else:
+        st.session_state["mission12_current_session"] = mission12_built_session
+
+        st.success(
+            translate(
+                "log_session_ready",
+                language,
+            )
+        )
+
+st.caption(translate("log_rebuild_note", language))
+
+mission12_current_session = st.session_state.get("mission12_current_session")
+
+if mission12_current_session is not None:
+    mission12_summary = calculate_session_summary(mission12_current_session)
+
+    st.subheader(translate("log_summary", language))
+
+    mission12_summary_columns = st.columns(6)
+
+    mission12_summary_columns[0].metric(
+        translate(
+            "log_session_duration",
+            language,
+        ),
+        (f"{mission12_summary.session_duration_minutes:.1f} min"),
+    )
+
+    mission12_summary_columns[1].metric(
+        translate(
+            "log_observation_count",
+            language,
+        ),
+        mission12_summary.observation_count,
+    )
+
+    mission12_summary_columns[2].metric(
+        translate("log_completion", language),
+        (f"{mission12_summary.weighted_completion_percent:.1f}%"),
+    )
+
+    mission12_summary_columns[3].metric(
+        translate(
+            "log_average_quality",
+            language,
+        ),
+        (f"{mission12_summary.average_quality_rating:.2f}/5"),
+    )
+
+    mission12_summary_columns[4].metric(
+        translate(
+            "log_frame_acceptance",
+            language,
+        ),
+        (f"{mission12_summary.frame_acceptance_percent:.1f}%"),
+    )
+
+    mission12_summary_columns[5].metric(
+        translate("log_integration", language),
+        (f"{mission12_summary.accepted_integration_seconds:.1f} s"),
+    )
+
+    mission12_mode_names = {
+        mode_key: translate(
+            f"log_mode_{mode_key}",
+            language,
+        )
+        for mode_key in (
+            "visual",
+            "imaging",
+            "mixed",
+        )
+    }
+
+    mission12_outcome_names = {
+        outcome_key: translate(
+            f"log_outcome_{outcome_key}",
+            language,
+        )
+        for outcome_key in (
+            "observed",
+            "partial",
+            "not_observed",
+        )
+    }
+
+    mission12_category_names = {
+        category_key: translate(
+            f"log_category_{category_key}",
+            language,
+        )
+        for category_key in mission12_categories
+    }
+
+    mission12_report_labels = ObservationReportLabels(
+        title=translate(
+            "log_report_title",
+            language,
+        ),
+        session_details=translate(
+            "log_report_session_details",
+            language,
+        ),
+        conditions=translate(
+            "log_conditions",
+            language,
+        ),
+        equipment=translate(
+            "log_equipment",
+            language,
+        ),
+        observations=translate(
+            "log_report_observations",
+            language,
+        ),
+        summary=translate(
+            "log_summary",
+            language,
+        ),
+        session_id=translate(
+            "log_session_id",
+            language,
+        ),
+        observer=translate(
+            "log_observer",
+            language,
+        ),
+        location=translate(
+            "log_location",
+            language,
+        ),
+        mode=translate(
+            "log_mode",
+            language,
+        ),
+        start=translate(
+            "log_start_time",
+            language,
+        ),
+        end=translate(
+            "log_end_time",
+            language,
+        ),
+        session_duration=translate(
+            "log_session_duration",
+            language,
+        ),
+        seeing=translate(
+            "seeing_arcseconds",
+            language,
+        ),
+        transparency=translate(
+            "log_transparency",
+            language,
+        ),
+        cloud_cover=translate(
+            "cloud_cover",
+            language,
+        ),
+        telescope=translate(
+            "log_telescope_name",
+            language,
+        ),
+        aperture=translate(
+            "telescope_aperture",
+            language,
+        ),
+        focal_length=translate(
+            "telescope_focal_length",
+            language,
+        ),
+        eyepiece=translate(
+            "log_eyepiece_name",
+            language,
+        ),
+        camera=translate(
+            "log_camera_name",
+            language,
+        ),
+        pixel_size=translate(
+            "pixel_size_um",
+            language,
+        ),
+        mount=translate(
+            "log_mount_name",
+            language,
+        ),
+        filters=translate(
+            "log_filters",
+            language,
+        ),
+        object_name=translate(
+            "log_display_name",
+            language,
+        ),
+        category=translate(
+            "log_category",
+            language,
+        ),
+        observation_time=translate(
+            "log_observation_start",
+            language,
+        ),
+        duration_minutes=translate(
+            "log_duration_minutes",
+            language,
+        ),
+        outcome=translate(
+            "log_outcome",
+            language,
+        ),
+        quality=translate(
+            "log_quality",
+            language,
+        ),
+        altitude=translate(
+            "log_altitude",
+            language,
+        ),
+        exposure=translate(
+            "log_exposure",
+            language,
+        ),
+        frames=(
+            f"{translate('log_frames_accepted', language)}"
+            "/"
+            f"{translate('log_frames_captured', language)}"
+        ),
+        accepted_integration=translate(
+            "log_integration",
+            language,
+        ),
+        notes=translate(
+            "log_observation_notes",
+            language,
+        ),
+        no_observations=translate(
+            "log_report_no_observations",
+            language,
+        ),
+        observation_count=translate(
+            "log_observation_count",
+            language,
+        ),
+        completion=translate(
+            "log_completion",
+            language,
+        ),
+        average_quality=translate(
+            "log_average_quality",
+            language,
+        ),
+        target_time=translate(
+            "log_target_time",
+            language,
+        ),
+        frame_acceptance=translate(
+            "log_frame_acceptance",
+            language,
+        ),
+        not_recorded=translate(
+            "log_not_recorded",
+            language,
+        ),
+    )
+
+    mission12_json_text = session_to_json(mission12_current_session)
+
+    mission12_csv_text = session_observations_to_csv(mission12_current_session)
+
+    mission12_markdown_report = create_markdown_report(
+        mission12_current_session,
+        labels=mission12_report_labels,
+        mode_names=mission12_mode_names,
+        outcome_names=(mission12_outcome_names),
+        category_names=(mission12_category_names),
+    )
+
+    mission12_safe_filename = "".join(
+        character if (character.isalnum() or character in {"-", "_"}) else "_"
+        for character in (mission12_current_session.session_id)
+    ).strip("_")
+
+    if not mission12_safe_filename:
+        mission12_safe_filename = "observation_session"
+
+    st.subheader(translate("log_exports", language))
+
+    mission12_download_columns = st.columns(3)
+
+    with mission12_download_columns[0]:
+        st.download_button(
+            translate(
+                "log_download_json",
+                language,
+            ),
+            data=mission12_json_text,
+            file_name=(f"{mission12_safe_filename}.json"),
+            mime="application/json",
+            key="mission12_download_json",
+            width="stretch",
+        )
+
+    with mission12_download_columns[1]:
+        st.download_button(
+            translate(
+                "log_download_csv",
+                language,
+            ),
+            data=mission12_csv_text,
+            file_name=(f"{mission12_safe_filename}.csv"),
+            mime="text/csv",
+            key="mission12_download_csv",
+            width="stretch",
+        )
+
+    with mission12_download_columns[2]:
+        st.download_button(
+            translate(
+                "log_download_markdown",
+                language,
+            ),
+            data=mission12_markdown_report,
+            file_name=(f"{mission12_safe_filename}.md"),
+            mime="text/markdown",
+            key="mission12_download_markdown",
+            width="stretch",
+        )
+
+    with st.expander(
+        translate(
+            "log_report_preview",
+            language,
+        ),
+        expanded=True,
+    ):
+        st.markdown(mission12_markdown_report)
 
 
 st.markdown(f"## {translate('future_features', language)}")
