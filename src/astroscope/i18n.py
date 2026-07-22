@@ -7,6 +7,7 @@ from astroscope.planner_messages import PLANNER_TRANSLATIONS
 from astroscope.schedule_messages import SCHEDULE_TRANSLATIONS
 from astroscope.sky_map_messages import SKY_MAP_TRANSLATIONS
 from astroscope.solar_system_messages import SOLAR_SYSTEM_TRANSLATIONS
+from astroscope.telescope_messages import TELESCOPE_TRANSLATIONS
 from astroscope.visibility_messages import VISIBILITY_TRANSLATIONS
 from astroscope.weather_messages import WEATHER_TRANSLATIONS
 
@@ -231,6 +232,9 @@ TRANSLATIONS.update(SCHEDULE_TRANSLATIONS)
 
 
 TRANSLATIONS.update(WEATHER_TRANSLATIONS)
+
+
+TRANSLATIONS.update(TELESCOPE_TRANSLATIONS)
 
 
 def translate(key: str, language: str) -> str:

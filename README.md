@@ -13,6 +13,10 @@ An intelligent multilingual observatory planner and interactive planetarium.
 
 ## Implemented features
 
+- Telescope and eyepiece simulator
+- Barlow and focal-reducer calculations
+- Interactive angular field-of-view visualizer
+
 - Weather-aware observing conditions
 - Hourly cloud, rain, wind, and visibility forecast
 - Observing-weather score and dew-risk warnings
@@ -59,6 +63,8 @@ Run `make run`.
 Run `make checks`.
 
 ## Documentation
+
+- [Telescope and eyepiece simulator](docs/en/telescope_simulator.md)
 
 - [Weather-aware observing conditions](docs/en/weather_conditions.md)
 
