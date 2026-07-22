@@ -15,6 +15,7 @@ from astroscope.transit_schedule import (
 )
 from astroscope.transit_schedule_dashboard import (
     TransitDashboardTargetInput,
+    build_dashboard_exports,
     build_schedule_request,
     build_schedule_target,
     ranked_schedule_rows,
@@ -213,3 +214,36 @@ def test_ranked_schedule_rows_contains_display_values() -> None:
     assert rows[0]["Midpoint altitude (deg)"] == 65.0
     assert rows[0]["Moon separation (deg)"] == 110.0
     assert rows[0]["Timing uncertainty (h)"] == pytest.approx(0.048)
+
+
+def test_build_dashboard_exports_creates_three_formats() -> None:
+    ranked = make_ranked_transit()
+
+    result = TransitScheduleResult(
+        site=ObserverSite(
+            name="Osaka Rooftop",
+            latitude_degrees=34.6937,
+            longitude_degrees=135.5023,
+            elevation_meters=15.0,
+        ),
+        request=TransitScheduleRequest(
+            start_jd=2_460_000.0,
+            end_jd=2_460_001.0,
+        ),
+        target_count=1,
+        predicted_event_count=1,
+        ranked_transits=(ranked,),
+        targets_without_events=(),
+    )
+
+    exports = build_dashboard_exports(result)
+
+    assert exports.csv_filename.startswith("astroscope-transits-osaka-rooftop-")
+    assert exports.csv_filename.endswith(".csv")
+    assert exports.json_filename.endswith(".json")
+    assert exports.calendar_filename.endswith(".ics")
+
+    assert exports.csv_data.startswith("rank,planet_name")
+    assert '"planet_name": "Dashboard b"' in exports.json_data
+    assert exports.calendar_data.startswith("BEGIN:VCALENDAR\r\n")
+    assert "SUMMARY:Transit: Dashboard b" in exports.calendar_data

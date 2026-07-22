@@ -15,6 +15,11 @@ from astroscope.transit_schedule import (
     TransitScheduleTarget,
     generate_transit_schedule,
 )
+from astroscope.transit_schedule_exports import (
+    transit_schedule_to_csv,
+    transit_schedule_to_ics,
+    transit_schedule_to_json,
+)
 from astroscope.transit_schedule_visuals import (
     create_schedule_timeline_figure,
     create_transit_altitude_figure,
@@ -48,6 +53,18 @@ class TransitDashboardTargetInput:
     reference_epoch_uncertainty_days: float
     transit_depth_ppm: float | None
     host_magnitude: float | None
+
+
+@dataclass(frozen=True, slots=True)
+class TransitDashboardExportBundle:
+    """Downloadable representations of one transit schedule."""
+
+    csv_data: str
+    json_data: str
+    calendar_data: str
+    csv_filename: str
+    json_filename: str
+    calendar_filename: str
 
 
 def utc_datetime_to_julian_date(
@@ -178,6 +195,43 @@ def ranked_schedule_rows(
         )
 
     return tuple(rows)
+
+
+def _safe_filename_component(
+    value: str,
+) -> str:
+    """Convert text into a compact filename component."""
+
+    normalized = "".join(
+        character.casefold() if character.isalnum() else "-" for character in value.strip()
+    )
+
+    compact = "-".join(component for component in normalized.split("-") if component)
+
+    return compact or "observatory"
+
+
+def build_dashboard_exports(
+    result: TransitScheduleResult,
+) -> TransitDashboardExportBundle:
+    """Build downloadable schedule data and deterministic filenames."""
+
+    site_component = _safe_filename_component(result.site.name)
+
+    start_component = julian_date_to_utc_datetime(result.request.start_jd).strftime("%Y%m%d")
+
+    end_component = julian_date_to_utc_datetime(result.request.end_jd).strftime("%Y%m%d")
+
+    filename_stem = f"astroscope-transits-{site_component}-{start_component}-{end_component}"
+
+    return TransitDashboardExportBundle(
+        csv_data=transit_schedule_to_csv(result),
+        json_data=transit_schedule_to_json(result),
+        calendar_data=transit_schedule_to_ics(result),
+        csv_filename=f"{filename_stem}.csv",
+        json_filename=f"{filename_stem}.json",
+        calendar_filename=f"{filename_stem}.ics",
+    )
 
 
 def _render_target_inputs(
@@ -314,6 +368,45 @@ def _render_target_inputs(
     return tuple(target_inputs)
 
 
+def _render_schedule_downloads(
+    result: TransitScheduleResult,
+) -> None:
+    """Render CSV, JSON, and iCalendar download controls."""
+
+    exports = build_dashboard_exports(result)
+
+    st.subheader("Download schedule")
+    st.caption(
+        "Export the ranked observation plan for analysis, automation, or calendar scheduling."
+    )
+
+    download_columns = st.columns(3)
+
+    download_columns[0].download_button(
+        label="Download CSV",
+        data=exports.csv_data,
+        file_name=exports.csv_filename,
+        mime="text/csv",
+        key="transit_schedule_download_csv",
+    )
+
+    download_columns[1].download_button(
+        label="Download JSON",
+        data=exports.json_data,
+        file_name=exports.json_filename,
+        mime="application/json",
+        key="transit_schedule_download_json",
+    )
+
+    download_columns[2].download_button(
+        label="Download calendar",
+        data=exports.calendar_data,
+        file_name=exports.calendar_filename,
+        mime="text/calendar",
+        key="transit_schedule_download_ics",
+    )
+
+
 def _render_schedule_result(
     result: TransitScheduleResult,
 ) -> None:
@@ -363,6 +456,8 @@ def _render_schedule_result(
         use_container_width=True,
         hide_index=True,
     )
+
+    _render_schedule_downloads(result)
 
     selected_index = st.selectbox(
         "Inspect a ranked event",
