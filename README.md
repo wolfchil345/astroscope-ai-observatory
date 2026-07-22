@@ -98,3 +98,26 @@ Run `make checks`.
 - [Observer location and astronomical time](docs/en/observer_time.md)
 - [Equatorial coordinates](docs/en/equatorial_coordinates.md)
 - [Horizontal coordinates and visibility](docs/en/horizontal_visibility.md)
+
+<!-- mission-14-exoplanet-explorer -->
+## Mission 14: NASA Exoplanet Transit and Temperate-World Explorer
+
+AstroScope can query confirmed-planet data from the NASA Exoplanet Archive and turn the returned catalogue into an interactive scientific dashboard.
+
+### Features
+
+- Filter planets by discovery method, transit status, distance, radius, and equilibrium temperature
+- Compare planetary populations using radius-period, mass-radius, and temperature-insolation diagrams
+- Inspect orbital, planetary, stellar, and derived transit properties
+- Simulate an educational trapezoidal transit light curve
+- Screen for temperate terrestrial candidates
+- Download the returned catalogue as CSV
+- Inspect the generated ADQL query
+
+### Scientific caution
+
+The temperate classification is a screening tool, not evidence that a planet is habitable. Transit probability, density, and climate-related values use simplified calculations or reported archive parameters. The transit simulator does not include limb darkening, stellar activity, atmospheric effects, or instrumental noise.
+
+### Data source
+
+Catalogue data are retrieved from the NASA Exoplanet Archive `pscomppars` table through its TAP service.

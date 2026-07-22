@@ -46,3 +46,12 @@ AstroScope AI is an intelligent observatory planner and interactive planetarium.
 - Interactive sky maps
 - Telescope field-of-view simulation
 - Astronomical catalogue exploration
+
+<!-- mission-14-exoplanet-explorer -->
+## Mission 14: Exoplanet Transit Explorer
+
+Mission 14 connects AstroScope to the NASA Exoplanet Archive.
+
+The dashboard provides catalogue filters, population diagrams, a planet inspector, CSV export, ADQL inspection, and an educational transit simulator.
+
+The temperate terrestrial label is only a screening classification. It must not be interpreted as confirmation that a planet is habitable.
