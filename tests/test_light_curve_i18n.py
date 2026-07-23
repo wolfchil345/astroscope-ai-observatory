@@ -151,3 +151,19 @@ def test_unicode_translations_remain_unescaped() -> None:
     assert "天文" in japanese
     assert "천문" in korean
     assert "ดาราศาสตร์" in thai
+
+
+@pytest.mark.parametrize(
+    ("language", "expected"),
+    [
+        ("en", "Normalize data"),
+        ("ja", "データを正規化"),
+        ("ko", "데이터 정규화"),
+        ("th", "ปรับข้อมูลให้เป็นมาตรฐาน"),
+    ],
+)
+def test_normalize_data_label_is_translated(
+    language: str,
+    expected: str,
+) -> None:
+    assert get_light_curve_translations(language).normalize_data == expected
