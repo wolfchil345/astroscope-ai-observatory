@@ -16,6 +16,7 @@ from astroscope.light_curve_io import (
     detect_light_curve_csv_columns,
     import_light_curve_csv,
 )
+from astroscope.light_curve_processing import normalize_light_curve
 from astroscope.light_curve_visuals import build_light_curve_figure
 
 
@@ -182,6 +183,24 @@ def render_light_curve_dashboard(
         st.success(translations.analysis_complete_message)
 
     st.subheader(translations.processing_section)
+    if uploaded_file is not None:
+        normalize_data = st.checkbox(
+            translations.normalize_data,
+            value=False,
+            key="light_curve_normalize_data",
+        )
+        if normalize_data:
+            normalized_result = normalize_light_curve(import_result.light_curve)
+            normalized_figure = build_light_curve_figure(
+                normalized_result.light_curve,
+                labels=build_light_curve_visual_labels(language),
+            )
+            st.plotly_chart(
+                normalized_figure,
+                width="stretch",
+                key="light_curve_normalized_chart",
+            )
+
     st.subheader(translations.period_search_section)
     st.subheader(translations.transit_search_section)
     st.subheader(translations.exports_section)
