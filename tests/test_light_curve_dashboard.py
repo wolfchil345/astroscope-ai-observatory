@@ -16,6 +16,16 @@ from astroscope.light_curve_dashboard import (
 )
 
 
+@dataclass(frozen=True, slots=True)
+class FakeUploadedFile:
+    """Small uploaded-file replacement used by dashboard tests."""
+
+    text: str
+
+    def getvalue(self) -> bytes:
+        return self.text.encode("utf-8")
+
+
 @dataclass
 class FakeStreamlit:
     """Small Streamlit replacement used by dashboard tests."""
@@ -32,6 +42,7 @@ class FakeStreamlit:
     uploader_calls: list[dict[str, object]] = field(default_factory=list)
     text_input_calls: list[dict[str, object]] = field(default_factory=list)
     selectbox_calls: list[dict[str, object]] = field(default_factory=list)
+    plotly_chart_calls: list[dict[str, object]] = field(default_factory=list)
 
     def title(
         self,
@@ -68,6 +79,21 @@ class FakeStreamlit:
         text: str,
     ) -> None:
         self.success_messages.append(text)
+
+    def plotly_chart(
+        self,
+        figure: object,
+        *,
+        width: str,
+        key: str,
+    ) -> None:
+        self.plotly_chart_calls.append(
+            {
+                "figure": figure,
+                "width": width,
+                "key": key,
+            }
+        )
 
     def file_uploader(
         self,
@@ -259,7 +285,9 @@ def test_dashboard_shows_no_data_message_without_upload(
 def test_dashboard_detects_uploaded_file(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    uploaded_file = object()
+    uploaded_file = FakeUploadedFile(
+        "time,flux\n0,1.0\n1,0.9\n2,1.1\n"
+    )
     fake_streamlit = FakeStreamlit(
         uploaded_file=uploaded_file,
     )
@@ -315,3 +343,27 @@ def test_embedded_dashboard_uses_section_header(
     assert fake_streamlit.titles == []
     assert fake_streamlit.headers == ["Astronomical Light Curve Laboratory"]
     assert state.photometry_kind == "flux"
+
+
+def test_dashboard_renders_uploaded_light_curve_chart(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    uploaded_file = FakeUploadedFile(
+        "time,flux,uncertainty\n"
+        "0,1.0,0.01\n"
+        "1,0.9,0.01\n"
+        "2,1.1,0.01\n"
+    )
+    fake_streamlit = FakeStreamlit(uploaded_file=uploaded_file)
+
+    monkeypatch.setattr(
+        light_curve_dashboard,
+        "st",
+        fake_streamlit,
+    )
+
+    render_light_curve_dashboard("en")
+
+    assert len(fake_streamlit.plotly_chart_calls) == 1
+    assert fake_streamlit.plotly_chart_calls[0]["width"] == "stretch"
+    assert fake_streamlit.plotly_chart_calls[0]["key"] == "light_curve_raw_chart"

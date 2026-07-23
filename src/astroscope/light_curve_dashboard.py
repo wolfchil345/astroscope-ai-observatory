@@ -6,10 +6,17 @@ from dataclasses import dataclass
 
 import streamlit as st
 
+from astroscope.light_curve import LightCurveMetadata
 from astroscope.light_curve_i18n import (
     LightCurveTranslations,
+    build_light_curve_visual_labels,
     get_light_curve_translations,
 )
+from astroscope.light_curve_io import (
+    detect_light_curve_csv_columns,
+    import_light_curve_csv,
+)
+from astroscope.light_curve_visuals import build_light_curve_figure
 
 
 class LightCurveDashboardError(ValueError):
@@ -149,6 +156,29 @@ def render_light_curve_dashboard(
     if uploaded_file is None:
         st.info(translations.no_data_message)
     else:
+        raw_csv = uploaded_file.getvalue()
+        csv_text = raw_csv.decode("utf-8")
+        detection = detect_light_curve_csv_columns(csv_text)
+        metadata = LightCurveMetadata(
+            object_name=object_name.strip() or translations.unknown_target,
+            photometry_kind=detection.photometry_kind,
+            time_standard=detection.suggested_time_standard or "BJD_TDB",
+        )
+        import_result = import_light_curve_csv(
+            csv_text=csv_text,
+            metadata=metadata,
+            columns=detection.columns,
+            duplicate_policy="keep-first",
+        )
+        figure = build_light_curve_figure(
+            import_result.light_curve,
+            labels=build_light_curve_visual_labels(language),
+        )
+        st.plotly_chart(
+            figure,
+            width="stretch",
+            key="light_curve_raw_chart",
+        )
         st.success(translations.analysis_complete_message)
 
     st.subheader(translations.processing_section)
