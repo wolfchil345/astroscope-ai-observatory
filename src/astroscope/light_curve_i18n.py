@@ -26,6 +26,7 @@ class LightCurveTranslations:
     upload_label: str
     upload_help: str
     object_name_label: str
+    unknown_target: str
     photometry_kind_label: str
     flux_option: str
     magnitude_option: str
@@ -77,6 +78,7 @@ _TRANSLATIONS: Final[dict[str, LightCurveTranslations]] = {
         upload_label="Upload light-curve data",
         upload_help=("CSV or TSV containing time, value, and optional uncertainty columns."),
         object_name_label="Object name",
+        unknown_target="Unknown target",
         photometry_kind_label="Photometry type",
         flux_option="Flux",
         magnitude_option="Magnitude",
@@ -118,6 +120,7 @@ _TRANSLATIONS: Final[dict[str, LightCurveTranslations]] = {
         upload_label="ライトカーブデータをアップロード",
         upload_help=("時刻、測定値、任意の不確かさ列を含むCSVまたはTSV。"),
         object_name_label="天体名",
+        unknown_target="不明な天体",
         photometry_kind_label="測光量",
         flux_option="フラックス",
         magnitude_option="等級",
@@ -159,6 +162,7 @@ _TRANSLATIONS: Final[dict[str, LightCurveTranslations]] = {
         upload_label="광도곡선 데이터 업로드",
         upload_help=("시간, 측정값, 선택적 불확도 열이 포함된 CSV 또는 TSV 파일입니다."),
         object_name_label="천체 이름",
+        unknown_target="알 수 없는 천체",
         photometry_kind_label="측광 유형",
         flux_option="플럭스",
         magnitude_option="등급",
@@ -200,6 +204,7 @@ _TRANSLATIONS: Final[dict[str, LightCurveTranslations]] = {
         upload_label="อัปโหลดข้อมูลกราฟแสง",
         upload_help=("ไฟล์ CSV หรือ TSV ที่มีคอลัมน์เวลา ค่าที่วัด และค่าความไม่แน่นอนถ้ามี"),
         object_name_label="ชื่อวัตถุท้องฟ้า",
+        unknown_target="วัตถุท้องฟ้าที่ไม่ทราบชื่อ",
         photometry_kind_label="ประเภทโฟโตเมทรี",
         flux_option="ฟลักซ์",
         magnitude_option="โชติมาตร",

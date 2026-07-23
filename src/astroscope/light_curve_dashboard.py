@@ -128,8 +128,8 @@ def render_light_curve_dashboard(
 
     object_name = st.text_input(
         translations.object_name_label,
-        value="Unknown target",
-        key="light_curve_object_name",
+        value=translations.unknown_target,
+        key=f"light_curve_object_name_{language}",
     )
 
     translated_kind = st.selectbox(

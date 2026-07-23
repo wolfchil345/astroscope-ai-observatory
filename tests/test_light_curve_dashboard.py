@@ -292,7 +292,7 @@ def test_dashboard_uses_stable_widget_keys(
     render_light_curve_dashboard("en")
 
     assert fake_streamlit.uploader_calls[0]["key"] == "light_curve_upload"
-    assert fake_streamlit.text_input_calls[0]["key"] == "light_curve_object_name"
+    assert fake_streamlit.text_input_calls[0]["key"] == "light_curve_object_name_en"
     assert fake_streamlit.selectbox_calls[0]["key"] == "light_curve_photometry_kind"
 
 
