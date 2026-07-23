@@ -100,13 +100,19 @@ def translated_photometry_label(
 
 def render_light_curve_dashboard(
     language: str,
+    *,
+    embedded: bool = False,
 ) -> LightCurveDashboardState:
     """Render the multilingual light-curve laboratory shell."""
 
     copy = build_light_curve_dashboard_copy(language)
     translations = copy.translations
 
-    st.title(translations.laboratory_title)
+    if embedded:
+        st.header(translations.laboratory_title)
+    else:
+        st.title(translations.laboratory_title)
+
     st.caption(translations.laboratory_caption)
 
     uploaded_file = st.file_uploader(

@@ -25,6 +25,7 @@ class FakeStreamlit:
     select_index: int = 0
     titles: list[str] = field(default_factory=list)
     captions: list[str] = field(default_factory=list)
+    headers: list[str] = field(default_factory=list)
     subheaders: list[str] = field(default_factory=list)
     info_messages: list[str] = field(default_factory=list)
     success_messages: list[str] = field(default_factory=list)
@@ -37,6 +38,12 @@ class FakeStreamlit:
         text: str,
     ) -> None:
         self.titles.append(text)
+
+    def header(
+        self,
+        text: str,
+    ) -> None:
+        self.headers.append(text)
 
     def caption(
         self,
@@ -287,3 +294,45 @@ def test_dashboard_uses_stable_widget_keys(
     assert fake_streamlit.uploader_calls[0]["key"] == "light_curve_upload"
     assert fake_streamlit.text_input_calls[0]["key"] == "light_curve_object_name"
     assert fake_streamlit.selectbox_calls[0]["key"] == "light_curve_photometry_kind"
+
+
+def test_embedded_dashboard_uses_section_header(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    fake_streamlit = FakeStreamlit()
+
+    monkeypatch.setattr(
+        light_curve_dashboard,
+        "st",
+        fake_streamlit,
+    )
+
+    state = render_light_curve_dashboard(
+        "en",
+        embedded=True,
+    )
+
+    assert fake_streamlit.titles == []
+    assert fake_streamlit.headers == ["Astronomical Light Curve Laboratory"]
+    assert state.photometry_kind == "flux"
+
+
+def test_embedded_dashboard_uses_section_header(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    fake_streamlit = FakeStreamlit()
+
+    monkeypatch.setattr(
+        light_curve_dashboard,
+        "st",
+        fake_streamlit,
+    )
+
+    state = render_light_curve_dashboard(
+        "en",
+        embedded=True,
+    )
+
+    assert fake_streamlit.titles == []
+    assert fake_streamlit.headers == ["Astronomical Light Curve Laboratory"]
+    assert state.photometry_kind == "flux"
