@@ -315,24 +315,3 @@ def test_embedded_dashboard_uses_section_header(
     assert fake_streamlit.titles == []
     assert fake_streamlit.headers == ["Astronomical Light Curve Laboratory"]
     assert state.photometry_kind == "flux"
-
-
-def test_embedded_dashboard_uses_section_header(
-    monkeypatch: pytest.MonkeyPatch,
-) -> None:
-    fake_streamlit = FakeStreamlit()
-
-    monkeypatch.setattr(
-        light_curve_dashboard,
-        "st",
-        fake_streamlit,
-    )
-
-    state = render_light_curve_dashboard(
-        "en",
-        embedded=True,
-    )
-
-    assert fake_streamlit.titles == []
-    assert fake_streamlit.headers == ["Astronomical Light Curve Laboratory"]
-    assert state.photometry_kind == "flux"
