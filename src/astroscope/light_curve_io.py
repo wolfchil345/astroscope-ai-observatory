@@ -121,6 +121,10 @@ def import_light_curve_csv(
         raise LightCurveIOError("CSV input must not be empty.")
 
     reader = csv.DictReader(StringIO(csv_text))
+
+    if reader.fieldnames is not None:
+        reader.fieldnames = [fieldname.strip() for fieldname in reader.fieldnames]
+
     _validate_columns(
         fieldnames=reader.fieldnames,
         columns=columns,

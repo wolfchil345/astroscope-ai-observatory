@@ -135,3 +135,18 @@ def test_column_mapping_requires_distinct_columns() -> None:
             time="flux",
             value="flux",
         )
+
+
+def test_import_csv_accepts_padded_header_names() -> None:
+    result = import_light_curve_csv(
+        csv_text=(
+            "bjd   , flux   , flux_error\n"
+            "2460000.0,1.00,0.01\n"
+            "2460001.0,0.98,0.02\n"
+            "2460002.0,1.01,0.01\n"
+        ),
+        metadata=make_metadata(),
+        columns=make_columns(),
+    )
+
+    assert result.imported_rows == 3
