@@ -23,14 +23,19 @@ from astroscope.light_curve_i18n import (
 )
 from astroscope.light_curve_io import (
     detect_light_curve_csv_columns,
+    export_light_curve_csv,
+    export_light_curve_json,
     import_light_curve_csv,
 )
 from astroscope.light_curve_period import (
     LightCurvePeriodError,
+    LombScargleResult,
     analyze_lomb_scargle,
 )
 from astroscope.light_curve_phase import (
     LightCurvePhaseError,
+    PhaseBinningResult,
+    PhaseFoldResult,
     bin_phase_fold,
     fold_light_curve,
 )
@@ -43,6 +48,7 @@ from astroscope.light_curve_transit_diagnostics import (
     diagnose_transit_candidate,
 )
 from astroscope.light_curve_transit_search import (
+    BoxLeastSquaresSearchResult,
     LightCurveTransitSearchError,
     search_box_least_squares,
 )
@@ -351,6 +357,70 @@ def render_light_curve_dashboard(
                 key=processed_chart_key,
             )
 
+    period_result: LombScargleResult | None = None
+    phase_fold: PhaseFoldResult | None = None
+    phase_binning: PhaseBinningResult | None = None
+    transit_result: BoxLeastSquaresSearchResult | None = None
+
+    if uploaded_file is not None:
+        stored_curve = st.session_state.get("light_curve_analysis_curve")
+
+        if stored_curve != processed_curve:
+            st.session_state["light_curve_analysis_curve"] = processed_curve
+            st.session_state.pop(
+                "light_curve_period_result",
+                None,
+            )
+            st.session_state.pop(
+                "light_curve_phase_fold",
+                None,
+            )
+            st.session_state.pop(
+                "light_curve_phase_binning",
+                None,
+            )
+            st.session_state.pop(
+                "light_curve_phase_fold",
+                None,
+            )
+            st.session_state.pop(
+                "light_curve_phase_binning",
+                None,
+            )
+            st.session_state.pop(
+                "light_curve_transit_result",
+                None,
+            )
+
+        stored_period_result = st.session_state.get("light_curve_period_result")
+        stored_phase_fold = st.session_state.get("light_curve_phase_fold")
+        stored_phase_binning = st.session_state.get("light_curve_phase_binning")
+        stored_transit_result = st.session_state.get("light_curve_transit_result")
+
+        if isinstance(
+            stored_period_result,
+            LombScargleResult,
+        ):
+            period_result = stored_period_result
+
+        if isinstance(
+            stored_phase_fold,
+            PhaseFoldResult,
+        ):
+            phase_fold = stored_phase_fold
+
+        if isinstance(
+            stored_phase_binning,
+            PhaseBinningResult,
+        ):
+            phase_binning = stored_phase_binning
+
+        if isinstance(
+            stored_transit_result,
+            BoxLeastSquaresSearchResult,
+        ):
+            transit_result = stored_transit_result
+
     st.subheader(translations.period_search_section)
 
     if uploaded_file is not None and processed_curve.observation_count < 5:
@@ -398,6 +468,14 @@ def render_light_curve_dashboard(
         )
 
         if run_period_search:
+            period_result = None
+            phase_fold = None
+            phase_binning = None
+            st.session_state.pop(
+                "light_curve_period_result",
+                None,
+            )
+
             try:
                 period_result = analyze_lomb_scargle(
                     processed_curve,
@@ -418,6 +496,10 @@ def render_light_curve_dashboard(
             ) as error:
                 st.error(str(error))
             else:
+                st.session_state["light_curve_period_result"] = period_result
+                st.session_state["light_curve_phase_fold"] = phase_fold
+                st.session_state["light_curve_phase_binning"] = phase_binning
+
                 st.metric(
                     translations.best_period_label,
                     f"{period_result.best_period:.6g}",
@@ -499,6 +581,12 @@ def render_light_curve_dashboard(
         )
 
         if run_transit_search:
+            transit_result = None
+            st.session_state.pop(
+                "light_curve_transit_result",
+                None,
+            )
+
             try:
                 transit_result = search_box_least_squares(
                     processed_curve,
@@ -517,6 +605,8 @@ def render_light_curve_dashboard(
             ) as error:
                 st.error(str(error))
             else:
+                st.session_state["light_curve_transit_result"] = transit_result
+
                 best_transit = transit_result.best_candidate
 
                 st.metric(
@@ -578,6 +668,28 @@ def render_light_curve_dashboard(
                 )
 
     st.subheader(translations.exports_section)
+
+    if uploaded_file is not None:
+        st.download_button(
+            translations.download_csv,
+            data=export_light_curve_csv(processed_curve),
+            file_name="astroscope_light_curve.csv",
+            mime="text/csv",
+            key="light_curve_download_csv",
+        )
+        st.download_button(
+            translations.download_json,
+            data=export_light_curve_json(
+                processed_curve,
+                period_result=period_result,
+                phase_fold=phase_fold,
+                phase_binning=phase_binning,
+                transit_result=transit_result,
+            ),
+            file_name="astroscope_light_curve_report.json",
+            mime="application/json",
+            key="light_curve_download_json",
+        )
 
     return LightCurveDashboardState(
         uploaded_file=uploaded_file,
