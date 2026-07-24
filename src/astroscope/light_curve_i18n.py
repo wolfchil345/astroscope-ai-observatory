@@ -42,7 +42,7 @@ class LightCurveTranslations:
     download_csv: str
     download_json: str
     no_data_message: str
-    analysis_complete_message: str
+    import_success_message: str
     time_axis: str
     flux_axis: str
     magnitude_axis: str
@@ -96,7 +96,7 @@ _TRANSLATIONS: Final[dict[str, LightCurveTranslations]] = {
         download_csv="Download CSV",
         download_json="Download JSON report",
         no_data_message="Upload a light-curve file to begin.",
-        analysis_complete_message="Analysis complete.",
+        import_success_message="Light curve imported successfully.",
         time_axis="Time",
         flux_axis="Flux",
         magnitude_axis="Magnitude",
@@ -140,7 +140,7 @@ _TRANSLATIONS: Final[dict[str, LightCurveTranslations]] = {
         download_csv="CSVをダウンロード",
         download_json="JSONレポートをダウンロード",
         no_data_message=("解析を開始するにはライトカーブファイルをアップロードしてください。"),
-        analysis_complete_message="解析が完了しました。",
+        import_success_message="ライトカーブを正常に読み込みました。",
         time_axis="時刻",
         flux_axis="フラックス",
         magnitude_axis="等級",
@@ -184,7 +184,7 @@ _TRANSLATIONS: Final[dict[str, LightCurveTranslations]] = {
         download_csv="CSV 다운로드",
         download_json="JSON 보고서 다운로드",
         no_data_message="분석을 시작하려면 광도곡선 파일을 업로드하세요.",
-        analysis_complete_message="분석이 완료되었습니다.",
+        import_success_message="광도곡선을 성공적으로 불러왔습니다.",
         time_axis="시간",
         flux_axis="플럭스",
         magnitude_axis="등급",
@@ -228,7 +228,7 @@ _TRANSLATIONS: Final[dict[str, LightCurveTranslations]] = {
         download_csv="ดาวน์โหลด CSV",
         download_json="ดาวน์โหลดรายงาน JSON",
         no_data_message="อัปโหลดไฟล์กราฟแสงเพื่อเริ่มการวิเคราะห์",
-        analysis_complete_message="การวิเคราะห์เสร็จสมบูรณ์",
+        import_success_message="นำเข้ากราฟแสงสำเร็จแล้ว",
         time_axis="เวลา",
         flux_axis="ฟลักซ์",
         magnitude_axis="โชติมาตร",

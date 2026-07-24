@@ -183,3 +183,19 @@ def test_sigma_clip_data_label_is_translated(
     expected: str,
 ) -> None:
     assert get_light_curve_translations(language).sigma_clip_data == expected
+
+
+@pytest.mark.parametrize(
+    ("language", "expected"),
+    [
+        ("en", "Light curve imported successfully."),
+        ("ja", "ライトカーブを正常に読み込みました。"),
+        ("ko", "광도곡선을 성공적으로 불러왔습니다."),
+        ("th", "นำเข้ากราฟแสงสำเร็จแล้ว"),
+    ],
+)
+def test_import_success_message_is_translated(
+    language: str,
+    expected: str,
+) -> None:
+    assert get_light_curve_translations(language).import_success_message == expected

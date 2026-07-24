@@ -321,7 +321,7 @@ def test_dashboard_detects_uploaded_file(
     assert state.uploaded_file is uploaded_file
     assert state.has_uploaded_file is True
 
-    assert fake_streamlit.success_messages == ["Analysis complete."]
+    assert fake_streamlit.success_messages == ["Light curve imported successfully."]
 
 
 def test_dashboard_uses_stable_widget_keys(

@@ -183,7 +183,7 @@ def render_light_curve_dashboard(
             width="stretch",
             key="light_curve_raw_chart",
         )
-        st.success(translations.analysis_complete_message)
+        st.success(translations.import_success_message)
 
     st.subheader(translations.processing_section)
     if uploaded_file is not None:
