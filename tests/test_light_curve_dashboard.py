@@ -3,12 +3,15 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from math import pi, sin
 
 import pytest
 
 from astroscope import light_curve_dashboard
+from astroscope.light_curve import LightCurveMetadata, build_light_curve
 from astroscope.light_curve_dashboard import (
     LightCurveDashboardError,
+    build_default_period_search_bounds,
     build_light_curve_dashboard_copy,
     canonical_photometry_kind,
     render_light_curve_dashboard,
@@ -43,6 +46,14 @@ class FakeStreamlit:
     text_input_calls: list[dict[str, object]] = field(default_factory=list)
     checkbox_values: dict[str, bool] = field(default_factory=dict)
     checkbox_calls: list[dict[str, object]] = field(default_factory=list)
+    number_input_values: dict[str, float | int] = field(
+        default_factory=dict
+    )
+    number_input_calls: list[dict[str, object]] = field(default_factory=list)
+    button_values: dict[str, bool] = field(default_factory=dict)
+    button_calls: list[dict[str, object]] = field(default_factory=list)
+    metric_calls: list[dict[str, object]] = field(default_factory=list)
+    error_messages: list[str] = field(default_factory=list)
     selectbox_calls: list[dict[str, object]] = field(default_factory=list)
     plotly_chart_calls: list[dict[str, object]] = field(default_factory=list)
 
@@ -97,6 +108,68 @@ class FakeStreamlit:
             }
         )
         return self.checkbox_values.get(key, value)
+
+    def number_input(
+        self,
+        label: str,
+        *,
+        value: float | int,
+        step: float | int,
+        format: str,
+        help: str | None,
+        key: str,
+    ) -> float | int:
+        self.number_input_calls.append(
+            {
+                "label": label,
+                "value": value,
+                "step": step,
+                "format": format,
+                "help": help,
+                "key": key,
+            }
+        )
+        return self.number_input_values.get(
+            key,
+            value,
+        )
+
+    def button(
+        self,
+        label: str,
+        *,
+        type: str,
+        key: str,
+    ) -> bool:
+        self.button_calls.append(
+            {
+                "label": label,
+                "type": type,
+                "key": key,
+            }
+        )
+        return self.button_values.get(
+            key,
+            False,
+        )
+
+    def metric(
+        self,
+        label: str,
+        value: str,
+    ) -> None:
+        self.metric_calls.append(
+            {
+                "label": label,
+                "value": value,
+            }
+        )
+
+    def error(
+        self,
+        text: str,
+    ) -> None:
+        self.error_messages.append(text)
 
     def plotly_chart(
         self,
@@ -537,3 +610,181 @@ def test_uploaded_curve_uses_selected_photometry_kind(
     assert state.photometry_kind == "magnitude"
     assert figure.layout.yaxis.title.text == "Magnitude"
     assert figure.layout.yaxis.autorange == "reversed"
+
+def test_default_period_search_bounds_use_cadence_and_baseline() -> None:
+    light_curve = build_light_curve(
+        metadata=LightCurveMetadata(
+            object_name="Periodic Test Star",
+            photometry_kind="flux",
+        ),
+        times=[
+            0.0,
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+        ],
+        values=[1.0 for _ in range(10)],
+    )
+
+    bounds = build_default_period_search_bounds(light_curve)
+
+    assert bounds.minimum_period == pytest.approx(2.0)
+    assert bounds.maximum_period == pytest.approx(4.5)
+
+
+def test_default_period_search_bounds_preserve_valid_order() -> None:
+    light_curve = build_light_curve(
+        metadata=LightCurveMetadata(
+            object_name="Sparse Test Star",
+            photometry_kind="flux",
+        ),
+        times=[
+            0.0,
+            1.0,
+            101.0,
+            201.0,
+            202.0,
+        ],
+        values=[1.0 for _ in range(5)],
+    )
+
+    bounds = build_default_period_search_bounds(light_curve)
+
+    assert bounds.minimum_period > 0.0
+    assert bounds.minimum_period < bounds.maximum_period
+    assert bounds.maximum_period == pytest.approx(101.0)
+
+
+def test_default_period_search_bounds_require_five_observations() -> None:
+    light_curve = build_light_curve(
+        metadata=LightCurveMetadata(
+            object_name="Small Test Star",
+            photometry_kind="flux",
+        ),
+        times=[
+            0.0,
+            1.0,
+            2.0,
+            3.0,
+        ],
+        values=[1.0 for _ in range(4)],
+    )
+
+    with pytest.raises(
+        LightCurveDashboardError,
+        match="at least five",
+    ):
+        build_default_period_search_bounds(light_curve)
+
+def test_dashboard_runs_lomb_scargle_period_search(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    rows = ["time,flux,uncertainty"]
+
+    for time in range(21):
+        value = 1.0 + 0.05 * sin(
+            2.0 * pi * time / 4.0
+        )
+        rows.append(
+            f"{time},{value:.8f},0.01"
+        )
+
+    uploaded_file = FakeUploadedFile(
+        "\n".join(rows) + "\n"
+    )
+    fake_streamlit = FakeStreamlit(
+        uploaded_file=uploaded_file,
+        button_values={
+            "light_curve_run_lomb_scargle": True,
+        },
+    )
+
+    monkeypatch.setattr(
+        light_curve_dashboard,
+        "st",
+        fake_streamlit,
+    )
+
+    render_light_curve_dashboard("en")
+
+    assert [
+        call["key"]
+        for call in fake_streamlit.number_input_calls
+    ] == [
+        "light_curve_minimum_period",
+        "light_curve_maximum_period",
+        "light_curve_phase_bin_count",
+    ]
+    assert fake_streamlit.button_calls == [
+        {
+            "label": "Run Lomb-Scargle search",
+            "type": "primary",
+            "key": "light_curve_run_lomb_scargle",
+        }
+    ]
+    assert fake_streamlit.metric_calls
+    assert fake_streamlit.metric_calls[0]["label"] == "Best period"
+    assert fake_streamlit.error_messages == []
+
+    chart_keys = [
+        call["key"]
+        for call in fake_streamlit.plotly_chart_calls
+    ]
+    assert "light_curve_lomb_scargle_chart" in chart_keys
+    assert "light_curve_phase_folded_chart" in chart_keys
+
+    periodogram_call = next(
+        call
+        for call in fake_streamlit.plotly_chart_calls
+        if call["key"] == "light_curve_lomb_scargle_chart"
+    )
+    periodogram_figure = periodogram_call["figure"]
+
+    assert periodogram_figure.layout.xaxis.title.text == "Period"
+    assert periodogram_figure.layout.yaxis.title.text == "Power"
+
+    phase_call = next(
+        call
+        for call in fake_streamlit.plotly_chart_calls
+        if call["key"] == "light_curve_phase_folded_chart"
+    )
+    phase_figure = phase_call["figure"]
+
+    assert phase_figure.layout.xaxis.title.text == "Phase"
+    assert phase_figure.layout.yaxis.title.text == "Flux"
+    assert len(phase_figure.data) == 2
+
+def test_dashboard_explains_period_search_observation_requirement(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    uploaded_file = FakeUploadedFile(
+        "time,flux\n"
+        "0,1.0\n"
+        "1,0.9\n"
+        "2,1.1\n"
+        "3,1.0\n"
+    )
+    fake_streamlit = FakeStreamlit(
+        uploaded_file=uploaded_file,
+    )
+
+    monkeypatch.setattr(
+        light_curve_dashboard,
+        "st",
+        fake_streamlit,
+    )
+
+    render_light_curve_dashboard("en")
+
+    assert fake_streamlit.info_messages == [
+        "Period search requires at least five observations."
+    ]
+    assert fake_streamlit.number_input_calls == []
+    assert fake_streamlit.button_calls == []
+
