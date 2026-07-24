@@ -17,6 +17,8 @@ AstroScope AI is an intelligent observatory planner and interactive planetarium.
 
 - [Gaia DR3 stellar catalogue explorer](gaia_explorer.md)
 
+- [Astronomical light-curve analysis laboratory](light_curve_analysis.md)
+
 - [Observation logbook](observation_logbook.md)
 
 - [Astrophotography sensor and mosaic planner](astrophotography_planner.md)

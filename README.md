@@ -17,6 +17,13 @@ An intelligent multilingual observatory planner and interactive planetarium.
 - Interactive sky, colour–magnitude, and proper-motion diagrams
 - Gaia source inspector and CSV export
 
+- Astronomical light-curve import and visualization
+- Flux and magnitude photometry support
+- Sigma clipping and normalization
+- Lomb–Scargle period search and phase-folding engine
+- Box Least Squares transit search and diagnostics
+- CSV and JSON scientific-analysis exports
+
 - Structured observation logbook
 - Visual and astrophotography session summaries
 - JSON, CSV, and Markdown session exports
@@ -77,6 +84,8 @@ Run `make checks`.
 ## Documentation
 
 - [Gaia DR3 stellar catalogue explorer](docs/en/gaia_explorer.md)
+
+- [Astronomical light-curve analysis laboratory](docs/en/light_curve_analysis.md)
 
 - [Observation logbook](docs/en/observation_logbook.md)
 
