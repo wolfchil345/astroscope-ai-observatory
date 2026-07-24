@@ -192,36 +192,40 @@ def render_light_curve_dashboard(
             value=False,
             key="light_curve_normalize_data",
         )
-        if normalize_data:
-            normalized_result = normalize_light_curve(import_result.light_curve)
-            normalized_figure = build_light_curve_figure(
-                normalized_result.light_curve,
-                labels=build_light_curve_visual_labels(language),
-            )
-            st.plotly_chart(
-                normalized_figure,
-                width="stretch",
-                key="light_curve_normalized_chart",
-            )
-
         sigma_clip_data = st.checkbox(
             translations.sigma_clip_data,
             value=False,
             key="light_curve_sigma_clip_data",
         )
+
+        processed_curve = import_result.light_curve
+        processed_chart_key: str | None = None
+
         if sigma_clip_data:
             sigma_clipped_result = sigma_clip_light_curve(
-                import_result.light_curve,
+                processed_curve,
                 sigma=3.0,
             )
-            sigma_clipped_figure = build_light_curve_figure(
-                sigma_clipped_result.light_curve,
+            processed_curve = sigma_clipped_result.light_curve
+            processed_chart_key = "light_curve_sigma_clipped_chart"
+
+        if normalize_data:
+            normalized_result = normalize_light_curve(processed_curve)
+            processed_curve = normalized_result.light_curve
+            processed_chart_key = "light_curve_normalized_chart"
+
+        if sigma_clip_data and normalize_data:
+            processed_chart_key = "light_curve_processed_chart"
+
+        if processed_chart_key is not None:
+            processed_figure = build_light_curve_figure(
+                processed_curve,
                 labels=build_light_curve_visual_labels(language),
             )
             st.plotly_chart(
-                sigma_clipped_figure,
+                processed_figure,
                 width="stretch",
-                key="light_curve_sigma_clipped_chart",
+                key=processed_chart_key,
             )
 
     st.subheader(translations.period_search_section)

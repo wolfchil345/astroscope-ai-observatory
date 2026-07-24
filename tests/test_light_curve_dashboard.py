@@ -452,3 +452,59 @@ def test_dashboard_renders_sigma_clipped_chart_when_selected(
         "light_curve_raw_chart",
         "light_curve_sigma_clipped_chart",
     ]
+
+
+def test_dashboard_combines_sigma_clipping_and_normalization(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    uploaded_file = FakeUploadedFile(
+        "time,flux,uncertainty\n"
+        "0,9.0,0.1\n"
+        "1,10.0,0.1\n"
+        "2,11.0,0.1\n"
+        "3,10.0,0.1\n"
+        "4,50.0,0.5\n"
+    )
+    fake_streamlit = FakeStreamlit(
+        uploaded_file=uploaded_file,
+        checkbox_values={
+            "light_curve_normalize_data": True,
+            "light_curve_sigma_clip_data": True,
+        },
+    )
+
+    monkeypatch.setattr(
+        light_curve_dashboard,
+        "st",
+        fake_streamlit,
+    )
+
+    render_light_curve_dashboard("en")
+
+    assert [
+        call["key"]
+        for call in fake_streamlit.plotly_chart_calls
+    ] == [
+        "light_curve_raw_chart",
+        "light_curve_processed_chart",
+    ]
+
+    processed_figure = fake_streamlit.plotly_chart_calls[1]["figure"]
+    processed_trace = processed_figure.data[0]
+
+    assert tuple(processed_trace.x) == pytest.approx(
+        (
+            0.0,
+            1.0,
+            2.0,
+            3.0,
+        )
+    )
+    assert tuple(processed_trace.y) == pytest.approx(
+        (
+            0.9,
+            1.0,
+            1.1,
+            1.0,
+        )
+    )
