@@ -9,8 +9,11 @@ import streamlit as st
 
 from astroscope.light_curve import LightCurve, LightCurveMetadata
 from astroscope.light_curve_analysis_visuals import (
+    build_bls_periodogram_figure,
     build_lomb_scargle_periodogram_figure,
     build_phase_folded_figure,
+    build_transit_model_figure,
+    build_transit_residual_figure,
 )
 from astroscope.light_curve_i18n import (
     LightCurveTranslations,
@@ -34,6 +37,14 @@ from astroscope.light_curve_phase import (
 from astroscope.light_curve_processing import (
     normalize_light_curve,
     sigma_clip_light_curve,
+)
+from astroscope.light_curve_transit_diagnostics import (
+    LightCurveTransitDiagnosticError,
+    diagnose_transit_candidate,
+)
+from astroscope.light_curve_transit_search import (
+    LightCurveTransitSearchError,
+    search_box_least_squares,
 )
 from astroscope.light_curve_visuals import build_light_curve_figure
 
@@ -73,20 +84,25 @@ class PeriodSearchBounds:
     maximum_period: float
 
 
+@dataclass(frozen=True, slots=True)
+class TransitSearchDefaults:
+    """Default Box Least Squares settings for the dashboard."""
+
+    minimum_period: float
+    maximum_period: float
+    duration: float
+
+
 def build_default_period_search_bounds(
     light_curve: LightCurve,
 ) -> PeriodSearchBounds:
     """Estimate a practical search interval from cadence and baseline."""
 
     if not isinstance(light_curve, LightCurve):
-        raise LightCurveDashboardError(
-            "Period-search defaults require a LightCurve instance."
-        )
+        raise LightCurveDashboardError("Period-search defaults require a LightCurve instance.")
 
     if light_curve.observation_count < 5:
-        raise LightCurveDashboardError(
-            "Default period search requires at least five observations."
-        )
+        raise LightCurveDashboardError("Default period search requires at least five observations.")
 
     cadences = tuple(
         current.time - previous.time
@@ -107,6 +123,53 @@ def build_default_period_search_bounds(
     return PeriodSearchBounds(
         minimum_period=minimum_period,
         maximum_period=maximum_period,
+    )
+
+
+def build_default_transit_search_settings(
+    light_curve: LightCurve,
+) -> TransitSearchDefaults:
+    """Estimate practical Box Least Squares settings."""
+
+    if not isinstance(light_curve, LightCurve):
+        raise LightCurveDashboardError("Transit-search defaults require a LightCurve instance.")
+
+    if light_curve.metadata.photometry_kind != "flux":
+        raise LightCurveDashboardError("Transit-search defaults require flux measurements.")
+
+    if light_curve.observation_count < 20:
+        raise LightCurveDashboardError(
+            "Default transit search requires at least twenty observations."
+        )
+
+    cadences = tuple(
+        current.time - previous.time
+        for previous, current in zip(
+            light_curve.points,
+            light_curve.points[1:],
+            strict=False,
+        )
+    )
+    representative_cadence = float(median(cadences))
+
+    maximum_period = light_curve.duration / 2.0
+    minimum_period = 5.0 * representative_cadence
+
+    if minimum_period >= maximum_period:
+        minimum_period = maximum_period / 5.0
+
+    duration = min(
+        minimum_period / 5.0,
+        2.0 * representative_cadence,
+    )
+
+    if duration >= minimum_period:
+        duration = minimum_period / 5.0
+
+    return TransitSearchDefaults(
+        minimum_period=minimum_period,
+        maximum_period=maximum_period,
+        duration=duration,
     )
 
 
@@ -290,13 +353,8 @@ def render_light_curve_dashboard(
 
     st.subheader(translations.period_search_section)
 
-    if (
-        uploaded_file is not None
-        and processed_curve.observation_count < 5
-    ):
-        st.info(
-            translations.period_search_requires_five_observations
-        )
+    if uploaded_file is not None and processed_curve.observation_count < 5:
+        st.info(translations.period_search_requires_five_observations)
     elif uploaded_file is not None:
         period_bounds = build_default_period_search_bounds(
             processed_curve,
@@ -365,18 +423,14 @@ def render_light_curve_dashboard(
                     f"{period_result.best_period:.6g}",
                 )
 
-                analysis_labels = (
-                    build_light_curve_analysis_visual_labels(
-                        language,
-                    )
+                analysis_labels = build_light_curve_analysis_visual_labels(
+                    language,
                 )
 
-                periodogram_figure = (
-                    build_lomb_scargle_periodogram_figure(
-                        period_result,
-                        title=translations.period_search_section,
-                        labels=analysis_labels,
-                    )
+                periodogram_figure = build_lomb_scargle_periodogram_figure(
+                    period_result,
+                    title=translations.period_search_section,
+                    labels=analysis_labels,
                 )
                 st.plotly_chart(
                     periodogram_figure,
@@ -397,6 +451,132 @@ def render_light_curve_dashboard(
                 )
 
     st.subheader(translations.transit_search_section)
+
+    if uploaded_file is not None and processed_curve.metadata.photometry_kind != "flux":
+        st.info(translations.transit_search_requires_flux)
+    elif uploaded_file is not None and processed_curve.observation_count < 20:
+        st.info(translations.transit_search_requires_twenty_observations)
+    elif uploaded_file is not None:
+        transit_defaults = build_default_transit_search_settings(
+            processed_curve,
+        )
+        transit_step = max(
+            transit_defaults.duration / 10.0,
+            1.0e-6,
+        )
+
+        st.caption(translations.transit_unit_help)
+
+        transit_minimum_period = st.number_input(
+            translations.minimum_period_label,
+            value=transit_defaults.minimum_period,
+            step=transit_step,
+            format="%.6f",
+            help=translations.transit_unit_help,
+            key="light_curve_transit_minimum_period",
+        )
+        transit_maximum_period = st.number_input(
+            translations.maximum_period_label,
+            value=transit_defaults.maximum_period,
+            step=transit_step,
+            format="%.6f",
+            help=translations.transit_unit_help,
+            key="light_curve_transit_maximum_period",
+        )
+        transit_duration = st.number_input(
+            translations.transit_duration_label,
+            value=transit_defaults.duration,
+            step=transit_step,
+            format="%.6f",
+            help=translations.transit_unit_help,
+            key="light_curve_transit_duration",
+        )
+
+        run_transit_search = st.button(
+            translations.run_bls,
+            type="primary",
+            key="light_curve_run_bls",
+        )
+
+        if run_transit_search:
+            try:
+                transit_result = search_box_least_squares(
+                    processed_curve,
+                    minimum_period=float(transit_minimum_period),
+                    maximum_period=float(transit_maximum_period),
+                    durations=(float(transit_duration),),
+                )
+                best_transit = transit_result.best_candidate
+                transit_diagnostics = diagnose_transit_candidate(
+                    processed_curve,
+                    best_transit,
+                )
+            except (
+                LightCurveTransitSearchError,
+                LightCurveTransitDiagnosticError,
+            ) as error:
+                st.error(str(error))
+            else:
+                best_transit = transit_result.best_candidate
+
+                st.metric(
+                    translations.best_transit_period_label,
+                    f"{best_transit.period:.6g}",
+                )
+                st.metric(
+                    translations.best_transit_duration_label,
+                    f"{best_transit.duration:.6g}",
+                )
+                st.metric(
+                    translations.transit_depth_label,
+                    f"{best_transit.depth:.6g}",
+                )
+                st.metric(
+                    translations.transit_depth_snr_label,
+                    f"{best_transit.depth_snr:.6g}",
+                )
+
+                transit_periodogram = build_bls_periodogram_figure(
+                    transit_result,
+                    title=translations.transit_search_section,
+                    labels=(
+                        build_light_curve_analysis_visual_labels(
+                            language,
+                        )
+                    ),
+                )
+                st.plotly_chart(
+                    transit_periodogram,
+                    width="stretch",
+                    key="light_curve_bls_chart",
+                )
+
+                transit_model_figure = build_transit_model_figure(
+                    transit_diagnostics,
+                    labels=build_light_curve_analysis_visual_labels(
+                        language,
+                    ),
+                )
+                st.plotly_chart(
+                    transit_model_figure,
+                    width="stretch",
+                    key="light_curve_transit_model_chart",
+                )
+
+                transit_residual_figure = build_transit_residual_figure(
+                    transit_diagnostics,
+                    labels=(
+                        build_light_curve_analysis_visual_labels(
+                            language,
+                        )
+                    ),
+                )
+                st.plotly_chart(
+                    transit_residual_figure,
+                    width="stretch",
+                    key="light_curve_transit_residual_chart",
+                )
+
     st.subheader(translations.exports_section)
 
     return LightCurveDashboardState(
