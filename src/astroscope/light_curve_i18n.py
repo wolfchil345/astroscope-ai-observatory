@@ -45,6 +45,14 @@ class LightCurveTranslations:
     period_unit_help: str
     period_search_requires_five_observations: str
     run_bls: str
+    transit_duration_label: str
+    best_transit_period_label: str
+    best_transit_duration_label: str
+    transit_depth_label: str
+    transit_depth_snr_label: str
+    transit_unit_help: str
+    transit_search_requires_flux: str
+    transit_search_requires_twenty_observations: str
     download_csv: str
     download_json: str
     no_data_message: str
@@ -102,13 +110,24 @@ _TRANSLATIONS: Final[dict[str, LightCurveTranslations]] = {
         maximum_period_label="Maximum period",
         phase_bin_count_label="Phase-bin count",
         best_period_label="Best period",
-        period_unit_help=(
-            "Periods use the same time unit as the uploaded observation times."
-        ),
+        period_unit_help=("Periods use the same time unit as the uploaded observation times."),
         period_search_requires_five_observations=(
             "Period search requires at least five observations."
         ),
         run_bls="Run transit search",
+        transit_duration_label="Transit duration",
+        best_transit_period_label="Best transit period",
+        best_transit_duration_label="Best transit duration",
+        transit_depth_label="Transit depth",
+        transit_depth_snr_label="Depth signal-to-noise ratio",
+        transit_unit_help=(
+            "Periods and transit durations use the same time unit "
+            "as the uploaded observation times."
+        ),
+        transit_search_requires_flux=("Transit search requires flux photometry."),
+        transit_search_requires_twenty_observations=(
+            "Transit search requires at least twenty observations."
+        ),
         download_csv="Download CSV",
         download_json="Download JSON report",
         no_data_message="Upload a light-curve file to begin.",
@@ -156,13 +175,21 @@ _TRANSLATIONS: Final[dict[str, LightCurveTranslations]] = {
         maximum_period_label="最大周期",
         phase_bin_count_label="位相ビン数",
         best_period_label="最良周期",
-        period_unit_help=(
-            "周期はアップロードした観測時刻と同じ時間単位を使用します。"
-        ),
-        period_search_requires_five_observations=(
-            "周期探索には5点以上の観測データが必要です。"
-        ),
+        period_unit_help=("周期はアップロードした観測時刻と同じ時間単位を使用します。"),
+        period_search_requires_five_observations=("周期探索には5点以上の観測データが必要です。"),
         run_bls="トランジット探索を実行",
+        transit_duration_label="トランジット継続時間",
+        best_transit_period_label="最良トランジット周期",
+        best_transit_duration_label="最良トランジット継続時間",
+        transit_depth_label="トランジット深度",
+        transit_depth_snr_label="深度S/N比",
+        transit_unit_help=(
+            "周期と継続時間は、アップロードした観測時刻と同じ時間単位を使用します。"
+        ),
+        transit_search_requires_flux=("トランジット探索にはフラックス測光データが必要です。"),
+        transit_search_requires_twenty_observations=(
+            "トランジット探索には20点以上の観測データが必要です。"
+        ),
         download_csv="CSVをダウンロード",
         download_json="JSONレポートをダウンロード",
         no_data_message=("解析を開始するにはライトカーブファイルをアップロードしてください。"),
@@ -210,13 +237,21 @@ _TRANSLATIONS: Final[dict[str, LightCurveTranslations]] = {
         maximum_period_label="최대 주기",
         phase_bin_count_label="위상 구간 수",
         best_period_label="최적 주기",
-        period_unit_help=(
-            "주기는 업로드한 관측 시간과 동일한 시간 단위를 사용합니다."
-        ),
-        period_search_requires_five_observations=(
-            "주기 탐색에는 최소 5개의 관측값이 필요합니다."
-        ),
+        period_unit_help=("주기는 업로드한 관측 시간과 동일한 시간 단위를 사용합니다."),
+        period_search_requires_five_observations=("주기 탐색에는 최소 5개의 관측값이 필요합니다."),
         run_bls="트랜싯 탐색 실행",
+        transit_duration_label="트랜싯 지속 시간",
+        best_transit_period_label="최적 트랜싯 주기",
+        best_transit_duration_label="최적 트랜싯 지속 시간",
+        transit_depth_label="트랜싯 깊이",
+        transit_depth_snr_label="깊이 신호대잡음비",
+        transit_unit_help=(
+            "주기와 지속 시간은 업로드한 관측 시간과 동일한 시간 단위를 사용합니다."
+        ),
+        transit_search_requires_flux=("트랜싯 탐색에는 플럭스 측광 데이터가 필요합니다."),
+        transit_search_requires_twenty_observations=(
+            "트랜싯 탐색에는 최소 20개의 관측값이 필요합니다."
+        ),
         download_csv="CSV 다운로드",
         download_json="JSON 보고서 다운로드",
         no_data_message="분석을 시작하려면 광도곡선 파일을 업로드하세요.",
@@ -264,13 +299,17 @@ _TRANSLATIONS: Final[dict[str, LightCurveTranslations]] = {
         maximum_period_label="คาบสูงสุด",
         phase_bin_count_label="จำนวนช่วงเฟส",
         best_period_label="คาบที่ดีที่สุด",
-        period_unit_help=(
-            "หน่วยของคาบเหมือนกับหน่วยเวลาของข้อมูลสังเกตที่อัปโหลด"
-        ),
-        period_search_requires_five_observations=(
-            "การค้นหาคาบต้องมีข้อมูลสังเกตอย่างน้อย 5 จุด"
-        ),
+        period_unit_help=("หน่วยของคาบเหมือนกับหน่วยเวลาของข้อมูลสังเกตที่อัปโหลด"),
+        period_search_requires_five_observations=("การค้นหาคาบต้องมีข้อมูลสังเกตอย่างน้อย 5 จุด"),
         run_bls="เริ่มการค้นหาทรานซิต",
+        transit_duration_label="ระยะเวลาทรานซิต",
+        best_transit_period_label="คาบทรานซิตที่ดีที่สุด",
+        best_transit_duration_label="ระยะเวลาทรานซิตที่ดีที่สุด",
+        transit_depth_label="ความลึกของทรานซิต",
+        transit_depth_snr_label="อัตราส่วนสัญญาณต่อสัญญาณรบกวนของความลึก",
+        transit_unit_help=("คาบและระยะเวลาทรานซิตใช้หน่วยเวลาเดียวกับข้อมูลสังเกตที่อัปโหลด"),
+        transit_search_requires_flux=("การค้นหาทรานซิตต้องใช้ข้อมูลโฟโตเมทรีแบบฟลักซ์"),
+        transit_search_requires_twenty_observations=("การค้นหาทรานซิตต้องมีข้อมูลสังเกตอย่างน้อย 20 จุด"),
         download_csv="ดาวน์โหลด CSV",
         download_json="ดาวน์โหลดรายงาน JSON",
         no_data_message="อัปโหลดไฟล์กราฟแสงเพื่อเริ่มการวิเคราะห์",

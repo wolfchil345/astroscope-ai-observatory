@@ -12,6 +12,7 @@ from astroscope.light_curve import LightCurveMetadata, build_light_curve
 from astroscope.light_curve_dashboard import (
     LightCurveDashboardError,
     build_default_period_search_bounds,
+    build_default_transit_search_settings,
     build_light_curve_dashboard_copy,
     canonical_photometry_kind,
     render_light_curve_dashboard,
@@ -46,9 +47,7 @@ class FakeStreamlit:
     text_input_calls: list[dict[str, object]] = field(default_factory=list)
     checkbox_values: dict[str, bool] = field(default_factory=dict)
     checkbox_calls: list[dict[str, object]] = field(default_factory=list)
-    number_input_values: dict[str, float | int] = field(
-        default_factory=dict
-    )
+    number_input_values: dict[str, float | int] = field(default_factory=dict)
     number_input_calls: list[dict[str, object]] = field(default_factory=list)
     button_values: dict[str, bool] = field(default_factory=dict)
     button_calls: list[dict[str, object]] = field(default_factory=list)
@@ -376,9 +375,7 @@ def test_dashboard_shows_no_data_message_without_upload(
 def test_dashboard_detects_uploaded_file(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    uploaded_file = FakeUploadedFile(
-        "time,flux\n0,1.0\n1,0.9\n2,1.1\n"
-    )
+    uploaded_file = FakeUploadedFile("time,flux\n0,1.0\n1,0.9\n2,1.1\n")
     fake_streamlit = FakeStreamlit(
         uploaded_file=uploaded_file,
     )
@@ -439,12 +436,7 @@ def test_embedded_dashboard_uses_section_header(
 def test_dashboard_renders_uploaded_light_curve_chart(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    uploaded_file = FakeUploadedFile(
-        "time,flux,uncertainty\n"
-        "0,1.0,0.01\n"
-        "1,0.9,0.01\n"
-        "2,1.1,0.01\n"
-    )
+    uploaded_file = FakeUploadedFile("time,flux,uncertainty\n0,1.0,0.01\n1,0.9,0.01\n2,1.1,0.01\n")
     fake_streamlit = FakeStreamlit(uploaded_file=uploaded_file)
 
     monkeypatch.setattr(
@@ -459,15 +451,11 @@ def test_dashboard_renders_uploaded_light_curve_chart(
     assert fake_streamlit.plotly_chart_calls[0]["width"] == "stretch"
     assert fake_streamlit.plotly_chart_calls[0]["key"] == "light_curve_raw_chart"
 
+
 def test_dashboard_renders_normalized_chart_when_selected(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    uploaded_file = FakeUploadedFile(
-        "time,flux,uncertainty\n"
-        "0,10.0,1.0\n"
-        "1,20.0,2.0\n"
-        "2,30.0,3.0\n"
-    )
+    uploaded_file = FakeUploadedFile("time,flux,uncertainty\n0,10.0,1.0\n1,20.0,2.0\n2,30.0,3.0\n")
     fake_streamlit = FakeStreamlit(
         uploaded_file=uploaded_file,
         checkbox_values={
@@ -483,10 +471,7 @@ def test_dashboard_renders_normalized_chart_when_selected(
 
     render_light_curve_dashboard("en")
 
-    assert [
-        call["key"]
-        for call in fake_streamlit.plotly_chart_calls
-    ] == [
+    assert [call["key"] for call in fake_streamlit.plotly_chart_calls] == [
         "light_curve_raw_chart",
         "light_curve_normalized_chart",
     ]
@@ -496,12 +481,7 @@ def test_dashboard_renders_sigma_clipped_chart_when_selected(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     uploaded_file = FakeUploadedFile(
-        "time,flux,uncertainty\n"
-        "0,0.99,0.01\n"
-        "1,1.00,0.01\n"
-        "2,1.01,0.01\n"
-        "3,1.00,0.01\n"
-        "4,5.00,0.10\n"
+        "time,flux,uncertainty\n0,0.99,0.01\n1,1.00,0.01\n2,1.01,0.01\n3,1.00,0.01\n4,5.00,0.10\n"
     )
     fake_streamlit = FakeStreamlit(
         uploaded_file=uploaded_file,
@@ -518,10 +498,7 @@ def test_dashboard_renders_sigma_clipped_chart_when_selected(
 
     render_light_curve_dashboard("en")
 
-    assert [
-        call["key"]
-        for call in fake_streamlit.plotly_chart_calls
-    ] == [
+    assert [call["key"] for call in fake_streamlit.plotly_chart_calls] == [
         "light_curve_raw_chart",
         "light_curve_sigma_clipped_chart",
     ]
@@ -531,12 +508,7 @@ def test_dashboard_combines_sigma_clipping_and_normalization(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     uploaded_file = FakeUploadedFile(
-        "time,flux,uncertainty\n"
-        "0,9.0,0.1\n"
-        "1,10.0,0.1\n"
-        "2,11.0,0.1\n"
-        "3,10.0,0.1\n"
-        "4,50.0,0.5\n"
+        "time,flux,uncertainty\n0,9.0,0.1\n1,10.0,0.1\n2,11.0,0.1\n3,10.0,0.1\n4,50.0,0.5\n"
     )
     fake_streamlit = FakeStreamlit(
         uploaded_file=uploaded_file,
@@ -554,10 +526,7 @@ def test_dashboard_combines_sigma_clipping_and_normalization(
 
     render_light_curve_dashboard("en")
 
-    assert [
-        call["key"]
-        for call in fake_streamlit.plotly_chart_calls
-    ] == [
+    assert [call["key"] for call in fake_streamlit.plotly_chart_calls] == [
         "light_curve_raw_chart",
         "light_curve_processed_chart",
     ]
@@ -586,12 +555,7 @@ def test_dashboard_combines_sigma_clipping_and_normalization(
 def test_uploaded_curve_uses_selected_photometry_kind(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    uploaded_file = FakeUploadedFile(
-        "time,flux\n"
-        "0,12.0\n"
-        "1,12.1\n"
-        "2,11.9\n"
-    )
+    uploaded_file = FakeUploadedFile("time,flux\n0,12.0\n1,12.1\n2,11.9\n")
     fake_streamlit = FakeStreamlit(
         uploaded_file=uploaded_file,
         select_index=1,
@@ -610,6 +574,7 @@ def test_uploaded_curve_uses_selected_photometry_kind(
     assert state.photometry_kind == "magnitude"
     assert figure.layout.yaxis.title.text == "Magnitude"
     assert figure.layout.yaxis.autorange == "reversed"
+
 
 def test_default_period_search_bounds_use_cadence_and_baseline() -> None:
     light_curve = build_light_curve(
@@ -682,22 +647,17 @@ def test_default_period_search_bounds_require_five_observations() -> None:
     ):
         build_default_period_search_bounds(light_curve)
 
+
 def test_dashboard_runs_lomb_scargle_period_search(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     rows = ["time,flux,uncertainty"]
 
     for time in range(21):
-        value = 1.0 + 0.05 * sin(
-            2.0 * pi * time / 4.0
-        )
-        rows.append(
-            f"{time},{value:.8f},0.01"
-        )
+        value = 1.0 + 0.05 * sin(2.0 * pi * time / 4.0)
+        rows.append(f"{time},{value:.8f},0.01")
 
-    uploaded_file = FakeUploadedFile(
-        "\n".join(rows) + "\n"
-    )
+    uploaded_file = FakeUploadedFile("\n".join(rows) + "\n")
     fake_streamlit = FakeStreamlit(
         uploaded_file=uploaded_file,
         button_values={
@@ -713,29 +673,25 @@ def test_dashboard_runs_lomb_scargle_period_search(
 
     render_light_curve_dashboard("en")
 
-    assert [
-        call["key"]
-        for call in fake_streamlit.number_input_calls
-    ] == [
+    number_input_keys = {call["key"] for call in fake_streamlit.number_input_calls}
+
+    assert {
         "light_curve_minimum_period",
         "light_curve_maximum_period",
         "light_curve_phase_bin_count",
-    ]
-    assert fake_streamlit.button_calls == [
-        {
-            "label": "Run Lomb-Scargle search",
-            "type": "primary",
-            "key": "light_curve_run_lomb_scargle",
-        }
-    ]
+    } <= number_input_keys
+    button_calls = {call["key"]: call for call in fake_streamlit.button_calls}
+
+    assert button_calls["light_curve_run_lomb_scargle"] == {
+        "label": "Run Lomb-Scargle search",
+        "type": "primary",
+        "key": "light_curve_run_lomb_scargle",
+    }
     assert fake_streamlit.metric_calls
     assert fake_streamlit.metric_calls[0]["label"] == "Best period"
     assert fake_streamlit.error_messages == []
 
-    chart_keys = [
-        call["key"]
-        for call in fake_streamlit.plotly_chart_calls
-    ]
+    chart_keys = [call["key"] for call in fake_streamlit.plotly_chart_calls]
     assert "light_curve_lomb_scargle_chart" in chart_keys
     assert "light_curve_phase_folded_chart" in chart_keys
 
@@ -760,16 +716,11 @@ def test_dashboard_runs_lomb_scargle_period_search(
     assert phase_figure.layout.yaxis.title.text == "Flux"
     assert len(phase_figure.data) == 2
 
+
 def test_dashboard_explains_period_search_observation_requirement(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    uploaded_file = FakeUploadedFile(
-        "time,flux\n"
-        "0,1.0\n"
-        "1,0.9\n"
-        "2,1.1\n"
-        "3,1.0\n"
-    )
+    uploaded_file = FakeUploadedFile("time,flux\n0,1.0\n1,0.9\n2,1.1\n3,1.0\n")
     fake_streamlit = FakeStreamlit(
         uploaded_file=uploaded_file,
     )
@@ -783,8 +734,142 @@ def test_dashboard_explains_period_search_observation_requirement(
     render_light_curve_dashboard("en")
 
     assert fake_streamlit.info_messages == [
-        "Period search requires at least five observations."
+        "Period search requires at least five observations.",
+        "Transit search requires at least twenty observations.",
     ]
     assert fake_streamlit.number_input_calls == []
     assert fake_streamlit.button_calls == []
 
+
+def test_default_transit_search_settings_use_cadence_and_baseline() -> None:
+    light_curve = build_light_curve(
+        metadata=LightCurveMetadata(
+            object_name="Synthetic transit",
+            photometry_kind="flux",
+        ),
+        times=tuple(index * 0.25 for index in range(41)),
+        values=tuple(1.0 for _ in range(41)),
+    )
+
+    settings = build_default_transit_search_settings(light_curve)
+
+    assert settings.minimum_period == pytest.approx(1.25)
+    assert settings.maximum_period == pytest.approx(5.0)
+    assert settings.duration == pytest.approx(0.25)
+    assert settings.duration < settings.minimum_period
+
+
+def test_default_transit_search_settings_require_flux() -> None:
+    light_curve = build_light_curve(
+        metadata=LightCurveMetadata(
+            object_name="Magnitude target",
+            photometry_kind="magnitude",
+        ),
+        times=tuple(float(index) for index in range(20)),
+        values=tuple(12.0 for _ in range(20)),
+    )
+
+    with pytest.raises(
+        LightCurveDashboardError,
+        match="flux",
+    ):
+        build_default_transit_search_settings(light_curve)
+
+
+def test_default_transit_search_settings_require_twenty_observations() -> None:
+    light_curve = build_light_curve(
+        metadata=LightCurveMetadata(
+            object_name="Sparse target",
+            photometry_kind="flux",
+        ),
+        times=tuple(float(index) for index in range(19)),
+        values=tuple(1.0 for _ in range(19)),
+    )
+
+    with pytest.raises(
+        LightCurveDashboardError,
+        match="twenty",
+    ):
+        build_default_transit_search_settings(light_curve)
+
+
+def test_dashboard_runs_box_least_squares_transit_search(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    rows = ["time,flux,uncertainty"]
+
+    for index in range(201):
+        time = index * 0.1
+        phase_time = ((time - 1.0 + 2.0) % 4.0) - 2.0
+        flux = 0.95 if abs(phase_time) < 0.25 else 1.0
+        rows.append(f"{time:.6f},{flux:.6f},0.005")
+
+    uploaded_file = FakeUploadedFile("\n".join(rows) + "\n")
+    fake_streamlit = FakeStreamlit(
+        uploaded_file=uploaded_file,
+        number_input_values={
+            "light_curve_transit_minimum_period": 1.0,
+            "light_curve_transit_maximum_period": 8.0,
+            "light_curve_transit_duration": 0.5,
+        },
+        button_values={
+            "light_curve_run_bls": True,
+        },
+    )
+
+    monkeypatch.setattr(
+        light_curve_dashboard,
+        "st",
+        fake_streamlit,
+    )
+
+    render_light_curve_dashboard("en")
+
+    number_input_keys = {call["key"] for call in fake_streamlit.number_input_calls}
+
+    assert {
+        "light_curve_transit_minimum_period",
+        "light_curve_transit_maximum_period",
+        "light_curve_transit_duration",
+    } <= number_input_keys
+
+    assert {call["key"] for call in fake_streamlit.button_calls} >= {"light_curve_run_bls"}
+
+    assert fake_streamlit.error_messages == []
+
+    assert [call["label"] for call in fake_streamlit.metric_calls] == [
+        "Best transit period",
+        "Best transit duration",
+        "Transit depth",
+        "Depth signal-to-noise ratio",
+    ]
+
+    recovered_period = float(fake_streamlit.metric_calls[0]["value"])
+    assert recovered_period == pytest.approx(
+        4.0,
+        rel=0.05,
+    )
+
+    chart_calls = {call["key"]: call for call in fake_streamlit.plotly_chart_calls}
+
+    assert {
+        "light_curve_bls_chart",
+        "light_curve_transit_model_chart",
+        "light_curve_transit_residual_chart",
+    } <= chart_calls.keys()
+
+    periodogram = chart_calls["light_curve_bls_chart"]["figure"]
+    transit_model = chart_calls["light_curve_transit_model_chart"]["figure"]
+    transit_residuals = chart_calls["light_curve_transit_residual_chart"]["figure"]
+
+    assert periodogram.layout.xaxis.title.text == "Period"
+    assert periodogram.layout.yaxis.title.text == "Power"
+    assert len(periodogram.data) == 2
+
+    assert transit_model.layout.xaxis.title.text == "Time from transit midpoint"
+    assert transit_model.layout.yaxis.title.text == "Flux"
+    assert len(transit_model.data) == 2
+
+    assert transit_residuals.layout.xaxis.title.text == "Time from transit midpoint"
+    assert transit_residuals.layout.yaxis.title.text == "Residual"
+    assert len(transit_residuals.data) >= 1

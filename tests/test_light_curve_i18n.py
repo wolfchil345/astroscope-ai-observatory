@@ -200,6 +200,7 @@ def test_import_success_message_is_translated(
 ) -> None:
     assert get_light_curve_translations(language).import_success_message == expected
 
+
 @pytest.mark.parametrize(
     ("language", "expected"),
     [
@@ -254,6 +255,7 @@ def test_period_analysis_control_labels_are_translated(
         translations.best_period_label,
     ) == expected
 
+
 @pytest.mark.parametrize(
     ("language", "expected"),
     [
@@ -281,8 +283,69 @@ def test_period_observation_requirement_is_translated(
 ) -> None:
     translations = get_light_curve_translations(language)
 
+    assert translations.period_search_requires_five_observations == expected
+
+
+def test_english_transit_analysis_labels() -> None:
+    translations = get_light_curve_translations("en")
+
     assert (
-        translations.period_search_requires_five_observations
-        == expected
+        translations.transit_duration_label,
+        translations.best_transit_period_label,
+        translations.best_transit_duration_label,
+        translations.transit_depth_label,
+        translations.transit_depth_snr_label,
+    ) == (
+        "Transit duration",
+        "Best transit period",
+        "Best transit duration",
+        "Transit depth",
+        "Depth signal-to-noise ratio",
     )
 
+
+@pytest.mark.parametrize(
+    ("language", "expected"),
+    [
+        ("en", "Transit duration"),
+        ("ja", "トランジット継続時間"),
+        ("ko", "트랜싯 지속 시간"),
+        ("th", "ระยะเวลาทรานซิต"),
+    ],
+)
+def test_transit_duration_label_is_translated(
+    language: str,
+    expected: str,
+) -> None:
+    translations = get_light_curve_translations(language)
+
+    assert translations.transit_duration_label == expected
+
+
+@pytest.mark.parametrize(
+    "language",
+    [
+        "en",
+        "ja",
+        "ko",
+        "th",
+    ],
+)
+def test_transit_search_requirements_are_translated(
+    language: str,
+) -> None:
+    translations = get_light_curve_translations(language)
+
+    assert translations.transit_unit_help.strip()
+    assert translations.transit_search_requires_flux.strip()
+    assert translations.transit_search_requires_twenty_observations.strip()
+    observation_count_text = {
+        "en": "twenty",
+        "ja": "20",
+        "ko": "20",
+        "th": "20",
+    }
+
+    assert (
+        observation_count_text[language] in translations.transit_search_requires_twenty_observations
+    )
