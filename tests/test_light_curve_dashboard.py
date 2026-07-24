@@ -508,3 +508,32 @@ def test_dashboard_combines_sigma_clipping_and_normalization(
             1.0,
         )
     )
+
+
+def test_uploaded_curve_uses_selected_photometry_kind(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    uploaded_file = FakeUploadedFile(
+        "time,flux\n"
+        "0,12.0\n"
+        "1,12.1\n"
+        "2,11.9\n"
+    )
+    fake_streamlit = FakeStreamlit(
+        uploaded_file=uploaded_file,
+        select_index=1,
+    )
+
+    monkeypatch.setattr(
+        light_curve_dashboard,
+        "st",
+        fake_streamlit,
+    )
+
+    state = render_light_curve_dashboard("en")
+
+    figure = fake_streamlit.plotly_chart_calls[0]["figure"]
+
+    assert state.photometry_kind == "magnitude"
+    assert figure.layout.yaxis.title.text == "Magnitude"
+    assert figure.layout.yaxis.autorange == "reversed"

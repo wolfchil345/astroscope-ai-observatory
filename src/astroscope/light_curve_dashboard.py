@@ -165,7 +165,7 @@ def render_light_curve_dashboard(
         detection = detect_light_curve_csv_columns(csv_text)
         metadata = LightCurveMetadata(
             object_name=object_name.strip() or translations.unknown_target,
-            photometry_kind=detection.photometry_kind,
+            photometry_kind=photometry_kind,
             time_standard=detection.suggested_time_standard or "BJD_TDB",
         )
         import_result = import_light_curve_csv(
