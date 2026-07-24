@@ -3,7 +3,8 @@
 from __future__ import annotations
 
 import csv
-from dataclasses import dataclass
+import json
+from dataclasses import asdict, dataclass
 from io import StringIO
 from typing import Literal
 
@@ -13,6 +14,14 @@ from astroscope.light_curve import (
     LightCurveMetadata,
     LightCurvePoint,
     PhotometryKind,
+)
+from astroscope.light_curve_period import LombScargleResult
+from astroscope.light_curve_phase import (
+    PhaseBinningResult,
+    PhaseFoldResult,
+)
+from astroscope.light_curve_transit_search import (
+    BoxLeastSquaresSearchResult,
 )
 
 DuplicatePolicy = Literal["error", "keep-first"]
@@ -205,6 +214,131 @@ def import_light_curve_csv(
         skipped_rows=skipped_rows,
         duplicate_rows=duplicate_rows,
         original_was_sorted=original_was_sorted,
+    )
+
+
+def export_light_curve_csv(light_curve: LightCurve) -> str:
+    """Serialize a light curve as round-trip-compatible CSV text."""
+
+    if not isinstance(light_curve, LightCurve):
+        raise LightCurveIOError("CSV export requires a LightCurve instance.")
+
+    output = StringIO()
+    writer = csv.writer(
+        output,
+        lineterminator="\n",
+    )
+
+    writer.writerow(
+        (
+            "time",
+            light_curve.metadata.photometry_kind,
+            "uncertainty",
+        )
+    )
+
+    for point in light_curve.points:
+        writer.writerow(
+            (
+                repr(point.time),
+                repr(point.value),
+                ("" if point.uncertainty is None else repr(point.uncertainty)),
+            )
+        )
+
+    return output.getvalue()
+
+
+def export_light_curve_json(
+    light_curve: LightCurve,
+    *,
+    period_result: LombScargleResult | None = None,
+    phase_fold: PhaseFoldResult | None = None,
+    phase_binning: PhaseBinningResult | None = None,
+    transit_result: BoxLeastSquaresSearchResult | None = None,
+) -> str:
+    """Serialize a light curve as a structured JSON report."""
+
+    if not isinstance(light_curve, LightCurve):
+        raise LightCurveIOError("JSON export requires a LightCurve instance.")
+
+    if phase_fold is not None and not isinstance(
+        phase_fold,
+        PhaseFoldResult,
+    ):
+        raise LightCurveIOError("Phase-fold export requires a PhaseFoldResult.")
+
+    if phase_binning is not None and not isinstance(
+        phase_binning,
+        PhaseBinningResult,
+    ):
+        raise LightCurveIOError("Phase-binning export requires a PhaseBinningResult.")
+
+    if phase_binning is not None:
+        if phase_fold is None:
+            raise LightCurveIOError("Phase-binning export also requires a PhaseFoldResult.")
+
+        if phase_binning.phase_fold != phase_fold:
+            raise LightCurveIOError("Phase-binning result must belong to the exported phase fold.")
+
+    if period_result is not None and not isinstance(
+        period_result,
+        LombScargleResult,
+    ):
+        raise LightCurveIOError("Period analysis export requires a LombScargleResult.")
+
+    if transit_result is not None and not isinstance(
+        transit_result,
+        BoxLeastSquaresSearchResult,
+    ):
+        raise LightCurveIOError("Transit analysis export requires a BoxLeastSquaresSearchResult.")
+
+    payload = {
+        "schema_version": 1,
+        "metadata": asdict(light_curve.metadata),
+        "summary": {
+            "observation_count": light_curve.observation_count,
+            "start_time": light_curve.start_time,
+            "end_time": light_curve.end_time,
+            "duration": light_curve.duration,
+            "has_uncertainties": light_curve.has_uncertainties,
+        },
+        "observations": [asdict(point) for point in light_curve.points],
+    }
+
+    if period_result is not None:
+        payload["period_analysis"] = asdict(period_result)
+
+    if phase_fold is not None:
+        phase_payload: dict[str, object] = {
+            "period": phase_fold.period,
+            "epoch": phase_fold.epoch,
+            "observation_count": (phase_fold.observation_count),
+            "points": [asdict(point) for point in phase_fold.points],
+        }
+
+        if phase_binning is not None:
+            phase_payload["binning"] = {
+                "bin_count": phase_binning.bin_count,
+                "minimum_points": (phase_binning.minimum_points),
+                "weighted": phase_binning.weighted,
+                "populated_bin_count": (phase_binning.populated_bin_count),
+                "bins": [asdict(phase_bin) for phase_bin in phase_binning.bins],
+            }
+
+        payload["phase_analysis"] = phase_payload
+
+    if transit_result is not None:
+        payload["transit_analysis"] = asdict(transit_result)
+
+    return (
+        json.dumps(
+            payload,
+            ensure_ascii=False,
+            indent=2,
+            allow_nan=False,
+        )
+        + "\n"
     )
 
 

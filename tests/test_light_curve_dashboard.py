@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass, field
 from math import pi, sin
 
@@ -35,6 +36,7 @@ class FakeStreamlit:
     """Small Streamlit replacement used by dashboard tests."""
 
     uploaded_file: object | None = None
+    session_state: dict[str, object] = field(default_factory=dict)
     text_value: str = "Test Target"
     select_index: int = 0
     titles: list[str] = field(default_factory=list)
@@ -55,6 +57,7 @@ class FakeStreamlit:
     error_messages: list[str] = field(default_factory=list)
     selectbox_calls: list[dict[str, object]] = field(default_factory=list)
     plotly_chart_calls: list[dict[str, object]] = field(default_factory=list)
+    download_button_calls: list[dict[str, object]] = field(default_factory=list)
 
     def title(
         self,
@@ -184,6 +187,26 @@ class FakeStreamlit:
                 "key": key,
             }
         )
+
+    def download_button(
+        self,
+        label: str,
+        *,
+        data: str,
+        file_name: str,
+        mime: str,
+        key: str,
+    ) -> bool:
+        self.download_button_calls.append(
+            {
+                "label": label,
+                "data": data,
+                "file_name": file_name,
+                "mime": mime,
+                "key": key,
+            }
+        )
+        return False
 
     def file_uploader(
         self,
@@ -873,3 +896,210 @@ def test_dashboard_runs_box_least_squares_transit_search(
     assert transit_residuals.layout.xaxis.title.text == "Time from transit midpoint"
     assert transit_residuals.layout.yaxis.title.text == "Residual"
     assert len(transit_residuals.data) >= 1
+
+
+def test_dashboard_exports_processed_light_curve_csv(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    uploaded_file = FakeUploadedFile("time,flux,uncertainty\n0,10.0,1.0\n1,20.0,2.0\n2,30.0,3.0\n")
+    fake_streamlit = FakeStreamlit(
+        uploaded_file=uploaded_file,
+        checkbox_values={
+            "light_curve_normalize_data": True,
+        },
+    )
+
+    monkeypatch.setattr(
+        light_curve_dashboard,
+        "st",
+        fake_streamlit,
+    )
+
+    render_light_curve_dashboard("en")
+
+    downloads = {call["key"]: call for call in fake_streamlit.download_button_calls}
+
+    assert set(downloads) == {
+        "light_curve_download_csv",
+        "light_curve_download_json",
+    }
+
+    download = downloads["light_curve_download_csv"]
+
+    assert download["label"] == "Download CSV"
+    assert download["file_name"] == ("astroscope_light_curve.csv")
+    assert download["mime"] == "text/csv"
+    assert download["key"] == "light_curve_download_csv"
+
+    exported_lines = download["data"].splitlines()
+
+    assert exported_lines[0] == "time,flux,uncertainty"
+
+    exported_rows = [
+        tuple(float(value) for value in line.split(",")) for line in exported_lines[1:]
+    ]
+
+    expected_rows = [
+        (0.0, 0.5, 0.05),
+        (1.0, 1.0, 0.1),
+        (2.0, 1.5, 0.15),
+    ]
+
+    assert len(exported_rows) == len(expected_rows)
+
+    for exported_row, expected_row in zip(
+        exported_rows,
+        expected_rows,
+        strict=True,
+    ):
+        assert exported_row == pytest.approx(expected_row)
+
+
+def test_dashboard_hides_csv_download_without_upload(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    fake_streamlit = FakeStreamlit()
+
+    monkeypatch.setattr(
+        light_curve_dashboard,
+        "st",
+        fake_streamlit,
+    )
+
+    render_light_curve_dashboard("en")
+
+    assert fake_streamlit.download_button_calls == []
+
+
+def test_dashboard_exports_processed_light_curve_json(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    uploaded_file = FakeUploadedFile("time,flux,uncertainty\n0,10.0,1.0\n1,20.0,2.0\n2,30.0,3.0\n")
+    fake_streamlit = FakeStreamlit(
+        uploaded_file=uploaded_file,
+        checkbox_values={
+            "light_curve_normalize_data": True,
+        },
+    )
+
+    monkeypatch.setattr(
+        light_curve_dashboard,
+        "st",
+        fake_streamlit,
+    )
+
+    render_light_curve_dashboard("en")
+
+    downloads = {call["key"]: call for call in fake_streamlit.download_button_calls}
+    download = downloads["light_curve_download_json"]
+
+    assert download["label"] == "Download JSON report"
+    assert download["file_name"] == ("astroscope_light_curve_report.json")
+    assert download["mime"] == "application/json"
+
+    report = json.loads(download["data"])
+
+    assert report["schema_version"] == 1
+    assert report["metadata"]["object_name"] == "Test Target"
+    assert report["metadata"]["photometry_kind"] == "flux"
+    assert report["summary"] == {
+        "observation_count": 3,
+        "start_time": 0.0,
+        "end_time": 2.0,
+        "duration": 2.0,
+        "has_uncertainties": True,
+    }
+
+    expected_observations = [
+        {
+            "time": 0.0,
+            "value": 0.5,
+            "uncertainty": 0.05,
+        },
+        {
+            "time": 1.0,
+            "value": 1.0,
+            "uncertainty": 0.1,
+        },
+        {
+            "time": 2.0,
+            "value": 1.5,
+            "uncertainty": 0.15,
+        },
+    ]
+
+    assert len(report["observations"]) == 3
+
+    for observation, expected in zip(
+        report["observations"],
+        expected_observations,
+        strict=True,
+    ):
+        assert observation["time"] == pytest.approx(expected["time"])
+        assert observation["value"] == pytest.approx(expected["value"])
+        assert observation["uncertainty"] == pytest.approx(expected["uncertainty"])
+
+
+def test_dashboard_preserves_analysis_results_for_json_download(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    rows = ["time,flux,uncertainty"]
+
+    for index in range(120):
+        time = index * 0.1
+        phase = time % 2.0
+        in_transit = phase < 0.1 or phase > 1.9
+        value = 0.97 if in_transit else 1.0
+        rows.append(f"{time:.6f},{value:.6f},0.005")
+
+    fake_streamlit = FakeStreamlit(
+        uploaded_file=FakeUploadedFile("\n".join(rows) + "\n"),
+        number_input_values={
+            "light_curve_minimum_period": 0.5,
+            "light_curve_maximum_period": 4.0,
+            "light_curve_phase_bin_count": 20,
+            "light_curve_transit_minimum_period": 0.5,
+            "light_curve_transit_maximum_period": 4.0,
+            "light_curve_transit_duration": 0.2,
+        },
+        button_values={
+            "light_curve_run_lomb_scargle": True,
+            "light_curve_run_bls": True,
+        },
+    )
+
+    monkeypatch.setattr(
+        light_curve_dashboard,
+        "st",
+        fake_streamlit,
+    )
+
+    render_light_curve_dashboard("en")
+
+    assert "light_curve_period_result" in (fake_streamlit.session_state)
+    assert "light_curve_phase_fold" in (fake_streamlit.session_state)
+    assert "light_curve_phase_binning" in (fake_streamlit.session_state)
+    assert "light_curve_transit_result" in (fake_streamlit.session_state)
+
+    fake_streamlit.button_values = {
+        "light_curve_run_lomb_scargle": False,
+        "light_curve_run_bls": False,
+    }
+    fake_streamlit.download_button_calls.clear()
+
+    render_light_curve_dashboard("en")
+
+    json_download = next(
+        call
+        for call in fake_streamlit.download_button_calls
+        if call["key"] == "light_curve_download_json"
+    )
+    report = json.loads(json_download["data"])
+
+    assert "period_analysis" in report
+    assert "phase_analysis" in report
+    assert "transit_analysis" in report
+    assert report["period_analysis"]["candidates"]
+    assert report["phase_analysis"]["points"]
+    assert report["phase_analysis"]["binning"]["bins"]
+    assert report["transit_analysis"]["candidates"]
