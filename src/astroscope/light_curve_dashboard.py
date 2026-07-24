@@ -3,18 +3,33 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from statistics import median
 
 import streamlit as st
 
-from astroscope.light_curve import LightCurveMetadata
+from astroscope.light_curve import LightCurve, LightCurveMetadata
+from astroscope.light_curve_analysis_visuals import (
+    build_lomb_scargle_periodogram_figure,
+    build_phase_folded_figure,
+)
 from astroscope.light_curve_i18n import (
     LightCurveTranslations,
+    build_light_curve_analysis_visual_labels,
     build_light_curve_visual_labels,
     get_light_curve_translations,
 )
 from astroscope.light_curve_io import (
     detect_light_curve_csv_columns,
     import_light_curve_csv,
+)
+from astroscope.light_curve_period import (
+    LightCurvePeriodError,
+    analyze_lomb_scargle,
+)
+from astroscope.light_curve_phase import (
+    LightCurvePhaseError,
+    bin_phase_fold,
+    fold_light_curve,
 )
 from astroscope.light_curve_processing import (
     normalize_light_curve,
@@ -48,6 +63,51 @@ class LightCurveDashboardState:
         """Return whether the user supplied a light-curve file."""
 
         return self.uploaded_file is not None
+
+
+@dataclass(frozen=True, slots=True)
+class PeriodSearchBounds:
+    """Default Lomb-Scargle period interval for the dashboard."""
+
+    minimum_period: float
+    maximum_period: float
+
+
+def build_default_period_search_bounds(
+    light_curve: LightCurve,
+) -> PeriodSearchBounds:
+    """Estimate a practical search interval from cadence and baseline."""
+
+    if not isinstance(light_curve, LightCurve):
+        raise LightCurveDashboardError(
+            "Period-search defaults require a LightCurve instance."
+        )
+
+    if light_curve.observation_count < 5:
+        raise LightCurveDashboardError(
+            "Default period search requires at least five observations."
+        )
+
+    cadences = tuple(
+        current.time - previous.time
+        for previous, current in zip(
+            light_curve.points,
+            light_curve.points[1:],
+            strict=False,
+        )
+    )
+    representative_cadence = float(median(cadences))
+
+    maximum_period = light_curve.duration / 2.0
+    minimum_period = 2.0 * representative_cadence
+
+    if minimum_period >= maximum_period:
+        minimum_period = maximum_period / 10.0
+
+    return PeriodSearchBounds(
+        minimum_period=minimum_period,
+        maximum_period=maximum_period,
+    )
 
 
 def build_light_curve_dashboard_copy(
@@ -229,6 +289,113 @@ def render_light_curve_dashboard(
             )
 
     st.subheader(translations.period_search_section)
+
+    if (
+        uploaded_file is not None
+        and processed_curve.observation_count < 5
+    ):
+        st.info(
+            translations.period_search_requires_five_observations
+        )
+    elif uploaded_file is not None:
+        period_bounds = build_default_period_search_bounds(
+            processed_curve,
+        )
+        period_step = max(
+            period_bounds.minimum_period / 10.0,
+            1.0e-6,
+        )
+
+        st.caption(translations.period_unit_help)
+
+        minimum_period = st.number_input(
+            translations.minimum_period_label,
+            value=period_bounds.minimum_period,
+            step=period_step,
+            format="%.6f",
+            help=translations.period_unit_help,
+            key="light_curve_minimum_period",
+        )
+        maximum_period = st.number_input(
+            translations.maximum_period_label,
+            value=period_bounds.maximum_period,
+            step=period_step,
+            format="%.6f",
+            help=translations.period_unit_help,
+            key="light_curve_maximum_period",
+        )
+        phase_bin_count = st.number_input(
+            translations.phase_bin_count_label,
+            value=20,
+            step=1,
+            format="%d",
+            help=None,
+            key="light_curve_phase_bin_count",
+        )
+
+        run_period_search = st.button(
+            translations.run_lomb_scargle,
+            type="primary",
+            key="light_curve_run_lomb_scargle",
+        )
+
+        if run_period_search:
+            try:
+                period_result = analyze_lomb_scargle(
+                    processed_curve,
+                    minimum_period=float(minimum_period),
+                    maximum_period=float(maximum_period),
+                )
+                phase_fold = fold_light_curve(
+                    processed_curve,
+                    period=period_result.best_period,
+                )
+                phase_binning = bin_phase_fold(
+                    phase_fold,
+                    bin_count=int(phase_bin_count),
+                )
+            except (
+                LightCurvePeriodError,
+                LightCurvePhaseError,
+            ) as error:
+                st.error(str(error))
+            else:
+                st.metric(
+                    translations.best_period_label,
+                    f"{period_result.best_period:.6g}",
+                )
+
+                analysis_labels = (
+                    build_light_curve_analysis_visual_labels(
+                        language,
+                    )
+                )
+
+                periodogram_figure = (
+                    build_lomb_scargle_periodogram_figure(
+                        period_result,
+                        title=translations.period_search_section,
+                        labels=analysis_labels,
+                    )
+                )
+                st.plotly_chart(
+                    periodogram_figure,
+                    width="stretch",
+                    key="light_curve_lomb_scargle_chart",
+                )
+
+                phase_figure = build_phase_folded_figure(
+                    phase_fold,
+                    phase_binning=phase_binning,
+                    title=translations.folded_series,
+                    labels=analysis_labels,
+                )
+                st.plotly_chart(
+                    phase_figure,
+                    width="stretch",
+                    key="light_curve_phase_folded_chart",
+                )
+
     st.subheader(translations.transit_search_section)
     st.subheader(translations.exports_section)
 

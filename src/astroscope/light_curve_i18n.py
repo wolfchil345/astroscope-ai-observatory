@@ -38,6 +38,12 @@ class LightCurveTranslations:
     transit_search_section: str
     exports_section: str
     run_lomb_scargle: str
+    minimum_period_label: str
+    maximum_period_label: str
+    phase_bin_count_label: str
+    best_period_label: str
+    period_unit_help: str
+    period_search_requires_five_observations: str
     run_bls: str
     download_csv: str
     download_json: str
@@ -92,6 +98,16 @@ _TRANSLATIONS: Final[dict[str, LightCurveTranslations]] = {
         transit_search_section="Transit search",
         exports_section="Exports",
         run_lomb_scargle="Run Lomb-Scargle search",
+        minimum_period_label="Minimum period",
+        maximum_period_label="Maximum period",
+        phase_bin_count_label="Phase-bin count",
+        best_period_label="Best period",
+        period_unit_help=(
+            "Periods use the same time unit as the uploaded observation times."
+        ),
+        period_search_requires_five_observations=(
+            "Period search requires at least five observations."
+        ),
         run_bls="Run transit search",
         download_csv="Download CSV",
         download_json="Download JSON report",
@@ -136,6 +152,16 @@ _TRANSLATIONS: Final[dict[str, LightCurveTranslations]] = {
         transit_search_section="トランジット探索",
         exports_section="エクスポート",
         run_lomb_scargle="ロンバーグ・スキャーグル解析を実行",
+        minimum_period_label="最小周期",
+        maximum_period_label="最大周期",
+        phase_bin_count_label="位相ビン数",
+        best_period_label="最良周期",
+        period_unit_help=(
+            "周期はアップロードした観測時刻と同じ時間単位を使用します。"
+        ),
+        period_search_requires_five_observations=(
+            "周期探索には5点以上の観測データが必要です。"
+        ),
         run_bls="トランジット探索を実行",
         download_csv="CSVをダウンロード",
         download_json="JSONレポートをダウンロード",
@@ -180,6 +206,16 @@ _TRANSLATIONS: Final[dict[str, LightCurveTranslations]] = {
         transit_search_section="트랜싯 탐색",
         exports_section="내보내기",
         run_lomb_scargle="롬-스카글 탐색 실행",
+        minimum_period_label="최소 주기",
+        maximum_period_label="최대 주기",
+        phase_bin_count_label="위상 구간 수",
+        best_period_label="최적 주기",
+        period_unit_help=(
+            "주기는 업로드한 관측 시간과 동일한 시간 단위를 사용합니다."
+        ),
+        period_search_requires_five_observations=(
+            "주기 탐색에는 최소 5개의 관측값이 필요합니다."
+        ),
         run_bls="트랜싯 탐색 실행",
         download_csv="CSV 다운로드",
         download_json="JSON 보고서 다운로드",
@@ -224,6 +260,16 @@ _TRANSLATIONS: Final[dict[str, LightCurveTranslations]] = {
         transit_search_section="การค้นหาทรานซิต",
         exports_section="การส่งออก",
         run_lomb_scargle="เริ่มการค้นหาแบบลอมบ์-สการ์เกิล",
+        minimum_period_label="คาบต่ำสุด",
+        maximum_period_label="คาบสูงสุด",
+        phase_bin_count_label="จำนวนช่วงเฟส",
+        best_period_label="คาบที่ดีที่สุด",
+        period_unit_help=(
+            "หน่วยของคาบเหมือนกับหน่วยเวลาของข้อมูลสังเกตที่อัปโหลด"
+        ),
+        period_search_requires_five_observations=(
+            "การค้นหาคาบต้องมีข้อมูลสังเกตอย่างน้อย 5 จุด"
+        ),
         run_bls="เริ่มการค้นหาทรานซิต",
         download_csv="ดาวน์โหลด CSV",
         download_json="ดาวน์โหลดรายงาน JSON",

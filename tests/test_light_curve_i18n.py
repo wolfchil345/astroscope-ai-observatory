@@ -199,3 +199,90 @@ def test_import_success_message_is_translated(
     expected: str,
 ) -> None:
     assert get_light_curve_translations(language).import_success_message == expected
+
+@pytest.mark.parametrize(
+    ("language", "expected"),
+    [
+        (
+            "en",
+            (
+                "Minimum period",
+                "Maximum period",
+                "Phase-bin count",
+                "Best period",
+            ),
+        ),
+        (
+            "ja",
+            (
+                "最小周期",
+                "最大周期",
+                "位相ビン数",
+                "最良周期",
+            ),
+        ),
+        (
+            "ko",
+            (
+                "최소 주기",
+                "최대 주기",
+                "위상 구간 수",
+                "최적 주기",
+            ),
+        ),
+        (
+            "th",
+            (
+                "คาบต่ำสุด",
+                "คาบสูงสุด",
+                "จำนวนช่วงเฟส",
+                "คาบที่ดีที่สุด",
+            ),
+        ),
+    ],
+)
+def test_period_analysis_control_labels_are_translated(
+    language: str,
+    expected: tuple[str, str, str, str],
+) -> None:
+    translations = get_light_curve_translations(language)
+
+    assert (
+        translations.minimum_period_label,
+        translations.maximum_period_label,
+        translations.phase_bin_count_label,
+        translations.best_period_label,
+    ) == expected
+
+@pytest.mark.parametrize(
+    ("language", "expected"),
+    [
+        (
+            "en",
+            "Period search requires at least five observations.",
+        ),
+        (
+            "ja",
+            "周期探索には5点以上の観測データが必要です。",
+        ),
+        (
+            "ko",
+            "주기 탐색에는 최소 5개의 관측값이 필요합니다.",
+        ),
+        (
+            "th",
+            "การค้นหาคาบต้องมีข้อมูลสังเกตอย่างน้อย 5 จุด",
+        ),
+    ],
+)
+def test_period_observation_requirement_is_translated(
+    language: str,
+    expected: str,
+) -> None:
+    translations = get_light_curve_translations(language)
+
+    assert (
+        translations.period_search_requires_five_observations
+        == expected
+    )
+
