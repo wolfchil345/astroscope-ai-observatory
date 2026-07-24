@@ -26,6 +26,7 @@ from astroscope.imaging_visuals import (
     ImagingFrameLabels,
     create_imaging_frame_figure,
 )
+from astroscope.light_curve_dashboard import render_light_curve_dashboard
 from astroscope.observation_log import (
     EquipmentSnapshot,
     ObservationLogError,
@@ -3962,6 +3963,9 @@ render_gaia_dashboard(language)
 render_exoplanet_dashboard(language)
 
 render_transit_schedule_dashboard(language)
+
+st.divider()
+render_light_curve_dashboard(language, embedded=True)
 
 st.markdown(f"## {translate('future_features', language)}")
 
