@@ -167,3 +167,19 @@ def test_normalize_data_label_is_translated(
     expected: str,
 ) -> None:
     assert get_light_curve_translations(language).normalize_data == expected
+
+
+@pytest.mark.parametrize(
+    ("language", "expected"),
+    [
+        ("en", "Remove 3σ outliers"),
+        ("ja", "3σ外れ値を除去"),
+        ("ko", "3σ 이상치 제거"),
+        ("th", "ลบค่าผิดปกติ 3σ"),
+    ],
+)
+def test_sigma_clip_data_label_is_translated(
+    language: str,
+    expected: str,
+) -> None:
+    assert get_light_curve_translations(language).sigma_clip_data == expected

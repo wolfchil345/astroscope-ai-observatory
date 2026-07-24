@@ -33,6 +33,7 @@ class LightCurveTranslations:
     raw_data_section: str
     processing_section: str
     normalize_data: str
+    sigma_clip_data: str
     period_search_section: str
     transit_search_section: str
     exports_section: str
@@ -86,6 +87,7 @@ _TRANSLATIONS: Final[dict[str, LightCurveTranslations]] = {
         raw_data_section="Raw observations",
         processing_section="Processing",
         normalize_data="Normalize data",
+        sigma_clip_data="Remove 3σ outliers",
         period_search_section="Period search",
         transit_search_section="Transit search",
         exports_section="Exports",
@@ -129,6 +131,7 @@ _TRANSLATIONS: Final[dict[str, LightCurveTranslations]] = {
         raw_data_section="生データ",
         processing_section="前処理",
         normalize_data="データを正規化",
+        sigma_clip_data="3σ外れ値を除去",
         period_search_section="周期探索",
         transit_search_section="トランジット探索",
         exports_section="エクスポート",
@@ -172,6 +175,7 @@ _TRANSLATIONS: Final[dict[str, LightCurveTranslations]] = {
         raw_data_section="원시 관측값",
         processing_section="전처리",
         normalize_data="데이터 정규화",
+        sigma_clip_data="3σ 이상치 제거",
         period_search_section="주기 탐색",
         transit_search_section="트랜싯 탐색",
         exports_section="내보내기",
@@ -215,6 +219,7 @@ _TRANSLATIONS: Final[dict[str, LightCurveTranslations]] = {
         raw_data_section="ข้อมูลสังเกตดิบ",
         processing_section="การประมวลผล",
         normalize_data="ปรับข้อมูลให้เป็นมาตรฐาน",
+        sigma_clip_data="ลบค่าผิดปกติ 3σ",
         period_search_section="การค้นหาคาบ",
         transit_search_section="การค้นหาทรานซิต",
         exports_section="การส่งออก",
