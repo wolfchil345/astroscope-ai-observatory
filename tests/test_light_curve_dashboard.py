@@ -41,7 +41,8 @@ class FakeStreamlit:
     success_messages: list[str] = field(default_factory=list)
     uploader_calls: list[dict[str, object]] = field(default_factory=list)
     text_input_calls: list[dict[str, object]] = field(default_factory=list)
-    checkbox_value: bool = False
+    checkbox_values: dict[str, bool] = field(default_factory=dict)
+    checkbox_calls: list[dict[str, object]] = field(default_factory=list)
     selectbox_calls: list[dict[str, object]] = field(default_factory=list)
     plotly_chart_calls: list[dict[str, object]] = field(default_factory=list)
 
@@ -88,7 +89,14 @@ class FakeStreamlit:
         value: bool,
         key: str,
     ) -> bool:
-        return self.checkbox_value
+        self.checkbox_calls.append(
+            {
+                "label": label,
+                "value": value,
+                "key": key,
+            }
+        )
+        return self.checkbox_values.get(key, value)
 
     def plotly_chart(
         self,
@@ -381,23 +389,18 @@ def test_dashboard_renders_uploaded_light_curve_chart(
 def test_dashboard_renders_normalized_chart_when_selected(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    class NormalizingFakeStreamlit(FakeStreamlit):
-        def checkbox(
-            self,
-            label: str,
-            *,
-            value: bool,
-            key: str,
-        ) -> bool:
-            return True
-
     uploaded_file = FakeUploadedFile(
         "time,flux,uncertainty\n"
         "0,10.0,1.0\n"
         "1,20.0,2.0\n"
         "2,30.0,3.0\n"
     )
-    fake_streamlit = NormalizingFakeStreamlit(uploaded_file=uploaded_file)
+    fake_streamlit = FakeStreamlit(
+        uploaded_file=uploaded_file,
+        checkbox_values={
+            "light_curve_normalize_data": True,
+        },
+    )
 
     monkeypatch.setattr(
         light_curve_dashboard,
@@ -413,4 +416,39 @@ def test_dashboard_renders_normalized_chart_when_selected(
     ] == [
         "light_curve_raw_chart",
         "light_curve_normalized_chart",
+    ]
+
+
+def test_dashboard_renders_sigma_clipped_chart_when_selected(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    uploaded_file = FakeUploadedFile(
+        "time,flux,uncertainty\n"
+        "0,0.99,0.01\n"
+        "1,1.00,0.01\n"
+        "2,1.01,0.01\n"
+        "3,1.00,0.01\n"
+        "4,5.00,0.10\n"
+    )
+    fake_streamlit = FakeStreamlit(
+        uploaded_file=uploaded_file,
+        checkbox_values={
+            "light_curve_sigma_clip_data": True,
+        },
+    )
+
+    monkeypatch.setattr(
+        light_curve_dashboard,
+        "st",
+        fake_streamlit,
+    )
+
+    render_light_curve_dashboard("en")
+
+    assert [
+        call["key"]
+        for call in fake_streamlit.plotly_chart_calls
+    ] == [
+        "light_curve_raw_chart",
+        "light_curve_sigma_clipped_chart",
     ]

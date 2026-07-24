@@ -16,7 +16,10 @@ from astroscope.light_curve_io import (
     detect_light_curve_csv_columns,
     import_light_curve_csv,
 )
-from astroscope.light_curve_processing import normalize_light_curve
+from astroscope.light_curve_processing import (
+    normalize_light_curve,
+    sigma_clip_light_curve,
+)
 from astroscope.light_curve_visuals import build_light_curve_figure
 
 
@@ -199,6 +202,26 @@ def render_light_curve_dashboard(
                 normalized_figure,
                 width="stretch",
                 key="light_curve_normalized_chart",
+            )
+
+        sigma_clip_data = st.checkbox(
+            translations.sigma_clip_data,
+            value=False,
+            key="light_curve_sigma_clip_data",
+        )
+        if sigma_clip_data:
+            sigma_clipped_result = sigma_clip_light_curve(
+                import_result.light_curve,
+                sigma=3.0,
+            )
+            sigma_clipped_figure = build_light_curve_figure(
+                sigma_clipped_result.light_curve,
+                labels=build_light_curve_visual_labels(language),
+            )
+            st.plotly_chart(
+                sigma_clipped_figure,
+                width="stretch",
+                key="light_curve_sigma_clipped_chart",
             )
 
     st.subheader(translations.period_search_section)
