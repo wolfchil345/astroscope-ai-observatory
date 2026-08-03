@@ -1,0 +1,783 @@
+{
+  "aggregate_status": "passed",
+  "benchmark_id": "observer-time-validation-v1",
+  "benchmark_inputs": {
+    "benchmark_input_sha256": "8004b49e425e23bf492203f663c8afd578e758c9630ddfebce41f13b23b61aac",
+    "digest_algorithm": "sha256-path-null-file-sha256-v1",
+    "files": [
+      {
+        "path": "pyproject.toml",
+        "sha256": "78664bccda8a25604dba58799efa01c95c36beda6581d063d95043dadfd50c34"
+      },
+      {
+        "path": "src/astroscope/observer.py",
+        "sha256": "2d61dca4c29b4929be7b91a51bf6b1858197968244afc1a6e63cc3ca48158dff"
+      },
+      {
+        "path": "validation/fixtures/observer_time_reference_v1.json",
+        "sha256": "4f8e7654e854f210bebbb74095444de4214472c7f994d389ea00c183bc2e5af5"
+      },
+      {
+        "path": "validation/manifests/observer_time_v1.json",
+        "sha256": "314fcdb8a2a25ec9a32c381b68efc9f71e836d290a68c82b592a1e1a7df7d1aa"
+      },
+      {
+        "path": "validation/observer_time.py",
+        "sha256": "90f7f7fce84f3fafee702c93334d8964f991f427861380d9366b1f33018475ca"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "actual_classification": "normal",
+      "actual_utc": "2024-01-01T00:00:00+00:00",
+      "candidates": [
+        {
+          "fold": 0,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-01-01T00:00:00+00:00",
+          "roundtrip_matches": true,
+          "utc": "2024-01-01T00:00:00+00:00",
+          "utc_offset_seconds": 0
+        },
+        {
+          "fold": 1,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-01-01T00:00:00+00:00",
+          "roundtrip_matches": true,
+          "utc": "2024-01-01T00:00:00+00:00",
+          "utc_offset_seconds": 0
+        }
+      ],
+      "category": "supported",
+      "expected_classification": "normal",
+      "expected_utc": "2024-01-01T00:00:00+00:00",
+      "fold": 0,
+      "id": "utc-origin",
+      "local_datetime": "2024-01-01T00:00:00",
+      "status": "passed",
+      "timezone": "UTC"
+    },
+    {
+      "actual_classification": "normal",
+      "actual_utc": "2023-12-31T15:30:00+00:00",
+      "candidates": [
+        {
+          "fold": 0,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-01-01T00:30:00+09:00",
+          "roundtrip_matches": true,
+          "utc": "2023-12-31T15:30:00+00:00",
+          "utc_offset_seconds": 32400
+        },
+        {
+          "fold": 1,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-01-01T00:30:00+09:00",
+          "roundtrip_matches": true,
+          "utc": "2023-12-31T15:30:00+00:00",
+          "utc_offset_seconds": 32400
+        }
+      ],
+      "category": "supported",
+      "expected_classification": "normal",
+      "expected_utc": "2023-12-31T15:30:00+00:00",
+      "fold": 0,
+      "id": "tokyo-eastward-date-crossing",
+      "local_datetime": "2024-01-01T00:30:00",
+      "status": "passed",
+      "timezone": "Asia/Tokyo"
+    },
+    {
+      "actual_classification": "normal",
+      "actual_utc": "2024-06-01T01:15:00+00:00",
+      "candidates": [
+        {
+          "fold": 0,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-06-01T08:15:00+07:00",
+          "roundtrip_matches": true,
+          "utc": "2024-06-01T01:15:00+00:00",
+          "utc_offset_seconds": 25200
+        },
+        {
+          "fold": 1,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-06-01T08:15:00+07:00",
+          "roundtrip_matches": true,
+          "utc": "2024-06-01T01:15:00+00:00",
+          "utc_offset_seconds": 25200
+        }
+      ],
+      "category": "supported",
+      "expected_classification": "normal",
+      "expected_utc": "2024-06-01T01:15:00+00:00",
+      "fold": 0,
+      "id": "bangkok-unambiguous",
+      "local_datetime": "2024-06-01T08:15:00",
+      "status": "passed",
+      "timezone": "Asia/Bangkok"
+    },
+    {
+      "actual_classification": "normal",
+      "actual_utc": "2024-01-15T05:30:00+00:00",
+      "candidates": [
+        {
+          "fold": 0,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-01-15T00:30:00-05:00",
+          "roundtrip_matches": true,
+          "utc": "2024-01-15T05:30:00+00:00",
+          "utc_offset_seconds": -18000
+        },
+        {
+          "fold": 1,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-01-15T00:30:00-05:00",
+          "roundtrip_matches": true,
+          "utc": "2024-01-15T05:30:00+00:00",
+          "utc_offset_seconds": -18000
+        }
+      ],
+      "category": "supported",
+      "expected_classification": "normal",
+      "expected_utc": "2024-01-15T05:30:00+00:00",
+      "fold": 0,
+      "id": "new-york-standard-time",
+      "local_datetime": "2024-01-15T00:30:00",
+      "status": "passed",
+      "timezone": "America/New_York"
+    },
+    {
+      "actual_classification": "normal",
+      "actual_utc": "2024-06-30T23:30:00+00:00",
+      "candidates": [
+        {
+          "fold": 0,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-07-01T00:30:00+01:00",
+          "roundtrip_matches": true,
+          "utc": "2024-06-30T23:30:00+00:00",
+          "utc_offset_seconds": 3600
+        },
+        {
+          "fold": 1,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-07-01T00:30:00+01:00",
+          "roundtrip_matches": true,
+          "utc": "2024-06-30T23:30:00+00:00",
+          "utc_offset_seconds": 3600
+        }
+      ],
+      "category": "supported",
+      "expected_classification": "normal",
+      "expected_utc": "2024-06-30T23:30:00+00:00",
+      "fold": 0,
+      "id": "london-westward-date-crossing",
+      "local_datetime": "2024-07-01T00:30:00",
+      "status": "passed",
+      "timezone": "Europe/London"
+    },
+    {
+      "actual_classification": "normal",
+      "actual_utc": "2024-04-06T14:15:00+00:00",
+      "candidates": [
+        {
+          "fold": 0,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-04-07T01:15:00+11:00",
+          "roundtrip_matches": true,
+          "utc": "2024-04-06T14:15:00+00:00",
+          "utc_offset_seconds": 39600
+        },
+        {
+          "fold": 1,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-04-07T01:15:00+11:00",
+          "roundtrip_matches": true,
+          "utc": "2024-04-06T14:15:00+00:00",
+          "utc_offset_seconds": 39600
+        }
+      ],
+      "category": "supported",
+      "expected_classification": "normal",
+      "expected_utc": "2024-04-06T14:15:00+00:00",
+      "fold": 0,
+      "id": "lord-howe-before-thirty-minute-fallback",
+      "local_datetime": "2024-04-07T01:15:00",
+      "status": "passed",
+      "timezone": "Australia/Lord_Howe"
+    },
+    {
+      "actual_classification": "normal",
+      "actual_utc": "2024-04-06T15:45:00+00:00",
+      "candidates": [
+        {
+          "fold": 0,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-04-07T02:15:00+10:30",
+          "roundtrip_matches": true,
+          "utc": "2024-04-06T15:45:00+00:00",
+          "utc_offset_seconds": 37800
+        },
+        {
+          "fold": 1,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-04-07T02:15:00+10:30",
+          "roundtrip_matches": true,
+          "utc": "2024-04-06T15:45:00+00:00",
+          "utc_offset_seconds": 37800
+        }
+      ],
+      "category": "supported",
+      "expected_classification": "normal",
+      "expected_utc": "2024-04-06T15:45:00+00:00",
+      "fold": 0,
+      "id": "lord-howe-after-thirty-minute-fallback",
+      "local_datetime": "2024-04-07T02:15:00",
+      "status": "passed",
+      "timezone": "Australia/Lord_Howe"
+    },
+    {
+      "actual_classification": "ambiguous",
+      "actual_utc": "2024-11-03T05:30:00+00:00",
+      "candidates": [
+        {
+          "fold": 0,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-11-03T01:30:00-04:00",
+          "roundtrip_matches": true,
+          "utc": "2024-11-03T05:30:00+00:00",
+          "utc_offset_seconds": -14400
+        },
+        {
+          "fold": 1,
+          "roundtrip_fold": 1,
+          "roundtrip_local": "2024-11-03T01:30:00-05:00",
+          "roundtrip_matches": true,
+          "utc": "2024-11-03T06:30:00+00:00",
+          "utc_offset_seconds": -18000
+        }
+      ],
+      "category": "supported",
+      "expected_classification": "ambiguous",
+      "expected_utc": "2024-11-03T05:30:00+00:00",
+      "fold": 0,
+      "id": "new-york-fallback-fold-zero",
+      "local_datetime": "2024-11-03T01:30:00",
+      "status": "passed",
+      "timezone": "America/New_York"
+    },
+    {
+      "actual_classification": "ambiguous",
+      "actual_utc": "2024-11-03T06:30:00+00:00",
+      "candidates": [
+        {
+          "fold": 0,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-11-03T01:30:00-04:00",
+          "roundtrip_matches": true,
+          "utc": "2024-11-03T05:30:00+00:00",
+          "utc_offset_seconds": -14400
+        },
+        {
+          "fold": 1,
+          "roundtrip_fold": 1,
+          "roundtrip_local": "2024-11-03T01:30:00-05:00",
+          "roundtrip_matches": true,
+          "utc": "2024-11-03T06:30:00+00:00",
+          "utc_offset_seconds": -18000
+        }
+      ],
+      "category": "supported",
+      "expected_classification": "ambiguous",
+      "expected_utc": "2024-11-03T06:30:00+00:00",
+      "fold": 1,
+      "id": "new-york-fallback-fold-one",
+      "local_datetime": "2024-11-03T01:30:00",
+      "status": "passed",
+      "timezone": "America/New_York"
+    },
+    {
+      "actual_classification": "nonexistent",
+      "candidates": [
+        {
+          "fold": 0,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-03-10T03:30:00-04:00",
+          "roundtrip_matches": false,
+          "utc": "2024-03-10T07:30:00+00:00",
+          "utc_offset_seconds": -18000
+        },
+        {
+          "fold": 1,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-03-10T01:30:00-05:00",
+          "roundtrip_matches": false,
+          "utc": "2024-03-10T06:30:00+00:00",
+          "utc_offset_seconds": -14400
+        }
+      ],
+      "category": "unsupported",
+      "expected_candidates": [
+        {
+          "fold": 0,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-03-10T03:30:00-04:00",
+          "roundtrip_matches": false,
+          "utc": "2024-03-10T07:30:00+00:00",
+          "utc_offset_seconds": -18000
+        },
+        {
+          "fold": 1,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-03-10T01:30:00-05:00",
+          "roundtrip_matches": false,
+          "utc": "2024-03-10T06:30:00+00:00",
+          "utc_offset_seconds": -14400
+        }
+      ],
+      "expected_classification": "nonexistent",
+      "id": "new-york-spring-gap",
+      "local_datetime": "2024-03-10T02:30:00",
+      "reason": "The production API has no policy for nonexistent civil times.",
+      "status": "unsupported",
+      "timezone": "America/New_York"
+    },
+    {
+      "actual_classification": "nonexistent",
+      "candidates": [
+        {
+          "fold": 0,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-10-06T02:45:00+11:00",
+          "roundtrip_matches": false,
+          "utc": "2024-10-05T15:45:00+00:00",
+          "utc_offset_seconds": 37800
+        },
+        {
+          "fold": 1,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-10-06T01:45:00+10:30",
+          "roundtrip_matches": false,
+          "utc": "2024-10-05T15:15:00+00:00",
+          "utc_offset_seconds": 39600
+        }
+      ],
+      "category": "unsupported",
+      "expected_candidates": [
+        {
+          "fold": 0,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-10-06T02:45:00+11:00",
+          "roundtrip_matches": false,
+          "utc": "2024-10-05T15:45:00+00:00",
+          "utc_offset_seconds": 37800
+        },
+        {
+          "fold": 1,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-10-06T01:45:00+10:30",
+          "roundtrip_matches": false,
+          "utc": "2024-10-05T15:15:00+00:00",
+          "utc_offset_seconds": 39600
+        }
+      ],
+      "expected_classification": "nonexistent",
+      "id": "lord-howe-thirty-minute-spring-gap",
+      "local_datetime": "2024-10-06T02:15:00",
+      "reason": "The production API has no policy for nonexistent civil times.",
+      "status": "unsupported",
+      "timezone": "Australia/Lord_Howe"
+    },
+    {
+      "actual_error": "Unknown time zone: Planet/Mars",
+      "category": "invalid_input",
+      "expected_error": "Unknown time zone: Planet/Mars",
+      "id": "invalid-timezone-name",
+      "local_datetime": "2024-01-01T00:00:00",
+      "status": "invalid_input",
+      "timezone": "Planet/Mars"
+    }
+  ],
+  "environment": {
+    "architecture": "arm64",
+    "astropy_version": "8.0.1",
+    "ephemeris": {
+      "configuration": {
+        "solar_system_ephemeris": "builtin"
+      },
+      "reason": "Civil-time UTC-offset mapping does not calculate solar-system positions.",
+      "status": "not_applicable"
+    },
+    "git": {
+      "checked_out_commit": "fd21cdabaadc80f84dd36eae9b9eed70e48195ed",
+      "implementation_commit": "fd21cdabaadc80f84dd36eae9b9eed70e48195ed",
+      "tracked_worktree_clean_before_output": true
+    },
+    "iers": {
+      "configuration": {
+        "auto_download": true,
+        "auto_max_age": 30.0
+      },
+      "reason": "Civil-time UTC-offset mapping does not consume Earth-orientation data.",
+      "status": "not_applicable"
+    },
+    "installed_dependencies": [
+      {
+        "name": "altair",
+        "version": "6.2.2"
+      },
+      {
+        "name": "anyio",
+        "version": "4.14.2"
+      },
+      {
+        "name": "astropy",
+        "version": "8.0.1"
+      },
+      {
+        "name": "astropy-iers-data",
+        "version": "0.2026.8.3.0.53.6"
+      },
+      {
+        "name": "astroscope-ai-observatory",
+        "version": "0.2.0"
+      },
+      {
+        "name": "astroscope-ai-observatory",
+        "version": "0.2.0"
+      },
+      {
+        "name": "attrs",
+        "version": "26.1.0"
+      },
+      {
+        "name": "blinker",
+        "version": "1.9.0"
+      },
+      {
+        "name": "certifi",
+        "version": "2026.7.22"
+      },
+      {
+        "name": "charset-normalizer",
+        "version": "3.4.9"
+      },
+      {
+        "name": "click",
+        "version": "8.4.2"
+      },
+      {
+        "name": "gitdb",
+        "version": "4.0.12"
+      },
+      {
+        "name": "GitPython",
+        "version": "3.1.57"
+      },
+      {
+        "name": "h11",
+        "version": "0.16.0"
+      },
+      {
+        "name": "httptools",
+        "version": "0.8.0"
+      },
+      {
+        "name": "idna",
+        "version": "3.18"
+      },
+      {
+        "name": "iniconfig",
+        "version": "2.3.0"
+      },
+      {
+        "name": "itsdangerous",
+        "version": "2.2.0"
+      },
+      {
+        "name": "Jinja2",
+        "version": "3.1.6"
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.26.0"
+      },
+      {
+        "name": "jsonschema-specifications",
+        "version": "2025.9.1"
+      },
+      {
+        "name": "MarkupSafe",
+        "version": "3.0.3"
+      },
+      {
+        "name": "narwhals",
+        "version": "2.24.0"
+      },
+      {
+        "name": "numpy",
+        "version": "2.5.1"
+      },
+      {
+        "name": "packaging",
+        "version": "26.2"
+      },
+      {
+        "name": "pandas",
+        "version": "3.0.5"
+      },
+      {
+        "name": "pillow",
+        "version": "12.3.0"
+      },
+      {
+        "name": "pip",
+        "version": "26.2"
+      },
+      {
+        "name": "plotly",
+        "version": "6.9.0"
+      },
+      {
+        "name": "pluggy",
+        "version": "1.6.0"
+      },
+      {
+        "name": "protobuf",
+        "version": "7.35.1"
+      },
+      {
+        "name": "pyarrow",
+        "version": "24.0.0"
+      },
+      {
+        "name": "pydeck",
+        "version": "0.9.3"
+      },
+      {
+        "name": "pyerfa",
+        "version": "2.0.1.5"
+      },
+      {
+        "name": "Pygments",
+        "version": "2.20.0"
+      },
+      {
+        "name": "pytest",
+        "version": "9.1.1"
+      },
+      {
+        "name": "python-dateutil",
+        "version": "2.9.0.post0"
+      },
+      {
+        "name": "python-multipart",
+        "version": "0.0.32"
+      },
+      {
+        "name": "PyYAML",
+        "version": "6.0.3"
+      },
+      {
+        "name": "referencing",
+        "version": "0.37.0"
+      },
+      {
+        "name": "requests",
+        "version": "2.34.2"
+      },
+      {
+        "name": "rpds-py",
+        "version": "2026.6.3"
+      },
+      {
+        "name": "ruff",
+        "version": "0.16.1"
+      },
+      {
+        "name": "scipy",
+        "version": "1.18.0"
+      },
+      {
+        "name": "six",
+        "version": "1.17.0"
+      },
+      {
+        "name": "smmap",
+        "version": "5.0.3"
+      },
+      {
+        "name": "starlette",
+        "version": "1.3.1"
+      },
+      {
+        "name": "streamlit",
+        "version": "1.60.0"
+      },
+      {
+        "name": "tenacity",
+        "version": "9.1.4"
+      },
+      {
+        "name": "toml",
+        "version": "0.10.2"
+      },
+      {
+        "name": "typing_extensions",
+        "version": "4.16.0"
+      },
+      {
+        "name": "tzdata",
+        "version": "2026.3"
+      },
+      {
+        "name": "urllib3",
+        "version": "2.7.0"
+      },
+      {
+        "name": "uvicorn",
+        "version": "0.52.1"
+      },
+      {
+        "name": "websockets",
+        "version": "16.1.1"
+      }
+    ],
+    "operating_system": {
+      "release": "25.5.0",
+      "system": "Darwin",
+      "version": "Darwin Kernel Version 25.5.0: Tue Jun  9 22:26:46 PDT 2026; root:xnu-12377.121.10~1/RELEASE_ARM64_T8103"
+    },
+    "package_versions": {
+      "installed_distribution": "0.2.0",
+      "source_pyproject": "0.2.0",
+      "tzdata_distribution": "2026.3",
+      "tzdata_iana": "2026c"
+    },
+    "python": {
+      "executable": "/private/tmp/astroscope-m25-canonical.3fixSS/bin/python",
+      "implementation": "CPython",
+      "version": "3.12.10"
+    },
+    "timezone_database": {
+      "pythontzpath": "",
+      "tzif_files": [
+        {
+          "sha256": "d7f2206b3a45989fc9ad63d558922532fa7352280d5f87176bf1db79cb1d1fa9",
+          "zone": "America/New_York"
+        },
+        {
+          "sha256": "cdc8e2c282d8bc9a5e9c3caf2fc45ff4e9e5cd18f5dec8cb873340ad7c584d64",
+          "zone": "Asia/Bangkok"
+        },
+        {
+          "sha256": "59a3871430f0d3b93e619fa30a43a41d1e88bdd49ff26f09d0f405a500706f96",
+          "zone": "Asia/Tokyo"
+        },
+        {
+          "sha256": "f368bd25659c0293d02bb79ec7dac7d5b73a92dffafce14b4dd2ffb8ba11aada",
+          "zone": "Australia/Lord_Howe"
+        },
+        {
+          "sha256": "676541f0b8ad457c744c093f807589adcad909e3fd03f901787d08786eedbd33",
+          "zone": "Europe/London"
+        },
+        {
+          "sha256": "fddce1e648a1732ac29afd9a16151b2973cdf082e7ec0c690f7e42be6b598b93",
+          "zone": "UTC"
+        }
+      ],
+      "zoneinfo_tzpath": []
+    }
+  },
+  "environment_checks": [
+    {
+      "actual": "",
+      "expected": "",
+      "name": "PYTHONTZPATH",
+      "status": "passed"
+    },
+    {
+      "actual": [],
+      "expected": [],
+      "name": "zoneinfo.TZPATH",
+      "status": "passed"
+    },
+    {
+      "actual": "2026.3",
+      "expected": "2026.3",
+      "name": "tzdata distribution version",
+      "status": "passed"
+    },
+    {
+      "actual": "2026c",
+      "expected": "2026c",
+      "name": "tzdata IANA version",
+      "status": "passed"
+    },
+    {
+      "actual": {
+        "installed": "0.2.0",
+        "source": "0.2.0"
+      },
+      "expected": "equal",
+      "name": "source and installed package versions",
+      "status": "passed"
+    }
+  ],
+  "generated_at_utc": "2026-08-03T19:14:20+00:00",
+  "manifest": {
+    "fixture_sha256": "4f8e7654e854f210bebbb74095444de4214472c7f994d389ea00c183bc2e5af5",
+    "manifest_file_sha256": "314fcdb8a2a25ec9a32c381b68efc9f71e836d290a68c82b592a1e1a7df7d1aa",
+    "manifest_payload_sha256": "5695c6fd4ed5d8fb716292a541b6dbf0158f617950996a8b77add4d8740688f7",
+    "path": "validation/manifests/observer_time_v1.json"
+  },
+  "reference": {
+    "archives": [
+      {
+        "filename": "tzcode2026c.tar.gz",
+        "sha256": "b1cffc3ace4c4c7cd0efba2f7add86ec3d0b79da48bcf03582671fd3c8feace8",
+        "source_url": "https://data.iana.org/time-zones/releases/tzcode2026c.tar.gz"
+      },
+      {
+        "filename": "tzdata2026c.tar.gz",
+        "sha256": "e4a178a4477f3d0ea77cc31828ff72aa38feff8d61aa13e7e99e142e9d902be4",
+        "source_url": "https://data.iana.org/time-zones/releases/tzdata2026c.tar.gz"
+      }
+    ],
+    "retrieved_at_utc": "2026-08-03T18:56:51Z",
+    "tool_versions": {
+      "zdump": "zdump (tzcode) 2026c",
+      "zic": "zic (tzcode) 2026c"
+    },
+    "version_file_contents": "2026c"
+  },
+  "schema_version": "1.0",
+  "scientific_context": {
+    "coordinate_frame": {
+      "reason": "Civil-time UTC-offset mapping does not use celestial coordinates.",
+      "status": "not_applicable"
+    },
+    "ephemeris": {
+      "reason": "Civil-time UTC-offset mapping does not calculate solar-system positions.",
+      "status": "not_applicable"
+    },
+    "iers": {
+      "reason": "Civil-time UTC-offset mapping does not consume Earth-orientation data.",
+      "status": "not_applicable"
+    },
+    "observing_site": {
+      "reason": "Named civil-time rules do not depend on observer latitude, longitude, or elevation.",
+      "status": "not_applicable"
+    }
+  },
+  "summary": {
+    "expected_invalid_input": 1,
+    "expected_unsupported": 2,
+    "failed": 0,
+    "supported_passed": 9,
+    "total": 12
+  }
+}
