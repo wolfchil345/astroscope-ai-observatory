@@ -3,16 +3,16 @@
 ## Current Status
 
 - Phase 0: Complete
-- v0.2.0: Ready for annotated tag and GitHub release
-- Phase 1: Not yet started
-- Mission 20: Complete — merged through PR #10
+- v0.2.0: Released
+- Phase 1: Active — Research Software Architecture
+- Mission 21: Active — Transit Schedule Application Boundary Extraction
 
 ## Phase Progress
 
 | Phase | Theme | Status |
 |---|---|---|
 | 0 | Feature Freeze & Research Baseline | ✅ Complete |
-| 1 | Research Software Architecture | ⏳ Planned |
+| 1 | Research Software Architecture | 🚧 In Progress |
 | 2 | Scientific Validation | ⏳ Planned |
 | 3 | Observation Optimisation | ⏳ Planned |
 | 4 | Real AI Layer | ⏳ Planned |
@@ -20,6 +20,20 @@
 | 6 | Robotic Observatory Control | ⏳ Planned |
 | 7 | Professional Astronomy Interoperability | ⏳ Planned |
 | 8 | Research Publication Package | ⏳ Planned |
+
+## Current Mission Checklist
+
+### Mission 21 — Transit Schedule Application Boundary Extraction
+
+- [x] Create a UI-independent transit-schedule application module
+- [x] Move the approved request-construction dataclass and helpers without duplication
+- [x] Preserve dashboard compatibility imports and object identity
+- [x] Add characterization tests for date boundaries, request fields, and target mapping
+- [x] Enforce the Streamlit-free and Plotly-free dependency boundary in a clean subprocess
+- [x] Preserve scientific calculations, defaults, exports, translations, session state, and UI
+- [x] Run the complete quality gate and internal Markdown-link verification
+- [ ] Open pull request
+- [ ] Merge Mission 21
 
 ## Mission 20 Completion Checklist
 

@@ -1,9 +1,11 @@
 """Tests for transit-scheduler dashboard helper functions."""
 
-from datetime import UTC, date, datetime
-
 import pytest
 
+from astroscope import (
+    transit_schedule_application,
+    transit_schedule_dashboard,
+)
 from astroscope.transit_ranking import (
     RankedTransit,
     TransitObservationCandidate,
@@ -14,12 +16,8 @@ from astroscope.transit_schedule import (
     TransitScheduleResult,
 )
 from astroscope.transit_schedule_dashboard import (
-    TransitDashboardTargetInput,
     build_dashboard_exports,
-    build_schedule_request,
-    build_schedule_target,
     ranked_schedule_rows,
-    utc_datetime_to_julian_date,
 )
 from astroscope.transit_scheduler import TransitEvent
 from astroscope.transit_visibility import (
@@ -86,103 +84,23 @@ def make_ranked_transit() -> RankedTransit:
     )
 
 
-def test_utc_datetime_to_julian_date_known_epoch() -> None:
-    value = datetime(
-        2000,
-        1,
-        1,
-        12,
-        0,
-        tzinfo=UTC,
+def test_dashboard_compatibility_imports_preserve_identity() -> None:
+    assert (
+        transit_schedule_dashboard.TransitDashboardTargetInput
+        is transit_schedule_application.TransitDashboardTargetInput
     )
-
-    result = utc_datetime_to_julian_date(value)
-
-    assert result == pytest.approx(2_451_545.0)
-
-
-def test_utc_datetime_to_julian_date_rejects_naive_value() -> None:
-    with pytest.raises(
-        ValueError,
-        match="timezone",
-    ):
-        utc_datetime_to_julian_date(
-            datetime(
-                2026,
-                1,
-                1,
-                0,
-                0,
-            )
-        )
-
-
-def test_build_schedule_request_covers_complete_dates() -> None:
-    request = build_schedule_request(
-        date(2026, 1, 1),
-        date(2026, 1, 2),
-        baseline_before_hours=1.0,
-        baseline_after_hours=2.0,
-        uncertainty_sigma_multiplier=2.0,
-        visibility_sample_count=31,
-        minimum_altitude_degrees=25.0,
-        darkness_sun_altitude_degrees=-12.0,
+    assert (
+        transit_schedule_dashboard.utc_datetime_to_julian_date
+        is transit_schedule_application.utc_datetime_to_julian_date
     )
-
-    assert isinstance(
-        request,
-        TransitScheduleRequest,
+    assert (
+        transit_schedule_dashboard.build_schedule_request
+        is transit_schedule_application.build_schedule_request
     )
-    assert request.end_jd - request.start_jd == pytest.approx(
-        2.0,
-        abs=1e-8,
+    assert (
+        transit_schedule_dashboard.build_schedule_target
+        is transit_schedule_application.build_schedule_target
     )
-    assert request.baseline_after_hours == 2.0
-    assert request.visibility_sample_count == 31
-    assert request.minimum_altitude_degrees == 25.0
-    assert request.darkness_sun_altitude_degrees == -12.0
-
-
-def test_build_schedule_request_rejects_reversed_dates() -> None:
-    with pytest.raises(
-        ValueError,
-        match="End date",
-    ):
-        build_schedule_request(
-            date(2026, 1, 2),
-            date(2026, 1, 1),
-            baseline_before_hours=1.0,
-            baseline_after_hours=1.0,
-            uncertainty_sigma_multiplier=1.0,
-            visibility_sample_count=25,
-            minimum_altitude_degrees=20.0,
-            darkness_sun_altitude_degrees=-18.0,
-        )
-
-
-def test_build_schedule_target_maps_all_fields() -> None:
-    target = build_schedule_target(
-        TransitDashboardTargetInput(
-            planet_name="Test b",
-            host_star_name="Test Star",
-            right_ascension_degrees=120.0,
-            declination_degrees=30.0,
-            orbital_period_days=4.5,
-            reference_mid_transit_jd=2_460_000.25,
-            transit_duration_hours=2.5,
-            period_uncertainty_days=0.0001,
-            reference_epoch_uncertainty_days=0.001,
-            transit_depth_ppm=1_500.0,
-            host_magnitude=10.5,
-        )
-    )
-
-    assert target.ephemeris.planet_name == "Test b"
-    assert target.ephemeris.orbital_period_days == pytest.approx(4.5)
-    assert target.target.name == "Test Star"
-    assert target.target.right_ascension_degrees == pytest.approx(120.0)
-    assert target.transit_depth_ppm == 1_500.0
-    assert target.host_magnitude == 10.5
 
 
 def test_ranked_schedule_rows_contains_display_values() -> None:
