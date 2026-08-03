@@ -2,15 +2,16 @@
 
 ## Current Status
 
-- Research Phase: Phase 0 — Feature Freeze & Research Baseline
-- Current Mission: Mission 20 — v0.2.0 Research Baseline Freeze
-- Mission Status: Active — Freeze complete locally
+- Phase 0: Complete
+- v0.2.0: Ready for annotated tag and GitHub release
+- Phase 1: Not yet started
+- Mission 20: Complete — merged through PR #10
 
 ## Phase Progress
 
 | Phase | Theme | Status |
 |---|---|---|
-| 0 | Feature Freeze & Research Baseline | 🚧 In Progress |
+| 0 | Feature Freeze & Research Baseline | ✅ Complete |
 | 1 | Research Software Architecture | ⏳ Planned |
 | 2 | Scientific Validation | ⏳ Planned |
 | 3 | Observation Optimisation | ⏳ Planned |
@@ -20,7 +21,7 @@
 | 7 | Professional Astronomy Interoperability | ⏳ Planned |
 | 8 | Research Publication Package | ⏳ Planned |
 
-## Current Mission Checklist
+## Mission 20 Completion Checklist
 
 ### Mission 20 — v0.2.0 Research Baseline Freeze
 
@@ -33,14 +34,15 @@
 - [x] Add v0.2.0 release notes and package metadata
 - [x] Verify internal documentation links and version references
 - [x] Run the complete quality gate
-- [ ] Open pull request
-- [ ] Merge Mission 20
+- [x] Open pull request
+- [x] Merge Mission 20 through PR #10
 
 ## Completed Missions
 
 - Mission 17 — Multipage Observatory Navigation, merged in PR #7
 - Mission 18 — Research Baseline Audit, merged in PR #8
 - Mission 19 — Architecture & Limitations Map, merged in PR #9
+- Mission 20 — v0.2.0 Research Baseline Freeze, merged in PR #10
 
 ## Phase 0 Deliverables
 
