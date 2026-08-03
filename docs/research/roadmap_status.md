@@ -4,20 +4,22 @@
 
 - Phase 0: Complete
 - v0.2.0: Released
-- Phase 1: Active — Research Software Architecture
+- Phase 1: Complete — Research Software Architecture
 - Mission 21: Complete — Transit Schedule Application Boundary Extraction, merged in PR #12
 - Mission 22: Complete — Observatory Presentation Boundary Extraction, merged in PR #13
 - Mission 23: Complete — Observation Schedule Visualization Boundary Extraction, merged in PR #14
-- Mission 24: Active — Sky Map Visualization Boundary Extraction
-- Phase 1 Exit Audit: Pending after Mission 24
+- Mission 24: Complete — Sky Map Visualization Boundary Extraction, merged in PR #15
+- Phase 1 Exit Audit: PASS — Phase 1 complete
+- Phase 2: Ready — Scientific Validation not yet started
+- Mission 25: Not started
 
 ## Phase Progress
 
 | Phase | Theme | Status |
 |---|---|---|
 | 0 | Feature Freeze & Research Baseline | ✅ Complete |
-| 1 | Research Software Architecture | 🚧 In Progress |
-| 2 | Scientific Validation | ⏳ Planned |
+| 1 | Research Software Architecture | ✅ Complete |
+| 2 | Scientific Validation | ⏳ Ready / Not Started |
 | 3 | Observation Optimisation | ⏳ Planned |
 | 4 | Real AI Layer | ⏳ Planned |
 | 5 | Uncertainty-Aware Planning | ⏳ Planned |
@@ -37,8 +39,8 @@
 - [x] Add scientific, figure, dependency-boundary, compatibility, and AST characterization
 - [x] Preserve astronomy behavior, result contracts, translations, navigation, state, and styling
 - [x] Run the complete quality gate and internal Markdown-link verification
-- [ ] Open pull request
-- [ ] Merge Mission 24
+- [x] Open pull request
+- [x] Merge Mission 24 through PR #15
 
 ## Mission 23 Completion Checklist
 
@@ -109,6 +111,15 @@
 - Mission 21 — Transit Schedule Application Boundary Extraction, merged in PR #12
 - Mission 22 — Observatory Presentation Boundary Extraction, merged in PR #13
 - Mission 23 — Observation Schedule Visualization Boundary Extraction, merged in PR #14
+- Mission 24 — Sky Map Visualization Boundary Extraction, merged in PR #15
+
+## Phase 1 Deliverables
+
+- [Phase 1 Exit Audit](phase_1_exit_audit.md)
+- Mission 21 — Transit Schedule Application Boundary Extraction, PR #12
+- Mission 22 — Observatory Presentation Boundary Extraction, PR #13
+- Mission 23 — Observation Schedule Visualization Boundary Extraction, PR #14
+- Mission 24 — Sky Map Visualization Boundary Extraction, PR #15
 
 ## Phase 0 Deliverables
 
