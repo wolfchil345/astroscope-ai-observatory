@@ -3,8 +3,8 @@
 ## Current Status
 
 - Research Phase: Phase 0 — Feature Freeze & Research Baseline
-- Current Mission: Mission 17 — Multipage Observatory Navigation
-- Mission Status: Ready for Commit
+- Current Mission: Mission 18 — Research Baseline Audit
+- Mission Status: Ready for Review
 
 ## Phase Progress
 
@@ -22,21 +22,27 @@
 
 ## Current Mission Checklist
 
-### Mission 17 — Multipage Observatory Navigation
+### Mission 18 — Research Baseline Audit
 
-- [x] Introduce `st.navigation`
-- [x] Introduce `st.Page`
-- [x] Make existing observatory callable
-- [x] Add shared language selector
-- [x] Add standalone Light Curve Laboratory page
-- [x] Extract remaining major laboratories
-- [x] Remove duplicate embedded laboratories
-- [x] Validate navigation state
-- [x] Run full pytest suite
-- [x] Run Ruff checks
-- [x] Run Streamlit smoke test
+- [x] Inventory current scientific modules
+- [x] Separate UI-only and reusable scientific components
+- [x] Inventory external data sources and dependencies
+- [x] Summarize existing test coverage
+- [x] Document assumptions and approximations
+- [x] Identify validation gaps
+- [x] Identify architecture risks
+- [x] Assess research readiness
+- [x] Publish the baseline audit document
 - [ ] Open pull request
-- [ ] Merge Mission 17
+- [ ] Merge Mission 18
+
+## Completed Missions
+
+- Mission 17 — Multipage Observatory Navigation, merged in PR #7
+
+## Mission 18 Deliverable
+
+- [Research Baseline Audit](research_baseline_audit.md)
 
 ## Research Rule
 
