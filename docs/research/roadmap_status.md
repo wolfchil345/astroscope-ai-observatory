@@ -7,7 +7,9 @@
 - Phase 1: Active — Research Software Architecture
 - Mission 21: Complete — Transit Schedule Application Boundary Extraction, merged in PR #12
 - Mission 22: Complete — Observatory Presentation Boundary Extraction, merged in PR #13
-- Mission 23: Active — Observation Schedule Visualization Boundary Extraction
+- Mission 23: Complete — Observation Schedule Visualization Boundary Extraction, merged in PR #14
+- Mission 24: Active — Sky Map Visualization Boundary Extraction
+- Phase 1 Exit Audit: Pending after Mission 24
 
 ## Phase Progress
 
@@ -25,6 +27,21 @@
 
 ## Current Mission Checklist
 
+### Mission 24 — Sky Map Visualization Boundary Extraction
+
+- [x] Move sky-map chart labels and Plotly figure construction into a dedicated visualization module
+- [x] Keep sky-map result models, radial geometry, and workflow calculations unchanged
+- [x] Make the production Observatory import visualization symbols from the new boundary directly
+- [x] Preserve legacy sky-map visualization imports lazily with exact object identity
+- [x] Keep ordinary scientific sky-map imports free from Plotly and visualization dependencies
+- [x] Add scientific, figure, dependency-boundary, compatibility, and AST characterization
+- [x] Preserve astronomy behavior, result contracts, translations, navigation, state, and styling
+- [x] Run the complete quality gate and internal Markdown-link verification
+- [ ] Open pull request
+- [ ] Merge Mission 24
+
+## Mission 23 Completion Checklist
+
 ### Mission 23 — Observation Schedule Visualization Boundary Extraction
 
 - [x] Move schedule chart labels and Plotly figure construction into a dedicated visualization module
@@ -35,8 +52,8 @@
 - [x] Add exact figure, dependency-boundary, compatibility, and AST characterization
 - [x] Preserve scientific formulas, thresholds, tolerances, navigation, state, translations, and styling
 - [x] Run the complete quality gate and internal Markdown-link verification
-- [ ] Open pull request
-- [ ] Merge Mission 23
+- [x] Open pull request
+- [x] Merge Mission 23 through PR #14
 
 ## Mission 22 Completion Checklist
 
@@ -91,6 +108,7 @@
 - Mission 20 — v0.2.0 Research Baseline Freeze, merged in PR #10
 - Mission 21 — Transit Schedule Application Boundary Extraction, merged in PR #12
 - Mission 22 — Observatory Presentation Boundary Extraction, merged in PR #13
+- Mission 23 — Observation Schedule Visualization Boundary Extraction, merged in PR #14
 
 ## Phase 0 Deliverables
 

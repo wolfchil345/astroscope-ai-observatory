@@ -51,9 +51,9 @@ from astroscope.schedule_visuals import (
     ScheduleChartLabels,
     create_schedule_figure,
 )
-from astroscope.sky_map import (
+from astroscope.sky_map import calculate_sky_map_points
+from astroscope.sky_map_visuals import (
     SkyMapLabels,
-    calculate_sky_map_points,
     create_sky_map_figure,
 )
 from astroscope.solar_system import (
