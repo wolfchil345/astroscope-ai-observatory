@@ -3,8 +3,8 @@
 ## Current Status
 
 - Research Phase: Phase 0 — Feature Freeze & Research Baseline
-- Current Mission: Mission 18 — Research Baseline Audit
-- Mission Status: Ready for Review
+- Current Mission: Mission 19 — Architecture & Limitations Map
+- Mission Status: Active — Documentation and analysis complete locally
 
 ## Phase Progress
 
@@ -22,27 +22,28 @@
 
 ## Current Mission Checklist
 
-### Mission 18 — Research Baseline Audit
+### Mission 19 — Architecture & Limitations Map
 
-- [x] Inventory current scientific modules
-- [x] Separate UI-only and reusable scientific components
-- [x] Inventory external data sources and dependencies
-- [x] Summarize existing test coverage
-- [x] Document assumptions and approximations
-- [x] Identify validation gaps
-- [x] Identify architecture risks
-- [x] Assess research readiness
-- [x] Publish the baseline audit document
+- [x] Document the current application architecture
+- [x] Map UI, scientific-domain, infrastructure, and external-service boundaries
+- [x] Trace the major application data flows
+- [x] Identify UI-bound scientific logic and reusable scientific components
+- [x] Document architectural coupling and failure modes
+- [x] Document scientific limitations and operational risks
+- [x] Identify recommended refactor seams without implementing them
+- [x] Publish the architecture and limitations map
 - [ ] Open pull request
-- [ ] Merge Mission 18
+- [ ] Merge Mission 19
 
 ## Completed Missions
 
 - Mission 17 — Multipage Observatory Navigation, merged in PR #7
+- Mission 18 — Research Baseline Audit, merged in PR #8
 
-## Mission 18 Deliverable
+## Phase 0 Deliverables
 
 - [Research Baseline Audit](research_baseline_audit.md)
+- [Architecture & Limitations Map](architecture_limitations_map.md)
 
 ## Research Rule
 
