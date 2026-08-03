@@ -6,7 +6,8 @@
 - v0.2.0: Released
 - Phase 1: Active — Research Software Architecture
 - Mission 21: Complete — Transit Schedule Application Boundary Extraction, merged in PR #12
-- Mission 22: Active — Observatory Presentation Boundary Extraction
+- Mission 22: Complete — Observatory Presentation Boundary Extraction, merged in PR #13
+- Mission 23: Active — Observation Schedule Visualization Boundary Extraction
 
 ## Phase Progress
 
@@ -24,6 +25,21 @@
 
 ## Current Mission Checklist
 
+### Mission 23 — Observation Schedule Visualization Boundary Extraction
+
+- [x] Move schedule chart labels and Plotly figure construction into a dedicated visualization module
+- [x] Keep timeline generation and scheduling heuristics in the scientific/workflow module
+- [x] Make the production Observatory import visualization symbols from the new boundary directly
+- [x] Preserve legacy schedule visualization imports lazily with exact object identity
+- [x] Add independent numerical characterization for grids, planner forwarding, and scheduling heuristics
+- [x] Add exact figure, dependency-boundary, compatibility, and AST characterization
+- [x] Preserve scientific formulas, thresholds, tolerances, navigation, state, translations, and styling
+- [x] Run the complete quality gate and internal Markdown-link verification
+- [ ] Open pull request
+- [ ] Merge Mission 23
+
+## Mission 22 Completion Checklist
+
 ### Mission 22 — Observatory Presentation Boundary Extraction
 
 - [x] Move the complete Observatory presentation implementation into a dedicated module
@@ -34,8 +50,8 @@
 - [x] Add navigation, import-side-effect, compatibility, and Streamlit smoke coverage
 - [x] Preserve scientific behavior, widgets, session state, translations, exports, and defaults
 - [x] Run the complete quality gate and internal Markdown-link verification
-- [ ] Open pull request
-- [ ] Merge Mission 22
+- [x] Open pull request
+- [x] Merge Mission 22 through PR #13
 
 ## Mission 21 Completion Checklist
 
@@ -74,6 +90,7 @@
 - Mission 19 — Architecture & Limitations Map, merged in PR #9
 - Mission 20 — v0.2.0 Research Baseline Freeze, merged in PR #10
 - Mission 21 — Transit Schedule Application Boundary Extraction, merged in PR #12
+- Mission 22 — Observatory Presentation Boundary Extraction, merged in PR #13
 
 ## Phase 0 Deliverables
 
