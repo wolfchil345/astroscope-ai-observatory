@@ -1,0 +1,59 @@
+{
+  "benchmark_id": "observer-time-validation-v1",
+  "benchmark_input_digest_algorithm": "sha256-path-null-file-sha256-v1",
+  "benchmark_input_files": [
+    "pyproject.toml",
+    "src/astroscope/observer.py",
+    "validation/fixtures/observer_time_reference_v1.json",
+    "validation/manifests/observer_time_v1.json",
+    "validation/observer_time.py"
+  ],
+  "expected_invalid_input_case_count": 1,
+  "expected_supported_case_count": 9,
+  "expected_tzdata_iana_version": "2026c",
+  "expected_unsupported_case_count": 2,
+  "fixture_path": "validation/fixtures/observer_time_reference_v1.json",
+  "fixture_sha256": "4f8e7654e854f210bebbb74095444de4214472c7f994d389ea00c183bc2e5af5",
+  "iana_release": "2026c",
+  "manifest_payload_sha256": "5695c6fd4ed5d8fb716292a541b6dbf0158f617950996a8b77add4d8740688f7",
+  "python_tzdata_release": "2026.3",
+  "reference_toolchain": {
+    "archives": [
+      {
+        "filename": "tzcode2026c.tar.gz",
+        "sha256": "b1cffc3ace4c4c7cd0efba2f7add86ec3d0b79da48bcf03582671fd3c8feace8",
+        "source_url": "https://data.iana.org/time-zones/releases/tzcode2026c.tar.gz"
+      },
+      {
+        "filename": "tzdata2026c.tar.gz",
+        "sha256": "e4a178a4477f3d0ea77cc31828ff72aa38feff8d61aa13e7e99e142e9d902be4",
+        "source_url": "https://data.iana.org/time-zones/releases/tzdata2026c.tar.gz"
+      }
+    ],
+    "retrieved_at_utc": "2026-08-03T18:56:51Z",
+    "tool_versions": {
+      "zdump": "zdump (tzcode) 2026c",
+      "zic": "zic (tzcode) 2026c"
+    },
+    "version_file_contents": "2026c"
+  },
+  "schema_version": "1.0",
+  "scientific_context": {
+    "coordinate_frame": {
+      "reason": "Civil-time UTC-offset mapping does not use celestial coordinates.",
+      "status": "not_applicable"
+    },
+    "ephemeris": {
+      "reason": "Civil-time UTC-offset mapping does not calculate solar-system positions.",
+      "status": "not_applicable"
+    },
+    "iers": {
+      "reason": "Civil-time UTC-offset mapping does not consume Earth-orientation data.",
+      "status": "not_applicable"
+    },
+    "observing_site": {
+      "reason": "Named civil-time rules do not depend on observer latitude, longitude, or elevation.",
+      "status": "not_applicable"
+    }
+  }
+}

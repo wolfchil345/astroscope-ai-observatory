@@ -10,8 +10,8 @@
 - Mission 23: Complete — Observation Schedule Visualization Boundary Extraction, merged in PR #14
 - Mission 24: Complete — Sky Map Visualization Boundary Extraction, merged in PR #15
 - Phase 1 Exit Audit: PASS — Phase 1 complete
-- Phase 2: Ready — Scientific Validation not yet started
-- Mission 25: Not started
+- Phase 2: Active — Scientific Validation
+- Mission 25: Active — Observer-Time Validation Baseline
 
 ## Phase Progress
 
@@ -19,7 +19,7 @@
 |---|---|---|
 | 0 | Feature Freeze & Research Baseline | ✅ Complete |
 | 1 | Research Software Architecture | ✅ Complete |
-| 2 | Scientific Validation | ⏳ Ready / Not Started |
+| 2 | Scientific Validation | 🚧 Active |
 | 3 | Observation Optimisation | ⏳ Planned |
 | 4 | Real AI Layer | ⏳ Planned |
 | 5 | Uncertainty-Aware Planning | ⏳ Planned |
@@ -28,6 +28,21 @@
 | 8 | Research Publication Package | ⏳ Planned |
 
 ## Current Mission Checklist
+
+### Mission 25 — Observer-Time Validation Baseline
+
+- [ ] Build an offline, pinned civil-time-to-UTC reference fixture from IANA 2026c
+- [ ] Validate seven unambiguous/date-crossing cases and two explicit fold conversions
+- [ ] Characterize two nonexistent-time cases as expected unsupported behavior
+- [ ] Preserve the existing invalid-timezone validation behavior
+- [ ] Record package, timezone-database, Git, dependency, and environment provenance
+- [ ] Add exactly 16 validation tests and a CI benchmark artifact
+- [ ] Preserve production scientific code and document the missing UI fold/gap policy
+- [ ] Run the complete quality gate and internal Markdown-link verification
+- [ ] Open pull request
+- [ ] Merge Mission 25
+
+## Mission 24 Completion Checklist
 
 ### Mission 24 — Sky Map Visualization Boundary Extraction
 
