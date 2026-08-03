@@ -46,9 +46,9 @@ from astroscope.observer import (
     get_timezone as get_observation_log_timezone,
 )
 from astroscope.planner import calculate_observation_plan
-from astroscope.schedule import (
+from astroscope.schedule import calculate_observation_schedule
+from astroscope.schedule_visuals import (
     ScheduleChartLabels,
-    calculate_observation_schedule,
     create_schedule_figure,
 )
 from astroscope.sky_map import (
