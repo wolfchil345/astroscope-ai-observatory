@@ -11,7 +11,8 @@
 - Mission 24: Complete — Sky Map Visualization Boundary Extraction, merged in PR #15
 - Phase 1 Exit Audit: PASS — Phase 1 complete
 - Phase 2: Active — Scientific Validation
-- Mission 25: Active — Observer-Time Validation Baseline
+- Mission 25: Complete — Observer-Time Validation Baseline, merged in PR #17
+- Mission 26: Not started
 
 ## Phase Progress
 
@@ -27,20 +28,20 @@
 | 7 | Professional Astronomy Interoperability | ⏳ Planned |
 | 8 | Research Publication Package | ⏳ Planned |
 
-## Current Mission Checklist
+## Mission 25 Completion Checklist
 
 ### Mission 25 — Observer-Time Validation Baseline
 
-- [ ] Build an offline, pinned civil-time-to-UTC reference fixture from IANA 2026c
-- [ ] Validate seven unambiguous/date-crossing cases and two explicit fold conversions
-- [ ] Characterize two nonexistent-time cases as expected unsupported behavior
-- [ ] Preserve the existing invalid-timezone validation behavior
-- [ ] Record package, timezone-database, Git, dependency, and environment provenance
-- [ ] Add exactly 16 validation tests and a CI benchmark artifact
-- [ ] Preserve production scientific code and document the missing UI fold/gap policy
-- [ ] Run the complete quality gate and internal Markdown-link verification
-- [ ] Open pull request
-- [ ] Merge Mission 25
+- [x] Build an offline, pinned civil-time-to-UTC reference fixture from IANA 2026c
+- [x] Validate seven unambiguous/date-crossing cases and two explicit fold conversions
+- [x] Characterize two nonexistent-time cases as expected unsupported behavior
+- [x] Preserve the existing invalid-timezone validation behavior
+- [x] Record package, timezone-database, Git, dependency, and environment provenance
+- [x] Add exactly 16 validation tests and a CI benchmark artifact
+- [x] Preserve production scientific code and document the missing UI fold/gap policy
+- [x] Run the complete quality gate and internal Markdown-link verification
+- [x] Open pull request
+- [x] Merge Mission 25 through PR #17
 
 ## Mission 24 Completion Checklist
 
@@ -127,6 +128,11 @@
 - Mission 22 — Observatory Presentation Boundary Extraction, merged in PR #13
 - Mission 23 — Observation Schedule Visualization Boundary Extraction, merged in PR #14
 - Mission 24 — Sky Map Visualization Boundary Extraction, merged in PR #15
+- Mission 25 — Observer-Time Validation Baseline, merged in PR #17
+
+## Phase 2 Deliverables
+
+- [Observer-Time Validation Baseline](validation/observer_time_validation.md)
 
 ## Phase 1 Deliverables
 
