@@ -5,7 +5,8 @@
 - Phase 0: Complete
 - v0.2.0: Released
 - Phase 1: Active — Research Software Architecture
-- Mission 21: Active — Transit Schedule Application Boundary Extraction
+- Mission 21: Complete — Transit Schedule Application Boundary Extraction, merged in PR #12
+- Mission 22: Active — Observatory Presentation Boundary Extraction
 
 ## Phase Progress
 
@@ -23,6 +24,21 @@
 
 ## Current Mission Checklist
 
+### Mission 22 — Observatory Presentation Boundary Extraction
+
+- [x] Move the complete Observatory presentation implementation into a dedicated module
+- [x] Keep `app.py` responsible for page configuration, shared language selection, and navigation
+- [x] Preserve the Observatory page wrapper and language delegation
+- [x] Preserve page count, ordering, callables, titles, icons, and default-page behavior
+- [x] Preserve the Observatory rendering body mechanically without internal decomposition
+- [x] Add navigation, import-side-effect, compatibility, and Streamlit smoke coverage
+- [x] Preserve scientific behavior, widgets, session state, translations, exports, and defaults
+- [x] Run the complete quality gate and internal Markdown-link verification
+- [ ] Open pull request
+- [ ] Merge Mission 22
+
+## Mission 21 Completion Checklist
+
 ### Mission 21 — Transit Schedule Application Boundary Extraction
 
 - [x] Create a UI-independent transit-schedule application module
@@ -32,8 +48,8 @@
 - [x] Enforce the Streamlit-free and Plotly-free dependency boundary in a clean subprocess
 - [x] Preserve scientific calculations, defaults, exports, translations, session state, and UI
 - [x] Run the complete quality gate and internal Markdown-link verification
-- [ ] Open pull request
-- [ ] Merge Mission 21
+- [x] Open pull request
+- [x] Merge Mission 21 through PR #12
 
 ## Mission 20 Completion Checklist
 
@@ -57,6 +73,7 @@
 - Mission 18 — Research Baseline Audit, merged in PR #8
 - Mission 19 — Architecture & Limitations Map, merged in PR #9
 - Mission 20 — v0.2.0 Research Baseline Freeze, merged in PR #10
+- Mission 21 — Transit Schedule Application Boundary Extraction, merged in PR #12
 
 ## Phase 0 Deliverables
 
