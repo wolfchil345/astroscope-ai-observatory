@@ -3,8 +3,8 @@
 ## Current Status
 
 - Research Phase: Phase 0 — Feature Freeze & Research Baseline
-- Current Mission: Mission 19 — Architecture & Limitations Map
-- Mission Status: Active — Documentation and analysis complete locally
+- Current Mission: Mission 20 — v0.2.0 Research Baseline Freeze
+- Mission Status: Active — Freeze complete locally
 
 ## Phase Progress
 
@@ -22,28 +22,32 @@
 
 ## Current Mission Checklist
 
-### Mission 19 — Architecture & Limitations Map
+### Mission 20 — v0.2.0 Research Baseline Freeze
 
-- [x] Document the current application architecture
-- [x] Map UI, scientific-domain, infrastructure, and external-service boundaries
-- [x] Trace the major application data flows
-- [x] Identify UI-bound scientific logic and reusable scientific components
-- [x] Document architectural coupling and failure modes
-- [x] Document scientific limitations and operational risks
-- [x] Identify recommended refactor seams without implementing them
-- [x] Publish the architecture and limitations map
+- [x] Reconcile the Mission 18 and Mission 19 documentation
+- [x] Define the exact v0.2.0 capability baseline
+- [x] Document supported scientific workflows
+- [x] Consolidate known limitations across all required categories
+- [x] Define future reproducibility and validation expectations
+- [x] Record Phase 0 freeze acceptance criteria
+- [x] Add v0.2.0 release notes and package metadata
+- [x] Verify internal documentation links and version references
+- [x] Run the complete quality gate
 - [ ] Open pull request
-- [ ] Merge Mission 19
+- [ ] Merge Mission 20
 
 ## Completed Missions
 
 - Mission 17 — Multipage Observatory Navigation, merged in PR #7
 - Mission 18 — Research Baseline Audit, merged in PR #8
+- Mission 19 — Architecture & Limitations Map, merged in PR #9
 
 ## Phase 0 Deliverables
 
 - [Research Baseline Audit](research_baseline_audit.md)
 - [Architecture & Limitations Map](architecture_limitations_map.md)
+- [v0.2.0 Research Baseline Freeze](v0.2.0_research_baseline.md)
+- [v0.2.0 Changelog](../../CHANGELOG.md#020---2026-08-03)
 
 ## Research Rule
 
