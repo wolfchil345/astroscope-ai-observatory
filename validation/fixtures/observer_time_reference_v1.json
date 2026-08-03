@@ -1,0 +1,196 @@
+{
+  "cases": [
+    {
+      "category": "supported",
+      "expected_classification": "normal",
+      "expected_utc": "2024-01-01T00:00:00+00:00",
+      "fold": 0,
+      "id": "utc-origin",
+      "local_datetime": "2024-01-01T00:00:00",
+      "reference_offset_seconds": 0,
+      "timezone": "UTC"
+    },
+    {
+      "category": "supported",
+      "expected_classification": "normal",
+      "expected_utc": "2023-12-31T15:30:00+00:00",
+      "fold": 0,
+      "id": "tokyo-eastward-date-crossing",
+      "local_datetime": "2024-01-01T00:30:00",
+      "reference_offset_seconds": 32400,
+      "timezone": "Asia/Tokyo"
+    },
+    {
+      "category": "supported",
+      "expected_classification": "normal",
+      "expected_utc": "2024-06-01T01:15:00+00:00",
+      "fold": 0,
+      "id": "bangkok-unambiguous",
+      "local_datetime": "2024-06-01T08:15:00",
+      "reference_offset_seconds": 25200,
+      "timezone": "Asia/Bangkok"
+    },
+    {
+      "category": "supported",
+      "expected_classification": "normal",
+      "expected_utc": "2024-01-15T05:30:00+00:00",
+      "fold": 0,
+      "id": "new-york-standard-time",
+      "local_datetime": "2024-01-15T00:30:00",
+      "reference_offset_seconds": -18000,
+      "timezone": "America/New_York"
+    },
+    {
+      "category": "supported",
+      "expected_classification": "normal",
+      "expected_utc": "2024-06-30T23:30:00+00:00",
+      "fold": 0,
+      "id": "london-westward-date-crossing",
+      "local_datetime": "2024-07-01T00:30:00",
+      "reference_offset_seconds": 3600,
+      "timezone": "Europe/London"
+    },
+    {
+      "category": "supported",
+      "expected_classification": "normal",
+      "expected_utc": "2024-04-06T14:15:00+00:00",
+      "fold": 0,
+      "id": "lord-howe-before-thirty-minute-fallback",
+      "local_datetime": "2024-04-07T01:15:00",
+      "reference_offset_seconds": 39600,
+      "timezone": "Australia/Lord_Howe"
+    },
+    {
+      "category": "supported",
+      "expected_classification": "normal",
+      "expected_utc": "2024-04-06T15:45:00+00:00",
+      "fold": 0,
+      "id": "lord-howe-after-thirty-minute-fallback",
+      "local_datetime": "2024-04-07T02:15:00",
+      "reference_offset_seconds": 37800,
+      "timezone": "Australia/Lord_Howe"
+    },
+    {
+      "category": "supported",
+      "expected_classification": "ambiguous",
+      "expected_utc": "2024-11-03T05:30:00+00:00",
+      "fold": 0,
+      "id": "new-york-fallback-fold-zero",
+      "local_datetime": "2024-11-03T01:30:00",
+      "reference_offset_seconds": -14400,
+      "timezone": "America/New_York"
+    },
+    {
+      "category": "supported",
+      "expected_classification": "ambiguous",
+      "expected_utc": "2024-11-03T06:30:00+00:00",
+      "fold": 1,
+      "id": "new-york-fallback-fold-one",
+      "local_datetime": "2024-11-03T01:30:00",
+      "reference_offset_seconds": -18000,
+      "timezone": "America/New_York"
+    },
+    {
+      "category": "unsupported",
+      "expected_candidates": [
+        {
+          "fold": 0,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-03-10T03:30:00-04:00",
+          "roundtrip_matches": false,
+          "utc": "2024-03-10T07:30:00+00:00",
+          "utc_offset_seconds": -18000
+        },
+        {
+          "fold": 1,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-03-10T01:30:00-05:00",
+          "roundtrip_matches": false,
+          "utc": "2024-03-10T06:30:00+00:00",
+          "utc_offset_seconds": -14400
+        }
+      ],
+      "expected_classification": "nonexistent",
+      "id": "new-york-spring-gap",
+      "local_datetime": "2024-03-10T02:30:00",
+      "reason": "The production API has no policy for nonexistent civil times.",
+      "timezone": "America/New_York"
+    },
+    {
+      "category": "unsupported",
+      "expected_candidates": [
+        {
+          "fold": 0,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-10-06T02:45:00+11:00",
+          "roundtrip_matches": false,
+          "utc": "2024-10-05T15:45:00+00:00",
+          "utc_offset_seconds": 37800
+        },
+        {
+          "fold": 1,
+          "roundtrip_fold": 0,
+          "roundtrip_local": "2024-10-06T01:45:00+10:30",
+          "roundtrip_matches": false,
+          "utc": "2024-10-05T15:15:00+00:00",
+          "utc_offset_seconds": 39600
+        }
+      ],
+      "expected_classification": "nonexistent",
+      "id": "lord-howe-thirty-minute-spring-gap",
+      "local_datetime": "2024-10-06T02:15:00",
+      "reason": "The production API has no policy for nonexistent civil times.",
+      "timezone": "Australia/Lord_Howe"
+    },
+    {
+      "category": "invalid_input",
+      "expected_error": "Unknown time zone: Planet/Mars",
+      "id": "invalid-timezone-name",
+      "local_datetime": "2024-01-01T00:00:00",
+      "timezone": "Planet/Mars"
+    }
+  ],
+  "fixture_id": "observer-time-reference-v1",
+  "reference": {
+    "archives": [
+      {
+        "filename": "tzcode2026c.tar.gz",
+        "sha256": "b1cffc3ace4c4c7cd0efba2f7add86ec3d0b79da48bcf03582671fd3c8feace8",
+        "source_url": "https://data.iana.org/time-zones/releases/tzcode2026c.tar.gz"
+      },
+      {
+        "filename": "tzdata2026c.tar.gz",
+        "sha256": "e4a178a4477f3d0ea77cc31828ff72aa38feff8d61aa13e7e99e142e9d902be4",
+        "source_url": "https://data.iana.org/time-zones/releases/tzdata2026c.tar.gz"
+      }
+    ],
+    "generation_method": "Offsets and transitions were extracted from TZif files compiled by the 2026c release's own zic and inspected with that release's own zdump. Expected UTC equals local civil time minus the evidenced UTC offset.",
+    "retrieved_at_utc": "2026-08-03T18:56:51Z",
+    "tool_versions": {
+      "zdump": "zdump (tzcode) 2026c",
+      "zic": "zic (tzcode) 2026c"
+    },
+    "transition_evidence": [
+      "America/New_York Sun Mar 10 06:59:59 2024 UT = Sun Mar 10 01:59:59 2024 EST isdst=0 gmtoff=-18000",
+      "America/New_York Sun Mar 10 07:00:00 2024 UT = Sun Mar 10 03:00:00 2024 EDT isdst=1 gmtoff=-14400",
+      "America/New_York Sun Nov 3 05:59:59 2024 UT = Sun Nov 3 01:59:59 2024 EDT isdst=1 gmtoff=-14400",
+      "America/New_York Sun Nov 3 06:00:00 2024 UT = Sun Nov 3 01:00:00 2024 EST isdst=0 gmtoff=-18000",
+      "Europe/London Sun Mar 31 00:59:59 2024 UT = Sun Mar 31 00:59:59 2024 GMT isdst=0 gmtoff=0",
+      "Europe/London Sun Mar 31 01:00:00 2024 UT = Sun Mar 31 02:00:00 2024 BST isdst=1 gmtoff=3600",
+      "Australia/Lord_Howe Sat Apr 6 14:59:59 2024 UT = Sun Apr 7 01:59:59 2024 +11 isdst=1 gmtoff=39600",
+      "Australia/Lord_Howe Sat Apr 6 15:00:00 2024 UT = Sun Apr 7 01:30:00 2024 +1030 isdst=0 gmtoff=37800",
+      "Australia/Lord_Howe Sat Oct 5 15:29:59 2024 UT = Sun Oct 6 01:59:59 2024 +1030 isdst=0 gmtoff=37800",
+      "Australia/Lord_Howe Sat Oct 5 15:30:00 2024 UT = Sun Oct 6 02:30:00 2024 +11 isdst=1 gmtoff=39600"
+    ],
+    "version_file_contents": "2026c"
+  },
+  "schema_version": "1.0",
+  "zones": [
+    "UTC",
+    "Asia/Tokyo",
+    "Asia/Bangkok",
+    "America/New_York",
+    "Europe/London",
+    "Australia/Lord_Howe"
+  ]
+}
