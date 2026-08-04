@@ -13,7 +13,8 @@
 - Phase 2: Active — Scientific Validation
 - Mission 25: Complete — Observer-Time Validation Baseline, merged in PR #17
 - Mission 26: Complete — Observer-Instant Civil-Time Transition Policy and Correction, merged in PR #19
-- Mission 27: Active — Strict Civil-Time Resolution Validation Evidence
+- Mission 27: Complete — Strict Civil-Time Resolution Validation Evidence, merged in PR #21
+- Mission 28: Not started
 
 ## Phase Progress
 
@@ -44,19 +45,19 @@
 - [x] Open pull request
 - [x] Merge Mission 26 through PR #19
 
-## Mission 27 Active Checklist
+## Mission 27 Completion Checklist
 
 ### Mission 27 — Strict Civil-Time Resolution Validation Evidence
 
 - [x] Establish an offline IANA 2026c strict civil-time reference fixture
-- [x] Cover normal, ambiguous, rejection, nonexistent, and invalid-input cases
+- [x] Cover all normal, ambiguous, rejection, nonexistent, and invalid-input scenario categories
 - [x] Add fixture, manifest, integrity checks, and offline benchmark harness
-- [x] Add a pending-results validation protocol document
-- [ ] Generate a canonical fresh-environment validation record
-- [ ] Update the validation protocol with canonical results
+- [x] Add the civil-time validation report
+- [x] Generate a canonical fresh-environment validation record
+- [x] Record canonical results in the validation report
 - [x] Run the complete quality gate and internal Markdown-link verification
-- [ ] Open pull request
-- [ ] Merge Mission 27
+- [x] Open pull request
+- [x] Merge Mission 27 through PR #21
 
 ## Mission 25 Completion Checklist
 
@@ -160,11 +161,13 @@
 - Mission 24 — Sky Map Visualization Boundary Extraction, merged in PR #15
 - Mission 25 — Observer-Time Validation Baseline, merged in PR #17
 - Mission 26 — Observer-Instant Civil-Time Transition Policy and Correction, merged in PR #19
+- Mission 27 — Strict Civil-Time Resolution Validation Evidence, merged in PR #21
 
 ## Phase 2 Deliverables
 
 - [Observer-Time Validation Baseline](validation/observer_time_validation.md)
 - [Observer-Instant Civil-Time Transition Policy](validation/civil_time_transition_policy.md)
+- [Strict Civil-Time Resolution Validation Evidence](validation/civil_time_validation.md)
 
 ## Phase 1 Deliverables
 
