@@ -59,3 +59,21 @@ jobs:
           name: observer-time-validation-record
           path: ${{ runner.temp }}/observer_time_reference_run.json
           if-no-files-found: error
+
+      - name: Run strict civil-time validation benchmark
+        env:
+          PYTHONTZPATH: ""
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          python -m validation.civil_time \
+            --manifest validation/manifests/civil_time_v2.json \
+            --output "$RUNNER_TEMP/civil_time_reference_run.json"
+
+      - name: Upload civil-time validation record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: civil-time-validation-record
+          path: ${{ runner.temp }}/civil_time_reference_run.json
+          if-no-files-found: error

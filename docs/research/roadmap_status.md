@@ -13,7 +13,7 @@
 - Phase 2: Active — Scientific Validation
 - Mission 25: Complete — Observer-Time Validation Baseline, merged in PR #17
 - Mission 26: Complete — Observer-Instant Civil-Time Transition Policy and Correction, merged in PR #19
-- Mission 27: Not started
+- Mission 27: Active — Strict Civil-Time Resolution Validation Evidence
 
 ## Phase Progress
 
@@ -43,6 +43,20 @@
 - [x] Run the complete quality gate, benchmark, and internal Markdown-link verification
 - [x] Open pull request
 - [x] Merge Mission 26 through PR #19
+
+## Mission 27 Active Checklist
+
+### Mission 27 — Strict Civil-Time Resolution Validation Evidence
+
+- [x] Establish an offline IANA 2026c strict civil-time reference fixture
+- [x] Cover normal, ambiguous, rejection, nonexistent, and invalid-input cases
+- [x] Add fixture, manifest, integrity checks, and offline benchmark harness
+- [x] Add a pending-results validation protocol document
+- [ ] Generate a canonical fresh-environment validation record
+- [ ] Update the validation protocol with canonical results
+- [x] Run the complete quality gate and internal Markdown-link verification
+- [ ] Open pull request
+- [ ] Merge Mission 27
 
 ## Mission 25 Completion Checklist
 

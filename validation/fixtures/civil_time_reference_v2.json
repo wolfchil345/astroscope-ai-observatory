@@ -1,0 +1,783 @@
+{
+  "cases": [
+    {
+      "id": "utc-seconds-microseconds",
+      "category": "normal_resolution",
+      "timezone": "UTC",
+      "local_datetime": "2024-01-01T00:00:00.123456",
+      "expected_classification": {
+        "status": "normal",
+        "candidates": [
+          {
+            "fold": 0,
+            "utc": "2024-01-01T00:00:00.123456+00:00",
+            "utc_offset_seconds": 0,
+            "roundtrip_local": "2024-01-01T00:00:00.123456+00:00",
+            "roundtrip_fold": 0,
+            "roundtrip_matches": true
+          },
+          {
+            "fold": 1,
+            "utc": "2024-01-01T00:00:00.123456+00:00",
+            "utc_offset_seconds": 0,
+            "roundtrip_local": "2024-01-01T00:00:00.123456+00:00",
+            "roundtrip_fold": 0,
+            "roundtrip_matches": true
+          }
+        ],
+        "previous_valid_local": null,
+        "next_valid_local": null
+      },
+      "resolution_expectations": [
+        {
+          "fold": null,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2024-01-01T00:00:00.123456+00:00"
+          }
+        },
+        {
+          "fold": 0,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2024-01-01T00:00:00.123456+00:00"
+          }
+        },
+        {
+          "fold": 1,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2024-01-01T00:00:00.123456+00:00"
+          }
+        }
+      ]
+    },
+    {
+      "id": "tokyo-eastward-date-crossing",
+      "category": "normal_resolution",
+      "timezone": "Asia/Tokyo",
+      "local_datetime": "2024-01-01T00:30:45.123456",
+      "expected_classification": {
+        "status": "normal",
+        "candidates": [
+          {
+            "fold": 0,
+            "utc": "2023-12-31T15:30:45.123456+00:00",
+            "utc_offset_seconds": 32400,
+            "roundtrip_local": "2024-01-01T00:30:45.123456+09:00",
+            "roundtrip_fold": 0,
+            "roundtrip_matches": true
+          },
+          {
+            "fold": 1,
+            "utc": "2023-12-31T15:30:45.123456+00:00",
+            "utc_offset_seconds": 32400,
+            "roundtrip_local": "2024-01-01T00:30:45.123456+09:00",
+            "roundtrip_fold": 0,
+            "roundtrip_matches": true
+          }
+        ],
+        "previous_valid_local": null,
+        "next_valid_local": null
+      },
+      "resolution_expectations": [
+        {
+          "fold": null,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2023-12-31T15:30:45.123456+00:00"
+          }
+        },
+        {
+          "fold": 0,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2023-12-31T15:30:45.123456+00:00"
+          }
+        },
+        {
+          "fold": 1,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2023-12-31T15:30:45.123456+00:00"
+          }
+        }
+      ]
+    },
+    {
+      "id": "bangkok-ordinary",
+      "category": "normal_resolution",
+      "timezone": "Asia/Bangkok",
+      "local_datetime": "2024-06-01T08:15:05.654321",
+      "expected_classification": {
+        "status": "normal",
+        "candidates": [
+          {
+            "fold": 0,
+            "utc": "2024-06-01T01:15:05.654321+00:00",
+            "utc_offset_seconds": 25200,
+            "roundtrip_local": "2024-06-01T08:15:05.654321+07:00",
+            "roundtrip_fold": 0,
+            "roundtrip_matches": true
+          },
+          {
+            "fold": 1,
+            "utc": "2024-06-01T01:15:05.654321+00:00",
+            "utc_offset_seconds": 25200,
+            "roundtrip_local": "2024-06-01T08:15:05.654321+07:00",
+            "roundtrip_fold": 0,
+            "roundtrip_matches": true
+          }
+        ],
+        "previous_valid_local": null,
+        "next_valid_local": null
+      },
+      "resolution_expectations": [
+        {
+          "fold": null,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2024-06-01T01:15:05.654321+00:00"
+          }
+        },
+        {
+          "fold": 0,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2024-06-01T01:15:05.654321+00:00"
+          }
+        },
+        {
+          "fold": 1,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2024-06-01T01:15:05.654321+00:00"
+          }
+        }
+      ]
+    },
+    {
+      "id": "new-york-ordinary",
+      "category": "normal_resolution",
+      "timezone": "America/New_York",
+      "local_datetime": "2024-01-15T00:30:59.000001",
+      "expected_classification": {
+        "status": "normal",
+        "candidates": [
+          {
+            "fold": 0,
+            "utc": "2024-01-15T05:30:59.000001+00:00",
+            "utc_offset_seconds": -18000,
+            "roundtrip_local": "2024-01-15T00:30:59.000001-05:00",
+            "roundtrip_fold": 0,
+            "roundtrip_matches": true
+          },
+          {
+            "fold": 1,
+            "utc": "2024-01-15T05:30:59.000001+00:00",
+            "utc_offset_seconds": -18000,
+            "roundtrip_local": "2024-01-15T00:30:59.000001-05:00",
+            "roundtrip_fold": 0,
+            "roundtrip_matches": true
+          }
+        ],
+        "previous_valid_local": null,
+        "next_valid_local": null
+      },
+      "resolution_expectations": [
+        {
+          "fold": null,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2024-01-15T05:30:59.000001+00:00"
+          }
+        },
+        {
+          "fold": 0,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2024-01-15T05:30:59.000001+00:00"
+          }
+        },
+        {
+          "fold": 1,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2024-01-15T05:30:59.000001+00:00"
+          }
+        }
+      ]
+    },
+    {
+      "id": "london-westward-date-crossing",
+      "category": "normal_resolution",
+      "timezone": "Europe/London",
+      "local_datetime": "2024-07-01T00:30:01.999999",
+      "expected_classification": {
+        "status": "normal",
+        "candidates": [
+          {
+            "fold": 0,
+            "utc": "2024-06-30T23:30:01.999999+00:00",
+            "utc_offset_seconds": 3600,
+            "roundtrip_local": "2024-07-01T00:30:01.999999+01:00",
+            "roundtrip_fold": 0,
+            "roundtrip_matches": true
+          },
+          {
+            "fold": 1,
+            "utc": "2024-06-30T23:30:01.999999+00:00",
+            "utc_offset_seconds": 3600,
+            "roundtrip_local": "2024-07-01T00:30:01.999999+01:00",
+            "roundtrip_fold": 0,
+            "roundtrip_matches": true
+          }
+        ],
+        "previous_valid_local": null,
+        "next_valid_local": null
+      },
+      "resolution_expectations": [
+        {
+          "fold": null,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2024-06-30T23:30:01.999999+00:00"
+          }
+        },
+        {
+          "fold": 0,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2024-06-30T23:30:01.999999+00:00"
+          }
+        },
+        {
+          "fold": 1,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2024-06-30T23:30:01.999999+00:00"
+          }
+        }
+      ]
+    },
+    {
+      "id": "lord-howe-daylight-time",
+      "category": "normal_resolution",
+      "timezone": "Australia/Lord_Howe",
+      "local_datetime": "2024-04-07T01:15:31.654321",
+      "expected_classification": {
+        "status": "normal",
+        "candidates": [
+          {
+            "fold": 0,
+            "utc": "2024-04-06T14:15:31.654321+00:00",
+            "utc_offset_seconds": 39600,
+            "roundtrip_local": "2024-04-07T01:15:31.654321+11:00",
+            "roundtrip_fold": 0,
+            "roundtrip_matches": true
+          },
+          {
+            "fold": 1,
+            "utc": "2024-04-06T14:15:31.654321+00:00",
+            "utc_offset_seconds": 39600,
+            "roundtrip_local": "2024-04-07T01:15:31.654321+11:00",
+            "roundtrip_fold": 0,
+            "roundtrip_matches": true
+          }
+        ],
+        "previous_valid_local": null,
+        "next_valid_local": null
+      },
+      "resolution_expectations": [
+        {
+          "fold": null,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2024-04-06T14:15:31.654321+00:00"
+          }
+        },
+        {
+          "fold": 0,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2024-04-06T14:15:31.654321+00:00"
+          }
+        },
+        {
+          "fold": 1,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2024-04-06T14:15:31.654321+00:00"
+          }
+        }
+      ]
+    },
+    {
+      "id": "lord-howe-standard-time",
+      "category": "normal_resolution",
+      "timezone": "Australia/Lord_Howe",
+      "local_datetime": "2024-04-07T02:15:29.000123",
+      "expected_classification": {
+        "status": "normal",
+        "candidates": [
+          {
+            "fold": 0,
+            "utc": "2024-04-06T15:45:29.000123+00:00",
+            "utc_offset_seconds": 37800,
+            "roundtrip_local": "2024-04-07T02:15:29.000123+10:30",
+            "roundtrip_fold": 0,
+            "roundtrip_matches": true
+          },
+          {
+            "fold": 1,
+            "utc": "2024-04-06T15:45:29.000123+00:00",
+            "utc_offset_seconds": 37800,
+            "roundtrip_local": "2024-04-07T02:15:29.000123+10:30",
+            "roundtrip_fold": 0,
+            "roundtrip_matches": true
+          }
+        ],
+        "previous_valid_local": null,
+        "next_valid_local": null
+      },
+      "resolution_expectations": [
+        {
+          "fold": null,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2024-04-06T15:45:29.000123+00:00"
+          }
+        },
+        {
+          "fold": 0,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2024-04-06T15:45:29.000123+00:00"
+          }
+        },
+        {
+          "fold": 1,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2024-04-06T15:45:29.000123+00:00"
+          }
+        }
+      ]
+    },
+    {
+      "id": "new-york-fallback-resolved",
+      "category": "ambiguous_resolution",
+      "timezone": "America/New_York",
+      "local_datetime": "2024-11-03T01:30:15.123456",
+      "expected_classification": {
+        "status": "ambiguous",
+        "candidates": [
+          {
+            "fold": 0,
+            "utc": "2024-11-03T05:30:15.123456+00:00",
+            "utc_offset_seconds": -14400,
+            "roundtrip_local": "2024-11-03T01:30:15.123456-04:00",
+            "roundtrip_fold": 0,
+            "roundtrip_matches": true
+          },
+          {
+            "fold": 1,
+            "utc": "2024-11-03T06:30:15.123456+00:00",
+            "utc_offset_seconds": -18000,
+            "roundtrip_local": "2024-11-03T01:30:15.123456-05:00",
+            "roundtrip_fold": 1,
+            "roundtrip_matches": true
+          }
+        ],
+        "previous_valid_local": null,
+        "next_valid_local": null
+      },
+      "resolution_expectations": [
+        {
+          "fold": 0,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2024-11-03T05:30:15.123456+00:00"
+          }
+        },
+        {
+          "fold": 1,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2024-11-03T06:30:15.123456+00:00"
+          }
+        }
+      ]
+    },
+    {
+      "id": "london-fallback-resolved",
+      "category": "ambiguous_resolution",
+      "timezone": "Europe/London",
+      "local_datetime": "2024-10-27T01:30:45.654321",
+      "expected_classification": {
+        "status": "ambiguous",
+        "candidates": [
+          {
+            "fold": 0,
+            "utc": "2024-10-27T00:30:45.654321+00:00",
+            "utc_offset_seconds": 3600,
+            "roundtrip_local": "2024-10-27T01:30:45.654321+01:00",
+            "roundtrip_fold": 0,
+            "roundtrip_matches": true
+          },
+          {
+            "fold": 1,
+            "utc": "2024-10-27T01:30:45.654321+00:00",
+            "utc_offset_seconds": 0,
+            "roundtrip_local": "2024-10-27T01:30:45.654321+00:00",
+            "roundtrip_fold": 1,
+            "roundtrip_matches": true
+          }
+        ],
+        "previous_valid_local": null,
+        "next_valid_local": null
+      },
+      "resolution_expectations": [
+        {
+          "fold": 0,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2024-10-27T00:30:45.654321+00:00"
+          }
+        },
+        {
+          "fold": 1,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2024-10-27T01:30:45.654321+00:00"
+          }
+        }
+      ]
+    },
+    {
+      "id": "lord-howe-fallback-resolved",
+      "category": "ambiguous_resolution",
+      "timezone": "Australia/Lord_Howe",
+      "local_datetime": "2024-04-07T01:45:30.111111",
+      "expected_classification": {
+        "status": "ambiguous",
+        "candidates": [
+          {
+            "fold": 0,
+            "utc": "2024-04-06T14:45:30.111111+00:00",
+            "utc_offset_seconds": 39600,
+            "roundtrip_local": "2024-04-07T01:45:30.111111+11:00",
+            "roundtrip_fold": 0,
+            "roundtrip_matches": true
+          },
+          {
+            "fold": 1,
+            "utc": "2024-04-06T15:15:30.111111+00:00",
+            "utc_offset_seconds": 37800,
+            "roundtrip_local": "2024-04-07T01:45:30.111111+10:30",
+            "roundtrip_fold": 1,
+            "roundtrip_matches": true
+          }
+        ],
+        "previous_valid_local": null,
+        "next_valid_local": null
+      },
+      "resolution_expectations": [
+        {
+          "fold": 0,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2024-04-06T14:45:30.111111+00:00"
+          }
+        },
+        {
+          "fold": 1,
+          "expected": {
+            "outcome": "resolved",
+            "utc": "2024-04-06T15:15:30.111111+00:00"
+          }
+        }
+      ]
+    },
+    {
+      "id": "new-york-fallback-unresolved",
+      "category": "ambiguous_rejection",
+      "timezone": "America/New_York",
+      "local_datetime": "2024-11-03T01:30:15.123456",
+      "expected_classification": {
+        "status": "ambiguous",
+        "candidates": [
+          {
+            "fold": 0,
+            "utc": "2024-11-03T05:30:15.123456+00:00",
+            "utc_offset_seconds": -14400,
+            "roundtrip_local": "2024-11-03T01:30:15.123456-04:00",
+            "roundtrip_fold": 0,
+            "roundtrip_matches": true
+          },
+          {
+            "fold": 1,
+            "utc": "2024-11-03T06:30:15.123456+00:00",
+            "utc_offset_seconds": -18000,
+            "roundtrip_local": "2024-11-03T01:30:15.123456-05:00",
+            "roundtrip_fold": 1,
+            "roundtrip_matches": true
+          }
+        ],
+        "previous_valid_local": null,
+        "next_valid_local": null
+      },
+      "resolution_expectations": [
+        {
+          "fold": null,
+          "expected": {
+            "outcome": "error",
+            "type": "AmbiguousCivilTimeError",
+            "message": "Ambiguous civil time requires an explicit fold of 0 or 1.",
+            "requested_fold": null,
+            "classification_matches": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "london-fallback-unresolved",
+      "category": "ambiguous_rejection",
+      "timezone": "Europe/London",
+      "local_datetime": "2024-10-27T01:30:45.654321",
+      "expected_classification": {
+        "status": "ambiguous",
+        "candidates": [
+          {
+            "fold": 0,
+            "utc": "2024-10-27T00:30:45.654321+00:00",
+            "utc_offset_seconds": 3600,
+            "roundtrip_local": "2024-10-27T01:30:45.654321+01:00",
+            "roundtrip_fold": 0,
+            "roundtrip_matches": true
+          },
+          {
+            "fold": 1,
+            "utc": "2024-10-27T01:30:45.654321+00:00",
+            "utc_offset_seconds": 0,
+            "roundtrip_local": "2024-10-27T01:30:45.654321+00:00",
+            "roundtrip_fold": 1,
+            "roundtrip_matches": true
+          }
+        ],
+        "previous_valid_local": null,
+        "next_valid_local": null
+      },
+      "resolution_expectations": [
+        {
+          "fold": null,
+          "expected": {
+            "outcome": "error",
+            "type": "AmbiguousCivilTimeError",
+            "message": "Ambiguous civil time requires an explicit fold of 0 or 1.",
+            "requested_fold": null,
+            "classification_matches": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "lord-howe-fallback-unresolved",
+      "category": "ambiguous_rejection",
+      "timezone": "Australia/Lord_Howe",
+      "local_datetime": "2024-04-07T01:45:30.111111",
+      "expected_classification": {
+        "status": "ambiguous",
+        "candidates": [
+          {
+            "fold": 0,
+            "utc": "2024-04-06T14:45:30.111111+00:00",
+            "utc_offset_seconds": 39600,
+            "roundtrip_local": "2024-04-07T01:45:30.111111+11:00",
+            "roundtrip_fold": 0,
+            "roundtrip_matches": true
+          },
+          {
+            "fold": 1,
+            "utc": "2024-04-06T15:15:30.111111+00:00",
+            "utc_offset_seconds": 37800,
+            "roundtrip_local": "2024-04-07T01:45:30.111111+10:30",
+            "roundtrip_fold": 1,
+            "roundtrip_matches": true
+          }
+        ],
+        "previous_valid_local": null,
+        "next_valid_local": null
+      },
+      "resolution_expectations": [
+        {
+          "fold": null,
+          "expected": {
+            "outcome": "error",
+            "type": "AmbiguousCivilTimeError",
+            "message": "Ambiguous civil time requires an explicit fold of 0 or 1.",
+            "requested_fold": null,
+            "classification_matches": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "new-york-spring-gap-rejected",
+      "category": "nonexistent_rejection",
+      "timezone": "America/New_York",
+      "local_datetime": "2024-03-10T02:30:15.123456",
+      "expected_classification": {
+        "status": "nonexistent",
+        "candidates": [
+          {
+            "fold": 0,
+            "utc": "2024-03-10T07:30:15.123456+00:00",
+            "utc_offset_seconds": -18000,
+            "roundtrip_local": "2024-03-10T03:30:15.123456-04:00",
+            "roundtrip_fold": 0,
+            "roundtrip_matches": false
+          },
+          {
+            "fold": 1,
+            "utc": "2024-03-10T06:30:15.123456+00:00",
+            "utc_offset_seconds": -14400,
+            "roundtrip_local": "2024-03-10T01:30:15.123456-05:00",
+            "roundtrip_fold": 0,
+            "roundtrip_matches": false
+          }
+        ],
+        "previous_valid_local": "2024-03-10T01:59:59.999999-05:00",
+        "next_valid_local": "2024-03-10T03:00:00.000000-04:00"
+      },
+      "transition_width_seconds": 3600,
+      "resolution_expectations": [
+        {
+          "fold": null,
+          "expected": {
+            "outcome": "error",
+            "type": "NonexistentCivilTimeError",
+            "message": "Nonexistent civil time cannot be resolved to UTC.",
+            "requested_fold": null,
+            "classification_matches": true
+          }
+        },
+        {
+          "fold": 0,
+          "expected": {
+            "outcome": "error",
+            "type": "NonexistentCivilTimeError",
+            "message": "Nonexistent civil time cannot be resolved to UTC.",
+            "requested_fold": 0,
+            "classification_matches": true
+          }
+        },
+        {
+          "fold": 1,
+          "expected": {
+            "outcome": "error",
+            "type": "NonexistentCivilTimeError",
+            "message": "Nonexistent civil time cannot be resolved to UTC.",
+            "requested_fold": 1,
+            "classification_matches": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "lord-howe-spring-gap-rejected",
+      "category": "nonexistent_rejection",
+      "timezone": "Australia/Lord_Howe",
+      "local_datetime": "2024-10-06T02:15:15.123456",
+      "expected_classification": {
+        "status": "nonexistent",
+        "candidates": [
+          {
+            "fold": 0,
+            "utc": "2024-10-05T15:45:15.123456+00:00",
+            "utc_offset_seconds": 37800,
+            "roundtrip_local": "2024-10-06T02:45:15.123456+11:00",
+            "roundtrip_fold": 0,
+            "roundtrip_matches": false
+          },
+          {
+            "fold": 1,
+            "utc": "2024-10-05T15:15:15.123456+00:00",
+            "utc_offset_seconds": 39600,
+            "roundtrip_local": "2024-10-06T01:45:15.123456+10:30",
+            "roundtrip_fold": 0,
+            "roundtrip_matches": false
+          }
+        ],
+        "previous_valid_local": "2024-10-06T01:59:59.999999+10:30",
+        "next_valid_local": "2024-10-06T02:30:00.000000+11:00"
+      },
+      "transition_width_seconds": 1800,
+      "resolution_expectations": [
+        {
+          "fold": null,
+          "expected": {
+            "outcome": "error",
+            "type": "NonexistentCivilTimeError",
+            "message": "Nonexistent civil time cannot be resolved to UTC.",
+            "requested_fold": null,
+            "classification_matches": true
+          }
+        },
+        {
+          "fold": 0,
+          "expected": {
+            "outcome": "error",
+            "type": "NonexistentCivilTimeError",
+            "message": "Nonexistent civil time cannot be resolved to UTC.",
+            "requested_fold": 0,
+            "classification_matches": true
+          }
+        },
+        {
+          "fold": 1,
+          "expected": {
+            "outcome": "error",
+            "type": "NonexistentCivilTimeError",
+            "message": "Nonexistent civil time cannot be resolved to UTC.",
+            "requested_fold": 1,
+            "classification_matches": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "invalid-timezone-name",
+      "category": "invalid_input",
+      "timezone": "Planet/Mars",
+      "local_datetime": "2024-01-01T00:00:00.000000",
+      "expected_error_type": "ValueError",
+      "expected_error": "Unknown time zone: Planet/Mars"
+    }
+  ],
+  "fixture_id": "civil-time-reference-v2",
+  "provenance_id": "iana-tzdb-2026c-independent-zic-zdump-v1",
+  "schema_version": "1.0",
+  "transition_evidence": [
+    "America/New_York Sun Mar 10 06:59:59 2024 UT = Sun Mar 10 01:59:59 2024 EST isdst=0 gmtoff=-18000",
+    "America/New_York Sun Mar 10 07:00:00 2024 UT = Sun Mar 10 03:00:00 2024 EDT isdst=1 gmtoff=-14400",
+    "America/New_York Sun Nov 3 05:59:59 2024 UT = Sun Nov 3 01:59:59 2024 EDT isdst=1 gmtoff=-14400",
+    "America/New_York Sun Nov 3 06:00:00 2024 UT = Sun Nov 3 01:00:00 2024 EST isdst=0 gmtoff=-18000",
+    "Europe/London Sun Mar 31 00:59:59 2024 UT = Sun Mar 31 00:59:59 2024 GMT isdst=0 gmtoff=0",
+    "Europe/London Sun Mar 31 01:00:00 2024 UT = Sun Mar 31 02:00:00 2024 BST isdst=1 gmtoff=3600",
+    "Europe/London Sun Oct 27 00:59:59 2024 UT = Sun Oct 27 01:59:59 2024 BST isdst=1 gmtoff=3600",
+    "Europe/London Sun Oct 27 01:00:00 2024 UT = Sun Oct 27 01:00:00 2024 GMT isdst=0 gmtoff=0",
+    "Australia/Lord_Howe Sat Apr 6 14:59:59 2024 UT = Sun Apr 7 01:59:59 2024 +11 isdst=1 gmtoff=39600",
+    "Australia/Lord_Howe Sat Apr 6 15:00:00 2024 UT = Sun Apr 7 01:30:00 2024 +1030 isdst=0 gmtoff=37800",
+    "Australia/Lord_Howe Sat Oct 5 15:29:59 2024 UT = Sun Oct 6 01:59:59 2024 +1030 isdst=0 gmtoff=37800",
+    "Australia/Lord_Howe Sat Oct 5 15:30:00 2024 UT = Sun Oct 6 02:30:00 2024 +11 isdst=1 gmtoff=39600"
+  ],
+  "zones": [
+    "UTC",
+    "Asia/Tokyo",
+    "Asia/Bangkok",
+    "America/New_York",
+    "Europe/London",
+    "Australia/Lord_Howe"
+  ]
+}
