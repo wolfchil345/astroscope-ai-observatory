@@ -14,7 +14,8 @@
 - Mission 25: Complete — Observer-Time Validation Baseline, merged in PR #17
 - Mission 26: Complete — Observer-Instant Civil-Time Transition Policy and Correction, merged in PR #19
 - Mission 27: Complete — Strict Civil-Time Resolution Validation Evidence, merged in PR #21
-- Mission 28: Active — Civil-Time Interval Semantics and Validation Design
+- Mission 28: Complete — Civil-Time Interval Semantics and Validation Design, merged in PR #23
+- Mission 29: Not started
 
 ## Phase Progress
 
@@ -59,7 +60,7 @@
 - [x] Open pull request
 - [x] Merge Mission 27 through PR #21
 
-## Mission 28 Active Checklist
+## Mission 28 Completion Checklist
 
 ### Mission 28 — Civil-Time Interval Semantics and Validation Design
 
@@ -72,8 +73,8 @@
 - [x] Record immutable evidence, exclusions, risks, and implementation split
 - [x] Add the Mission 28 design document
 - [x] Run the complete quality gate and internal Markdown-link verification
-- [ ] Open pull request
-- [ ] Merge Mission 28
+- [x] Open pull request
+- [x] Merge Mission 28 through PR #23
 
 ## Mission 25 Completion Checklist
 
@@ -178,6 +179,7 @@
 - Mission 25 — Observer-Time Validation Baseline, merged in PR #17
 - Mission 26 — Observer-Instant Civil-Time Transition Policy and Correction, merged in PR #19
 - Mission 27 — Strict Civil-Time Resolution Validation Evidence, merged in PR #21
+- Mission 28 — Civil-Time Interval Semantics and Validation Design, merged in PR #23
 
 ## Phase 2 Deliverables
 
