@@ -1,0 +1,64 @@
+{
+  "benchmark_id": "civil-time-validation-v2",
+  "benchmark_input_digest_algorithm": "sha256-path-null-file-sha256-v1",
+  "benchmark_input_files": [
+    "pyproject.toml",
+    "src/astroscope/observer.py",
+    "validation/civil_time.py",
+    "validation/fixtures/civil_time_reference_v2.json",
+    "validation/manifests/civil_time_v2.json"
+  ],
+  "expected_summary": {
+    "expected_rejection": 5,
+    "failed": 0,
+    "invalid_input": 1,
+    "passed": 10,
+    "total": 16
+  },
+  "fixture_path": "validation/fixtures/civil_time_reference_v2.json",
+  "fixture_sha256": "ef0a8d76851d8c8701f4583f79848b30463941673981a60d0f4d2444afb33a2a",
+  "iana_release": "2026c",
+  "manifest_payload_sha256": "05e2abfa68149327e9c84f00b7f1ef3d8a08d25a16b64ffd0c7c0d9031f9dd5f",
+  "python_tzdata_release": "2026.3",
+  "reference_toolchain": {
+    "archives": [
+      {
+        "filename": "tzcode2026c.tar.gz",
+        "sha256": "b1cffc3ace4c4c7cd0efba2f7add86ec3d0b79da48bcf03582671fd3c8feace8",
+        "source_url": "https://data.iana.org/time-zones/releases/tzcode2026c.tar.gz"
+      },
+      {
+        "filename": "tzdata2026c.tar.gz",
+        "sha256": "e4a178a4477f3d0ea77cc31828ff72aa38feff8d61aa13e7e99e142e9d902be4",
+        "source_url": "https://data.iana.org/time-zones/releases/tzdata2026c.tar.gz"
+      }
+    ],
+    "generation_method": "Fixture offsets and transition instants were independently extracted from TZif files compiled by the 2026c release's zic and inspected by that release's zdump. Expected UTC instants were derived from those offsets with plain datetime arithmetic; Python ZoneInfo and AstroScope production converters were not used as expected-value oracles.",
+    "generated_at_utc": "2026-08-04T00:00:00Z",
+    "reference_provenance_id": "iana-tzdb-2026c-independent-zic-zdump-v1",
+    "tool_versions": {
+      "zdump": "zdump (tzcode) 2026c",
+      "zic": "zic (tzcode) 2026c"
+    },
+    "version_file_contents": "2026c"
+  },
+  "schema_version": "1.0",
+  "scientific_context": {
+    "coordinate_frame": {
+      "reason": "Strict civil-time resolution does not use celestial coordinates.",
+      "status": "not_applicable"
+    },
+    "ephemeris": {
+      "reason": "Strict civil-time resolution does not calculate solar-system positions.",
+      "status": "not_applicable"
+    },
+    "iers": {
+      "reason": "Strict civil-time resolution does not consume Earth-orientation data.",
+      "status": "not_applicable"
+    },
+    "observing_site": {
+      "reason": "Named civil-time rules do not depend on observer location.",
+      "status": "not_applicable"
+    }
+  }
+}
