@@ -15,7 +15,7 @@
 - Mission 26: Complete — Observer-Instant Civil-Time Transition Policy and Correction, merged in PR #19
 - Mission 27: Complete — Strict Civil-Time Resolution Validation Evidence, merged in PR #21
 - Mission 28: Complete — Civil-Time Interval Semantics and Validation Design, merged in PR #23
-- Mission 29: Not started
+- Mission 29: Active — Strict Observation-Schedule Interval Boundary Resolution
 
 ## Phase Progress
 
@@ -75,6 +75,21 @@
 - [x] Run the complete quality gate and internal Markdown-link verification
 - [x] Open pull request
 - [x] Merge Mission 28 through PR #23
+
+## Mission 29 Active Checklist
+
+### Mission 29 — Strict Observation-Schedule Interval Boundary Resolution
+
+- [x] Define a strict schedule-specific endpoint and resolved-interval boundary
+- [x] Require independent endpoint folds and reject nonexistent schedule endpoints
+- [x] Preserve legacy ordinary scheduling while rejecting unsafe legacy transition inputs
+- [x] Use UTC for schedule sampling, block continuity, duration, and aggregation
+- [x] Preserve planner fold forwarding and correct timeline figure chronology
+- [x] Add minimal reference-zone reachability and endpoint controls to the Observatory
+- [x] Add 40 strict scheduling regression cases and implementation documentation
+- [ ] Run the complete quality gate and internal Markdown-link verification
+- [ ] Open pull request
+- [ ] Merge Mission 29
 
 ## Mission 25 Completion Checklist
 
@@ -187,6 +202,7 @@
 - [Observer-Instant Civil-Time Transition Policy](validation/civil_time_transition_policy.md)
 - [Strict Civil-Time Resolution Validation Evidence](validation/civil_time_validation.md)
 - [Civil-Time Interval Semantics and Validation Design](validation/civil_time_interval_semantics.md)
+- [Observation-Schedule Interval Resolution](validation/observation_schedule_interval_resolution.md)
 
 ## Phase 1 Deliverables
 
