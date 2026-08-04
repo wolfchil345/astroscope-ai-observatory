@@ -14,7 +14,7 @@
 - Mission 25: Complete — Observer-Time Validation Baseline, merged in PR #17
 - Mission 26: Complete — Observer-Instant Civil-Time Transition Policy and Correction, merged in PR #19
 - Mission 27: Complete — Strict Civil-Time Resolution Validation Evidence, merged in PR #21
-- Mission 28: Not started
+- Mission 28: Active — Civil-Time Interval Semantics and Validation Design
 
 ## Phase Progress
 
@@ -58,6 +58,22 @@
 - [x] Run the complete quality gate and internal Markdown-link verification
 - [x] Open pull request
 - [x] Merge Mission 27 through PR #21
+
+## Mission 28 Active Checklist
+
+### Mission 28 — Civil-Time Interval Semantics and Validation Design
+
+- [x] Audit scheduling, weather, and observation-log interval workflows
+- [x] Distinguish elapsed windows, forecast-sample envelopes, and historical provenance intervals
+- [x] Define endpoint fold, gap, ordering, overnight, and precision rules
+- [x] Define workflow-specific inclusion and duration semantics
+- [x] Define the future policy-neutral civil-interval domain boundary
+- [x] Define the transition edge-case and independent validation strategy
+- [x] Record immutable evidence, exclusions, risks, and implementation split
+- [x] Add the Mission 28 design document
+- [x] Run the complete quality gate and internal Markdown-link verification
+- [ ] Open pull request
+- [ ] Merge Mission 28
 
 ## Mission 25 Completion Checklist
 
@@ -168,6 +184,7 @@
 - [Observer-Time Validation Baseline](validation/observer_time_validation.md)
 - [Observer-Instant Civil-Time Transition Policy](validation/civil_time_transition_policy.md)
 - [Strict Civil-Time Resolution Validation Evidence](validation/civil_time_validation.md)
+- [Civil-Time Interval Semantics and Validation Design](validation/civil_time_interval_semantics.md)
 
 ## Phase 1 Deliverables
 
