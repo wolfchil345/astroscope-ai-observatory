@@ -19,18 +19,19 @@ from astroscope.i18n import SUPPORTED_LANGUAGES, translate
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 APP_PATH = REPOSITORY_ROOT / "app.py"
 OBSERVATORY_PATH = REPOSITORY_ROOT / "src/astroscope/observatory_dashboard.py"
-BASELINE_BODY_SHA256 = "d4e27b40c08d3a57c9468379637720538601b3e4eb010ecad3c3a7df10f0d3e2"
+BASELINE_BODY_SHA256 = "759460af93b55718e99e1bff8e3c12c3c25dd93ed9e2d816bf8cf5ddc2d85c8c"
 SUPPORTED_LANGUAGES_FOR_APPTEST = ("English", "日本語", "한국어", "ไทย")
 DEFAULT_TIMEZONE_OPTIONS = (
     "Asia/Tokyo",
     "Asia/Bangkok",
     "Asia/Seoul",
     "UTC",
+    "America/New_York",
+    "Europe/London",
+    "Australia/Lord_Howe",
 )
 TRANSITION_TIMEZONE_OPTIONS = (
     *DEFAULT_TIMEZONE_OPTIONS,
-    "America/New_York",
-    "Australia/Lord_Howe",
 )
 SINGLE_INSTANT_BUTTON_LABELS = (
     "Calculate astronomical time",
@@ -427,3 +428,61 @@ def test_civil_time_localization_is_complete_without_expanding_timezones() -> No
 
     assert "fold" not in translate("civil_time_ambiguous_explanation", "en").casefold()
     assert "fold" not in translate("civil_time_selection_required", "en").casefold()
+
+
+def test_schedule_reference_timezones_are_available() -> None:
+    assert tuple(observatory_dashboard.TIMEZONE_OPTIONS) == DEFAULT_TIMEZONE_OPTIONS
+
+
+def test_schedule_exposes_explicit_start_and_end_dates() -> None:
+    app_test = _run_observatory_app()
+
+    assert [widget.label for widget in app_test.date_input][:3] == [
+        "Observation date",
+        "Schedule start date",
+        "Schedule end date",
+    ]
+
+
+def test_schedule_ambiguous_start_requires_its_own_occurrence() -> None:
+    app_test = _run_observatory_app()
+    app_test.selectbox[1].select("America/New_York")
+    app_test.date_input[1].set_value(date(2026, 11, 1))
+    app_test.date_input[2].set_value(date(2026, 11, 1))
+    app_test.time_input[1].set_value(time(1, 0))
+    app_test.time_input[2].set_value(time(2, 0))
+    app_test.run(timeout=30)
+
+    schedule_button = _button_by_label(app_test, "Generate night schedule")
+    assert len(app_test.radio) == 1
+    assert schedule_button.disabled
+
+
+def test_schedule_start_and_end_folds_are_independent() -> None:
+    app_test = _run_observatory_app()
+    app_test.selectbox[1].select("America/New_York")
+    app_test.date_input[1].set_value(date(2026, 11, 1))
+    app_test.date_input[2].set_value(date(2026, 11, 1))
+    app_test.time_input[1].set_value(time(1, 0))
+    app_test.time_input[2].set_value(time(1, 30))
+    app_test.run(timeout=30)
+
+    assert len(app_test.radio) == 2
+    app_test.radio[0].set_value(0)
+    app_test.radio[1].set_value(1)
+    app_test.run(timeout=30)
+    assert all(radio.value in (0, 1) for radio in app_test.radio)
+    assert not _button_by_label(app_test, "Generate night schedule").disabled
+
+
+def test_schedule_nonexistent_start_blocks_generation() -> None:
+    app_test = _run_observatory_app()
+    app_test.selectbox[1].select("America/New_York")
+    app_test.date_input[1].set_value(date(2026, 3, 8))
+    app_test.date_input[2].set_value(date(2026, 3, 8))
+    app_test.time_input[1].set_value(time(2, 0))
+    app_test.time_input[2].set_value(time(3, 0))
+    app_test.run(timeout=30)
+
+    assert _button_by_label(app_test, "Generate night schedule").disabled
+    assert any("schedule start time does not exist" in error.value for error in app_test.error)

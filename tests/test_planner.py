@@ -205,3 +205,28 @@ def test_invalid_minimum_score_raises_error() -> None:
             local_time=time(21, 0),
             minimum_score=101.0,
         )
+
+
+@pytest.mark.parametrize(
+    ("fold", "expected_utc"),
+    [
+        (0, "2026-11-01T05:00:00+00:00"),
+        (1, "2026-11-01T06:00:00+00:00"),
+    ],
+)
+def test_planner_preserves_new_york_repeated_hour_fold(
+    fold: int,
+    expected_utc: str,
+) -> None:
+    result = calculate_observation_plan(
+        latitude_deg=40.7128,
+        longitude_deg=-74.0060,
+        elevation_m=10.0,
+        timezone_name="America/New_York",
+        local_date=date(2026, 11, 1),
+        local_time=time(1, 0, fold=fold),
+        include_catalog_targets=True,
+        include_solar_system_targets=False,
+    )
+
+    assert result.utc_datetime_iso == expected_utc

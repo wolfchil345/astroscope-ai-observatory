@@ -48,7 +48,12 @@ from astroscope.observer import (
     get_timezone as get_observation_log_timezone,
 )
 from astroscope.planner import calculate_observation_plan
-from astroscope.schedule import calculate_observation_schedule
+from astroscope.schedule import (
+    ScheduleCivilEndpoint,
+    ScheduleIntervalRequest,
+    calculate_observation_schedule_strict,
+    resolve_schedule_interval,
+)
 from astroscope.schedule_visuals import (
     ScheduleChartLabels,
     create_schedule_figure,
@@ -92,6 +97,9 @@ TIMEZONE_OPTIONS = [
     "Asia/Bangkok",
     "Asia/Seoul",
     "UTC",
+    "America/New_York",
+    "Europe/London",
+    "Australia/Lord_Howe",
 ]
 
 
@@ -1245,23 +1253,129 @@ def render_observatory_dashboard(language: str) -> None:
     st.header(f"📅 {translate('schedule_section', language)}")
     st.info(translate("schedule_explanation", language))
 
-    schedule_time_columns = st.columns(3)
+    schedule_time_columns = st.columns(4)
 
     with schedule_time_columns[0]:
+        schedule_start_date = st.date_input(
+            translate("schedule_start_date", language),
+            value=observation_date,
+            key="schedule_start_date_input",
+        )
+
+    with schedule_time_columns[1]:
         schedule_start_time = st.time_input(
             translate("schedule_start_time", language),
             value=observation_time,
             key="schedule_start_time_input",
         )
 
-    with schedule_time_columns[1]:
+    with schedule_time_columns[3]:
         schedule_end_time = st.time_input(
             translate("schedule_end_time", language),
             value=time(4, 0),
             key="schedule_end_time_input",
         )
 
+    suggested_schedule_end_date = (
+        schedule_start_date
+        if schedule_end_time > schedule_start_time
+        else schedule_start_date + dt.timedelta(days=1)
+    )
+
     with schedule_time_columns[2]:
+        schedule_end_date = st.date_input(
+            translate("schedule_end_date", language),
+            value=suggested_schedule_end_date,
+            key="schedule_end_date_input",
+        )
+
+    schedule_endpoint_fingerprint = (
+        timezone_name,
+        schedule_start_date.isoformat(),
+        schedule_start_time.hour,
+        schedule_start_time.minute,
+        schedule_start_time.second,
+        schedule_start_time.microsecond,
+        schedule_end_date.isoformat(),
+        schedule_end_time.hour,
+        schedule_end_time.minute,
+        schedule_end_time.second,
+        schedule_end_time.microsecond,
+    )
+    if st.session_state.get("schedule_endpoint_fingerprint") != schedule_endpoint_fingerprint:
+        st.session_state["schedule_endpoint_fingerprint"] = schedule_endpoint_fingerprint
+        st.session_state["schedule_start_selected_fold"] = None
+        st.session_state["schedule_end_selected_fold"] = None
+
+    schedule_start_classification = classify_local_datetime(
+        local_date=schedule_start_date,
+        local_time=schedule_start_time,
+        timezone_name=timezone_name,
+    )
+    schedule_end_classification = classify_local_datetime(
+        local_date=schedule_end_date,
+        local_time=schedule_end_time,
+        timezone_name=timezone_name,
+    )
+    schedule_endpoint_valid = True
+    schedule_start_fold: int | None = None
+    schedule_end_fold: int | None = None
+    occurrence_keys = (
+        "civil_time_earlier_occurrence",
+        "civil_time_later_occurrence",
+    )
+
+    for endpoint_name, classification, state_key, title_key in (
+        (
+            "start",
+            schedule_start_classification,
+            "schedule_start_selected_fold",
+            "schedule_start_ambiguous",
+        ),
+        (
+            "end",
+            schedule_end_classification,
+            "schedule_end_selected_fold",
+            "schedule_end_ambiguous",
+        ),
+    ):
+        if classification.status is CivilTimeStatus.AMBIGUOUS:
+            st.warning(translate(title_key, language))
+            for candidate in classification.candidates:
+                occurrence_label = translate(occurrence_keys[candidate.fold], language)
+                st.markdown(
+                    f"**{occurrence_label}** — "
+                    f"{translate('civil_time_utc_candidate', language)}: "
+                    f"`{candidate.utc_datetime.isoformat(timespec='microseconds')}` · "
+                    f"{translate('civil_time_utc_offset', language)}: "
+                    f"`{_format_utc_offset(candidate.utc_offset)}`"
+                )
+            selected_fold = st.radio(
+                translate("schedule_endpoint_selection_required", language),
+                options=(0, 1),
+                index=None,
+                format_func=lambda candidate_fold: translate(
+                    occurrence_keys[candidate_fold],
+                    language,
+                ),
+                key=state_key,
+            )
+            if selected_fold is None:
+                schedule_endpoint_valid = False
+            if endpoint_name == "start":
+                schedule_start_fold = selected_fold
+            else:
+                schedule_end_fold = selected_fold
+        elif classification.status is CivilTimeStatus.NONEXISTENT:
+            schedule_endpoint_valid = False
+            nonexistent_key = (
+                "schedule_nonexistent_start"
+                if endpoint_name == "start"
+                else "schedule_nonexistent_end"
+            )
+            st.error(translate(nonexistent_key, language))
+
+    with schedule_time_columns[3]:
         schedule_interval = st.selectbox(
             translate("sampling_interval", language),
             options=[30, 60, 90, 120],
@@ -1320,18 +1434,31 @@ def render_observatory_dashboard(language: str) -> None:
         type="primary",
         width="stretch",
         key="generate_night_schedule_button",
+        disabled=not schedule_endpoint_valid,
     )
 
     if generate_schedule_button:
         try:
-            schedule_result = calculate_observation_schedule(
+            resolved_schedule_interval = resolve_schedule_interval(
+                ScheduleIntervalRequest(
+                    timezone_name=timezone_name,
+                    start=ScheduleCivilEndpoint(
+                        local_date=schedule_start_date,
+                        local_time=schedule_start_time,
+                        fold=schedule_start_fold,
+                    ),
+                    end=ScheduleCivilEndpoint(
+                        local_date=schedule_end_date,
+                        local_time=schedule_end_time,
+                        fold=schedule_end_fold,
+                    ),
+                )
+            )
+            schedule_result = calculate_observation_schedule_strict(
                 latitude_deg=float(latitude),
                 longitude_deg=float(longitude),
                 elevation_m=float(elevation),
-                timezone_name=timezone_name,
-                local_date=observation_date,
-                start_time=schedule_start_time,
-                end_time=schedule_end_time,
+                interval=resolved_schedule_interval,
                 interval_minutes=int(schedule_interval),
                 minimum_altitude_degrees=float(minimum_altitude),
                 minimum_moon_separation_degrees=float(schedule_moon_separation),

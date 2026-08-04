@@ -15,7 +15,7 @@ REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 SCHEDULE_VISUALS_PATH = REPOSITORY_ROOT / "src/astroscope/schedule_visuals.py"
 BASELINE_AST_SHA256 = {
     "ScheduleChartLabels": "970d9474e8f64b68fe4ff2173728bbd9acd530230ad1ce75599800664d4daf85",
-    "create_schedule_figure": "8a662433f8116c13a6d7fefa3cbace655a59865ca3724b9ecb27bc340e60dd7b",
+    "create_schedule_figure": "fefd2464bed97472bb10486ee18111351186fe35774742b3f601d2de7459036d",
 }
 LABELS = ScheduleChartLabels(
     title="Timeline",
@@ -39,12 +39,13 @@ def _point(
     total_score: float,
     rating: str,
     recommended: bool,
+    utc_datetime_iso: str = "2024-01-01T11:00:00+00:00",
 ) -> TimelinePoint:
     return TimelinePoint(
         object_key=object_key,
         category="catalog",
         local_datetime_iso=local_datetime_iso,
-        utc_datetime_iso="2024-01-01T11:00:00+00:00",
+        utc_datetime_iso=utc_datetime_iso,
         altitude_degrees=altitude_degrees,
         azimuth_degrees=150.0,
         moon_separation_degrees=moon_separation_degrees,
@@ -91,11 +92,49 @@ def test_schedule_figure_contains_target_trace() -> None:
     assert list(figure.layout.yaxis.range) == [0, 100]
 
 
+def test_london_repeated_hour_uses_utc_chronology() -> None:
+    points = (
+        _point(
+            "sirius",
+            "2026-10-25T01:00+00:00",
+            utc_datetime_iso="2026-10-25T01:00:00+00:00",
+            altitude_degrees=40.0,
+            moon_separation_degrees=70.0,
+            total_score=70.0,
+            rating="good",
+            recommended=True,
+        ),
+        _point(
+            "sirius",
+            "2026-10-25T01:00+01:00",
+            utc_datetime_iso="2026-10-25T00:00:00+00:00",
+            altitude_degrees=30.0,
+            moon_separation_degrees=70.0,
+            total_score=60.0,
+            rating="good",
+            recommended=True,
+        ),
+    )
+
+    figure = create_schedule_figure(
+        points=points,
+        display_names={"sirius": "Sirius"},
+        rating_names={"good": "Good"},
+        labels=LABELS,
+    )
+
+    assert list(figure.data[0].x) == [
+        "2026-10-25T01:00+01:00",
+        "2026-10-25T01:00+00:00",
+    ]
+
+
 def test_traces_preserve_name_order_type_mode_and_chronology() -> None:
     points = (
         _point(
             "zeta",
             "2024-01-01T22:00+09:00",
+            utc_datetime_iso="2024-01-01T13:00:00+00:00",
             altitude_degrees=50.0,
             moon_separation_degrees=62.0,
             total_score=72.0,
@@ -105,6 +144,7 @@ def test_traces_preserve_name_order_type_mode_and_chronology() -> None:
         _point(
             "sirius",
             "2024-01-01T21:00+09:00",
+            utc_datetime_iso="2024-01-01T12:00:00+00:00",
             altitude_degrees=40.0,
             moon_separation_degrees=72.0,
             total_score=75.0,
@@ -114,6 +154,7 @@ def test_traces_preserve_name_order_type_mode_and_chronology() -> None:
         _point(
             "sirius",
             "2024-01-01T20:00+09:00",
+            utc_datetime_iso="2024-01-01T11:00:00+00:00",
             altitude_degrees=30.0,
             moon_separation_degrees=70.0,
             total_score=65.0,

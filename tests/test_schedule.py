@@ -2,7 +2,7 @@
 
 import subprocess
 import sys
-from datetime import date, time
+from datetime import UTC, date, datetime, time
 from pathlib import Path
 
 import pytest
@@ -358,6 +358,8 @@ def test_schedule_preserves_greedy_selection_merging_and_aggregates(
     assert block.peak_local.isoformat(timespec="minutes") == (
         "2024-01-01T21:00+09:00"
     )
+    assert block.start_utc == datetime(2024, 1, 1, 11, tzinfo=UTC)
+    assert block.end_utc == datetime(2024, 1, 1, 14, tzinfo=UTC)
     assert block.duration_minutes == 180.0
     assert block.peak_score == 70.0
     assert block.peak_altitude_degrees == 50.0
