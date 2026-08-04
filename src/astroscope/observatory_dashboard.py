@@ -40,7 +40,9 @@ from astroscope.observation_report import (
 )
 from astroscope.observer import (
     OBSERVER_PRESETS,
+    CivilTimeStatus,
     calculate_astronomical_time,
+    classify_local_datetime,
 )
 from astroscope.observer import (
     get_timezone as get_observation_log_timezone,
@@ -91,6 +93,20 @@ TIMEZONE_OPTIONS = [
     "Asia/Seoul",
     "UTC",
 ]
+
+
+def _format_utc_offset(offset: dt.timedelta) -> str:
+    """Format a UTC offset without assuming whole hours."""
+
+    total_seconds = int(offset.total_seconds())
+    sign = "+" if total_seconds >= 0 else "-"
+    absolute_seconds = abs(total_seconds)
+    hours, remaining_seconds = divmod(absolute_seconds, 3600)
+    minutes, seconds = divmod(remaining_seconds, 60)
+    formatted = f"{sign}{hours:02d}:{minutes:02d}"
+    if seconds:
+        formatted += f":{seconds:02d}"
+    return formatted
 
 
 def render_observatory_dashboard(language: str) -> None:
@@ -172,13 +188,91 @@ def render_observatory_dashboard(language: str) -> None:
             value=time(21, 0),
         )
 
+    civil_time_fingerprint = (
+        timezone_name,
+        observation_date.isoformat(),
+        observation_time.hour,
+        observation_time.minute,
+        observation_time.second,
+        observation_time.microsecond,
+    )
+    if st.session_state.get("observer_civil_time_fingerprint") != civil_time_fingerprint:
+        st.session_state["observer_civil_time_fingerprint"] = civil_time_fingerprint
+        st.session_state["observer_civil_time_selected_fold"] = None
+
+    civil_time_classification = classify_local_datetime(
+        local_date=observation_date,
+        local_time=observation_time,
+        timezone_name=timezone_name,
+    )
+    selected_civil_time_fold: int | None = None
+    effective_observation_time: time | None
+
+    if civil_time_classification.status is CivilTimeStatus.NORMAL:
+        effective_observation_time = observation_time.replace(tzinfo=None, fold=0)
+    elif civil_time_classification.status is CivilTimeStatus.AMBIGUOUS:
+        st.warning(
+            f"**{translate('civil_time_ambiguous_title', language)}**\n\n"
+            f"{translate('civil_time_ambiguous_explanation', language)}"
+        )
+        occurrence_keys = (
+            "civil_time_earlier_occurrence",
+            "civil_time_later_occurrence",
+        )
+        for candidate in civil_time_classification.candidates:
+            occurrence_label = translate(occurrence_keys[candidate.fold], language)
+            st.markdown(
+                f"**{occurrence_label}** — "
+                f"{translate('civil_time_utc_candidate', language)}: "
+                f"`{candidate.utc_datetime.isoformat(timespec='microseconds')}` · "
+                f"{translate('civil_time_utc_offset', language)}: "
+                f"`{_format_utc_offset(candidate.utc_offset)}`"
+            )
+
+        selected_civil_time_fold = st.radio(
+            translate("civil_time_selection_required", language),
+            options=(0, 1),
+            index=None,
+            format_func=lambda candidate_fold: translate(
+                occurrence_keys[candidate_fold],
+                language,
+            ),
+            key="observer_civil_time_selected_fold",
+        )
+        effective_observation_time = (
+            None
+            if selected_civil_time_fold is None
+            else observation_time.replace(tzinfo=None, fold=selected_civil_time_fold)
+        )
+    else:
+        st.error(
+            f"**{translate('civil_time_nonexistent_title', language)}**\n\n"
+            f"{translate('civil_time_skipped_explanation', language)}"
+        )
+        if civil_time_classification.previous_valid_local is not None:
+            st.markdown(
+                f"**{translate('civil_time_previous_valid_local', language)}:** "
+                f"`{civil_time_classification.previous_valid_local.isoformat(timespec='microseconds')}`"
+            )
+        if civil_time_classification.next_valid_local is not None:
+            st.markdown(
+                f"**{translate('civil_time_next_valid_local', language)}:** "
+                f"`{civil_time_classification.next_valid_local.isoformat(timespec='microseconds')}`"
+            )
+        effective_observation_time = None
+
+    civil_time_resolved = effective_observation_time is not None
+    if not civil_time_resolved:
+        st.info(translate("civil_time_actions_blocked", language))
+
     calculate_time_button = st.button(
         translate("calculate_time", language),
         type="primary",
         use_container_width=True,
+        disabled=not civil_time_resolved,
     )
 
-    if calculate_time_button:
+    if calculate_time_button and effective_observation_time is not None:
         try:
             time_result = calculate_astronomical_time(
                 latitude_deg=float(latitude),
@@ -186,7 +280,12 @@ def render_observatory_dashboard(language: str) -> None:
                 elevation_m=float(elevation),
                 timezone_name=timezone_name,
                 local_date=observation_date,
-                local_time=observation_time,
+                local_time=effective_observation_time,
+                fold=(
+                    selected_civil_time_fold
+                    if civil_time_classification.status is CivilTimeStatus.AMBIGUOUS
+                    else None
+                ),
             )
         except ValueError as error:
             st.error(f"{translate('calculation_error', language)}: {error}")
@@ -341,9 +440,10 @@ def render_observatory_dashboard(language: str) -> None:
         type="primary",
         use_container_width=True,
         key="calculate_visibility_button",
+        disabled=not civil_time_resolved,
     )
 
-    if calculate_visibility_button:
+    if calculate_visibility_button and effective_observation_time is not None:
         try:
             visibility_result = calculate_horizontal_coordinates(
                 right_ascension=right_ascension,
@@ -353,7 +453,7 @@ def render_observatory_dashboard(language: str) -> None:
                 elevation_m=float(elevation),
                 timezone_name=timezone_name,
                 local_date=observation_date,
-                local_time=observation_time,
+                local_time=effective_observation_time,
                 minimum_altitude_degrees=float(minimum_altitude),
             )
         except ValueError as error:
@@ -445,9 +545,10 @@ def render_observatory_dashboard(language: str) -> None:
         type="primary",
         use_container_width=True,
         key="calculate_solar_system_button",
+        disabled=not civil_time_resolved,
     )
 
-    if calculate_solar_system_button:
+    if calculate_solar_system_button and effective_observation_time is not None:
         try:
             solar_system_result = calculate_solar_system_body(
                 body=solar_system_body,
@@ -456,7 +557,7 @@ def render_observatory_dashboard(language: str) -> None:
                 elevation_m=float(elevation),
                 timezone_name=timezone_name,
                 local_date=observation_date,
-                local_time=observation_time,
+                local_time=effective_observation_time,
                 minimum_altitude_degrees=float(minimum_altitude),
             )
         except ValueError as error:
@@ -582,12 +683,13 @@ def render_observatory_dashboard(language: str) -> None:
         type="primary",
         width="stretch",
         key="generate_sky_map_button",
+        disabled=not civil_time_resolved,
     )
 
     if generate_sky_map_button:
         if not (include_catalog_objects or include_solar_system_objects):
             st.warning(translate("no_sky_map_category", language))
-        else:
+        elif effective_observation_time is not None:
             try:
                 sky_map_points = calculate_sky_map_points(
                     latitude_deg=float(latitude),
@@ -595,7 +697,7 @@ def render_observatory_dashboard(language: str) -> None:
                     elevation_m=float(elevation),
                     timezone_name=timezone_name,
                     local_date=observation_date,
-                    local_time=observation_time,
+                    local_time=effective_observation_time,
                     minimum_altitude_degrees=float(minimum_altitude),
                     include_catalog_objects=(include_catalog_objects),
                     include_solar_system_objects=(include_solar_system_objects),
@@ -815,12 +917,13 @@ def render_observatory_dashboard(language: str) -> None:
         type="primary",
         width="stretch",
         key="create_observation_plan_button",
+        disabled=not civil_time_resolved,
     )
 
     if create_plan_button:
         if not (include_catalog_targets or include_solar_system_targets):
             st.warning(translate("no_planner_categories", language))
-        else:
+        elif effective_observation_time is not None:
             try:
                 plan_result = calculate_observation_plan(
                     latitude_deg=float(latitude),
@@ -828,7 +931,7 @@ def render_observatory_dashboard(language: str) -> None:
                     elevation_m=float(elevation),
                     timezone_name=timezone_name,
                     local_date=observation_date,
-                    local_time=observation_time,
+                    local_time=effective_observation_time,
                     minimum_altitude_degrees=float(minimum_altitude),
                     minimum_moon_separation_degrees=float(minimum_moon_separation),
                     minimum_score=float(minimum_planner_score),

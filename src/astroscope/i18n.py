@@ -130,6 +130,87 @@ TRANSLATIONS: Final[dict[str, dict[str, str]]] = {
         "ko": "현지 관측 시간",
         "th": "เวลาสังเกตการณ์ท้องถิ่น",
     },
+    "civil_time_ambiguous_title": {
+        "en": "This local time is ambiguous",
+        "ja": "この現地時刻は曖昧です",
+        "ko": "이 현지 시간은 모호합니다",
+        "th": "เวลาท้องถิ่นนี้มีความกำกวม",
+    },
+    "civil_time_ambiguous_explanation": {
+        "en": (
+            "The clock moves backward, so this local time occurs twice. "
+            "Choose which occurrence to use."
+        ),
+        "ja": ("時計が戻るため、この現地時刻は2回発生します。使用する時刻を選択してください。"),
+        "ko": ("시계가 뒤로 이동하여 이 현지 시간이 두 번 발생합니다. 사용할 시각을 선택하세요."),
+        "th": ("นาฬิกาเลื่อนย้อนกลับ ทำให้เวลาท้องถิ่นนี้เกิดขึ้นสองครั้ง โปรดเลือกครั้งที่ต้องการใช้"),
+    },
+    "civil_time_earlier_occurrence": {
+        "en": "Earlier occurrence",
+        "ja": "早い方の時刻",
+        "ko": "이른 시각",
+        "th": "ครั้งที่เกิดก่อน",
+    },
+    "civil_time_later_occurrence": {
+        "en": "Later occurrence",
+        "ja": "遅い方の時刻",
+        "ko": "늦은 시각",
+        "th": "ครั้งที่เกิดภายหลัง",
+    },
+    "civil_time_selection_required": {
+        "en": "Select the intended occurrence",
+        "ja": "使用する時刻を選択してください",
+        "ko": "사용할 시각을 선택하세요",
+        "th": "เลือกครั้งของเวลาที่ต้องการ",
+    },
+    "civil_time_utc_candidate": {
+        "en": "UTC candidate",
+        "ja": "UTC候補",
+        "ko": "UTC 후보",
+        "th": "ค่า UTC ที่เป็นไปได้",
+    },
+    "civil_time_utc_offset": {
+        "en": "UTC offset",
+        "ja": "UTCオフセット",
+        "ko": "UTC 오프셋",
+        "th": "ออฟเซต UTC",
+    },
+    "civil_time_nonexistent_title": {
+        "en": "This local time does not exist",
+        "ja": "この現地時刻は存在しません",
+        "ko": "이 현지 시간은 존재하지 않습니다",
+        "th": "เวลาท้องถิ่นนี้ไม่มีอยู่จริง",
+    },
+    "civil_time_skipped_explanation": {
+        "en": (
+            "The clock skipped this local time during a forward transition. "
+            "The supplied time has not been changed."
+        ),
+        "ja": ("時計が進む際にこの現地時刻は飛ばされました。入力時刻は変更されていません。"),
+        "ko": (
+            "시계가 앞으로 이동하면서 이 현지 시간을 건너뛰었습니다. "
+            "입력한 시간은 변경되지 않았습니다."
+        ),
+        "th": ("นาฬิกาเลื่อนไปข้างหน้าและข้ามเวลาท้องถิ่นนี้ เวลาที่ป้อนไว้ไม่ได้ถูกเปลี่ยน"),
+    },
+    "civil_time_previous_valid_local": {
+        "en": "Previous valid local time",
+        "ja": "直前の有効な現地時刻",
+        "ko": "직전의 유효한 현지 시간",
+        "th": "เวลาท้องถิ่นที่ใช้ได้ก่อนหน้า",
+    },
+    "civil_time_next_valid_local": {
+        "en": "Next valid local time",
+        "ja": "直後の有効な現地時刻",
+        "ko": "직후의 유효한 현지 시간",
+        "th": "เวลาท้องถิ่นที่ใช้ได้ถัดไป",
+    },
+    "civil_time_actions_blocked": {
+        "en": "Calculations using this instant are blocked until the civil time is resolved.",
+        "ja": "現地時刻が解決されるまで、この時刻を使用する計算は実行できません。",
+        "ko": "현지 시간이 확정될 때까지 이 시각을 사용하는 계산은 실행할 수 없습니다.",
+        "th": "การคำนวณที่ใช้เวลานี้จะถูกระงับจนกว่าจะระบุเวลาท้องถิ่นได้ชัดเจน",
+    },
     "coordinate_help": {
         "en": "East longitude is positive. West longitude is negative.",
         "ja": "東経は正、西経は負の値を使用します。",
