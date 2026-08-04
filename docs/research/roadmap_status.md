@@ -12,7 +12,7 @@
 - Phase 1 Exit Audit: PASS — Phase 1 complete
 - Phase 2: Active — Scientific Validation
 - Mission 25: Complete — Observer-Time Validation Baseline, merged in PR #17
-- Mission 26: Active — Observer-Instant Civil-Time Transition Policy and Correction
+- Mission 26: Complete — Observer-Instant Civil-Time Transition Policy and Correction, merged in PR #19
 - Mission 27: Not started
 
 ## Phase Progress
@@ -29,7 +29,7 @@
 | 7 | Professional Astronomy Interoperability | ⏳ Planned |
 | 8 | Research Publication Package | ⏳ Planned |
 
-## Mission 26 Active Checklist
+## Mission 26 Completion Checklist
 
 ### Mission 26 — Observer-Instant Civil-Time Transition Policy and Correction
 
@@ -41,8 +41,8 @@
 - [x] Add exactly 22 core and Observatory regression tests
 - [x] Document policy, compatibility, scientific limitations, and interval exclusions
 - [x] Run the complete quality gate, benchmark, and internal Markdown-link verification
-- [ ] Open pull request
-- [ ] Merge Mission 26
+- [x] Open pull request
+- [x] Merge Mission 26 through PR #19
 
 ## Mission 25 Completion Checklist
 
@@ -145,6 +145,7 @@
 - Mission 23 — Observation Schedule Visualization Boundary Extraction, merged in PR #14
 - Mission 24 — Sky Map Visualization Boundary Extraction, merged in PR #15
 - Mission 25 — Observer-Time Validation Baseline, merged in PR #17
+- Mission 26 — Observer-Instant Civil-Time Transition Policy and Correction, merged in PR #19
 
 ## Phase 2 Deliverables
 
