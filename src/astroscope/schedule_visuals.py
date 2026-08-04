@@ -41,7 +41,7 @@ def create_schedule_figure(
     for object_key in object_keys:
         object_points = sorted(
             (point for point in points if point.object_key == object_key),
-            key=lambda point: point.local_datetime_iso,
+            key=lambda point: point.utc_datetime_iso,
         )
 
         figure.add_trace(

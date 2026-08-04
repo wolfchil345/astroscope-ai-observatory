@@ -29,6 +29,18 @@ SCHEDULE_TRANSLATIONS: Final[dict[str, dict[str, str]]] = {
         "ko": "일정 시작 시간",
         "th": "เวลาเริ่มตาราง",
     },
+    "schedule_start_date": {
+        "en": "Schedule start date",
+        "ja": "スケジュール開始日",
+        "ko": "일정 시작 날짜",
+        "th": "วันที่เริ่มตาราง",
+    },
+    "schedule_end_date": {
+        "en": "Schedule end date",
+        "ja": "スケジュール終了日",
+        "ko": "일정 종료 날짜",
+        "th": "วันที่สิ้นสุดตาราง",
+    },
     "schedule_end_time": {
         "en": "Schedule end time",
         "ja": "スケジュール終了時刻",
@@ -194,5 +206,35 @@ SCHEDULE_TRANSLATIONS: Final[dict[str, dict[str, str]]] = {
         "ja": "スケジュール生成エラー",
         "ko": "일정 생성 오류",
         "th": "ข้อผิดพลาดในการสร้างตาราง",
+    },
+    "schedule_start_ambiguous": {
+        "en": "The schedule start time occurs twice. Select its occurrence.",
+        "ja": "スケジュール開始時刻は2回発生します。該当する時刻を選択してください。",
+        "ko": "일정 시작 시간이 두 번 발생합니다. 해당 시각을 선택하세요.",
+        "th": "เวลาเริ่มตารางเกิดขึ้นสองครั้ง โปรดเลือกช่วงเวลาที่ต้องการ",
+    },
+    "schedule_end_ambiguous": {
+        "en": "The schedule end time occurs twice. Select its occurrence.",
+        "ja": "スケジュール終了時刻は2回発生します。該当する時刻を選択してください。",
+        "ko": "일정 종료 시간이 두 번 발생합니다. 해당 시각을 선택하세요.",
+        "th": "เวลาสิ้นสุดตารางเกิดขึ้นสองครั้ง โปรดเลือกช่วงเวลาที่ต้องการ",
+    },
+    "schedule_endpoint_selection_required": {
+        "en": "Select the schedule-time occurrence",
+        "ja": "スケジュール時刻の発生回を選択",
+        "ko": "일정 시각 발생 회차 선택",
+        "th": "เลือกรอบเวลาของตาราง",
+    },
+    "schedule_nonexistent_start": {
+        "en": "The schedule start time does not exist in this time zone.",
+        "ja": "このタイムゾーンではスケジュール開始時刻が存在しません。",
+        "ko": "이 시간대에는 일정 시작 시간이 존재하지 않습니다.",
+        "th": "เวลาเริ่มตารางนี้ไม่มีอยู่ในเขตเวลาที่เลือก",
+    },
+    "schedule_nonexistent_end": {
+        "en": "The schedule end time does not exist in this time zone.",
+        "ja": "このタイムゾーンではスケジュール終了時刻が存在しません。",
+        "ko": "이 시간대에는 일정 종료 시간이 존재하지 않습니다.",
+        "th": "เวลาสิ้นสุดตารางนี้ไม่มีอยู่ในเขตเวลาที่เลือก",
     },
 }
