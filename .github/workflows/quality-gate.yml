@@ -77,3 +77,21 @@ jobs:
           name: civil-time-validation-record
           path: ${{ runner.temp }}/civil_time_reference_run.json
           if-no-files-found: error
+
+      - name: Run schedule-interval validation benchmark
+        env:
+          PYTHONTZPATH: ""
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          python -m validation.schedule_interval \
+            --manifest validation/manifests/schedule_interval_v1.json \
+            --output "$RUNNER_TEMP/schedule_interval_reference_run.json"
+
+      - name: Upload schedule-interval validation record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: schedule-interval-validation-record
+          path: ${{ runner.temp }}/schedule_interval_reference_run.json
+          if-no-files-found: error

@@ -1,0 +1,592 @@
+{
+  "aggregate_status": "passed",
+  "benchmark_id": "schedule-interval-validation-v1",
+  "benchmark_inputs": {
+    "benchmark_input_sha256": "119aa2c669e818b802f66028c36703eed68b70c7eb4afdef13d3c4be6e5688fb",
+    "digest_algorithm": "sha256-path-null-file-sha256-v1",
+    "files": [
+      {
+        "path": "pyproject.toml",
+        "sha256": "78664bccda8a25604dba58799efa01c95c36beda6581d063d95043dadfd50c34"
+      },
+      {
+        "path": "src/astroscope/observer.py",
+        "sha256": "bd0819a973629dfe14f520dbdc5d30bfefcdbecbca774e680f12b69bc9fd2ac1"
+      },
+      {
+        "path": "src/astroscope/planner.py",
+        "sha256": "07ac6f6ab794ba0bb575b29adf4dc763c707573a7d00af2db36c0430358e5c15"
+      },
+      {
+        "path": "src/astroscope/schedule.py",
+        "sha256": "103aae4ec513917269db7738a834692dc2d5e4af1ba5bbdf116960cc2efba63c"
+      },
+      {
+        "path": "validation/fixtures/schedule_interval_reference_v1.json",
+        "sha256": "fcd0d715aef9d809b150e0f39606bd2ce9fbea8648f5d8b93815afa3dc3b00dd"
+      },
+      {
+        "path": "validation/manifests/schedule_interval_v1.json",
+        "sha256": "4619a66978a4c5fe544f7a255e06bcb67dc3c657e0b60bcdcb56bce7d327f351"
+      },
+      {
+        "path": "validation/schedule_interval.py",
+        "sha256": "482aecf72bc128711cad00111bf019ac83931b5b0788a809c491be9f85b74f22"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "actual": {
+        "elapsed_seconds": 10800.0,
+        "end_utc": "2026-01-15T14:00:00+00:00",
+        "start_utc": "2026-01-15T11:00:00+00:00"
+      },
+      "category": "passed",
+      "id": "tokyo-same-date",
+      "mismatch": {}
+    },
+    {
+      "actual": {
+        "elapsed_seconds": 21600.0,
+        "end_utc": "2026-01-15T17:00:00+00:00",
+        "start_utc": "2026-01-15T11:00:00+00:00"
+      },
+      "category": "passed",
+      "id": "tokyo-overnight",
+      "mismatch": {}
+    },
+    {
+      "actual": {
+        "elapsed_seconds": 7200.0,
+        "end_utc": "2026-01-15T01:00:00+00:00",
+        "start_utc": "2026-01-14T23:00:00+00:00"
+      },
+      "category": "passed",
+      "id": "tokyo-utc-crossing",
+      "mismatch": {}
+    },
+    {
+      "actual": {
+        "elapsed_seconds": 61.530865,
+        "end_utc": "2026-01-15T11:01:31.654321+00:00",
+        "start_utc": "2026-01-15T11:00:30.123456+00:00"
+      },
+      "category": "passed",
+      "id": "tokyo-precision",
+      "mismatch": {}
+    },
+    {
+      "category": "expected_rejection",
+      "error": "ValueError",
+      "id": "equal-utc"
+    },
+    {
+      "category": "expected_rejection",
+      "error": "ValueError",
+      "id": "reversed-utc"
+    },
+    {
+      "category": "expected_rejection",
+      "error": "ValueError",
+      "id": "over-18-hours"
+    },
+    {
+      "category": "expected_rejection",
+      "error": "NonexistentCivilTimeError",
+      "id": "ny-gap-start"
+    },
+    {
+      "category": "expected_rejection",
+      "error": "NonexistentCivilTimeError",
+      "id": "ny-gap-end"
+    },
+    {
+      "actual": {
+        "elapsed_seconds": 3600.0,
+        "end_utc": "2026-03-08T07:30:00+00:00",
+        "start_utc": "2026-03-08T06:30:00+00:00"
+      },
+      "category": "passed",
+      "id": "ny-spring-span",
+      "mismatch": {}
+    },
+    {
+      "actual": {
+        "elapsed_seconds": 7200.0,
+        "end_utc": "2026-11-01T07:15:00+00:00",
+        "start_utc": "2026-11-01T05:15:00+00:00"
+      },
+      "category": "passed",
+      "id": "ny-start-fold-0",
+      "mismatch": {}
+    },
+    {
+      "actual": {
+        "elapsed_seconds": 3600.0,
+        "end_utc": "2026-11-01T07:15:00+00:00",
+        "start_utc": "2026-11-01T06:15:00+00:00"
+      },
+      "category": "passed",
+      "id": "ny-start-fold-1",
+      "mismatch": {}
+    },
+    {
+      "actual": {
+        "elapsed_seconds": 3600.0,
+        "end_utc": "2026-11-01T05:30:00+00:00",
+        "start_utc": "2026-11-01T04:30:00+00:00"
+      },
+      "category": "passed",
+      "id": "ny-end-fold-0",
+      "mismatch": {}
+    },
+    {
+      "actual": {
+        "elapsed_seconds": 7200.0,
+        "end_utc": "2026-11-01T06:30:00+00:00",
+        "start_utc": "2026-11-01T04:30:00+00:00"
+      },
+      "category": "passed",
+      "id": "ny-end-fold-1",
+      "mismatch": {}
+    },
+    {
+      "category": "expected_rejection",
+      "error": "AmbiguousCivilTimeError",
+      "id": "ny-missing-fold"
+    },
+    {
+      "actual": {
+        "elapsed_seconds": 14400.0,
+        "end_utc": "2026-11-01T08:30:00+00:00",
+        "start_utc": "2026-11-01T04:30:00+00:00"
+      },
+      "category": "passed",
+      "id": "ny-fall-span",
+      "mismatch": {}
+    },
+    {
+      "actual": {
+        "elapsed_seconds": 14400.0,
+        "end_utc": "2026-11-01T08:30:00+00:00",
+        "grid_utc": [
+          "2026-11-01T04:30:00+00:00",
+          "2026-11-01T05:30:00+00:00",
+          "2026-11-01T06:30:00+00:00",
+          "2026-11-01T07:30:00+00:00",
+          "2026-11-01T08:30:00+00:00"
+        ],
+        "local_folds": [
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "start_utc": "2026-11-01T04:30:00+00:00"
+      },
+      "category": "passed",
+      "id": "ny-repeated-grid",
+      "mismatch": {}
+    },
+    {
+      "actual": {
+        "elapsed_seconds": 7200.0,
+        "end_utc": "2026-10-25T02:30:00+00:00",
+        "start_utc": "2026-10-25T00:30:00+00:00"
+      },
+      "category": "passed",
+      "id": "london-fold-0",
+      "mismatch": {}
+    },
+    {
+      "actual": {
+        "elapsed_seconds": 3600.0,
+        "end_utc": "2026-10-25T02:30:00+00:00",
+        "start_utc": "2026-10-25T01:30:00+00:00"
+      },
+      "category": "passed",
+      "id": "london-fold-1",
+      "mismatch": {}
+    },
+    {
+      "actual": {
+        "elapsed_seconds": 10800.0,
+        "end_utc": "2026-10-25T02:30:00+00:00",
+        "start_utc": "2026-10-24T23:30:00+00:00"
+      },
+      "category": "passed",
+      "id": "london-span",
+      "mismatch": {}
+    },
+    {
+      "actual": {
+        "elapsed_seconds": 10800.0,
+        "end_utc": "2026-10-25T02:30:00+00:00",
+        "grid_utc": [
+          "2026-10-24T23:30:00+00:00",
+          "2026-10-25T00:30:00+00:00",
+          "2026-10-25T01:30:00+00:00",
+          "2026-10-25T02:30:00+00:00"
+        ],
+        "local_folds": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "start_utc": "2026-10-24T23:30:00+00:00"
+      },
+      "category": "passed",
+      "id": "london-grid-order",
+      "mismatch": {}
+    },
+    {
+      "category": "expected_rejection",
+      "error": "NonexistentCivilTimeError",
+      "id": "lord-howe-gap"
+    },
+    {
+      "actual": {
+        "elapsed_seconds": 3600.0,
+        "end_utc": "2026-04-04T15:45:00+00:00",
+        "start_utc": "2026-04-04T14:45:00+00:00"
+      },
+      "category": "passed",
+      "id": "lord-howe-fold-0",
+      "mismatch": {}
+    },
+    {
+      "actual": {
+        "elapsed_seconds": 1800.0,
+        "end_utc": "2026-04-04T15:45:00+00:00",
+        "start_utc": "2026-04-04T15:15:00+00:00"
+      },
+      "category": "passed",
+      "id": "lord-howe-fold-1",
+      "mismatch": {}
+    },
+    {
+      "actual": {
+        "elapsed_seconds": 5400.0,
+        "end_utc": "2026-04-04T15:45:00+00:00",
+        "start_utc": "2026-04-04T14:15:00+00:00"
+      },
+      "category": "passed",
+      "id": "lord-howe-fall-span",
+      "mismatch": {}
+    },
+    {
+      "actual": {
+        "elapsed_seconds": 1800.0,
+        "end_utc": "2026-10-03T15:45:00+00:00",
+        "start_utc": "2026-10-03T15:15:00+00:00"
+      },
+      "category": "passed",
+      "id": "lord-howe-spring-span",
+      "mismatch": {}
+    },
+    {
+      "actual": {
+        "elapsed_seconds": 3600.0,
+        "end_utc": "2026-03-08T07:30:00+00:00",
+        "grid_utc": [
+          "2026-03-08T06:30:00+00:00",
+          "2026-03-08T06:45:00+00:00",
+          "2026-03-08T07:00:00+00:00",
+          "2026-03-08T07:15:00+00:00",
+          "2026-03-08T07:30:00+00:00"
+        ],
+        "local_folds": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "start_utc": "2026-03-08T06:30:00+00:00"
+      },
+      "category": "passed",
+      "id": "spring-fixed-step",
+      "mismatch": {}
+    },
+    {
+      "actual": {
+        "elapsed_seconds": 14400.0,
+        "end_utc": "2026-11-01T08:30:00+00:00",
+        "grid_utc": [
+          "2026-11-01T04:30:00+00:00",
+          "2026-11-01T05:30:00+00:00",
+          "2026-11-01T06:30:00+00:00",
+          "2026-11-01T07:30:00+00:00",
+          "2026-11-01T08:30:00+00:00"
+        ],
+        "local_folds": [
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "start_utc": "2026-11-01T04:30:00+00:00"
+      },
+      "category": "passed",
+      "id": "fall-fixed-step",
+      "mismatch": {}
+    },
+    {
+      "actual": {
+        "elapsed_seconds": 9000.0,
+        "end_utc": "2026-01-15T13:30:00+00:00",
+        "grid_utc": [
+          "2026-01-15T11:00:00+00:00",
+          "2026-01-15T12:00:00+00:00",
+          "2026-01-15T13:00:00+00:00",
+          "2026-01-15T13:30:00+00:00"
+        ],
+        "local_folds": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "start_utc": "2026-01-15T11:00:00+00:00"
+      },
+      "category": "passed",
+      "id": "final-sentinel",
+      "mismatch": {}
+    },
+    {
+      "actual": {
+        "block_count": 1,
+        "elapsed_seconds": 7200.0,
+        "end_utc": "2026-01-15T13:00:00+00:00",
+        "scheduled_minutes": 120.0,
+        "start_utc": "2026-01-15T11:00:00+00:00"
+      },
+      "category": "passed",
+      "id": "half-open-start",
+      "mismatch": {}
+    },
+    {
+      "actual": {
+        "block_count": 0,
+        "elapsed_seconds": 7200.0,
+        "end_utc": "2026-01-15T13:00:00+00:00",
+        "scheduled_minutes": 0,
+        "start_utc": "2026-01-15T11:00:00+00:00"
+      },
+      "category": "passed",
+      "id": "half-open-end",
+      "mismatch": {}
+    },
+    {
+      "actual": {
+        "block_count": 1,
+        "elapsed_seconds": 14400.0,
+        "end_utc": "2026-11-01T08:30:00+00:00",
+        "scheduled_minutes": 240.0,
+        "start_utc": "2026-11-01T04:30:00+00:00"
+      },
+      "category": "passed",
+      "id": "utc-continuity",
+      "mismatch": {}
+    },
+    {
+      "actual": {
+        "block_count": 1,
+        "elapsed_seconds": 14400.0,
+        "end_utc": "2026-11-01T08:30:00+00:00",
+        "scheduled_minutes": 240.0,
+        "start_utc": "2026-11-01T04:30:00+00:00"
+      },
+      "category": "passed",
+      "id": "physical-aggregate",
+      "mismatch": {}
+    },
+    {
+      "actual": {
+        "elapsed_seconds": 10800.0,
+        "end_utc": "2026-01-15T14:00:00+00:00",
+        "start_utc": "2026-01-15T11:00:00+00:00"
+      },
+      "category": "passed",
+      "id": "legacy-same-date",
+      "mismatch": {}
+    },
+    {
+      "actual": {
+        "elapsed_seconds": 21600.0,
+        "end_utc": "2026-01-15T17:00:00+00:00",
+        "start_utc": "2026-01-15T11:00:00+00:00"
+      },
+      "category": "passed",
+      "id": "legacy-overnight",
+      "mismatch": {}
+    },
+    {
+      "category": "expected_rejection",
+      "error": "AmbiguousCivilTimeError",
+      "id": "legacy-ambiguous"
+    },
+    {
+      "category": "expected_rejection",
+      "error": "NonexistentCivilTimeError",
+      "id": "legacy-gap"
+    }
+  ],
+  "environment": {
+    "architecture": "arm64",
+    "git": {
+      "approved_schedule_source_blob_sha": "52852f302f9b9d94c8a57b2a6424bc45ca9a9aa9",
+      "checkout_commit": "9f5d8e8129f7378e6775a0e4ad57c8cd74711537",
+      "implementation_commit": "9f5d8e8129f7378e6775a0e4ad57c8cd74711537",
+      "mission_29_origin_commit": "865aaa5cfa3082faba4f547d023299b79c692315"
+    },
+    "network_required": false,
+    "operating_system": {
+      "release": "25.5.0",
+      "system": "Darwin",
+      "version": "Darwin Kernel Version 25.5.0: Tue Jun  9 22:26:46 PDT 2026; root:xnu-12377.121.10~1/RELEASE_ARM64_T8103"
+    },
+    "package_versions": {
+      "installed_distribution": "0.2.0",
+      "source_pyproject": "0.2.0",
+      "tzdata_distribution": "2026.3",
+      "tzdata_iana": "2026c"
+    },
+    "python": {
+      "executable": "/Users/sirichetsriamontham/Documents/Codex/2026-08-03/repository-wolfchil345-astroscope-ai-observatory-current/work/astroscope-ai-observatory/.venv/bin/python",
+      "implementation": "CPython",
+      "version": "3.12.10"
+    },
+    "timezone_database": {
+      "pythontzpath": "",
+      "tzif_sha256": {
+        "actual": {
+          "America/New_York": "d7f2206b3a45989fc9ad63d558922532fa7352280d5f87176bf1db79cb1d1fa9",
+          "Asia/Tokyo": "59a3871430f0d3b93e619fa30a43a41d1e88bdd49ff26f09d0f405a500706f96",
+          "Australia/Lord_Howe": "f368bd25659c0293d02bb79ec7dac7d5b73a92dffafce14b4dd2ffb8ba11aada",
+          "Europe/London": "676541f0b8ad457c744c093f807589adcad909e3fd03f901787d08786eedbd33"
+        },
+        "expected": {
+          "America/New_York": "d7f2206b3a45989fc9ad63d558922532fa7352280d5f87176bf1db79cb1d1fa9",
+          "Asia/Tokyo": "59a3871430f0d3b93e619fa30a43a41d1e88bdd49ff26f09d0f405a500706f96",
+          "Australia/Lord_Howe": "f368bd25659c0293d02bb79ec7dac7d5b73a92dffafce14b4dd2ffb8ba11aada",
+          "Europe/London": "676541f0b8ad457c744c093f807589adcad909e3fd03f901787d08786eedbd33"
+        }
+      },
+      "zoneinfo_tzpath": []
+    }
+  },
+  "environment_checks": [
+    {
+      "actual": "",
+      "expected": "",
+      "name": "PYTHONTZPATH",
+      "status": "passed"
+    },
+    {
+      "actual": [],
+      "expected": [],
+      "name": "zoneinfo.TZPATH",
+      "status": "passed"
+    },
+    {
+      "actual": "2026.3",
+      "expected": "2026.3",
+      "name": "tzdata distribution version",
+      "status": "passed"
+    },
+    {
+      "actual": "2026c",
+      "expected": "2026c",
+      "name": "tzdata IANA version",
+      "status": "passed"
+    },
+    {
+      "actual": "0.2.0",
+      "expected": "0.2.0",
+      "name": "source and installed package versions",
+      "status": "passed"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "name": "Mission 29 origin commit format",
+      "status": "passed"
+    },
+    {
+      "actual": "d7f2206b3a45989fc9ad63d558922532fa7352280d5f87176bf1db79cb1d1fa9",
+      "expected": "d7f2206b3a45989fc9ad63d558922532fa7352280d5f87176bf1db79cb1d1fa9",
+      "name": "TZif SHA-256 for America/New_York",
+      "status": "passed"
+    },
+    {
+      "actual": "59a3871430f0d3b93e619fa30a43a41d1e88bdd49ff26f09d0f405a500706f96",
+      "expected": "59a3871430f0d3b93e619fa30a43a41d1e88bdd49ff26f09d0f405a500706f96",
+      "name": "TZif SHA-256 for Asia/Tokyo",
+      "status": "passed"
+    },
+    {
+      "actual": "f368bd25659c0293d02bb79ec7dac7d5b73a92dffafce14b4dd2ffb8ba11aada",
+      "expected": "f368bd25659c0293d02bb79ec7dac7d5b73a92dffafce14b4dd2ffb8ba11aada",
+      "name": "TZif SHA-256 for Australia/Lord_Howe",
+      "status": "passed"
+    },
+    {
+      "actual": "676541f0b8ad457c744c093f807589adcad909e3fd03f901787d08786eedbd33",
+      "expected": "676541f0b8ad457c744c093f807589adcad909e3fd03f901787d08786eedbd33",
+      "name": "TZif SHA-256 for Europe/London",
+      "status": "passed"
+    }
+  ],
+  "manifest": {
+    "fixture_sha256": "fcd0d715aef9d809b150e0f39606bd2ce9fbea8648f5d8b93815afa3dc3b00dd",
+    "manifest_file_sha256": "4619a66978a4c5fe544f7a255e06bcb67dc3c657e0b60bcdcb56bce7d327f351",
+    "manifest_payload_sha256": "baf80845507f8258c877cf8c768cd888cf7318d466a6426ff8025e40c2dbe223",
+    "path": "validation/manifests/schedule_interval_v1.json"
+  },
+  "reference": {
+    "archives": [
+      {
+        "filename": "tzcode2026c.tar.gz",
+        "sha256": "b1cffc3ace4c4c7cd0efba2f7add86ec3d0b79da48bcf03582671fd3c8feace8"
+      },
+      {
+        "filename": "tzdata2026c.tar.gz",
+        "sha256": "e4a178a4477f3d0ea77cc31828ff72aa38feff8d61aa13e7e99e142e9d902be4"
+      }
+    ],
+    "generation_method": "Offsets and transition instants independently extracted from IANA 2026c zic/zdump output; UTC values and grids derived with plain datetime arithmetic.",
+    "zdump_version": "zdump (tzcode) 2026c",
+    "zic_version": "zic (tzcode) 2026c"
+  },
+  "schema_version": "1.0",
+  "scientific_context": {
+    "coordinate_frame": {
+      "reason": "Interval evidence does not validate celestial coordinates.",
+      "status": "not_applicable"
+    },
+    "ephemeris": {
+      "reason": "Interval evidence does not validate ephemerides.",
+      "status": "not_applicable"
+    },
+    "iers": {
+      "reason": "Civil interval evidence does not consume Earth orientation data.",
+      "status": "not_applicable"
+    },
+    "observing_site": {
+      "reason": "Named-zone interval resolution is independent of site coordinates.",
+      "status": "not_applicable"
+    }
+  },
+  "summary": {
+    "expected_rejection": 9,
+    "failed": 0,
+    "invalid_input": 0,
+    "passed": 28,
+    "total": 37
+  }
+}

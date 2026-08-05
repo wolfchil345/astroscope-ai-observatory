@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "benchmark_id": "schedule-interval-validation-v1",
+  "fixture_path": "validation/fixtures/schedule_interval_reference_v1.json",
+  "fixture_sha256": "fcd0d715aef9d809b150e0f39606bd2ce9fbea8648f5d8b93815afa3dc3b00dd",
+  "manifest_payload_sha256": "baf80845507f8258c877cf8c768cd888cf7318d466a6426ff8025e40c2dbe223",
+  "expected_summary": {"passed": 28, "expected_rejection": 9, "invalid_input": 0, "failed": 0, "total": 37},
+  "iana_release": "2026c",
+  "python_tzdata_release": "2026.3",
+  "expected_tzif_sha256": {
+    "America/New_York": "d7f2206b3a45989fc9ad63d558922532fa7352280d5f87176bf1db79cb1d1fa9",
+    "Asia/Tokyo": "59a3871430f0d3b93e619fa30a43a41d1e88bdd49ff26f09d0f405a500706f96",
+    "Australia/Lord_Howe": "f368bd25659c0293d02bb79ec7dac7d5b73a92dffafce14b4dd2ffb8ba11aada",
+    "Europe/London": "676541f0b8ad457c744c093f807589adcad909e3fd03f901787d08786eedbd33"
+  },
+  "reference_provenance_id": "iana-tzdb-2026c-independent-zic-zdump-schedule-interval-v1",
+  "reference_toolchain": {
+    "archives": [
+      {"filename": "tzcode2026c.tar.gz", "sha256": "b1cffc3ace4c4c7cd0efba2f7add86ec3d0b79da48bcf03582671fd3c8feace8"},
+      {"filename": "tzdata2026c.tar.gz", "sha256": "e4a178a4477f3d0ea77cc31828ff72aa38feff8d61aa13e7e99e142e9d902be4"}
+    ],
+    "zic_version": "zic (tzcode) 2026c",
+    "zdump_version": "zdump (tzcode) 2026c",
+    "generation_method": "Offsets and transition instants independently extracted from IANA 2026c zic/zdump output; UTC values and grids derived with plain datetime arithmetic."
+  },
+  "benchmark_input_digest_algorithm": "sha256-path-null-file-sha256-v1",
+  "benchmark_input_files": [
+    "pyproject.toml",
+    "src/astroscope/observer.py",
+    "src/astroscope/planner.py",
+    "src/astroscope/schedule.py",
+    "validation/fixtures/schedule_interval_reference_v1.json",
+    "validation/manifests/schedule_interval_v1.json",
+    "validation/schedule_interval.py"
+  ],
+  "system_under_validation": {
+    "mission": 29,
+    "implementation_origin_commit": "865aaa5cfa3082faba4f547d023299b79c692315",
+    "schedule_source_path": "src/astroscope/schedule.py",
+    "schedule_source_blob_sha": "52852f302f9b9d94c8a57b2a6424bc45ca9a9aa9"
+  },
+  "scientific_context": {
+    "coordinate_frame": {"status": "not_applicable", "reason": "Interval evidence does not validate celestial coordinates."},
+    "ephemeris": {"status": "not_applicable", "reason": "Interval evidence does not validate ephemerides."},
+    "iers": {"status": "not_applicable", "reason": "Civil interval evidence does not consume Earth orientation data."},
+    "observing_site": {"status": "not_applicable", "reason": "Named-zone interval resolution is independent of site coordinates."}
+  }
+}
