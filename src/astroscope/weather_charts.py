@@ -1,6 +1,7 @@
 """Interactive charts for observing-weather forecasts."""
 
 from dataclasses import dataclass
+from datetime import UTC
 
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -36,7 +37,11 @@ def create_weather_score_figure(
     ordered_points = tuple(
         sorted(
             points,
-            key=lambda point: point.local_datetime,
+            key=lambda point: (
+                point.utc_datetime
+                if point.utc_datetime is not None
+                else point.local_datetime.astimezone(UTC)
+            ),
         )
     )
 
@@ -115,7 +120,11 @@ def create_weather_conditions_figure(
     ordered_points = tuple(
         sorted(
             points,
-            key=lambda point: point.local_datetime,
+            key=lambda point: (
+                point.utc_datetime
+                if point.utc_datetime is not None
+                else point.local_datetime.astimezone(UTC)
+            ),
         )
     )
 

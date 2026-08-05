@@ -1,6 +1,7 @@
 """Tests for observing-weather visualizations."""
 
-from datetime import datetime
+from dataclasses import replace
+from datetime import UTC, datetime
 from zoneinfo import ZoneInfo
 
 from astroscope.weather import WeatherForecastPoint
@@ -20,15 +21,17 @@ def create_test_point(
 ) -> WeatherForecastPoint:
     """Create one deterministic forecast point."""
 
+    local_datetime = datetime(
+        2024,
+        1,
+        1,
+        hour,
+        0,
+        tzinfo=ZoneInfo("Asia/Tokyo"),
+    )
+
     return WeatherForecastPoint(
-        local_datetime=datetime(
-            2024,
-            1,
-            1,
-            hour,
-            0,
-            tzinfo=ZoneInfo("Asia/Tokyo"),
-        ),
+        local_datetime=local_datetime,
         temperature_c=8.0,
         relative_humidity_percent=70.0,
         dew_point_c=3.0,
@@ -42,6 +45,7 @@ def create_test_point(
         observing_score=score,
         rating="good",
         dew_risk="moderate",
+        utc_datetime=local_datetime.astimezone(UTC),
     )
 
 
@@ -65,19 +69,25 @@ def create_labels() -> WeatherChartLabels:
 
 def test_weather_score_chart_sorts_points() -> None:
     points = (
-        create_test_point(
-            hour=22,
-            score=60.0,
-            cloud_cover=40.0,
-            precipitation_probability=20.0,
-            precipitation_mm=0.0,
+        replace(
+            create_test_point(
+                hour=22,
+                score=60.0,
+                cloud_cover=40.0,
+                precipitation_probability=20.0,
+                precipitation_mm=0.0,
+            ),
+            utc_datetime=datetime(2024, 1, 1, 11, tzinfo=UTC),
         ),
-        create_test_point(
-            hour=20,
-            score=85.0,
-            cloud_cover=10.0,
-            precipitation_probability=0.0,
-            precipitation_mm=0.0,
+        replace(
+            create_test_point(
+                hour=20,
+                score=85.0,
+                cloud_cover=10.0,
+                precipitation_probability=0.0,
+                precipitation_mm=0.0,
+            ),
+            utc_datetime=datetime(2024, 1, 1, 12, tzinfo=UTC),
         ),
     )
 
@@ -89,11 +99,11 @@ def test_weather_score_chart_sorts_points() -> None:
     )
 
     assert len(figure.data) == 1
-    assert list(figure.data[0].y) == [85.0, 60.0]
+    assert list(figure.data[0].y) == [60.0, 85.0]
 
     plotted_hours = [value.hour for value in figure.data[0].x]
 
-    assert plotted_hours == [20, 22]
+    assert plotted_hours == [22, 20]
     assert list(figure.layout.yaxis.range) == [0, 100]
 
 

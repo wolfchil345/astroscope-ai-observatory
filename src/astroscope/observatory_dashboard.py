@@ -82,8 +82,11 @@ from astroscope.telescope_visuals import (
 )
 from astroscope.visibility import calculate_horizontal_coordinates
 from astroscope.weather import (
+    WeatherCivilEndpoint,
+    WeatherSelectionWindowRequest,
     WeatherServiceError,
-    fetch_observing_weather,
+    fetch_observing_weather_strict,
+    resolve_weather_selection_window,
 )
 from astroscope.weather_charts import (
     WeatherChartLabels,
@@ -1691,39 +1694,133 @@ def render_observatory_dashboard(language: str) -> None:
     st.header(f"🌦️ {translate('weather_section', language)}")
     st.info(translate("weather_explanation", language))
 
-    weather_time_columns = st.columns(2)
+    weather_start_columns = st.columns(2)
 
-    with weather_time_columns[0]:
+    with weather_start_columns[0]:
+        weather_start_date = st.date_input(
+            translate("weather_start_date", language),
+            value=observation_date,
+            key="weather_start_date_input",
+        )
         weather_start_time = st.time_input(
             translate("weather_start_time", language),
             value=observation_time,
             key="weather_start_time_input",
         )
 
-    with weather_time_columns[1]:
+    default_weather_end_date = (
+        observation_date
+        if time(4, 0) > observation_time
+        else observation_date + dt.timedelta(days=1)
+    )
+    with weather_start_columns[1]:
+        weather_end_date = st.date_input(
+            translate("weather_end_date", language),
+            value=default_weather_end_date,
+            key="weather_end_date_input",
+        )
         weather_end_time = st.time_input(
             translate("weather_end_time", language),
             value=time(4, 0),
             key="weather_end_time_input",
         )
 
+    weather_start_classification = classify_local_datetime(
+        local_date=weather_start_date,
+        local_time=weather_start_time,
+        timezone_name=timezone_name,
+    )
+    weather_end_classification = classify_local_datetime(
+        local_date=weather_end_date,
+        local_time=weather_end_time,
+        timezone_name=timezone_name,
+    )
+
+    def select_weather_fold(
+        *,
+        classification: object,
+        endpoint_name: str,
+        endpoint_key: str,
+    ) -> int | None:
+        if classification.status is CivilTimeStatus.NORMAL:
+            return None
+        if classification.status is CivilTimeStatus.NONEXISTENT:
+            st.error(translate(f"weather_nonexistent_{endpoint_name}", language))
+            return None
+        st.warning(translate(f"weather_ambiguous_{endpoint_name}", language))
+        for candidate in classification.candidates:
+            occurrence_key = (
+                "civil_time_earlier_occurrence"
+                if candidate.fold == 0
+                else "civil_time_later_occurrence"
+            )
+            st.markdown(
+                f"**{translate(occurrence_key, language)}** — "
+                f"{translate('weather_candidate_utc_offset', language)}: "
+                f"`{candidate.utc_datetime.isoformat(timespec='microseconds')}` · "
+                f"`{_format_utc_offset(candidate.utc_offset)}`"
+            )
+        return st.radio(
+            translate(f"weather_fold_selection_{endpoint_name}", language),
+            options=(0, 1),
+            index=None,
+            format_func=lambda fold: translate(
+                "civil_time_earlier_occurrence" if fold == 0 else "civil_time_later_occurrence",
+                language,
+            ),
+            key=endpoint_key,
+        )
+
+    weather_start_fold = select_weather_fold(
+        classification=weather_start_classification,
+        endpoint_name="start",
+        endpoint_key="weather_start_selected_fold",
+    )
+    weather_end_fold = select_weather_fold(
+        classification=weather_end_classification,
+        endpoint_name="end",
+        endpoint_key="weather_end_selected_fold",
+    )
+    weather_start_is_valid = weather_start_classification.status is not CivilTimeStatus.NONEXISTENT
+    weather_end_is_valid = weather_end_classification.status is not CivilTimeStatus.NONEXISTENT
+    weather_start_is_resolved = weather_start_is_valid and (
+        weather_start_classification.status is CivilTimeStatus.NORMAL
+        or weather_start_fold is not None
+    )
+    weather_end_is_resolved = weather_end_is_valid and (
+        weather_end_classification.status is CivilTimeStatus.NORMAL or weather_end_fold is not None
+    )
+
     retrieve_weather_button = st.button(
         translate("fetch_weather_forecast", language),
         type="primary",
         width="stretch",
         key="retrieve_observing_weather_button",
+        disabled=not (weather_start_is_resolved and weather_end_is_resolved),
     )
 
     if retrieve_weather_button:
         try:
-            weather_result = fetch_observing_weather(
+            weather_window = resolve_weather_selection_window(
+                WeatherSelectionWindowRequest(
+                    timezone_name=timezone_name,
+                    start=WeatherCivilEndpoint(
+                        local_date=weather_start_date,
+                        local_time=weather_start_time,
+                        fold=weather_start_fold,
+                    ),
+                    end=WeatherCivilEndpoint(
+                        local_date=weather_end_date,
+                        local_time=weather_end_time,
+                        fold=weather_end_fold,
+                    ),
+                )
+            )
+            weather_result = fetch_observing_weather_strict(
                 latitude_deg=float(latitude),
                 longitude_deg=float(longitude),
                 elevation_m=float(elevation),
-                timezone_name=timezone_name,
-                local_date=observation_date,
-                start_time=weather_start_time,
-                end_time=weather_end_time,
+                window=weather_window,
             )
         except (ValueError, WeatherServiceError) as error:
             st.error(f"{translate('weather_error', language)}: {error}")

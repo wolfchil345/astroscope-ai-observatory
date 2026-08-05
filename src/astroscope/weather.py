@@ -3,14 +3,19 @@
 import json
 from collections.abc import Mapping
 from dataclasses import dataclass
-from datetime import date, datetime, time, timedelta
+from datetime import UTC, date, datetime, time, timedelta
 from math import isfinite
 from typing import Any, Final, Literal
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
-from astroscope.observer import get_timezone
+from astroscope.observer import (
+    CivilTimeStatus,
+    classify_local_datetime,
+    get_timezone,
+    resolve_local_datetime,
+)
 
 WeatherRating = Literal[
     "excellent",
@@ -54,8 +59,53 @@ class WeatherServiceError(RuntimeError):
 
 
 @dataclass(frozen=True, slots=True)
+class WeatherCivilEndpoint:
+    """One explicit civil endpoint for a weather sample-selection envelope."""
+
+    local_date: date
+    local_time: time
+    fold: int | None = None
+
+
+@dataclass(frozen=True, slots=True)
+class WeatherSelectionWindowRequest:
+    """Named-zone civil request for a discrete weather sample envelope."""
+
+    timezone_name: str
+    start: WeatherCivilEndpoint
+    end: WeatherCivilEndpoint
+
+
+@dataclass(frozen=True, slots=True)
+class ResolvedWeatherSelectionWindow:
+    """UTC-resolved boundaries for a closed forecast-sample envelope."""
+
+    request: WeatherSelectionWindowRequest
+    start_utc: datetime
+    end_utc: datetime
+
+    @property
+    def timezone_name(self) -> str:
+        """Return the named observer timezone."""
+
+        return self.request.timezone_name
+
+    @property
+    def start_local_datetime(self) -> datetime:
+        """Return the resolved start in the named observer timezone."""
+
+        return self.start_utc.astimezone(get_timezone(self.timezone_name))
+
+    @property
+    def end_local_datetime(self) -> datetime:
+        """Return the resolved end in the named observer timezone."""
+
+        return self.end_utc.astimezone(get_timezone(self.timezone_name))
+
+
+@dataclass(frozen=True, slots=True)
 class WeatherForecastPoint:
-    """Observing conditions for one local forecast hour."""
+    """Mixed-variable forecast record keyed by one provider-valid instant."""
 
     local_datetime: datetime
     temperature_c: float
@@ -71,6 +121,7 @@ class WeatherForecastPoint:
     observing_score: float
     rating: WeatherRating
     dew_risk: DewRisk
+    utc_datetime: datetime | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -85,6 +136,12 @@ class WeatherForecastResult:
     start_local_iso: str
     end_local_iso: str
     source_name: str
+    provider_timezone: str | None = None
+    provider_timezone_abbreviation: str | None = None
+    provider_utc_offset_seconds: int | None = None
+    provider_timeformat: str | None = None
+    selection_start_utc_iso: str | None = None
+    selection_end_utc_iso: str | None = None
 
 
 def clamp(
@@ -246,6 +303,53 @@ def classify_weather_rating(
     return "unsuitable"
 
 
+def _resolve_weather_endpoint(
+    endpoint: WeatherCivilEndpoint,
+    timezone_name: str,
+) -> datetime:
+    """Resolve one explicit weather endpoint without a silent fold policy."""
+
+    if endpoint.fold is not None and (
+        type(endpoint.fold) is not int or endpoint.fold not in (0, 1)
+    ):
+        raise ValueError("Weather fold must be None, 0, or 1.")
+
+    classification = classify_local_datetime(
+        local_date=endpoint.local_date,
+        local_time=endpoint.local_time,
+        timezone_name=timezone_name,
+    )
+
+    if classification.status is CivilTimeStatus.NORMAL and endpoint.fold is not None:
+        raise ValueError("A normal weather civil time must not specify a fold.")
+
+    return resolve_local_datetime(
+        local_date=endpoint.local_date,
+        local_time=endpoint.local_time,
+        timezone_name=timezone_name,
+        fold=endpoint.fold,
+    )
+
+
+def resolve_weather_selection_window(
+    request: WeatherSelectionWindowRequest,
+) -> ResolvedWeatherSelectionWindow:
+    """Resolve a closed weather sample envelope to canonical UTC endpoints."""
+
+    get_timezone(request.timezone_name)
+    start_utc = _resolve_weather_endpoint(request.start, request.timezone_name)
+    end_utc = _resolve_weather_endpoint(request.end, request.timezone_name)
+
+    if start_utc >= end_utc:
+        raise ValueError("Weather selection start must be before its end in UTC.")
+
+    return ResolvedWeatherSelectionWindow(
+        request=request,
+        start_utc=start_utc,
+        end_utc=end_utc,
+    )
+
+
 def build_weather_forecast_url(
     *,
     latitude_deg: float,
@@ -254,6 +358,7 @@ def build_weather_forecast_url(
     timezone_name: str,
     start_date: date,
     end_date: date,
+    timeformat: str = "iso8601",
 ) -> str:
     """Build an Open-Meteo hourly forecast URL."""
 
@@ -268,6 +373,9 @@ def build_weather_forecast_url(
 
     get_timezone(timezone_name)
 
+    if timeformat not in {"iso8601", "unixtime"}:
+        raise ValueError("Weather timeformat must be 'iso8601' or 'unixtime'.")
+
     parameters = {
         "latitude": f"{latitude_deg:.6f}",
         "longitude": f"{longitude_deg:.6f}",
@@ -279,6 +387,7 @@ def build_weather_forecast_url(
         "temperature_unit": "celsius",
         "wind_speed_unit": "kmh",
         "precipitation_unit": "mm",
+        "timeformat": timeformat,
     }
 
     return f"{OPEN_METEO_FORECAST_URL}?{urlencode(parameters)}"
@@ -356,7 +465,44 @@ def parse_weather_payload(
     payload: Mapping[str, Any],
     timezone_name: str,
 ) -> tuple[WeatherForecastPoint, ...]:
-    """Convert hourly API arrays into forecast points."""
+    """Parse legacy ISO payloads without inventing unsafe transition identities."""
+
+    timezone_info = get_timezone(timezone_name)
+
+    def parse_timestamp(timestamp: Any) -> tuple[datetime, datetime]:
+        try:
+            parsed_datetime = datetime.fromisoformat(str(timestamp))
+        except ValueError as error:
+            raise WeatherServiceError(f"Invalid weather timestamp: {timestamp!r}") from error
+
+        if parsed_datetime.tzinfo is not None:
+            utc_datetime = parsed_datetime.astimezone(UTC)
+            return utc_datetime, utc_datetime.astimezone(timezone_info)
+
+        classification = classify_local_datetime(
+            local_date=parsed_datetime.date(),
+            local_time=parsed_datetime.timetz().replace(tzinfo=None),
+            timezone_name=timezone_name,
+        )
+        if classification.status is not CivilTimeStatus.NORMAL:
+            raise WeatherServiceError(
+                "Offset-free weather timestamps are unsafe during civil-time transitions."
+            )
+        utc_datetime = resolve_local_datetime(
+            local_date=parsed_datetime.date(),
+            local_time=parsed_datetime.timetz().replace(tzinfo=None),
+            timezone_name=timezone_name,
+        )
+        return utc_datetime, utc_datetime.astimezone(timezone_info)
+
+    return _parse_weather_points(payload, parse_timestamp)
+
+
+def _parse_weather_points(
+    payload: Mapping[str, Any],
+    parse_timestamp: Any,
+) -> tuple[WeatherForecastPoint, ...]:
+    """Convert validated hourly arrays into weather records."""
 
     if payload.get("error"):
         reason = payload.get(
@@ -370,8 +516,6 @@ def parse_weather_payload(
 
     if not isinstance(hourly, Mapping):
         raise WeatherServiceError("Weather response does not contain hourly data.")
-
-    timezone_info = get_timezone(timezone_name)
 
     times = require_series(hourly, "time")
 
@@ -446,16 +590,7 @@ def parse_weather_payload(
         wind_gusts,
         strict=True,
     ):
-        try:
-            local_datetime = datetime.fromisoformat(str(timestamp))
-
-        except ValueError as error:
-            raise WeatherServiceError(f"Invalid weather timestamp: {timestamp!r}") from error
-
-        if local_datetime.tzinfo is None:
-            local_datetime = local_datetime.replace(tzinfo=timezone_info)
-        else:
-            local_datetime = local_datetime.astimezone(timezone_info)
+        utc_datetime, local_datetime = parse_timestamp(timestamp)
 
         temperature_value = require_float(
             temperature,
@@ -539,6 +674,7 @@ def parse_weather_payload(
                     dew_point_c=dew_point_value,
                     relative_humidity_percent=(humidity_value),
                 ),
+                utc_datetime=utc_datetime,
             )
         )
 
@@ -546,6 +682,126 @@ def parse_weather_payload(
         raise WeatherServiceError("The weather service returned no hourly forecast points.")
 
     return tuple(points)
+
+
+def _require_gmt_unix_metadata(payload: Mapping[str, Any]) -> tuple[str, str | None, int]:
+    """Validate the metadata required by the corrected GMT/Unix transport path."""
+
+    provider_timezone = payload.get("timezone")
+    if provider_timezone not in {"GMT", "UTC"}:
+        raise WeatherServiceError("Weather provider timezone must be GMT for Unix timestamps.")
+
+    offset_value = payload.get("utc_offset_seconds")
+    if type(offset_value) is not int or offset_value != 0:
+        raise WeatherServiceError("Weather provider UTC offset must be zero for GMT timestamps.")
+
+    abbreviation_value = payload.get("timezone_abbreviation")
+    if abbreviation_value is not None and not isinstance(abbreviation_value, str):
+        raise WeatherServiceError("Weather provider timezone abbreviation is invalid.")
+
+    return provider_timezone, abbreviation_value, offset_value
+
+
+def parse_weather_unix_payload(
+    payload: Mapping[str, Any],
+    timezone_name: str,
+) -> tuple[tuple[WeatherForecastPoint, ...], tuple[str, str | None, int]]:
+    """Parse GMT Unix timestamps as canonical physical forecast identities."""
+
+    provider_metadata = _require_gmt_unix_metadata(payload)
+    timezone_info = get_timezone(timezone_name)
+    previous_utc: datetime | None = None
+
+    def parse_timestamp(timestamp: Any) -> tuple[datetime, datetime]:
+        nonlocal previous_utc
+        if type(timestamp) not in {int, float} or not isfinite(float(timestamp)):
+            raise WeatherServiceError(f"Invalid Unix weather timestamp: {timestamp!r}")
+        if float(timestamp) != int(timestamp):
+            raise WeatherServiceError(
+                f"Unix weather timestamp must be whole seconds: {timestamp!r}"
+            )
+        try:
+            utc_datetime = datetime.fromtimestamp(int(timestamp), UTC)
+        except (OverflowError, OSError, ValueError) as error:
+            raise WeatherServiceError(f"Invalid Unix weather timestamp: {timestamp!r}") from error
+        if previous_utc is not None and utc_datetime <= previous_utc:
+            raise WeatherServiceError("Weather Unix timestamps must be strictly increasing.")
+        previous_utc = utc_datetime
+        return utc_datetime, utc_datetime.astimezone(timezone_info)
+
+    return _parse_weather_points(payload, parse_timestamp), provider_metadata
+
+
+def _summarize_weather_points(
+    *,
+    points: tuple[WeatherForecastPoint, ...],
+    window: ResolvedWeatherSelectionWindow,
+    provider_metadata: tuple[str, str | None, int],
+) -> WeatherForecastResult:
+    """Build the unchanged score summary plus provider/window provenance."""
+
+    if not points:
+        raise WeatherServiceError("No hourly weather points matched the observing window.")
+
+    best_point = max(
+        points,
+        key=lambda point: (point.observing_score, -point.cloud_cover_percent),
+    )
+    average_score = round(sum(point.observing_score for point in points) / len(points), 1)
+    maximum_cloud_cover = max(point.cloud_cover_percent for point in points)
+    worst_dew_risk = max((point.dew_risk for point in points), key=DEW_RISK_ORDER.__getitem__)
+    provider_timezone, provider_abbreviation, provider_offset = provider_metadata
+
+    return WeatherForecastResult(
+        points=points,
+        best_point=best_point,
+        average_score=average_score,
+        maximum_cloud_cover_percent=maximum_cloud_cover,
+        worst_dew_risk=worst_dew_risk,
+        start_local_iso=window.start_local_datetime.isoformat(timespec="microseconds"),
+        end_local_iso=window.end_local_datetime.isoformat(timespec="microseconds"),
+        source_name="Open-Meteo Best Match",
+        provider_timezone=provider_timezone,
+        provider_timezone_abbreviation=provider_abbreviation,
+        provider_utc_offset_seconds=provider_offset,
+        provider_timeformat="unixtime",
+        selection_start_utc_iso=window.start_utc.isoformat(timespec="microseconds"),
+        selection_end_utc_iso=window.end_utc.isoformat(timespec="microseconds"),
+    )
+
+
+def fetch_observing_weather_strict(
+    *,
+    latitude_deg: float,
+    longitude_deg: float,
+    elevation_m: float,
+    window: ResolvedWeatherSelectionWindow,
+    timeout_seconds: float = 10.0,
+) -> WeatherForecastResult:
+    """Fetch a closed UTC-authoritative envelope of forecast sample records."""
+
+    request_url = build_weather_forecast_url(
+        latitude_deg=latitude_deg,
+        longitude_deg=longitude_deg,
+        elevation_m=elevation_m,
+        timezone_name="GMT",
+        start_date=window.start_utc.date(),
+        end_date=window.end_utc.date(),
+        timeformat="unixtime",
+    )
+    payload = load_weather_payload(request_url, timeout_seconds=timeout_seconds)
+    all_points, provider_metadata = parse_weather_unix_payload(payload, window.timezone_name)
+    matching_points = tuple(
+        point
+        for point in all_points
+        if point.utc_datetime is not None
+        and window.start_utc <= point.utc_datetime <= window.end_utc
+    )
+    return _summarize_weather_points(
+        points=matching_points,
+        window=window,
+        provider_metadata=provider_metadata,
+    )
 
 
 def fetch_observing_weather(
@@ -559,80 +815,23 @@ def fetch_observing_weather(
     end_time: time,
     timeout_seconds: float = 10.0,
 ) -> WeatherForecastResult:
-    """Fetch and summarize one observing-weather window."""
+    """Compatibility wrapper for ordinary explicit-fold-free weather requests."""
 
     if start_time == end_time:
         raise ValueError("Weather start and end times must be different.")
 
-    timezone_info = get_timezone(timezone_name)
-
     end_date = local_date if end_time > start_time else local_date + timedelta(days=1)
-
-    start_local = datetime.combine(
-        local_date,
-        start_time.replace(tzinfo=None),
-        tzinfo=timezone_info,
+    window = resolve_weather_selection_window(
+        WeatherSelectionWindowRequest(
+            timezone_name=timezone_name,
+            start=WeatherCivilEndpoint(local_date=local_date, local_time=start_time),
+            end=WeatherCivilEndpoint(local_date=end_date, local_time=end_time),
+        )
     )
-
-    end_local = datetime.combine(
-        end_date,
-        end_time.replace(tzinfo=None),
-        tzinfo=timezone_info,
-    )
-
-    request_url = build_weather_forecast_url(
+    return fetch_observing_weather_strict(
         latitude_deg=latitude_deg,
         longitude_deg=longitude_deg,
         elevation_m=elevation_m,
-        timezone_name=timezone_name,
-        start_date=local_date,
-        end_date=end_date,
-    )
-
-    payload = load_weather_payload(
-        request_url,
+        window=window,
         timeout_seconds=timeout_seconds,
-    )
-
-    all_points = parse_weather_payload(
-        payload,
-        timezone_name,
-    )
-
-    matching_points = tuple(
-        point for point in all_points if (start_local <= point.local_datetime <= end_local)
-    )
-
-    if not matching_points:
-        raise WeatherServiceError("No hourly weather points matched the observing window.")
-
-    best_point = max(
-        matching_points,
-        key=lambda point: (
-            point.observing_score,
-            -point.cloud_cover_percent,
-        ),
-    )
-
-    average_score = round(
-        sum(point.observing_score for point in matching_points) / len(matching_points),
-        1,
-    )
-
-    maximum_cloud_cover = max(point.cloud_cover_percent for point in matching_points)
-
-    worst_dew_risk = max(
-        (point.dew_risk for point in matching_points),
-        key=DEW_RISK_ORDER.__getitem__,
-    )
-
-    return WeatherForecastResult(
-        points=matching_points,
-        best_point=best_point,
-        average_score=average_score,
-        maximum_cloud_cover_percent=(maximum_cloud_cover),
-        worst_dew_risk=worst_dew_risk,
-        start_local_iso=start_local.isoformat(timespec="minutes"),
-        end_local_iso=end_local.isoformat(timespec="minutes"),
-        source_name="Open-Meteo Best Match",
     )

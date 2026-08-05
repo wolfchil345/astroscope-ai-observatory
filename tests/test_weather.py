@@ -89,6 +89,22 @@ def sample_weather_payload() -> dict[str, object]:
     }
 
 
+def sample_weather_unix_payload() -> dict[str, object]:
+    """Create deterministic corrected-GMT transport data."""
+
+    payload = sample_weather_payload()
+    payload["timezone"] = "GMT"
+    payload["timezone_abbreviation"] = "GMT"
+    payload["utc_offset_seconds"] = 0
+    payload["hourly"]["time"] = [
+        1_704_106_800,
+        1_704_110_400,
+        1_704_121_200,
+        1_704_135_600,
+    ]
+    return payload
+
+
 def test_clear_weather_scores_higher_than_stormy_weather() -> None:
     clear_score = calculate_weather_score(
         cloud_cover_percent=5.0,
@@ -239,7 +255,7 @@ def test_cross_midnight_weather_window(
     monkeypatch.setattr(
         weather_module,
         "load_weather_payload",
-        lambda url, timeout_seconds=10.0: sample_weather_payload(),
+        lambda url, timeout_seconds=10.0: sample_weather_unix_payload(),
     )
 
     result = fetch_observing_weather(
