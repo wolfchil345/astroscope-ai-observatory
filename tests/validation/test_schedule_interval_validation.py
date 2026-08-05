@@ -108,9 +108,21 @@ def test_captured_zdump_transformation_reproduces_all_37_committed_cases() -> No
 
 
 def test_captured_zdump_parser_contains_evidence_for_all_four_zones() -> None:
-    parsed = generator.parse_zdump_transition_evidence(generator.CAPTURED_ZDUMP_2026C)
+    fixed_interval = 'TZ="Asia/Tokyo"\n-\t-\t+09\tJST\n'
+    transition_only = "\n".join(
+        line
+        for line in generator.CAPTURED_ZDUMP_2026C.splitlines()
+        if not line.startswith("Asia/Tokyo")
+    )
+    evidence = "\n".join((transition_only, generator._fixed_zone_samples(fixed_interval)))
+    parsed = generator.parse_zdump_transition_evidence(evidence)
     assert tuple(parsed) == generator.ZONES
     assert all(len(samples) >= 2 for samples in parsed.values())
+    assert parsed["Asia/Tokyo"] == [
+        (generator.datetime(2026, 1, 1, tzinfo=generator.UTC), 32400),
+        (generator.datetime(2027, 1, 1, tzinfo=generator.UTC), 32400),
+    ]
+    assert len(generator.build_fixture_from_transition_evidence(evidence)["cases"]) == 37
 
 
 def test_archive_layout_requires_root_level_iana_contents(tmp_path: Path) -> None:

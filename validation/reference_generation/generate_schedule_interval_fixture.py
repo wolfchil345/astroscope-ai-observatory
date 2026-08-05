@@ -291,13 +291,13 @@ def _fixed_zone_samples(zdump_interval_output: str) -> str:
             continue
         offset_value = line.split("\t")[2]
         offset_seconds = _offset_seconds(offset_value)
-        utc = datetime(2026, 1, 1, tzinfo=UTC)
-        local = utc + timedelta(seconds=offset_seconds)
-        samples.append(
-            f"{current_zone}  {utc.strftime('%a %b %d %H:%M:%S %Y')} UT = "
-            f"{local.strftime('%a %b %d %H:%M:%S %Y')} zic-zdump "
-            f"isdst=0 gmtoff={offset_seconds}"
-        )
+        for utc in (datetime(2026, 1, 1, tzinfo=UTC), datetime(2027, 1, 1, tzinfo=UTC)):
+            local = utc + timedelta(seconds=offset_seconds)
+            samples.append(
+                f"{current_zone}  {utc.strftime('%a %b %d %H:%M:%S %Y')} UT = "
+                f"{local.strftime('%a %b %d %H:%M:%S %Y')} zic-zdump "
+                f"isdst=0 gmtoff={offset_seconds}"
+            )
     return "\n".join(samples)
 
 
