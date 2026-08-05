@@ -5,6 +5,7 @@ from dataclasses import dataclass
 
 from astroscope.observation_log import (
     ObservationSession,
+    ResolvedObservationLogEndpoint,
     calculate_session_summary,
 )
 
@@ -84,6 +85,23 @@ def _optional_value(
     return f"{value}{suffix}"
 
 
+def _format_endpoint(
+    endpoint: ResolvedObservationLogEndpoint,
+    *,
+    compact: bool,
+) -> str:
+    """Format civil endpoint provenance without cluttering ordinary reports."""
+
+    value = (
+        endpoint.local_datetime.strftime("%H:%M")
+        if compact
+        else endpoint.local_datetime.isoformat()
+    )
+    if endpoint.request.fold is not None:
+        value = f"{value} (fold {endpoint.request.fold})"
+    return value
+
+
 def create_markdown_report(
     session: ObservationSession,
     *,
@@ -151,8 +169,8 @@ def create_markdown_report(
         f"({session.latitude_degrees:.4f}°, "
         f"{session.longitude_degrees:.4f}°)",
         f"- **{labels.mode}:** {mode_names.get(session.mode, session.mode)}",
-        f"- **{labels.start}:** {session.started_at_local.isoformat()}",
-        f"- **{labels.end}:** {session.ended_at_local.isoformat()}",
+        f"- **{labels.start}:** {_format_endpoint(session.interval.start, compact=False)}",
+        f"- **{labels.end}:** {_format_endpoint(session.interval.end, compact=False)}",
         f"- **{labels.session_duration}:** {summary.session_duration_minutes:.1f} min",
         "",
         f"## {labels.conditions}",
@@ -213,10 +231,12 @@ def create_markdown_report(
 
             frame_text = f"{observation.frames_accepted}/{observation.frames_captured}"
 
+            if observation.interval is None:
+                raise ValueError("Target observation has no resolved interval.")
             time_text = (
-                f"{observation.started_at_local.strftime('%H:%M')}"
+                f"{_format_endpoint(observation.interval.start, compact=True)}"
                 "–"
-                f"{observation.ended_at_local.strftime('%H:%M')}"
+                f"{_format_endpoint(observation.interval.end, compact=True)}"
             )
 
             lines.append(

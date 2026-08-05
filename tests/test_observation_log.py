@@ -198,7 +198,7 @@ def test_json_round_trip_preserves_session() -> None:
 def test_json_export_contains_summary() -> None:
     payload = json.loads(session_to_json(create_session()))
 
-    assert payload["schema_version"] == 1
+    assert payload["schema_version"] == 2
 
     assert payload["summary"]["observation_count"] == 1
 

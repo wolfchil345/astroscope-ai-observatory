@@ -155,6 +155,7 @@ def test_report_contains_session_and_observation() -> None:
     assert "Galaxy" in report
     assert "80.0%" in report
     assert "2880.0 s" in report
+    assert "fold" not in report
 
 
 def test_empty_report_contains_no_observations_message() -> None:
