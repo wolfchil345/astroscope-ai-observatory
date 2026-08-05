@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "evidence_kind": "provider-contract evidence",
+  "retrieved_at_utc": "2026-08-05T00:00:00Z",
+  "provider": "Open-Meteo Historical Forecast API",
+  "official_sources": [
+    "https://open-meteo.com/en/docs",
+    "https://open-meteo.com/en/docs/historical-forecast-api"
+  ],
+  "request_shape": {
+    "host": "https://historical-forecast-api.open-meteo.com/v1/forecast",
+    "hourly": "temperature_2m",
+    "paired_timeformats": ["iso8601", "unixtime"]
+  },
+  "scenarios": [
+    {
+      "id": "tokyo-ordinary",
+      "timezone": "Asia/Tokyo",
+      "date": "2025-01-15",
+      "named_iso": {"sample_count": 24, "offset_free": true, "labels": ["00:00", "01:00", "22:00", "23:00"]},
+      "named_unix": {"sample_count": 24, "step_seconds": [3600], "local": ["2025-01-15T00:00:00+09:00 fold=0", "2025-01-15T23:00:00+09:00 fold=0"]},
+      "metadata": {"timezone": "Asia/Tokyo", "timezone_abbreviation": "GMT+9", "utc_offset_seconds": 32400}
+    },
+    {
+      "id": "new-york-spring-gap",
+      "timezone": "America/New_York",
+      "date": "2025-03-09",
+      "named_iso": {"sample_count": 24, "offset_free": true, "labels": ["01:00", "02:00", "03:00"]},
+      "named_unix": {"sample_count": 24, "step_seconds": [3600], "local": ["2025-03-09T01:00:00-05:00 fold=0", "2025-03-09T03:00:00-04:00 fold=0"]},
+      "metadata": {"timezone": "America/New_York", "timezone_abbreviation": "GMT-4", "utc_offset_seconds": -14400}
+    },
+    {
+      "id": "new-york-fall-fold",
+      "timezone": "America/New_York",
+      "date": "2025-11-02",
+      "named_iso": {"sample_count": 24, "offset_free": true, "labels": ["00:00", "01:00", "02:00"]},
+      "named_unix": {"sample_count": 24, "step_seconds": [3600], "local": ["2025-11-02T01:00:00-04:00 fold=0", "2025-11-02T01:00:00-05:00 fold=1"]},
+      "metadata": {"timezone": "America/New_York", "timezone_abbreviation": "GMT-4", "utc_offset_seconds": -14400}
+    },
+    {
+      "id": "london-fall-fold",
+      "timezone": "Europe/London",
+      "date": "2025-10-26",
+      "named_iso": {"sample_count": 24, "offset_free": true, "labels": ["00:00", "01:00", "02:00"]},
+      "named_unix": {"sample_count": 24, "step_seconds": [3600], "local": ["2025-10-26T01:00:00+01:00 fold=0", "2025-10-26T01:00:00+00:00 fold=1"]},
+      "metadata": {"timezone": "Europe/London", "timezone_abbreviation": "GMT+1", "utc_offset_seconds": 3600}
+    },
+    {
+      "id": "lord-howe-fall-fold",
+      "timezone": "Australia/Lord_Howe",
+      "date": "2025-04-06",
+      "named_iso": {"sample_count": 24, "offset_free": true, "labels": ["01:00", "02:00", "03:00"]},
+      "named_unix": {"sample_count": 24, "step_seconds": [3600], "local": ["2025-04-06T00:30:00+11:00 fold=0", "2025-04-06T01:30:00+11:00 fold=0", "2025-04-06T02:00:00+10:30 fold=0"]},
+      "gmt_unix": {"local": ["2025-04-06T01:30:00+10:30 fold=1"]},
+      "metadata": {"timezone": "Australia/Lord_Howe", "timezone_abbreviation": "GMT+10:30", "utc_offset_seconds": 37800}
+    },
+    {
+      "id": "lord-howe-spring-gap",
+      "timezone": "Australia/Lord_Howe",
+      "date": "2025-10-05",
+      "named_iso": {"sample_count": 24, "offset_free": true, "labels": ["01:00", "02:00", "03:00"]},
+      "named_unix": {"sample_count": 24, "step_seconds": [3600], "local": ["2025-10-05T01:00:00+10:30 fold=0", "2025-10-05T02:30:00+11:00 fold=0"]},
+      "gmt_unix": {"local": ["2025-10-05T01:30:00+10:30 fold=0", "2025-10-05T03:00:00+11:00 fold=0"]},
+      "metadata": {"timezone": "Australia/Lord_Howe", "timezone_abbreviation": "GMT+10:30", "utc_offset_seconds": 37800}
+    }
+  ],
+  "claim_boundary": "Archived provider timestamp-format evidence only; not weather forecast accuracy or model-skill validation."
+}

@@ -17,7 +17,7 @@
 - Mission 28: Complete — Civil-Time Interval Semantics and Validation Design, merged in PR #23
 - Mission 29: Complete — Strict Observation-Schedule Interval Boundary Resolution, merged in PR #25
 - Mission 30: Complete — Observation-Log Interval Model and Fold-Provenance Persistence, merged in PR #27
-- Mission 31: Not started — Weather Interval Provider-Contract Evidence and Correction
+- Mission 31: Active — Weather Interval Provider-Contract Evidence and Correction
 - Mission 32: Not started — Observation-Schedule Interval Validation Evidence and Benchmark
 
 ## Phase Progress
@@ -107,6 +107,19 @@
 - [x] Run the complete quality gate and internal Markdown-link verification
 - [x] Open pull request
 - [x] Merge Mission 30 through PR #27
+
+## Mission 31 Active Checklist
+
+### Mission 31 — Weather Interval Provider-Contract Evidence and Correction
+
+- [x] Capture first-party archived provider timestamp-format evidence offline
+- [x] Add strict named-zone endpoint resolution and UTC-authoritative weather sample selection
+- [x] Preserve legacy ordinary and overnight weather compatibility while rejecting unsafe endpoints
+- [x] Add provider metadata, transition, dashboard, chart, and regression coverage
+- [x] Add offline provider-contract fixture, manifest, validator, and claim boundary report
+- [x] Run the complete quality gate and internal Markdown-link verification
+- [ ] Open pull request
+- [ ] Merge Mission 31
 
 ## Mission 25 Completion Checklist
 
@@ -223,6 +236,7 @@
 - [Civil-Time Interval Semantics and Validation Design](validation/civil_time_interval_semantics.md)
 - [Observation-Schedule Interval Resolution](validation/observation_schedule_interval_resolution.md)
 - [Observation-Log Interval Model and Fold-Provenance Persistence](validation/observation_log_interval_model.md)
+- [Weather Interval Provider-Contract Evidence](validation/weather_provider_contract.md)
 
 ## Phase 1 Deliverables
 

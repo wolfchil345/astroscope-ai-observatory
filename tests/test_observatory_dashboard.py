@@ -19,7 +19,7 @@ from astroscope.i18n import SUPPORTED_LANGUAGES, translate
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 APP_PATH = REPOSITORY_ROOT / "app.py"
 OBSERVATORY_PATH = REPOSITORY_ROOT / "src/astroscope/observatory_dashboard.py"
-BASELINE_BODY_SHA256 = "6e82598d731c7817a887557c49cba69e9b4aecf0a63e87d2b7680d9593d66875"
+BASELINE_BODY_SHA256 = "dae65deae00a239f872c11d8577ba857186b87aa5a928ca7d4cd82e78dea67b4"
 SUPPORTED_LANGUAGES_FOR_APPTEST = ("English", "日本語", "한국어", "ไทย")
 DEFAULT_TIMEZONE_OPTIONS = (
     "Asia/Tokyo",
@@ -158,7 +158,7 @@ def test_default_observatory_apptest_baseline(
 
     monkeypatch.setattr(
         observatory_dashboard,
-        "fetch_observing_weather",
+        "fetch_observing_weather_strict",
         reject_live_weather_call,
     )
     source_path = str(REPOSITORY_ROOT / "src")
@@ -171,6 +171,7 @@ def test_default_observatory_apptest_baseline(
     assert len(app_test.title) == 1
     assert app_test.title[0].value == "🔭 AstroScope AI Observatory"
     assert len(app_test.header) == 11
+    assert len(app_test.date_input) == 9
     assert len(app_test.selectbox) == 21
     assert len(app_test.button) == 13
     assert len(app_test.radio) == 0
@@ -192,6 +193,8 @@ def test_default_observatory_apptest_baseline(
         "schedule_end_time_input",
         "weather_start_time_input",
         "weather_end_time_input",
+        "weather_start_date_input",
+        "weather_end_date_input",
         "telescope_input_mode",
         "eyepiece_input_mode",
         "planner_include_catalog",
