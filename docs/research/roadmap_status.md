@@ -16,7 +16,7 @@
 - Mission 27: Complete — Strict Civil-Time Resolution Validation Evidence, merged in PR #21
 - Mission 28: Complete — Civil-Time Interval Semantics and Validation Design, merged in PR #23
 - Mission 29: Complete — Strict Observation-Schedule Interval Boundary Resolution, merged in PR #25
-- Mission 30: Active — Observation-Log Interval Model and Fold-Provenance Persistence
+- Mission 30: Complete — Observation-Log Interval Model and Fold-Provenance Persistence, merged in PR #27
 - Mission 31: Not started — Weather Interval Provider-Contract Evidence and Correction
 - Mission 32: Not started — Observation-Schedule Interval Validation Evidence and Benchmark
 
@@ -94,7 +94,7 @@
 - [x] Open pull request
 - [x] Merge Mission 29 through PR #25
 
-## Mission 30 Active Checklist
+## Mission 30 Completion Checklist
 
 ### Mission 30 — Observation-Log Interval Model and Fold-Provenance Persistence
 
@@ -105,8 +105,8 @@
 - [x] Preserve CSV compatibility while appending provenance columns
 - [x] Add transition-aware dashboard controls, reports, localization, and regression coverage
 - [x] Run the complete quality gate and internal Markdown-link verification
-- [ ] Open pull request
-- [ ] Merge Mission 30
+- [x] Open pull request
+- [x] Merge Mission 30 through PR #27
 
 ## Mission 25 Completion Checklist
 
@@ -213,6 +213,7 @@
 - Mission 27 — Strict Civil-Time Resolution Validation Evidence, merged in PR #21
 - Mission 28 — Civil-Time Interval Semantics and Validation Design, merged in PR #23
 - Mission 29 — Strict Observation-Schedule Interval Boundary Resolution, merged in PR #25
+- Mission 30 — Observation-Log Interval Model and Fold-Provenance Persistence, merged in PR #27
 
 ## Phase 2 Deliverables
 
