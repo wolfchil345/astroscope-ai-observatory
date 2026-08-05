@@ -18,7 +18,7 @@
 - Mission 29: Complete — Strict Observation-Schedule Interval Boundary Resolution, merged in PR #25
 - Mission 30: Complete — Observation-Log Interval Model and Fold-Provenance Persistence, merged in PR #27
 - Mission 31: Complete — Weather Interval Provider-Contract Evidence and Correction, merged in PR #29
-- Mission 32: Not started — Observation-Schedule Interval Validation Evidence and Benchmark
+- Mission 32: Active — Observation-Schedule Interval Validation Evidence and Benchmark
 
 ## Phase Progress
 
@@ -120,6 +120,19 @@
 - [x] Run the complete quality gate and internal Markdown-link verification
 - [x] Open pull request
 - [x] Merge Mission 31 through PR #29
+
+## Mission 32 Active Checklist
+
+### Mission 32 — Observation-Schedule Interval Validation Evidence and Benchmark
+
+- [x] Define an independent IANA 2026c fixture-generation boundary
+- [x] Add the 37-case schedule interval fixture, manifest, and offline benchmark
+- [x] Verify strict endpoints, UTC grids, occupancy, continuity, and aggregation
+- [x] Record canonical result provenance and claim boundaries
+- [x] Add CI retention for the schedule-interval validation record
+- [x] Run the complete quality gate and internal Markdown-link verification
+- [ ] Open pull request
+- [ ] Merge Mission 32
 
 ## Mission 25 Completion Checklist
 
