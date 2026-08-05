@@ -2,11 +2,17 @@
   "schema_version": "1.0",
   "benchmark_id": "schedule-interval-validation-v1",
   "fixture_path": "validation/fixtures/schedule_interval_reference_v1.json",
-  "fixture_sha256": "9143c308562fc2f8f3c97370fd838b9a2d176226a52cf21434af4de0554139ee",
-  "manifest_payload_sha256": "88d13b1db14a73830385de64a141f4a9ec6a9a0d24d403d528fb8b99763c8dfe",
+  "fixture_sha256": "fcd0d715aef9d809b150e0f39606bd2ce9fbea8648f5d8b93815afa3dc3b00dd",
+  "manifest_payload_sha256": "baf80845507f8258c877cf8c768cd888cf7318d466a6426ff8025e40c2dbe223",
   "expected_summary": {"passed": 28, "expected_rejection": 9, "invalid_input": 0, "failed": 0, "total": 37},
   "iana_release": "2026c",
   "python_tzdata_release": "2026.3",
+  "expected_tzif_sha256": {
+    "America/New_York": "d7f2206b3a45989fc9ad63d558922532fa7352280d5f87176bf1db79cb1d1fa9",
+    "Asia/Tokyo": "59a3871430f0d3b93e619fa30a43a41d1e88bdd49ff26f09d0f405a500706f96",
+    "Australia/Lord_Howe": "f368bd25659c0293d02bb79ec7dac7d5b73a92dffafce14b4dd2ffb8ba11aada",
+    "Europe/London": "676541f0b8ad457c744c093f807589adcad909e3fd03f901787d08786eedbd33"
+  },
   "reference_provenance_id": "iana-tzdb-2026c-independent-zic-zdump-schedule-interval-v1",
   "reference_toolchain": {
     "archives": [

@@ -211,6 +211,8 @@ def execute_case(case: dict[str, Any]) -> dict[str, Any]:
             )
             if key in case
         }
+        if "expected_block_count" in case:
+            expected["block_count"] = case["expected_block_count"]
         mismatch = {
             key: {"expected": value, "actual": actual.get(key)}
             for key, value in expected.items()
@@ -276,17 +278,12 @@ def _source_version() -> str:
         return tomllib.load(file)["project"]["version"]
 
 
-def _tzif_hashes() -> list[dict[str, str]]:
+def _tzif_hashes() -> dict[str, str]:
     zoneinfo_root = importlib.resources.files("tzdata.zoneinfo")
-    return [
-        {
-            "zone": zone,
-            "sha256": hashlib.sha256(
-                zoneinfo_root.joinpath(*zone.split("/")).read_bytes()
-            ).hexdigest(),
-        }
+    return {
+        zone: hashlib.sha256(zoneinfo_root.joinpath(*zone.split("/")).read_bytes()).hexdigest()
         for zone in sorted(ZONES)
-    ]
+    }
 
 
 def _environment_record(manifest: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str, Any]]]:
@@ -315,12 +312,20 @@ def _environment_record(manifest: dict[str, Any]) -> tuple[dict[str, Any], list[
     implementation_commit = _commit_value("ASTROSCOPE_IMPLEMENTATION_COMMIT", git_head)
     checkout_commit = _commit_value("ASTROSCOPE_CHECKOUT_COMMIT", git_head)
     expected_origin = manifest["system_under_validation"]["implementation_origin_commit"]
+    expected_tzif_hashes = manifest["expected_tzif_sha256"]
+    actual_tzif_hashes = _tzif_hashes()
     check("PYTHONTZPATH", pythontzpath, "")
     check("zoneinfo.TZPATH", captured_tzpath, [])
     check("tzdata distribution version", tzdata_distribution, EXPECTED_TZDATA_VERSION)
     check("tzdata IANA version", tzdata_iana, EXPECTED_IANA_VERSION)
     check("source and installed package versions", source_version, installed_version)
     check("Mission 29 origin commit format", bool(SHA1_PATTERN.fullmatch(expected_origin)), True)
+    for zone in sorted(ZONES):
+        check(
+            f"TZif SHA-256 for {zone}",
+            actual_tzif_hashes.get(zone),
+            expected_tzif_hashes.get(zone),
+        )
     return (
         {
             "python": {
@@ -343,7 +348,10 @@ def _environment_record(manifest: dict[str, Any]) -> tuple[dict[str, Any], list[
             "timezone_database": {
                 "pythontzpath": pythontzpath,
                 "zoneinfo_tzpath": captured_tzpath,
-                "tzif_files": _tzif_hashes(),
+                "tzif_sha256": {
+                    "expected": expected_tzif_hashes,
+                    "actual": actual_tzif_hashes,
+                },
             },
             "git": {
                 "mission_29_origin_commit": expected_origin,

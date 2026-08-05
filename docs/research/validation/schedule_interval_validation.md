@@ -24,8 +24,10 @@ the Mission 29 origin commit and the current execution checkout.
 
 The normal benchmark requires no network service and records fixture/manifest
 integrity, benchmark-input provenance, Python/tzdata versions, the canonical
-empty `PYTHONTZPATH` / `zoneinfo.TZPATH` environment, TZif hashes, and execution
-provenance. It records that network is not required; it does not claim to
+empty `PYTHONTZPATH` / `zoneinfo.TZPATH` environment, and expected-versus-actual
+TZif SHA-256 values for all four tested zones. It also verifies block continuity
+for occupancy cases, including the repeated-hour UTC-continuity case. It records
+that network is not required; it does not claim to
 enforce network isolation. The final grid endpoint is a display/evaluation
 sentinel, while occupancy remains half-open.
 

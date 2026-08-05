@@ -26,6 +26,8 @@ from typing import Any
 TZCODE_SHA256 = "b1cffc3ace4c4c7cd0efba2f7add86ec3d0b79da48bcf03582671fd3c8feace8"
 TZDATA_SHA256 = "e4a178a4477f3d0ea77cc31828ff72aa38feff8d61aa13e7e99e142e9d902be4"
 ZONES = ("Asia/Tokyo", "America/New_York", "Europe/London", "Australia/Lord_Howe")
+REQUIRED_CODE_FILES = ("Makefile", "zic.c", "zdump.c")
+REQUIRED_DATA_FILES = ("northamerica", "europe", "asia", "australasia")
 _ZDUMP_LINE = re.compile(
     r"^(?P<zone>\S+)\s+(?P<utc>\w{3}\s+\w{3}\s+\d{1,2}\s+\d\d:\d\d:\d\d\s+\d{4})"
     r" UT = .+ gmtoff=(?P<offset>[+-]?\d+)$"
@@ -89,10 +91,10 @@ CASE_RECIPES = json.loads(
  {"id":"spring-fixed-step","category":"passed","timezone":"America/New_York","start":["2026-03-08T01:30:00",null],"end":["2026-03-08T03:30:00",null],"grid_minutes":15},
  {"id":"fall-fixed-step","category":"passed","timezone":"America/New_York","start":["2026-11-01T00:30:00",null],"end":["2026-11-01T03:30:00",null],"grid_minutes":60},
  {"id":"final-sentinel","category":"passed","timezone":"Asia/Tokyo","start":["2026-01-15T20:00:00",null],"end":["2026-01-15T22:30:00",null],"grid_minutes":60},
- {"id":"half-open-start","category":"passed","timezone":"Asia/Tokyo","start":["2026-01-15T20:00:00",null],"end":["2026-01-15T22:00:00",null],"occupancy":"all"},
- {"id":"half-open-end","category":"passed","timezone":"Asia/Tokyo","start":["2026-01-15T20:00:00",null],"end":["2026-01-15T22:00:00",null],"occupancy":"sentinel_only"},
- {"id":"utc-continuity","category":"passed","timezone":"America/New_York","start":["2026-11-01T00:30:00",null],"end":["2026-11-01T03:30:00",null],"occupancy":"all"},
- {"id":"physical-aggregate","category":"passed","timezone":"America/New_York","start":["2026-11-01T00:30:00",null],"end":["2026-11-01T03:30:00",null],"occupancy":"all"},
+ {"id":"half-open-start","category":"passed","timezone":"Asia/Tokyo","start":["2026-01-15T20:00:00",null],"end":["2026-01-15T22:00:00",null],"occupancy":"all","expected_block_count":1},
+ {"id":"half-open-end","category":"passed","timezone":"Asia/Tokyo","start":["2026-01-15T20:00:00",null],"end":["2026-01-15T22:00:00",null],"occupancy":"sentinel_only","expected_block_count":0},
+ {"id":"utc-continuity","category":"passed","timezone":"America/New_York","start":["2026-11-01T00:30:00",null],"end":["2026-11-01T03:30:00",null],"occupancy":"all","expected_block_count":1},
+ {"id":"physical-aggregate","category":"passed","timezone":"America/New_York","start":["2026-11-01T00:30:00",null],"end":["2026-11-01T03:30:00",null],"occupancy":"all","expected_block_count":1},
  {"id":"legacy-same-date","category":"passed","operation":"legacy","timezone":"Asia/Tokyo","start":["2026-01-15T20:00:00",null],"end":["2026-01-15T23:00:00",null]},
  {"id":"legacy-overnight","category":"passed","operation":"legacy","timezone":"Asia/Tokyo","start":["2026-01-15T20:00:00",null],"end":["2026-01-16T02:00:00",null]},
  {"id":"legacy-ambiguous","category":"expected_rejection","operation":"legacy","timezone":"America/New_York","start":["2026-11-01T01:30:00",null],"end":["2026-11-01T03:30:00",null],"error":"AmbiguousCivilTimeError"},
@@ -110,6 +112,27 @@ def verify_archives(tzcode: Path, tzdata: Path) -> None:
         raise ValueError("tzcode archive is not the pinned IANA 2026c input.")
     if tzdata.name != "tzdata2026c.tar.gz" or sha256(tzdata) != TZDATA_SHA256:
         raise ValueError("tzdata archive is not the pinned IANA 2026c input.")
+
+
+def require_root_level_archive_layout(code_dir: Path, data_dir: Path) -> None:
+    """Reject archive layouts that do not expose the IANA files at their root."""
+
+    missing = [
+        *(
+            str(code_dir / filename)
+            for filename in REQUIRED_CODE_FILES
+            if not (code_dir / filename).is_file()
+        ),
+        *(
+            str(data_dir / filename)
+            for filename in REQUIRED_DATA_FILES
+            if not (data_dir / filename).is_file()
+        ),
+    ]
+    if missing:
+        raise ValueError(
+            "IANA archives must extract their expected files at archive root: " + ", ".join(missing)
+        )
 
 
 def parse_zdump_transition_evidence(text: str) -> dict[str, list[tuple[datetime, int]]]:
@@ -281,33 +304,36 @@ def _fixed_zone_samples(zdump_interval_output: str) -> str:
 def build_tools_and_compile_zones(tzcode: Path, tzdata: Path, workdir: Path) -> str:
     """Build 2026c tools, compile the required zones, and return zdump output."""
 
+    code_dir = workdir / "tzcode"
+    data_dir = workdir / "tzdata"
+    code_dir.mkdir()
+    data_dir.mkdir()
     with tarfile.open(tzcode) as archive:
-        archive.extractall(workdir / "tzcode", filter="data")
+        archive.extractall(code_dir, filter="data")
     with tarfile.open(tzdata) as archive:
-        archive.extractall(workdir / "tzdata", filter="data")
-    source = next((workdir / "tzcode").iterdir())
-    data = next((workdir / "tzdata").iterdir())
+        archive.extractall(data_dir, filter="data")
+    require_root_level_archive_layout(code_dir, data_dir)
     environment = {**os.environ, "LC_ALL": "C"}
-    subprocess.run(["make", "zic", "zdump"], cwd=source, check=True, env=environment)
+    subprocess.run(["make", "zic", "zdump"], cwd=code_dir, check=True, env=environment)
     output = workdir / "zoneinfo"
     output.mkdir()
     subprocess.run(
         [
-            str(source / "zic"),
+            str(code_dir / "zic"),
             "-d",
             str(output),
-            *(str(data / name) for name in ("northamerica", "europe", "asia", "australasia")),
+            *(str(data_dir / name) for name in REQUIRED_DATA_FILES),
         ],
         check=True,
         env=environment,
     )
     transition_output = subprocess.check_output(
-        [str(source / "zdump"), "-v", "-c", "2025,2027", *ZONES],
+        [str(code_dir / "zdump"), "-v", "-c", "2025,2027", *ZONES],
         text=True,
         env={**environment, "TZDIR": str(output)},
     )
     interval_output = subprocess.check_output(
-        [str(source / "zdump"), "-i", "-c", "2025,2027", *ZONES],
+        [str(code_dir / "zdump"), "-i", "-c", "2025,2027", *ZONES],
         text=True,
         env={**environment, "TZDIR": str(output)},
     )

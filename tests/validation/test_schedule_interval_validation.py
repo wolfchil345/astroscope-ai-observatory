@@ -113,9 +113,24 @@ def test_captured_zdump_parser_contains_evidence_for_all_four_zones() -> None:
     assert all(len(samples) >= 2 for samples in parsed.values())
 
 
-def test_archive_verifier_rejects_an_unpinned_filename() -> None:
-    with pytest.raises(ValueError, match="pinned IANA 2026c"):
-        generator.verify_archives(Path("not-tzcode2026c.tar.gz"), Path("not-tzdata2026c.tar.gz"))
+def test_archive_layout_requires_root_level_iana_contents(tmp_path: Path) -> None:
+    code_dir = tmp_path / "tzcode"
+    data_dir = tmp_path / "tzdata"
+    nested_code = code_dir / "unexpected-wrapper"
+    nested_data = data_dir / "unexpected-wrapper"
+    nested_code.mkdir(parents=True)
+    nested_data.mkdir(parents=True)
+    for filename in generator.REQUIRED_CODE_FILES:
+        (nested_code / filename).touch()
+    for filename in generator.REQUIRED_DATA_FILES:
+        (nested_data / filename).touch()
+    with pytest.raises(ValueError, match="archive root"):
+        generator.require_root_level_archive_layout(code_dir, data_dir)
+    for filename in generator.REQUIRED_CODE_FILES:
+        (code_dir / filename).touch()
+    for filename in generator.REQUIRED_DATA_FILES:
+        (data_dir / filename).touch()
+    generator.require_root_level_archive_layout(code_dir, data_dir)
 
 
 def test_generator_ast_inspection_detects_direct_and_from_imports() -> None:
@@ -172,6 +187,9 @@ def test_benchmark_record_includes_cases_summary_and_reference(tmp_path: Path) -
     assert len(record["cases"]) == 37
     assert record["reference"] == MANIFEST_DATA["reference_toolchain"]
     assert record["benchmark_inputs"]["digest_algorithm"] == "sha256-path-null-file-sha256-v1"
+    continuity = next(case for case in record["cases"] if case["id"] == "utc-continuity")
+    assert continuity["actual"]["block_count"] == 1
+    assert continuity["mismatch"] == {}
 
 
 def test_benchmark_record_written_to_disk_matches_return_value(tmp_path: Path) -> None:
@@ -198,8 +216,7 @@ def test_tzdata_distribution_and_iana_release_are_pinned() -> None:
 
 def test_tzif_hashes_cover_all_tested_zones() -> None:
     hashes = schedule_interval._tzif_hashes()
-    assert [entry["zone"] for entry in hashes] == sorted(schedule_interval.ZONES)
-    assert all(len(entry["sha256"]) == 64 for entry in hashes)
+    assert hashes == MANIFEST_DATA["expected_tzif_sha256"]
 
 
 def test_canonical_timezone_environment_records_empty_tzpath() -> None:

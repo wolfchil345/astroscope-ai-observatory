@@ -509,6 +509,7 @@
         null
       ],
       "end_utc": "2026-01-15T13:00:00+00:00",
+      "expected_block_count": 1,
       "id": "half-open-start",
       "occupancy": "all",
       "scheduled_minutes": 120,
@@ -527,6 +528,7 @@
         null
       ],
       "end_utc": "2026-01-15T13:00:00+00:00",
+      "expected_block_count": 0,
       "id": "half-open-end",
       "occupancy": "sentinel_only",
       "scheduled_minutes": 0,
@@ -545,6 +547,7 @@
         null
       ],
       "end_utc": "2026-11-01T08:30:00+00:00",
+      "expected_block_count": 1,
       "id": "utc-continuity",
       "occupancy": "all",
       "scheduled_minutes": 240,
@@ -563,6 +566,7 @@
         null
       ],
       "end_utc": "2026-11-01T08:30:00+00:00",
+      "expected_block_count": 1,
       "id": "physical-aggregate",
       "occupancy": "all",
       "scheduled_minutes": 240,
