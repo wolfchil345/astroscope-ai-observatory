@@ -19,7 +19,7 @@ from astroscope.i18n import SUPPORTED_LANGUAGES, translate
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 APP_PATH = REPOSITORY_ROOT / "app.py"
 OBSERVATORY_PATH = REPOSITORY_ROOT / "src/astroscope/observatory_dashboard.py"
-BASELINE_BODY_SHA256 = "759460af93b55718e99e1bff8e3c12c3c25dd93ed9e2d816bf8cf5ddc2d85c8c"
+BASELINE_BODY_SHA256 = "6e82598d731c7817a887557c49cba69e9b4aecf0a63e87d2b7680d9593d66875"
 SUPPORTED_LANGUAGES_FOR_APPTEST = ("English", "日本語", "한국어", "ไทย")
 DEFAULT_TIMEZONE_OPTIONS = (
     "Asia/Tokyo",
@@ -30,9 +30,7 @@ DEFAULT_TIMEZONE_OPTIONS = (
     "Europe/London",
     "Australia/Lord_Howe",
 )
-TRANSITION_TIMEZONE_OPTIONS = (
-    *DEFAULT_TIMEZONE_OPTIONS,
-)
+TRANSITION_TIMEZONE_OPTIONS = (*DEFAULT_TIMEZONE_OPTIONS,)
 SINGLE_INSTANT_BUTTON_LABELS = (
     "Calculate astronomical time",
     "Calculate local sky position",
@@ -420,8 +418,7 @@ def test_civil_time_localization_is_complete_without_expanding_timezones() -> No
 
     for key in CIVIL_TIME_TRANSLATION_KEYS:
         translated_values = {
-            language: translate(key, language)
-            for language in SUPPORTED_LANGUAGES.values()
+            language: translate(key, language) for language in SUPPORTED_LANGUAGES.values()
         }
         assert all(translated_values.values())
         assert set(translated_values) == {"en", "ja", "ko", "th"}
@@ -486,3 +483,76 @@ def test_schedule_nonexistent_start_blocks_generation() -> None:
 
     assert _button_by_label(app_test, "Generate night schedule").disabled
     assert any("schedule start time does not exist" in error.value for error in app_test.error)
+
+
+def _widget_by_label(widgets: list[Any], label: str) -> Any:
+    """Return one AppTest widget by its visible label."""
+
+    return next(widget for widget in widgets if widget.label == label)
+
+
+def test_log_session_fold_controls_are_independent() -> None:
+    app_test = _run_observatory_app()
+    _widget_by_label(app_test.text_input, "Time zone").set_value("America/New_York")
+    _widget_by_label(app_test.date_input, "Session start date").set_value(date(2026, 11, 1))
+    _widget_by_label(app_test.date_input, "Session end date").set_value(date(2026, 11, 1))
+    _widget_by_label(app_test.time_input, "Session start time").set_value(time(1))
+    _widget_by_label(app_test.time_input, "Session end time").set_value(time(1, 30))
+    app_test.run(timeout=30)
+
+    assert len(app_test.radio) == 2
+    app_test.radio[0].set_value(0)
+    app_test.radio[1].set_value(1)
+    app_test.run(timeout=30)
+    assert [radio.value for radio in app_test.radio] == [0, 1]
+
+
+def test_log_target_controls_have_explicit_dates_and_independent_folds() -> None:
+    app_test = _run_observatory_app()
+    _widget_by_label(app_test.text_input, "Time zone").set_value("America/New_York")
+    _widget_by_label(app_test.date_input, "Observation start date").set_value(date(2026, 11, 1))
+    _widget_by_label(app_test.date_input, "Observation end date").set_value(date(2026, 11, 1))
+    _widget_by_label(app_test.time_input, "Observation start").set_value(time(1))
+    _widget_by_label(app_test.time_input, "Observation end").set_value(time(1, 30))
+    app_test.run(timeout=30)
+
+    assert len(app_test.radio) == 2
+    assert {widget.label for widget in app_test.date_input} >= {
+        "Observation start date",
+        "Observation end date",
+    }
+
+
+def test_log_nonexistent_target_endpoint_does_not_mutate_log_state() -> None:
+    app_test = _run_observatory_app()
+    _widget_by_label(app_test.text_input, "Time zone").set_value("America/New_York")
+    _widget_by_label(app_test.date_input, "Observation start date").set_value(date(2026, 3, 8))
+    _widget_by_label(app_test.date_input, "Observation end date").set_value(date(2026, 3, 8))
+    _widget_by_label(app_test.time_input, "Observation start").set_value(time(2, 30))
+    _widget_by_label(app_test.time_input, "Observation end").set_value(time(3, 30))
+    app_test.run(timeout=30)
+
+    assert app_test.session_state["mission12_observations"] == []
+    assert any("skipped local-time interval" in error.value for error in app_test.error)
+    assert len(app_test.exception) == 0
+
+
+def test_log_transition_localization_is_complete() -> None:
+    keys = (
+        "log_target_start_date",
+        "log_target_end_date",
+        "log_ambiguous_session_start",
+        "log_ambiguous_session_end",
+        "log_ambiguous_target_start",
+        "log_ambiguous_target_end",
+        "log_endpoint_selection_required",
+        "log_first_occurrence",
+        "log_second_occurrence",
+        "log_candidate_utc_offset",
+        "log_nonexistent_session_endpoint",
+        "log_nonexistent_target_endpoint",
+        "log_invalid_utc_ordering",
+        "log_inconsistent_provenance",
+    )
+    for key in keys:
+        assert all(translate(key, language) for language in SUPPORTED_LANGUAGES.values())

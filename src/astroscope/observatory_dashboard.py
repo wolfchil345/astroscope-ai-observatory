@@ -26,10 +26,12 @@ from astroscope.imaging_visuals import (
 )
 from astroscope.observation_log import (
     EquipmentSnapshot,
+    ObservationLogCivilEndpoint,
     ObservationLogError,
     ObservationSession,
     TargetObservation,
     calculate_session_summary,
+    resolve_observation_log_interval,
     session_from_json,
     session_observations_to_csv,
     session_to_json,
@@ -43,9 +45,6 @@ from astroscope.observer import (
     CivilTimeStatus,
     calculate_astronomical_time,
     classify_local_datetime,
-)
-from astroscope.observer import (
-    get_timezone as get_observation_log_timezone,
 )
 from astroscope.planner import calculate_observation_plan
 from astroscope.schedule import (
@@ -3017,6 +3016,12 @@ def render_observatory_dashboard(language: str) -> None:
         "mission12_observations": [],
         "mission12_observation_counter": 0,
         "mission12_current_session": None,
+        "mission12_session_endpoint_fingerprint": None,
+        "mission12_session_start_fold": None,
+        "mission12_session_end_fold": None,
+        "mission12_target_endpoint_fingerprint": None,
+        "mission12_target_start_fold": None,
+        "mission12_target_end_fold": None,
     }
 
     for mission12_key, mission12_value in mission12_defaults.items():
@@ -3156,6 +3161,59 @@ def render_observatory_dashboard(language: str) -> None:
                         )
                     )
 
+    def mission12_endpoint_request(
+        *,
+        endpoint_date: dt.date,
+        endpoint_time: dt.time,
+        timezone_name: str,
+        state_key: str,
+        ambiguous_key: str,
+        nonexistent_key: str,
+    ) -> ObservationLogCivilEndpoint | None:
+        """Render strict fold/gap controls for one observation-log endpoint."""
+
+        try:
+            classification = classify_local_datetime(
+                local_date=endpoint_date,
+                local_time=endpoint_time,
+                timezone_name=timezone_name,
+            )
+        except ValueError as error:
+            st.error(f"{translate('log_validation_error', language)}: {error}")
+            return None
+
+        if classification.status is CivilTimeStatus.NORMAL:
+            return ObservationLogCivilEndpoint(endpoint_date, endpoint_time, None)
+        if classification.status is CivilTimeStatus.NONEXISTENT:
+            st.error(translate(nonexistent_key, language))
+            return None
+
+        st.warning(translate(ambiguous_key, language))
+        for candidate in classification.candidates:
+            occurrence_key = (
+                "log_first_occurrence" if candidate.fold == 0 else "log_second_occurrence"
+            )
+            st.markdown(
+                f"**{translate(occurrence_key, language)}** — "
+                f"{translate('log_candidate_utc_offset', language)}: "
+                f"`{candidate.utc_datetime.isoformat(timespec='microseconds')}` · "
+                f"`{_format_utc_offset(candidate.utc_offset)}`"
+            )
+        selected_fold = st.radio(
+            translate("log_endpoint_selection_required", language),
+            options=(0, 1),
+            index=None,
+            format_func=lambda value: translate(
+                "log_first_occurrence" if value == 0 else "log_second_occurrence",
+                language,
+            ),
+            key=state_key,
+        )
+        if selected_fold is None:
+            st.info(translate("log_endpoint_selection_required", language))
+            return None
+        return ObservationLogCivilEndpoint(endpoint_date, endpoint_time, selected_fold)
+
     with st.expander(
         translate("log_session_metadata", language),
         expanded=True,
@@ -3260,6 +3318,35 @@ def render_observatory_dashboard(language: str) -> None:
             ),
             key="mission12_mode",
         )
+
+    mission12_session_fingerprint = (
+        mission12_timezone,
+        mission12_start_date,
+        mission12_start_time,
+        mission12_end_date,
+        mission12_end_time,
+    )
+    if st.session_state["mission12_session_endpoint_fingerprint"] != mission12_session_fingerprint:
+        st.session_state["mission12_session_endpoint_fingerprint"] = mission12_session_fingerprint
+        st.session_state["mission12_session_start_fold"] = None
+        st.session_state["mission12_session_end_fold"] = None
+
+    mission12_session_start_endpoint = mission12_endpoint_request(
+        endpoint_date=mission12_start_date,
+        endpoint_time=mission12_start_time,
+        timezone_name=mission12_timezone,
+        state_key="mission12_session_start_fold",
+        ambiguous_key="log_ambiguous_session_start",
+        nonexistent_key="log_nonexistent_session_endpoint",
+    )
+    mission12_session_end_endpoint = mission12_endpoint_request(
+        endpoint_date=mission12_end_date,
+        endpoint_time=mission12_end_time,
+        timezone_name=mission12_timezone,
+        state_key="mission12_session_end_fold",
+        ambiguous_key="log_ambiguous_session_end",
+        nonexistent_key="log_nonexistent_session_endpoint",
+    )
 
     with st.expander(translate("log_conditions", language)):
         mission12_condition_columns = st.columns(3)
@@ -3421,15 +3508,13 @@ def render_observatory_dashboard(language: str) -> None:
                 ),
             )
 
-        mission12_target_time_columns = st.columns(3)
+        mission12_target_time_columns = st.columns(4)
 
         with mission12_target_time_columns[0]:
-            mission12_observation_date = st.date_input(
-                translate(
-                    "log_observation_date",
-                    language,
-                ),
+            mission12_observation_start_date = st.date_input(
+                translate("log_target_start_date", language),
                 value=mission12_start_date,
+                key="mission12_observation_start_date",
             )
 
         with mission12_target_time_columns[1]:
@@ -3439,9 +3524,17 @@ def render_observatory_dashboard(language: str) -> None:
                     language,
                 ),
                 value=mission12_start_time,
+                key="mission12_observation_start_time",
             )
 
         with mission12_target_time_columns[2]:
+            mission12_observation_end_date = st.date_input(
+                translate("log_target_end_date", language),
+                value=mission12_start_date,
+                key="mission12_observation_end_date",
+            )
+
+        with mission12_target_time_columns[3]:
             mission12_observation_end = st.time_input(
                 translate(
                     "log_observation_end",
@@ -3454,7 +3547,40 @@ def render_observatory_dashboard(language: str) -> None:
                     )
                     + dt.timedelta(minutes=30)
                 ).time(),
+                key="mission12_observation_end_time",
             )
+
+        mission12_target_fingerprint = (
+            mission12_timezone,
+            mission12_observation_start_date,
+            mission12_observation_start,
+            mission12_observation_end_date,
+            mission12_observation_end,
+        )
+        if (
+            st.session_state["mission12_target_endpoint_fingerprint"]
+            != mission12_target_fingerprint
+        ):
+            st.session_state["mission12_target_endpoint_fingerprint"] = mission12_target_fingerprint
+            st.session_state["mission12_target_start_fold"] = None
+            st.session_state["mission12_target_end_fold"] = None
+
+        mission12_target_start_endpoint = mission12_endpoint_request(
+            endpoint_date=mission12_observation_start_date,
+            endpoint_time=mission12_observation_start,
+            timezone_name=mission12_timezone,
+            state_key="mission12_target_start_fold",
+            ambiguous_key="log_ambiguous_target_start",
+            nonexistent_key="log_nonexistent_target_endpoint",
+        )
+        mission12_target_end_endpoint = mission12_endpoint_request(
+            endpoint_date=mission12_observation_end_date,
+            endpoint_time=mission12_observation_end,
+            timezone_name=mission12_timezone,
+            state_key="mission12_target_end_fold",
+            ambiguous_key="log_ambiguous_target_end",
+            nonexistent_key="log_nonexistent_target_endpoint",
+        )
 
         mission12_target_result_columns = st.columns(4)
 
@@ -3542,22 +3668,13 @@ def render_observatory_dashboard(language: str) -> None:
 
     if mission12_add_observation:
         try:
-            mission12_log_timezone = get_observation_log_timezone(mission12_timezone)
-
-            mission12_target_start = dt.datetime.combine(
-                mission12_observation_date,
-                mission12_observation_start,
-                tzinfo=mission12_log_timezone,
+            if mission12_target_start_endpoint is None or mission12_target_end_endpoint is None:
+                raise ValueError(translate("log_endpoint_selection_required", language))
+            mission12_target_interval = resolve_observation_log_interval(
+                timezone_name=mission12_timezone,
+                start=mission12_target_start_endpoint,
+                end=mission12_target_end_endpoint,
             )
-
-            mission12_target_end = dt.datetime.combine(
-                mission12_observation_date,
-                mission12_observation_end,
-                tzinfo=mission12_log_timezone,
-            )
-
-            if mission12_target_end <= mission12_target_start:
-                mission12_target_end += dt.timedelta(days=1)
 
             mission12_counter = st.session_state["mission12_observation_counter"] + 1
 
@@ -3577,8 +3694,8 @@ def render_observatory_dashboard(language: str) -> None:
                 object_key=mission12_object_key,
                 display_name=(mission12_display_name),
                 category=mission12_category,
-                started_at_local=(mission12_target_start),
-                ended_at_local=(mission12_target_end),
+                started_at_local=mission12_target_interval.start.local_datetime,
+                ended_at_local=mission12_target_interval.end.local_datetime,
                 outcome=mission12_outcome,
                 quality_rating=int(mission12_quality),
                 altitude_degrees=float(mission12_altitude),
@@ -3586,6 +3703,7 @@ def render_observatory_dashboard(language: str) -> None:
                 exposure_seconds=float(mission12_exposure),
                 frames_captured=int(mission12_frames_captured),
                 frames_accepted=int(mission12_frames_accepted),
+                interval=mission12_target_interval,
             )
         except ValueError as error:
             st.error(f"{translate('log_validation_error', language)}: {error}")
@@ -3689,12 +3807,15 @@ def render_observatory_dashboard(language: str) -> None:
             else:
                 mission12_category_name = mission12_category_key
 
+            mission12_observation_interval = mission12_observation.interval
+            if mission12_observation_interval is None:
+                raise ValueError("Target observation has no resolved interval.")
             mission12_observation_rows.append(
                 {
                     "object": (mission12_observation.display_name),
                     "category": (mission12_category_name),
-                    "start": (mission12_observation.started_at_local.strftime("%Y-%m-%d %H:%M")),
-                    "end": (mission12_observation.ended_at_local.strftime("%Y-%m-%d %H:%M")),
+                    "start": mission12_observation_interval.start.local_datetime.isoformat(),
+                    "end": mission12_observation_interval.end.local_datetime.isoformat(),
                     "outcome": translate(
                         (f"log_outcome_{mission12_observation.outcome}"),
                         language,
@@ -3780,18 +3901,12 @@ def render_observatory_dashboard(language: str) -> None:
     def build_mission12_session() -> ObservationSession:
         """Build the current logbook session."""
 
-        mission12_log_timezone = get_observation_log_timezone(mission12_timezone)
-
-        mission12_session_start = dt.datetime.combine(
-            mission12_start_date,
-            mission12_start_time,
-            tzinfo=mission12_log_timezone,
-        )
-
-        mission12_session_end = dt.datetime.combine(
-            mission12_end_date,
-            mission12_end_time,
-            tzinfo=mission12_log_timezone,
+        if mission12_session_start_endpoint is None or mission12_session_end_endpoint is None:
+            raise ValueError(translate("log_endpoint_selection_required", language))
+        mission12_session_interval = resolve_observation_log_interval(
+            timezone_name=mission12_timezone,
+            start=mission12_session_start_endpoint,
+            end=mission12_session_end_endpoint,
         )
 
         mission12_filter_values = tuple(
@@ -3822,8 +3937,8 @@ def render_observatory_dashboard(language: str) -> None:
             longitude_degrees=float(mission12_longitude),
             elevation_m=float(mission12_elevation),
             timezone_name=mission12_timezone,
-            started_at_local=mission12_session_start,
-            ended_at_local=mission12_session_end,
+            started_at_local=mission12_session_interval.start.local_datetime,
+            ended_at_local=mission12_session_interval.end.local_datetime,
             mode=mission12_mode,
             equipment=mission12_equipment_snapshot,
             observations=tuple(st.session_state["mission12_observations"]),
@@ -3831,6 +3946,7 @@ def render_observatory_dashboard(language: str) -> None:
             transparency_rating=int(mission12_transparency),
             cloud_cover_percent=float(mission12_cloud_cover),
             general_notes=mission12_general_notes,
+            interval=mission12_session_interval,
         )
 
     mission12_build_button = st.button(
