@@ -1,0 +1,6 @@
+{
+  "benchmark_id": "weather-provider-contract-v1",
+  "fixture_path": "validation/fixtures/weather_provider_contract_v1.json",
+  "fixture_sha256": "907ecd2373b601602fc79cd4a0d69127457fd0563268a5d3d10df3a250e0840a",
+  "schema_version": "1.0"
+}

@@ -1,0 +1,8 @@
+{
+  "aggregate_status": "passed",
+  "benchmark_id": "weather-provider-contract-v1",
+  "claim_boundary": "Archived provider timestamp-format evidence only; not weather forecast accuracy or model-skill validation.",
+  "fixture_sha256": "907ecd2373b601602fc79cd4a0d69127457fd0563268a5d3d10df3a250e0840a",
+  "scenario_count": 6,
+  "schema_version": "1.0"
+}
