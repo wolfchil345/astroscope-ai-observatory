@@ -236,7 +236,7 @@ def test_default_observatory_apptest_baseline(
         "mission12_observation_counter",
         "mission12_current_session",
     }
-    assert expected_state_keys <= set(app_test.session_state.filtered_state)
+    assert all(key in app_test.session_state for key in expected_state_keys)
     assert app_test.session_state["observer_civil_time_selected_fold"] is None
 
     app_test.sidebar.selectbox[0].select("日本語")
