@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "benchmark_id": "solar-lunar-twilight-v1",
+  "case_count": 354,
+  "window_count": 120,
+  "files": {
+    "validation/fixtures/solar_lunar_twilight_v1.json": "c4e457c137e2ef43c809099660b600e635d830279f5af141c4850586ed66fe76",
+    "validation/fixtures/solar_lunar_eop_v1.json": "6372ac20b566dc5e9b4f106caaef2751a624c7bb46e161252e3208f4b906c1fa",
+    "validation/manifests/solar_lunar_twilight_policy_v1.json": "e3c1ae38bc1115687528c22bce74b623aa1f10162b55459e9787bf9d3228a11d"
+  },
+  "generator_sha256": "bb30200dd02c68d9e30177f42da3c4a2c4a4e10370ef0d4dabbe756c7f103246"
+}
