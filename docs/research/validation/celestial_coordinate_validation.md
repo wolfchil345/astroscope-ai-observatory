@@ -119,6 +119,9 @@ regression of the existing secant model. For 369 cases below 5°, including all
 below-horizon positions, `airmass=None` is required. The approximation becomes
 poor near the horizon and is not extrapolated there.
 
+Canonical implementation commit: `f33d116b473ca0732f699b2d814f7f423bd642d7`.
+The canonical run records a clean checkout and a fresh environment without Skyfield.
+
 ## Measured results
 
 The executed benchmark passes all **768/768** astronomical cases and **13/13**
