@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "benchmark_id": "celestial-coordinates-v1",
+  "expected_case_count": 768,
+  "expected_invalid_input_count": 13,
+  "files": {
+    "validation/fixtures/celestial_coordinates_v1.json": "8b28845fa5677e9d65e81e5734ef2ccdcc830ed390ed8f0b9a6f6afae8977c75",
+    "validation/fixtures/celestial_eop_v1.json": "ffda18b8f596f8735fc8436ce25eab863a3d2c4c6af49f699922b20d8c90ad55"
+  },
+  "tolerances": {
+    "observer_metres": 1e-06,
+    "altitude_arcsec": 2.0,
+    "direction_arcsec": 2.0,
+    "azimuth_arcsec": 10.0,
+    "lst_seconds": 0.05,
+    "jd_seconds": 0.0001,
+    "mjd_seconds": 0.0001,
+    "ra_input_arcsec": 1e-07,
+    "dec_input_arcsec": 1e-07,
+    "airmass_relative": 5e-05,
+    "low_altitude_secz_relative": 0.0002
+  },
+  "azimuth_component_excluded_above_abs_altitude_deg": 89.0,
+  "horizon_ambiguity_arcsec": 2.0,
+  "airmass_scientific_minimum_altitude_deg": 20.0,
+  "airmass_policy_minimum_altitude_deg": 5.0
+}
