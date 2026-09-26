@@ -129,7 +129,8 @@ a synthetic failure-sensitivity test verifies the exclusion mechanism.
 A horizon or observing/darkness classification within the corresponding angular
 error bound is marked `boundary_indeterminate`. The numerical coordinates and
 internal boolean/status consistency still must pass; other cases require
-independent reference classification agreement. Exact reference-root snapshots
+independent reference classification agreement. The canonical run retains 32
+indeterminate classification checks and 1,738 reference-compared checks. Exact reference-root snapshots
 are retained rather than perturbed away or counted as certain horizon signs.
 
 Production illumination uses `(1 − cos(elongation))/2`. It is compared separately
@@ -139,6 +140,9 @@ approximation error as well as numerical error. Relative error is diagnostic
 only and is excluded for reference illuminated fraction <0.01: **24 near-new
 cases** are explicitly null, with the absolute error still gated. The remaining
 330 relative errors have a maximum of approximately 0.003132 (0.3132%).
+
+Canonical implementation: `8099a86e534e47dad4a0f9992f3146462c018557`, recorded from a clean checkout
+in a fresh execution environment without Skyfield.
 
 ## Executed results
 
@@ -170,6 +174,17 @@ The canonical JSON additionally separates solar 0°, −6°, −12°, −18° an
 0° event statistics. Each record retains direction, window, observer, UTC time,
 reference slope and residual. The largest timing error is well within the
 predeclared bounds; it does not account for atmospheric/horizon uncertainty.
+
+
+Per-threshold timing statistics, also in seconds:
+
+| Event | MAE | Median | RMS | Maximum | Passed |
+|---|---:|---:|---:|---:|---:|
+| Sun centre rise/set | 0.0010379375 | 0.00067578761 | 0.001499626 | 0.0046250782 | 40/40 |
+| Civil twilight | 0.0013874644 | 0.0010768792 | 0.0018400384 | 0.0045734153 | 40/40 |
+| Nautical twilight | 0.0012802209 | 0.00087218405 | 0.0019471123 | 0.0075912735 | 40/40 |
+| Astronomical twilight | 0.0014227898 | 0.00096290059 | 0.0020358215 | 0.0050048733 | 34/34 |
+| Moon centre rise/set | 0.1412091 | 0.11968974 | 0.17357403 | 0.4837423 | 34/34 |
 
 Illumination model agreement has MAE 0.00000233147 and maximum 0.0000102240 in
 fraction. Comparison with spherical phase-angle illumination has MAE 0.000783775
