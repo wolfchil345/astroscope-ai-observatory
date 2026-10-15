@@ -236,3 +236,17 @@ with `git_dirty: false` and no Skyfield installed in the execution environment.
 
 Phase 2 remains active. Mission 35 remains active until review and merge; a
 passing arithmetic benchmark does not close the outstanding scientific limits.
+
+## Delivery status
+
+The validated implementation and canonical evidence are committed on local branch
+`research/mission-35-transit-ephemeris`. Publishing was attempted after validation:
+terminal Git had no push credentials, and the connected GitHub integration rejected
+Git tree creation with HTTP 403, `Resource not accessible by integration`. No
+remote branch or pull request was created. The unchanged upstream main remains
+Mission 34 merge `7fdc96f4c9739969ae600bb3477ba394379197df`.
+
+The delivery bundle preserves all local commits, including the pre-measurement
+policy commit and clean canonical implementation. Repository write access is
+required to publish this branch. Mission 35 stays active pending PR review and
+merge; no new mission has started.
