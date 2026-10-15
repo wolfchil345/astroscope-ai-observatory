@@ -1,0 +1,16 @@
+{
+  "counts": {
+    "covariance_diagnostics": 20,
+    "ephemerides": 9,
+    "events": 189,
+    "ranges": 189
+  },
+  "files": {
+    "validation/fixtures/transit_ephemeris_sources_v1.json": "d319c5d380413e40fc4d161acc3862430f48ad952acbb4ab9cc32ad07437b768",
+    "validation/fixtures/transit_ephemeris_v1.json": "e88f5dee136d7540e784f434e699e377fd749ca69e59688b9be3bcb0f2adfedf",
+    "validation/manifests/transit_ephemeris_policy_v1.json": "4492d571d482c0483ce69e7fe05d6f53ba9fa4f0cb0bc1abaedbcbc0e80be287",
+    "validation/reference_generation/transit_ephemeris.py": "f7088e3a395f2d48d57054854abbdbb407ef8b7cb2d1f4e71e17f153beb980a4"
+  },
+  "mission": 35,
+  "schema_version": "1.0"
+}
