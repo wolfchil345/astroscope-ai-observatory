@@ -20,8 +20,9 @@
 - Mission 31: Complete — Weather Interval Provider-Contract Evidence and Correction, merged in PR #29
 - Mission 32: Complete — Observation-Schedule Interval Validation Evidence and Benchmark, merged in PR #31
 
-- Mission 33: Complete — Celestial Coordinate Validation Benchmark; pull request pending merge
-- Proposed next: Mission 34 — Solar, Lunar, and Twilight Validation; awaiting instruction
+- Mission 33: Complete — Celestial Coordinate Validation Benchmark, merged in PR #33 (`4c673bab7d0c940327b5d623d6fbd51bdba8d00b`)
+- Mission 34: Complete — Solar, Lunar, and Twilight Validation; pull request pending merge
+- Proposed next: Mission 35 — Exoplanet Transit Ephemeris Validation; awaiting instruction
 
 ## Phase Progress
 
@@ -245,6 +246,8 @@
 - Mission 30 — Observation-Log Interval Model and Fold-Provenance Persistence, merged in PR #27
 
 ## Phase 2 Deliverables
+
+- [Solar, Lunar, and Twilight Validation — Mission 34](validation/solar_lunar_twilight_validation.md)
 
 - [Celestial Coordinate Validation — Mission 33](validation/celestial_coordinate_validation.md)
 

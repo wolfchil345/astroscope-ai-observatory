@@ -1,0 +1,50 @@
+{
+  "benchmark_id": "solar-lunar-twilight-v1",
+  "policy_status": "Defined before production residuals were examined",
+  "tolerances": {
+    "sun_altitude_arcsec": 5.0,
+    "sun_direction_arcsec": 5.0,
+    "sun_azimuth_arcsec": 60.0,
+    "moon_altitude_arcsec": 60.0,
+    "moon_direction_arcsec": 60.0,
+    "moon_azimuth_arcsec": 720.0,
+    "sun_moon_separation_arcsec": 65.0,
+    "solar_elongation_arcsec": 65.0,
+    "illumination_model_absolute": 0.0003,
+    "illumination_physical_absolute": 0.01,
+    "darkness_score_absolute": 0.002,
+    "sun_event_seconds": 10.0,
+    "moon_event_seconds": 120.0
+  },
+  "conventions": {
+    "frame": "Apparent topocentric body centres, WGS84, east-positive longitude",
+    "refraction": "Disabled in both implementations",
+    "sun_horizon_degrees": 0.0,
+    "moon_horizon_degrees": 0.0,
+    "twilight_sun_altitudes_degrees": [-6.0, -12.0, -18.0],
+    "limb_radius_and_horizon_dip": "None; these are centre-crossing diagnostics, not upper-limb rise/set",
+    "time": "UTC; 2024 TAI-UTC=37 s; linear daily DUT1 and polar motion",
+    "illumination": "Production elongation approximation compared separately with the same model and independent spherical phase-angle fraction"
+  },
+  "conditioning": {
+    "azimuth_excluded_above_absolute_altitude_degrees": 85.0,
+    "minimum_event_slope_arcsec_per_second": 0.5,
+    "illumination_relative_excluded_below_fraction": 0.01,
+    "classification_guard": "Use each body's direction tolerance about horizon and observing thresholds; preserve indeterminate cases"
+  },
+  "event_search": {
+    "window": "24 hours from 12:00 UTC, including a UTC date boundary; start inclusive, end exclusive",
+    "production_grid_seconds": 3600.0,
+    "reference_grid_seconds": 300.0,
+    "refine_extrema": true,
+    "production_root_precision_seconds": 0.02,
+    "reference_root_precision_seconds": 0.001,
+    "claim": "Validation-only crossing searches over production altitude APIs; no existing native rise/set event API"
+  },
+  "rationale": {
+    "angles": "5 arcsec Sun / 1 arcmin Moon are planner regression bounds allowing different builtin versus DE421 ephemerides; azimuth projection allowance below 85 deg, with direction bound always active",
+    "event_times": "Direction bounds divided by minimum admitted crossing slope 0.5 arcsec/s give 10s Sun / 120s Moon; grazing events are explicitly ill-conditioned",
+    "illumination": "0.0003 absolute bounds numerical agreement of elongation model; 0.01 bounds its spherical phase approximation; relative errors near new Moon are undefined/unstable and not gated",
+    "darkness": "5 arcsec solar altitude propagates through 15/18 score points per degree to 0.00116 points, rounded conservatively to 0.002"
+  }
+}
