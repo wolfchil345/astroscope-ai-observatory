@@ -21,8 +21,8 @@
 - Mission 32: Complete — Observation-Schedule Interval Validation Evidence and Benchmark, merged in PR #31
 
 - Mission 33: Complete — Celestial Coordinate Validation Benchmark, merged in PR #33 (`4c673bab7d0c940327b5d623d6fbd51bdba8d00b`)
-- Mission 34: Complete — Solar, Lunar, and Twilight Validation; pull request pending merge
-- Proposed next: Mission 35 — Exoplanet Transit Ephemeris Validation; awaiting instruction
+- Mission 34: Complete — Solar, Lunar, and Twilight Validation, merged in PR #34 (`7fdc96f4c9739969ae600bb3477ba394379197df`)
+- Mission 35: Active — Exoplanet Transit Ephemeris Validation; acceptance protocol frozen, implementation in progress
 
 ## Phase Progress
 
