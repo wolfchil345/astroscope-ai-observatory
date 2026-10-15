@@ -231,6 +231,8 @@ execution, canonical model limitations and the CLI failure exit code.
 
 Canonical evidence is recorded in a separate commit after the implementation;
 the commit recorded in the JSON is the source of truth for the measured code.
+The canonical implementation is `8a1891f38963c2f81abd3c2c1a8f4b5b4ead32da`,
+with `git_dirty: false` and no Skyfield installed in the execution environment.
 
 Phase 2 remains active. Mission 35 remains active until review and merge; a
 passing arithmetic benchmark does not close the outstanding scientific limits.

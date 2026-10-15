@@ -254,7 +254,7 @@
 - [x] Validate midpoint, contacts, padding, uncertainty and signed-cycle range selection
 - [x] Retain indeterminate boundaries and unsupported time-coordinate/covariance limitations
 - [x] Add offline benchmark, failure-sensitivity tests and CI artifact retention
-- [ ] Record canonical evidence and complete quality gate
+- [x] Record canonical evidence and complete quality gate
 - [ ] Open pull request
 - [ ] Merge Mission 35
 
