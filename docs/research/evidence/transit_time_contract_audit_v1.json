@@ -1,0 +1,123 @@
+{
+  "audited_commit": "1a5e09612662d1756289dfe45465233fb6f0153d",
+  "checkout_commit": "1a5e09612662d1756289dfe45465233fb6f0153d",
+  "claim": "Current-behavior characterization only; no independent timing accuracy claim",
+  "environment": {
+    "dependencies": {
+      "astropy": "8.0.1",
+      "astropy-iers-data": "0.2026.9.21.0.56.25",
+      "numpy": "2.5.3",
+      "pyerfa": "2.0.1.5"
+    },
+    "ephemeris_kernel_used": false,
+    "iers_auto_download": false,
+    "iers_table_used": false,
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "python": "3.12.14",
+    "randomness": "none",
+    "socket_connections": "blocked"
+  },
+  "ephemeris_fields": [
+    "planet_name",
+    "orbital_period_days",
+    "reference_mid_transit_jd",
+    "transit_duration_hours",
+    "period_uncertainty_days",
+    "reference_epoch_uncertainty_days"
+  ],
+  "event_fields": [
+    "planet_name",
+    "transit_number",
+    "mid_transit_jd",
+    "ingress_jd",
+    "egress_jd",
+    "observation_start_jd",
+    "observation_end_jd",
+    "timing_uncertainty_days"
+  ],
+  "export_observation": {
+    "input_jd": 2451545.0,
+    "interpretation": "UTC formatting only, not a barycentric conversion reference",
+    "returned_string": "2000-01-01T12:00:00Z"
+  },
+  "mission": 36,
+  "recorded_utc_date": "2026-10-17",
+  "reproduction_python": "import hashlib\nimport importlib.metadata\nimport json\nimport platform\nimport socket\nimport subprocess\nfrom dataclasses import fields\nfrom pathlib import Path\n\ndef no_connection(*args, **kwargs):\n    raise RuntimeError(\"Network connection forbidden in Mission 36 audit\")\n\nsocket.create_connection = no_connection\nsocket.socket.connect = no_connection\nsocket.socket.connect_ex = no_connection\nfrom astropy.utils import iers\niers.conf.auto_download = False\nfrom astroscope.transit_scheduler import TransitEphemeris, TransitEvent, build_transit_event\nfrom astroscope.transit_ranking import score_timing_confidence\nfrom astroscope.transit_schedule_exports import _format_iso_utc\n\npaths = [\"src/astroscope/\" + name + \".py\" for name in (\n    \"transit_scheduler\", \"transit_schedule_application\", \"transit_schedule\",\n    \"transit_visibility\", \"transit_schedule_exports\", \"transit_schedule_visuals\",\n    \"transit_ranking\", \"transit_schedule_dashboard\", \"exoplanet_catalog\",\n)]\nobservations = []\nfor epoch_sigma, period_sigma in ((None, None), (0.0, 0.0), (None, 0.001), (0.001, None)):\n    ephemeris = TransitEphemeris(\"Synthetic audit\", 2.0, 2451545.0, 2.0,\n        period_sigma, epoch_sigma)\n    for cycle in (0, 10):\n        event = build_transit_event(ephemeris, cycle)\n        observations.append({\"epoch_sigma_days\": epoch_sigma,\n            \"period_sigma_days\": period_sigma, \"cycle\": cycle,\n            \"returned_sigma_days\": event.timing_uncertainty_days,\n            \"returned_timing_score\": score_timing_confidence(event.timing_uncertainty_hours)})\nrecord = {\n    \"schema_version\": \"1.0\", \"mission\": 36,\n    \"claim\": \"Current-behavior characterization only; no independent timing accuracy claim\",\n    \"audited_commit\": \"1a5e09612662d1756289dfe45465233fb6f0153d\",\n    \"checkout_commit\": subprocess.check_output([\"git\", \"rev-parse\", \"HEAD\"], text=True).strip(),\n    \"source_files_sha256\": {p: hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in paths},\n    \"environment\": {\"python\": platform.python_version(), \"platform\": platform.platform(),\n        \"dependencies\": {p: importlib.metadata.version(p) for p in\n            (\"astropy\", \"numpy\", \"pyerfa\", \"astropy-iers-data\")},\n        \"socket_connections\": \"blocked\", \"iers_auto_download\": False,\n        \"iers_table_used\": False, \"ephemeris_kernel_used\": False,\n        \"randomness\": \"none\"},\n    \"synthetic_input\": {\"planet_name\": \"Synthetic audit\", \"epoch_jd\": 2451545.0,\n        \"period_days\": 2.0, \"duration_hours\": 2.0,\n        \"source_time_coordinate\": \"deliberately unspecified; current API has no metadata field\"},\n    \"ephemeris_fields\": [f.name for f in fields(TransitEphemeris)],\n    \"event_fields\": [f.name for f in fields(TransitEvent)],\n    \"uncertainty_observations\": observations,\n    \"export_observation\": {\"input_jd\": 2451545.0, \"returned_string\": _format_iso_utc(2451545.0),\n        \"interpretation\": \"UTC formatting only, not a barycentric conversion reference\"}\n}\nprint(json.dumps(record, indent=2, sort_keys=True, allow_nan=False))\n",
+  "schema_version": "1.0",
+  "source_files_sha256": {
+    "src/astroscope/exoplanet_catalog.py": "990c411fe9660acc83e77fce0fa98febd9f2fcc61d3855d38aaf2087567f10cb",
+    "src/astroscope/transit_ranking.py": "65328869ff4441647a5deea54e6bc9ad64655f0613faba5ecb80616551899f15",
+    "src/astroscope/transit_schedule.py": "f81be332c6e240103bad673d3cb56f9fc837e154b5263f761b3fd698d81dfce1",
+    "src/astroscope/transit_schedule_application.py": "7750edc0f30ef001e2e086e3c786869c72c4216c74cd2ff9ef7682b0dbc5f9cc",
+    "src/astroscope/transit_schedule_dashboard.py": "c4c726c2bf9a76807edaa4601fc1ff0aafd315db84311e7e9554a73331c86ee5",
+    "src/astroscope/transit_schedule_exports.py": "992fcc34a540dd8f21ba71ae5eb1fd19ebb3c978ac4af5a391b70fd20a2f24b2",
+    "src/astroscope/transit_schedule_visuals.py": "322e76bdfd5879400b534c917ecc77071b88e2080e816629efc76d0236c0beb5",
+    "src/astroscope/transit_scheduler.py": "8ed6a28746a055accf1256911421a6dd5c77f1b8e54e0401524261969768897b",
+    "src/astroscope/transit_visibility.py": "1dbeb51afa6ce5d63fe16a051d6eef33637f5500087ff37c20df3de81ff53e3f"
+  },
+  "synthetic_input": {
+    "duration_hours": 2.0,
+    "epoch_jd": 2451545.0,
+    "period_days": 2.0,
+    "planet_name": "Synthetic audit",
+    "source_time_coordinate": "deliberately unspecified; current API has no metadata field"
+  },
+  "uncertainty_observations": [
+    {
+      "cycle": 0,
+      "epoch_sigma_days": null,
+      "period_sigma_days": null,
+      "returned_sigma_days": 0.0,
+      "returned_timing_score": 1.0
+    },
+    {
+      "cycle": 10,
+      "epoch_sigma_days": null,
+      "period_sigma_days": null,
+      "returned_sigma_days": 0.0,
+      "returned_timing_score": 1.0
+    },
+    {
+      "cycle": 0,
+      "epoch_sigma_days": 0.0,
+      "period_sigma_days": 0.0,
+      "returned_sigma_days": 0.0,
+      "returned_timing_score": 1.0
+    },
+    {
+      "cycle": 10,
+      "epoch_sigma_days": 0.0,
+      "period_sigma_days": 0.0,
+      "returned_sigma_days": 0.0,
+      "returned_timing_score": 1.0
+    },
+    {
+      "cycle": 0,
+      "epoch_sigma_days": null,
+      "period_sigma_days": 0.001,
+      "returned_sigma_days": 0.0,
+      "returned_timing_score": 1.0
+    },
+    {
+      "cycle": 10,
+      "epoch_sigma_days": null,
+      "period_sigma_days": 0.001,
+      "returned_sigma_days": 0.01,
+      "returned_timing_score": 0.8869204367171575
+    },
+    {
+      "cycle": 0,
+      "epoch_sigma_days": 0.001,
+      "period_sigma_days": null,
+      "returned_sigma_days": 0.001,
+      "returned_timing_score": 0.9880717128619305
+    },
+    {
+      "cycle": 10,
+      "epoch_sigma_days": 0.001,
+      "period_sigma_days": null,
+      "returned_sigma_days": 0.001,
+      "returned_timing_score": 0.9880717128619305
+    }
+  ]
+}
