@@ -229,3 +229,6 @@ motion, data validity, uncertainty transport, candidate selection, boundary
 ambiguity and resolved-event persistence. A finite-grid pass alone is not an
 acceptance certificate for production use. Mission 39 is not started here;
 Mission 38 remains active until review and merge.
+
+Delivery: [PR #38](https://github.com/wolfchil345/astroscope-ai-observatory/pull/38).
+Its description and checks record final published-head CI and all seven artifacts.

@@ -25,7 +25,7 @@
 - Mission 35: Complete — Exoplanet Transit Ephemeris Validation, merged in [PR #35](https://github.com/wolfchil345/astroscope-ai-observatory/pull/35) (`1a5e09612662d1756289dfe45465233fb6f0153d`); bounded arithmetic validation only
 - Mission 36: Complete — Transit Time-Coordinate and Uncertainty Contract, merged in [PR #36](https://github.com/wolfchil345/astroscope-ai-observatory/pull/36) (`e5a3c70e8aca77ed0132091d3b088eb73e2f1fcf`); design evidence only
 - Mission 37: Complete — Strict Transit Timing Metadata and Eligibility Boundary, merged in [PR #37](https://github.com/wolfchil345/astroscope-ai-observatory/pull/37) (`809b0bc89aa0e4b96de2e8f35d81c417b1609650`); production observer-arrival conversion remains unavailable
-- Mission 38: Active — Observer-Arrival Reference Protocol and Conversion Validation; research-only geometric inversion and historical TAI/UTC evidence, no production eligibility
+- Mission 38: Active — Observer-Arrival Reference Protocol and Conversion Validation, [PR #38](https://github.com/wolfchil345/astroscope-ai-observatory/pull/38); research-only geometric inversion and historical TAI/UTC evidence, no production eligibility
 - Proposed next: Mission 39 — Observer-Arrival Error Budget and Resolved-Event Contract; not started, pending Mission 38 review and merge
 
 ## Phase Progress
@@ -306,7 +306,7 @@
 - [x] Add 48 failure/precision/integrity/independence tests and seventh CI artifact
 - [x] Document model omissions and keep all production observing gates closed
 - [x] Run full local quality gate: 2,935 tests passed, Ruff and compilation; require published-head CI before merge
-- [ ] Open pull request
+- [x] Open pull request — [PR #38](https://github.com/wolfchil345/astroscope-ai-observatory/pull/38)
 - [ ] Merge Mission 38
 
 ## Phase 2 Deliverables
