@@ -300,3 +300,8 @@ no production code, and leaves all numerical fixtures and canonical benchmark
 records intact. Existing Ruff, full-suite and six CI benchmarks remain required.
 The PR's checks record results for its exact head. Phase 2 remains active;
 Mission 36 remains active until review and merge.
+
+The design is published for review in
+[PR #36](https://github.com/wolfchil345/astroscope-ai-observatory/pull/36).
+Its Quality Gate and retained artifacts report verification for each published
+head; a green check does not execute the 26 prospective contract scenarios.
