@@ -187,6 +187,9 @@ versions. The PR records which versions and commit were actually exercised.
 
 ## Remaining gate and next mission
 
+Delivery: [PR #37](https://github.com/wolfchil345/astroscope-ai-observatory/pull/37).
+Its checks and PR description record the final published-head CI evidence.
+
 Mission 37 is active until review and merge. The proposed next task is **Mission
 38 — Observer-Arrival Reference Protocol and Conversion Validation**: define
 independent reference data, coordinate/observer coverage, time-data provenance,
