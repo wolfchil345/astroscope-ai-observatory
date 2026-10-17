@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "retrieved_utc_date": "2026-10-15",
+  "acquisition": "Manual transcription of numerical coefficients from the versioned paper abstract; not a captured live transit-service response",
+  "published_ephemeris": {
+    "id": "wasp12_2011_historical",
+    "citation": "Maciejewski et al. 2011, A&A, doi:10.1051/0004-6361/201016268",
+    "url": "https://arxiv.org/abs/1102.2421v1",
+    "time_coordinate": "BJD_TDB",
+    "reference_mid_transit_jd": "2454508.97682",
+    "orbital_period_days": "1.09142245",
+    "reference_epoch_uncertainty_days": "0.00020",
+    "period_uncertainty_days": "0.00000033",
+    "claim": "Historical coefficients only. Synthetic duration/baselines and zero covariance are experiment assumptions. No current ephemeris or observational accuracy claim."
+  },
+  "method_references": [
+    {
+      "url": "https://exoplanetarchive.ipac.caltech.edu/docs/transit/transit_algorithms.html",
+      "role": "Linear midpoint model; contacts versus padded windows. Full archive uncertainty model is not implemented here."
+    },
+    {
+      "url": "https://physics.nist.gov/cuu/Uncertainty/combination.html",
+      "role": "Independent variance propagation and covariance term."
+    },
+    {
+      "url": "https://arxiv.org/abs/1005.4415",
+      "role": "Time-scale and reference-position distinction."
+    }
+  ]
+}

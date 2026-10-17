@@ -21,8 +21,8 @@
 - Mission 32: Complete — Observation-Schedule Interval Validation Evidence and Benchmark, merged in PR #31
 
 - Mission 33: Complete — Celestial Coordinate Validation Benchmark, merged in PR #33 (`4c673bab7d0c940327b5d623d6fbd51bdba8d00b`)
-- Mission 34: Complete — Solar, Lunar, and Twilight Validation; pull request pending merge
-- Proposed next: Mission 35 — Exoplanet Transit Ephemeris Validation; awaiting instruction
+- Mission 34: Complete — Solar, Lunar, and Twilight Validation, merged in PR #34 (`7fdc96f4c9739969ae600bb3477ba394379197df`)
+- Mission 35: Active — Exoplanet Transit Ephemeris Validation; validation evidence published in [PR #35](https://github.com/wolfchil345/astroscope-ai-observatory/pull/35), review and merge pending
 
 ## Phase Progress
 
@@ -245,7 +245,22 @@
 - Mission 29 — Strict Observation-Schedule Interval Boundary Resolution, merged in PR #25
 - Mission 30 — Observation-Log Interval Model and Fold-Provenance Persistence, merged in PR #27
 
+## Mission 35 Completion Checklist
+
+### Mission 35 — Exoplanet Transit Ephemeris Validation
+
+- [x] Verify Mission 34 merge and freeze acceptance policy before residual measurement
+- [x] Add independently generated Decimal reference, source records and integrity manifest
+- [x] Validate midpoint, contacts, padding, uncertainty and signed-cycle range selection
+- [x] Retain indeterminate boundaries and unsupported time-coordinate/covariance limitations
+- [x] Add offline benchmark, failure-sensitivity tests and CI artifact retention
+- [x] Record canonical evidence and complete quality gate
+- [x] Open pull request — [PR #35](https://github.com/wolfchil345/astroscope-ai-observatory/pull/35)
+- [ ] Merge Mission 35
+
 ## Phase 2 Deliverables
+
+- [Exoplanet Transit Ephemeris Validation — Mission 35](validation/transit_ephemeris_validation.md)
 
 - [Solar, Lunar, and Twilight Validation — Mission 34](validation/solar_lunar_twilight_validation.md)
 

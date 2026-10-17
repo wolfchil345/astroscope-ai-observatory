@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "mission": 35,
+  "scope": "Linear, constant-duration ephemeris arithmetic on one common time coordinate; not observed-transit accuracy or UTC/barycentric conversion",
+  "reference": "Independent Python decimal (60 significant digits), published linear ephemeris and NIST propagation law; no AstroScope or astronomy-library imports",
+  "domain": {
+    "epoch_jd_min": 2400000,
+    "epoch_jd_max": 2500000,
+    "period_days_min": 0.125,
+    "period_days_max": 365.25,
+    "cycle_min": -10000,
+    "cycle_max": 10000
+  },
+  "limits": {
+    "absolute_time_seconds": 0.0002,
+    "window_duration_seconds": 0.0004,
+    "uncertainty_absolute_seconds": 1e-8,
+    "uncertainty_relative": 1e-12
+  },
+  "rationale": "At astronomical JD a binary64 ULP is about 40 microseconds; the scalar bound permits input quantization and several arithmetic roundings. Duration subtracts two such dates. Uncertainty is computed without subtracting large JD values.",
+  "range_policy": "Closed interval selecting midpoints, not overlap of padded windows. Exact dyadic boundaries must match exactly. Non-dyadic boundaries farther than the absolute-time bound must match exactly; inside the bound retain exact reference and actual topology as boundary_indeterminate, never count as independently validated topology. Grossly wrong epochs remain failures even in boundary cases.",
+  "uncertainty_policy": "sigma(n)^2 = sigma_T0^2 + n^2 sigma_P^2 only under zero covariance; None is numerically zero but scientifically unknown, not proof of zero uncertainty. Constant T14 and symmetric contacts are model assumptions.",
+  "failure_policy": "Do not tune bounds from measured residuals. Unexpected numerical/topological failures block the benchmark; predeclared boundary indeterminacy and scientific unsupported states remain explicit in results.",
+  "exclusions": [
+    "BJD_TDB/HJD/UTC conversion and observatory arrival times",
+    "Measured transit residuals and physical validity of long extrapolations",
+    "Nonzero period-epoch covariance, asymmetric errors, TTVs, orbital decay",
+    "Duration uncertainty, eccentric contact asymmetry, visibility and ranking accuracy",
+    "Leap-second elapsed-time arithmetic, overflow, and sub-ULP periods outside the bounded corpus"
+  ]
+}

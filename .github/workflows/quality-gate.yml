@@ -127,3 +127,19 @@ jobs:
           name: solar-lunar-twilight-validation-record
           path: ${{ runner.temp }}/solar_lunar_twilight_reference_run.json
           if-no-files-found: error
+
+      - name: Run transit-ephemeris validation benchmark
+        env:
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          python -m validation.transit_ephemeris \
+            --output "$RUNNER_TEMP/transit_ephemeris_reference_run.json"
+
+      - name: Upload transit-ephemeris validation record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: transit-ephemeris-validation-record
+          path: ${{ runner.temp }}/transit_ephemeris_reference_run.json
+          if-no-files-found: error
