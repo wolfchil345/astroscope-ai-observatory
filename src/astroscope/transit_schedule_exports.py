@@ -13,6 +13,7 @@ from typing import Final
 from astropy.time import Time
 
 from astroscope.transit_schedule import TransitScheduleResult
+from astroscope.transit_timing import reject_unresolved_timing, require_legacy_schedule_result
 
 CSV_FIELDNAMES: Final[tuple[str, ...]] = (
     "rank",
@@ -38,6 +39,7 @@ CSV_FIELDNAMES: Final[tuple[str, ...]] = (
     "moon_illumination_fraction",
     "transit_depth_ppm",
     "host_magnitude",
+    "timing_status",
 )
 
 ICAL_PRODUCT_IDENTIFIER: Final[str] = (
@@ -53,6 +55,8 @@ def _utc_datetime_from_julian_date(
     julian_date: float,
 ) -> datetime:
     """Convert a finite Julian date to a UTC datetime."""
+
+    reject_unresolved_timing(julian_date)
 
     if not math.isfinite(julian_date):
         raise TransitScheduleExportError("Julian date must be finite.")
@@ -89,6 +93,8 @@ def transit_schedule_rows(
     result: TransitScheduleResult,
 ) -> tuple[dict[str, object], ...]:
     """Convert a ranked schedule into export-ready rows."""
+
+    require_legacy_schedule_result(result)
 
     rows: list[dict[str, object]] = []
 
@@ -156,6 +162,7 @@ def transit_schedule_rows(
                 ),
                 "transit_depth_ppm": (candidate.transit_depth_ppm),
                 "host_magnitude": (candidate.host_magnitude),
+                "timing_status": "legacy_unvalidated",
             }
         )
 
@@ -166,6 +173,8 @@ def transit_schedule_to_csv(
     result: TransitScheduleResult,
 ) -> str:
     """Serialize a ranked transit schedule as CSV."""
+
+    require_legacy_schedule_result(result)
 
     output = io.StringIO(newline="")
 
@@ -189,6 +198,8 @@ def transit_schedule_to_json(
 ) -> str:
     """Serialize a ranked transit schedule as structured JSON."""
 
+    require_legacy_schedule_result(result)
+
     if isinstance(indent, bool) or not isinstance(
         indent,
         int,
@@ -200,6 +211,7 @@ def transit_schedule_to_json(
 
     payload = {
         "schema_version": 1,
+        "timing_status": "legacy_unvalidated",
         "generated_by": ("AstroScope AI Observatory"),
         "site": {
             "name": result.site.name,
@@ -345,6 +357,8 @@ def transit_schedule_to_ics(
 ) -> str:
     """Serialize a ranked schedule as an iCalendar file."""
 
+    require_legacy_schedule_result(result)
+
     calendar_name = _escape_ical_text(f"AstroScope Transit Schedule - {result.site.name}")
 
     lines = [
@@ -353,6 +367,7 @@ def transit_schedule_to_ics(
         f"PRODID:{ICAL_PRODUCT_IDENTIFIER}",
         "CALSCALE:GREGORIAN",
         "METHOD:PUBLISH",
+        "X-ASTROSCOPE-TIMING-STATUS:LEGACY-UNVALIDATED",
         f"X-WR-CALNAME:{calendar_name}",
     ]
 
@@ -368,6 +383,7 @@ def transit_schedule_to_ics(
                 (
                     (f"AstroScope priority score: {ranked.score.total_score:.1f}/100"),
                     (f"Rank: {ranked.rank}"),
+                    "Legacy timing: source coordinate and uncertainty not validated.",
                     (f"Observable fraction: {visibility.observable_sample_fraction:.0%}"),
                     (
                         "Midpoint altitude: "

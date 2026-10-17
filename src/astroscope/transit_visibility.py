@@ -17,6 +17,7 @@ from astropy.coordinates import (
 from astropy.time import Time
 
 from astroscope.transit_scheduler import TransitEvent
+from astroscope.transit_timing import reject_unresolved_timing
 
 ASTRONOMICAL_TWILIGHT_DEGREES: Final[float] = -18.0
 DEFAULT_MINIMUM_ALTITUDE_DEGREES: Final[float] = 20.0
@@ -244,6 +245,8 @@ def sample_transit_visibility(
 ) -> TransitVisibilitySample:
     """Calculate observing conditions at one Julian date."""
 
+    reject_unresolved_timing(julian_date)
+
     _require_finite(
         julian_date,
         "Julian date",
@@ -352,6 +355,8 @@ def analyze_transit_visibility(
     darkness_sun_altitude_degrees: float = (ASTRONOMICAL_TWILIGHT_DEGREES),
 ) -> TransitVisibilitySummary:
     """Analyze visibility across a complete observing window."""
+
+    reject_unresolved_timing(event)
 
     _validate_transit_event(event)
     _validate_visibility_limits(

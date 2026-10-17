@@ -212,7 +212,10 @@ schema-v1 schedule cannot be upgraded by assuming its existing UTC label proves
 source provenance. Keep it readable as legacy output and require explicit
 metadata to recompute a strict result. No persisted file is changed in Mission 36.
 
-The implementation order below is proposed, not started:
+At Mission 36, the implementation order below was proposed. The bounded first
+stage is now implemented for review in [Mission 37](strict_transit_timing_boundary.md);
+conversion and subsequent visibility evidence remain unstarted. The original
+prospective manifest and historical audit are preserved.
 
 1. **Mission 37 — Strict Transit Timing Metadata and Eligibility Boundary:**
    introduce immutable metadata/uncertainty types, structured rejection, nominal
@@ -299,9 +302,10 @@ an implementation split. This mission adds **zero production tests**, changes
 no production code, and leaves all numerical fixtures and canonical benchmark
 records intact. Existing Ruff, full-suite and six CI benchmarks remain required.
 The PR's checks record results for its exact head. Phase 2 remains active;
-Mission 36 remains active until review and merge.
+Mission 36 merged through PR #36 on 2026-10-17 at 15:18:20 UTC as
+`e5a3c70e8aca77ed0132091d3b088eb73e2f1fcf`; its post-merge quality gate passed.
 
-The design is published for review in
+The design was reviewed and merged in
 [PR #36](https://github.com/wolfchil345/astroscope-ai-observatory/pull/36).
 Its Quality Gate and retained artifacts report verification for each published
 head; a green check does not execute the 26 prospective contract scenarios.

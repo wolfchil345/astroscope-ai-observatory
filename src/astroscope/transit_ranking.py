@@ -7,6 +7,7 @@ from dataclasses import dataclass
 from typing import Final
 
 from astroscope.transit_scheduler import TransitEvent
+from astroscope.transit_timing import TransitTimingError, reject_unresolved_timing
 from astroscope.transit_visibility import TransitVisibilitySummary
 
 
@@ -248,6 +249,10 @@ def score_timing_confidence(
     A two-hour uncertainty produces a score of approximately 0.368.
     """
 
+    reject_unresolved_timing(timing_uncertainty_hours)
+    if timing_uncertainty_hours is None:
+        raise TransitTimingError("unknown_timing_uncertainty", "missing is not zero")
+
     _require_non_negative_finite(
         timing_uncertainty_hours,
         "Timing uncertainty",
@@ -289,6 +294,9 @@ def score_transit_candidate(
     weights: RankingWeights = DEFAULT_RANKING_WEIGHTS,
 ) -> TransitScoreBreakdown:
     """Calculate the complete priority score for one transit."""
+
+    reject_unresolved_timing(candidate)
+    reject_unresolved_timing(candidate.event)
 
     missing_fields: list[str] = []
 

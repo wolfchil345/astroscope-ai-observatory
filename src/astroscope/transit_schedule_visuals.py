@@ -11,6 +11,7 @@ from astropy.time import Time
 
 from astroscope.transit_ranking import RankedTransit
 from astroscope.transit_schedule import TransitScheduleResult
+from astroscope.transit_timing import reject_unresolved_timing, require_legacy_schedule_result
 
 MILLISECONDS_PER_DAY: Final[float] = 86_400_000.0
 
@@ -23,6 +24,8 @@ def julian_date_to_utc_datetime(
     julian_date: float,
 ) -> datetime:
     """Convert one Julian date to a timezone-aware UTC datetime."""
+
+    reject_unresolved_timing(julian_date)
 
     if not math.isfinite(julian_date):
         raise TransitScheduleVisualError("Julian date must be finite.")
@@ -38,6 +41,8 @@ def create_schedule_timeline_figure(
     result: TransitScheduleResult,
 ) -> go.Figure:
     """Create an observing-window timeline ordered by rank."""
+
+    require_legacy_schedule_result(result)
 
     figure = go.Figure()
 
@@ -144,6 +149,9 @@ def create_transit_altitude_figure(
 ) -> go.Figure:
     """Create target, Sun, and Moon altitude curves."""
 
+    reject_unresolved_timing(ranked_transit)
+    reject_unresolved_timing(ranked_transit.candidate.event)
+
     samples = ranked_transit.candidate.visibility.samples
 
     figure = go.Figure()
@@ -239,6 +247,9 @@ def create_transit_score_figure(
     ranked_transit: RankedTransit,
 ) -> go.Figure:
     """Create a component-score breakdown chart."""
+
+    reject_unresolved_timing(ranked_transit)
+    reject_unresolved_timing(ranked_transit.candidate.event)
 
     score = ranked_transit.score
 

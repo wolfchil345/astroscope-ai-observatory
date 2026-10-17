@@ -31,6 +31,8 @@ from astroscope.transit_schedule_visuals import (
     create_transit_score_figure,
     julian_date_to_utc_datetime,
 )
+from astroscope.transit_timing import require_legacy_schedule_result
+from astroscope.transit_timing_dashboard import render_timing_workflow
 from astroscope.transit_visibility import ObserverSite
 
 _RESULT_SESSION_KEY: Final[str] = "mission15_transit_schedule_result"
@@ -75,6 +77,7 @@ def ranked_schedule_rows(
 ) -> tuple[dict[str, object], ...]:
     """Create display-table rows from a ranked schedule."""
 
+    require_legacy_schedule_result(result)
     rows: list[dict[str, object]] = []
 
     for ranked in result.ranked_transits:
@@ -134,6 +137,7 @@ def build_dashboard_exports(
 ) -> TransitDashboardExportBundle:
     """Build downloadable schedule data and deterministic filenames."""
 
+    require_legacy_schedule_result(result)
     site_component = _safe_filename_component(result.site.name)
 
     start_component = julian_date_to_utc_datetime(result.request.start_jd).strftime("%Y%m%d")
@@ -449,6 +453,8 @@ def render_transit_schedule_dashboard(
     _CURRENT_LANGUAGE.set(language)
 
     st.header(_tr("title"))
+    if not render_timing_workflow(language):
+        return
     st.write(_tr("description"))
     st.caption(_tr("utc_caption"))
 
@@ -588,6 +594,7 @@ def render_transit_schedule_dashboard(
         )
 
     if submitted:
+        st.session_state.pop(_RESULT_SESSION_KEY, None)
         try:
             site = ObserverSite(
                 name=site_name,
