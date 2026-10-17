@@ -22,7 +22,7 @@
 
 - Mission 33: Complete — Celestial Coordinate Validation Benchmark, merged in PR #33 (`4c673bab7d0c940327b5d623d6fbd51bdba8d00b`)
 - Mission 34: Complete — Solar, Lunar, and Twilight Validation, merged in PR #34 (`7fdc96f4c9739969ae600bb3477ba394379197df`)
-- Mission 35: Active — Exoplanet Transit Ephemeris Validation; validation evidence implemented locally; GitHub publication blocked by write access, review and merge pending
+- Mission 35: Active — Exoplanet Transit Ephemeris Validation; validation evidence published in [PR #35](https://github.com/wolfchil345/astroscope-ai-observatory/pull/35), review and merge pending
 
 ## Phase Progress
 
@@ -255,7 +255,7 @@
 - [x] Retain indeterminate boundaries and unsupported time-coordinate/covariance limitations
 - [x] Add offline benchmark, failure-sensitivity tests and CI artifact retention
 - [x] Record canonical evidence and complete quality gate
-- [ ] Open pull request
+- [x] Open pull request — [PR #35](https://github.com/wolfchil345/astroscope-ai-observatory/pull/35)
 - [ ] Merge Mission 35
 
 ## Phase 2 Deliverables

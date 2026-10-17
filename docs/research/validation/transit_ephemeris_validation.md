@@ -239,14 +239,21 @@ passing arithmetic benchmark does not close the outstanding scientific limits.
 
 ## Delivery status
 
-The validated implementation and canonical evidence are committed on local branch
-`research/mission-35-transit-ephemeris`. Publishing was attempted after validation:
-terminal Git had no push credentials, and the connected GitHub integration rejected
-Git tree creation with HTTP 403, `Resource not accessible by integration`. No
-remote branch or pull request was created. The unchanged upstream main remains
-Mission 34 merge `7fdc96f4c9739969ae600bb3477ba394379197df`.
+The validated implementation and canonical evidence were published on branch
+`research/mission-35-transit-ephemeris` in
+[PR #35](https://github.com/wolfchil345/astroscope-ai-observatory/pull/35) on
+2026-10-17 at 14:44:13 UTC. The initial published head is
+`bba5ef068428e1ca7193f0bad88d9e11ec8a2385`; all original policy, implementation,
+and canonical-evidence commits were transferred intact through a verified Git
+bundle. The PR base remains Mission 34 merge
+`7fdc96f4c9739969ae600bb3477ba394379197df`.
 
-The delivery bundle preserves all local commits, including the pre-measurement
-policy commit and clean canonical implementation. Repository write access is
-required to publish this branch. Mission 35 stays active pending PR review and
-merge; no new mission has started.
+Earlier publication attempts were blocked by missing terminal credentials and
+the connected integration's HTTP 403 write-access rejection. Publication was
+completed through an isolated checkout on Colossus after user-authorized GitHub
+CLI sign-in. No commits were rewritten to bypass those failures.
+
+The pull request's Quality Gate check and retained workflow artifacts provide
+the CI result for each published revision; the canonical local record above
+remains tied to its original clean implementation commit. Mission 35 stays
+active pending PR review and merge; no new mission has started.
