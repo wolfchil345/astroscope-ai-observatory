@@ -190,11 +190,14 @@ versions. The PR records which versions and commit were actually exercised.
 Delivery: [PR #37](https://github.com/wolfchil345/astroscope-ai-observatory/pull/37).
 Its checks and PR description record the final published-head CI evidence.
 
-Mission 37 is active until review and merge. The proposed next task is **Mission
-38 — Observer-Arrival Reference Protocol and Conversion Validation**: define
+Mission 37 merged through PR #37 on 2026-10-17 at 15:56:41 UTC as
+`809b0bc89aa0e4b96de2e8f35d81c417b1609650`; post-merge CI passed.
+The next scoped task, now active in
+[Mission 38](observer_arrival_validation.md), is **Observer-Arrival Reference
+Protocol and Conversion Validation**: define
 independent reference data, coordinate/observer coverage, time-data provenance,
 error budget, frozen tolerances and adapter acceptance before enabling observing
 use. It must cover observer TAI/UTC representation and the separate barycentric
 light-time problem rather than treating scale conversion as the entire operation.
-Its exact implementation scope depends on reference feasibility. No part of
-Mission 38 or later phases is started here.
+Its exact implementation scope depends on reference feasibility. Mission 38 records research-only conversion evidence separately; production
+observing eligibility remains disabled and later phases remain unstarted.

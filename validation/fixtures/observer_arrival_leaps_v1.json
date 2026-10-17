@@ -1,0 +1,180 @@
+{
+  "source": "https://hpiers.obspm.fr/iers/bul/bulc/Leap_Second.dat",
+  "source_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+  "distribution": "astropy-iers-data 0.2026.9.21.0.56.25",
+  "facts_verified_against": [
+    "https://datacenter.iers.org/data/16/bulletinc-052.txt",
+    "https://datacenter.iers.org/data/16/bulletinc-068.txt"
+  ],
+  "scope": "2016-12-31 leap transition and historical 2024 only; not future UTC authority",
+  "rows": [
+    {
+      "mjd": 41317.0,
+      "year": 1972,
+      "month": 1,
+      "tai_utc": 10
+    },
+    {
+      "mjd": 41499.0,
+      "year": 1972,
+      "month": 7,
+      "tai_utc": 11
+    },
+    {
+      "mjd": 41683.0,
+      "year": 1973,
+      "month": 1,
+      "tai_utc": 12
+    },
+    {
+      "mjd": 42048.0,
+      "year": 1974,
+      "month": 1,
+      "tai_utc": 13
+    },
+    {
+      "mjd": 42413.0,
+      "year": 1975,
+      "month": 1,
+      "tai_utc": 14
+    },
+    {
+      "mjd": 42778.0,
+      "year": 1976,
+      "month": 1,
+      "tai_utc": 15
+    },
+    {
+      "mjd": 43144.0,
+      "year": 1977,
+      "month": 1,
+      "tai_utc": 16
+    },
+    {
+      "mjd": 43509.0,
+      "year": 1978,
+      "month": 1,
+      "tai_utc": 17
+    },
+    {
+      "mjd": 43874.0,
+      "year": 1979,
+      "month": 1,
+      "tai_utc": 18
+    },
+    {
+      "mjd": 44239.0,
+      "year": 1980,
+      "month": 1,
+      "tai_utc": 19
+    },
+    {
+      "mjd": 44786.0,
+      "year": 1981,
+      "month": 7,
+      "tai_utc": 20
+    },
+    {
+      "mjd": 45151.0,
+      "year": 1982,
+      "month": 7,
+      "tai_utc": 21
+    },
+    {
+      "mjd": 45516.0,
+      "year": 1983,
+      "month": 7,
+      "tai_utc": 22
+    },
+    {
+      "mjd": 46247.0,
+      "year": 1985,
+      "month": 7,
+      "tai_utc": 23
+    },
+    {
+      "mjd": 47161.0,
+      "year": 1988,
+      "month": 1,
+      "tai_utc": 24
+    },
+    {
+      "mjd": 47892.0,
+      "year": 1990,
+      "month": 1,
+      "tai_utc": 25
+    },
+    {
+      "mjd": 48257.0,
+      "year": 1991,
+      "month": 1,
+      "tai_utc": 26
+    },
+    {
+      "mjd": 48804.0,
+      "year": 1992,
+      "month": 7,
+      "tai_utc": 27
+    },
+    {
+      "mjd": 49169.0,
+      "year": 1993,
+      "month": 7,
+      "tai_utc": 28
+    },
+    {
+      "mjd": 49534.0,
+      "year": 1994,
+      "month": 7,
+      "tai_utc": 29
+    },
+    {
+      "mjd": 50083.0,
+      "year": 1996,
+      "month": 1,
+      "tai_utc": 30
+    },
+    {
+      "mjd": 50630.0,
+      "year": 1997,
+      "month": 7,
+      "tai_utc": 31
+    },
+    {
+      "mjd": 51179.0,
+      "year": 1999,
+      "month": 1,
+      "tai_utc": 32
+    },
+    {
+      "mjd": 53736.0,
+      "year": 2006,
+      "month": 1,
+      "tai_utc": 33
+    },
+    {
+      "mjd": 54832.0,
+      "year": 2009,
+      "month": 1,
+      "tai_utc": 34
+    },
+    {
+      "mjd": 56109.0,
+      "year": 2012,
+      "month": 7,
+      "tai_utc": 35
+    },
+    {
+      "mjd": 57204.0,
+      "year": 2015,
+      "month": 7,
+      "tai_utc": 36
+    },
+    {
+      "mjd": 57754.0,
+      "year": 2017,
+      "month": 1,
+      "tai_utc": 37
+    }
+  ]
+}
