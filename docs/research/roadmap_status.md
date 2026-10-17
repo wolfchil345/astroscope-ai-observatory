@@ -23,8 +23,9 @@
 - Mission 33: Complete — Celestial Coordinate Validation Benchmark, merged in PR #33 (`4c673bab7d0c940327b5d623d6fbd51bdba8d00b`)
 - Mission 34: Complete — Solar, Lunar, and Twilight Validation, merged in PR #34 (`7fdc96f4c9739969ae600bb3477ba394379197df`)
 - Mission 35: Complete — Exoplanet Transit Ephemeris Validation, merged in [PR #35](https://github.com/wolfchil345/astroscope-ai-observatory/pull/35) (`1a5e09612662d1756289dfe45465233fb6f0153d`); bounded arithmetic validation only
-- Mission 36: Active — Transit Time-Coordinate and Uncertainty Contract, published for review in [PR #36](https://github.com/wolfchil345/astroscope-ai-observatory/pull/36); audit/design only, production implementation and conversion validation not started
-- Proposed next: Mission 37 — Strict Transit Timing Metadata and Eligibility Boundary; not started, pending Mission 36 review and merge
+- Mission 36: Complete — Transit Time-Coordinate and Uncertainty Contract, merged in [PR #36](https://github.com/wolfchil345/astroscope-ai-observatory/pull/36) (`e5a3c70e8aca77ed0132091d3b088eb73e2f1fcf`); design evidence only
+- Mission 37: Active — Strict Transit Timing Metadata and Eligibility Boundary, [PR #37](https://github.com/wolfchil345/astroscope-ai-observatory/pull/37); nominal predictions and rejection gates implemented, observer-arrival conversion remains unavailable
+- Proposed next: Mission 38 — Observer-Arrival Reference Protocol and Conversion Validation; not started, pending Mission 37 review and merge and independent-reference feasibility
 
 ## Phase Progress
 
@@ -273,9 +274,27 @@
 - [x] Define implementation split and preserve existing scientific evidence
 - [x] Verify baseline quality gate and local design-integrity checks; require PR CI before merge
 - [x] Open pull request — [PR #36](https://github.com/wolfchil345/astroscope-ai-observatory/pull/36)
-- [ ] Merge Mission 36
+- [x] Merge Mission 36 — PR #36, 2026-10-17 at 15:18:20 UTC
+
+## Mission 37 Completion Checklist
+
+### Mission 37 — Strict Transit Timing Metadata and Eligibility Boundary
+
+- [x] Verify Mission 36 merge and successful post-merge quality gate
+- [x] Commit bounded implementation policy before implementation and testing
+- [x] Add immutable timing, source, observer-context and uncertainty metadata
+- [x] Add source-coordinate nominal arithmetic and unknown-aware covariance propagation
+- [x] Reject unresolved strict records at observing, ranking, visualization and export boundaries
+- [x] Default to strict preview; require explicit legacy acknowledgement in all four languages
+- [x] Preserve original scalar arithmetic and frozen numerical evidence; label legacy exports
+- [x] Add 100 contract/UI tests and document partial/deferred coverage of the 26 design scenarios
+- [x] Run local full suite (2,887 passed), Ruff and compilation; require PR CI before merge
+- [x] Open pull request — [PR #37](https://github.com/wolfchil345/astroscope-ai-observatory/pull/37)
+- [ ] Merge Mission 37
 
 ## Phase 2 Deliverables
+
+- [Strict Transit Timing Metadata and Eligibility Boundary — Mission 37](validation/strict_transit_timing_boundary.md)
 
 - [Transit Time-Coordinate and Uncertainty Contract — Mission 36](validation/transit_time_coordinate_contract.md)
 

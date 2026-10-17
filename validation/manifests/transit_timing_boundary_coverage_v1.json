@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0",
+  "mission": 37,
+  "kind": "implementation_coverage_not_conversion_validation",
+  "contract_manifest": "validation/manifests/transit_time_contract_v1.json",
+  "policy_manifest": "validation/manifests/transit_timing_boundary_policy_v1.json",
+  "tests": [
+    "tests/test_transit_timing.py",
+    "tests/test_transit_timing_dashboard.py"
+  ],
+  "new_test_count": 100,
+  "all_strict_predictions_observing_eligible": false,
+  "scenarios": [
+    {
+      "scenario_id": "TC01",
+      "coverage": "implemented_boundary",
+      "scope_note": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim."
+    },
+    {
+      "scenario_id": "TC02",
+      "coverage": "implemented_boundary",
+      "scope_note": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim."
+    },
+    {
+      "scenario_id": "TC03",
+      "coverage": "implemented_boundary",
+      "scope_note": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim."
+    },
+    {
+      "scenario_id": "TC04",
+      "coverage": "implemented_boundary",
+      "scope_note": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim."
+    },
+    {
+      "scenario_id": "TC05",
+      "coverage": "deferred",
+      "scope_note": "All unresolved observing queries reject; coordinate-aware candidate selection is not implemented."
+    },
+    {
+      "scenario_id": "TC06",
+      "coverage": "deferred",
+      "scope_note": "No converter or independent timing-pair corpus exists in Mission 37."
+    },
+    {
+      "scenario_id": "TC07",
+      "coverage": "partial_boundary",
+      "scope_note": "Observer metadata bounds and universal unresolved gate tested; conversion coverage/nonconvergence deferred."
+    },
+    {
+      "scenario_id": "TC08",
+      "coverage": "deferred",
+      "scope_note": "No arrival adapter exists; double-correction and endpoint conversion cases remain deferred."
+    },
+    {
+      "scenario_id": "TC09",
+      "coverage": "deferred",
+      "scope_note": "Only one-cycle nominal prediction is implemented; strict range selection is deferred."
+    },
+    {
+      "scenario_id": "TC10",
+      "coverage": "deferred",
+      "scope_note": "Strict calendar-date request path is not enabled; legacy inclusive request stays unchanged."
+    },
+    {
+      "scenario_id": "TC11",
+      "coverage": "deferred",
+      "scope_note": "Strict converted-boundary classification is not implemented; Mission 35 evidence is unchanged."
+    },
+    {
+      "scenario_id": "TC12",
+      "coverage": "implemented_boundary",
+      "scope_note": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim."
+    },
+    {
+      "scenario_id": "TC13",
+      "coverage": "implemented_boundary",
+      "scope_note": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim."
+    },
+    {
+      "scenario_id": "TC14",
+      "coverage": "implemented_boundary",
+      "scope_note": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim."
+    },
+    {
+      "scenario_id": "TC15",
+      "coverage": "implemented_boundary",
+      "scope_note": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim."
+    },
+    {
+      "scenario_id": "TC16",
+      "coverage": "implemented_boundary",
+      "scope_note": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim."
+    },
+    {
+      "scenario_id": "TC17",
+      "coverage": "implemented_boundary",
+      "scope_note": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim."
+    },
+    {
+      "scenario_id": "TC18",
+      "coverage": "implemented_boundary",
+      "scope_note": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim."
+    },
+    {
+      "scenario_id": "TC19",
+      "coverage": "partial_boundary",
+      "scope_note": "Unsupported errors retain original description and yield unknown; unrelated-fit declaration prevents total propagation. No catalogue adapter."
+    },
+    {
+      "scenario_id": "TC20",
+      "coverage": "implemented_boundary",
+      "scope_note": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim."
+    },
+    {
+      "scenario_id": "TC21",
+      "coverage": "deferred",
+      "scope_note": "Duration basis is enforced for nominal arithmetic; elapsed observing margins/leap seconds deferred."
+    },
+    {
+      "scenario_id": "TC22",
+      "coverage": "deferred",
+      "scope_note": "Strict UTC/calendar export is gated entirely; no resolved leap-second exporter is implemented."
+    },
+    {
+      "scenario_id": "TC23",
+      "coverage": "partial_boundary",
+      "scope_note": "Legacy export labels and rejection of promotion tested; no legacy file reader/migration added."
+    },
+    {
+      "scenario_id": "TC24",
+      "coverage": "partial_boundary",
+      "scope_note": "Nominal JSON preserves metadata/null and UI state is tested in four languages. No resolved-event parser/round trip."
+    },
+    {
+      "scenario_id": "TC25",
+      "coverage": "implemented_boundary",
+      "scope_note": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim."
+    },
+    {
+      "scenario_id": "TC26",
+      "coverage": "partial_boundary",
+      "scope_note": "Unknown-to-zero and covariance-sign contract assertions exist. No converter mutation experiment is claimed."
+    }
+  ],
+  "summary": {
+    "implemented_boundary": 13,
+    "partial_boundary": 5,
+    "deferred": 8
+  }
+}

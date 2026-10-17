@@ -96,6 +96,76 @@ _TRANSLATIONS: Final[dict[str, dict[str, str]]] = {
         "column_midpoint_altitude": "Midpoint altitude (deg)",
         "column_moon_separation": "Moon separation (deg)",
         "column_timing_uncertainty": "Timing uncertainty (h)",
+        "timing_mode": "Timing workflow",
+        "timing_strict": "Source-coordinate preview",
+        "timing_legacy": (
+            'Legacy scheduler (unvalidated timin'
+            'g)'
+        ),
+        "timing_legacy_ack": (
+            'I understand that legacy timing ass'
+            'umes UTC and may treat missing unce'
+            'rtainty as zero.'
+        ),
+        "timing_legacy_warning": (
+            'Legacy timing is unvalidated. Do no'
+            't use unconverted BJD/HJD values as'
+            ' observing times.'
+        ),
+        "timing_preview_caption": (
+            'Predict one nominal event in its de'
+            'clared source coordinate. These are'
+            ' not UTC observing times.'
+        ),
+        "timing_source": "Source identifier",
+        "timing_parameter_set": "Parameter-set identifier",
+        "timing_evidence": (
+            'Source reference and version or ret'
+            'rieval date'
+        ),
+        "timing_joint_fit": (
+            'Epoch and period belong to the same'
+            ' fitted parameter set'
+        ),
+        "timing_coordinate": "Source time coordinate",
+        "timing_epoch_known": (
+            'Epoch standard uncertainty is suppl'
+            'ied'
+        ),
+        "timing_period_known": (
+            'Period standard uncertainty is supp'
+            'lied'
+        ),
+        "timing_covariance_zero": (
+            'Explicitly assume zero epoch-period'
+            ' covariance'
+        ),
+        "timing_cycle": "Transit cycle",
+        "timing_preview_button": "Predict nominal event",
+        "timing_unknown": "Unknown",
+        "timing_invalid": (
+            'Cannot predict. Check the source re'
+            'ferences, time coordinate, numeric '
+            'values and uncertainty metadata.'
+        ),
+        "timing_ineligible": (
+            'Observer-arrival resolution is not '
+            'available. Visibility, ranking and '
+            'UTC/calendar export are unavailable'
+            ' for this prediction.'
+        ),
+        "timing_midpoint": "Source-coordinate midpoint (JD)",
+        "timing_sigma": "Timing standard uncertainty (days)",
+        "timing_download": (
+            'Download source-coordinate predicti'
+            'on'
+        ),
+        "timing_validity": (
+            'Model validity is unspecified. Smal'
+            'l numerical uncertainty does not es'
+            'tablish observational accuracy.'
+        ),
+        "timing_observer_tai": 'Observer JD TAI',
     },
     "ja": {
         "title": "系外惑星トランジット観測スケジューラー",
@@ -165,6 +235,48 @@ _TRANSLATIONS: Final[dict[str, dict[str, str]]] = {
         "column_midpoint_altitude": "中央高度（度）",
         "column_moon_separation": "月との離角（度）",
         "column_timing_uncertainty": "時刻不確かさ（時間）",
+        "timing_mode": "時刻の処理モード",
+        "timing_strict": "元の時刻座標で予測",
+        "timing_legacy": "旧スケジューラー（時刻は未検証）",
+        "timing_legacy_ack": (
+            '旧処理はUTCを仮定し、不明な不確かさをゼロとして扱う場合があることを'
+            '理解しました。'
+        ),
+        "timing_legacy_warning": (
+            '旧処理の時刻は未検証です。未変換のBJD/HJDを観測時刻として使用し'
+            'ないでください。'
+        ),
+        "timing_preview_caption": (
+            '元データで指定された時刻座標上の公称イベントを1件予測します。UTC観'
+            '測時刻ではありません。'
+        ),
+        "timing_source": "出典識別子",
+        "timing_parameter_set": "パラメーターセット識別子",
+        "timing_evidence": "出典と版または取得日",
+        "timing_joint_fit": "基準時刻と周期は同一の推定パラメーターセットに属する",
+        "timing_coordinate": "元データの時刻座標",
+        "timing_epoch_known": "基準時刻の標準不確かさが既知",
+        "timing_period_known": "周期の標準不確かさが既知",
+        "timing_covariance_zero": "基準時刻と周期の共分散をゼロと明示的に仮定する",
+        "timing_cycle": "トランジット周期番号",
+        "timing_preview_button": "公称イベントを予測",
+        "timing_unknown": "不明",
+        "timing_invalid": (
+            '予測できません。出典、時刻座標、数値、不確かさの情報を確認してください'
+            '。'
+        ),
+        "timing_ineligible": (
+            '観測地点への到着時刻は未解決です。この予測では可視性・順位付け・UTC'
+            'やカレンダーへの出力は利用できません。'
+        ),
+        "timing_midpoint": "元の時刻座標での中央時刻（JD）",
+        "timing_sigma": "時刻の標準不確かさ（日）",
+        "timing_download": "元の時刻座標の予測をダウンロード",
+        "timing_validity": (
+            'モデルの有効範囲は未指定です。数値的な不確かさが小さくても観測精度は保'
+            '証されません。'
+        ),
+        "timing_observer_tai": '観測地点のJD TAI',
     },
     "ko": {
         "title": "외계행성 통과 관측 스케줄러",
@@ -234,6 +346,48 @@ _TRANSLATIONS: Final[dict[str, dict[str, str]]] = {
         "column_midpoint_altitude": "중앙 고도(도)",
         "column_moon_separation": "달과의 각거리(도)",
         "column_timing_uncertainty": "시각 불확실성(시간)",
+        "timing_mode": "시각 처리 모드",
+        "timing_strict": "원본 시간 좌표 예측",
+        "timing_legacy": "기존 스케줄러 (시각 미검증)",
+        "timing_legacy_ack": (
+            '기존 처리는 UTC를 가정하며 알 수 없는 불확도를 0으로 취급'
+            '할 수 있음을 이해합니다.'
+        ),
+        "timing_legacy_warning": (
+            '기존 시각 처리는 미검증입니다. 변환하지 않은 BJD/HJD를 '
+            '관측 시각으로 사용하지 마세요.'
+        ),
+        "timing_preview_caption": (
+            '명시한 원본 시간 좌표에서 명목 사건 하나를 예측합니다. UTC'
+            ' 관측 시각이 아닙니다.'
+        ),
+        "timing_source": "출처 식별자",
+        "timing_parameter_set": "매개변수 집합 식별자",
+        "timing_evidence": "출처 및 버전 또는 조회일",
+        "timing_joint_fit": "기준 시각과 주기는 동일한 적합 매개변수 집합에 속함",
+        "timing_coordinate": "원본 시간 좌표",
+        "timing_epoch_known": "기준 시각의 표준 불확도가 제공됨",
+        "timing_period_known": "주기의 표준 불확도가 제공됨",
+        "timing_covariance_zero": "기준 시각과 주기의 공분산을 명시적으로 0으로 가정",
+        "timing_cycle": "통과 주기 번호",
+        "timing_preview_button": "명목 사건 예측",
+        "timing_unknown": "알 수 없음",
+        "timing_invalid": (
+            '예측할 수 없습니다. 출처, 시간 좌표, 수치 및 불확도 정보를'
+            ' 확인하세요.'
+        ),
+        "timing_ineligible": (
+            '관측자 도착 시각 변환은 아직 제공되지 않습니다. 이 예측은 가'
+            '시성, 순위 및 UTC/캘린더 내보내기에 사용할 수 없습니다.'
+        ),
+        "timing_midpoint": "원본 좌표의 중심 시각 (JD)",
+        "timing_sigma": "시각 표준 불확도 (일)",
+        "timing_download": "원본 좌표 예측 다운로드",
+        "timing_validity": (
+            '모델의 유효 범위가 지정되지 않았습니다. 작은 수치 불확도가 관'
+            '측 정확도를 보장하지 않습니다.'
+        ),
+        "timing_observer_tai": '관측자 JD TAI',
     },
     "th": {
         "title": "เครื่องมือจัดตารางสังเกตการณ์ทรานซิตดาวเคราะห์นอกระบบ",
@@ -303,6 +457,70 @@ _TRANSLATIONS: Final[dict[str, dict[str, str]]] = {
         "column_midpoint_altitude": "มุมเงยกึ่งกลาง (องศา)",
         "column_moon_separation": "ระยะห่างจากดวงจันทร์ (องศา)",
         "column_timing_uncertainty": "ความไม่แน่นอนของเวลา (ชั่วโมง)",
+        "timing_mode": "โหมดการจัดการเวลา",
+        "timing_strict": "พยากรณ์ในพิกัดเวลาต้นฉบับ",
+        "timing_legacy": (
+            'ตัวจัดตารางเดิม (เวลายังไม่ผ่านการต'
+            'รวจสอบ)'
+        ),
+        "timing_legacy_ack": (
+            'ฉันเข้าใจว่าระบบเดิมสมมติว่าเป็น UT'
+            'C และอาจแทนค่าความไม่แน่นอนที่ไม่ทร'
+            'าบด้วยศูนย์'
+        ),
+        "timing_legacy_warning": (
+            'เวลาจากระบบเดิมยังไม่ผ่านการตรวจสอบ'
+            ' อย่าใช้ BJD/HJD ที่ยังไม่แปลงเป็นเ'
+            'วลาสังเกตการณ์'
+        ),
+        "timing_preview_caption": (
+            'พยากรณ์เหตุการณ์ตามแบบจำลองหนึ่งครั'
+            '้งในพิกัดเวลาที่ระบุ ค่านี้ไม่ใช่เว'
+            'ลาสังเกตการณ์ UTC'
+        ),
+        "timing_source": "รหัสแหล่งข้อมูล",
+        "timing_parameter_set": "รหัสชุดพารามิเตอร์",
+        "timing_evidence": (
+            'แหล่งอ้างอิงและรุ่นหรือวันที่ดึงข้อ'
+            'มูล'
+        ),
+        "timing_joint_fit": (
+            'เวลาอ้างอิงและคาบมาจากชุดพารามิเตอร'
+            '์ที่ประมาณร่วมกัน'
+        ),
+        "timing_coordinate": "พิกัดเวลาของข้อมูลต้นฉบับ",
+        "timing_epoch_known": (
+            'มีค่าความไม่แน่นอนมาตรฐานของเวลาอ้า'
+            'งอิง'
+        ),
+        "timing_period_known": "มีค่าความไม่แน่นอนมาตรฐานของคาบ",
+        "timing_covariance_zero": (
+            'สมมติอย่างชัดเจนว่าความแปรปรวนร่วมข'
+            'องเวลาอ้างอิงกับคาบเป็นศูนย์'
+        ),
+        "timing_cycle": "หมายเลขรอบทรานซิต",
+        "timing_preview_button": "พยากรณ์เหตุการณ์ตามแบบจำลอง",
+        "timing_unknown": "ไม่ทราบ",
+        "timing_invalid": (
+            'พยากรณ์ไม่ได้ โปรดตรวจสอบแหล่งอ้างอ'
+            'ิง พิกัดเวลา ค่าตัวเลข และข้อมูลควา'
+            'มไม่แน่นอน'
+        ),
+        "timing_ineligible": (
+            'ยังไม่สามารถคำนวณเวลาที่ผู้สังเกตได'
+            '้รับแสงได้ จึงใช้การมองเห็น การจัดอ'
+            'ันดับ และการส่งออก UTC/ปฏิทินกับผลน'
+            'ี้ไม่ได้'
+        ),
+        "timing_midpoint": "เวลากึ่งกลางในพิกัดต้นฉบับ (JD)",
+        "timing_sigma": "ความไม่แน่นอนมาตรฐานของเวลา (วัน)",
+        "timing_download": "ดาวน์โหลดผลพยากรณ์ในพิกัดต้นฉบับ",
+        "timing_validity": (
+            'ยังไม่ได้ระบุขอบเขตความใช้ได้ของแบบ'
+            'จำลอง ความไม่แน่นอนเชิงตัวเลขที่น้อ'
+            'ยไม่ได้ยืนยันความแม่นยำในการสังเกต'
+        ),
+        "timing_observer_tai": 'JD TAI ณ ผู้สังเกต',
     },
 }
 

@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "mission": 37,
+  "scope": "Strict immutable metadata, coordinate-only nominal arithmetic, unknown-aware uncertainty and rejection of unresolved predictions at observing boundaries; no arrival-time resolver",
+  "baseline_commit": "e5a3c70e8aca77ed0132091d3b088eb73e2f1fcf",
+  "input_policy": "Numeric source values are finite decimal strings, at most 24 significant digits, with nonzero magnitude at least 1e-24 and at most 1e9. No binary-float coercion. Period in [0.125,365.25] days; normalized epoch in [2400000,2500000] JD; cycles in [-10000,10000].",
+  "arithmetic_policy": "80-digit Decimal context; exact bounded coefficient addition/multiplication before sqrt. Midpoint and symmetric contacts remain in declared source coordinate. Supported arithmetic: barycentric TDB with coordinate-duration basis, or observer TAI with observer-elapsed basis.",
+  "uncertainty_policy": "Known symmetric standard deviations and finite PSD covariance only; unknown contributing terms stay null with reason; cycle zero uses epoch uncertainty alone; zero covariance requires supplied evidence or an explicit recorded assumption. Independent analytic standard-deviation test bound 1e-70 days, fixed before tests.",
+  "eligibility_policy": "All coordinate predictions remain unresolved. BJD/HJD and unknown coordinates cannot become observing instants through scale relabelling; even observer TAI needs a separately validated adapter before downstream enablement.",
+  "compatibility_policy": "Existing numeric scalar APIs remain legacy arithmetic. Strict objects cannot silently enter existing numeric observing paths. Legacy UI requires an explicit acknowledgement and exports carry an unvalidated timing label.",
+  "evidence_policy": "Regression and analytic contract checks only. The 26 Mission 36 scenarios retain their original prospective record; Mission 37 reports a separate coverage matrix. Existing numerical reference fixtures and canonical records stay unchanged.",
+  "exclusions": ["barycentric or heliocentric conversion", "strict observing-query range selection", "resolved-observer serialization", "new catalogue ingestion", "observational accuracy", "TTV or decay", "calibrated ranking"]
+}

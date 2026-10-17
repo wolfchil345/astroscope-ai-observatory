@@ -17,6 +17,7 @@ from astroscope.transit_scheduler import (
     TransitEphemeris,
     predict_transits,
 )
+from astroscope.transit_timing import reject_unresolved_timing
 from astroscope.transit_visibility import (
     ASTRONOMICAL_TWILIGHT_DEGREES,
     DEFAULT_MINIMUM_ALTITUDE_DEGREES,
@@ -265,6 +266,10 @@ def generate_transit_schedule(
     weights: RankingWeights = DEFAULT_RANKING_WEIGHTS,
 ) -> TransitScheduleResult:
     """Predict, analyze, score, and rank transit events."""
+
+    for item in targets:
+        reject_unresolved_timing(item)
+        reject_unresolved_timing(item.ephemeris)
 
     _validate_unique_planets(targets)
 
