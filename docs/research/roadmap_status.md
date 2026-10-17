@@ -22,7 +22,9 @@
 
 - Mission 33: Complete — Celestial Coordinate Validation Benchmark, merged in PR #33 (`4c673bab7d0c940327b5d623d6fbd51bdba8d00b`)
 - Mission 34: Complete — Solar, Lunar, and Twilight Validation, merged in PR #34 (`7fdc96f4c9739969ae600bb3477ba394379197df`)
-- Mission 35: Active — Exoplanet Transit Ephemeris Validation; validation evidence published in [PR #35](https://github.com/wolfchil345/astroscope-ai-observatory/pull/35), review and merge pending
+- Mission 35: Complete — Exoplanet Transit Ephemeris Validation, merged in [PR #35](https://github.com/wolfchil345/astroscope-ai-observatory/pull/35) (`1a5e09612662d1756289dfe45465233fb6f0153d`); bounded arithmetic validation only
+- Mission 36: Active — Transit Time-Coordinate and Uncertainty Contract, published for review in [PR #36](https://github.com/wolfchil345/astroscope-ai-observatory/pull/36); audit/design only, production implementation and conversion validation not started
+- Proposed next: Mission 37 — Strict Transit Timing Metadata and Eligibility Boundary; not started, pending Mission 36 review and merge
 
 ## Phase Progress
 
@@ -256,9 +258,26 @@
 - [x] Add offline benchmark, failure-sensitivity tests and CI artifact retention
 - [x] Record canonical evidence and complete quality gate
 - [x] Open pull request — [PR #35](https://github.com/wolfchil345/astroscope-ai-observatory/pull/35)
-- [ ] Merge Mission 35
+- [x] Merge Mission 35 — PR #35, 2026-10-17 at 15:00:04 UTC
+
+## Mission 36 Completion Checklist
+
+### Mission 36 — Transit Time-Coordinate and Uncertainty Contract
+
+- [x] Verify Mission 35 merge and successful post-merge Quality Gate
+- [x] Audit timestamp, uncertainty, query, visibility, ranking and export boundaries
+- [x] Record source hashes and reproducible offline characterization separately from accuracy evidence
+- [x] Define source coordinates, resolved observer instants and strict eligibility rules
+- [x] Define unknown uncertainty, covariance, duration, inclusion and persistence semantics
+- [x] Record 26 prospective acceptance scenarios and independent-reference requirements
+- [x] Define implementation split and preserve existing scientific evidence
+- [x] Verify baseline quality gate and local design-integrity checks; require PR CI before merge
+- [x] Open pull request — [PR #36](https://github.com/wolfchil345/astroscope-ai-observatory/pull/36)
+- [ ] Merge Mission 36
 
 ## Phase 2 Deliverables
+
+- [Transit Time-Coordinate and Uncertainty Contract — Mission 36](validation/transit_time_coordinate_contract.md)
 
 - [Exoplanet Transit Ephemeris Validation — Mission 35](validation/transit_ephemeris_validation.md)
 

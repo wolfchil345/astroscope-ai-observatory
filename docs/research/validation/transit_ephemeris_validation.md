@@ -246,8 +246,10 @@ the commit recorded in the JSON is the source of truth for the measured code.
 The canonical implementation is `8a1891f38963c2f81abd3c2c1a8f4b5b4ead32da`,
 with `git_dirty: false` and no Skyfield installed in the execution environment.
 
-Phase 2 remains active. Mission 35 remains active until review and merge; a
-passing arithmetic benchmark does not close the outstanding scientific limits.
+Phase 2 remains active. Mission 35 is merged; a passing arithmetic benchmark
+does not close the outstanding scientific limits. The follow-up
+[Mission 36 contract](transit_time_coordinate_contract.md) addresses design
+requirements before changing the time-coordinate and uncertainty boundaries.
 
 ## Delivery status
 
@@ -267,5 +269,11 @@ CLI sign-in. No commits were rewritten to bypass those failures.
 
 The pull request's Quality Gate check and retained workflow artifacts provide
 the CI result for each published revision; the canonical local record above
-remains tied to its original clean implementation commit. Mission 35 stays
-active pending PR review and merge; no new mission has started.
+remains tied to its original clean implementation commit. PR #35 was squash-merged
+on 2026-10-17 at 15:00:04 UTC as
+`1a5e09612662d1756289dfe45465233fb6f0153d`. Its tree equals reviewed head
+`1c0332e5b66371e4ab56ddbf8c3dd4cb67da583c`; the original implementation commit
+remains the canonical provenance reference, not a main-branch ancestor.
+The [post-merge Quality Gate](https://github.com/wolfchil345/astroscope-ai-observatory/actions/runs/39043124798)
+passed. Mission 36 is the subsequent audit/design task; no conversion or
+observational validation claim is added by that work.

@@ -1,0 +1,224 @@
+{
+  "schema_version": "1.0",
+  "mission": 36,
+  "kind": "prospective_design_contract",
+  "baseline_commit": "1a5e09612662d1756289dfe45465233fb6f0153d",
+  "status": "design_for_review_not_implemented",
+  "claim": "Design readiness and existing-code characterization only; no conversion or observational validation",
+  "production_changes": false,
+  "new_production_tests": 0,
+  "phase": 2,
+  "policy_origin": "Project design decisions informed by cited primary references and Mission 35 limitations",
+  "audit": {
+    "path": "docs/research/evidence/transit_time_contract_audit_v1.json",
+    "sha256": "74b2c45ed8a49b1454f6a3ccb5f413e01da63da23cbc9c645fe50dfb40c2f1e9"
+  },
+  "numerical_conversion_tolerance": null,
+  "tolerance_status": "Must be frozen in a later independent conversion-evidence protocol before residual measurement",
+  "future_scenarios": [
+    {
+      "id": "TC01",
+      "input_class": "Missing scale or reference position",
+      "required_outcome": "Keep legacy arithmetic labelled; reject strict prediction and observing export",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC02",
+      "input_class": "Complete BJD TDB epoch with TDB period",
+      "required_outcome": "Allow source-coordinate arithmetic; require validated arrival resolver for observing use",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC03",
+      "input_class": "BJD with no scale or offset date with no zero point",
+      "required_outcome": "Reject strict interpretation; do not infer from magnitude or label",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC04",
+      "input_class": "HJD with a stated scale",
+      "required_outcome": "Retain source metadata; strict prediction/resolution unsupported in initial implementation",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC05",
+      "input_class": "UTC observing query against BJD ephemeris",
+      "required_outcome": "Do not compare raw numbers; coordinate-aware candidate selection then arrival-midpoint filtering",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC06",
+      "input_class": "Both correction signs, sites, seasons and sky directions",
+      "required_outcome": "Later converter must match independent pinned references within a predeclared bound",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC07",
+      "input_class": "Missing site, target, required motion evidence, data coverage or failed solver",
+      "required_outcome": "Structured unresolved result; no UTC export or visibility",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC08",
+      "input_class": "Already-corrected event or midpoint-only correction copied to contacts",
+      "required_outcome": "Reject double correction; resolve endpoints individually or demonstrate a frozen error bound",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC09",
+      "input_class": "Closed exact point interval and exact dyadic endpoints",
+      "required_outcome": "Exact same-coordinate midpoint inclusion; no duplicate cycles",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC10",
+      "input_class": "Whole selected UTC dates",
+      "required_outcome": "Half-open range ending at next midnight; exclude next day, preserve source request policy",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC11",
+      "input_class": "Non-dyadic or sub-ULP boundary within numerical error",
+      "required_outcome": "Explicit boundary_indeterminate with candidates/reasons; excluded from eligible pass denominator",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC12",
+      "input_class": "Both uncertainty inputs absent",
+      "required_outcome": "Unknown total; never zero or maximum timing score",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC13",
+      "input_class": "Both uncertainties and covariance explicitly zero with recorded source or assumption",
+      "required_outcome": "Known zero model value distinguishable from missing; no perfect-knowledge claim",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC14",
+      "input_class": "Known epoch sigma and missing period sigma at cycle zero",
+      "required_outcome": "Known epoch sigma; zero-coefficient missing terms do not contaminate the result",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC15",
+      "input_class": "Missing contributing uncertainty at a nonzero cycle",
+      "required_outcome": "Unknown total; retain known components separately",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC16",
+      "input_class": "Nonzero cycle with missing covariance",
+      "required_outcome": "Unknown unless explicit zero-covariance assumption is recorded",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC17",
+      "input_class": "Known covariance with positive and negative cycles",
+      "required_outcome": "Independent analytic variance includes signed 2*n*covariance term",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC18",
+      "input_class": "Nonfinite, negative marginal variance or non-PSD covariance",
+      "required_outcome": "Reject; no silent repair or clamping",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC19",
+      "input_class": "Asymmetric errors, limits, unknown confidence meaning or unrelated fit parameters",
+      "required_outcome": "Preserve semantics and references; unsupported for symmetric joint propagation",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC20",
+      "input_class": "Unknown total with requested nonzero sigma padding or timing ranking",
+      "required_outcome": "Reject strict padded/ranked schedule; optional nominal preview remains unquantified",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC21",
+      "input_class": "Coordinate duration versus observer SI baseline across leap second",
+      "required_outcome": "Resolve declared contact basis then apply SI margins on continuous time scale",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC22",
+      "input_class": "Leap-second instant in datetime/calendar format that cannot encode it",
+      "required_outcome": "Explicit export error; do not shift the event",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC23",
+      "input_class": "Legacy schema-v1 schedule with UTC labels but no source metadata",
+      "required_outcome": "Keep legacy identity; no automatic strict promotion; require metadata and recomputation",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC24",
+      "input_class": "Metadata and unknown uncertainty through JSON/CSV/UI/export paths",
+      "required_outcome": "Round-trip source and conversion identity; null plus reason; gate every direct strict consumer",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC25",
+      "input_class": "Ephemeris outside declared fit validity or validity unknown",
+      "required_outcome": "Retain explicit model-validity status; no observed-accuracy claim from small propagated sigma",
+      "execution_status": "not_executed"
+    },
+    {
+      "id": "TC26",
+      "input_class": "Wrong correction sign, scale-only conversion, omitted site or unknown-to-zero mutation",
+      "required_outcome": "Future validation must detect each injected fault, not just round-trip consistency",
+      "execution_status": "not_executed"
+    }
+  ],
+  "sources": [
+    {
+      "id": "EASTMAN2010",
+      "url": "https://arxiv.org/abs/1005.4415",
+      "citation": "Eastman, Siverd & Gaudi (2010), PASP 122, 935, DOI 10.1086/655938",
+      "support": "Time scale and reference position are distinct; no imported accuracy guarantee",
+      "inspected_utc_date": "2026-10-17",
+      "archive_status": "Link and paraphrase only; no external response snapshot stored"
+    },
+    {
+      "id": "ASTROPY_TIME",
+      "url": "https://docs.astropy.org/en/stable/time/index.html",
+      "citation": "Astropy Time documentation, observed v8.0.2",
+      "support": "Light-time correction depends on target and observer; UTC is not a uniform duration scale",
+      "inspected_utc_date": "2026-10-17",
+      "archive_status": "Link and paraphrase only; no external response snapshot stored"
+    },
+    {
+      "id": "NASA_PS_COLUMNS",
+      "url": "https://exoplanetarchive.ipac.caltech.edu/docs/API_PS_columns.html",
+      "citation": "NASA Exoplanet Archive PS and PSCompPars column definitions",
+      "support": "Time-system fields, source references, asymmetric uncertainties and limit flags; no catalogue row captured",
+      "inspected_utc_date": "2026-10-17",
+      "archive_status": "Link and paraphrase only; no external response snapshot stored"
+    },
+    {
+      "id": "NIST_UNCERTAINTY",
+      "url": "https://physics.nist.gov/cuu/Uncertainty/combination.html",
+      "citation": "NIST Reference on Constants, Units, and Uncertainty: combining components",
+      "support": "Covariance and explicit zero-covariance assumption; not confidence-coverage evidence",
+      "inspected_utc_date": "2026-10-17",
+      "archive_status": "Link and paraphrase only; no external response snapshot stored"
+    }
+  ],
+  "proposed_next_mission": {
+    "number": 37,
+    "title": "Strict Transit Timing Metadata and Eligibility Boundary",
+    "status": "not_started",
+    "conversion_enablement": false
+  },
+  "exclusions": [
+    "production code and UI implementation",
+    "new catalogue fetching",
+    "barycentric/heliocentric converter implementation or accuracy claim",
+    "new numeric fixtures or rewritten canonical evidence",
+    "observed O-C, TTV, orbital decay or calibrated ranking",
+    "Phase 3-8 work"
+  ]
+}
