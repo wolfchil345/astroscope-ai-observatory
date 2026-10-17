@@ -115,8 +115,10 @@ model. Both correction signs are represented. Five further pairs cover the
 All 288 geometric pairs and five leap pairs passed; **zero samples were
 excluded**. Exact UTC labels also matched all five leap references. These maxima
 are results on this grid, not upper bounds over continuous dates, sky positions,
-or observatories. The canonical JSON stores full precision and environment
-metadata; CI records its own versions and exact head.
+or observatories. The [canonical JSON](../../../validation/results/observer_arrival_reference_run.json)
+was measured from clean implementation commit
+`ff0729d481a446df5ad84b2ff7a11d2fd052a487`. It stores full precision and
+environment metadata; CI records its own versions and exact head.
 
 The 1 ms threshold is an engineering acceptance target for the sampled model
 comparison. It allows differences among ephemeris, clock and orientation
@@ -196,7 +198,10 @@ installed DE421 payload. CI never regenerates reference values. A different
 reference environment must not overwrite the archived fixture casually; source
 or environment revisions require a versioned, reviewed protocol.
 
-The mission adds **48 tests** covering the full independent benchmark, exact
+The complete local suite passed **2,935 tests** in 121.59 seconds with Python
+3.12.14 and Streamlit 1.66.0 (candidate astronomy versions are pinned above).
+Ruff, compilation, local documentation links and byte-for-byte offline reference
+regeneration passed. The mission adds **48 tests** covering the full independent benchmark, exact
 coverage denominators, malformed inputs, explicit model restrictions, solver
 failure/nonfinite residuals, sub-single-float-JD precision, leap-second rejection,
 SI elapsed time, frozen-input tampering, offline operation and state restoration.

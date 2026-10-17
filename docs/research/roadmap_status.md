@@ -305,7 +305,7 @@
 - [x] Detect wrong-sign, scale-only and omitted-site faults; disclose all denominators
 - [x] Add 48 failure/precision/integrity/independence tests and seventh CI artifact
 - [x] Document model omissions and keep all production observing gates closed
-- [ ] Complete full local quality gate and published-head CI
+- [x] Run full local quality gate: 2,935 tests passed, Ruff and compilation; require published-head CI before merge
 - [ ] Open pull request
 - [ ] Merge Mission 38
 
