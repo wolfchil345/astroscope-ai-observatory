@@ -143,3 +143,19 @@ jobs:
           name: transit-ephemeris-validation-record
           path: ${{ runner.temp }}/transit_ephemeris_reference_run.json
           if-no-files-found: error
+
+      - name: Run observer-arrival research validation benchmark
+        env:
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          python -m validation.observer_arrival \
+            --output "$RUNNER_TEMP/observer_arrival_reference_run.json"
+
+      - name: Upload observer-arrival research validation record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: observer-arrival-validation-record
+          path: ${{ runner.temp }}/observer_arrival_reference_run.json
+          if-no-files-found: error

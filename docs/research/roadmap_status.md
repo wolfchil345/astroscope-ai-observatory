@@ -24,8 +24,9 @@
 - Mission 34: Complete — Solar, Lunar, and Twilight Validation, merged in PR #34 (`7fdc96f4c9739969ae600bb3477ba394379197df`)
 - Mission 35: Complete — Exoplanet Transit Ephemeris Validation, merged in [PR #35](https://github.com/wolfchil345/astroscope-ai-observatory/pull/35) (`1a5e09612662d1756289dfe45465233fb6f0153d`); bounded arithmetic validation only
 - Mission 36: Complete — Transit Time-Coordinate and Uncertainty Contract, merged in [PR #36](https://github.com/wolfchil345/astroscope-ai-observatory/pull/36) (`e5a3c70e8aca77ed0132091d3b088eb73e2f1fcf`); design evidence only
-- Mission 37: Active — Strict Transit Timing Metadata and Eligibility Boundary, [PR #37](https://github.com/wolfchil345/astroscope-ai-observatory/pull/37); nominal predictions and rejection gates implemented, observer-arrival conversion remains unavailable
-- Proposed next: Mission 38 — Observer-Arrival Reference Protocol and Conversion Validation; not started, pending Mission 37 review and merge and independent-reference feasibility
+- Mission 37: Complete — Strict Transit Timing Metadata and Eligibility Boundary, merged in [PR #37](https://github.com/wolfchil345/astroscope-ai-observatory/pull/37) (`809b0bc89aa0e4b96de2e8f35d81c417b1609650`); production observer-arrival conversion remains unavailable
+- Mission 38: Active — Observer-Arrival Reference Protocol and Conversion Validation; research-only geometric inversion and historical TAI/UTC evidence, no production eligibility
+- Proposed next: Mission 39 — Observer-Arrival Error Budget and Resolved-Event Contract; not started, pending Mission 38 review and merge
 
 ## Phase Progress
 
@@ -290,9 +291,27 @@
 - [x] Add 100 contract/UI tests and document partial/deferred coverage of the 26 design scenarios
 - [x] Run local full suite (2,887 passed), Ruff and compilation; require PR CI before merge
 - [x] Open pull request — [PR #37](https://github.com/wolfchil345/astroscope-ai-observatory/pull/37)
-- [ ] Merge Mission 37
+- [x] Merge Mission 37 — PR #37, 2026-10-17 at 15:56:41 UTC; post-merge CI passed
+
+## Mission 38 Completion Checklist
+
+### Mission 38 — Observer-Arrival Reference Protocol and Conversion Validation
+
+- [x] Verify merged Mission 37 baseline and post-merge quality gate
+- [x] Freeze independent reference protocol and tolerances before measurement (`de84208`)
+- [x] Archive 288 Skyfield/DE421 geometric pairs and five independently derived leap pairs
+- [x] Pin and checksum reference inputs; reproduce without network access
+- [x] Implement research-only bounded inversion and historical TAI/UTC adapter
+- [x] Detect wrong-sign, scale-only and omitted-site faults; disclose all denominators
+- [x] Add 48 failure/precision/integrity/independence tests and seventh CI artifact
+- [x] Document model omissions and keep all production observing gates closed
+- [ ] Complete full local quality gate and published-head CI
+- [ ] Open pull request
+- [ ] Merge Mission 38
 
 ## Phase 2 Deliverables
+
+- [Observer-Arrival Reference Protocol and Conversion Validation — Mission 38](validation/observer_arrival_validation.md)
 
 - [Strict Transit Timing Metadata and Eligibility Boundary — Mission 37](validation/strict_transit_timing_boundary.md)
 

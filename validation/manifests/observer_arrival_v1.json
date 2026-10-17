@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "benchmark_id": "observer-arrival-v1",
+  "files": {
+    "validation/fixtures/observer_arrival_v1.json": "8704580d9dd6ba7a5df65f6e6a0817f00b24762ad0878d0ed2598455b8ec3972",
+    "validation/fixtures/solar_lunar_eop_v1.json": "6372ac20b566dc5e9b4f106caaef2751a624c7bb46e161252e3208f4b906c1fa",
+    "validation/fixtures/observer_arrival_leaps_v1.json": "1defa648097e056ce453cea1037f7395a9d99c930ef3e18de456133d840f9bad",
+    "validation/manifests/observer_arrival_policy_v1.json": "0d5a5fd556a2df8efc7cecfdbdbcb6c8c508f288bf29bda0ea686dfddf1411dd",
+    "validation/reference_generation/observer_arrival.py": "7cd06c2635cd82451ebf09c890e6020ee5930bbe676de0a6fdc5d14581d80fb9"
+  },
+  "expected_geometric_case_count": 288,
+  "expected_leap_case_count": 5
+}
