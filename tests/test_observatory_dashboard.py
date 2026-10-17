@@ -517,9 +517,12 @@ def test_log_target_controls_have_explicit_dates_and_independent_folds() -> None
     _widget_by_label(app_test.date_input, "Observation end date").set_value(date(2026, 11, 1))
     _widget_by_label(app_test.time_input, "Observation start").set_value(time(1))
     _widget_by_label(app_test.time_input, "Observation end").set_value(time(1, 30))
-    app_test.run(timeout=30)
+    # Form values reach the app on submission, as they do in the browser.
+    _button_by_label(app_test, "Add target observation").click().run(timeout=30)
 
     assert len(app_test.radio) == 2
+    assert app_test.session_state["mission12_observations"] == []
+    assert len(app_test.exception) == 0
     assert {widget.label for widget in app_test.date_input} >= {
         "Observation start date",
         "Observation end date",
@@ -533,7 +536,8 @@ def test_log_nonexistent_target_endpoint_does_not_mutate_log_state() -> None:
     _widget_by_label(app_test.date_input, "Observation end date").set_value(date(2026, 3, 8))
     _widget_by_label(app_test.time_input, "Observation start").set_value(time(2, 30))
     _widget_by_label(app_test.time_input, "Observation end").set_value(time(3, 30))
-    app_test.run(timeout=30)
+    # Exercise rejection of a submitted gap endpoint, not an unsubmitted edit.
+    _button_by_label(app_test, "Add target observation").click().run(timeout=30)
 
     assert app_test.session_state["mission12_observations"] == []
     assert any("skipped local-time interval" in error.value for error in app_test.error)

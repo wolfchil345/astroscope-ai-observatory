@@ -220,6 +220,18 @@ explicit installed IERS_A table in a restoring context. This makes their fold
 assertions independent of wall-clock cache age; it does not relax production
 freshness checks or alter Mission 33/34 frozen Earth-orientation evidence.
 
+The first completed publication CI run
+([39042149477](https://github.com/wolfchil345/astroscope-ai-observatory/actions/runs/39042149477))
+exposed two existing observation-log AppTest failures with Streamlit 1.66.0.
+They were reproduced locally by changing only Streamlit from 1.64.0 to 1.66.0:
+unsubmitted form edits no longer reach the app during a plain rerun. The two
+tests now click the existing form submit button, matching browser behavior,
+and retain the ambiguous-fold and nonexistent-time rejection assertions.
+Ambiguous submissions also explicitly assert that no observation is added and
+no uncaught exception occurs. Both corrected tests pass on 1.64.0 and 1.66.0;
+all 16 dashboard tests pass on 1.66.0. No production code or scientific evidence
+changes are needed for this test-driver compatibility repair.
+
 Mission 35 adds **486 tests**. The final full suite passes **2,787 tests**.
 Ruff, compilation, independent byte-identical regeneration, and existing
 observer-time, civil-time, schedule-interval, weather-provider, celestial-coordinate
