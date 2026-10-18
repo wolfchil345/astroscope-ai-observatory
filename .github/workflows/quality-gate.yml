@@ -255,3 +255,19 @@ jobs:
           name: site-frame-mapping-record
           path: ${{ runner.temp }}/site_frame_reference_run.json
           if-no-files-found: error
+
+      - name: Audit coupled relativistic site-clock mapping
+        env:
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          python -m validation.coupled_clock \
+            --output "$RUNNER_TEMP/coupled_clock_reference_run.json"
+
+      - name: Upload coupled site-clock audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coupled-site-clock-record
+          path: ${{ runner.temp }}/coupled_clock_reference_run.json
+          if-no-files-found: error
