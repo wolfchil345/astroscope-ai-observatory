@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0",
+  "mission": 41,
+  "baseline_commit": "176ba2a504e64464f6f69e642dddb4bb98a05efc",
+  "baseline_ci": {
+    "run_id": 39106487552,
+    "conclusion": "success"
+  },
+  "freeze_rule": "Commit before diagnostic values, fixture generation, candidate evaluator or numerical tests. No tuning after measurement.",
+  "scope": "Matched-convention independent clock reference qualification before combined observer-arrival validation; retain unsuccessful qualification. Research evidence only, no production converter.",
+  "convention_id": "astroscope-tdb-solar-au-v1",
+  "clock_contract": {
+    "scale_input": "TT(TAI)",
+    "tt_minus_tai_seconds": "32.184",
+    "model": "Astropy Time._get_delta_tdb_tt -> ERFA dtdb; site contribution once",
+    "ut_argument": "UTC fraction used as approximation to UT1 by pinned Astropy implementation",
+    "date_argument": "two-part TT JD",
+    "site": "WGS84 longitude, cylindrical radius and z in km",
+    "additional_einstein_term": false,
+    "clarification": "This records the existing selected algorithm, not a change to its physics or an assertion UTC equals UT1."
+  },
+  "qualification_requirements": [
+    "executable",
+    "matches_selected_site_clock_convention",
+    "independent_of_candidate_clock_backend",
+    "reference_uncertainty_established_for_domain"
+  ],
+  "routes": [
+    {
+      "id": "pint_default",
+      "execution": "PINT 1.1.7 Observatory.get_TDBs default, no TOA pipeline",
+      "anticipated_limitation": "delegates to Astropy t.tdb"
+    },
+    {
+      "id": "pint_ephemeris",
+      "execution": "PINT 1.1.7 get_TDBs(method=ephemeris, ephem=DE421); retain exception, no fallback",
+      "anticipated_limitation": "installed implementation raises NotImplementedError"
+    },
+    {
+      "id": "skyfield_geocentric",
+      "execution": "Skyfield 1.55 tdb_minus_tt on two-part TT",
+      "anticipated_limitation": "USNO Circular 179 equation 2.6, no observer-site arguments; different approximation"
+    },
+    {
+      "id": "erfa_explicit",
+      "execution": "explicit dtdb with selected UTC approximation and site inputs",
+      "anticipated_limitation": "same ERFA backend; dispatch reproduction only"
+    }
+  ],
+  "source_method_sha256": {
+    "pint_dispatch": "7f4188106bf99ee88ea5146fbb25ea0b466214217773ca8ed3c6dc30ff72fddc",
+    "pint_default": "04272305209aa574f5e3badf8d459a061c47ce2d33de79e4c0ceb6e3b3cc7834",
+    "pint_ephem": "d15a6b4c581ac9511826dc8378b583d3142b21c92fac9b34b057c20796812e74",
+    "skyfield_clock": "f8d4ca0a6cadbe8635757bff63de08fcf7ac826d775d4a9254a450342710c6e7",
+    "astropy_clock": "bf0e4dd22524b6c7f6480e58d8d22858c7e34a1d2e6a502ab5e8b7b035262a14"
+  },
+  "reference_environment": "validation/reference_generation/source-reference-requirements.txt",
+  "diagnostic_design": {
+    "unique_site_instants": 48,
+    "unique_geocentric_instants": 12,
+    "selection": "all Mission 38 dates x sites x hours, deduplicated over target direction; do not report 288 independent clock samples",
+    "columns": [
+      "astropy_site_seconds",
+      "astropy_geocentric_seconds",
+      "pint_default_seconds",
+      "skyfield_geocentric_seconds",
+      "erfa_utc_seconds",
+      "erfa_ut1_seconds"
+    ],
+    "paired_differences": "PINT minus Astropy site and explicit ERFA UTC minus Astropy site are shared-backend controls. Skyfield minus Astropy geocentre, site minus geocentre, UT1 minus UTC are diagnostic convention differences only.",
+    "shared_backend_reproduction_tolerance_seconds": "0.000000000001",
+    "tolerance_rationale": "1 ps engineering check of wrapper/argument reproduction, never independent accuracy or physical uncertainty. No acceptance threshold for mismatched clock differences.",
+    "retain": "Every row, signed differences and complete denominators; no fitting, centering or exclusions based on residual."
+  },
+  "combined_gate": {
+    "candidate_inventory": 288,
+    "solar_inventory": "reuse all Mission 40 historical rows, preserving domain rejection reasons",
+    "requires": "all qualification requirements for at least one evidenced route",
+    "when_unsatisfied": "all combined comparisons blocked, output and residual null; retain all reasons and count zero executed",
+    "no_automatic_promotion": "Small or zero differences, passing unit tests, matching declarations, checksums and named third-party packages cannot establish independent physical reference accuracy."
+  },
+  "expected_limits": {
+    "physical_clock_bound_seconds": null,
+    "physical_arrival_bound_seconds": null,
+    "observing_eligible": false,
+    "full_reference_status": "unqualified_until_requirements_demonstrated"
+  },
+  "frozen_inputs": {
+    "validation/manifests/source_reference_policy_v1.json": "3967e040a850f900e92e6e48fd464fa58a918294e0147466806f4d8e96c05075",
+    "validation/manifests/source_reference_v1.json": "416188065b985415c0f6e560eae138910e2d0a1dd39c504f6a1b013a9bdee454",
+    "validation/fixtures/source_reference_v1.json": "2b5638e35764d55de602b974f01595a4303c644484da6f7a1e476ca5c0b7fa62",
+    "validation/results/source_reference_reference_run.json": "bc5e023e4ca17148fbf88f6d06d271cdd4be6a203f9458fb55caac88e56052de",
+    "validation/manifests/observer_arrival_policy_v1.json": "0d5a5fd556a2df8efc7cecfdbdbcb6c8c508f288bf29bda0ea686dfddf1411dd",
+    "validation/fixtures/observer_arrival_v1.json": "8704580d9dd6ba7a5df65f6e6a0817f00b24762ad0878d0ed2598455b8ec3972",
+    "validation/fixtures/solar_lunar_eop_v1.json": "6372ac20b566dc5e9b4f106caaef2751a624c7bb46e161252e3208f4b906c1fa",
+    "validation/fixtures/observer_arrival_leaps_v1.json": "1defa648097e056ce453cea1037f7395a9d99c930ef3e18de456133d840f9bad",
+    "validation/results/observer_arrival_reference_run.json": "e1b8659510ad4f09a0c26d46043a08af592f98057e4a1bc67172d28bc2610fc6",
+    "validation/results/arrival_budget_reference_run.json": "544a761bafd15b5559605d51c27be7260ed2b72892800b495cba9be8db006a4f",
+    "docs/research/evidence/arrival_clock_inclusion_audit_v1.json": "c9c12b0007f299ae5a92854ceba75c29a1eebbc4dbc342a3c32da661fd7680be",
+    "validation/observer_arrival_model.py": "a324728ed10acbf47e7d35bff4892b180d3e75e55dfa71a8bfca3e8448694622",
+    "src/astroscope/transit_timing.py": "7d1f72807a5991f94be66cface374162fd3ebb10c1cf2cdf0b18a5d7d716d27e",
+    "validation/reference_generation/source-reference-requirements.txt": "16aa2748747d8d2d00abdbbcbef39ffa48b4e58aad29dcf573d3a7327fbc71ec"
+  },
+  "sources": [
+    {
+      "url": "https://nanograv-pint.readthedocs.io/en/stable/_modules/pint/observatory.html",
+      "role": "default delegation and unsupported ephemeris route; installed source hashes authoritative"
+    },
+    {
+      "url": "https://docs.astropy.org/en/stable/_modules/astropy/time/core.html",
+      "role": "UTC approximation to UT1 and site argument dispatch; installed source hash authoritative"
+    },
+    {
+      "url": "https://github.com/skyfielders/python-skyfield/blob/1.55/skyfield/timelib.py",
+      "role": "installed tdb_minus_tt source cites USNO Circular 179 equation 2.6; geocentric-only inputs"
+    },
+    {
+      "url": "https://github.com/liberfa/erfa/blob/v2.0.1/src/dtdb.c",
+      "role": "installed ERFA documentation: UT1 definition, SOFA lineage, FB90 geocentric and approximate topocentric model; no borrowed physical bound"
+    }
+  ],
+  "sources_inspected_utc": "2026-10-18",
+  "next_gate_if_unsuccessful": "Acquire and qualify a separately implemented/integrated time-ephemeris reference, establish scale/rate/epoch/site mapping and domain uncertainty before any combined comparison; do not silently replace the selected convention."
+}
