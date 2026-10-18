@@ -204,6 +204,12 @@ links passed. The test environment used Python 3.12.14, Astropy 8.0.1, NumPy
 Astropy 8.0.2 and NumPy 2.5.4. The executable qualification audit itself requires
 only the Python standard library and committed inputs.
 
+The [canonical qualification record](../../../validation/results/source_reference_reference_run.json)
+was generated from clean implementation
+`37ce0ea036727b1c280ba4c95af06c38a6e18716`. It retains all 333 candidate rows,
+all exclusions and mutation denominators, source/manifest hashes, the null
+physical bounds and the explicit unqualified full-reference status.
+
 The seven existing scientific benchmark steps and Mission 39 budget audit
 remain intact. A ninth CI artifact retains this component/reference-domain
 qualification record. Production timing, ranking and export gates stay closed.
