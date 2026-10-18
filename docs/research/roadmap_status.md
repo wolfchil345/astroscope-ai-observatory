@@ -30,8 +30,9 @@
 - Mission 40: Complete — Observer-Arrival Source Convention and Reference-Domain Qualification, merged in [PR #40](https://github.com/wolfchil345/astroscope-ai-observatory/pull/40); selected research convention and supplied-input solar component comparison only, full timing reference unqualified
 - Mission 41: Complete — Matched-Convention Observer-Arrival Reference Validation, merged in [PR #41](https://github.com/wolfchil345/astroscope-ai-observatory/pull/41) (`fc959a380a920c7798185f3991bc5ca5404382ad`); unsuccessful independent clock qualification retained
 - Mission 42: Complete — Independent Time-Ephemeris Reference Acquisition and Clock Mapping, merged in [PR #42](https://github.com/wolfchil345/astroscope-ai-observatory/pull/42) (`7d1e6557929f873389be369612b6855ae4db22cc`); integrated geocentric reference evaluated, physical site-clock qualification remains incomplete
-- Mission 43: Active — Independent Site-Clock Mapping and Uncertainty Qualification, [PR #43](https://github.com/wolfchil345/astroscope-ai-observatory/pull/43); 48 leading-order site-clock surrogates and 12 geocentric controls evaluated, physical bounds remain unknown
-- Proposed next: Mission 44 — Relativistic Site-Frame Mapping and Error-Bound Evidence; not started, pending Mission 43 review and merge
+- Mission 43: Complete — Independent Site-Clock Mapping and Uncertainty Qualification, merged in [PR #43](https://github.com/wolfchil345/astroscope-ai-observatory/pull/43) (`6982a2419bdc7c3ced22bd5abe5d6d79d7c05c17`); post-merge Quality Gate 39133947130 passed, physical bounds remain unknown
+- Mission 44: Active — Relativistic Site-Frame Mapping and Error-Bound Evidence, [PR #44](https://github.com/wolfchil345/astroscope-ai-observatory/pull/44); 48 scaled spatial-component comparisons and 12 algebraic zero controls pass, numerical inverse error certified within the declared polynomial, physical qualification incomplete
+- Proposed next: Mission 45 — Coupled Relativistic Site-Clock Model and Reference Qualification; not started, pending Mission 44 review and merge
 
 ## Phase Progress
 
@@ -392,9 +393,28 @@
 - [x] Add regression tests and twelfth CI artifact; preserve all historical evidence and production gates
 - [x] Complete full local quality gate: 3,232 tests passed in 118.92 seconds, Ruff, compilation and documentation links passed; clean canonical evidence retained
 - [x] Open pull request — [PR #43](https://github.com/wolfchil345/astroscope-ai-observatory/pull/43); published-head CI and all twelve artifacts are required before merge, with verified final evidence recorded in the PR
-- [ ] Merge Mission 43
+- [x] Merge Mission 43 through PR #43 on 2026-10-18 at 13:59:09 UTC; verify successful post-merge CI
+
+## Mission 44 Completion Checklist
+
+### Mission 44 — Relativistic Site-Frame Mapping and Error-Bound Evidence
+
+- [x] Verify Mission 43 merge and successful post-merge CI before changes
+- [x] Freeze the spatial polynomial, scale assumptions, source evidence, domains and numerical checks before evaluation
+- [x] Preserve all 48 historical site/event inputs and selected arrival convention
+- [x] Generate an independent offline ten-body reference with explicit TT/TCG and TDB/TCB scaling
+- [x] Certify supplied-input polynomial inversion error using exact rational residual bounds
+- [x] Retain all component diagnostics and distinguish numerical certificates from physical uncertainty
+- [x] Review conditional published accuracy statements without unsupported bound transfer
+- [x] Add 74 regression cases, offline reproducibility evidence and a thirteenth CI artifact
+- [x] Run all 3306 tests and preserve blocked arrival/observing eligibility
+- [x] Retain the canonical record from clean implementation commit `ce57f47332f70652d8bc58e6cc2da19da673a71f`
+- [x] Open [PR #44](https://github.com/wolfchil345/astroscope-ai-observatory/pull/44); final CI and artifact evidence is recorded in the PR
+- [ ] Merge Mission 44
 
 ## Phase 2 Deliverables
+
+- [Relativistic Site-Frame Mapping and Error-Bound Evidence — Mission 44](validation/site_frame_mapping.md)
 
 - [Independent Site-Clock Mapping and Uncertainty Qualification — Mission 43](validation/site_clock_mapping.md)
 

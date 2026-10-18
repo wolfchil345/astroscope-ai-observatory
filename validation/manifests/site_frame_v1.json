@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "files": {
+    "validation/manifests/site_frame_policy_v1.json": "d40d995c719f832cfef19b3aa60b5e5c72bd4243c4ad4fb127dc60f89f4ecb03",
+    "validation/fixtures/site_frame_v1.json": "b3930ec2e163015199254c2acbb0393fa6fd2336d80776e1cbb2946c44e87b57",
+    "validation/reference_generation/site_frame.py": "2eddaa55fcd0b17c320ea90ee9046a958bb9b83226e44072336dcd04a490e9e2",
+    "validation/reference_generation/site-frame-requirements.txt": "24c0c41243dc9563c795b3856b4ab96a7aa5a6671d80a0d356a997c938e0c2b7",
+    "validation/manifests/site_clock_policy_v1.json": "13711d101822d702f75951297df2af6072f15ac1bd9eea92045840761072af91",
+    "validation/manifests/site_clock_v1.json": "58fcf843f88f16f23f0e9c694a029ae61fdc9e531532d6f77241384d4aee8579",
+    "validation/fixtures/site_clock_v1.json": "1c0e6e47bc5b1fdc8af97082961b469647e220bd67419b657960d4489de214ac",
+    "validation/results/site_clock_reference_run.json": "60ce1a2963713af967ab51a200744a428ad11684b9dcd358051853984928d525",
+    "validation/manifests/time_ephemeris_v1.json": "0f185bd28ed24bfa30ea71dc0743b1fb9f6110ad602f92963491e2a8ab386519",
+    "validation/fixtures/time_ephemeris_v1.json": "f4d087bb1c53269f7f2e490a50067f2a1a72d2abed2bbf2b6d0d6cc1094cb540",
+    "validation/results/time_ephemeris_reference_run.json": "71edf7169ec6e78a61a21f8882729da5c7ac01b615ee28ef96b75ed4cf481980",
+    "validation/results/clock_reference_reference_run.json": "bae85b8fa02727ba06488670c6b326a8b75ddccdfa7acf4f395123b1b6bc2a54",
+    "src/astroscope/transit_timing.py": "7d1f72807a5991f94be66cface374162fd3ebb10c1cf2cdf0b18a5d7d716d27e"
+  }
+}
