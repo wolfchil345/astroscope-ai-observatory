@@ -26,7 +26,7 @@
 - Mission 36: Complete — Transit Time-Coordinate and Uncertainty Contract, merged in [PR #36](https://github.com/wolfchil345/astroscope-ai-observatory/pull/36) (`e5a3c70e8aca77ed0132091d3b088eb73e2f1fcf`); design evidence only
 - Mission 37: Complete — Strict Transit Timing Metadata and Eligibility Boundary, merged in [PR #37](https://github.com/wolfchil345/astroscope-ai-observatory/pull/37) (`809b0bc89aa0e4b96de2e8f35d81c417b1609650`); production observer-arrival conversion remains unavailable
 - Mission 38: Complete — Observer-Arrival Reference Protocol and Conversion Validation, merged in [PR #38](https://github.com/wolfchil345/astroscope-ai-observatory/pull/38) (`9012c675b509f49df61a1ec83b7a330dd5efe99d`); research-only geometric inversion and historical TAI/UTC evidence, no production eligibility
-- Mission 39: Active — Observer-Arrival Error Budget and Resolved-Event Contract; conditional analytic audit and prospective design only, physical timing bound remains unknown
+- Mission 39: Active — Observer-Arrival Error Budget and Resolved-Event Contract, [PR #39](https://github.com/wolfchil345/astroscope-ai-observatory/pull/39); conditional analytic audit and prospective design only, physical timing bound remains unknown
 - Proposed next: Mission 40 — Observer-Arrival Source Convention and Reference-Domain Qualification; not started, pending Mission 39 review and merge and reference feasibility
 
 ## Phase Progress
@@ -322,8 +322,8 @@
 - [x] Specify twelve resolved-event sections and twenty prospective scenarios without claiming production execution
 - [x] Add 69 tests and an offline CI audit artifact; preserve all seven existing benchmarks
 - [x] Run full local suite: 3,004 tests passed in 114.70 seconds; Ruff passed
-- [ ] Verify published-head CI and all eight retained artifacts
-- [ ] Open pull request
+- [x] Configure CI to rerun all seven benchmarks and retain eight artifacts; published-head verification is recorded in PR #39 and required before merge
+- [x] Open pull request — [PR #39](https://github.com/wolfchil345/astroscope-ai-observatory/pull/39)
 - [ ] Merge Mission 39
 
 ## Phase 2 Deliverables

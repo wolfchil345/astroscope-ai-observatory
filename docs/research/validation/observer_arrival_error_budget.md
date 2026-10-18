@@ -269,6 +269,11 @@ disabled observing eligibility and twenty unexecuted prospective scenarios.
 Compilation, all four policy-pinned baseline file hashes and 29 relative
 documentation links were also checked successfully before publication.
 
+Delivery is tracked in [PR #39](https://github.com/wolfchil345/astroscope-ai-observatory/pull/39).
+Its final published-head Quality Gate, test count and eight retained artifacts
+must be verified before merge; the PR description records that run and exact
+head without changing the clean canonical implementation record.
+
 ## Remaining gate
 
 No aggregate physical timing limit, continuous-domain derivative certificate,
