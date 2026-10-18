@@ -25,8 +25,9 @@
 - Mission 35: Complete — Exoplanet Transit Ephemeris Validation, merged in [PR #35](https://github.com/wolfchil345/astroscope-ai-observatory/pull/35) (`1a5e09612662d1756289dfe45465233fb6f0153d`); bounded arithmetic validation only
 - Mission 36: Complete — Transit Time-Coordinate and Uncertainty Contract, merged in [PR #36](https://github.com/wolfchil345/astroscope-ai-observatory/pull/36) (`e5a3c70e8aca77ed0132091d3b088eb73e2f1fcf`); design evidence only
 - Mission 37: Complete — Strict Transit Timing Metadata and Eligibility Boundary, merged in [PR #37](https://github.com/wolfchil345/astroscope-ai-observatory/pull/37) (`809b0bc89aa0e4b96de2e8f35d81c417b1609650`); production observer-arrival conversion remains unavailable
-- Mission 38: Active — Observer-Arrival Reference Protocol and Conversion Validation, [PR #38](https://github.com/wolfchil345/astroscope-ai-observatory/pull/38); research-only geometric inversion and historical TAI/UTC evidence, no production eligibility
-- Proposed next: Mission 39 — Observer-Arrival Error Budget and Resolved-Event Contract; not started, pending Mission 38 review and merge
+- Mission 38: Complete — Observer-Arrival Reference Protocol and Conversion Validation, merged in [PR #38](https://github.com/wolfchil345/astroscope-ai-observatory/pull/38) (`9012c675b509f49df61a1ec83b7a330dd5efe99d`); research-only geometric inversion and historical TAI/UTC evidence, no production eligibility
+- Mission 39: Active — Observer-Arrival Error Budget and Resolved-Event Contract; conditional analytic audit and prospective design only, physical timing bound remains unknown
+- Proposed next: Mission 40 — Observer-Arrival Source Convention and Reference-Domain Qualification; not started, pending Mission 39 review and merge and reference feasibility
 
 ## Phase Progress
 
@@ -307,9 +308,27 @@
 - [x] Document model omissions and keep all production observing gates closed
 - [x] Run full local quality gate: 2,935 tests passed, Ruff and compilation; require published-head CI before merge
 - [x] Open pull request — [PR #38](https://github.com/wolfchil345/astroscope-ai-observatory/pull/38)
-- [ ] Merge Mission 38
+- [x] Merge Mission 38 — PR #38, 2026-10-18 at 05:23:07 UTC; post-merge CI passed
+
+## Mission 39 Completion Checklist
+
+### Mission 39 — Observer-Arrival Error Budget and Resolved-Event Contract
+
+- [x] Verify Mission 38 merge and post-merge quality gate
+- [x] Freeze conditional mathematical/evidence policy before computations (`2952633`)
+- [x] Preserve sampled discrepancies as samples; retain null physical total and nine unknown required bounds
+- [x] Audit site-aware clock inclusion to prevent double counting
+- [x] Derive and test exact conditional bounds, outward rounding and tri-state interval semantics
+- [x] Specify twelve resolved-event sections and twenty prospective scenarios without claiming production execution
+- [x] Add 69 tests and an offline CI audit artifact; preserve all seven existing benchmarks
+- [x] Run full local suite: 3,004 tests passed in 114.70 seconds; Ruff passed
+- [ ] Verify published-head CI and all eight retained artifacts
+- [ ] Open pull request
+- [ ] Merge Mission 39
 
 ## Phase 2 Deliverables
+
+- [Observer-Arrival Error Budget and Resolved-Event Contract — Mission 39](validation/observer_arrival_error_budget.md)
 
 - [Observer-Arrival Reference Protocol and Conversion Validation — Mission 38](validation/observer_arrival_validation.md)
 

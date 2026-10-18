@@ -227,8 +227,13 @@ Resolved-Event Contract**. Before enabling a production adapter, define the
 supported source timing convention and account for omitted corrections, target
 motion, data validity, uncertainty transport, candidate selection, boundary
 ambiguity and resolved-event persistence. A finite-grid pass alone is not an
-acceptance certificate for production use. Mission 39 is not started here;
-Mission 38 remains active until review and merge.
+acceptance certificate for production use. Mission 38 merged through PR #38 on 2026-10-18 at 05:23:07 UTC as
+`9012c675b509f49df61a1ec83b7a330dd5efe99d`; its post-merge quality gate passed.
+[Mission 39](observer_arrival_error_budget.md) now records the conditional budget
+and prospective contract, with all production observing gates still closed.
+Its clock inclusion audit clarifies that site-aware Astropy already supplies
+topocentric arguments to ERFA: adding an extra Einstein term requires an
+overlap review, not an assumption that the contribution is absent.
 
 Delivery: [PR #38](https://github.com/wolfchil345/astroscope-ai-observatory/pull/38).
 Its description and checks record final published-head CI and all seven artifacts.
