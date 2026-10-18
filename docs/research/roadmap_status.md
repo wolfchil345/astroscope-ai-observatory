@@ -425,7 +425,7 @@
 - [x] Retain the initial cancellation failure and repair precision without relaxing tolerances
 - [x] Preserve offline regeneration, historical inputs and blocked physical/arrival qualification
 - [x] Add 59 regression cases and a fourteenth CI artifact
-- [ ] Retain clean canonical results and complete full-suite verification
+- [x] Retain clean canonical results from `fb4f1da4bfaa95912f292f8b8920a970b28e9653`; all 3365 tests pass
 - [ ] Open pull request and verify final CI artifacts
 - [ ] Merge Mission 45
 

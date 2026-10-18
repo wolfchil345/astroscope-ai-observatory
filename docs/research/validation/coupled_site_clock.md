@@ -261,8 +261,12 @@ qualification gates, precision failure, cancellation regression and offline CLI
 execution. All **3365 tests passed**; Ruff lint, formatting of the three new
 Python files, compilation and internal document links passed. Scientific fields
 also match across NumPy 2.5.3/Astropy 8.0.1 and NumPy 2.5.4/Astropy 8.0.2.
-Canonical provenance is retained after the implementation commit. CI preserves
-all thirteen earlier artifacts and adds `coupled-site-clock-record`.
+The [canonical record](../../../validation/results/coupled_clock_reference_run.json)
+was generated from clean implementation commit
+`fb4f1da4bfaa95912f292f8b8920a970b28e9653`, with Python 3.12.14,
+NumPy 2.5.3, Astropy 8.0.1, PyERFA 2.0.1.5 and 64 coefficient guard significand
+bits. CI preserves all thirteen earlier artifacts and adds
+`coupled-site-clock-record`.
 
 ## Next research boundary
 
