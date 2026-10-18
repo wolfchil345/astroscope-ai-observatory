@@ -1,0 +1,1934 @@
+{
+  "schema_version": "1.0",
+  "evidence_kind": "clock_route_diagnostics_not_independent_reference",
+  "policy_sha256": "22183f6735d3237db5de337da5ab5498a0546c59d4d05d51957d94d1c7264c4f",
+  "generator_sha256": "aea6ee0de7d2f2d3af140c2ae846a835a0d50e54d022ca969d0bb1ae87400ff1",
+  "packages": {
+    "astropy": "8.0.2",
+    "astropy-iers-data": "0.2026.10.12.1.3.27",
+    "certifi": "2026.7.22",
+    "contourpy": "1.4.0",
+    "corner": "2.3.0",
+    "cycler": "0.12.1",
+    "emcee": "3.1.6",
+    "fonttools": "4.67.0",
+    "jplephem": "2.24",
+    "kiwisolver": "1.5.1",
+    "loguru": "0.7.3",
+    "matplotlib": "3.11.2",
+    "nestle": "0.2.1",
+    "numdifftools": "0.11.1",
+    "numpy": "2.5.4",
+    "packaging": "26.3",
+    "pillow": "13.0.0",
+    "pint-pulsar": "1.1.7",
+    "pyerfa": "2.0.1.5",
+    "pyparsing": "3.3.3",
+    "python-dateutil": "2.9.0.post0",
+    "PyYAML": "6.0.3",
+    "scipy": "1.18.1",
+    "sgp4": "2.27",
+    "six": "1.17.0",
+    "skyfield": "1.55",
+    "skyfield-data": "7.0.0",
+    "uncertainties": "3.2.3"
+  },
+  "python_version": "3.12.14",
+  "method_sha256": {
+    "pint_dispatch": "7f4188106bf99ee88ea5146fbb25ea0b466214217773ca8ed3c6dc30ff72fddc",
+    "pint_default": "04272305209aa574f5e3badf8d459a061c47ce2d33de79e4c0ceb6e3b3cc7834",
+    "pint_ephem": "d15a6b4c581ac9511826dc8378b583d3142b21c92fac9b34b057c20796812e74",
+    "skyfield_clock": "f8d4ca0a6cadbe8635757bff63de08fcf7ac826d775d4a9254a450342710c6e7",
+    "astropy_clock": "bf0e4dd22524b6c7f6480e58d8d22858c7e34a1d2e6a502ab5e8b7b035262a14"
+  },
+  "topo_default_inherited": true,
+  "erfa_doc_sha256": "a1c0a6b6745fff8d8660091a88d32acd19147ec2d83943d8a978d056e82dbe24",
+  "skyfield_parameters": [
+    "jd_tdb",
+    "fraction_tdb"
+  ],
+  "ephemeris_probe": {
+    "outcome": "unsupported",
+    "exception_type": "NotImplementedError",
+    "message": "",
+    "fallback_used": false,
+    "result": null
+  },
+  "cases": [
+    {
+      "id": "2024-03-20_tokyo_10",
+      "utc": "2024-03-20T10:00:00",
+      "site": {
+        "name": "tokyo",
+        "latitude_deg": 35.6762,
+        "longitude_deg": 139.6503,
+        "elevation_m": 40,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460390",
+        "-0.082532592592592602"
+      ],
+      "utc_day_fraction": "0.41666666666666669",
+      "ut1_day_fraction": "0.41666655939660491",
+      "dut1_seconds": "-0.0092681333333333345",
+      "site_arguments": [
+        "2.4373575363978368",
+        "5187.0667139429461",
+        "3699.0894857740441"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460390",
+          "-0.082532592592592602",
+          "0.41666666666666669",
+          "2.4373575363978368",
+          "5187.0667139429461",
+          "3699.0894857740441"
+        ]
+      ],
+      "astropy_site_seconds": "0.0015872308117457071",
+      "astropy_geocentric_seconds": "0.0015892203444836648",
+      "pint_default_seconds": "0.0015872308117457071",
+      "skyfield_geocentric_seconds": "0.0015924094151021236",
+      "erfa_utc_seconds": "0.0015872308117457071",
+      "erfa_ut1_seconds": "0.0015872308114028243"
+    },
+    {
+      "id": "2024-03-20_tokyo_12",
+      "utc": "2024-03-20T12:00:00",
+      "site": {
+        "name": "tokyo",
+        "latitude_deg": 35.6762,
+        "longitude_deg": 139.6503,
+        "elevation_m": 40,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460390",
+        "0.00080074074074077068"
+      ],
+      "utc_day_fraction": "0.5",
+      "ut1_day_fraction": "0.49999989249884264",
+      "dut1_seconds": "-0.0092881000000000005",
+      "site_arguments": [
+        "2.4373575363978368",
+        "5187.0667139429461",
+        "3699.0894857740441"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460390",
+          "0.00080074074074077068",
+          "-0.5",
+          "2.4373575363978368",
+          "5187.0667139429461",
+          "3699.0894857740441"
+        ]
+      ],
+      "astropy_site_seconds": "0.0015882700370984822",
+      "astropy_geocentric_seconds": "0.0015898043983572649",
+      "pint_default_seconds": "0.0015882700370984822",
+      "skyfield_geocentric_seconds": "0.001593009162853986",
+      "erfa_utc_seconds": "0.0015882700370984822",
+      "erfa_ut1_seconds": "0.0015882700362945233"
+    },
+    {
+      "id": "2024-03-20_tokyo_14",
+      "utc": "2024-03-20T14:00:00",
+      "site": {
+        "name": "tokyo",
+        "latitude_deg": 35.6762,
+        "longitude_deg": 139.6503,
+        "elevation_m": 40,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460390",
+        "0.084134074074074139"
+      ],
+      "utc_day_fraction": "0.58333333333333337",
+      "ut1_day_fraction": "0.58333322560108036",
+      "dut1_seconds": "-0.0093080666666666666",
+      "site_arguments": [
+        "2.4373575363978368",
+        "5187.0667139429461",
+        "3699.0894857740441"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460390",
+          "0.084134074074074139",
+          "-0.41666666666666663",
+          "2.4373575363978368",
+          "5187.0667139429461",
+          "3699.0894857740441"
+        ]
+      ],
+      "astropy_site_seconds": "0.0015895853191132561",
+      "astropy_geocentric_seconds": "0.0015903847960894331",
+      "pint_default_seconds": "0.0015895853191132561",
+      "skyfield_geocentric_seconds": "0.0015936055917216306",
+      "erfa_utc_seconds": "0.0015895853191132561",
+      "erfa_ut1_seconds": "0.0015895853180620421"
+    },
+    {
+      "id": "2024-03-20_equator_10",
+      "utc": "2024-03-20T10:00:00",
+      "site": {
+        "name": "equator",
+        "latitude_deg": 0,
+        "longitude_deg": 30,
+        "elevation_m": 0,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460390",
+        "-0.082532592592592602"
+      ],
+      "utc_day_fraction": "0.41666666666666669",
+      "ut1_day_fraction": "0.41666655939660491",
+      "dut1_seconds": "-0.0092681333333333345",
+      "site_arguments": [
+        "0.52359877559829882",
+        "6378.1369999999997",
+        "0"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460390",
+          "-0.082532592592592602",
+          "0.41666666666666669",
+          "0.52359877559829882",
+          "6378.1369999999997",
+          "0"
+        ]
+      ],
+      "astropy_site_seconds": "0.0015892513546323318",
+      "astropy_geocentric_seconds": "0.0015892203444836648",
+      "pint_default_seconds": "0.0015892513546323318",
+      "skyfield_geocentric_seconds": "0.0015924094151021236",
+      "erfa_utc_seconds": "0.0015892513546323318",
+      "erfa_ut1_seconds": "0.0015892513559446393"
+    },
+    {
+      "id": "2024-03-20_equator_12",
+      "utc": "2024-03-20T12:00:00",
+      "site": {
+        "name": "equator",
+        "latitude_deg": 0,
+        "longitude_deg": 30,
+        "elevation_m": 0,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460390",
+        "0.00080074074074077068"
+      ],
+      "utc_day_fraction": "0.5",
+      "ut1_day_fraction": "0.49999989249884264",
+      "dut1_seconds": "-0.0092881000000000005",
+      "site_arguments": [
+        "0.52359877559829882",
+        "6378.1369999999997",
+        "0"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460390",
+          "0.00080074074074077068",
+          "-0.5",
+          "0.52359877559829882",
+          "6378.1369999999997",
+          "0"
+        ]
+      ],
+      "astropy_site_seconds": "0.00158885798121511",
+      "astropy_geocentric_seconds": "0.0015898043983572649",
+      "pint_default_seconds": "0.00158885798121511",
+      "skyfield_geocentric_seconds": "0.001593009162853986",
+      "erfa_utc_seconds": "0.00158885798121511",
+      "erfa_ut1_seconds": "0.0015888579823645694"
+    },
+    {
+      "id": "2024-03-20_equator_14",
+      "utc": "2024-03-20T14:00:00",
+      "site": {
+        "name": "equator",
+        "latitude_deg": 0,
+        "longitude_deg": 30,
+        "elevation_m": 0,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460390",
+        "0.084134074074074139"
+      ],
+      "utc_day_fraction": "0.58333333333333337",
+      "ut1_day_fraction": "0.58333322560108036",
+      "dut1_seconds": "-0.0093080666666666666",
+      "site_arguments": [
+        "0.52359877559829882",
+        "6378.1369999999997",
+        "0"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460390",
+          "0.084134074074074139",
+          "-0.41666666666666663",
+          "0.52359877559829882",
+          "6378.1369999999997",
+          "0"
+        ]
+      ],
+      "astropy_site_seconds": "0.0015887144737271111",
+      "astropy_geocentric_seconds": "0.0015903847960894331",
+      "pint_default_seconds": "0.0015887144737271111",
+      "skyfield_geocentric_seconds": "0.0015936055917216306",
+      "erfa_utc_seconds": "0.0015887144737271111",
+      "erfa_ut1_seconds": "0.0015887144744045228"
+    },
+    {
+      "id": "2024-03-20_paranal_10",
+      "utc": "2024-03-20T10:00:00",
+      "site": {
+        "name": "paranal",
+        "latitude_deg": -24.6272,
+        "longitude_deg": -70.4042,
+        "elevation_m": 2635,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460390",
+        "-0.082532592592592602"
+      ],
+      "utc_day_fraction": "0.41666666666666669",
+      "ut1_day_fraction": "0.41666655939660491",
+      "dut1_seconds": "-0.0092681333333333345",
+      "site_arguments": [
+        "-1.2287850972325918",
+        "5803.739615001612",
+        "-2642.689916487011"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460390",
+          "-0.082532592592592602",
+          "0.41666666666666669",
+          "-1.2287850972325918",
+          "5803.739615001612",
+          "-2642.689916487011"
+        ]
+      ],
+      "astropy_site_seconds": "0.0015913077551786329",
+      "astropy_geocentric_seconds": "0.0015892203444836648",
+      "pint_default_seconds": "0.0015913077551786329",
+      "skyfield_geocentric_seconds": "0.0015924094151021236",
+      "erfa_utc_seconds": "0.0015913077551786329",
+      "erfa_ut1_seconds": "0.001591307754944278"
+    },
+    {
+      "id": "2024-03-20_paranal_12",
+      "utc": "2024-03-20T12:00:00",
+      "site": {
+        "name": "paranal",
+        "latitude_deg": -24.6272,
+        "longitude_deg": -70.4042,
+        "elevation_m": 2635,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460390",
+        "0.00080074074074077068"
+      ],
+      "utc_day_fraction": "0.5",
+      "ut1_day_fraction": "0.49999989249884264",
+      "dut1_seconds": "-0.0092881000000000005",
+      "site_arguments": [
+        "-1.2287850972325918",
+        "5803.739615001612",
+        "-2642.689916487011"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460390",
+          "0.00080074074074077068",
+          "-0.5",
+          "-1.2287850972325918",
+          "5803.739615001612",
+          "-2642.689916487011"
+        ]
+      ],
+      "astropy_site_seconds": "0.0015918329022700582",
+      "astropy_geocentric_seconds": "0.0015898043983572649",
+      "pint_default_seconds": "0.0015918329022700582",
+      "skyfield_geocentric_seconds": "0.001593009162853986",
+      "erfa_utc_seconds": "0.0015918329022700582",
+      "erfa_ut1_seconds": "0.0015918329026532933"
+    },
+    {
+      "id": "2024-03-20_paranal_14",
+      "utc": "2024-03-20T14:00:00",
+      "site": {
+        "name": "paranal",
+        "latitude_deg": -24.6272,
+        "longitude_deg": -70.4042,
+        "elevation_m": 2635,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460390",
+        "0.084134074074074139"
+      ],
+      "utc_day_fraction": "0.58333333333333337",
+      "ut1_day_fraction": "0.58333322560108036",
+      "dut1_seconds": "-0.0093080666666666666",
+      "site_arguments": [
+        "-1.2287850972325918",
+        "5803.739615001612",
+        "-2642.689916487011"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460390",
+          "0.084134074074074139",
+          "-0.41666666666666663",
+          "-1.2287850972325918",
+          "5803.739615001612",
+          "-2642.689916487011"
+        ]
+      ],
+      "astropy_site_seconds": "0.0015919048573989042",
+      "astropy_geocentric_seconds": "0.0015903847960894331",
+      "pint_default_seconds": "0.0015919048573989042",
+      "skyfield_geocentric_seconds": "0.0015936055917216306",
+      "erfa_utc_seconds": "0.0015919048573989042",
+      "erfa_ut1_seconds": "0.0015919048582994923"
+    },
+    {
+      "id": "2024-03-20_arctic_10",
+      "utc": "2024-03-20T10:00:00",
+      "site": {
+        "name": "arctic",
+        "latitude_deg": 78.2232,
+        "longitude_deg": 15.6469,
+        "elevation_m": 20,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460390",
+        "-0.082532592592592602"
+      ],
+      "utc_day_fraction": "0.41666666666666669",
+      "ut1_day_fraction": "0.41666655939660491",
+      "dut1_seconds": "-0.0092681333333333345",
+      "site_arguments": [
+        "0.27308992273030069",
+        "1305.9757555822969",
+        "6222.0896246262646"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460390",
+          "-0.082532592592592602",
+          "0.41666666666666669",
+          "0.27308992273030069",
+          "1305.9757555822969",
+          "6222.0896246262646"
+        ]
+      ],
+      "astropy_site_seconds": "0.0015885014277956426",
+      "astropy_geocentric_seconds": "0.0015892203444836648",
+      "pint_default_seconds": "0.0015885014277956426",
+      "skyfield_geocentric_seconds": "0.0015924094151021236",
+      "erfa_utc_seconds": "0.0015885014277956426",
+      "erfa_ut1_seconds": "0.0015885014280549001"
+    },
+    {
+      "id": "2024-03-20_arctic_12",
+      "utc": "2024-03-20T12:00:00",
+      "site": {
+        "name": "arctic",
+        "latitude_deg": 78.2232,
+        "longitude_deg": 15.6469,
+        "elevation_m": 20,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460390",
+        "0.00080074074074077068"
+      ],
+      "utc_day_fraction": "0.5",
+      "ut1_day_fraction": "0.49999989249884264",
+      "dut1_seconds": "-0.0092881000000000005",
+      "site_arguments": [
+        "0.27308992273030069",
+        "1305.9757555822969",
+        "6222.0896246262646"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460390",
+          "0.00080074074074077068",
+          "-0.5",
+          "0.27308992273030069",
+          "1305.9757555822969",
+          "6222.0896246262646"
+        ]
+      ],
+      "astropy_site_seconds": "0.0015888791485717318",
+      "astropy_geocentric_seconds": "0.0015898043983572649",
+      "pint_default_seconds": "0.0015888791485717318",
+      "skyfield_geocentric_seconds": "0.001593009162853986",
+      "erfa_utc_seconds": "0.0015888791485717318",
+      "erfa_ut1_seconds": "0.0015888791488321947"
+    },
+    {
+      "id": "2024-03-20_arctic_14",
+      "utc": "2024-03-20T14:00:00",
+      "site": {
+        "name": "arctic",
+        "latitude_deg": 78.2232,
+        "longitude_deg": 15.6469,
+        "elevation_m": 20,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460390",
+        "0.084134074074074139"
+      ],
+      "utc_day_fraction": "0.58333333333333337",
+      "ut1_day_fraction": "0.58333322560108036",
+      "dut1_seconds": "-0.0093080666666666666",
+      "site_arguments": [
+        "0.27308992273030069",
+        "1305.9757555822969",
+        "6222.0896246262646"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460390",
+          "0.084134074074074139",
+          "-0.41666666666666663",
+          "0.27308992273030069",
+          "1305.9757555822969",
+          "6222.0896246262646"
+        ]
+      ],
+      "astropy_site_seconds": "0.0015892803727054824",
+      "astropy_geocentric_seconds": "0.0015903847960894331",
+      "pint_default_seconds": "0.0015892803727054824",
+      "skyfield_geocentric_seconds": "0.0015936055917216306",
+      "erfa_utc_seconds": "0.0015892803727054824",
+      "erfa_ut1_seconds": "0.0015892803728972487"
+    },
+    {
+      "id": "2024-06-21_tokyo_10",
+      "utc": "2024-06-21T10:00:00",
+      "site": {
+        "name": "tokyo",
+        "latitude_deg": 35.6762,
+        "longitude_deg": 139.6503,
+        "elevation_m": 40,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460483",
+        "-0.082532592592592602"
+      ],
+      "utc_day_fraction": "0.41666666666666669",
+      "ut1_day_fraction": "0.41666653827498068",
+      "dut1_seconds": "-0.011093041666666666",
+      "site_arguments": [
+        "2.4373575363978368",
+        "5187.0667139429461",
+        "3699.0894857740441"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460483",
+          "-0.082532592592592602",
+          "0.41666666666666669",
+          "2.4373575363978368",
+          "5187.0667139429461",
+          "3699.0894857740441"
+        ]
+      ],
+      "astropy_site_seconds": "0.00038810692895079019",
+      "astropy_geocentric_seconds": "0.00038969855147963155",
+      "pint_default_seconds": "0.00038810692895079019",
+      "skyfield_geocentric_seconds": "0.00039203796801132493",
+      "erfa_utc_seconds": "0.00038810692895079019",
+      "erfa_ut1_seconds": "0.00038810692849588173"
+    },
+    {
+      "id": "2024-06-21_tokyo_12",
+      "utc": "2024-06-21T12:00:00",
+      "site": {
+        "name": "tokyo",
+        "latitude_deg": 35.6762,
+        "longitude_deg": 139.6503,
+        "elevation_m": 40,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460483",
+        "0.00080074074074077068"
+      ],
+      "utc_day_fraction": "0.5",
+      "ut1_day_fraction": "0.49999987289872688",
+      "dut1_seconds": "-0.01098155",
+      "site_arguments": [
+        "2.4373575363978368",
+        "5187.0667139429461",
+        "3699.0894857740441"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460483",
+          "0.00080074074074077068",
+          "0.5",
+          "2.4373575363978368",
+          "5187.0667139429461",
+          "3699.0894857740441"
+        ]
+      ],
+      "astropy_site_seconds": "0.00038632473708572921",
+      "astropy_geocentric_seconds": "0.00038741993212804924",
+      "pint_default_seconds": "0.00038632473708572921",
+      "skyfield_geocentric_seconds": "0.00038978626610689903",
+      "erfa_utc_seconds": "0.00038632473708572921",
+      "erfa_ut1_seconds": "0.00038632473605898591"
+    },
+    {
+      "id": "2024-06-21_tokyo_14",
+      "utc": "2024-06-21T14:00:00",
+      "site": {
+        "name": "tokyo",
+        "latitude_deg": 35.6762,
+        "longitude_deg": 139.6503,
+        "elevation_m": 40,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460483",
+        "0.084134074074074139"
+      ],
+      "utc_day_fraction": "0.58333333333333337",
+      "ut1_day_fraction": "0.58333320752247309",
+      "dut1_seconds": "-0.010870058333333333",
+      "site_arguments": [
+        "2.4373575363978368",
+        "5187.0667139429461",
+        "3699.0894857740441"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460483",
+          "0.084134074074074139",
+          "-0.41666666666666663",
+          "2.4373575363978368",
+          "5187.0667139429461",
+          "3699.0894857740441"
+        ]
+      ],
+      "astropy_site_seconds": "0.00038483624278995551",
+      "astropy_geocentric_seconds": "0.00038514049328884132",
+      "pint_default_seconds": "0.00038483624278995551",
+      "skyfield_geocentric_seconds": "0.00038753380958946114",
+      "erfa_utc_seconds": "0.00038483624278995551",
+      "erfa_ut1_seconds": "0.00038483624147555917"
+    },
+    {
+      "id": "2024-06-21_equator_10",
+      "utc": "2024-06-21T10:00:00",
+      "site": {
+        "name": "equator",
+        "latitude_deg": 0,
+        "longitude_deg": 30,
+        "elevation_m": 0,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460483",
+        "-0.082532592592592602"
+      ],
+      "utc_day_fraction": "0.41666666666666669",
+      "ut1_day_fraction": "0.41666653827498068",
+      "dut1_seconds": "-0.011093041666666666",
+      "site_arguments": [
+        "0.52359877559829882",
+        "6378.1369999999997",
+        "0"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460483",
+          "-0.082532592592592602",
+          "0.41666666666666669",
+          "0.52359877559829882",
+          "6378.1369999999997",
+          "0"
+        ]
+      ],
+      "astropy_site_seconds": "0.00038970479065144508",
+      "astropy_geocentric_seconds": "0.00038969855147963155",
+      "pint_default_seconds": "0.00038970479065144508",
+      "skyfield_geocentric_seconds": "0.00039203796801132493",
+      "erfa_utc_seconds": "0.00038970479065144508",
+      "erfa_ut1_seconds": "0.00038970479232894371"
+    },
+    {
+      "id": "2024-06-21_equator_12",
+      "utc": "2024-06-21T12:00:00",
+      "site": {
+        "name": "equator",
+        "latitude_deg": 0,
+        "longitude_deg": 30,
+        "elevation_m": 0,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460483",
+        "0.00080074074074077068"
+      ],
+      "utc_day_fraction": "0.5",
+      "ut1_day_fraction": "0.49999987289872688",
+      "dut1_seconds": "-0.01098155",
+      "site_arguments": [
+        "0.52359877559829882",
+        "6378.1369999999997",
+        "0"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460483",
+          "0.00080074074074077068",
+          "0.5",
+          "0.52359877559829882",
+          "6378.1369999999997",
+          "0"
+        ]
+      ],
+      "astropy_site_seconds": "0.00038638536029064372",
+      "astropy_geocentric_seconds": "0.00038741993212804924",
+      "pint_default_seconds": "0.00038638536029064372",
+      "skyfield_geocentric_seconds": "0.00038978626610689903",
+      "erfa_utc_seconds": "0.00038638536029064372",
+      "erfa_ut1_seconds": "0.00038638536173115886"
+    },
+    {
+      "id": "2024-06-21_equator_14",
+      "utc": "2024-06-21T14:00:00",
+      "site": {
+        "name": "equator",
+        "latitude_deg": 0,
+        "longitude_deg": 30,
+        "elevation_m": 0,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460483",
+        "0.084134074074074139"
+      ],
+      "utc_day_fraction": "0.58333333333333337",
+      "ut1_day_fraction": "0.58333320752247309",
+      "dut1_seconds": "-0.010870058333333333",
+      "site_arguments": [
+        "0.52359877559829882",
+        "6378.1369999999997",
+        "0"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460483",
+          "0.084134074074074139",
+          "-0.41666666666666663",
+          "0.52359877559829882",
+          "6378.1369999999997",
+          "0"
+        ]
+      ],
+      "astropy_site_seconds": "0.00038334248855449574",
+      "astropy_geocentric_seconds": "0.00038514049328884132",
+      "pint_default_seconds": "0.00038334248855449574",
+      "skyfield_geocentric_seconds": "0.00038753380958946114",
+      "erfa_utc_seconds": "0.00038334248855449574",
+      "erfa_ut1_seconds": "0.00038334248938022726"
+    },
+    {
+      "id": "2024-06-21_paranal_10",
+      "utc": "2024-06-21T10:00:00",
+      "site": {
+        "name": "paranal",
+        "latitude_deg": -24.6272,
+        "longitude_deg": -70.4042,
+        "elevation_m": 2635,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460483",
+        "-0.082532592592592602"
+      ],
+      "utc_day_fraction": "0.41666666666666669",
+      "ut1_day_fraction": "0.41666653827498068",
+      "dut1_seconds": "-0.011093041666666666",
+      "site_arguments": [
+        "-1.2287850972325918",
+        "5803.739615001612",
+        "-2642.689916487011"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460483",
+          "-0.082532592592592602",
+          "0.41666666666666669",
+          "-1.2287850972325918",
+          "5803.739615001612",
+          "-2642.689916487011"
+        ]
+      ],
+      "astropy_site_seconds": "0.00039155664411136189",
+      "astropy_geocentric_seconds": "0.00038969855147963155",
+      "pint_default_seconds": "0.00039155664411136189",
+      "skyfield_geocentric_seconds": "0.00039203796801132493",
+      "erfa_utc_seconds": "0.00039155664411136189",
+      "erfa_ut1_seconds": "0.00039155664383119717"
+    },
+    {
+      "id": "2024-06-21_paranal_12",
+      "utc": "2024-06-21T12:00:00",
+      "site": {
+        "name": "paranal",
+        "latitude_deg": -24.6272,
+        "longitude_deg": -70.4042,
+        "elevation_m": 2635,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460483",
+        "0.00080074074074077068"
+      ],
+      "utc_day_fraction": "0.5",
+      "ut1_day_fraction": "0.49999987289872688",
+      "dut1_seconds": "-0.01098155",
+      "site_arguments": [
+        "-1.2287850972325918",
+        "5803.739615001612",
+        "-2642.689916487011"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460483",
+          "0.00080074074074077068",
+          "0.5",
+          "-1.2287850972325918",
+          "5803.739615001612",
+          "-2642.689916487011"
+        ]
+      ],
+      "astropy_site_seconds": "0.00038920188550703623",
+      "astropy_geocentric_seconds": "0.00038741993212804924",
+      "pint_default_seconds": "0.00038920188550703623",
+      "skyfield_geocentric_seconds": "0.00038978626610689903",
+      "erfa_utc_seconds": "0.00038920188550703623",
+      "erfa_ut1_seconds": "0.00038920188600976197"
+    },
+    {
+      "id": "2024-06-21_paranal_14",
+      "utc": "2024-06-21T14:00:00",
+      "site": {
+        "name": "paranal",
+        "latitude_deg": -24.6272,
+        "longitude_deg": -70.4042,
+        "elevation_m": 2635,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460483",
+        "0.084134074074074139"
+      ],
+      "utc_day_fraction": "0.58333333333333337",
+      "ut1_day_fraction": "0.58333320752247309",
+      "dut1_seconds": "-0.010870058333333333",
+      "site_arguments": [
+        "-1.2287850972325918",
+        "5803.739615001612",
+        "-2642.689916487011"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460483",
+          "0.084134074074074139",
+          "-0.41666666666666663",
+          "-1.2287850972325918",
+          "5803.739615001612",
+          "-2642.689916487011"
+        ]
+      ],
+      "astropy_site_seconds": "0.00038636792772911888",
+      "astropy_geocentric_seconds": "0.00038514049328884132",
+      "pint_default_seconds": "0.00038636792772911888",
+      "skyfield_geocentric_seconds": "0.00038753380958946114",
+      "erfa_utc_seconds": "0.00038636792772911888",
+      "erfa_ut1_seconds": "0.00038636792886547454"
+    },
+    {
+      "id": "2024-06-21_arctic_10",
+      "utc": "2024-06-21T10:00:00",
+      "site": {
+        "name": "arctic",
+        "latitude_deg": 78.2232,
+        "longitude_deg": 15.6469,
+        "elevation_m": 20,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460483",
+        "-0.082532592592592602"
+      ],
+      "utc_day_fraction": "0.41666666666666669",
+      "ut1_day_fraction": "0.41666653827498068",
+      "dut1_seconds": "-0.011093041666666666",
+      "site_arguments": [
+        "0.27308992273030069",
+        "1305.9757555822969",
+        "6222.0896246262646"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460483",
+          "-0.082532592592592602",
+          "0.41666666666666669",
+          "0.27308992273030069",
+          "1305.9757555822969",
+          "6222.0896246262646"
+        ]
+      ],
+      "astropy_site_seconds": "0.00038980990337212973",
+      "astropy_geocentric_seconds": "0.00038969855147963155",
+      "pint_default_seconds": "0.00038980990337212973",
+      "skyfield_geocentric_seconds": "0.00039203796801132493",
+      "erfa_utc_seconds": "0.00038980990337212973",
+      "erfa_ut1_seconds": "0.00038980990370463453"
+    },
+    {
+      "id": "2024-06-21_arctic_12",
+      "utc": "2024-06-21T12:00:00",
+      "site": {
+        "name": "arctic",
+        "latitude_deg": 78.2232,
+        "longitude_deg": 15.6469,
+        "elevation_m": 20,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460483",
+        "0.00080074074074077068"
+      ],
+      "utc_day_fraction": "0.5",
+      "ut1_day_fraction": "0.49999987289872688",
+      "dut1_seconds": "-0.01098155",
+      "site_arguments": [
+        "0.27308992273030069",
+        "1305.9757555822969",
+        "6222.0896246262646"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460483",
+          "0.00080074074074077068",
+          "0.5",
+          "0.27308992273030069",
+          "1305.9757555822969",
+          "6222.0896246262646"
+        ]
+      ],
+      "astropy_site_seconds": "0.00038731196822927268",
+      "astropy_geocentric_seconds": "0.00038741993212804924",
+      "pint_default_seconds": "0.00038731196822927268",
+      "skyfield_geocentric_seconds": "0.00038978626610689903",
+      "erfa_utc_seconds": "0.00038731196822927268",
+      "erfa_ut1_seconds": "0.00038731196855696075"
+    },
+    {
+      "id": "2024-06-21_arctic_14",
+      "utc": "2024-06-21T14:00:00",
+      "site": {
+        "name": "arctic",
+        "latitude_deg": 78.2232,
+        "longitude_deg": 15.6469,
+        "elevation_m": 20,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460483",
+        "0.084134074074074139"
+      ],
+      "utc_day_fraction": "0.58333333333333337",
+      "ut1_day_fraction": "0.58333320752247309",
+      "dut1_seconds": "-0.010870058333333333",
+      "site_arguments": [
+        "0.27308992273030069",
+        "1305.9757555822969",
+        "6222.0896246262646"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460483",
+          "0.084134074074074139",
+          "-0.41666666666666663",
+          "0.27308992273030069",
+          "1305.9757555822969",
+          "6222.0896246262646"
+        ]
+      ],
+      "astropy_site_seconds": "0.00038484369001189051",
+      "astropy_geocentric_seconds": "0.00038514049328884132",
+      "pint_default_seconds": "0.00038484369001189051",
+      "skyfield_geocentric_seconds": "0.00038753380958946114",
+      "erfa_utc_seconds": "0.00038484369001189051",
+      "erfa_ut1_seconds": "0.00038484369024783253"
+    },
+    {
+      "id": "2024-09-22_tokyo_10",
+      "utc": "2024-09-22T10:00:00",
+      "site": {
+        "name": "tokyo",
+        "latitude_deg": 35.6762,
+        "longitude_deg": 139.6503,
+        "elevation_m": 40,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460576",
+        "-0.082532592592592602"
+      ],
+      "utc_day_fraction": "0.41666666666666669",
+      "ut1_day_fraction": "0.41666732466222994",
+      "dut1_seconds": "0.056850816666666665",
+      "site_arguments": [
+        "2.4373575363978368",
+        "5187.0667139429461",
+        "3699.0894857740441"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460576",
+          "-0.082532592592592602",
+          "0.41666666666666669",
+          "2.4373575363978368",
+          "5187.0667139429461",
+          "3699.0894857740441"
+        ]
+      ],
+      "astropy_site_seconds": "-0.0016005687610106093",
+      "astropy_geocentric_seconds": "-0.0015995843139158495",
+      "pint_default_seconds": "-0.0016005687610106093",
+      "skyfield_geocentric_seconds": "-0.0015957234023566407",
+      "erfa_utc_seconds": "-0.0016005687610106093",
+      "erfa_ut1_seconds": "-0.0016005687587312102"
+    },
+    {
+      "id": "2024-09-22_tokyo_12",
+      "utc": "2024-09-22T12:00:00",
+      "site": {
+        "name": "tokyo",
+        "latitude_deg": 35.6762,
+        "longitude_deg": 139.6503,
+        "elevation_m": 40,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460576",
+        "0.00080074074074077068"
+      ],
+      "utc_day_fraction": "0.5",
+      "ut1_day_fraction": "0.50000065815162043",
+      "dut1_seconds": "0.0568643",
+      "site_arguments": [
+        "2.4373575363978368",
+        "5187.0667139429461",
+        "3699.0894857740441"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460576",
+          "0.00080074074074077068",
+          "-0.5",
+          "2.4373575363978368",
+          "5187.0667139429461",
+          "3699.0894857740441"
+        ]
+      ],
+      "astropy_site_seconds": "-0.0016006436071490987",
+      "astropy_geocentric_seconds": "-0.0016001316624570088",
+      "pint_default_seconds": "-0.0016006436071490987",
+      "skyfield_geocentric_seconds": "-0.0015962552257002107",
+      "erfa_utc_seconds": "-0.0016006436071490987",
+      "erfa_ut1_seconds": "-0.0016006436021344414"
+    },
+    {
+      "id": "2024-09-22_tokyo_14",
+      "utc": "2024-09-22T14:00:00",
+      "site": {
+        "name": "tokyo",
+        "latitude_deg": 35.6762,
+        "longitude_deg": 139.6503,
+        "elevation_m": 40,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460576",
+        "0.084134074074074139"
+      ],
+      "utc_day_fraction": "0.58333333333333337",
+      "ut1_day_fraction": "0.58333399164101085",
+      "dut1_seconds": "0.056877783333333334",
+      "site_arguments": [
+        "2.4373575363978368",
+        "5187.0667139429461",
+        "3699.0894857740441"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460576",
+          "0.084134074074074139",
+          "-0.41666666666666663",
+          "2.4373575363978368",
+          "5187.0667139429461",
+          "3699.0894857740441"
+        ]
+      ],
+      "astropy_site_seconds": "-0.0016004473990766557",
+      "astropy_geocentric_seconds": "-0.0016006752933410318",
+      "pint_default_seconds": "-0.0016004473990766557",
+      "skyfield_geocentric_seconds": "-0.0015967837916044897",
+      "erfa_utc_seconds": "-0.0016004473990766557",
+      "erfa_ut1_seconds": "-0.0016004473926686991"
+    },
+    {
+      "id": "2024-09-22_equator_10",
+      "utc": "2024-09-22T10:00:00",
+      "site": {
+        "name": "equator",
+        "latitude_deg": 0,
+        "longitude_deg": 30,
+        "elevation_m": 0,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460576",
+        "-0.082532592592592602"
+      ],
+      "utc_day_fraction": "0.41666666666666669",
+      "ut1_day_fraction": "0.41666732466222994",
+      "dut1_seconds": "0.056850816666666665",
+      "site_arguments": [
+        "0.52359877559829882",
+        "6378.1369999999997",
+        "0"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460576",
+          "-0.082532592592592602",
+          "0.41666666666666669",
+          "0.52359877559829882",
+          "6378.1369999999997",
+          "0"
+        ]
+      ],
+      "astropy_site_seconds": "-0.0015996147150412236",
+      "astropy_geocentric_seconds": "-0.0015995843139158495",
+      "pint_default_seconds": "-0.0015996147150412236",
+      "skyfield_geocentric_seconds": "-0.0015957234023566407",
+      "erfa_utc_seconds": "-0.0015996147150412236",
+      "erfa_ut1_seconds": "-0.0015996147230239472"
+    },
+    {
+      "id": "2024-09-22_equator_12",
+      "utc": "2024-09-22T12:00:00",
+      "site": {
+        "name": "equator",
+        "latitude_deg": 0,
+        "longitude_deg": 30,
+        "elevation_m": 0,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460576",
+        "0.00080074074074077068"
+      ],
+      "utc_day_fraction": "0.5",
+      "ut1_day_fraction": "0.50000065815162043",
+      "dut1_seconds": "0.0568643",
+      "site_arguments": [
+        "0.52359877559829882",
+        "6378.1369999999997",
+        "0"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460576",
+          "0.00080074074074077068",
+          "-0.5",
+          "0.52359877559829882",
+          "6378.1369999999997",
+          "0"
+        ]
+      ],
+      "astropy_site_seconds": "-0.0016011232504977953",
+      "astropy_geocentric_seconds": "-0.0016001316624570088",
+      "pint_default_seconds": "-0.0016011232504977953",
+      "skyfield_geocentric_seconds": "-0.0015962552257002107",
+      "erfa_utc_seconds": "-0.0016011232504977953",
+      "erfa_ut1_seconds": "-0.0016011232573505236"
+    },
+    {
+      "id": "2024-09-22_equator_14",
+      "utc": "2024-09-22T14:00:00",
+      "site": {
+        "name": "equator",
+        "latitude_deg": 0,
+        "longitude_deg": 30,
+        "elevation_m": 0,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460576",
+        "0.084134074074074139"
+      ],
+      "utc_day_fraction": "0.58333333333333337",
+      "ut1_day_fraction": "0.58333399164101085",
+      "dut1_seconds": "0.056877783333333334",
+      "site_arguments": [
+        "0.52359877559829882",
+        "6378.1369999999997",
+        "0"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460576",
+          "0.084134074074074139",
+          "-0.41666666666666663",
+          "0.52359877559829882",
+          "6378.1369999999997",
+          "0"
+        ]
+      ],
+      "astropy_site_seconds": "-0.0016023625464374048",
+      "astropy_geocentric_seconds": "-0.0016006752933410318",
+      "pint_default_seconds": "-0.0016023625464374048",
+      "skyfield_geocentric_seconds": "-0.0015967837916044897",
+      "erfa_utc_seconds": "-0.0016023625464374048",
+      "erfa_ut1_seconds": "-0.0016023625503236657"
+    },
+    {
+      "id": "2024-09-22_paranal_10",
+      "utc": "2024-09-22T10:00:00",
+      "site": {
+        "name": "paranal",
+        "latitude_deg": -24.6272,
+        "longitude_deg": -70.4042,
+        "elevation_m": 2635,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460576",
+        "-0.082532592592592602"
+      ],
+      "utc_day_fraction": "0.41666666666666669",
+      "ut1_day_fraction": "0.41666732466222994",
+      "dut1_seconds": "0.056850816666666665",
+      "site_arguments": [
+        "-1.2287850972325918",
+        "5803.739615001612",
+        "-2642.689916487011"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460576",
+          "-0.082532592592592602",
+          "0.41666666666666669",
+          "-1.2287850972325918",
+          "5803.739615001612",
+          "-2642.689916487011"
+        ]
+      ],
+      "astropy_site_seconds": "-0.0015981984979342148",
+      "astropy_geocentric_seconds": "-0.0015995843139158495",
+      "pint_default_seconds": "-0.0015981984979342148",
+      "skyfield_geocentric_seconds": "-0.0015957234023566407",
+      "erfa_utc_seconds": "-0.0015981984979342148",
+      "erfa_ut1_seconds": "-0.0015981984967349352"
+    },
+    {
+      "id": "2024-09-22_paranal_12",
+      "utc": "2024-09-22T12:00:00",
+      "site": {
+        "name": "paranal",
+        "latitude_deg": -24.6272,
+        "longitude_deg": -70.4042,
+        "elevation_m": 2635,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460576",
+        "0.00080074074074077068"
+      ],
+      "utc_day_fraction": "0.5",
+      "ut1_day_fraction": "0.50000065815162043",
+      "dut1_seconds": "0.0568643",
+      "site_arguments": [
+        "-1.2287850972325918",
+        "5803.739615001612",
+        "-2642.689916487011"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460576",
+          "0.00080074074074077068",
+          "-0.5",
+          "-1.2287850972325918",
+          "5803.739615001612",
+          "-2642.689916487011"
+        ]
+      ],
+      "astropy_site_seconds": "-0.0015988328652354433",
+      "astropy_geocentric_seconds": "-0.0016001316624570088",
+      "pint_default_seconds": "-0.0015988328652354433",
+      "skyfield_geocentric_seconds": "-0.0015962552257002107",
+      "erfa_utc_seconds": "-0.0015988328652354433",
+      "erfa_ut1_seconds": "-0.0015988328677792379"
+    },
+    {
+      "id": "2024-09-22_paranal_14",
+      "utc": "2024-09-22T14:00:00",
+      "site": {
+        "name": "paranal",
+        "latitude_deg": -24.6272,
+        "longitude_deg": -70.4042,
+        "elevation_m": 2635,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460576",
+        "0.084134074074074139"
+      ],
+      "utc_day_fraction": "0.58333333333333337",
+      "ut1_day_fraction": "0.58333399164101085",
+      "dut1_seconds": "0.056877783333333334",
+      "site_arguments": [
+        "-1.2287850972325918",
+        "5803.739615001612",
+        "-2642.689916487011"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460576",
+          "0.084134074074074139",
+          "-0.41666666666666663",
+          "-1.2287850972325918",
+          "5803.739615001612",
+          "-2642.689916487011"
+        ]
+      ],
+      "astropy_site_seconds": "-0.0015999043961545747",
+      "astropy_geocentric_seconds": "-0.0016006752933410318",
+      "pint_default_seconds": "-0.0015999043961545747",
+      "skyfield_geocentric_seconds": "-0.0015967837916044897",
+      "erfa_utc_seconds": "-0.0015999043961545747",
+      "erfa_ut1_seconds": "-0.0015999044017619788"
+    },
+    {
+      "id": "2024-09-22_arctic_10",
+      "utc": "2024-09-22T10:00:00",
+      "site": {
+        "name": "arctic",
+        "latitude_deg": 78.2232,
+        "longitude_deg": 15.6469,
+        "elevation_m": 20,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460576",
+        "-0.082532592592592602"
+      ],
+      "utc_day_fraction": "0.41666666666666669",
+      "ut1_day_fraction": "0.41666732466222994",
+      "dut1_seconds": "0.056850816666666665",
+      "site_arguments": [
+        "0.27308992273030069",
+        "1305.9757555822969",
+        "6222.0896246262646"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460576",
+          "-0.082532592592592602",
+          "0.41666666666666669",
+          "0.27308992273030069",
+          "1305.9757555822969",
+          "6222.0896246262646"
+        ]
+      ],
+      "astropy_site_seconds": "-0.0015986747431022325",
+      "astropy_geocentric_seconds": "-0.0015995843139158495",
+      "pint_default_seconds": "-0.0015986747431022325",
+      "skyfield_geocentric_seconds": "-0.0015957234023566407",
+      "erfa_utc_seconds": "-0.0015986747431022325",
+      "erfa_ut1_seconds": "-0.0015986747446921216"
+    },
+    {
+      "id": "2024-09-22_arctic_12",
+      "utc": "2024-09-22T12:00:00",
+      "site": {
+        "name": "arctic",
+        "latitude_deg": 78.2232,
+        "longitude_deg": 15.6469,
+        "elevation_m": 20,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460576",
+        "0.00080074074074077068"
+      ],
+      "utc_day_fraction": "0.5",
+      "ut1_day_fraction": "0.50000065815162043",
+      "dut1_seconds": "0.0568643",
+      "site_arguments": [
+        "0.27308992273030069",
+        "1305.9757555822969",
+        "6222.0896246262646"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460576",
+          "0.00080074074074077068",
+          "-0.5",
+          "0.27308992273030069",
+          "1305.9757555822969",
+          "6222.0896246262646"
+        ]
+      ],
+      "astropy_site_seconds": "-0.0015994266511246084",
+      "astropy_geocentric_seconds": "-0.0016001316624570088",
+      "pint_default_seconds": "-0.0015994266511246084",
+      "skyfield_geocentric_seconds": "-0.0015962552257002107",
+      "erfa_utc_seconds": "-0.0015994266511246084",
+      "erfa_ut1_seconds": "-0.001599426652692101"
+    },
+    {
+      "id": "2024-09-22_arctic_14",
+      "utc": "2024-09-22T14:00:00",
+      "site": {
+        "name": "arctic",
+        "latitude_deg": 78.2232,
+        "longitude_deg": 15.6469,
+        "elevation_m": 20,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460576",
+        "0.084134074074074139"
+      ],
+      "utc_day_fraction": "0.58333333333333337",
+      "ut1_day_fraction": "0.58333399164101085",
+      "dut1_seconds": "0.056877783333333334",
+      "site_arguments": [
+        "0.27308992273030069",
+        "1305.9757555822969",
+        "6222.0896246262646"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460576",
+          "0.084134074074074139",
+          "-0.41666666666666663",
+          "0.27308992273030069",
+          "1305.9757555822969",
+          "6222.0896246262646"
+        ]
+      ],
+      "astropy_site_seconds": "-0.0016001447024144061",
+      "astropy_geocentric_seconds": "-0.0016006752933410318",
+      "pint_default_seconds": "-0.0016001447024144061",
+      "skyfield_geocentric_seconds": "-0.0015967837916044897",
+      "erfa_utc_seconds": "-0.0016001447024144061",
+      "erfa_ut1_seconds": "-0.0016001447035395553"
+    },
+    {
+      "id": "2024-12-21_tokyo_10",
+      "utc": "2024-12-21T10:00:00",
+      "site": {
+        "name": "tokyo",
+        "latitude_deg": 35.6762,
+        "longitude_deg": 139.6503,
+        "elevation_m": 40,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460666",
+        "-0.082532592592592602"
+      ],
+      "utc_day_fraction": "0.41666666666666669",
+      "ut1_day_fraction": "0.41666722030864195",
+      "dut1_seconds": "0.047834666666666664",
+      "site_arguments": [
+        "2.4373575363978368",
+        "5187.0667139429461",
+        "3699.0894857740441"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460666",
+          "-0.082532592592592602",
+          "0.41666666666666669",
+          "2.4373575363978368",
+          "5187.0667139429461",
+          "3699.0894857740441"
+        ]
+      ],
+      "astropy_site_seconds": "-0.00039006368379713822",
+      "astropy_geocentric_seconds": "-0.00038841929701411565",
+      "pint_default_seconds": "-0.00039006368379713822",
+      "skyfield_geocentric_seconds": "-0.00038470525785432486",
+      "erfa_utc_seconds": "-0.00039006368379713822",
+      "erfa_ut1_seconds": "-0.00039006368172942195"
+    },
+    {
+      "id": "2024-12-21_tokyo_12",
+      "utc": "2024-12-21T12:00:00",
+      "site": {
+        "name": "tokyo",
+        "latitude_deg": 35.6762,
+        "longitude_deg": 139.6503,
+        "elevation_m": 40,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460666",
+        "0.00080074074074077068"
+      ],
+      "utc_day_fraction": "0.5",
+      "ut1_day_fraction": "0.50000055310416669",
+      "dut1_seconds": "0.047788200000000003",
+      "site_arguments": [
+        "2.4373575363978368",
+        "5187.0667139429461",
+        "3699.0894857740441"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460666",
+          "0.00080074074074077068",
+          "-0.5",
+          "2.4373575363978368",
+          "5187.0667139429461",
+          "3699.0894857740441"
+        ]
+      ],
+      "astropy_site_seconds": "-0.00038723140478207091",
+      "astropy_geocentric_seconds": "-0.00038610361510278067",
+      "pint_default_seconds": "-0.00038723140478207091",
+      "skyfield_geocentric_seconds": "-0.00038238122380071369",
+      "erfa_utc_seconds": "-0.00038723140478207091",
+      "erfa_ut1_seconds": "-0.00038723140013932774"
+    },
+    {
+      "id": "2024-12-21_tokyo_14",
+      "utc": "2024-12-21T14:00:00",
+      "site": {
+        "name": "tokyo",
+        "latitude_deg": 35.6762,
+        "longitude_deg": 139.6503,
+        "elevation_m": 40,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460666",
+        "0.084134074074074139"
+      ],
+      "utc_day_fraction": "0.58333333333333337",
+      "ut1_day_fraction": "0.58333388589969148",
+      "dut1_seconds": "0.047741733333333335",
+      "site_arguments": [
+        "2.4373575363978368",
+        "5187.0667139429461",
+        "3699.0894857740441"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460666",
+          "0.084134074074074139",
+          "-0.41666666666666663",
+          "2.4373575363978368",
+          "5187.0667139429461",
+          "3699.0894857740441"
+        ]
+      ],
+      "astropy_site_seconds": "-0.00038409635428209433",
+      "astropy_geocentric_seconds": "-0.00038378667048177221",
+      "pint_default_seconds": "-0.00038409635428209433",
+      "skyfield_geocentric_seconds": "-0.00038005636481210753",
+      "erfa_utc_seconds": "-0.00038409635428209433",
+      "erfa_ut1_seconds": "-0.00038409634831256071"
+    },
+    {
+      "id": "2024-12-21_equator_10",
+      "utc": "2024-12-21T10:00:00",
+      "site": {
+        "name": "equator",
+        "latitude_deg": 0,
+        "longitude_deg": 30,
+        "elevation_m": 0,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460666",
+        "-0.082532592592592602"
+      ],
+      "utc_day_fraction": "0.41666666666666669",
+      "ut1_day_fraction": "0.41666722030864195",
+      "dut1_seconds": "0.047834666666666664",
+      "site_arguments": [
+        "0.52359877559829882",
+        "6378.1369999999997",
+        "0"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460666",
+          "-0.082532592592592602",
+          "0.41666666666666669",
+          "0.52359877559829882",
+          "6378.1369999999997",
+          "0"
+        ]
+      ],
+      "astropy_site_seconds": "-0.00038842862183574177",
+      "astropy_geocentric_seconds": "-0.00038841929701411565",
+      "pint_default_seconds": "-0.00038842862183574177",
+      "skyfield_geocentric_seconds": "-0.00038470525785432486",
+      "erfa_utc_seconds": "-0.00038842862183574177",
+      "erfa_ut1_seconds": "-0.00038842862930559501"
+    },
+    {
+      "id": "2024-12-21_equator_12",
+      "utc": "2024-12-21T12:00:00",
+      "site": {
+        "name": "equator",
+        "latitude_deg": 0,
+        "longitude_deg": 30,
+        "elevation_m": 0,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460666",
+        "0.00080074074074077068"
+      ],
+      "utc_day_fraction": "0.5",
+      "ut1_day_fraction": "0.50000055310416669",
+      "dut1_seconds": "0.047788200000000003",
+      "site_arguments": [
+        "0.52359877559829882",
+        "6378.1369999999997",
+        "0"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460666",
+          "0.00080074074074077068",
+          "-0.5",
+          "0.52359877559829882",
+          "6378.1369999999997",
+          "0"
+        ]
+      ],
+      "astropy_site_seconds": "-0.00038718556122797822",
+      "astropy_geocentric_seconds": "-0.00038610361510278067",
+      "pint_default_seconds": "-0.00038718556122797822",
+      "skyfield_geocentric_seconds": "-0.00038238122380071369",
+      "erfa_utc_seconds": "-0.00038718556122797822",
+      "erfa_ut1_seconds": "-0.00038718556767426904"
+    },
+    {
+      "id": "2024-12-21_equator_14",
+      "utc": "2024-12-21T14:00:00",
+      "site": {
+        "name": "equator",
+        "latitude_deg": 0,
+        "longitude_deg": 30,
+        "elevation_m": 0,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460666",
+        "0.084134074074074139"
+      ],
+      "utc_day_fraction": "0.58333333333333337",
+      "ut1_day_fraction": "0.58333388589969148",
+      "dut1_seconds": "0.047741733333333335",
+      "site_arguments": [
+        "0.52359877559829882",
+        "6378.1369999999997",
+        "0"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460666",
+          "0.084134074074074139",
+          "-0.41666666666666663",
+          "0.52359877559829882",
+          "6378.1369999999997",
+          "0"
+        ]
+      ],
+      "astropy_site_seconds": "-0.00038565124474205137",
+      "astropy_geocentric_seconds": "-0.00038378667048177221",
+      "pint_default_seconds": "-0.00038565124474205137",
+      "skyfield_geocentric_seconds": "-0.00038005636481210753",
+      "erfa_utc_seconds": "-0.00038565124474205137",
+      "erfa_ut1_seconds": "-0.00038565124844048085"
+    },
+    {
+      "id": "2024-12-21_paranal_10",
+      "utc": "2024-12-21T10:00:00",
+      "site": {
+        "name": "paranal",
+        "latitude_deg": -24.6272,
+        "longitude_deg": -70.4042,
+        "elevation_m": 2635,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460666",
+        "-0.082532592592592602"
+      ],
+      "utc_day_fraction": "0.41666666666666669",
+      "ut1_day_fraction": "0.41666722030864195",
+      "dut1_seconds": "0.047834666666666664",
+      "site_arguments": [
+        "-1.2287850972325918",
+        "5803.739615001612",
+        "-2642.689916487011"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460666",
+          "-0.082532592592592602",
+          "0.41666666666666669",
+          "-1.2287850972325918",
+          "5803.739615001612",
+          "-2642.689916487011"
+        ]
+      ],
+      "astropy_site_seconds": "-0.0003864942879751655",
+      "astropy_geocentric_seconds": "-0.00038841929701411565",
+      "pint_default_seconds": "-0.0003864942879751655",
+      "skyfield_geocentric_seconds": "-0.00038470525785432486",
+      "erfa_utc_seconds": "-0.0003864942879751655",
+      "erfa_ut1_seconds": "-0.00038649428677670446"
+    },
+    {
+      "id": "2024-12-21_paranal_12",
+      "utc": "2024-12-21T12:00:00",
+      "site": {
+        "name": "paranal",
+        "latitude_deg": -24.6272,
+        "longitude_deg": -70.4042,
+        "elevation_m": 2635,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460666",
+        "0.00080074074074077068"
+      ],
+      "utc_day_fraction": "0.5",
+      "ut1_day_fraction": "0.50000055310416669",
+      "dut1_seconds": "0.047788200000000003",
+      "site_arguments": [
+        "-1.2287850972325918",
+        "5803.739615001612",
+        "-2642.689916487011"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460666",
+          "0.00080074074074077068",
+          "-0.5",
+          "-1.2287850972325918",
+          "5803.739615001612",
+          "-2642.689916487011"
+        ]
+      ],
+      "astropy_site_seconds": "-0.00038426355632566921",
+      "astropy_geocentric_seconds": "-0.00038610361510278067",
+      "pint_default_seconds": "-0.00038426355632566921",
+      "skyfield_geocentric_seconds": "-0.00038238122380071369",
+      "erfa_utc_seconds": "-0.00038426355632566921",
+      "erfa_ut1_seconds": "-0.00038426355863154188"
+    },
+    {
+      "id": "2024-12-21_paranal_14",
+      "utc": "2024-12-21T14:00:00",
+      "site": {
+        "name": "paranal",
+        "latitude_deg": -24.6272,
+        "longitude_deg": -70.4042,
+        "elevation_m": 2635,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460666",
+        "0.084134074074074139"
+      ],
+      "utc_day_fraction": "0.58333333333333337",
+      "ut1_day_fraction": "0.58333388589969148",
+      "dut1_seconds": "0.047741733333333335",
+      "site_arguments": [
+        "-1.2287850972325918",
+        "5803.739615001612",
+        "-2642.689916487011"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460666",
+          "0.084134074074074139",
+          "-0.41666666666666663",
+          "-1.2287850972325918",
+          "5803.739615001612",
+          "-2642.689916487011"
+        ]
+      ],
+      "astropy_site_seconds": "-0.00038252421622055743",
+      "astropy_geocentric_seconds": "-0.00038378667048177221",
+      "pint_default_seconds": "-0.00038252421622055743",
+      "skyfield_geocentric_seconds": "-0.00038005636481210753",
+      "erfa_utc_seconds": "-0.00038252421622055743",
+      "erfa_ut1_seconds": "-0.00038252422140653739"
+    },
+    {
+      "id": "2024-12-21_arctic_10",
+      "utc": "2024-12-21T10:00:00",
+      "site": {
+        "name": "arctic",
+        "latitude_deg": 78.2232,
+        "longitude_deg": 15.6469,
+        "elevation_m": 20,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460666",
+        "-0.082532592592592602"
+      ],
+      "utc_day_fraction": "0.41666666666666669",
+      "ut1_day_fraction": "0.41666722030864195",
+      "dut1_seconds": "0.047834666666666664",
+      "site_arguments": [
+        "0.27308992273030069",
+        "1305.9757555822969",
+        "6222.0896246262646"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460666",
+          "-0.082532592592592602",
+          "0.41666666666666669",
+          "0.27308992273030069",
+          "1305.9757555822969",
+          "6222.0896246262646"
+        ]
+      ],
+      "astropy_site_seconds": "-0.00038831600176533835",
+      "astropy_geocentric_seconds": "-0.00038841929701411565",
+      "pint_default_seconds": "-0.00038831600176533835",
+      "skyfield_geocentric_seconds": "-0.00038470525785432486",
+      "erfa_utc_seconds": "-0.00038831600176533835",
+      "erfa_ut1_seconds": "-0.00038831600324875748"
+    },
+    {
+      "id": "2024-12-21_arctic_12",
+      "utc": "2024-12-21T12:00:00",
+      "site": {
+        "name": "arctic",
+        "latitude_deg": 78.2232,
+        "longitude_deg": 15.6469,
+        "elevation_m": 20,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460666",
+        "0.00080074074074077068"
+      ],
+      "utc_day_fraction": "0.5",
+      "ut1_day_fraction": "0.50000055310416669",
+      "dut1_seconds": "0.047788200000000003",
+      "site_arguments": [
+        "0.27308992273030069",
+        "1305.9757555822969",
+        "6222.0896246262646"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460666",
+          "0.00080074074074077068",
+          "-0.5",
+          "0.27308992273030069",
+          "1305.9757555822969",
+          "6222.0896246262646"
+        ]
+      ],
+      "astropy_site_seconds": "-0.00038622915062318377",
+      "astropy_geocentric_seconds": "-0.00038610361510278067",
+      "pint_default_seconds": "-0.00038622915062318377",
+      "skyfield_geocentric_seconds": "-0.00038238122380071369",
+      "erfa_utc_seconds": "-0.00038622915062318377",
+      "erfa_ut1_seconds": "-0.00038622915209277097"
+    },
+    {
+      "id": "2024-12-21_arctic_14",
+      "utc": "2024-12-21T14:00:00",
+      "site": {
+        "name": "arctic",
+        "latitude_deg": 78.2232,
+        "longitude_deg": 15.6469,
+        "elevation_m": 20,
+        "datum": "WGS84"
+      },
+      "tt_jd_parts": [
+        "2460666",
+        "0.084134074074074139"
+      ],
+      "utc_day_fraction": "0.58333333333333337",
+      "ut1_day_fraction": "0.58333388589969148",
+      "dut1_seconds": "0.047741733333333335",
+      "site_arguments": [
+        "0.27308992273030069",
+        "1305.9757555822969",
+        "6222.0896246262646"
+      ],
+      "pint_dtdb_calls": [
+        [
+          "2460666",
+          "0.084134074074074139",
+          "-0.41666666666666663",
+          "0.27308992273030069",
+          "1305.9757555822969",
+          "6222.0896246262646"
+        ]
+      ],
+      "astropy_site_seconds": "-0.00038410874993670044",
+      "astropy_geocentric_seconds": "-0.00038378667048177221",
+      "pint_default_seconds": "-0.00038410874993670044",
+      "skyfield_geocentric_seconds": "-0.00038005636481210753",
+      "erfa_utc_seconds": "-0.00038410874993670044",
+      "erfa_ut1_seconds": "-0.00038410875099893858"
+    }
+  ],
+  "network": "socket connect/connect_ex/create_connection blocked",
+  "physical_clock_bound_seconds": null,
+  "observing_eligible": false
+}

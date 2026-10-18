@@ -27,8 +27,9 @@
 - Mission 37: Complete — Strict Transit Timing Metadata and Eligibility Boundary, merged in [PR #37](https://github.com/wolfchil345/astroscope-ai-observatory/pull/37) (`809b0bc89aa0e4b96de2e8f35d81c417b1609650`); production observer-arrival conversion remains unavailable
 - Mission 38: Complete — Observer-Arrival Reference Protocol and Conversion Validation, merged in [PR #38](https://github.com/wolfchil345/astroscope-ai-observatory/pull/38) (`9012c675b509f49df61a1ec83b7a330dd5efe99d`); research-only geometric inversion and historical TAI/UTC evidence, no production eligibility
 - Mission 39: Complete — Observer-Arrival Error Budget and Resolved-Event Contract, merged in [PR #39](https://github.com/wolfchil345/astroscope-ai-observatory/pull/39) (`eaf3e22b8fb819ef37e0f803595de5330d21e0c7`); physical timing bound remains unknown
-- Mission 40: Active — Observer-Arrival Source Convention and Reference-Domain Qualification, [PR #40](https://github.com/wolfchil345/astroscope-ai-observatory/pull/40); selected research convention and supplied-input solar component comparison only, full timing reference unqualified
-- Proposed next: Mission 41 — Matched-Convention Observer-Arrival Reference Validation; not started, pending Mission 40 review and merge and compatible independent clock evidence
+- Mission 40: Complete — Observer-Arrival Source Convention and Reference-Domain Qualification, merged in [PR #40](https://github.com/wolfchil345/astroscope-ai-observatory/pull/40); selected research convention and supplied-input solar component comparison only, full timing reference unqualified
+- Mission 41: Active — Matched-Convention Observer-Arrival Reference Validation, [PR #41](https://github.com/wolfchil345/astroscope-ai-observatory/pull/41); unsuccessful independent clock qualification retained, combined evaluation blocked
+- Proposed next: Mission 42 — Independent Time-Ephemeris Reference Acquisition and Clock Mapping; not started, pending Mission 41 review and merge
 
 ## Phase Progress
 
@@ -341,9 +342,27 @@
 - [x] Keep full reference/physical qualification incomplete and all observing gates closed
 - [x] Complete full local quality gate: 3,061 tests passed in 119.45 seconds; Ruff, compilation and documentation links passed
 - [x] Open pull request — [PR #40](https://github.com/wolfchil345/astroscope-ai-observatory/pull/40); published-head CI and nine artifacts must be verified before merge, with the final run recorded in the PR
-- [ ] Merge Mission 40
+- [x] Merge Mission 40 — PR #40, 2026-10-18 at 07:07:19 UTC (`176ba2a504e64464f6f69e642dddb4bb98a05efc`); post-merge Quality Gate 39106487552 passed
+
+## Mission 41 Completion Checklist
+
+### Mission 41 — Matched-Convention Observer-Arrival Reference Validation
+
+- [x] Verify Mission 40 merge and successful post-merge quality gate
+- [x] Freeze route requirements, diagnostic census and blocking policy before values (`5b63ed2`)
+- [x] Audit four routes, tracing shared backends and retaining the unsupported ephemeris attempt
+- [x] Archive 48 unique site instants and 12 unique geocentric instants with frozen EOP/leaps
+- [x] Clarify the selected UTC approximation to UT1 without changing the convention
+- [x] Retain unsuccessful clock qualification and all 288 blocked combined cases with null results
+- [x] Add 46 tests, including live algorithm regression and rejection of false independence
+- [x] Reproduce the archived fixture byte-for-byte offline; preserve all historical records and gates
+- [x] Complete full local quality gate: 3,107 tests passed in 122.05 seconds; retain clean canonical evidence
+- [x] Open pull request — [PR #41](https://github.com/wolfchil345/astroscope-ai-observatory/pull/41); published-head CI and ten artifacts are required before merge, with the verified final run recorded in the PR
+- [ ] Merge Mission 41
 
 ## Phase 2 Deliverables
+
+- [Matched-Convention Observer-Arrival Reference Validation — Mission 41](validation/clock_reference_validation.md)
 
 - [Observer-Arrival Source Convention and Reference-Domain Qualification — Mission 40](validation/source_reference_qualification.md)
 

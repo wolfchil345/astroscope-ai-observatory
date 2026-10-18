@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "files": {
+    "validation/manifests/clock_reference_policy_v1.json": "22183f6735d3237db5de337da5ab5498a0546c59d4d05d51957d94d1c7264c4f",
+    "validation/fixtures/clock_reference_v1.json": "04677f587607412cd000da2fe64983d8c971b85ca890f17f1e613b9387d21c8a",
+    "validation/reference_generation/clock_reference.py": "aea6ee0de7d2f2d3af140c2ae846a835a0d50e54d022ca969d0bb1ae87400ff1",
+    "validation/manifests/source_reference_policy_v1.json": "3967e040a850f900e92e6e48fd464fa58a918294e0147466806f4d8e96c05075",
+    "validation/manifests/source_reference_v1.json": "416188065b985415c0f6e560eae138910e2d0a1dd39c504f6a1b013a9bdee454",
+    "validation/fixtures/source_reference_v1.json": "2b5638e35764d55de602b974f01595a4303c644484da6f7a1e476ca5c0b7fa62",
+    "validation/results/source_reference_reference_run.json": "bc5e023e4ca17148fbf88f6d06d271cdd4be6a203f9458fb55caac88e56052de",
+    "validation/manifests/observer_arrival_policy_v1.json": "0d5a5fd556a2df8efc7cecfdbdbcb6c8c508f288bf29bda0ea686dfddf1411dd",
+    "validation/fixtures/observer_arrival_v1.json": "8704580d9dd6ba7a5df65f6e6a0817f00b24762ad0878d0ed2598455b8ec3972",
+    "validation/fixtures/solar_lunar_eop_v1.json": "6372ac20b566dc5e9b4f106caaef2751a624c7bb46e161252e3208f4b906c1fa",
+    "validation/fixtures/observer_arrival_leaps_v1.json": "1defa648097e056ce453cea1037f7395a9d99c930ef3e18de456133d840f9bad",
+    "validation/results/observer_arrival_reference_run.json": "e1b8659510ad4f09a0c26d46043a08af592f98057e4a1bc67172d28bc2610fc6",
+    "validation/results/arrival_budget_reference_run.json": "544a761bafd15b5559605d51c27be7260ed2b72892800b495cba9be8db006a4f",
+    "docs/research/evidence/arrival_clock_inclusion_audit_v1.json": "c9c12b0007f299ae5a92854ceba75c29a1eebbc4dbc342a3c32da661fd7680be",
+    "validation/observer_arrival_model.py": "a324728ed10acbf47e7d35bff4892b180d3e75e55dfa71a8bfca3e8448694622",
+    "src/astroscope/transit_timing.py": "7d1f72807a5991f94be66cface374162fd3ebb10c1cf2cdf0b18a5d7d716d27e",
+    "validation/reference_generation/source-reference-requirements.txt": "16aa2748747d8d2d00abdbbcbef39ffa48b4e58aad29dcf573d3a7327fbc71ec"
+  }
+}

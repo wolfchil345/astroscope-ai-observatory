@@ -191,3 +191,19 @@ jobs:
           name: source-reference-qualification-record
           path: ${{ runner.temp }}/source_reference_reference_run.json
           if-no-files-found: error
+
+      - name: Audit matched-convention clock-reference qualification
+        env:
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          python -m validation.clock_reference \
+            --output "$RUNNER_TEMP/clock_reference_reference_run.json"
+
+      - name: Upload clock-reference qualification audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: clock-reference-qualification-record
+          path: ${{ runner.temp }}/clock_reference_reference_run.json
+          if-no-files-found: error
