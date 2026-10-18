@@ -175,3 +175,19 @@ jobs:
           name: arrival-budget-audit-record
           path: ${{ runner.temp }}/arrival_budget_reference_run.json
           if-no-files-found: error
+
+      - name: Qualify source convention and solar component reference
+        env:
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          python -m validation.source_reference \
+            --output "$RUNNER_TEMP/source_reference_reference_run.json"
+
+      - name: Upload source-reference qualification record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: source-reference-qualification-record
+          path: ${{ runner.temp }}/source_reference_reference_run.json
+          if-no-files-found: error
