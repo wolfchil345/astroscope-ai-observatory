@@ -373,7 +373,7 @@
 - [x] Document geocentre-to-site mapping requirements without replacing the selected convention
 - [x] Preserve all 48 blocked site mappings and 288 blocked combined arrival cases
 - [x] Reproduce the reference fixture byte-for-byte offline; add 46 tests and an eleventh CI artifact
-- [ ] Complete full local quality gate and retain clean canonical evidence
+- [x] Complete full local quality gate: 3,153 tests passed in 123.05 seconds; Ruff, compilation, frozen inputs and documentation links passed; clean canonical record retained
 - [ ] Open pull request and verify published-head CI
 - [ ] Merge Mission 42
 

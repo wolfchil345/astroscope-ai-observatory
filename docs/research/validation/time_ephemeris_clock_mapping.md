@@ -192,8 +192,16 @@ finite numbers, inventory/context tampering, checksums, candidate/reference
 isolation, Decimal precision isolation, live candidate evaluation, and false
 qualification from both zero and large candidate differences. The new eleventh
 CI artifact is `time-ephemeris-clock-mapping-record`; all ten prior records remain.
-Final full-suite and clean canonical-record provenance are recorded below after
-verification.
+The full local suite passed **3,153 tests in 123.05 seconds**; Ruff, compilation,
+all ten frozen historical-input checksums and 29 relative documentation links
+also passed before the evidence commit. Local candidate packages were Python
+3.12.14, Astropy 8.0.1, PyERFA 2.0.1.5 and NumPy 2.5.3; the full-suite environment
+used Streamlit 1.66.0. The [canonical audit record](../../../validation/results/time_ephemeris_reference_run.json)
+was generated from clean implementation
+`99145db6da914e849e8cce7842b42036c9837882`, separately from the later documentation
+and result-retention commit. Its `working_tree_dirty` field is false.
+Published-head CI and artifact evidence must be verified and recorded in the PR
+before merge.
 
 ## Next gate
 
