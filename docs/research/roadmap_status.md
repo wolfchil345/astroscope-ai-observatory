@@ -32,7 +32,7 @@
 - Mission 42: Complete — Independent Time-Ephemeris Reference Acquisition and Clock Mapping, merged in [PR #42](https://github.com/wolfchil345/astroscope-ai-observatory/pull/42) (`7d1e6557929f873389be369612b6855ae4db22cc`); integrated geocentric reference evaluated, physical site-clock qualification remains incomplete
 - Mission 43: Complete — Independent Site-Clock Mapping and Uncertainty Qualification, merged in [PR #43](https://github.com/wolfchil345/astroscope-ai-observatory/pull/43) (`6982a2419bdc7c3ced22bd5abe5d6d79d7c05c17`); post-merge Quality Gate 39133947130 passed, physical bounds remain unknown
 - Mission 44: Complete — Relativistic Site-Frame Mapping and Error-Bound Evidence, merged in [PR #44](https://github.com/wolfchil345/astroscope-ai-observatory/pull/44) (`c7bbcc54425ef9a2dc02550c45b94797bdb76bcf`); post-merge Quality Gate 39138219738 passed, numerical spatial inverse certified within the declared polynomial, physical qualification incomplete
-- Mission 45: Active — Coupled Relativistic Site-Clock Model and Reference Qualification; all 48 coupled site cases and 12 controls pass within the declared quantized model, physical timing bounds remain unknown
+- Mission 45: Active — Coupled Relativistic Site-Clock Model and Reference Qualification, [PR #45](https://github.com/wolfchil345/astroscope-ai-observatory/pull/45); all 48 coupled site cases and 12 controls pass within the declared quantized model, physical timing bounds remain unknown
 - Proposed next: Mission 46 — Time-Ephemeris Normalization and Physical Uncertainty Evidence; not started, pending Mission 45 review and merge
 
 ## Phase Progress
@@ -426,7 +426,7 @@
 - [x] Preserve offline regeneration, historical inputs and blocked physical/arrival qualification
 - [x] Add 59 regression cases and a fourteenth CI artifact
 - [x] Retain clean canonical results from `fb4f1da4bfaa95912f292f8b8920a970b28e9653`; all 3365 tests pass
-- [ ] Open pull request and verify final CI artifacts
+- [x] Open [PR #45](https://github.com/wolfchil345/astroscope-ai-observatory/pull/45); final CI and artifact verification is recorded in the PR
 - [ ] Merge Mission 45
 
 ## Phase 2 Deliverables

@@ -268,6 +268,10 @@ NumPy 2.5.3, Astropy 8.0.1, PyERFA 2.0.1.5 and 64 coefficient guard significand
 bits. CI preserves all thirteen earlier artifacts and adds
 `coupled-site-clock-record`.
 
+Review proceeds in [PR #45](https://github.com/wolfchil345/astroscope-ai-observatory/pull/45).
+Final-head GitHub CI and downloaded-artifact verification are recorded in that
+PR, avoiding a new untested commit merely to report CI evidence.
+
 ## Next research boundary
 
 Proposed Mission 46: **Time-Ephemeris Normalization and Physical Uncertainty
