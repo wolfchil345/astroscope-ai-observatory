@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "mission": 43,
+  "baseline_commit": "7d1e6557929f873389be369612b6855ae4db22cc",
+  "baseline_ci": {"run_id": 39111153623, "conclusion": "success"},
+  "freeze_rule": "Commit before site-model evaluations, target-date formal-error extraction or residuals. Source and implementation inspection precede freeze. No tuning, fitted bias or residual exclusions.",
+  "scope": "Independent leading-order site-clock mapping experiment and uncertainty qualification audit. Explicitly retain incomplete physical qualification; no production or combined arrival converter.",
+  "selected_arrival_convention_id": "astroscope-tdb-solar-au-v1",
+  "research_model_id": "de440t-skyfield-gcrs-c2-site-surrogate-v1",
+  "model": {
+    "equation": "delta + D(TT+delta) - dot(v_E(TT+delta),r_GCRS(TT,UT1,xp,yp;delta))/c^2 = 0",
+    "D": "DE440t geocentric TT-TDB in seconds, raw CSPICE time segment",
+    "velocity": "DE440t geometric Earth barycentric velocity, CSPICE spkez 399 relative to 0, J2000, NONE; km/s converted to m/s",
+    "position": "Skyfield WGS84 position rotated from ITRS to GCRS, meters; TT epoch, frozen UT1 and polar motion; model precession/nutation without observed dX,dY",
+    "tdb_argument": "Inject iterated integrated delta into Skyfield tdb_fraction; patch its approximate tdb_minus_tt to raise, preventing hidden fallback",
+    "c_m_s": "299792458",
+    "caveat": "GCRS station position is a deliberately leading-order surrogate, not the exact scaled BCRS station difference. No proof of full frame/scale mapping or c^-4 remainder is claimed.",
+    "no_replacement": "This separately versioned research model does not replace the selected Astropy/ERFA site clock; no extra Einstein term is added to the candidate."
+  },
+  "design": {
+    "site_count": 48,
+    "geocentric_control_count": 12,
+    "selection": "All four historical dates x four sites x three hours from Mission 38. Twelve separate zero-site controls. No direction-based multiplication.",
+    "retain": "All signed comparisons, iterations, supplied vectors, reader differences and failures; UTC-for-UT1 and no-polar-motion variants are component diagnostics only.",
+    "candidate": "Live Astropy site/geocentre clocks with frozen tables, plus Mission 41 archival reproduction check",
+    "solver_max_iterations": 8,
+    "solver_residual_seconds": "1e-15",
+    "supplied_vector_arithmetic_seconds": "1e-15",
+    "velocity_reader_agreement_m_s": "1e-6",
+    "geocentre_reproduction_seconds": "1e-12",
+    "candidate_archival_reproduction_seconds": "1e-12",
+    "threshold_meaning": "Engineering reproduction/algebra checks only; no candidate-versus-surrogate physical accuracy threshold"
+  },
+  "kernel_sha256": "4f003b4437a8b479aaca262716a779e3683413200adfd6353c4901aab5de800e",
+  "kernel_size_bytes": 152747008,
+  "kernel_source": "https://ssd.jpl.nasa.gov/ftp/eph/planets/bsp/de440t.bsp",
+  "reference_environment": "validation/reference_generation/site-clock-requirements.txt",
+  "reference_packages": {"certifi": "2026.7.22", "jplephem": "2.24", "numpy": "2.5.4", "sgp4": "2.27", "skyfield": "1.55", "spiceypy": "8.3.0"},
+  "cspice_toolkit": "CSPICE_N0067",
+  "eop_evidence": {
+    "source_sha256": "6c1e052b7822ba84e793e28aa14080552f53d5c66b739cd0e67cb4b46d0e7815",
+    "distribution": "astropy-iers-data 0.2026.9.21.0.56.25, original ASCII file as data only",
+    "source": "https://hpiers.obspm.fr/iers/eop/eopc04/eopc04.1962-now",
+    "extract": "Eight UTC-midnight records bracketing the four historical dates; retain xp,yp,UT1-UTC,dX,dY and their five formal errors; parse original ASCII without Astropy",
+    "usage": "Nominal mapping retains prior frozen EOP means. Formal errors are evidence, not hard bounds. No covariance, coverage probability, missing CIP correction or interpolation error is invented.",
+    "expected_records": 8
+  },
+  "conditional_sensitivity_example": {
+    "status": "hypothetical_inputs_not_established_reference_uncertainty",
+    "V_m_s": "40000", "R_m": "7000000", "delta_r_m": "1", "delta_v_m_s": "0.001",
+    "U_m2_s2": "2000000000",
+    "vector_bound_formula": "(V*delta_r + R*delta_v + delta_v*delta_r)/c^2, triangle inequality, no independence assumption",
+    "c4_station_envelope_formula": "(3*U + V^2/2)*V*R/c^4, only the displayed Park equation 3 station term under compatible-coordinate bounds",
+    "not_total": "Neither example includes geocentric ephemeris error, full frame/scale conversion, higher orders, EOP interpolation/model errors or actual station/clock errors. Never sum it as a complete physical bound."
+  },
+  "physical_budget_components": [
+    {"id": "geocentric_time_ephemeris", "hard_bound_seconds": null, "status": "domain_bound_not_established"},
+    {"id": "earth_velocity", "hard_bound_seconds": null, "status": "reader_agreement_not_ephemeris_uncertainty"},
+    {"id": "station_coordinates", "hard_bound_seconds": null, "status": "nominal_wgs84_not_survey_error_bound"},
+    {"id": "earth_orientation", "hard_bound_seconds": null, "status": "formal_errors_available_not_complete_hard_bound"},
+    {"id": "frame_scale_mapping", "hard_bound_seconds": null, "status": "gcrs_to_scaled_bcrs_not_qualified"},
+    {"id": "higher_order_remainder", "hard_bound_seconds": null, "status": "conditional_single_term_envelope_not_total_remainder"}
+  ],
+  "gate": {"site_reference_status": "unqualified", "physical_site_clock_bound_seconds": null, "physical_arrival_bound_seconds": null, "observing_eligible": false, "combined_executed": 0, "combined_blocked": 288},
+  "frozen_inputs": {
+    "validation/manifests/time_ephemeris_policy_v1.json": "4d8bd7af1422874d7984bb4fba2bde981485709e70fb38d53a357c67e9e38231",
+    "validation/manifests/time_ephemeris_v1.json": "0f185bd28ed24bfa30ea71dc0743b1fb9f6110ad602f92963491e2a8ab386519",
+    "validation/fixtures/time_ephemeris_v1.json": "f4d087bb1c53269f7f2e490a50067f2a1a72d2abed2bbf2b6d0d6cc1094cb540",
+    "validation/results/time_ephemeris_reference_run.json": "71edf7169ec6e78a61a21f8882729da5c7ac01b615ee28ef96b75ed4cf481980",
+    "validation/fixtures/clock_reference_v1.json": "04677f587607412cd000da2fe64983d8c971b85ca890f17f1e613b9387d21c8a",
+    "validation/results/clock_reference_reference_run.json": "bae85b8fa02727ba06488670c6b326a8b75ddccdfa7acf4f395123b1b6bc2a54",
+    "validation/manifests/observer_arrival_policy_v1.json": "0d5a5fd556a2df8efc7cecfdbdbcb6c8c508f288bf29bda0ea686dfddf1411dd",
+    "validation/fixtures/solar_lunar_eop_v1.json": "6372ac20b566dc5e9b4f106caaef2751a624c7bb46e161252e3208f4b906c1fa",
+    "validation/fixtures/observer_arrival_leaps_v1.json": "1defa648097e056ce453cea1037f7395a9d99c930ef3e18de456133d840f9bad",
+    "validation/observer_arrival_model.py": "a324728ed10acbf47e7d35bff4892b180d3e75e55dfa71a8bfca3e8448694622",
+    "src/astroscope/transit_timing.py": "7d1f72807a5991f94be66cface374162fd3ebb10c1cf2cdf0b18a5d7d716d27e"
+  },
+  "sources": [
+    {"url": "https://ssd.jpl.nasa.gov/doc/Park.2021.AJ.DE440.pdf", "role": "Section 2.3 equation 3, site terms and normalization; no borrowed complete uncertainty bound"},
+    {"url": "https://iers-conventions.obspm.fr/content/chapter10/tn36_c10.pdf", "role": "Equations 10.1-10.5 and time-ephemeris convention caveats; published TE405/FB estimates do not automatically transfer to DE440t"},
+    {"url": "https://arxiv.org/abs/astro-ph/0508292", "role": "Klioner 2008: distinct scaled coordinate quantities, not different SI units"},
+    {"url": "https://rhodesmill.org/skyfield/accuracy-efficiency.html", "role": "Independent orientation implementation and explicit polar-motion input"},
+    {"url": "https://datacenter.iers.org/versionMetadata.php?filename=latestVersionMeta%2F234_EOP_C04_20.62-NOW234.txt", "role": "Original C04 field definitions and formal errors; the pinned original file, not latest data, is used"}
+  ],
+  "sources_inspected_utc": "2026-10-18"
+}
