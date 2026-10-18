@@ -1,0 +1,1109 @@
+{
+  "schema_version": "1.0",
+  "benchmark_id": "site-clock-mapping-qualification-v1",
+  "audit_passed": true,
+  "model_id": "de440t-skyfield-gcrs-c2-site-surrogate-v1",
+  "selected_arrival_convention_id": "astroscope-tdb-solar-au-v1",
+  "site_reference_status": "unqualified",
+  "qualification_outcome": "incomplete_evidence_retained",
+  "diagnostics": {
+    "candidate_minus_surrogate_seconds": {
+      "count": 48,
+      "minimum_seconds": "-2.706616440532E-8",
+      "maximum_seconds": "-2.294102664579E-8",
+      "maximum_absolute_seconds": "2.706616440532E-8",
+      "interpretation": "diagnostic_model_difference_not_physical_error_bound"
+    },
+    "site_increment_difference_seconds": {
+      "count": 48,
+      "minimum_seconds": "-6.042079530E-10",
+      "maximum_seconds": "9.535995078E-10",
+      "maximum_absolute_seconds": "9.535995078E-10",
+      "interpretation": "diagnostic_model_difference_not_physical_error_bound"
+    }
+  },
+  "cases": [
+    {
+      "id": "2024-03-20_tokyo_10",
+      "geocentric_id": "2024-03-20_10",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "0.0015872545821774226",
+      "surrogate_increment_seconds": "-0.0000019894788291091",
+      "candidate_minus_surrogate_seconds": "-2.37704317155E-8",
+      "geocentric_model_difference_seconds": "-2.37165228669E-8",
+      "site_increment_difference_seconds": "-5.39088486E-11",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "3.437722506E-13",
+        "no_polar_motion": "7.941357384E-13"
+      },
+      "velocity_reader_difference_m_s": "4.00E-12",
+      "vector_arithmetic_difference_seconds": "1.22850288769017650917938755210487958625447339650465132E-22",
+      "max_et_argument_quantization_seconds": "3.2367109288278239631608812487684190273284912109375E-8",
+      "nominal_radius_m": "6370943.738462827005376736584115976558719487277596166699598592850525154",
+      "nominal_speed_m_s": "29909.23391775961814589244611545604702739021985541030676315183552209139",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_equator_10",
+      "geocentric_id": "2024-03-20_10",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "0.001589275216502907",
+      "surrogate_increment_seconds": "3.11554963753E-8",
+      "candidate_minus_surrogate_seconds": "-2.38618705752E-8",
+      "geocentric_model_difference_seconds": "-2.37165228669E-8",
+      "site_increment_difference_seconds": "-1.453477083E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "-1.315993210894E-12",
+        "no_polar_motion": "-6.88911326745E-13"
+      },
+      "velocity_reader_difference_m_s": "3.4E-13",
+      "vector_arithmetic_difference_seconds": "1.28466449802358013938972935446496929868525092232656746E-24",
+      "max_et_argument_quantization_seconds": "3.829070716763159631934598792213364504277706146240234375E-8",
+      "nominal_radius_m": "6378136.999999999905385311416291287654769778714993128591681848647145070",
+      "nominal_speed_m_s": "29909.23391775938295337481068531804281352690419627270524480075133228135",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_paranal_10",
+      "geocentric_id": "2024-03-20_10",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "0.001591331428290174",
+      "surrogate_increment_seconds": "0.0000020873672836423",
+      "candidate_minus_surrogate_seconds": "-2.36731115411E-8",
+      "geocentric_model_difference_seconds": "-2.37165228669E-8",
+      "site_increment_difference_seconds": "4.34113258E-11",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "2.350987078E-13",
+        "no_polar_motion": "5.78920185E-14"
+      },
+      "velocity_reader_difference_m_s": "2.039607805437113932011289643609112795825508378439838563033988321770373E-12",
+      "vector_arithmetic_difference_seconds": "-3.3732227830094606696427145276720012827864912960092953E-23",
+      "max_et_argument_quantization_seconds": "1.52587890625E-8",
+      "nominal_radius_m": "6377084.248576390346673435650827046018035342407100070544130840591581276",
+      "nominal_speed_m_s": "29909.23391775914787832800923006989541734086368490847749515394318535928",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_arctic_10",
+      "geocentric_id": "2024-03-20_10",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "0.001588525513115228",
+      "surrogate_increment_seconds": "-7.185478913037E-7",
+      "candidate_minus_surrogate_seconds": "-2.40853195854E-8",
+      "geocentric_model_difference_seconds": "-2.37165228669E-8",
+      "site_increment_difference_seconds": "-3.687967185E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "-2.5998188248E-13",
+        "no_polar_motion": "2.33527754538E-12"
+      },
+      "velocity_reader_difference_m_s": "3.008803749000589104390935743439213685356712046463192660190158375373541E-12",
+      "vector_arithmetic_difference_seconds": "2.295998853485198105119935739889619897336353823763545E-25",
+      "max_et_argument_quantization_seconds": "4.647106200530472241982948844452039338648319244384765625E-8",
+      "nominal_radius_m": "6357670.325760109036995927150667356336235329027363096660672515095848521",
+      "nominal_speed_m_s": "29909.23391775947530375376133580085647288024724926041699594531063325624",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_tokyo_12",
+      "geocentric_id": "2024-03-20_12",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "0.0015882937895113198",
+      "surrogate_increment_seconds": "-0.0000015343222136915",
+      "candidate_minus_surrogate_seconds": "-2.37524128376E-8",
+      "geocentric_model_difference_seconds": "-2.37133677464E-8",
+      "site_increment_difference_seconds": "-3.90450912E-11",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "8.061682912E-13",
+        "no_polar_motion": "1.0742806204E-12"
+      },
+      "velocity_reader_difference_m_s": "0E-14",
+      "vector_arithmetic_difference_seconds": "9.1862517595750160363071524703538449062195111283946544E-23",
+      "max_et_argument_quantization_seconds": "5.31660371986784896503053232663660310208797454833984375E-8",
+      "nominal_radius_m": "6370943.738462825599976873680747593733119154264393192393266795171220999",
+      "nominal_speed_m_s": "29908.39214302362084487525328510345322612179345233691678640465622434782",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_equator_12",
+      "geocentric_id": "2024-03-20_12",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "0.0015888817494829329",
+      "surrogate_increment_seconds": "-9.463622420784E-7",
+      "candidate_minus_surrogate_seconds": "-2.37682678229E-8",
+      "geocentric_model_difference_seconds": "-2.37133677464E-8",
+      "site_increment_difference_seconds": "-5.49000765E-11",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "-1.15273727309E-12",
+        "no_polar_motion": "-6.8900286325E-13"
+      },
+      "velocity_reader_difference_m_s": "7.280109889280518271097302491527032793777669682576477438378181791284116E-12",
+      "vector_arithmetic_difference_seconds": "1.692581260587037361987842829817100578021084091556542831E-22",
+      "max_et_argument_quantization_seconds": "4.507956105785117240092318979804986156523227691650390625E-8",
+      "nominal_radius_m": "6378137.000000007462501874856067753310000065040441791502567688176920857",
+      "nominal_speed_m_s": "29908.39214302355490874932973102023618952665964005051393877855827710144",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_paranal_12",
+      "geocentric_id": "2024-03-20_12",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "0.0015918566349596224",
+      "surrogate_increment_seconds": "0.0000020285232346111",
+      "candidate_minus_surrogate_seconds": "-2.37326895642E-8",
+      "geocentric_model_difference_seconds": "-2.37133677464E-8",
+      "site_increment_difference_seconds": "-1.93218178E-11",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "-3.842305917E-13",
+        "no_polar_motion": "-1.420305104E-13"
+      },
+      "velocity_reader_difference_m_s": "4.001512214151045172341086518536920736257070340777389312160954509510698E-12",
+      "vector_arithmetic_difference_seconds": "6.127613839252112884217417904698101102419017421487636E-24",
+      "max_et_argument_quantization_seconds": "3.973279897789318282352866162909776903688907623291015625E-8",
+      "nominal_radius_m": "6377084.248576380962961572330506192536763228931597084109127437753205860",
+      "nominal_speed_m_s": "29908.39214302321038039183015562546756337398034512415403062535782533314",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_arctic_12",
+      "geocentric_id": "2024-03-20_12",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "0.001588903221564881",
+      "surrogate_increment_seconds": "-9.248901601303E-7",
+      "candidate_minus_surrogate_seconds": "-2.40729931492E-8",
+      "geocentric_model_difference_seconds": "-2.37133677464E-8",
+      "site_increment_difference_seconds": "-3.596254028E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "-2.6120008813E-13",
+        "no_polar_motion": "2.80714849136E-12"
+      },
+      "velocity_reader_difference_m_s": "4.478046449066824943176860560850494357743223546011461161856418486578974E-12",
+      "vector_arithmetic_difference_seconds": "-3.67062882832516485306690147419912711052895683273608341E-23",
+      "max_et_argument_quantization_seconds": "5.265777516993107310039334834073088131844997406005859375E-8",
+      "nominal_radius_m": "6357670.325760103676603266155212110615319601859752730658251688633917249",
+      "nominal_speed_m_s": "29908.39214302354034967946058483635368890349562323186148788307607788148",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_tokyo_14",
+      "geocentric_id": "2024-03-20_14",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "0.001589609100008963",
+      "surrogate_increment_seconds": "-7.994062280621E-7",
+      "candidate_minus_surrogate_seconds": "-2.37808957069E-8",
+      "geocentric_model_difference_seconds": "-2.37101475920E-8",
+      "site_increment_difference_seconds": "-7.07481149E-11",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "1.05415663684E-12",
+        "no_polar_motion": "8.9420698898E-13"
+      },
+      "velocity_reader_difference_m_s": "4.123542166632954415579919246034682464360356761560835886020884024768871E-12",
+      "vector_arithmetic_difference_seconds": "1.126321223885043441646920514351949929291656468989105294E-22",
+      "max_et_argument_quantization_seconds": "5.71743497833031300014994258162914775311946868896484375E-8",
+      "nominal_radius_m": "6370943.738462834863867480610467925991535833557072996167359888250225655",
+      "nominal_speed_m_s": "29907.55233352162839889050010048833412357359348197204760570871510194060",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_equator_14",
+      "geocentric_id": "2024-03-20_14",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "0.0015887381314776648",
+      "surrogate_increment_seconds": "-0.0000016703747593603",
+      "candidate_minus_surrogate_seconds": "-2.36577505537E-8",
+      "geocentric_model_difference_seconds": "-2.37101475920E-8",
+      "site_increment_difference_seconds": "5.23970383E-11",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "-6.793982654E-13",
+        "no_polar_motion": "-6.890675783E-13"
+      },
+      "velocity_reader_difference_m_s": "4.472135954999579392818347337462552470881236719223051448541794490821042E-12",
+      "vector_arithmetic_difference_seconds": "8.4264675166672009213532590648647879606627646218957850E-23",
+      "max_et_argument_quantization_seconds": "2.06708453406034831090209991089068353176116943359375E-8",
+      "nominal_radius_m": "6378137.000000008529177008079538500240874008144701264894711637132516455",
+      "nominal_speed_m_s": "29907.55233352172652744347348392505696580492063417435689615900169950362",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_paranal_14",
+      "geocentric_id": "2024-03-20_14",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "0.0015919286035257622",
+      "surrogate_increment_seconds": "0.0000015200972887371",
+      "candidate_minus_surrogate_seconds": "-2.37461268580E-8",
+      "geocentric_model_difference_seconds": "-2.37101475920E-8",
+      "site_increment_difference_seconds": "-3.59792660E-11",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "-9.030650568E-13",
+        "no_polar_motion": "-1.31711394E-14"
+      },
+      "velocity_reader_difference_m_s": "2.003022715797302184954080569642329068473430701046709094480810075195828E-12",
+      "vector_arithmetic_difference_seconds": "-1.71379746827837873773579540415769630957906983801459708E-22",
+      "max_et_argument_quantization_seconds": "1.52587890625E-8",
+      "nominal_radius_m": "6377084.248576378595158329015376740328122584805381385882621090954248761",
+      "nominal_speed_m_s": "29907.55233352135733945142617824889739659964444126817802209150708561017",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_arctic_14",
+      "geocentric_id": "2024-03-20_14",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "0.0015893044279003726",
+      "surrogate_increment_seconds": "-0.0000011040783366525",
+      "candidate_minus_surrogate_seconds": "-2.40551948902E-8",
+      "geocentric_model_difference_seconds": "-2.37101475920E-8",
+      "site_increment_difference_seconds": "-3.450472982E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "-1.923185273E-13",
+        "no_polar_motion": "2.5049371690E-12"
+      },
+      "velocity_reader_difference_m_s": "2.9E-13",
+      "vector_arithmetic_difference_seconds": "-1.4858564655502885744425664619205830756109714572396961E-23",
+      "max_et_argument_quantization_seconds": "1.52587890625E-8",
+      "nominal_radius_m": "6357670.325760102551262060919409942646893185550100351454050306920689866",
+      "nominal_speed_m_s": "29907.55233352166214128636225524582412212896731125235209905455900897444",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_tokyo_10",
+      "geocentric_id": "2024-06-21_10",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "0.00038812996476633407",
+      "surrogate_increment_seconds": "-0.00000159193795910752",
+      "candidate_minus_surrogate_seconds": "-2.303581554388E-8",
+      "geocentric_model_difference_seconds": "-2.335124581004E-8",
+      "site_increment_difference_seconds": "3.1543026616E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "4.560648113E-13",
+        "no_polar_motion": "2.5979901552E-12"
+      },
+      "velocity_reader_difference_m_s": "3.804480122171753442528632136059766730183535120790502763214569245567600E-13",
+      "vector_arithmetic_difference_seconds": "1.35903814947909633262757681810061721832816404496762457E-22",
+      "max_et_argument_quantization_seconds": "3.0740800072184305824496419745628372766077518463134765625E-8",
+      "nominal_radius_m": "6370943.738462849707118787876715096670276106290715887042634693917984034",
+      "nominal_speed_m_s": "29302.39758178561417573882576060745546751182396434677829531799760456148",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_equator_10",
+      "geocentric_id": "2024-06-21_10",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "0.0003897282983970248",
+      "surrogate_increment_seconds": "6.39567158321E-9",
+      "candidate_minus_surrogate_seconds": "-2.350774557972E-8",
+      "geocentric_model_difference_seconds": "-2.335124581004E-8",
+      "site_increment_difference_seconds": "-1.5649976968E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "-1.6821192941882E-12",
+        "no_polar_motion": "3.5797723283E-15"
+      },
+      "velocity_reader_difference_m_s": "3.761090267462348476624083359997085313617028437221115773256016442000662E-13",
+      "vector_arithmetic_difference_seconds": "-6.27092246571425311758497941420304447868041132599034552E-25",
+      "max_et_argument_quantization_seconds": "1.7872189619913027291975282651037559844553470611572265625E-8",
+      "nominal_radius_m": "6378136.999999999128740553251266437433703709334771704744094030364864065",
+      "nominal_speed_m_s": "29302.39758178557398868843966455754110517486994275814239292223164905205",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_paranal_10",
+      "geocentric_id": "2024-06-21_10",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "0.00039158017645046154",
+      "surrogate_increment_seconds": "0.00000185827372501995",
+      "candidate_minus_surrogate_seconds": "-2.353233909965E-8",
+      "geocentric_model_difference_seconds": "-2.335124581004E-8",
+      "site_increment_difference_seconds": "-1.8109328961E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "2.810490427E-13",
+        "no_polar_motion": "-1.8605200028E-12"
+      },
+      "velocity_reader_difference_m_s": "0E-16",
+      "vector_arithmetic_difference_seconds": "-6.2064898917640133889460431212429403328205835797814152E-23",
+      "max_et_argument_quantization_seconds": "3.759851291736289458089714798916247673332691192626953125E-8",
+      "nominal_radius_m": "6377084.248576387310005776981150605958150212106176367930574892924815433",
+      "nominal_speed_m_s": "29302.39758178551414294404814843427840526355547785709962989263450190066",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_arctic_10",
+      "geocentric_id": "2024-06-21_10",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "0.00038983287342951757",
+      "surrogate_increment_seconds": "1.1097070407598E-7",
+      "candidate_minus_surrogate_seconds": "-2.297005738784E-8",
+      "geocentric_model_difference_seconds": "-2.335124581004E-8",
+      "site_increment_difference_seconds": "3.8118842220E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "-3.3341573213E-13",
+        "no_polar_motion": "4.36006680101E-12"
+      },
+      "velocity_reader_difference_m_s": "4.0000E-12",
+      "vector_arithmetic_difference_seconds": "-1.04828796211846022796595975149559531724670518443592365E-23",
+      "max_et_argument_quantization_seconds": "1.52587890625E-8",
+      "nominal_radius_m": "6357670.325760096899159063325381350464900105833728730582692011725471906",
+      "nominal_speed_m_s": "29302.39758178556943555868869710919630321546472216778543648133138772276",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_tokyo_12",
+      "geocentric_id": "2024-06-21_12",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "0.00038634772164586589",
+      "surrogate_increment_seconds": "-0.00000109556087486624",
+      "candidate_minus_surrogate_seconds": "-2.298456013668E-8",
+      "geocentric_model_difference_seconds": "-2.335039268289E-8",
+      "site_increment_difference_seconds": "3.6583254621E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "1.0295051258E-12",
+        "no_polar_motion": "2.7802365938E-12"
+      },
+      "velocity_reader_difference_m_s": "3.0000E-12",
+      "vector_arithmetic_difference_seconds": "1.89157657002354987663609681642880059702690015107545607E-22",
+      "max_et_argument_quantization_seconds": "2.4844577278644586204592314970795996487140655517578125E-8",
+      "nominal_radius_m": "6370943.738462861887100868954278876449399540318059925663977846139176360",
+      "nominal_speed_m_s": "29302.19977938016900301203504932807882707718999990640568311239815642369",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_equator_12",
+      "geocentric_id": "2024-06-21_12",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "0.00038640883102019822",
+      "surrogate_increment_seconds": "-0.00000103445150053391",
+      "candidate_minus_surrogate_seconds": "-2.347072955450E-8",
+      "geocentric_model_difference_seconds": "-2.335039268289E-8",
+      "site_increment_difference_seconds": "-1.2033687161E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "-1.4445444867E-12",
+        "no_polar_motion": "4.5964916E-15"
+      },
+      "velocity_reader_difference_m_s": "3.0000E-12",
+      "vector_arithmetic_difference_seconds": "2.1633043453038255726456467309405432092372033847150949E-23",
+      "max_et_argument_quantization_seconds": "3.6264919223157922323341750825420604087412357330322265625E-8",
+      "nominal_radius_m": "6378136.999999993865748166312802572241446907243913764017683686344944715",
+      "nominal_speed_m_s": "29302.19977938016900301203504932807882707718999990640568311239815642369",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_paranal_12",
+      "geocentric_id": "2024-06-21_12",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "0.00038922549140544443",
+      "surrogate_increment_seconds": "0.00000178220888471230",
+      "candidate_minus_surrogate_seconds": "-2.360589840820E-8",
+      "geocentric_model_difference_seconds": "-2.335039268289E-8",
+      "site_increment_difference_seconds": "-2.5550572531E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "-5.040030537E-13",
+        "no_polar_motion": "-1.9919747406E-12"
+      },
+      "velocity_reader_difference_m_s": "4.000001999999500000249999843750109374917968814453072631879577599624666E-12",
+      "vector_arithmetic_difference_seconds": "2.13568252708183613725041082376321642488977232351865315E-22",
+      "max_et_argument_quantization_seconds": "1.52587890625E-8",
+      "nominal_radius_m": "6377084.248576402297564077958097209862140527034599965043135112552718401",
+      "nominal_speed_m_s": "29302.19977938009164816196311302799709183109867466977420086088909803114",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_arctic_12",
+      "geocentric_id": "2024-06-21_12",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "0.0003873349266171789",
+      "surrogate_increment_seconds": "-1.0835590355323E-7",
+      "candidate_minus_surrogate_seconds": "-2.295838790622E-8",
+      "geocentric_model_difference_seconds": "-2.335039268289E-8",
+      "site_increment_difference_seconds": "3.9200477667E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "-3.2859684954E-13",
+        "no_polar_motion": "4.66386232998E-12"
+      },
+      "velocity_reader_difference_m_s": "2.193171219946130881654807169612756365017199405825225269228067926478814E-15",
+      "vector_arithmetic_difference_seconds": "2.28327215207283173900331621783488694648852714640106045E-23",
+      "max_et_argument_quantization_seconds": "1.52587890625E-8",
+      "nominal_radius_m": "6357670.325760096161042925589941736797020173320134621316995160778753252",
+      "nominal_speed_m_s": "29302.19977938014021829319194073588881913051799573616318588925214066254",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_tokyo_14",
+      "geocentric_id": "2024-06-21_14",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "0.00038485920671153221",
+      "surrogate_increment_seconds": "-3.0463684964898E-7",
+      "candidate_minus_surrogate_seconds": "-2.296392157670E-8",
+      "geocentric_model_difference_seconds": "-2.335027233987E-8",
+      "site_increment_difference_seconds": "3.8635076317E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "1.31799798328E-12",
+        "no_polar_motion": "2.21770205314E-12"
+      },
+      "velocity_reader_difference_m_s": "4.017392811264539513426487640249336470164001465369016487609464753801524E-12",
+      "vector_arithmetic_difference_seconds": "4.13217669976524959438506872207888009849109728521288379E-23",
+      "max_et_argument_quantization_seconds": "3.63613744735744905123286940806792699731886386871337890625E-8",
+      "nominal_radius_m": "6370943.738462863807362914833906733588830713830391742678431459349816113",
+      "nominal_speed_m_s": "29302.00690002402237377845780446836851567164505405075933767204916504122",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_equator_14",
+      "geocentric_id": "2024-06-21_14",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "0.00038336589131524821",
+      "surrogate_increment_seconds": "-0.00000179795224593298",
+      "candidate_minus_surrogate_seconds": "-2.340276075247E-8",
+      "geocentric_model_difference_seconds": "-2.335027233987E-8",
+      "site_increment_difference_seconds": "-5.248841260E-11",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "-8.281130670E-13",
+        "no_polar_motion": "5.6386584E-15"
+      },
+      "velocity_reader_difference_m_s": "4.018835901103701447324814023281357516475286275332065453782163987326790E-12",
+      "vector_arithmetic_difference_seconds": "1.20906356286958326209781462092181323917211962320671410E-22",
+      "max_et_argument_quantization_seconds": "2.64426691267889181491401728862911113537847995758056640625E-8",
+      "nominal_radius_m": "6378136.999999992093226320580362687767523842530385334448766499581802381",
+      "nominal_speed_m_s": "29302.00690002405409438719631307157879933179465336909581584073556534574",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_paranal_14",
+      "geocentric_id": "2024-06-21_14",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "0.00038639158866062733",
+      "surrogate_increment_seconds": "0.00000122774509944614",
+      "candidate_minus_surrogate_seconds": "-2.366093150845E-8",
+      "geocentric_model_difference_seconds": "-2.335027233987E-8",
+      "site_increment_difference_seconds": "-3.1065916858E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "-1.1394112715E-12",
+        "no_polar_motion": "-1.5913505962E-12"
+      },
+      "velocity_reader_difference_m_s": "3.000001499999625000187499882812582031188476610839804473909683199718499E-12",
+      "vector_arithmetic_difference_seconds": "8.6590553783067119128483522708730267831477190843893039E-23",
+      "max_et_argument_quantization_seconds": "1.90225597479533325984135672115371562540531158447265625E-8",
+      "nominal_radius_m": "6377084.248576411643330547268459401883903655044351362157578361363036262",
+      "nominal_speed_m_s": "29302.00690002397500776904588506208805034874930211325584019674378166069",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_arctic_14",
+      "geocentric_id": "2024-06-21_14",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "0.0003848666310385363",
+      "surrogate_increment_seconds": "-2.9721252264489E-7",
+      "candidate_minus_surrogate_seconds": "-2.294102664579E-8",
+      "geocentric_model_difference_seconds": "-2.335027233987E-8",
+      "site_increment_difference_seconds": "4.0924569408E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "-2.3660757034E-13",
+        "no_polar_motion": "3.71492521893E-12"
+      },
+      "velocity_reader_difference_m_s": "4.017392811264539513426487640249336470164001465369016487609464753801524E-12",
+      "vector_arithmetic_difference_seconds": "-9.24013801767044257579318914761072035145911269724882E-26",
+      "max_et_argument_quantization_seconds": "4.37857013182336995971155602092039771378040313720703125E-8",
+      "nominal_radius_m": "6357670.325760095197391254234005636550736037362718115221465933346484649",
+      "nominal_speed_m_s": "29302.00690002402237377845780446836851567164505405075933767204916504122",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_tokyo_10",
+      "geocentric_id": "2024-09-22_10",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "-0.0016005432152736761",
+      "surrogate_increment_seconds": "-9.851917738646E-7",
+      "candidate_minus_surrogate_seconds": "-2.55457369332E-8",
+      "geocentric_model_difference_seconds": "-2.62904160380E-8",
+      "site_increment_difference_seconds": "7.446791048E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "-2.28574739385E-12",
+        "no_polar_motion": "4.04173316773E-12"
+      },
+      "velocity_reader_difference_m_s": "0E-13",
+      "vector_arithmetic_difference_seconds": "1.069263926339758187470721347139927718895142441552751464E-22",
+      "max_et_argument_quantization_seconds": "5.455267622891078749258753077810979448258876800537109375E-8",
+      "nominal_radius_m": "6370943.738462861434143358110833539255661494794832599923052469824014830",
+      "nominal_speed_m_s": "29661.08247293356221730565941140548187669981909672175174781935567725984",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_equator_10",
+      "geocentric_id": "2024-09-22_10",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "-0.001599588386307076",
+      "surrogate_increment_seconds": "-3.03628072645E-8",
+      "candidate_minus_surrogate_seconds": "-2.63287341476E-8",
+      "geocentric_model_difference_seconds": "-2.62904160380E-8",
+      "site_increment_difference_seconds": "-3.83181096E-11",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "8.005512565829E-12",
+        "no_polar_motion": "6.6418987872E-14"
+      },
+      "velocity_reader_difference_m_s": "3.4E-13",
+      "vector_arithmetic_difference_seconds": "2.69208082436821535652922499211501382891704119006475638E-24",
+      "max_et_argument_quantization_seconds": "5.3398025096608459083569186987006105482578277587890625E-8",
+      "nominal_radius_m": "6378137.000000001694931016065956089542514591457168470690370155549562853",
+      "nominal_speed_m_s": "29661.08247293368676367495870871006430723692758431376566417832059248889",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_paranal_10",
+      "geocentric_id": "2024-09-22_10",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "-0.0015981716103176426",
+      "surrogate_increment_seconds": "0.0000013864131821689",
+      "candidate_minus_surrogate_seconds": "-2.68876165722E-8",
+      "geocentric_model_difference_seconds": "-2.62904160380E-8",
+      "site_increment_difference_seconds": "-5.972005342E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "-1.2028887597E-12",
+        "no_polar_motion": "-3.5823685465E-12"
+      },
+      "velocity_reader_difference_m_s": "8.031444452898868178786728910390316744909743606533770305729567258817681E-12",
+      "vector_arithmetic_difference_seconds": "-1.58517980235938755283576194481093557184779435647274538E-22",
+      "max_et_argument_quantization_seconds": "5.20759006191473527991320224828086793422698974609375E-8",
+      "nominal_radius_m": "6377084.248576413142071916534431343572305286576518770537096092134549281",
+      "nominal_speed_m_s": "29661.08247293383796957822023524640781893631299254878347499806584776639",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_arctic_10",
+      "geocentric_id": "2024-09-22_10",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "-0.0015986493760168643",
+      "surrogate_increment_seconds": "9.086474829472E-7",
+      "candidate_minus_surrogate_seconds": "-2.53670853682E-8",
+      "geocentric_model_difference_seconds": "-2.62904160380E-8",
+      "site_increment_difference_seconds": "9.233306698E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "1.59441773067E-12",
+        "no_polar_motion": "4.25890722278E-12"
+      },
+      "velocity_reader_difference_m_s": "6.9E-13",
+      "vector_arithmetic_difference_seconds": "4.52825260602829726506719523560256446732157182769550878E-23",
+      "max_et_argument_quantization_seconds": "5.114735960055037666815991315161227248609066009521484375E-8",
+      "nominal_radius_m": "6357670.325760098113440044240276313929305957794695613904379855343144291",
+      "nominal_speed_m_s": "29661.08247293378583645893693063500599663652104629822603912623801864013",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_tokyo_12",
+      "geocentric_id": "2024-09-22_12",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "-0.0016006179964252363",
+      "surrogate_increment_seconds": "-5.126447337328E-7",
+      "candidate_minus_surrogate_seconds": "-2.56107238624E-8",
+      "geocentric_model_difference_seconds": "-2.63107655053E-8",
+      "site_increment_difference_seconds": "7.000416429E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "-5.02887113467E-12",
+        "no_polar_motion": "3.71995028323E-12"
+      },
+      "velocity_reader_difference_m_s": "3.063396807467161933485321369257119580980835313251679651416214400361522E-12",
+      "vector_arithmetic_difference_seconds": "1.025505127763078264850575574383510202865387616613880425E-22",
+      "max_et_argument_quantization_seconds": "1.52587890625E-8",
+      "nominal_radius_m": "6370943.738462858373345358509565546151994781612238217659486349604192505",
+      "nominal_speed_m_s": "29661.96682379275031020099079477056594255898338277126835862289757884261",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_equator_12",
+      "geocentric_id": "2024-09-22_12",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "-0.0016010970194128091",
+      "surrogate_increment_seconds": "-9.916677213056E-7",
+      "candidate_minus_surrogate_seconds": "-2.62310849862E-8",
+      "geocentric_model_difference_seconds": "-2.63107655053E-8",
+      "site_increment_difference_seconds": "7.96805191E-11",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "6.87239799997E-12",
+        "no_polar_motion": "6.611243835E-14"
+      },
+      "velocity_reader_difference_m_s": "3.605551275463989293119221267470495946251296573845246212710453056227167E-12",
+      "vector_arithmetic_difference_seconds": "7.48256718817884671398758413192464886206622952844192152E-23",
+      "max_et_argument_quantization_seconds": "1.52587890625E-8",
+      "nominal_radius_m": "6378137.000000008424522217236194793594619502038631232678872083411179966",
+      "nominal_speed_m_s": "29661.96682379269250058313625641812065595301252438314402255844294894149",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_paranal_12",
+      "geocentric_id": "2024-09-22_12",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "-0.001598805950261985",
+      "surrogate_increment_seconds": "0.0000012994014295185",
+      "candidate_minus_surrogate_seconds": "-2.69149734583E-8",
+      "geocentric_model_difference_seconds": "-2.63107655053E-8",
+      "site_increment_difference_seconds": "-6.042079530E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "2.5508834042E-12",
+        "no_polar_motion": "-3.3523666076E-12"
+      },
+      "velocity_reader_difference_m_s": "2.093895890439636924786819122693819496844691947257051083378278558534509E-12",
+      "vector_arithmetic_difference_seconds": "-2.9368006731474893420431070173713592882276512966649325E-23",
+      "max_et_argument_quantization_seconds": "1.52587890625E-8",
+      "nominal_radius_m": "6377084.248576408907214876169658758777838175802902773791201918248450806",
+      "nominal_speed_m_s": "29661.96682379297106751125649465355854353735402951642281772676195337141",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_arctic_12",
+      "geocentric_id": "2024-09-22_12",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "-0.0015994012799531113",
+      "surrogate_increment_seconds": "7.040717383922E-7",
+      "candidate_minus_surrogate_seconds": "-2.53711714971E-8",
+      "geocentric_model_difference_seconds": "-2.63107655053E-8",
+      "site_increment_difference_seconds": "9.395940082E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "1.57197089975E-12",
+        "no_polar_motion": "3.71746554046E-12"
+      },
+      "velocity_reader_difference_m_s": "8.00E-12",
+      "vector_arithmetic_difference_seconds": "2.3492642452469905693057728248458158299711877891244685E-24",
+      "max_et_argument_quantization_seconds": "1.52587890625E-8",
+      "nominal_radius_m": "6357670.325760101425092971997555358194775340733573051255764475117273022",
+      "nominal_speed_m_s": "29661.96682379290250904519550032097050208136061021714763677276881697351",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_tokyo_14",
+      "geocentric_id": "2024-09-22_14",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "-0.001600421685681428",
+      "surrogate_increment_seconds": "2.272781520664E-7",
+      "candidate_minus_surrogate_seconds": "-2.57133952277E-8",
+      "geocentric_model_difference_seconds": "-2.63295075374E-8",
+      "site_increment_difference_seconds": "6.161123097E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "-6.42623389067E-12",
+        "no_polar_motion": "2.79237101908E-12"
+      },
+      "velocity_reader_difference_m_s": "6E-14",
+      "vector_arithmetic_difference_seconds": "6.8172115785657551486179094999077742843828973568687520E-24",
+      "max_et_argument_quantization_seconds": "5.223237220664152247184830457626958377659320831298828125E-8",
+      "nominal_radius_m": "6370943.738462853706535444909280092644452972361510849380333864521011353",
+      "nominal_speed_m_s": "29662.85317008482830682148799588063759399219954642730454209252204805818",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_equator_14",
+      "geocentric_id": "2024-09-22_14",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "-0.0016023363939502292",
+      "surrogate_increment_seconds": "-0.0000016874301167348",
+      "candidate_minus_surrogate_seconds": "-2.61524871756E-8",
+      "geocentric_model_difference_seconds": "-2.63295075374E-8",
+      "site_increment_difference_seconds": "1.770203618E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "3.8975391359E-12",
+        "no_polar_motion": "6.58312950E-14"
+      },
+      "velocity_reader_difference_m_s": "4.067874137679286654947280346546589144025361711373316991179055605886996E-12",
+      "vector_arithmetic_difference_seconds": "-5.2738526895137770359580682792785879131848405898971309E-23",
+      "max_et_argument_quantization_seconds": "5.959200749108654882046920420179958455264568328857421875E-8",
+      "nominal_radius_m": "6378137.000000007328887776531361473470576048240780074647878624330233020",
+      "nominal_speed_m_s": "29662.85317008458505326639760321039247284511613759356628793686534225761",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_paranal_14",
+      "geocentric_id": "2024-09-22_14",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "-0.0015998775110470573",
+      "surrogate_increment_seconds": "7.714527864371E-7",
+      "candidate_minus_surrogate_seconds": "-2.68851075174E-8",
+      "geocentric_model_difference_seconds": "-2.63295075374E-8",
+      "site_increment_difference_seconds": "-5.555999800E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "5.62330017277E-12",
+        "no_polar_motion": "-2.68957679080E-12"
+      },
+      "velocity_reader_difference_m_s": "3.4E-13",
+      "vector_arithmetic_difference_seconds": "2.56318944288918746214719901466104431100938138998587398E-23",
+      "max_et_argument_quantization_seconds": "1.52587890625E-8",
+      "nominal_radius_m": "6377084.248576402871287180959446547796327190505610513971715977308590520",
+      "nominal_speed_m_s": "29662.85317008488603932077934744202727013839686642777870327603594398596",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_arctic_14",
+      "geocentric_id": "2024-09-22_14",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "-0.0016001193265063765",
+      "surrogate_increment_seconds": "5.296373271179E-7",
+      "candidate_minus_surrogate_seconds": "-2.53759080296E-8",
+      "geocentric_model_difference_seconds": "-2.63295075374E-8",
+      "site_increment_difference_seconds": "9.535995078E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "1.12837737272E-12",
+        "no_polar_motion": "2.15707870830E-12"
+      },
+      "velocity_reader_difference_m_s": "4.188985557387372993614972036989739235983449035016069750390701875772968E-12",
+      "vector_arithmetic_difference_seconds": "-7.7381625110397811034132306732217429634448728071616657E-24",
+      "max_et_argument_quantization_seconds": "1.52587890625E-8",
+      "nominal_radius_m": "6357670.325760107054179336334341905850428338175096859133186332673880516",
+      "nominal_speed_m_s": "29662.85317008485232976628686719820558832110892216609783812901534852723",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_tokyo_10",
+      "geocentric_id": "2024-12-21_10",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "-0.00039003677453756762",
+      "surrogate_increment_seconds": "-0.00000164410415583985",
+      "candidate_minus_surrogate_seconds": "-2.690925957060E-8",
+      "geocentric_model_difference_seconds": "-2.662663238788E-8",
+      "site_increment_difference_seconds": "-2.8262718272E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "-2.0728418873E-12",
+        "no_polar_motion": "2.1078230354E-12"
+      },
+      "velocity_reader_difference_m_s": "1.520131573252789194233813082993776987471342870023951351107061154189711E-13",
+      "vector_arithmetic_difference_seconds": "1.04144340090856965770824615936933412172722229819239533E-22",
+      "max_et_argument_quantization_seconds": "1.52587890625E-8",
+      "nominal_radius_m": "6370943.738462851056410440073896747353490432271863450636383609992991707",
+      "nominal_speed_m_s": "30257.16710134128655850401906019319431409889189450581812738827296993481",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_equator_10",
+      "geocentric_id": "2024-12-21_10",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "-0.00038840185014137003",
+      "surrogate_increment_seconds": "-9.17975964226E-9",
+      "candidate_minus_surrogate_seconds": "-2.677169437174E-8",
+      "geocentric_model_difference_seconds": "-2.662663238788E-8",
+      "site_increment_difference_seconds": "-1.4506198386E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "7.4898377108534E-12",
+        "no_polar_motion": "-3.595292639E-16"
+      },
+      "velocity_reader_difference_m_s": "1.280820049811838321848801157850130726902653440785559588574330623431343E-13",
+      "vector_arithmetic_difference_seconds": "7.05671142159958593828312615738503298268985486320313616E-25",
+      "max_et_argument_quantization_seconds": "3.32435739872189404964242243067928939126431941986083984375E-8",
+      "nominal_radius_m": "6378137.000000001025300576006599436931012436745668133709812137556733507",
+      "nominal_speed_m_s": "30257.16710134137665973534568960405191890547146307515386715958126960627",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_paranal_10",
+      "geocentric_id": "2024-12-21_10",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "-0.0003864679619746572",
+      "surrogate_increment_seconds": "0.00000192470840707057",
+      "candidate_minus_surrogate_seconds": "-2.63260005083E-8",
+      "geocentric_model_difference_seconds": "-2.662663238788E-8",
+      "site_increment_difference_seconds": "3.0063187958E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "-1.2021419216E-12",
+        "no_polar_motion": "-1.5036293087E-12"
+      },
+      "velocity_reader_difference_m_s": "7.017940224880801875523654221999398803482050919918373359742269792755090E-12",
+      "vector_arithmetic_difference_seconds": "2.46746734185120996930725693050811498477883230183361999E-22",
+      "max_et_argument_quantization_seconds": "1.52587890625E-8",
+      "nominal_radius_m": "6377084.248576404272102821971000760563364979291891434114520417821487924",
+      "nominal_speed_m_s": "30257.16710134147506116338208977446721522849183929645954028048569022718",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_arctic_10",
+      "geocentric_id": "2024-12-21_10",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "-0.00038828898339949539",
+      "surrogate_increment_seconds": "1.0368698223238E-7",
+      "candidate_minus_surrogate_seconds": "-2.701836584296E-8",
+      "geocentric_model_difference_seconds": "-2.662663238788E-8",
+      "site_increment_difference_seconds": "-3.9173345508E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "1.48736132241E-12",
+        "no_polar_motion": "3.55334990836E-12"
+      },
+      "velocity_reader_difference_m_s": "3.017579327871928539401698489661084015708006462866872252833224631194366E-12",
+      "vector_arithmetic_difference_seconds": "-2.20528389917004213396980461808010271073522247870539747E-23",
+      "max_et_argument_quantization_seconds": "3.958612166335591375787572587796603329479694366455078125E-8",
+      "nominal_radius_m": "6357670.325760107967822663729236500069765259126435549796827041974420449",
+      "nominal_speed_m_s": "30257.16710134137930989539768559718941482834902619515338557288121872760",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_tokyo_12",
+      "geocentric_id": "2024-12-21_12",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "-0.00038720456597320991",
+      "surrogate_increment_seconds": "-0.00000112758950854508",
+      "candidate_minus_surrogate_seconds": "-2.683880886100E-8",
+      "geocentric_model_difference_seconds": "-2.663863811584E-8",
+      "site_increment_difference_seconds": "-2.0017074516E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "-4.6548850895E-12",
+        "no_polar_motion": "1.8598832453E-12"
+      },
+      "velocity_reader_difference_m_s": "3.005779725794955853654253588183484894593619353221311557038376575107313E-12",
+      "vector_arithmetic_difference_seconds": "1.39715089282620241742396348634041510306434430037828729E-22",
+      "max_et_argument_quantization_seconds": "2.80523013349094803292604893840689328499138355255126953125E-8",
+      "nominal_radius_m": "6370943.738462843505212120969027855614487715510886201885504855488457081",
+      "nominal_speed_m_s": "30257.53909767823219137543597080839901822924946540888558485359799573794",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_equator_12",
+      "geocentric_id": "2024-12-21_12",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "-0.00038715872831689602",
+      "surrogate_increment_seconds": "-0.00000108175185223119",
+      "candidate_minus_surrogate_seconds": "-2.683291108220E-8",
+      "geocentric_model_difference_seconds": "-2.663863811584E-8",
+      "site_increment_difference_seconds": "-1.9427296636E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "6.4638052582E-12",
+        "no_polar_motion": "-4.268834E-16"
+      },
+      "velocity_reader_difference_m_s": "3.005779725794955853654253588183484894593619353221311557038376575107313E-12",
+      "vector_arithmetic_difference_seconds": "1.11848275864714480543820040357950072671236918555534283E-22",
+      "max_et_argument_quantization_seconds": "1.77854796758378751186935318173709674738347530364990234375E-8",
+      "nominal_radius_m": "6378136.999999992140623829440286696410708929436314958695744809270538212",
+      "nominal_speed_m_s": "30257.53909767823219137543597080839901822924946540888558485359799573794",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_paranal_12",
+      "geocentric_id": "2024-12-21_12",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "-0.00038423714528749552",
+      "surrogate_increment_seconds": "0.00000183983117716931",
+      "candidate_minus_surrogate_seconds": "-2.641103817369E-8",
+      "geocentric_model_difference_seconds": "-2.663863811584E-8",
+      "site_increment_difference_seconds": "2.2759994215E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "2.3115842058E-12",
+        "no_polar_motion": "-1.3257614113E-12"
+      },
+      "velocity_reader_difference_m_s": "1.327210985487989396336207369871725376496209785566015650669190933506673E-13",
+      "vector_arithmetic_difference_seconds": "-5.46747860718905509028452395135638387792199671992929121E-22",
+      "max_et_argument_quantization_seconds": "4.0863854390053855336617516513797454535961151123046875E-8",
+      "nominal_radius_m": "6377084.248576402473921004912175643978735889201030238798168340162170856",
+      "nominal_speed_m_s": "30257.53909767838899364089056416602347630594021178654785470596397833931",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_arctic_12",
+      "geocentric_id": "2024-12-21_12",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "-0.00038620210402566318",
+      "surrogate_increment_seconds": "-1.2512756099835E-7",
+      "candidate_minus_surrogate_seconds": "-2.704659752059E-8",
+      "geocentric_model_difference_seconds": "-2.663863811584E-8",
+      "site_increment_difference_seconds": "-4.0795940475E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "1.47354268212E-12",
+        "no_polar_motion": "3.13899496503E-12"
+      },
+      "velocity_reader_difference_m_s": "4.016712741782762836660029199427376283913253355529550675056597528796745E-12",
+      "vector_arithmetic_difference_seconds": "2.1202651145378206997455688219359792997638245609742303E-24",
+      "max_et_argument_quantization_seconds": "2.073545402814409854830302037953515537083148956298828125E-8",
+      "nominal_radius_m": "6357670.325760110016710201035601583187032188756751059028346381300469024",
+      "nominal_speed_m_s": "30257.53909767828088807742855504482696819779111508211396240735072823922",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_tokyo_14",
+      "geocentric_id": "2024-12-21_14",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "-0.00038406958045105469",
+      "surrogate_increment_seconds": "-3.0956110604822E-7",
+      "candidate_minus_surrogate_seconds": "-2.677383103964E-8",
+      "geocentric_model_difference_seconds": "-2.665113676574E-8",
+      "site_increment_difference_seconds": "-1.2269427390E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "-5.98543115904E-12",
+        "no_polar_motion": "1.11231786607E-12"
+      },
+      "velocity_reader_difference_m_s": "1.967358635328088827305337168837396198426232710838336685776648842028123E-13",
+      "vector_arithmetic_difference_seconds": "5.18108170464808136408202552663246095372917336636598636E-23",
+      "max_et_argument_quantization_seconds": "1.52587890625E-8",
+      "nominal_radius_m": "6370943.738462832851741346576386393313601916308729200513254437275425630",
+      "nominal_speed_m_s": "30257.91066530715807158325082382109875602264620855161048735333218115358",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_equator_14",
+      "geocentric_id": "2024-12-21_14",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "-0.00038562440320932345",
+      "surrogate_increment_seconds": "-0.00000186438386431698",
+      "candidate_minus_surrogate_seconds": "-2.684153272792E-8",
+      "geocentric_model_difference_seconds": "-2.665113676574E-8",
+      "site_increment_difference_seconds": "-1.9039596218E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "3.7087942061E-12",
+        "no_polar_motion": "-4.666210E-16"
+      },
+      "velocity_reader_difference_m_s": "1.646845469374707300135758651203773170988745149590009955745790215494007E-13",
+      "vector_arithmetic_difference_seconds": "6.9175617214561750368333608042183986382188025300126929E-23",
+      "max_et_argument_quantization_seconds": "1.52587890625E-8",
+      "nominal_radius_m": "6378136.999999992383448198859675751877676862858432600319402702525388802",
+      "nominal_speed_m_s": "30257.91066530707200469035441084600063615638230132182593344806388839026",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_paranal_14",
+      "geocentric_id": "2024-12-21_14",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "-0.00038249769958938656",
+      "surrogate_increment_seconds": "0.00000126231975561991",
+      "candidate_minus_surrogate_seconds": "-2.651663117087E-8",
+      "geocentric_model_difference_seconds": "-2.665113676574E-8",
+      "site_increment_difference_seconds": "1.3450559487E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "5.1995385652E-12",
+        "no_polar_motion": "-7.909573403E-13"
+      },
+      "velocity_reader_difference_m_s": "3.024156411298860051076683988001314036178039364668602940478208131695943E-12",
+      "vector_arithmetic_difference_seconds": "-2.11729596801244115937383518953290178195714896528422440E-22",
+      "max_et_argument_quantization_seconds": "2.96519132776339698620571283527169725857675075531005859375E-8",
+      "nominal_radius_m": "6377084.248576398006092621526854886411813306601819234740657377755552787",
+      "nominal_speed_m_s": "30257.91066530723713872733266142644536905816492624337575182968682205184",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_arctic_14",
+      "geocentric_id": "2024-12-21_14",
+      "numerical_checks_passed": true,
+      "site_reference_status": "unqualified_surrogate",
+      "surrogate_clock_seconds": "-0.00038408168377229512",
+      "surrogate_increment_seconds": "-3.2166442728865E-7",
+      "candidate_minus_surrogate_seconds": "-2.706616440532E-8",
+      "geocentric_model_difference_seconds": "-2.665113676574E-8",
+      "site_increment_difference_seconds": "-4.1502763958E-10",
+      "variant_minus_nominal_site_term_seconds": {
+        "utc_as_ut1": "1.06514894068E-12",
+        "no_polar_motion": "1.88427899503E-12"
+      },
+      "velocity_reader_difference_m_s": "1.967358635328088827305337168837396198426232710838336685776648842028123E-13",
+      "vector_arithmetic_difference_seconds": "-1.39005540392515144631592116922737358589531928242451089E-23",
+      "max_et_argument_quantization_seconds": "1.52587890625E-8",
+      "nominal_radius_m": "6357670.325760109019250503728148387927996236594213654393209842279351623",
+      "nominal_speed_m_s": "30257.91066530715807158325082382109875602264620855161048735333218115358",
+      "observing_eligible": false
+    }
+  ],
+  "geocentric_control_count": 12,
+  "geocentric_controls_passed": true,
+  "formal_eop_record_count": 8,
+  "formal_errors_are_hard_bounds": false,
+  "physical_budget_components": [
+    {
+      "id": "geocentric_time_ephemeris",
+      "hard_bound_seconds": null,
+      "status": "domain_bound_not_established"
+    },
+    {
+      "id": "earth_velocity",
+      "hard_bound_seconds": null,
+      "status": "reader_agreement_not_ephemeris_uncertainty"
+    },
+    {
+      "id": "station_coordinates",
+      "hard_bound_seconds": null,
+      "status": "nominal_wgs84_not_survey_error_bound"
+    },
+    {
+      "id": "earth_orientation",
+      "hard_bound_seconds": null,
+      "status": "formal_errors_available_not_complete_hard_bound"
+    },
+    {
+      "id": "frame_scale_mapping",
+      "hard_bound_seconds": null,
+      "status": "gcrs_to_scaled_bcrs_not_qualified"
+    },
+    {
+      "id": "higher_order_remainder",
+      "hard_bound_seconds": null,
+      "status": "conditional_single_term_envelope_not_total_remainder"
+    }
+  ],
+  "missing_bound_components": [
+    "geocentric_time_ephemeris",
+    "earth_velocity",
+    "station_coordinates",
+    "earth_orientation",
+    "frame_scale_mapping",
+    "higher_order_remainder"
+  ],
+  "conditional_sensitivity": {
+    "status": "hypothetical_inputs_not_established_reference_uncertainty",
+    "vector_perturbation_envelope_seconds": "5.229455374717012236580066052194643445356401602785566607487541380493970E-13",
+    "c4_station_term_envelope_seconds": "2.357133240337572935294269870186176988842957704438120004444411782788969E-13",
+    "physical_total_bound_seconds": null,
+    "observing_eligible": false
+  },
+  "combined_counts": {
+    "candidates": 288,
+    "executed": 0,
+    "blocked": 288,
+    "solar_eligible": 240,
+    "solar_excluded": 48
+  },
+  "combined_inventory_source": "validation/results/clock_reference_reference_run.json",
+  "physical_site_clock_bound_seconds": null,
+  "physical_arrival_bound_seconds": null,
+  "observing_eligible": false,
+  "manifest_sha256": "58fcf843f88f16f23f0e9c694a029ae61fdc9e531532d6f77241384d4aee8579",
+  "fixture_sha256": "1c0e6e47bc5b1fdc8af97082961b469647e220bd67419b657960d4489de214ac",
+  "policy_sha256": "13711d101822d702f75951297df2af6072f15ac1bd9eea92045840761072af91",
+  "python_version": "3.12.14",
+  "candidate_packages": {
+    "astropy": "8.0.1",
+    "numpy": "2.5.3",
+    "pyerfa": "2.0.1.5"
+  },
+  "implementation_commit": "d942a93165b702abadacb7b5244a4f3e3b4f7015",
+  "checkout_commit": "d942a93165b702abadacb7b5244a4f3e3b4f7015",
+  "working_tree_dirty": false
+}

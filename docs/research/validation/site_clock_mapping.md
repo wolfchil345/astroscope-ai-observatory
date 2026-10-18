@@ -196,8 +196,10 @@ that every coherent astronomical model error is detectable. CI retains the new
 The full local suite passed **3,232 tests in 118.92 seconds**; Ruff, compilation,
 all eleven historical input checksums and 30 relative documentation links passed.
 The candidate environment used Python 3.12.14, Astropy 8.0.1, PyERFA 2.0.1.5 and
-NumPy 2.5.3; the full suite used Streamlit 1.66.0. Clean canonical-result
-provenance is retained separately from the implementation commit.
+NumPy 2.5.3; the full suite used Streamlit 1.66.0. The
+[canonical audit record](../../../validation/results/site_clock_reference_run.json)
+was generated from clean implementation `d942a93165b702abadacb7b5244a4f3e3b4f7015`,
+with `working_tree_dirty=false`, before this separate result-retention commit.
 Published-head CI and all twelve artifacts must be verified before merge.
 
 ## Next gate
