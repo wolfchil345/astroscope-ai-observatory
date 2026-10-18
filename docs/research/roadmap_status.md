@@ -30,7 +30,7 @@
 - Mission 40: Complete — Observer-Arrival Source Convention and Reference-Domain Qualification, merged in [PR #40](https://github.com/wolfchil345/astroscope-ai-observatory/pull/40); selected research convention and supplied-input solar component comparison only, full timing reference unqualified
 - Mission 41: Complete — Matched-Convention Observer-Arrival Reference Validation, merged in [PR #41](https://github.com/wolfchil345/astroscope-ai-observatory/pull/41) (`fc959a380a920c7798185f3991bc5ca5404382ad`); unsuccessful independent clock qualification retained
 - Mission 42: Complete — Independent Time-Ephemeris Reference Acquisition and Clock Mapping, merged in [PR #42](https://github.com/wolfchil345/astroscope-ai-observatory/pull/42) (`7d1e6557929f873389be369612b6855ae4db22cc`); integrated geocentric reference evaluated, physical site-clock qualification remains incomplete
-- Mission 43: Active — Independent Site-Clock Mapping and Uncertainty Qualification; 48 leading-order site-clock surrogates and 12 geocentric controls evaluated, physical bounds remain unknown
+- Mission 43: Active — Independent Site-Clock Mapping and Uncertainty Qualification, [PR #43](https://github.com/wolfchil345/astroscope-ai-observatory/pull/43); 48 leading-order site-clock surrogates and 12 geocentric controls evaluated, physical bounds remain unknown
 - Proposed next: Mission 44 — Relativistic Site-Frame Mapping and Error-Bound Evidence; not started, pending Mission 43 review and merge
 
 ## Phase Progress
@@ -391,7 +391,7 @@
 - [x] Reproduce the fixture byte-for-byte offline and detect four supplied-vector faults in 48/48 cases each
 - [x] Add regression tests and twelfth CI artifact; preserve all historical evidence and production gates
 - [x] Complete full local quality gate: 3,232 tests passed in 118.92 seconds, Ruff, compilation and documentation links passed; clean canonical evidence retained
-- [ ] Open pull request and verify published-head CI plus all twelve artifacts
+- [x] Open pull request — [PR #43](https://github.com/wolfchil345/astroscope-ai-observatory/pull/43); published-head CI and all twelve artifacts are required before merge, with verified final evidence recorded in the PR
 - [ ] Merge Mission 43
 
 ## Phase 2 Deliverables

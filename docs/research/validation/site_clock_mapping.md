@@ -201,6 +201,8 @@ NumPy 2.5.3; the full suite used Streamlit 1.66.0. The
 was generated from clean implementation `d942a93165b702abadacb7b5244a4f3e3b4f7015`,
 with `working_tree_dirty=false`, before this separate result-retention commit.
 Published-head CI and all twelve artifacts must be verified before merge.
+Delivery and final published-head CI/artifact evidence are tracked in
+[PR #43](https://github.com/wolfchil345/astroscope-ai-observatory/pull/43).
 
 ## Next gate
 
