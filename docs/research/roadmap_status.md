@@ -31,7 +31,7 @@
 - Mission 41: Complete — Matched-Convention Observer-Arrival Reference Validation, merged in [PR #41](https://github.com/wolfchil345/astroscope-ai-observatory/pull/41) (`fc959a380a920c7798185f3991bc5ca5404382ad`); unsuccessful independent clock qualification retained
 - Mission 42: Complete — Independent Time-Ephemeris Reference Acquisition and Clock Mapping, merged in [PR #42](https://github.com/wolfchil345/astroscope-ai-observatory/pull/42) (`7d1e6557929f873389be369612b6855ae4db22cc`); integrated geocentric reference evaluated, physical site-clock qualification remains incomplete
 - Mission 43: Complete — Independent Site-Clock Mapping and Uncertainty Qualification, merged in [PR #43](https://github.com/wolfchil345/astroscope-ai-observatory/pull/43) (`6982a2419bdc7c3ced22bd5abe5d6d79d7c05c17`); post-merge Quality Gate 39133947130 passed, physical bounds remain unknown
-- Mission 44: Active — Relativistic Site-Frame Mapping and Error-Bound Evidence; 48 scaled spatial-component comparisons and 12 algebraic zero controls pass, numerical inverse error certified within the declared polynomial, physical qualification incomplete
+- Mission 44: Active — Relativistic Site-Frame Mapping and Error-Bound Evidence, [PR #44](https://github.com/wolfchil345/astroscope-ai-observatory/pull/44); 48 scaled spatial-component comparisons and 12 algebraic zero controls pass, numerical inverse error certified within the declared polynomial, physical qualification incomplete
 - Proposed next: Mission 45 — Coupled Relativistic Site-Clock Model and Reference Qualification; not started, pending Mission 44 review and merge
 
 ## Phase Progress
@@ -408,8 +408,8 @@
 - [x] Review conditional published accuracy statements without unsupported bound transfer
 - [x] Add 74 regression cases, offline reproducibility evidence and a thirteenth CI artifact
 - [x] Run all 3306 tests and preserve blocked arrival/observing eligibility
-- [ ] Retain the clean canonical record and verify final PR CI artifacts
-- [ ] Open pull request
+- [x] Retain the canonical record from clean implementation commit `ce57f47332f70652d8bc58e6cc2da19da673a71f`
+- [x] Open [PR #44](https://github.com/wolfchil345/astroscope-ai-observatory/pull/44); final CI and artifact evidence is recorded in the PR
 - [ ] Merge Mission 44
 
 ## Phase 2 Deliverables

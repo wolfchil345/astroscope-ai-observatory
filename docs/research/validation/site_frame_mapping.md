@@ -262,6 +262,10 @@ format checks for the three new Python files, compilation and internal document
 links passed. A broader optional format check reported pre-existing formatting
 differences in fifteen older files; those frozen files were preserved.
 
+Review proceeds in [PR #44](https://github.com/wolfchil345/astroscope-ai-observatory/pull/44).
+Final-head CI and downloaded-artifact verification are recorded in that PR so
+reporting CI evidence does not itself create a new untested commit.
+
 ## Next research boundary
 
 Proposed Mission 45: **Coupled Relativistic Site-Clock Model and Reference
