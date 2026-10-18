@@ -261,6 +261,14 @@ retains this conditional budget audit; it is labelled an audit, not an additiona
 physical accuracy benchmark. Canonical evidence and final PR checks record the
 implementation/source hashes and actual test environment.
 
+The [canonical audit record](../../../validation/results/arrival_budget_reference_run.json)
+was generated from clean implementation
+`5db627692860fd18cfb5ae8f733a5b182c65512f`. It retains all six exact conditional
+example results, nine unknown required terms, a null physical arrival bound,
+disabled observing eligibility and twenty unexecuted prospective scenarios.
+Compilation, all four policy-pinned baseline file hashes and 29 relative
+documentation links were also checked successfully before publication.
+
 ## Remaining gate
 
 No aggregate physical timing limit, continuous-domain derivative certificate,
