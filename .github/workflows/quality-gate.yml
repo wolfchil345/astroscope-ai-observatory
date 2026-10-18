@@ -223,3 +223,19 @@ jobs:
           name: time-ephemeris-clock-mapping-record
           path: ${{ runner.temp }}/time_ephemeris_reference_run.json
           if-no-files-found: error
+
+      - name: Audit independent site-clock mapping and uncertainty
+        env:
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          python -m validation.site_clock \
+            --output "$RUNNER_TEMP/site_clock_reference_run.json"
+
+      - name: Upload site-clock qualification audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-clock-qualification-record
+          path: ${{ runner.temp }}/site_clock_reference_run.json
+          if-no-files-found: error

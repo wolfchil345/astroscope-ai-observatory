@@ -1,0 +1,4201 @@
+{
+  "schema_version": "1.0",
+  "model_id": "de440t-skyfield-gcrs-c2-site-surrogate-v1",
+  "policy_sha256": "13711d101822d702f75951297df2af6072f15ac1bd9eea92045840761072af91",
+  "generator_sha256": "d0f5330fad259bc7e4a2a7bb70156a7a64c4476116fad615248da8277ffd0ade",
+  "kernel_sha256": "4f003b4437a8b479aaca262716a779e3683413200adfd6353c4901aab5de800e",
+  "packages": {
+    "certifi": "2026.7.22",
+    "jplephem": "2.24",
+    "numpy": "2.5.4",
+    "sgp4": "2.27",
+    "skyfield": "1.55",
+    "spiceypy": "8.3.0"
+  },
+  "python_version": "3.12.14",
+  "cspice_toolkit": "CSPICE_N0067",
+  "units": {
+    "position": "m",
+    "velocity": "m/s",
+    "clock": "s"
+  },
+  "position_frame": "GCRS_leading_order_surrogate_not_scaled_BCRS_difference",
+  "forbidden_imports": [],
+  "approximate_skyfield_clock": "disabled_with_raising_patch",
+  "network": "socket connect/connect_ex/create_connection blocked",
+  "eop_source_sha256": "6c1e052b7822ba84e793e28aa14080552f53d5c66b739cd0e67cb4b46d0e7815",
+  "eop_records": [
+    {
+      "mjd": "60389.00",
+      "xp_arcsec": "-0.013426",
+      "yp_arcsec": "0.313049",
+      "dut1_seconds": "-0.0091683",
+      "dx_arcsec": "0.000378",
+      "dy_arcsec": "-0.000164",
+      "formal_errors": {
+        "xp_arcsec": "0.000055",
+        "yp_arcsec": "0.000056",
+        "dut1_seconds": "0.0000198",
+        "dx_arcsec": "0.000119",
+        "dy_arcsec": "0.000085"
+      }
+    },
+    {
+      "mjd": "60390.00",
+      "xp_arcsec": "-0.012838",
+      "yp_arcsec": "0.314745",
+      "dut1_seconds": "-0.0094079",
+      "dx_arcsec": "0.000304",
+      "dy_arcsec": "-0.000132",
+      "formal_errors": {
+        "xp_arcsec": "0.000056",
+        "yp_arcsec": "0.000057",
+        "dut1_seconds": "0.0000188",
+        "dx_arcsec": "0.000089",
+        "dy_arcsec": "0.000079"
+      }
+    },
+    {
+      "mjd": "60482.00",
+      "xp_arcsec": "0.065548",
+      "yp_arcsec": "0.473732",
+      "dut1_seconds": "-0.0116505",
+      "dx_arcsec": "0.000402",
+      "dy_arcsec": "-0.000331",
+      "formal_errors": {
+        "xp_arcsec": "0.000053",
+        "yp_arcsec": "0.000052",
+        "dut1_seconds": "0.0000264",
+        "dx_arcsec": "0.000065",
+        "dy_arcsec": "0.000057"
+      }
+    },
+    {
+      "mjd": "60483.00",
+      "xp_arcsec": "0.068560",
+      "yp_arcsec": "0.474249",
+      "dut1_seconds": "-0.0103126",
+      "dx_arcsec": "0.000404",
+      "dy_arcsec": "-0.000312",
+      "formal_errors": {
+        "xp_arcsec": "0.000054",
+        "yp_arcsec": "0.000053",
+        "dut1_seconds": "0.0000250",
+        "dx_arcsec": "0.000060",
+        "dy_arcsec": "0.000053"
+      }
+    },
+    {
+      "mjd": "60575.00",
+      "xp_arcsec": "0.223184",
+      "yp_arcsec": "0.420147",
+      "dut1_seconds": "0.0567834",
+      "dx_arcsec": "0.000190",
+      "dy_arcsec": "-0.000068",
+      "formal_errors": {
+        "xp_arcsec": "0.000049",
+        "yp_arcsec": "0.000051",
+        "dut1_seconds": "0.0000087",
+        "dx_arcsec": "0.000380",
+        "dy_arcsec": "0.000241"
+      }
+    },
+    {
+      "mjd": "60576.00",
+      "xp_arcsec": "0.223878",
+      "yp_arcsec": "0.419439",
+      "dut1_seconds": "0.0569452",
+      "dx_arcsec": "0.000113",
+      "dy_arcsec": "-0.000019",
+      "formal_errors": {
+        "xp_arcsec": "0.000051",
+        "yp_arcsec": "0.000052",
+        "dut1_seconds": "0.0000089",
+        "dx_arcsec": "0.000573",
+        "dy_arcsec": "0.000360"
+      }
+    },
+    {
+      "mjd": "60665.00",
+      "xp_arcsec": "0.163564",
+      "yp_arcsec": "0.309774",
+      "dut1_seconds": "0.0480670",
+      "dx_arcsec": "0.000464",
+      "dy_arcsec": "-0.000102",
+      "formal_errors": {
+        "xp_arcsec": "0.000048",
+        "yp_arcsec": "0.000047",
+        "dut1_seconds": "0.0000121",
+        "dx_arcsec": "0.000067",
+        "dy_arcsec": "0.000058"
+      }
+    },
+    {
+      "mjd": "60666.00",
+      "xp_arcsec": "0.162428",
+      "yp_arcsec": "0.309778",
+      "dut1_seconds": "0.0475094",
+      "dx_arcsec": "0.000463",
+      "dy_arcsec": "-0.000116",
+      "formal_errors": {
+        "xp_arcsec": "0.000048",
+        "yp_arcsec": "0.000048",
+        "dut1_seconds": "0.0000118",
+        "dx_arcsec": "0.000073",
+        "dy_arcsec": "0.000062"
+      }
+    }
+  ],
+  "eop_formal_errors_are_hard_bounds": false,
+  "observed_dx_dy_applied": false,
+  "physical_site_clock_bound_seconds": null,
+  "observing_eligible": false,
+  "cases": [
+    {
+      "id": "2024-03-20_tokyo_10",
+      "geocentric_id": "2024-03-20_10",
+      "utc": "2024-03-20T10:00:00",
+      "site": {
+        "name": "tokyo",
+        "latitude_deg": 35.6762,
+        "longitude_deg": 139.6503,
+        "elevation_m": 40,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "764200869.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.0015872545821774226",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0015892440608772168",
+            "site_term_seconds": "-1.989478828790283e-06",
+            "residual_seconds": "-0.0015872545820484266",
+            "next_delta_seconds": "0.0015872545820484266",
+            "et_seconds": "764200869.18400002"
+          },
+          {
+            "delta_seconds": "0.0015872545820484266",
+            "tt_minus_tdb_seconds": "-0.0015892440610063765",
+            "site_term_seconds": "-1.9894788289538815e-06",
+            "residual_seconds": "-1.2899600914282011e-13",
+            "next_delta_seconds": "0.0015872545821774226",
+            "et_seconds": "764200869.18558729"
+          },
+          {
+            "delta_seconds": "0.0015872545821774226",
+            "tt_minus_tdb_seconds": "-0.0015892440610063765",
+            "site_term_seconds": "-1.9894788289538815e-06",
+            "residual_seconds": "-1.9905274260476058e-20",
+            "next_delta_seconds": "0.0015872545821774226",
+            "et_seconds": "764200869.18558729"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-489.67567439363887",
+        "-27438.272741094326",
+        "-11893.850523127048"
+      ],
+      "jplephem_velocity_m_s": [
+        "-489.67567439363887",
+        "-27438.27274109433",
+        "-11893.850523127048"
+      ],
+      "site_position_gcrs_m": [
+        "-1574347.1593932034",
+        "4939751.3537186589",
+        "3702595.2659997731"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "-1574350.4977832027",
+            "4939750.2838420533",
+            "3702595.2738681599"
+          ],
+          "site_term_seconds": "-1.9894784851816309e-06"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "-1574350.3208144016",
+            "4939746.7006848166",
+            "3702600.1295148996"
+          ],
+          "site_term_seconds": "-1.9894780348181431e-06"
+        }
+      }
+    },
+    {
+      "id": "2024-03-20_equator_10",
+      "geocentric_id": "2024-03-20_10",
+      "utc": "2024-03-20T10:00:00",
+      "site": {
+        "name": "equator",
+        "latitude_deg": 0,
+        "longitude_deg": 30,
+        "elevation_m": 0,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "764200869.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.001589275216502907",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0015892440608772168",
+            "site_term_seconds": "3.1155495693692712e-08",
+            "residual_seconds": "-0.0015892752163729105",
+            "next_delta_seconds": "0.0015892752163729105",
+            "et_seconds": "764200869.18400002"
+          },
+          {
+            "delta_seconds": "0.0015892752163729105",
+            "tt_minus_tdb_seconds": "-0.0015892440610065415",
+            "site_term_seconds": "3.1155496365532048e-08",
+            "residual_seconds": "-1.2999651039804648e-13",
+            "next_delta_seconds": "0.001589275216502907",
+            "et_seconds": "764200869.18558931"
+          },
+          {
+            "delta_seconds": "0.001589275216502907",
+            "tt_minus_tdb_seconds": "-0.0015892440610065415",
+            "site_term_seconds": "3.1155496365532048e-08",
+            "residual_seconds": "-1.9395731003143393e-20",
+            "next_delta_seconds": "0.001589275216502907",
+            "et_seconds": "764200869.18558931"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-489.6756743815597",
+        "-27438.272741094293",
+        "-11893.85052312703"
+      ],
+      "jplephem_velocity_m_s": [
+        "-489.67567438155936",
+        "-27438.272741094293",
+        "-11893.85052312703"
+      ],
+      "site_position_gcrs_m": [
+        "6374683.1512545617",
+        "-209339.48151503352",
+        "-14943.003688233883"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "6374683.2927329401",
+            "-209335.17321846544",
+            "-14943.004186260699"
+          ],
+          "site_term_seconds": "3.1154180372321154e-08"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "6374683.1634693583",
+            "-209339.48095942161",
+            "-14937.799735500488"
+          ],
+          "site_term_seconds": "3.1154807454205303e-08"
+        }
+      }
+    },
+    {
+      "id": "2024-03-20_paranal_10",
+      "geocentric_id": "2024-03-20_10",
+      "utc": "2024-03-20T10:00:00",
+      "site": {
+        "name": "paranal",
+        "latitude_deg": -24.6272,
+        "longitude_deg": -70.4042,
+        "elevation_m": 2635,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "764200869.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.001591331428290174",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0015892440608772168",
+            "site_term_seconds": "2.0873672836007947e-06",
+            "residual_seconds": "-0.0015913314281608176",
+            "next_delta_seconds": "0.0015913314281608176",
+            "et_seconds": "764200869.18400002"
+          },
+          {
+            "delta_seconds": "0.0015913314281608176",
+            "tt_minus_tdb_seconds": "-0.0015892440610067063",
+            "site_term_seconds": "2.0873672834676521e-06",
+            "residual_seconds": "-1.2935627597220989e-13",
+            "next_delta_seconds": "0.001591331428290174",
+            "et_seconds": "764200869.18559134"
+          },
+          {
+            "delta_seconds": "0.001591331428290174",
+            "tt_minus_tdb_seconds": "-0.0015892440610067063",
+            "site_term_seconds": "2.0873672834676521e-06",
+            "residual_seconds": "1.0206747014414319e-19",
+            "next_delta_seconds": "0.001591331428290174",
+            "et_seconds": "764200869.18559134"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-489.67567436948025",
+        "-27438.272741094261",
+        "-11893.85052312701"
+      ],
+      "jplephem_velocity_m_s": [
+        "-489.67567436948065",
+        "-27438.272741094261",
+        "-11893.850523127012"
+      ],
+      "site_position_gcrs_m": [
+        "-1241089.1691951174",
+        "-5670945.5032963548",
+        "-2639560.2448496097"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "-1241085.3366056853",
+            "-5670946.3378915917",
+            "-2639560.2538031591"
+          ],
+          "site_term_seconds": "2.0873675185663599e-06"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "-1241086.9215824641",
+            "-5670942.1794087654",
+            "-2639568.4428180004"
+          ],
+          "site_term_seconds": "2.0873673413596706e-06"
+        }
+      }
+    },
+    {
+      "id": "2024-03-20_arctic_10",
+      "geocentric_id": "2024-03-20_10",
+      "utc": "2024-03-20T10:00:00",
+      "site": {
+        "name": "arctic",
+        "latitude_deg": 78.2232,
+        "longitude_deg": 15.6469,
+        "elevation_m": 20,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "764200869.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.001588525513115228",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0015892440608772168",
+            "site_term_seconds": "-7.1854789138032887e-07",
+            "residual_seconds": "-0.0015885255129858365",
+            "next_delta_seconds": "0.0015885255129858365",
+            "et_seconds": "764200869.18400002"
+          },
+          {
+            "delta_seconds": "0.0015885255129858365",
+            "tt_minus_tdb_seconds": "-0.0015892440610064736",
+            "site_term_seconds": "-7.1854789124569595e-07",
+            "residual_seconds": "-1.2939144996825669e-13",
+            "next_delta_seconds": "0.001588525513115228",
+            "et_seconds": "764200869.18558848"
+          },
+          {
+            "delta_seconds": "0.001588525513115228",
+            "tt_minus_tdb_seconds": "-0.0015892440610064736",
+            "site_term_seconds": "-7.1854789124569595e-07",
+            "residual_seconds": "5.6221811874004185e-20",
+            "next_delta_seconds": "0.001588525513115228",
+            "et_seconds": "764200869.18558848"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-489.67567438653356",
+        "-27438.272741094301",
+        "-11893.850523127039"
+      ],
+      "jplephem_velocity_m_s": [
+        "-489.67567438653333",
+        "-27438.272741094304",
+        "-11893.850523127039"
+      ],
+      "site_position_gcrs_m": [
+        "1268494.0491564299",
+        "-364851.00073799392",
+        "6219146.1283335239"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "1268494.2958997055",
+            "-364850.15329208691",
+            "6219146.1277223015"
+          ],
+          "site_term_seconds": "-7.1854815122757843e-07"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "1268488.7142263656",
+            "-364858.82749940164",
+            "6219146.7573073683"
+          ],
+          "site_term_seconds": "-7.1854555596815057e-07"
+        }
+      }
+    },
+    {
+      "id": "2024-03-20_tokyo_12",
+      "geocentric_id": "2024-03-20_12",
+      "utc": "2024-03-20T12:00:00",
+      "site": {
+        "name": "tokyo",
+        "latitude_deg": 35.6762,
+        "longitude_deg": 139.6503,
+        "elevation_m": 40,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "764208069.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.0015882937895113198",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0015898281115964555",
+            "site_term_seconds": "-1.5343222131645081e-06",
+            "residual_seconds": "-0.0015882937893832911",
+            "next_delta_seconds": "0.0015882937893832911",
+            "et_seconds": "764208069.18400002"
+          },
+          {
+            "delta_seconds": "0.0015882937893832911",
+            "tt_minus_tdb_seconds": "-0.001589828111724886",
+            "site_term_seconds": "-1.534322213566242e-06",
+            "residual_seconds": "-1.2802866427101252e-13",
+            "next_delta_seconds": "0.0015882937895113198",
+            "et_seconds": "764208069.18558824"
+          },
+          {
+            "delta_seconds": "0.0015882937895113198",
+            "tt_minus_tdb_seconds": "-0.001589828111724886",
+            "site_term_seconds": "-1.534322213566242e-06",
+            "residual_seconds": "-2.1175823681357508e-22",
+            "next_delta_seconds": "0.0015882937895113198",
+            "et_seconds": "764208069.18558824"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-446.76260388669914",
+        "-27438.124093521801",
+        "-11893.766013552809"
+      ],
+      "jplephem_velocity_m_s": [
+        "-446.76260388669914",
+        "-27438.124093521801",
+        "-11893.766013552809"
+      ],
+      "site_position_gcrs_m": [
+        "-3837053.7703307406",
+        "3480948.1298057237",
+        "3707956.6609996087"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "-3837056.1278687934",
+            "3480945.5250915163",
+            "3707956.6666276688"
+          ],
+          "site_term_seconds": "-1.5343214073979508e-06"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "-3837054.1712143333",
+            "3480942.5106190015",
+            "3707961.5213201516"
+          ],
+          "site_term_seconds": "-1.5343211392856216e-06"
+        }
+      }
+    },
+    {
+      "id": "2024-03-20_equator_12",
+      "geocentric_id": "2024-03-20_12",
+      "utc": "2024-03-20T12:00:00",
+      "site": {
+        "name": "equator",
+        "latitude_deg": 0,
+        "longitude_deg": 30,
+        "elevation_m": 0,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "764208069.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.0015888817494829329",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0015898281115964555",
+            "site_term_seconds": "-9.4636224259480781e-07",
+            "residual_seconds": "-0.0015888817493538608",
+            "next_delta_seconds": "0.0015888817493538608",
+            "et_seconds": "764208069.18400002"
+          },
+          {
+            "delta_seconds": "0.0015888817493538608",
+            "tt_minus_tdb_seconds": "-0.0015898281117249342",
+            "site_term_seconds": "-9.4636224200128928e-07",
+            "residual_seconds": "-1.2907211282966942e-13",
+            "next_delta_seconds": "0.0015888817494829329",
+            "et_seconds": "764208069.18558884"
+          },
+          {
+            "delta_seconds": "0.0015888817494829329",
+            "tt_minus_tdb_seconds": "-0.0015898281117249342",
+            "site_term_seconds": "-9.4636224200128928e-07",
+            "residual_seconds": "-1.2599615090407718e-20",
+            "next_delta_seconds": "0.0015888817494829329",
+            "et_seconds": "764208069.18558884"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-446.76260388314699",
+        "-27438.12409352179",
+        "-11893.766013552802"
+      ],
+      "jplephem_velocity_m_s": [
+        "-446.76260388314699",
+        "-27438.124093521783",
+        "-11893.7660135528"
+      ],
+      "site_position_gcrs_m": [
+        "5620991.7219386445",
+        "3014117.9055387764",
+        "-13300.532954254561"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "5620989.6804838134",
+            "3014121.7126403716",
+            "-13300.528314927655"
+          ],
+          "site_term_seconds": "-9.4636339473856237e-07"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "5620991.7339759376",
+            "3014117.906053653",
+            "-13295.328128126719"
+          ],
+          "site_term_seconds": "-9.4636293100415253e-07"
+        }
+      }
+    },
+    {
+      "id": "2024-03-20_paranal_12",
+      "geocentric_id": "2024-03-20_12",
+      "utc": "2024-03-20T12:00:00",
+      "site": {
+        "name": "paranal",
+        "latitude_deg": -24.6272,
+        "longitude_deg": -70.4042,
+        "elevation_m": 2635,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "764208069.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.0015918566349596224",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0015898281115964555",
+            "site_term_seconds": "2.028523234263666e-06",
+            "residual_seconds": "-0.0015918566348307192",
+            "next_delta_seconds": "0.0015918566348307192",
+            "et_seconds": "764208069.18400002"
+          },
+          {
+            "delta_seconds": "0.0015918566348307192",
+            "tt_minus_tdb_seconds": "-0.0015898281117251753",
+            "site_term_seconds": "2.0285232344472371e-06",
+            "residual_seconds": "-1.2890327385817234e-13",
+            "next_delta_seconds": "0.0015918566349596224",
+            "et_seconds": "764208069.18559182"
+          },
+          {
+            "delta_seconds": "0.0015918566349596224",
+            "tt_minus_tdb_seconds": "-0.0015898281117251753",
+            "site_term_seconds": "2.0285232344472371e-06",
+            "residual_seconds": "-9.2326591250718737e-20",
+            "next_delta_seconds": "0.0015918566349596224",
+            "et_seconds": "764208069.18559182"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-446.76260386538519",
+        "-27438.124093521721",
+        "-11893.766013552762"
+      ],
+      "jplephem_velocity_m_s": [
+        "-446.7626038653853",
+        "-27438.124093521725",
+        "-11893.766013552762"
+      ],
+      "site_position_gcrs_m": [
+        "1767692.5104642247",
+        "-5526107.9406280648",
+        "-2646620.0578128174"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "1767696.2532112431",
+            "-5526106.73917107",
+            "-2646620.0666344231"
+          ],
+          "site_term_seconds": "2.0285228502166454e-06"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "1767692.7859504488",
+            "-5526103.9264291078",
+            "-2646628.2553929863"
+          ],
+          "site_term_seconds": "2.0285230924167267e-06"
+        }
+      }
+    },
+    {
+      "id": "2024-03-20_arctic_12",
+      "geocentric_id": "2024-03-20_12",
+      "utc": "2024-03-20T12:00:00",
+      "site": {
+        "name": "arctic",
+        "latitude_deg": 78.2232,
+        "longitude_deg": 15.6469,
+        "elevation_m": 20,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "764208069.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.001588903221564881",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0015898281115964555",
+            "site_term_seconds": "-9.2489016019969873e-07",
+            "residual_seconds": "-0.0015889032214362559",
+            "next_delta_seconds": "0.0015889032214362559",
+            "et_seconds": "764208069.18400002"
+          },
+          {
+            "delta_seconds": "0.0015889032214362559",
+            "tt_minus_tdb_seconds": "-0.0015898281117249439",
+            "site_term_seconds": "-9.2489016006294992e-07",
+            "residual_seconds": "-1.2862511077939287e-13",
+            "next_delta_seconds": "0.001588903221564881",
+            "et_seconds": "764208069.18558896"
+          },
+          {
+            "delta_seconds": "0.001588903221564881",
+            "tt_minus_tdb_seconds": "-0.0015898281117249439",
+            "site_term_seconds": "-9.2489016006294992e-07",
+            "residual_seconds": "8.1315162936412833e-20",
+            "next_delta_seconds": "0.001588903221564881",
+            "et_seconds": "764208069.18558896"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-446.76260388243645",
+        "-27438.124093521787",
+        "-11893.766013552799"
+      ],
+      "jplephem_velocity_m_s": [
+        "-446.76260388243622",
+        "-27438.124093521783",
+        "-11893.766013552797"
+      ],
+      "site_position_gcrs_m": [
+        "1282600.8633500268",
+        "312834.80018497311",
+        "6219086.8609609865"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "1282600.651630335",
+            "312835.65901089198",
+            "6219086.8614242114"
+          ],
+          "site_term_seconds": "-9.2489042126303805e-07"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "1282600.1716263415",
+            "312825.34850593493",
+            "6219087.4790540449"
+          ],
+          "site_term_seconds": "-9.2488735291445856e-07"
+        }
+      }
+    },
+    {
+      "id": "2024-03-20_tokyo_14",
+      "geocentric_id": "2024-03-20_14",
+      "utc": "2024-03-20T14:00:00",
+      "site": {
+        "name": "tokyo",
+        "latitude_deg": 35.6762,
+        "longitude_deg": 139.6503,
+        "elevation_m": 40,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "764215269.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.001589609100008963",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0015904085061092283",
+            "site_term_seconds": "-7.9940622746306948e-07",
+            "residual_seconds": "-0.0015896090998817653",
+            "next_delta_seconds": "0.0015896090998817653",
+            "et_seconds": "764215269.18400002"
+          },
+          {
+            "delta_seconds": "0.0015896090998817653",
+            "tt_minus_tdb_seconds": "-0.0015904085062369581",
+            "site_term_seconds": "-7.9940622799505286e-07",
+            "residual_seconds": "-1.271978264878306e-13",
+            "next_delta_seconds": "0.001589609100008963",
+            "et_seconds": "764215269.18558955"
+          },
+          {
+            "delta_seconds": "0.001589609100008963",
+            "tt_minus_tdb_seconds": "-0.0015904085062369581",
+            "site_term_seconds": "-7.9940622799505286e-07",
+            "residual_seconds": "-9.4973569210888426e-20",
+            "next_delta_seconds": "0.001589609100008963",
+            "et_seconds": "764215269.18558955"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-403.8544091645777",
+        "-27437.920648405288",
+        "-11893.657918838429"
+      ],
+      "jplephem_velocity_m_s": [
+        "-403.85440916457776",
+        "-27437.920648405292",
+        "-11893.657918838428"
+      ],
+      "site_position_gcrs_m": [
+        "-5063781.3119176226",
+        "1084469.9734668136",
+        "3710925.4668318969"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "-5063782.0479064677",
+            "1084466.5305037454",
+            "3710925.4686905472"
+          ],
+          "site_term_seconds": "-7.9940517383841602e-07"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "-5063778.8386354735",
+            "1084464.9027002295",
+            "3710930.3236328443"
+          ],
+          "site_term_seconds": "-7.9940533378806388e-07"
+        }
+      }
+    },
+    {
+      "id": "2024-03-20_equator_14",
+      "geocentric_id": "2024-03-20_14",
+      "utc": "2024-03-20T14:00:00",
+      "site": {
+        "name": "equator",
+        "latitude_deg": 0,
+        "longitude_deg": 30,
+        "elevation_m": 0,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "764215269.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.0015887381314776648",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0015904085061092283",
+            "site_term_seconds": "-1.6703747595824535e-06",
+            "residual_seconds": "-0.0015887381313496459",
+            "next_delta_seconds": "0.0015887381313496459",
+            "et_seconds": "764215269.18400002"
+          },
+          {
+            "delta_seconds": "0.0015887381313496459",
+            "tt_minus_tdb_seconds": "-0.0015904085062368909",
+            "site_term_seconds": "-1.6703747592261715e-06",
+            "residual_seconds": "-1.2801883043025313e-13",
+            "next_delta_seconds": "0.0015887381314776648",
+            "et_seconds": "764215269.18558872"
+          },
+          {
+            "delta_seconds": "0.0015887381314776648",
+            "tt_minus_tdb_seconds": "-0.0015904085062368909",
+            "site_term_seconds": "-1.6703747592261715e-06",
+            "residual_seconds": "7.580944877925988e-20",
+            "next_delta_seconds": "0.0015887381314776648",
+            "et_seconds": "764215269.18558872"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-403.85440916955042",
+        "-27437.920648405317",
+        "-11893.65791883844"
+      ],
+      "jplephem_velocity_m_s": [
+        "-403.85440916955042",
+        "-27437.920648405321",
+        "-11893.657918838442"
+      ],
+      "site_position_gcrs_m": [
+        "3353092.3284822176",
+        "5425618.6925317897",
+        "-8076.5520144309703"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "3353088.6458257777",
+            "5425620.9684651736",
+            "-8076.5434679947875"
+          ],
+          "site_term_seconds": "-1.6703754386244369e-06"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "3353092.3403866813",
+            "5425618.6929213833",
+            "-8071.346315010157"
+          ],
+          "site_term_seconds": "-1.6703754482937498e-06"
+        }
+      }
+    },
+    {
+      "id": "2024-03-20_paranal_14",
+      "geocentric_id": "2024-03-20_14",
+      "utc": "2024-03-20T14:00:00",
+      "site": {
+        "name": "paranal",
+        "latitude_deg": -24.6272,
+        "longitude_deg": -70.4042,
+        "elevation_m": 2635,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "764215269.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.0015919286035257622",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0015904085061092283",
+            "site_term_seconds": "1.5200972881619385e-06",
+            "residual_seconds": "-0.0015919286033973903",
+            "next_delta_seconds": "0.0015919286033973903",
+            "et_seconds": "764215269.18400002"
+          },
+          {
+            "delta_seconds": "0.0015919286033973903",
+            "tt_minus_tdb_seconds": "-0.0015904085062371496",
+            "site_term_seconds": "1.5200972886126727e-06",
+            "residual_seconds": "-1.2837201881706094e-13",
+            "next_delta_seconds": "0.0015919286035257622",
+            "et_seconds": "764215269.18559194"
+          },
+          {
+            "delta_seconds": "0.0015919286035257622",
+            "tt_minus_tdb_seconds": "-0.0015904085062371496",
+            "site_term_seconds": "1.5200972886126727e-06",
+            "residual_seconds": "-9.6349997750176664e-20",
+            "next_delta_seconds": "0.0015919286035257622",
+            "et_seconds": "764215269.18559194"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-403.8544091503702",
+        "-27437.920648405219",
+        "-11893.657918838389"
+      ],
+      "jplephem_velocity_m_s": [
+        "-403.85440915037009",
+        "-27437.920648405219",
+        "-11893.657918838391"
+      ],
+      "site_position_gcrs_m": [
+        "4298616.1545927376",
+        "-3892650.1315994994",
+        "-2652617.1268906677"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "4298618.7966704788",
+            "-3892647.2096782015",
+            "-2652617.1331982147"
+          ],
+          "site_term_seconds": "1.5200963855476159e-06"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "4298614.3767296756",
+            "-3892646.5091094389",
+            "-2652625.3238503165"
+          ],
+          "site_term_seconds": "1.5200972754415333e-06"
+        }
+      }
+    },
+    {
+      "id": "2024-03-20_arctic_14",
+      "geocentric_id": "2024-03-20_14",
+      "utc": "2024-03-20T14:00:00",
+      "site": {
+        "name": "arctic",
+        "latitude_deg": 78.2232,
+        "longitude_deg": 15.6469,
+        "elevation_m": 20,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "764215269.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.0015893044279003726",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0015904085061092283",
+            "site_term_seconds": "-1.1040783366692265e-06",
+            "residual_seconds": "-0.0015893044277725591",
+            "next_delta_seconds": "0.0015893044277725591",
+            "et_seconds": "764215269.18400002"
+          },
+          {
+            "delta_seconds": "0.0015893044277725591",
+            "tt_minus_tdb_seconds": "-0.0015904085062369388",
+            "site_term_seconds": "-1.1040783365662325e-06",
+            "residual_seconds": "-1.27813544795706e-13",
+            "next_delta_seconds": "0.0015893044279003726",
+            "et_seconds": "764215269.18558931"
+          },
+          {
+            "delta_seconds": "0.0015893044279003726",
+            "tt_minus_tdb_seconds": "-0.0015904085062369388",
+            "site_term_seconds": "-1.1040783365662325e-06",
+            "residual_seconds": "1.3552527156068805e-20",
+            "next_delta_seconds": "0.0015893044279003726",
+            "et_seconds": "764215269.18558931"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-403.8544091659985",
+        "-27437.920648405303",
+        "-11893.657918838431"
+      ],
+      "jplephem_velocity_m_s": [
+        "-403.85440916599879",
+        "-27437.920648405303",
+        "-11893.657918838431"
+      ],
+      "site_position_gcrs_m": [
+        "955124.73028881836",
+        "906312.49732971739",
+        "6219831.7001206111"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "955124.11528933188",
+            "906313.13572507107",
+            "6219831.7015378727"
+          ],
+          "site_term_seconds": "-1.1040785288847598e-06"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "955128.87281863822",
+            "906303.96822204511",
+            "6219832.3067863919"
+          ],
+          "site_term_seconds": "-1.1040758316290635e-06"
+        }
+      }
+    },
+    {
+      "id": "2024-06-21_tokyo_10",
+      "geocentric_id": "2024-06-21_10",
+      "utc": "2024-06-21T10:00:00",
+      "site": {
+        "name": "tokyo",
+        "latitude_deg": 35.6762,
+        "longitude_deg": 139.6503,
+        "elevation_m": 40,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "772236069.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.00038812996476633407",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.00038972190284874801",
+            "site_term_seconds": "-1.5919379595956978e-06",
+            "residual_seconds": "-0.00038812996488915233",
+            "next_delta_seconds": "0.00038812996488915233",
+            "et_seconds": "772236069.18400002"
+          },
+          {
+            "delta_seconds": "0.00038812996488915233",
+            "tt_minus_tdb_seconds": "-0.00038972190272593197",
+            "site_term_seconds": "-1.5919379595979018e-06",
+            "residual_seconds": "1.2281825248081025e-13",
+            "next_delta_seconds": "0.00038812996476633407",
+            "et_seconds": "772236069.18438816"
+          },
+          {
+            "delta_seconds": "0.00038812996476633407",
+            "tt_minus_tdb_seconds": "-0.00038972190272593197",
+            "site_term_seconds": "-1.5919379595979018e-06",
+            "residual_seconds": "-6.9880218148479778e-21",
+            "next_delta_seconds": "0.00038812996476633407",
+            "et_seconds": "772236069.18438816"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "29302.387914137886",
+        "-21.841500147673955",
+        "-9.4614635579835067"
+      ],
+      "jplephem_velocity_m_s": [
+        "29302.387914137886",
+        "-21.841500147674296",
+        "-9.4614635579836754"
+      ],
+      "site_position_gcrs_m": [
+        "-4882838.4712396823",
+        "-1725493.2551306637",
+        "3710725.7523211413"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "-4882837.0753600672",
+            "-1725497.2120487394",
+            "3710725.7491439814"
+          ],
+          "site_term_seconds": "-1.5919375035330905e-06"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "-4882830.5022702413",
+            "-1725496.4977858826",
+            "3710734.7306008004"
+          ],
+          "site_term_seconds": "-1.5919353616077466e-06"
+        }
+      }
+    },
+    {
+      "id": "2024-06-21_equator_10",
+      "geocentric_id": "2024-06-21_10",
+      "utc": "2024-06-21T10:00:00",
+      "site": {
+        "name": "equator",
+        "latitude_deg": 0,
+        "longitude_deg": 30,
+        "elevation_m": 0,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "772236069.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.0003897282983970248",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.00038972190284874801",
+            "site_term_seconds": "6.3956714383152286e-09",
+            "residual_seconds": "-0.00038972829852018632",
+            "next_delta_seconds": "0.00038972829852018632",
+            "et_seconds": "772236069.18400002"
+          },
+          {
+            "delta_seconds": "0.00038972829852018632",
+            "tt_minus_tdb_seconds": "-0.00038972190272544159",
+            "site_term_seconds": "6.3956715832046496e-09",
+            "residual_seconds": "1.2316152476374676e-13",
+            "next_delta_seconds": "0.0003897282983970248",
+            "et_seconds": "772236069.18438971"
+          },
+          {
+            "delta_seconds": "0.0003897282983970248",
+            "tt_minus_tdb_seconds": "-0.00038972190272544159",
+            "site_term_seconds": "6.3956715832046496e-09",
+            "residual_seconds": "6.8871057801165084e-21",
+            "next_delta_seconds": "0.0003897282983970248",
+            "et_seconds": "772236069.18438971"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "29302.387914137853",
+        "-21.841500139554462",
+        "-9.4614635544685939"
+      ],
+      "jplephem_velocity_m_s": [
+        "29302.387914137853",
+        "-21.841500139554125",
+        "-9.4614635544684269"
+      ],
+      "site_position_gcrs_m": [
+        "24370.667057305964",
+        "6378090.4340356123",
+        "-276.80243050218007"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "24365.507723641564",
+            "6378090.4537478564",
+            "-276.79019848730337"
+          ],
+          "site_term_seconds": "6.3939894639104614e-09"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "24370.679825646574",
+            "6378090.4342247965",
+            "-271.26366313803862"
+          ],
+          "site_term_seconds": "6.3956751629769779e-09"
+        }
+      }
+    },
+    {
+      "id": "2024-06-21_paranal_10",
+      "geocentric_id": "2024-06-21_10",
+      "utc": "2024-06-21T10:00:00",
+      "site": {
+        "name": "paranal",
+        "latitude_deg": -24.6272,
+        "longitude_deg": -70.4042,
+        "elevation_m": 2635,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "772236069.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.00039158017645046154",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.00038972190284874801",
+            "site_term_seconds": "1.8582737256747072e-06",
+            "residual_seconds": "-0.00039158017657442271",
+            "next_delta_seconds": "0.00039158017657442271",
+            "et_seconds": "772236069.18400002"
+          },
+          {
+            "delta_seconds": "0.00039158017657442271",
+            "tt_minus_tdb_seconds": "-0.00038972190272483807",
+            "site_term_seconds": "1.8582737256234532e-06",
+            "residual_seconds": "1.2396119257653958e-13",
+            "next_delta_seconds": "0.00039158017645046154",
+            "et_seconds": "772236069.18439162"
+          },
+          {
+            "delta_seconds": "0.00039158017645046154",
+            "tt_minus_tdb_seconds": "-0.00038972190272483807",
+            "site_term_seconds": "1.8582737256234532e-06",
+            "residual_seconds": "2.1387581918171084e-20",
+            "next_delta_seconds": "0.00039158017645046154",
+            "et_seconds": "772236069.18439162"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "29302.387914137802",
+        "-21.841500129561144",
+        "-9.4614635501423123"
+      ],
+      "jplephem_velocity_m_s": [
+        "29302.387914137802",
+        "-21.841500129561144",
+        "-9.4614635501423123"
+      ],
+      "site_position_gcrs_m": [
+        "5697993.3646623995",
+        "-1069999.50330597",
+        "-2656158.1640838543"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "5697994.2301273709",
+            "-1069994.889018456",
+            "-2656158.1662902986"
+          ],
+          "site_term_seconds": "1.8582740066724959e-06"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "5697987.6555950139",
+            "-1069997.1868055463",
+            "-2656171.344314246"
+          ],
+          "site_term_seconds": "1.8582718651034504e-06"
+        }
+      }
+    },
+    {
+      "id": "2024-06-21_arctic_10",
+      "geocentric_id": "2024-06-21_10",
+      "utc": "2024-06-21T10:00:00",
+      "site": {
+        "name": "arctic",
+        "latitude_deg": 78.2232,
+        "longitude_deg": 15.6469,
+        "elevation_m": 20,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "772236069.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.00038983287342951757",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.00038972190284874801",
+            "site_term_seconds": "1.1097070402379893e-07",
+            "residual_seconds": "-0.00038983287355277179",
+            "next_delta_seconds": "0.00038983287355277179",
+            "et_seconds": "772236069.18400002"
+          },
+          {
+            "delta_seconds": "0.00038983287355277179",
+            "tt_minus_tdb_seconds": "-0.00038972190272540386",
+            "site_term_seconds": "1.1097070411369707e-07",
+            "residual_seconds": "1.2325423247515599e-13",
+            "next_delta_seconds": "0.00038983287342951757",
+            "et_seconds": "772236069.18438983"
+          },
+          {
+            "delta_seconds": "0.00038983287342951757",
+            "tt_minus_tdb_seconds": "-0.00038972190272540386",
+            "site_term_seconds": "1.1097070411369707e-07",
+            "residual_seconds": "1.5312767499581648e-20",
+            "next_delta_seconds": "0.00038983287342951757",
+            "et_seconds": "772236069.18438983"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "29302.387914137849",
+        "-21.841500138929568",
+        "-9.4614635541980814"
+      ],
+      "jplephem_velocity_m_s": [
+        "29302.387914137853",
+        "-21.841500138929568",
+        "-9.4614635541980814"
+      ],
+      "site_position_gcrs_m": [
+        "343317.52175550966",
+        "1264178.9736317801",
+        "6221250.4026870234"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "343316.49931038544",
+            "1264179.2394142256",
+            "6221250.4051023237"
+          ],
+          "site_term_seconds": "1.1097037069796494e-07"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "343330.89089243708",
+            "1264173.519272635",
+            "6221250.7732432177"
+          ],
+          "site_term_seconds": "1.1097506418049808e-07"
+        }
+      }
+    },
+    {
+      "id": "2024-06-21_tokyo_12",
+      "geocentric_id": "2024-06-21_12",
+      "utc": "2024-06-21T12:00:00",
+      "site": {
+        "name": "tokyo",
+        "latitude_deg": 35.6762,
+        "longitude_deg": 139.6503,
+        "elevation_m": 40,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "772243269.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.00038634772164586589",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0003874432826433663",
+            "site_term_seconds": "-1.0955608751536225e-06",
+            "residual_seconds": "-0.00038634772176821268",
+            "next_delta_seconds": "0.00038634772176821268",
+            "et_seconds": "772243269.18400002"
+          },
+          {
+            "delta_seconds": "0.00038634772176821268",
+            "tt_minus_tdb_seconds": "-0.00038744328252107176",
+            "site_term_seconds": "-1.0955608752058849e-06",
+            "residual_seconds": "1.223468053773133e-13",
+            "next_delta_seconds": "0.00038634772164586589",
+            "et_seconds": "772243269.18438637"
+          },
+          {
+            "delta_seconds": "0.00038634772164586589",
+            "tt_minus_tdb_seconds": "-0.00038744328252107176",
+            "site_term_seconds": "-1.0955608752058849e-06",
+            "residual_seconds": "1.1223186551119479e-20",
+            "next_delta_seconds": "0.00038634772164586589",
+            "et_seconds": "772243269.18438637"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "29302.194670732864",
+        "15.88105044369928",
+        "6.8688731662174636"
+      ],
+      "jplephem_velocity_m_s": [
+        "29302.194670732861",
+        "15.88105044369928",
+        "6.8688731662174636"
+      ],
+      "site_position_gcrs_m": [
+        "-3359028.7830975144",
+        "-3944947.7017623154",
+        "3707187.2603554577"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "-3359025.6239421079",
+            "-3944950.3986597247",
+            "3707187.2529552588"
+          ],
+          "site_term_seconds": "-1.0955598457007591e-06"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "-3359020.2583186971",
+            "-3944946.5194242694",
+            "3707196.2426807252"
+          ],
+          "site_term_seconds": "-1.0955580949692911e-06"
+        }
+      }
+    },
+    {
+      "id": "2024-06-21_equator_12",
+      "geocentric_id": "2024-06-21_12",
+      "utc": "2024-06-21T12:00:00",
+      "site": {
+        "name": "equator",
+        "latitude_deg": 0,
+        "longitude_deg": 30,
+        "elevation_m": 0,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "772243269.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.00038640883102019822",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0003874432826433663",
+            "site_term_seconds": "-1.0344515009986117e-06",
+            "residual_seconds": "-0.00038640883114236769",
+            "next_delta_seconds": "0.00038640883114236769",
+            "et_seconds": "772243269.18400002"
+          },
+          {
+            "delta_seconds": "0.00038640883114236769",
+            "tt_minus_tdb_seconds": "-0.00038744328252107176",
+            "site_term_seconds": "-1.0344515008735483e-06",
+            "residual_seconds": "1.2216947712398148e-13",
+            "next_delta_seconds": "0.00038640883102019822",
+            "et_seconds": "772243269.18438637"
+          },
+          {
+            "delta_seconds": "0.00038640883102019822",
+            "tt_minus_tdb_seconds": "-0.00038744328252107176",
+            "site_term_seconds": "-1.0344515008735483e-06",
+            "residual_seconds": "4.2351647362715017e-21",
+            "next_delta_seconds": "0.00038640883102019822",
+            "et_seconds": "772243269.18438637"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "29302.194670732864",
+        "15.88105044369928",
+        "6.8688731662174636"
+      ],
+      "jplephem_velocity_m_s": [
+        "29302.194670732861",
+        "15.88105044369928",
+        "6.8688731662174636"
+      ],
+      "site_position_gcrs_m": [
+        "-3175863.0201616716",
+        "5531226.9706389988",
+        "7339.4287401639785"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "-3175867.4494840945",
+            "5531224.427439793",
+            "7339.4393273295163"
+          ],
+          "site_term_seconds": "-1.034452945418035e-06"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "-3175863.0073602935",
+            "5531226.9706449956",
+            "7344.9614519458773"
+          ],
+          "site_term_seconds": "-1.0344514962770567e-06"
+        }
+      }
+    },
+    {
+      "id": "2024-06-21_paranal_12",
+      "geocentric_id": "2024-06-21_12",
+      "utc": "2024-06-21T12:00:00",
+      "site": {
+        "name": "paranal",
+        "latitude_deg": -24.6272,
+        "longitude_deg": -70.4042,
+        "elevation_m": 2635,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "772243269.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.00038922549140544443",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0003874432826433663",
+            "site_term_seconds": "1.7822088852612296e-06",
+            "residual_seconds": "-0.00038922549152862752",
+            "next_delta_seconds": "0.00038922549152862752",
+            "et_seconds": "772243269.18400002"
+          },
+          {
+            "delta_seconds": "0.00038922549152862752",
+            "tt_minus_tdb_seconds": "-0.00038744328252016613",
+            "site_term_seconds": "1.7822088852782863e-06",
+            "residual_seconds": "1.2318310789943355e-13",
+            "next_delta_seconds": "0.00038922549140544443",
+            "et_seconds": "772243269.18438923"
+          },
+          {
+            "delta_seconds": "0.00038922549140544443",
+            "tt_minus_tdb_seconds": "-0.00038744328252016613",
+            "site_term_seconds": "1.7822088852782863e-06",
+            "residual_seconds": "1.4399560103323106e-20",
+            "next_delta_seconds": "0.00038922549140544443",
+            "et_seconds": "772243269.18438923"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "29302.194670732777",
+        "15.881050458688835",
+        "6.8688731727067065"
+      ],
+      "jplephem_velocity_m_s": [
+        "29302.194670732773",
+        "15.881050458688831",
+        "6.8688731727067065"
+      ],
+      "site_position_gcrs_m": [
+        "5465955.2572921487",
+        "1933325.4895261789",
+        "-2655708.7924450487"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "5465953.7090411559",
+            "1933329.8716229424",
+            "-2655708.7889207476"
+          ],
+          "site_term_seconds": "1.7822083812752326e-06"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "5465949.1510670716",
+            "1933324.6447913635",
+            "-2655721.9751383555"
+          ],
+          "site_term_seconds": "1.7822068933035457e-06"
+        }
+      }
+    },
+    {
+      "id": "2024-06-21_arctic_12",
+      "geocentric_id": "2024-06-21_12",
+      "utc": "2024-06-21T12:00:00",
+      "site": {
+        "name": "arctic",
+        "latitude_deg": 78.2232,
+        "longitude_deg": 15.6469,
+        "elevation_m": 20,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "772243269.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.0003873349266171789",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0003874432826433663",
+            "site_term_seconds": "-1.0835590368026374e-07",
+            "residual_seconds": "-0.00038733492673968605",
+            "next_delta_seconds": "0.00038733492673968605",
+            "et_seconds": "772243269.18400002"
+          },
+          {
+            "delta_seconds": "0.00038733492673968605",
+            "tt_minus_tdb_seconds": "-0.00038744328252076986",
+            "site_term_seconds": "-1.0835590359097869e-07",
+            "residual_seconds": "1.2250716552253859e-13",
+            "next_delta_seconds": "0.0003873349266171789",
+            "et_seconds": "772243269.18438733"
+          },
+          {
+            "delta_seconds": "0.0003873349266171789",
+            "tt_minus_tdb_seconds": "-0.00038744328252076986",
+            "site_term_seconds": "-1.0835590359097869e-07",
+            "residual_seconds": "1.7867101231145398e-20",
+            "next_delta_seconds": "0.0003873349266171789",
+            "et_seconds": "772243269.18438733"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "29302.194670732832",
+        "15.881050448696248",
+        "6.8688731683804889"
+      ],
+      "jplephem_velocity_m_s": [
+        "29302.194670732832",
+        "15.881050448696246",
+        "6.8688731683804898"
+      ],
+      "site_position_gcrs_m": [
+        "-334489.45822968299",
+        "1258622.6806153979",
+        "6222857.6812606128"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "-334490.46594898129",
+            "1258622.4009456025",
+            "6222857.6836593049"
+          ],
+          "site_term_seconds": "-1.0835623218782823e-07"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "-334475.15442247823",
+            "1258624.6691860498",
+            "6222858.0478941398"
+          ],
+          "site_term_seconds": "-1.0835123972864871e-07"
+        }
+      }
+    },
+    {
+      "id": "2024-06-21_tokyo_14",
+      "geocentric_id": "2024-06-21_14",
+      "utc": "2024-06-21T14:00:00",
+      "site": {
+        "name": "tokyo",
+        "latitude_deg": 35.6762,
+        "longitude_deg": 139.6503,
+        "elevation_m": 40,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "772250469.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.00038485920671153221",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.00038516384368314185",
+            "site_term_seconds": "-3.0463684968387451e-07",
+            "residual_seconds": "-0.00038485920683345795",
+            "next_delta_seconds": "0.00038485920683345795",
+            "et_seconds": "772250469.18400002"
+          },
+          {
+            "delta_seconds": "0.00038485920683345795",
+            "tt_minus_tdb_seconds": "-0.00038516384356129444",
+            "site_term_seconds": "-3.0463684976221558e-07",
+            "residual_seconds": "1.2192572782917865e-13",
+            "next_delta_seconds": "0.00038485920671153221",
+            "et_seconds": "772250469.18438482"
+          },
+          {
+            "delta_seconds": "0.00038485920671153221",
+            "tt_minus_tdb_seconds": "-0.00038516384356129444",
+            "site_term_seconds": "-3.0463684976221558e-07",
+            "residual_seconds": "-1.6411263353052069e-20",
+            "next_delta_seconds": "0.00038485920671153221",
+            "et_seconds": "772250469.18438482"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "29301.948689696597",
+        "53.602144237317987",
+        "23.198395988978618"
+      ],
+      "jplephem_velocity_m_s": [
+        "29301.948689696601",
+        "53.602144237317653",
+        "23.198395988978451"
+      ],
+      "site_position_gcrs_m": [
+        "-927986.15311221418",
+        "-5101661.0553972172",
+        "3701461.9131006221"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "-927982.1091567931",
+            "-5101661.7979251528",
+            "3701461.9035369228"
+          ],
+          "site_term_seconds": "-3.046355317642323e-07"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "-927979.36772780924",
+            "-5101655.7657029452",
+            "3701470.9049242251"
+          ],
+          "site_term_seconds": "-3.0463463206016244e-07"
+        }
+      }
+    },
+    {
+      "id": "2024-06-21_equator_14",
+      "geocentric_id": "2024-06-21_14",
+      "utc": "2024-06-21T14:00:00",
+      "site": {
+        "name": "equator",
+        "latitude_deg": 0,
+        "longitude_deg": 30,
+        "elevation_m": 0,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "772250469.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.00038336589131524821",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.00038516384368314185",
+            "site_term_seconds": "-1.797952246571607e-06",
+            "residual_seconds": "-0.00038336589143657022",
+            "next_delta_seconds": "0.00038336589143657022",
+            "et_seconds": "772250469.18400002"
+          },
+          {
+            "delta_seconds": "0.00038336589143657022",
+            "tt_minus_tdb_seconds": "-0.00038516384356174742",
+            "site_term_seconds": "-1.7979522464992046e-06",
+            "residual_seconds": "1.2132200499014403e-13",
+            "next_delta_seconds": "0.00038336589131524821",
+            "et_seconds": "772250469.18438339"
+          },
+          {
+            "delta_seconds": "0.00038336589131524821",
+            "tt_minus_tdb_seconds": "-0.00038516384356174742",
+            "site_term_seconds": "-1.7979522464992046e-06",
+            "residual_seconds": "-1.2705494208814505e-21",
+            "next_delta_seconds": "0.00038336589131524821",
+            "et_seconds": "772250469.18438339"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "29301.948689696645",
+        "53.602144229823018",
+        "23.198395985734013"
+      ],
+      "jplephem_velocity_m_s": [
+        "29301.948689696641",
+        "53.602144229823367",
+        "23.198395985734184"
+      ],
+      "site_position_gcrs_m": [
+        "-5520568.4553520996",
+        "3194336.7246073755",
+        "12977.301909731397"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "-5520570.9873568797",
+            "3194332.3486759975",
+            "12977.308059740757"
+          ],
+          "site_term_seconds": "-1.7979530746122716e-06"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "-5520568.4424323216",
+            "3194336.7244784492",
+            "12982.828565727061"
+          ],
+          "site_term_seconds": "-1.7979522408605462e-06"
+        }
+      }
+    },
+    {
+      "id": "2024-06-21_paranal_14",
+      "geocentric_id": "2024-06-21_14",
+      "utc": "2024-06-21T14:00:00",
+      "site": {
+        "name": "paranal",
+        "latitude_deg": -24.6272,
+        "longitude_deg": -70.4042,
+        "elevation_m": 2635,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "772250469.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.00038639158866062733",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.00038516384368314185",
+            "site_term_seconds": "1.2277450997506164e-06",
+            "residual_seconds": "-0.00038639158878289248",
+            "next_delta_seconds": "0.00038639158878289248",
+            "et_seconds": "772250469.18400002"
+          },
+          {
+            "delta_seconds": "0.00038639158878289248",
+            "tt_minus_tdb_seconds": "-0.00038516384356080373",
+            "site_term_seconds": "1.2277450998236001e-06",
+            "residual_seconds": "1.2226515711867038e-13",
+            "next_delta_seconds": "0.00038639158866062733",
+            "et_seconds": "772250469.18438637"
+          },
+          {
+            "delta_seconds": "0.00038639158866062733",
+            "tt_minus_tdb_seconds": "-0.00038516384356080373",
+            "site_term_seconds": "1.2277450998236001e-06",
+            "residual_seconds": "3.3881317890172014e-21",
+            "next_delta_seconds": "0.00038639158866062733",
+            "et_seconds": "772250469.18438637"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "29301.948689696532",
+        "53.602144245436627",
+        "23.198395992493129"
+      ],
+      "jplephem_velocity_m_s": [
+        "29301.948689696535",
+        "53.602144245436627",
+        "23.198395992493126"
+      ],
+      "site_position_gcrs_m": [
+        "3759785.6287921635",
+        "4415818.7467392283",
+        "-2651746.6573780542"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "3759782.1285000057",
+            "4415821.7319344003",
+            "-2651746.6491784658"
+          ],
+          "site_term_seconds": "1.2277439604123286e-06"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "3759780.765124965",
+            "4415814.9676475972",
+            "-2651759.8464297559"
+          ],
+          "site_term_seconds": "1.2277435084730039e-06"
+        }
+      }
+    },
+    {
+      "id": "2024-06-21_arctic_14",
+      "geocentric_id": "2024-06-21_14",
+      "utc": "2024-06-21T14:00:00",
+      "site": {
+        "name": "arctic",
+        "latitude_deg": 78.2232,
+        "longitude_deg": 15.6469,
+        "elevation_m": 20,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "772250469.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.0003848666310385363",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.00038516384368314185",
+            "site_term_seconds": "-2.972125228392343e-07",
+            "residual_seconds": "-0.00038486663116030261",
+            "next_delta_seconds": "0.00038486663116030261",
+            "et_seconds": "772250469.18400002"
+          },
+          {
+            "delta_seconds": "0.00038486663116030261",
+            "tt_minus_tdb_seconds": "-0.00038516384356129444",
+            "site_term_seconds": "-2.9721252275814032e-07",
+            "residual_seconds": "1.2176631178158242e-13",
+            "next_delta_seconds": "0.0003848666310385363",
+            "et_seconds": "772250469.18438482"
+          },
+          {
+            "delta_seconds": "0.0003848666310385363",
+            "tt_minus_tdb_seconds": "-0.00038516384356129444",
+            "site_term_seconds": "-2.9721252275814032e-07",
+            "residual_seconds": "-5.2939559203393771e-22",
+            "next_delta_seconds": "0.0003848666310385363",
+            "et_seconds": "772250469.18438482"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "29301.948689696597",
+        "53.602144237317987",
+        "23.198395988978618"
+      ],
+      "jplephem_velocity_m_s": [
+        "29301.948689696601",
+        "53.602144237317653",
+        "23.198395988978451"
+      ],
+      "site_position_gcrs_m": [
+        "-918216.0012672334",
+        "914069.04911252565",
+        "6224253.2981492495"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "-918216.72564322397",
+            "914068.30958560226",
+            "6224253.2998915482"
+          ],
+          "site_term_seconds": "-2.9721275936571066e-07"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "-918204.62334493687",
+            "914077.94624746207",
+            "6224253.6700316519"
+          ],
+          "site_term_seconds": "-2.9720880783292139e-07"
+        }
+      }
+    },
+    {
+      "id": "2024-09-22_tokyo_10",
+      "geocentric_id": "2024-09-22_10",
+      "utc": "2024-09-22T10:00:00",
+      "site": {
+        "name": "tokyo",
+        "latitude_deg": 35.6762,
+        "longitude_deg": 139.6503,
+        "elevation_m": 40,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "780271269.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.0016005432152736761",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.0015995580236218183",
+            "site_term_seconds": "-9.8519177413706997e-07",
+            "residual_seconds": "0.0016005432153959555",
+            "next_delta_seconds": "-0.0016005432153959555",
+            "et_seconds": "780271269.18400002"
+          },
+          {
+            "delta_seconds": "-0.0016005432153959555",
+            "tt_minus_tdb_seconds": "0.0015995580234997389",
+            "site_term_seconds": "-9.8519177393720047e-07",
+            "residual_seconds": "-1.222793864251513e-13",
+            "next_delta_seconds": "-0.0016005432152736761",
+            "et_seconds": "780271269.18239951"
+          },
+          {
+            "delta_seconds": "-0.0016005432152736761",
+            "tt_minus_tdb_seconds": "0.0015995580234997389",
+            "site_term_seconds": "-9.8519177393720047e-07",
+            "residual_seconds": "-2.9646153153900512e-20",
+            "next_delta_seconds": "-0.0016005432152736761",
+            "et_seconds": "780271269.18239951"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-229.3855399181881",
+        "27213.734419929635",
+        "11795.755790189116"
+      ],
+      "jplephem_velocity_m_s": [
+        "-229.3855399181881",
+        "27213.734419929635",
+        "11795.755790189116"
+      ],
+      "site_position_gcrs_m": [
+        "1875651.9910869547",
+        "-4839362.7392335366",
+        "3694783.0795743293"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "1875631.9283282105",
+            "-4839370.4781921664",
+            "3694783.1279923664"
+          ],
+          "site_term_seconds": "-9.8519405968459432e-07"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "1875652.097199209",
+            "-4839354.209413358",
+            "3694794.1978904004"
+          ],
+          "site_term_seconds": "-9.8518773220403274e-07"
+        }
+      }
+    },
+    {
+      "id": "2024-09-22_equator_10",
+      "geocentric_id": "2024-09-22_10",
+      "utc": "2024-09-22T10:00:00",
+      "site": {
+        "name": "equator",
+        "latitude_deg": 0,
+        "longitude_deg": 30,
+        "elevation_m": 0,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "780271269.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.001599588386307076",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.0015995580236218183",
+            "site_term_seconds": "-3.0362806598652258e-08",
+            "residual_seconds": "0.0015995883864284169",
+            "next_delta_seconds": "-0.0015995883864284169",
+            "et_seconds": "780271269.18400002"
+          },
+          {
+            "delta_seconds": "-0.0015995883864284169",
+            "tt_minus_tdb_seconds": "0.0015995580234998115",
+            "site_term_seconds": "-3.0362807264466913e-08",
+            "residual_seconds": "-1.2134092611138147e-13",
+            "next_delta_seconds": "-0.001599588386307076",
+            "et_seconds": "780271269.18240047"
+          },
+          {
+            "delta_seconds": "-0.001599588386307076",
+            "tt_minus_tdb_seconds": "0.0015995580234998115",
+            "site_term_seconds": "-3.0362807264466913e-08",
+            "residual_seconds": "-5.4732886771408735e-20",
+            "next_delta_seconds": "-0.001599588386307076",
+            "et_seconds": "780271269.18240047"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-229.38553992378505",
+        "27213.734419929711",
+        "11795.755790189145"
+      ],
+      "jplephem_velocity_m_s": [
+        "-229.38553992378539",
+        "27213.734419929711",
+        "11795.755790189145"
+      ],
+      "site_position_gcrs_m": [
+        "-6376095.1396871051",
+        "-160649.91430818415",
+        "15295.929532735592"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "-6376095.8056275379",
+            "-160623.4813185372",
+            "15295.930081273189"
+          ],
+          "site_term_seconds": "-3.0354801751901084e-08"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "-6376095.1384623433",
+            "-160649.9146549232",
+            "15296.436423353254"
+          ],
+          "site_term_seconds": "-3.0362740845479041e-08"
+        }
+      }
+    },
+    {
+      "id": "2024-09-22_paranal_10",
+      "geocentric_id": "2024-09-22_10",
+      "utc": "2024-09-22T10:00:00",
+      "site": {
+        "name": "paranal",
+        "latitude_deg": -24.6272,
+        "longitude_deg": -70.4042,
+        "elevation_m": 2635,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "780271269.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.0015981716103176426",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.0015995580236218183",
+            "site_term_seconds": "1.3864131821809202e-06",
+            "residual_seconds": "0.0015981716104396374",
+            "next_delta_seconds": "-0.0015981716104396374",
+            "et_seconds": "780271269.18400002"
+          },
+          {
+            "delta_seconds": "-0.0015981716104396374",
+            "tt_minus_tdb_seconds": "0.0015995580234999117",
+            "site_term_seconds": "1.3864131822690475e-06",
+            "residual_seconds": "-1.2199477276696202e-13",
+            "next_delta_seconds": "-0.0015981716103176426",
+            "et_seconds": "780271269.18240178"
+          },
+          {
+            "delta_seconds": "-0.0015981716103176426",
+            "tt_minus_tdb_seconds": "0.0015995580234999117",
+            "site_term_seconds": "1.3864131822690475e-06",
+            "residual_seconds": "8.9361975935328686e-20",
+            "next_delta_seconds": "-0.0015981716103176426",
+            "et_seconds": "780271269.18240178"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-229.38553993148051",
+        "27213.734419929791",
+        "11795.755790189191"
+      ],
+      "jplephem_velocity_m_s": [
+        "-229.38553993148122",
+        "27213.734419929799",
+        "11795.755790189191"
+      ],
+      "site_position_gcrs_m": [
+        "897653.01953554747",
+        "5732805.3907792466",
+        "-2645064.256575352"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "897676.78596721578",
+            "5732801.6431106841",
+            "-2645064.3134193141"
+          ],
+          "site_term_seconds": "1.3864119793802878e-06"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "897652.93089985161",
+            "5732799.2968611",
+            "-2645077.4943273729"
+          ],
+          "site_term_seconds": "1.386409599900501e-06"
+        }
+      }
+    },
+    {
+      "id": "2024-09-22_arctic_10",
+      "geocentric_id": "2024-09-22_10",
+      "utc": "2024-09-22T10:00:00",
+      "site": {
+        "name": "arctic",
+        "latitude_deg": 78.2232,
+        "longitude_deg": 15.6469,
+        "elevation_m": 20,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "780271269.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.0015986493760168643",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.0015995580236218183",
+            "site_term_seconds": "9.0864748314634829e-07",
+            "residual_seconds": "0.001598649376138672",
+            "next_delta_seconds": "-0.001598649376138672",
+            "et_seconds": "780271269.18400002"
+          },
+          {
+            "delta_seconds": "-0.001598649376138672",
+            "tt_minus_tdb_seconds": "0.0015995580234998753",
+            "site_term_seconds": "9.0864748301096913e-07",
+            "residual_seconds": "-1.2180771231682448e-13",
+            "next_delta_seconds": "-0.0015986493760168643",
+            "et_seconds": "780271269.1824013"
+          },
+          {
+            "delta_seconds": "-0.0015986493760168643",
+            "tt_minus_tdb_seconds": "0.0015995580234998753",
+            "site_term_seconds": "9.0864748301096913e-07",
+            "residual_seconds": "1.6517142471458857e-20",
+            "next_delta_seconds": "-0.0015986493760168643",
+            "et_seconds": "780271269.1824013"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-229.38553992868233",
+        "27213.734419929766",
+        "11795.755790189172"
+      ],
+      "jplephem_velocity_m_s": [
+        "-229.38553992868302",
+        "27213.734419929766",
+        "11795.755790189172"
+      ],
+      "site_position_gcrs_m": [
+        "-1258040.363310012",
+        "292009.51483119919",
+        "6225113.4012627732"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "-1258039.1537635992",
+            "292014.7920655685",
+            "6225113.3981529344"
+          ],
+          "site_term_seconds": "9.086490774286998e-07"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "-1258040.2317042567",
+            "292023.86150001601",
+            "6225112.7548646564"
+          ],
+          "site_term_seconds": "9.0865174191819191e-07"
+        }
+      }
+    },
+    {
+      "id": "2024-09-22_tokyo_12",
+      "geocentric_id": "2024-09-22_12",
+      "utc": "2024-09-22T12:00:00",
+      "site": {
+        "name": "tokyo",
+        "latitude_deg": 35.6762,
+        "longitude_deg": 139.6503,
+        "elevation_m": 40,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "780278469.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.0016006179964252363",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.0016001053518127305",
+            "site_term_seconds": "-5.1264473419385591e-07",
+            "residual_seconds": "0.0016006179965469243",
+            "next_delta_seconds": "-0.0016006179965469243",
+            "et_seconds": "780278469.18400002"
+          },
+          {
+            "delta_seconds": "-0.0016006179965469243",
+            "tt_minus_tdb_seconds": "0.0016001053516914675",
+            "site_term_seconds": "-5.12644733768826e-07",
+            "residual_seconds": "-1.2168800570319112e-13",
+            "next_delta_seconds": "-0.0016006179964252363",
+            "et_seconds": "780278469.18239939"
+          },
+          {
+            "delta_seconds": "-0.0016006179964252363",
+            "tt_minus_tdb_seconds": "0.0016001053516914675",
+            "site_term_seconds": "-5.12644733768826e-07",
+            "residual_seconds": "2.7210933430544398e-20",
+            "next_delta_seconds": "-0.0016006179964252363",
+            "et_seconds": "780278469.18239939"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-271.64585989768307",
+        "27214.210591464653",
+        "11795.983480235776"
+      ],
+      "jplephem_velocity_m_s": [
+        "-271.64585989768369",
+        "27214.210591464656",
+        "11795.983480235776"
+      ],
+      "site_position_gcrs_m": [
+        "4049964.3547537206",
+        "-3251808.634697136",
+        "3689505.8540667109"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "4049950.8701682854",
+            "-3251825.3915568832",
+            "3689505.8870678293"
+          ],
+          "site_term_seconds": "-5.1264976263996067e-07"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "4049960.173895082",
+            "-3251801.2149801427",
+            "3689516.9828551374"
+          ],
+          "site_term_seconds": "-5.1264101381854277e-07"
+        }
+      }
+    },
+    {
+      "id": "2024-09-22_equator_12",
+      "geocentric_id": "2024-09-22_12",
+      "utc": "2024-09-22T12:00:00",
+      "site": {
+        "name": "equator",
+        "latitude_deg": 0,
+        "longitude_deg": 30,
+        "elevation_m": 0,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "780278469.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.0016010970194128091",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.0016001053518127305",
+            "site_term_seconds": "-9.9166772081292883e-07",
+            "residual_seconds": "0.0016010970195335435",
+            "next_delta_seconds": "-0.0016010970195335435",
+            "et_seconds": "780278469.18400002"
+          },
+          {
+            "delta_seconds": "-0.0016010970195335435",
+            "tt_minus_tdb_seconds": "0.0016001053516914313",
+            "site_term_seconds": "-9.9166772137776322e-07",
+            "residual_seconds": "-1.2073446037452285e-13",
+            "next_delta_seconds": "-0.0016010970194128091",
+            "et_seconds": "780278469.18239892"
+          },
+          {
+            "delta_seconds": "-0.0016010970194128091",
+            "tt_minus_tdb_seconds": "0.0016001053516914313",
+            "site_term_seconds": "-9.9166772137776322e-07",
+            "residual_seconds": "-9.1691316540278012e-20",
+            "next_delta_seconds": "-0.0016010970194128091",
+            "et_seconds": "780278469.18239892"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-271.64585989488387",
+        "27214.210591464624",
+        "11795.983480235762"
+      ],
+      "jplephem_velocity_m_s": [
+        "-271.64585989488387",
+        "27214.210591464627",
+        "11795.98348023576"
+      ],
+      "site_position_gcrs_m": [
+        "-5436760.1910576839",
+        "-3334980.7770318687",
+        "13169.378399802679"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "-5436774.0198387913",
+            "-3334958.2328115739",
+            "13169.410668363851"
+          ],
+          "site_term_seconds": "-9.9166084897976325e-07"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "-5436760.1896561738",
+            "-3334980.7773246826",
+            "13169.882829049257"
+          ],
+          "site_term_seconds": "-9.9166765526532487e-07"
+        }
+      }
+    },
+    {
+      "id": "2024-09-22_paranal_12",
+      "geocentric_id": "2024-09-22_12",
+      "utc": "2024-09-22T12:00:00",
+      "site": {
+        "name": "paranal",
+        "latitude_deg": -24.6272,
+        "longitude_deg": -70.4042,
+        "elevation_m": 2635,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "780278469.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.001598805950261985",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.0016001053518127305",
+            "site_term_seconds": "1.2994014298416261e-06",
+            "residual_seconds": "0.0015988059503828889",
+            "next_delta_seconds": "-0.0015988059503828889",
+            "et_seconds": "780278469.18400002"
+          },
+          {
+            "delta_seconds": "-0.0015988059503828889",
+            "tt_minus_tdb_seconds": "0.001600105351691603",
+            "site_term_seconds": "1.2994014296179762e-06",
+            "residual_seconds": "-1.2090389025737976e-13",
+            "next_delta_seconds": "-0.001598805950261985",
+            "et_seconds": "780278469.18240118"
+          },
+          {
+            "delta_seconds": "-0.001598805950261985",
+            "tt_minus_tdb_seconds": "0.001600105351691603",
+            "site_term_seconds": "1.2994014296179762e-06",
+            "residual_seconds": "4.7645603283054394e-20",
+            "next_delta_seconds": "-0.001598805950261985",
+            "et_seconds": "780278469.18240118"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-271.64585990817955",
+        "27214.210591464765",
+        "11795.983480235831"
+      ],
+      "jplephem_velocity_m_s": [
+        "-271.64585990818017",
+        "27214.210591464765",
+        "11795.983480235829"
+      ],
+      "site_position_gcrs_m": [
+        "-2097668.6572384401",
+        "5413745.3958149748",
+        "-2637868.5538087343"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "-2097646.208159294",
+            "5413754.0677273413",
+            "-2637868.6079867487"
+          ],
+          "site_term_seconds": "1.2994039805013804e-06"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "-2097665.6832395047",
+            "5413740.0948891994",
+            "-2637881.797918505"
+          ],
+          "site_term_seconds": "1.2993980772513686e-06"
+        }
+      }
+    },
+    {
+      "id": "2024-09-22_arctic_12",
+      "geocentric_id": "2024-09-22_12",
+      "utc": "2024-09-22T12:00:00",
+      "site": {
+        "name": "arctic",
+        "latitude_deg": 78.2232,
+        "longitude_deg": 15.6469,
+        "elevation_m": 20,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "780278469.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.0015994012799531113",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.0016001053518127305",
+            "site_term_seconds": "7.0407173857799679e-07",
+            "residual_seconds": "0.0015994012800741525",
+            "next_delta_seconds": "-0.0015994012800741525",
+            "et_seconds": "780278469.18400002"
+          },
+          {
+            "delta_seconds": "-0.0015994012800741525",
+            "tt_minus_tdb_seconds": "0.0016001053516915577",
+            "site_term_seconds": "7.0407173844631281e-07",
+            "residual_seconds": "-1.2104113839395516e-13",
+            "next_delta_seconds": "-0.0015994012799531113",
+            "et_seconds": "780278469.18240058"
+          },
+          {
+            "delta_seconds": "-0.0015994012799531113",
+            "tt_minus_tdb_seconds": "0.0016001053516915577",
+            "site_term_seconds": "7.0407173844631281e-07",
+            "residual_seconds": "5.9504064544614599e-20",
+            "next_delta_seconds": "-0.0015994012799531113",
+            "et_seconds": "780278469.18240058"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-271.64585990468089",
+        "27214.210591464733",
+        "11795.983480235813"
+      ],
+      "jplephem_velocity_m_s": [
+        "-271.64585990468089",
+        "27214.210591464725",
+        "11795.983480235813"
+      ],
+      "site_position_gcrs_m": [
+        "-1232825.132569188",
+        "-385350.82784121356",
+        "6225079.8310574628"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "-1232826.7314768219",
+            "-385345.65390637197",
+            "6225079.8346866379"
+          ],
+          "site_term_seconds": "7.0407331041721256e-07"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "-1232832.211725916",
+            "-385338.34864347539",
+            "6225079.2015721584"
+          ],
+          "site_term_seconds": "7.0407545591185327e-07"
+        }
+      }
+    },
+    {
+      "id": "2024-09-22_tokyo_14",
+      "geocentric_id": "2024-09-22_14",
+      "utc": "2024-09-22T14:00:00",
+      "site": {
+        "name": "tokyo",
+        "latitude_deg": 35.6762,
+        "longitude_deg": 139.6503,
+        "elevation_m": 40,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "780285669.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.001600421685681428",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.0016006489639539309",
+            "site_term_seconds": "2.2727815154848586e-07",
+            "residual_seconds": "0.0016004216858023824",
+            "next_delta_seconds": "-0.0016004216858023824",
+            "et_seconds": "780285669.18400002"
+          },
+          {
+            "delta_seconds": "-0.0016004216858023824",
+            "tt_minus_tdb_seconds": "0.0016006489638335124",
+            "site_term_seconds": "2.2727815208439696e-07",
+            "residual_seconds": "-1.209543808325744e-13",
+            "next_delta_seconds": "-0.001600421685681428",
+            "et_seconds": "780285669.18239963"
+          },
+          {
+            "delta_seconds": "-0.001600421685681428",
+            "tt_minus_tdb_seconds": "0.0016006489638335124",
+            "site_term_seconds": "2.2727815208439696e-07",
+            "residual_seconds": "8.0891646462785682e-20",
+            "next_delta_seconds": "-0.001600421685681428",
+            "et_seconds": "780285669.18239963"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-313.91343137360019",
+        "27214.633200516768",
+        "11796.188210983464"
+      ],
+      "jplephem_velocity_m_s": [
+        "-313.91343137360025",
+        "27214.633200516768",
+        "11796.188210983464"
+      ],
+      "site_position_gcrs_m": [
+        "5135668.746109168",
+        "-788228.22257457278",
+        "3686804.4317584108"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "5135665.4762184136",
+            "-788249.48650252377",
+            "3686804.4404424075"
+          ],
+          "site_term_seconds": "2.2727172585050629e-07"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "5135661.4128089882",
+            "-788223.91260981187",
+            "3686815.5683779344"
+          ],
+          "site_term_seconds": "2.2728094445541604e-07"
+        }
+      }
+    },
+    {
+      "id": "2024-09-22_equator_14",
+      "geocentric_id": "2024-09-22_14",
+      "utc": "2024-09-22T14:00:00",
+      "site": {
+        "name": "equator",
+        "latitude_deg": 0,
+        "longitude_deg": 30,
+        "elevation_m": 0,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "780285669.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.0016023363939502292",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.0016006489639539309",
+            "site_term_seconds": "-1.6874301165484595e-06",
+            "residual_seconds": "0.0016023363940704794",
+            "next_delta_seconds": "-0.0016023363940704794",
+            "et_seconds": "780285669.18400002"
+          },
+          {
+            "delta_seconds": "-0.0016023363940704794",
+            "tt_minus_tdb_seconds": "0.0016006489638333689",
+            "site_term_seconds": "-1.6874301168604077e-06",
+            "residual_seconds": "-1.2025006954880066e-13",
+            "next_delta_seconds": "-0.0016023363939502292",
+            "et_seconds": "780285669.18239772"
+          },
+          {
+            "delta_seconds": "-0.0016023363939502292",
+            "tt_minus_tdb_seconds": "0.0016006489638333689",
+            "site_term_seconds": "-1.6874301168604077e-06",
+            "residual_seconds": "9.4444173618854488e-20",
+            "next_delta_seconds": "-0.0016023363939502292",
+            "et_seconds": "780285669.18239772"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-313.91343136240238",
+        "27214.633200516655",
+        "11796.188210983411"
+      ],
+      "jplephem_velocity_m_s": [
+        "-313.91343136240164",
+        "27214.633200516651",
+        "11796.188210983411"
+      ],
+      "site_position_gcrs_m": [
+        "-3032846.3853068557",
+        "-5610919.552184999",
+        "7494.8521214995862"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "-3032869.6570281796",
+            "-5610906.9730846062",
+            "7494.9074308243171"
+          ],
+          "site_term_seconds": "-1.6874262193212718e-06"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "-3032846.3837802778",
+            "-5610919.5523396218",
+            "7495.3540894956868"
+          ],
+          "site_term_seconds": "-1.6874300510291127e-06"
+        }
+      }
+    },
+    {
+      "id": "2024-09-22_paranal_14",
+      "geocentric_id": "2024-09-22_14",
+      "utc": "2024-09-22T14:00:00",
+      "site": {
+        "name": "paranal",
+        "latitude_deg": -24.6272,
+        "longitude_deg": -70.4042,
+        "elevation_m": 2635,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "780285669.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.0015998775110470573",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.0016006489639539309",
+            "site_term_seconds": "7.7145278696669296e-07",
+            "residual_seconds": "0.0015998775111669642",
+            "next_delta_seconds": "-0.0015998775111669642",
+            "et_seconds": "780285669.18400002"
+          },
+          {
+            "delta_seconds": "-0.0015998775111669642",
+            "tt_minus_tdb_seconds": "0.0016006489638335482",
+            "site_term_seconds": "7.7145278649099078e-07",
+            "residual_seconds": "-1.199069817122515e-13",
+            "next_delta_seconds": "-0.0015998775110470573",
+            "et_seconds": "780285669.18240011"
+          },
+          {
+            "delta_seconds": "-0.0015998775110470573",
+            "tt_minus_tdb_seconds": "0.0016006489638335482",
+            "site_term_seconds": "7.7145278649099078e-07",
+            "residual_seconds": "-7.6127086134480243e-20",
+            "next_delta_seconds": "-0.0015998775110470573",
+            "et_seconds": "780285669.18240011"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-313.91343137639967",
+        "27214.633200516793",
+        "11796.188210983477"
+      ],
+      "jplephem_velocity_m_s": [
+        "-313.91343137640001",
+        "27214.633200516793",
+        "11796.188210983477"
+      ],
+      "site_position_gcrs_m": [
+        "-4529618.1032836884",
+        "3636278.1487996276",
+        "-2631965.914750474"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "-4529603.02105226",
+            "3636296.9095503637",
+            "-2631965.9516623681"
+          ],
+          "site_term_seconds": "7.7145840979116355e-07"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "-4529612.8771277787",
+            "3636275.0694343979",
+            "-2631979.163331151"
+          ],
+          "site_term_seconds": "7.7145009691419998e-07"
+        }
+      }
+    },
+    {
+      "id": "2024-09-22_arctic_14",
+      "geocentric_id": "2024-09-22_14",
+      "utc": "2024-09-22T14:00:00",
+      "site": {
+        "name": "arctic",
+        "latitude_deg": 78.2232,
+        "longitude_deg": 15.6469,
+        "elevation_m": 20,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "780285669.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.0016001193265063765",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.0016006489639539309",
+            "site_term_seconds": "5.2963732724714925e-07",
+            "residual_seconds": "0.0016001193266266837",
+            "next_delta_seconds": "-0.0016001193266266837",
+            "et_seconds": "780285669.18400002"
+          },
+          {
+            "delta_seconds": "-0.0016001193266266837",
+            "tt_minus_tdb_seconds": "0.0016006489638335304",
+            "site_term_seconds": "5.2963732715401946e-07",
+            "residual_seconds": "-1.2030728927136565e-13",
+            "next_delta_seconds": "-0.0016001193265063765",
+            "et_seconds": "780285669.18239987"
+          },
+          {
+            "delta_seconds": "-0.0016001193265063765",
+            "tt_minus_tdb_seconds": "0.0016006489638335304",
+            "site_term_seconds": "5.2963732715401946e-07",
+            "residual_seconds": "-9.6244118631769876e-20",
+            "next_delta_seconds": "-0.0016001193265063765",
+            "et_seconds": "780285669.18239987"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-313.9134313750003",
+        "27214.633200516775",
+        "11796.188210983471"
+      ],
+      "jplephem_velocity_m_s": [
+        "-313.91343137499956",
+        "27214.633200516779",
+        "11796.18821098347"
+      ],
+      "site_position_gcrs_m": [
+        "-871486.47281591361",
+        "-958837.18534974777",
+        "6224236.0616175281"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "-871490.45068650623",
+            "-958833.50887231971",
+            "6224236.0710111596"
+          ],
+          "site_term_seconds": "5.2963845553139218e-07"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "-871498.85430730507",
+            "-958829.93703306245",
+            "6224235.4446020797"
+          ],
+          "site_term_seconds": "5.2963948423272776e-07"
+        }
+      }
+    },
+    {
+      "id": "2024-12-21_tokyo_10",
+      "geocentric_id": "2024-12-21_10",
+      "utc": "2024-12-21T10:00:00",
+      "site": {
+        "name": "tokyo",
+        "latitude_deg": 35.6762,
+        "longitude_deg": 139.6503,
+        "elevation_m": 40,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "788047269.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.00039003677453756762",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.00038839267025684828",
+            "site_term_seconds": "-1.6441041553862972e-06",
+            "residual_seconds": "0.00039003677441223455",
+            "next_delta_seconds": "-0.00039003677441223455",
+            "et_seconds": "788047269.18400002"
+          },
+          {
+            "delta_seconds": "-0.00039003677441223455",
+            "tt_minus_tdb_seconds": "0.00038839267038226439",
+            "site_term_seconds": "-1.6441041553032198e-06",
+            "residual_seconds": "1.2533306196098922e-13",
+            "next_delta_seconds": "-0.00039003677453756762",
+            "et_seconds": "788047269.18360996"
+          },
+          {
+            "delta_seconds": "-0.00039003677453756762",
+            "tt_minus_tdb_seconds": "0.00038839267038226439",
+            "site_term_seconds": "-1.6441041553032198e-06",
+            "residual_seconds": "-4.4469229730850768e-21",
+            "next_delta_seconds": "-0.00039003677453756762",
+            "et_seconds": "788047269.18360996"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-30257.11526751925",
+        "51.003526099611655",
+        "23.137131809794397"
+      ],
+      "jplephem_velocity_m_s": [
+        "-30257.11526751925",
+        "51.003526099611527",
+        "23.137131809794315"
+      ],
+      "site_position_gcrs_m": [
+        "4889416.5387720065",
+        "1757071.6378037285",
+        "3687170.9058121382"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "4889422.667219189",
+            "1757054.6139776402",
+            "3687170.8915430116"
+          ],
+          "site_term_seconds": "-1.6441062281451071e-06"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "4889410.2843543412",
+            "1757071.8668685742",
+            "3687179.0903844084"
+          ],
+          "site_term_seconds": "-1.6441020474801844e-06"
+        }
+      }
+    },
+    {
+      "id": "2024-12-21_equator_10",
+      "geocentric_id": "2024-12-21_10",
+      "utc": "2024-12-21T10:00:00",
+      "site": {
+        "name": "equator",
+        "latitude_deg": 0,
+        "longitude_deg": 30,
+        "elevation_m": 0,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "788047269.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.00038840185014137003",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.00038839267025684828",
+            "site_term_seconds": "-9.179759487510507e-09",
+            "residual_seconds": "0.00038840185001633577",
+            "next_delta_seconds": "-0.00038840185001633577",
+            "et_seconds": "788047269.18400002"
+          },
+          {
+            "delta_seconds": "-0.00038840185001633577",
+            "tt_minus_tdb_seconds": "0.00038839267038172777",
+            "site_term_seconds": "-9.1797596422420389e-09",
+            "residual_seconds": "1.2503423895453283e-13",
+            "next_delta_seconds": "-0.00038840185014137003",
+            "et_seconds": "788047269.18361163"
+          },
+          {
+            "delta_seconds": "-0.00038840185014137003",
+            "tt_minus_tdb_seconds": "0.00038839267038172777",
+            "site_term_seconds": "-9.1797596422420389e-09",
+            "residual_seconds": "-2.133464235896769e-20",
+            "next_delta_seconds": "-0.00038840185014137003",
+            "et_seconds": "788047269.18361163"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-30257.115267519359",
+        "51.003526090242097",
+        "23.137131805734384"
+      ],
+      "jplephem_velocity_m_s": [
+        "-30257.115267519359",
+        "51.003526090241976",
+        "23.137131805734342"
+      ],
+      "site_position_gcrs_m": [
+        "16516.230693228936",
+        "-6378115.6128958883",
+        "182.82890436404293"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "16493.982877309136",
+            "-6378115.6704666084",
+            "182.88287071272288"
+          ],
+          "site_term_seconds": "-9.1722698045311855e-09"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "16516.232083892806",
+            "-6378115.6128801769",
+            "183.25090121412475"
+          ],
+          "site_term_seconds": "-9.1797600017713028e-09"
+        }
+      }
+    },
+    {
+      "id": "2024-12-21_paranal_10",
+      "geocentric_id": "2024-12-21_10",
+      "utc": "2024-12-21T10:00:00",
+      "site": {
+        "name": "paranal",
+        "latitude_deg": -24.6272,
+        "longitude_deg": -70.4042,
+        "elevation_m": 2635,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "788047269.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.0003864679619746572",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.00038839267025684828",
+            "site_term_seconds": "1.9247084064614184e-06",
+            "residual_seconds": "0.00038646796185038687",
+            "next_delta_seconds": "-0.00038646796185038687",
+            "et_seconds": "788047269.18400002"
+          },
+          {
+            "delta_seconds": "-0.00038646796185038687",
+            "tt_minus_tdb_seconds": "0.00038839267038111449",
+            "site_term_seconds": "1.924708406457312e-06",
+            "residual_seconds": "1.2427031110965117e-13",
+            "next_delta_seconds": "-0.0003864679619746572",
+            "et_seconds": "788047269.18361354"
+          },
+          {
+            "delta_seconds": "-0.0003864679619746572",
+            "tt_minus_tdb_seconds": "0.00038839267038111449",
+            "site_term_seconds": "1.924708406457312e-06",
+            "residual_seconds": "-2.0328790734103208e-20",
+            "next_delta_seconds": "-0.0003864679619746572",
+            "et_seconds": "788047269.18361354"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-30257.115267519479",
+        "51.003526079534048",
+        "23.137131801094348"
+      ],
+      "jplephem_velocity_m_s": [
+        "-30257.115267519472",
+        "51.003526079534502",
+        "23.137131801094561"
+      ],
+      "site_position_gcrs_m": [
+        "-5717408.5897830101",
+        "1033227.3975752527",
+        "-2628855.9633073481"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "-5717404.985376386",
+            "1033247.3184980303",
+            "-2628855.9727476798"
+          ],
+          "site_term_seconds": "1.9247072043153904e-06"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "-5717404.1311539384",
+            "1033227.2336627778",
+            "-2628865.7246277751"
+          ],
+          "site_term_seconds": "1.9247069028280033e-06"
+        }
+      }
+    },
+    {
+      "id": "2024-12-21_arctic_10",
+      "geocentric_id": "2024-12-21_10",
+      "utc": "2024-12-21T10:00:00",
+      "site": {
+        "name": "arctic",
+        "latitude_deg": 78.2232,
+        "longitude_deg": 15.6469,
+        "elevation_m": 20,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "788047269.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.00038828898339949539",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.00038839267025684828",
+            "site_term_seconds": "1.036869821594278e-07",
+            "residual_seconds": "0.00038828898327468886",
+            "next_delta_seconds": "-0.00038828898327468886",
+            "et_seconds": "788047269.18400002"
+          },
+          {
+            "delta_seconds": "-0.00038828898327468886",
+            "tt_minus_tdb_seconds": "0.00038839267038168944",
+            "site_term_seconds": "1.0368698219404529e-07",
+            "residual_seconds": "1.2480653268874413e-13",
+            "next_delta_seconds": "-0.00038828898339949539",
+            "et_seconds": "788047269.18361175"
+          },
+          {
+            "delta_seconds": "-0.00038828898339949539",
+            "tt_minus_tdb_seconds": "0.00038839267038168944",
+            "site_term_seconds": "1.0368698219404529e-07",
+            "residual_seconds": "9.0658995135811833e-21",
+            "next_delta_seconds": "-0.00038828898339949539",
+            "et_seconds": "788047269.18361175"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-30257.115267519363",
+        "51.00352608957288",
+        "23.137131805444387"
+      ],
+      "jplephem_velocity_m_s": [
+        "-30257.115267519366",
+        "51.003526089572581",
+        "23.137131805444259"
+      ],
+      "site_position_gcrs_m": [
+        "-305366.28937393532",
+        "-1265828.1699046111",
+        "6222893.4142117985"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "-305370.70552888437",
+            "-1265827.0520828587",
+            "6222893.4248844935"
+          ],
+          "site_term_seconds": "1.036884695553677e-07"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "-305376.84390743356",
+            "-1265827.7855912331",
+            "6222892.9744517533"
+          ],
+          "site_term_seconds": "1.0369053554395365e-07"
+        }
+      }
+    },
+    {
+      "id": "2024-12-21_tokyo_12",
+      "geocentric_id": "2024-12-21_12",
+      "utc": "2024-12-21T12:00:00",
+      "site": {
+        "name": "tokyo",
+        "latitude_deg": 35.6762,
+        "longitude_deg": 139.6503,
+        "elevation_m": 40,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "788054469.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.00038720456597320991",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.00038607697634044573",
+            "site_term_seconds": "-1.1275895083353205e-06",
+            "residual_seconds": "0.00038720456584878107",
+            "next_delta_seconds": "-0.00038720456584878107",
+            "et_seconds": "788054469.18400002"
+          },
+          {
+            "delta_seconds": "-0.00038720456584878107",
+            "tt_minus_tdb_seconds": "0.00038607697646500999",
+            "site_term_seconds": "-1.1275895081999032e-06",
+            "residual_seconds": "1.2442882189078503e-13",
+            "next_delta_seconds": "-0.00038720456597320991",
+            "et_seconds": "788054469.18361282"
+          },
+          {
+            "delta_seconds": "-0.00038720456597320991",
+            "tt_minus_tdb_seconds": "0.00038607697646500999",
+            "site_term_seconds": "-1.1275895081999032e-06",
+            "residual_seconds": "-1.9905274260476058e-20",
+            "next_delta_seconds": "-0.00038720456597320991",
+            "et_seconds": "788054469.18361282"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-30257.536726030146",
+        "10.57967157672298",
+        "5.6205883225605344"
+      ],
+      "jplephem_velocity_m_s": [
+        "-30257.536726030143",
+        "10.579671576722813",
+        "5.6205883225604518"
+      ],
+      "site_position_gcrs_m": [
+        "3351409.7005720809",
+        "3966710.8602688811",
+        "3690824.0392350298"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "3351423.5231379094",
+            "3966699.2125826939",
+            "3690824.0061147101"
+          ],
+          "site_term_seconds": "-1.1275941630849927e-06"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "3351404.1765551884",
+            "3966707.9153048536",
+            "3690832.2203380056"
+          ],
+          "site_term_seconds": "-1.1275876483166579e-06"
+        }
+      }
+    },
+    {
+      "id": "2024-12-21_equator_12",
+      "geocentric_id": "2024-12-21_12",
+      "utc": "2024-12-21T12:00:00",
+      "site": {
+        "name": "equator",
+        "latitude_deg": 0,
+        "longitude_deg": 30,
+        "elevation_m": 0,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "788054469.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.00038715872831689602",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.00038607697634044573",
+            "site_term_seconds": "-1.0817518517534205e-06",
+            "residual_seconds": "0.00038715872819219916",
+            "next_delta_seconds": "-0.00038715872819219916",
+            "et_seconds": "788054469.18400002"
+          },
+          {
+            "delta_seconds": "-0.00038715872819219916",
+            "tt_minus_tdb_seconds": "0.00038607697646500999",
+            "site_term_seconds": "-1.0817518518860504e-06",
+            "residual_seconds": "1.2469687457254783e-13",
+            "next_delta_seconds": "-0.00038715872831689602",
+            "et_seconds": "788054469.18361282"
+          },
+          {
+            "delta_seconds": "-0.00038715872831689602",
+            "tt_minus_tdb_seconds": "0.00038607697646500999",
+            "site_term_seconds": "-1.0817518518860504e-06",
+            "residual_seconds": "1.7999450129153882e-20",
+            "next_delta_seconds": "-0.00038715872831689602",
+            "et_seconds": "788054469.18361282"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-30257.536726030146",
+        "10.57967157672298",
+        "5.6205883225605344"
+      ],
+      "jplephem_velocity_m_s": [
+        "-30257.536726030143",
+        "10.579671576722813",
+        "5.6205883225604518"
+      ],
+      "site_position_gcrs_m": [
+        "3211254.9051025338",
+        "-5510754.5595328286",
+        "-7596.6974374808269"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "3211235.7014251854",
+            "-5510765.7500172257",
+            "-7596.6504647849069"
+          ],
+          "site_term_seconds": "-1.0817453880807922e-06"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "3211254.906449459",
+            "-5510754.5593331587",
+            "-7596.2729002621672"
+          ],
+          "site_term_seconds": "-1.0817518523129338e-06"
+        }
+      }
+    },
+    {
+      "id": "2024-12-21_paranal_12",
+      "geocentric_id": "2024-12-21_12",
+      "utc": "2024-12-21T12:00:00",
+      "site": {
+        "name": "paranal",
+        "latitude_deg": -24.6272,
+        "longitude_deg": -70.4042,
+        "elevation_m": 2635,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "788054469.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.00038423714528749552",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.00038607697634044573",
+            "site_term_seconds": "1.8398311766315246e-06",
+            "residual_seconds": "0.00038423714516381418",
+            "next_delta_seconds": "-0.00038423714516381418",
+            "et_seconds": "788054469.18400002"
+          },
+          {
+            "delta_seconds": "-0.00038423714516381418",
+            "tt_minus_tdb_seconds": "0.00038607697646405117",
+            "site_term_seconds": "1.8398311765556629e-06",
+            "residual_seconds": "1.2368132526747024e-13",
+            "next_delta_seconds": "-0.00038423714528749552",
+            "et_seconds": "788054469.1836158"
+          },
+          {
+            "delta_seconds": "-0.00038423714528749552",
+            "tt_minus_tdb_seconds": "0.00038607697646405117",
+            "site_term_seconds": "1.8398311765556629e-06",
+            "residual_seconds": "-1.334076891925523e-20",
+            "next_delta_seconds": "-0.00038423714528749552",
+            "et_seconds": "788054469.1836158"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-30257.53672603031",
+        "10.579671559989858",
+        "5.620588315309619"
+      ],
+      "jplephem_velocity_m_s": [
+        "-30257.53672603031",
+        "10.579671559989732",
+        "5.6205883153095773"
+      ],
+      "site_position_gcrs_m": [
+        "-5466121.9261812503",
+        "-1968547.4664888799",
+        "-2629360.27842174"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "-5466128.7857432785",
+            "-1968528.4405773606",
+            "-2629360.2624494107"
+          ],
+          "site_term_seconds": "1.8398334881398687e-06"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "-5466117.9892812548",
+            "-1968545.362873774",
+            "-2629370.0376716228"
+          ],
+          "site_term_seconds": "1.8398298507942516e-06"
+        }
+      }
+    },
+    {
+      "id": "2024-12-21_arctic_12",
+      "geocentric_id": "2024-12-21_12",
+      "utc": "2024-12-21T12:00:00",
+      "site": {
+        "name": "arctic",
+        "latitude_deg": 78.2232,
+        "longitude_deg": 15.6469,
+        "elevation_m": 20,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "788054469.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.00038620210402566318",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.00038607697634044573",
+            "site_term_seconds": "-1.2512756099486802e-07",
+            "residual_seconds": "0.00038620210390144061",
+            "next_delta_seconds": "-0.00038620210390144061",
+            "et_seconds": "788054469.18400002"
+          },
+          {
+            "delta_seconds": "-0.00038620210390144061",
+            "tt_minus_tdb_seconds": "0.00038607697646470316",
+            "site_term_seconds": "-1.2512756096003545e-07",
+            "residual_seconds": "1.2422258667936446e-13",
+            "next_delta_seconds": "-0.00038620210402566318",
+            "et_seconds": "788054469.18361378"
+          },
+          {
+            "delta_seconds": "-0.00038620210402566318",
+            "tt_minus_tdb_seconds": "0.00038607697646470316",
+            "site_term_seconds": "-1.2512756096003545e-07",
+            "residual_seconds": "1.4346620544119712e-20",
+            "next_delta_seconds": "-0.00038620210402566318",
+            "et_seconds": "788054469.18361378"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-30257.536726030197",
+        "10.579671571368301",
+        "5.6205883202402678"
+      ],
+      "jplephem_velocity_m_s": [
+        "-30257.536726030201",
+        "10.579671571367966",
+        "5.6205883202401203"
+      ],
+      "site_position_gcrs_m": [
+        "372389.3391344042",
+        "-1255929.0055313786",
+        "6221249.1096414607"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "372384.96176140051",
+            "-1255930.2506250194",
+            "6221249.1203029007"
+          ],
+          "site_term_seconds": "-1.2512608741735333e-07"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "372380.01340174966",
+            "-1255933.9599426982",
+            "6221248.6676656986"
+          ],
+          "site_term_seconds": "-1.2512442196507042e-07"
+        }
+      }
+    },
+    {
+      "id": "2024-12-21_tokyo_14",
+      "geocentric_id": "2024-12-21_14",
+      "utc": "2024-12-21T14:00:00",
+      "site": {
+        "name": "tokyo",
+        "latitude_deg": 35.6762,
+        "longitude_deg": 139.6503,
+        "elevation_m": 40,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "788061669.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.00038406958045105469",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.00038376001922148722",
+            "site_term_seconds": "-3.095611060942517e-07",
+            "residual_seconds": "0.00038406958032758147",
+            "next_delta_seconds": "-0.00038406958032758147",
+            "et_seconds": "788061669.18400002"
+          },
+          {
+            "delta_seconds": "-0.00038406958032758147",
+            "tt_minus_tdb_seconds": "0.00038376001934512161",
+            "site_term_seconds": "-3.0956110593305858e-07",
+            "residual_seconds": "1.2347320556656071e-13",
+            "next_delta_seconds": "-0.00038406958045105469",
+            "et_seconds": "788061669.18361592"
+          },
+          {
+            "delta_seconds": "-0.00038406958045105469",
+            "tt_minus_tdb_seconds": "0.00038376001934512161",
+            "site_term_seconds": "-3.0956110593305858e-07",
+            "residual_seconds": "-2.0434669852509996e-20",
+            "next_delta_seconds": "-0.00038406958045105469",
+            "et_seconds": "788061669.18361592"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-30257.893603983957",
+        "-29.84820999746162",
+        "-11.898069396275829"
+      ],
+      "jplephem_velocity_m_s": [
+        "-30257.893603983957",
+        "-29.848209997461453",
+        "-11.898069396275725"
+      ],
+      "site_position_gcrs_m": [
+        "913002.15309634036",
+        "5107814.6249992456",
+        "3696698.65471126"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "913019.93484234449",
+            "5107811.4776851311",
+            "3696698.6116895303"
+          ],
+          "site_term_seconds": "-3.0956709136421762e-07"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "912998.85119963309",
+            "5107809.2993981689",
+            "3696706.8286988232"
+          ],
+          "site_term_seconds": "-3.0955999361519251e-07"
+        }
+      }
+    },
+    {
+      "id": "2024-12-21_equator_14",
+      "geocentric_id": "2024-12-21_14",
+      "utc": "2024-12-21T14:00:00",
+      "site": {
+        "name": "equator",
+        "latitude_deg": 0,
+        "longitude_deg": 30,
+        "elevation_m": 0,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "788061669.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.00038562440320932345",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.00038376001922148722",
+            "site_term_seconds": "-1.8643838636278154e-06",
+            "residual_seconds": "0.00038562440308511503",
+            "next_delta_seconds": "-0.00038562440308511503",
+            "et_seconds": "788061669.18400002"
+          },
+          {
+            "delta_seconds": "-0.00038562440308511503",
+            "tt_minus_tdb_seconds": "0.00038376001934562045",
+            "site_term_seconds": "-1.8643838637029938e-06",
+            "residual_seconds": "1.2420841904747001e-13",
+            "next_delta_seconds": "-0.00038562440320932345",
+            "et_seconds": "788061669.18361437"
+          },
+          {
+            "delta_seconds": "-0.00038562440320932345",
+            "tt_minus_tdb_seconds": "0.00038376001934562045",
+            "site_term_seconds": "-1.8643838637029938e-06",
+            "residual_seconds": "-4.4469229730850768e-21",
+            "next_delta_seconds": "-0.00038562440320932345",
+            "et_seconds": "788061669.18361437"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-30257.893603983881",
+        "-29.84820998875966",
+        "-11.898069392504922"
+      ],
+      "jplephem_velocity_m_s": [
+        "-30257.893603983881",
+        "-29.84820998875982",
+        "-11.898069392504961"
+      ],
+      "site_position_gcrs_m": [
+        "5540931.336032968",
+        "-3158881.7373385704",
+        "-13330.027969446313"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "5540920.3387588784",
+            "-3158901.027474686",
+            "-13330.000618306363"
+          ],
+          "site_term_seconds": "-1.8643801549087877e-06"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "5540931.3372507142",
+            "-3158881.7370047229",
+            "-13329.6008916501"
+          ],
+          "site_term_seconds": "-1.8643838641696148e-06"
+        }
+      }
+    },
+    {
+      "id": "2024-12-21_paranal_14",
+      "geocentric_id": "2024-12-21_14",
+      "utc": "2024-12-21T14:00:00",
+      "site": {
+        "name": "paranal",
+        "latitude_deg": -24.6272,
+        "longitude_deg": -70.4042,
+        "elevation_m": 2635,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "788061669.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.00038249769958938656",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.00038376001922148722",
+            "site_term_seconds": "1.2623197553703422e-06",
+            "residual_seconds": "0.0003824976994661169",
+            "next_delta_seconds": "-0.0003824976994661169",
+            "et_seconds": "788061669.18400002"
+          },
+          {
+            "delta_seconds": "-0.0003824976994661169",
+            "tt_minus_tdb_seconds": "0.00038376001934462277",
+            "site_term_seconds": "1.262319755236229e-06",
+            "residual_seconds": "1.2326964544400625e-13",
+            "next_delta_seconds": "-0.00038249769958938656",
+            "et_seconds": "788061669.18361747"
+          },
+          {
+            "delta_seconds": "-0.00038249769958938656",
+            "tt_minus_tdb_seconds": "0.00038376001934462277",
+            "site_term_seconds": "1.262319755236229e-06",
+            "residual_seconds": "-2.1599340154984659e-20",
+            "next_delta_seconds": "-0.00038249769958938656",
+            "et_seconds": "788061669.18361747"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-30257.893603984026",
+        "-29.848210006163839",
+        "-11.898069400046715"
+      ],
+      "jplephem_velocity_m_s": [
+        "-30257.893603984023",
+        "-29.84821000616418",
+        "-11.898069400046886"
+      ],
+      "site_position_gcrs_m": [
+        "-3744073.6176126632",
+        "-4440051.1198103474",
+        "-2633450.6474982416"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "-3744089.0747380652",
+            "-4440038.1075089863",
+            "-2633450.610460788"
+          ],
+          "site_term_seconds": "1.2623249547747942e-06"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "-3744071.2681362517",
+            "-4440047.3154317327",
+            "-2633460.4020727677"
+          ],
+          "site_term_seconds": "1.2623189642788887e-06"
+        }
+      }
+    },
+    {
+      "id": "2024-12-21_arctic_14",
+      "geocentric_id": "2024-12-21_14",
+      "utc": "2024-12-21T14:00:00",
+      "site": {
+        "name": "arctic",
+        "latitude_deg": 78.2232,
+        "longitude_deg": 15.6469,
+        "elevation_m": 20,
+        "datum": "WGS84"
+      },
+      "tt_seconds_from_j2000": "788061669.184",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.00038408168377229512",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.00038376001922148722",
+            "site_term_seconds": "-3.2166442721658246e-07",
+            "residual_seconds": "0.00038408168364870382",
+            "next_delta_seconds": "-0.00038408168364870382",
+            "et_seconds": "788061669.18400002"
+          },
+          {
+            "delta_seconds": "-0.00038408168364870382",
+            "tt_minus_tdb_seconds": "0.00038376001934512161",
+            "site_term_seconds": "-3.2166442717349797e-07",
+            "residual_seconds": "1.2359129027091875e-13",
+            "next_delta_seconds": "-0.00038408168377229512",
+            "et_seconds": "788061669.18361592"
+          },
+          {
+            "delta_seconds": "-0.00038408168377229512",
+            "tt_minus_tdb_seconds": "0.00038376001934512161",
+            "site_term_seconds": "-3.2166442717349797e-07",
+            "residual_seconds": "-5.3468954795427709e-21",
+            "next_delta_seconds": "-0.00038408168377229512",
+            "et_seconds": "788061669.18361592"
+          }
+        ]
+      },
+      "earth_velocity_m_s": [
+        "-30257.893603983957",
+        "-29.84820999746162",
+        "-11.898069396275829"
+      ],
+      "jplephem_velocity_m_s": [
+        "-30257.893603983957",
+        "-29.848209997461453",
+        "-11.898069396275725"
+      ],
+      "site_position_gcrs_m": [
+        "953894.7077715192",
+        "-907643.35580591217",
+        "6219826.3959854636"
+      ],
+      "variants": {
+        "utc_as_ut1": {
+          "position_m": [
+            "953891.54716316378",
+            "-907646.62413913524",
+            "6219826.4037664384"
+          ],
+          "site_term_seconds": "-3.2166336202455729e-07"
+        },
+        "no_polar_motion": {
+          "position_m": [
+            "953889.11988100293",
+            "-907652.3143263784",
+            "6219825.9456612831"
+          ],
+          "site_term_seconds": "-3.2166254289450294e-07"
+        }
+      }
+    }
+  ],
+  "geocentric_controls": [
+    {
+      "id": "2024-03-20_10",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.0015892440610065317",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0015892440608772168",
+            "site_term_seconds": "0",
+            "residual_seconds": "-0.0015892440608772168",
+            "next_delta_seconds": "0.0015892440608772168",
+            "et_seconds": "764200869.18400002"
+          },
+          {
+            "delta_seconds": "0.0015892440608772168",
+            "tt_minus_tdb_seconds": "-0.0015892440610065317",
+            "site_term_seconds": "0",
+            "residual_seconds": "-1.2931496151669108e-13",
+            "next_delta_seconds": "0.0015892440610065317",
+            "et_seconds": "764200869.18558919"
+          },
+          {
+            "delta_seconds": "0.0015892440610065317",
+            "tt_minus_tdb_seconds": "-0.0015892440610065317",
+            "site_term_seconds": "0",
+            "residual_seconds": "0",
+            "next_delta_seconds": "0.0015892440610065317",
+            "et_seconds": "764200869.18558919"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2024-03-20_12",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.0015898281117250113",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0015898281115964555",
+            "site_term_seconds": "0",
+            "residual_seconds": "-0.0015898281115964555",
+            "next_delta_seconds": "0.0015898281115964555",
+            "et_seconds": "764208069.18400002"
+          },
+          {
+            "delta_seconds": "0.0015898281115964555",
+            "tt_minus_tdb_seconds": "-0.0015898281117250113",
+            "site_term_seconds": "0",
+            "residual_seconds": "-1.2855580315551673e-13",
+            "next_delta_seconds": "0.0015898281117250113",
+            "et_seconds": "764208069.18558979"
+          },
+          {
+            "delta_seconds": "0.0015898281117250113",
+            "tt_minus_tdb_seconds": "-0.0015898281117250113",
+            "site_term_seconds": "0",
+            "residual_seconds": "0",
+            "next_delta_seconds": "0.0015898281117250113",
+            "et_seconds": "764208069.18558979"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2024-03-20_14",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.0015904085062370251",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0015904085061092283",
+            "site_term_seconds": "0",
+            "residual_seconds": "-0.0015904085061092283",
+            "next_delta_seconds": "0.0015904085061092283",
+            "et_seconds": "764215269.18400002"
+          },
+          {
+            "delta_seconds": "0.0015904085061092283",
+            "tt_minus_tdb_seconds": "-0.0015904085062370251",
+            "site_term_seconds": "0",
+            "residual_seconds": "-1.2779686163477688e-13",
+            "next_delta_seconds": "0.0015904085062370251",
+            "et_seconds": "764215269.18559039"
+          },
+          {
+            "delta_seconds": "0.0015904085062370251",
+            "tt_minus_tdb_seconds": "-0.0015904085062370251",
+            "site_term_seconds": "0",
+            "residual_seconds": "0",
+            "next_delta_seconds": "0.0015904085062370251",
+            "et_seconds": "764215269.18559039"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2024-06-21_10",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.00038972190272544159",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.00038972190284874801",
+            "site_term_seconds": "0",
+            "residual_seconds": "-0.00038972190284874801",
+            "next_delta_seconds": "0.00038972190284874801",
+            "et_seconds": "772236069.18400002"
+          },
+          {
+            "delta_seconds": "0.00038972190284874801",
+            "tt_minus_tdb_seconds": "-0.00038972190272544159",
+            "site_term_seconds": "0",
+            "residual_seconds": "1.2330642149699367e-13",
+            "next_delta_seconds": "0.00038972190272544159",
+            "et_seconds": "772236069.18438971"
+          },
+          {
+            "delta_seconds": "0.00038972190272544159",
+            "tt_minus_tdb_seconds": "-0.00038972190272544159",
+            "site_term_seconds": "0",
+            "residual_seconds": "0",
+            "next_delta_seconds": "0.00038972190272544159",
+            "et_seconds": "772236069.18438971"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2024-06-21_12",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.00038744328252073213",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0003874432826433663",
+            "site_term_seconds": "0",
+            "residual_seconds": "-0.0003874432826433663",
+            "next_delta_seconds": "0.0003874432826433663",
+            "et_seconds": "772243269.18400002"
+          },
+          {
+            "delta_seconds": "0.0003874432826433663",
+            "tt_minus_tdb_seconds": "-0.00038744328252073213",
+            "site_term_seconds": "0",
+            "residual_seconds": "1.2263416193994403e-13",
+            "next_delta_seconds": "0.00038744328252073213",
+            "et_seconds": "772243269.18438745"
+          },
+          {
+            "delta_seconds": "0.00038744328252073213",
+            "tt_minus_tdb_seconds": "-0.00038744328252073213",
+            "site_term_seconds": "0",
+            "residual_seconds": "0",
+            "next_delta_seconds": "0.00038744328252073213",
+            "et_seconds": "772243269.18438745"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2024-06-21_14",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "0.00038516384356118119",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.00038516384368314185",
+            "site_term_seconds": "0",
+            "residual_seconds": "-0.00038516384368314185",
+            "next_delta_seconds": "0.00038516384368314185",
+            "et_seconds": "772250469.18400002"
+          },
+          {
+            "delta_seconds": "0.00038516384368314185",
+            "tt_minus_tdb_seconds": "-0.00038516384356118119",
+            "site_term_seconds": "0",
+            "residual_seconds": "1.2196065555039604e-13",
+            "next_delta_seconds": "0.00038516384356118119",
+            "et_seconds": "772250469.18438518"
+          },
+          {
+            "delta_seconds": "0.00038516384356118119",
+            "tt_minus_tdb_seconds": "-0.00038516384356118119",
+            "site_term_seconds": "0",
+            "residual_seconds": "0",
+            "next_delta_seconds": "0.00038516384356118119",
+            "et_seconds": "772250469.18438518"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2024-09-22_10",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.0015995580234998115",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.0015995580236218183",
+            "site_term_seconds": "0",
+            "residual_seconds": "0.0015995580236218183",
+            "next_delta_seconds": "-0.0015995580236218183",
+            "et_seconds": "780271269.18400002"
+          },
+          {
+            "delta_seconds": "-0.0015995580236218183",
+            "tt_minus_tdb_seconds": "0.0015995580234998115",
+            "site_term_seconds": "0",
+            "residual_seconds": "-1.2200678835283529e-13",
+            "next_delta_seconds": "-0.0015995580234998115",
+            "et_seconds": "780271269.18240047"
+          },
+          {
+            "delta_seconds": "-0.0015995580234998115",
+            "tt_minus_tdb_seconds": "0.0015995580234998115",
+            "site_term_seconds": "0",
+            "residual_seconds": "0",
+            "next_delta_seconds": "-0.0015995580234998115",
+            "et_seconds": "780271269.18240047"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2024-09-22_12",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.0016001053516915035",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.0016001053518127305",
+            "site_term_seconds": "0",
+            "residual_seconds": "0.0016001053518127305",
+            "next_delta_seconds": "-0.0016001053518127305",
+            "et_seconds": "780278469.18400002"
+          },
+          {
+            "delta_seconds": "-0.0016001053518127305",
+            "tt_minus_tdb_seconds": "0.0016001053516915035",
+            "site_term_seconds": "0",
+            "residual_seconds": "-1.2122703015038372e-13",
+            "next_delta_seconds": "-0.0016001053516915035",
+            "et_seconds": "780278469.18239987"
+          },
+          {
+            "delta_seconds": "-0.0016001053516915035",
+            "tt_minus_tdb_seconds": "0.0016001053516915035",
+            "site_term_seconds": "0",
+            "residual_seconds": "0",
+            "next_delta_seconds": "-0.0016001053516915035",
+            "et_seconds": "780278469.18239987"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2024-09-22_14",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.0016006489638334944",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.0016006489639539309",
+            "site_term_seconds": "0",
+            "residual_seconds": "0.0016006489639539309",
+            "next_delta_seconds": "-0.0016006489639539309",
+            "et_seconds": "780285669.18400002"
+          },
+          {
+            "delta_seconds": "-0.0016006489639539309",
+            "tt_minus_tdb_seconds": "0.0016006489638334944",
+            "site_term_seconds": "0",
+            "residual_seconds": "-1.2043642992620729e-13",
+            "next_delta_seconds": "-0.0016006489638334944",
+            "et_seconds": "780285669.18239939"
+          },
+          {
+            "delta_seconds": "-0.0016006489638334944",
+            "tt_minus_tdb_seconds": "0.0016006489638334944",
+            "site_term_seconds": "0",
+            "residual_seconds": "0",
+            "next_delta_seconds": "-0.0016006489638334944",
+            "et_seconds": "780285669.18239939"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2024-12-21_10",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.00038839267038172777",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.00038839267025684828",
+            "site_term_seconds": "0",
+            "residual_seconds": "0.00038839267025684828",
+            "next_delta_seconds": "-0.00038839267025684828",
+            "et_seconds": "788047269.18400002"
+          },
+          {
+            "delta_seconds": "-0.00038839267025684828",
+            "tt_minus_tdb_seconds": "0.00038839267038172777",
+            "site_term_seconds": "0",
+            "residual_seconds": "1.2487949042905289e-13",
+            "next_delta_seconds": "-0.00038839267038172777",
+            "et_seconds": "788047269.18361163"
+          },
+          {
+            "delta_seconds": "-0.00038839267038172777",
+            "tt_minus_tdb_seconds": "0.00038839267038172777",
+            "site_term_seconds": "0",
+            "residual_seconds": "0",
+            "next_delta_seconds": "-0.00038839267038172777",
+            "et_seconds": "788047269.18361163"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2024-12-21_12",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.00038607697646466483",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.00038607697634044573",
+            "site_term_seconds": "0",
+            "residual_seconds": "0.00038607697634044573",
+            "next_delta_seconds": "-0.00038607697634044573",
+            "et_seconds": "788054469.18400002"
+          },
+          {
+            "delta_seconds": "-0.00038607697634044573",
+            "tt_minus_tdb_seconds": "0.00038607697646466483",
+            "site_term_seconds": "0",
+            "residual_seconds": "1.2421910288579197e-13",
+            "next_delta_seconds": "-0.00038607697646466483",
+            "et_seconds": "788054469.1836139"
+          },
+          {
+            "delta_seconds": "-0.00038607697646466483",
+            "tt_minus_tdb_seconds": "0.00038607697646466483",
+            "site_term_seconds": "0",
+            "residual_seconds": "0",
+            "next_delta_seconds": "-0.00038607697646466483",
+            "et_seconds": "788054469.1836139"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2024-12-21_14",
+      "solution": {
+        "converged": true,
+        "delta_seconds": "-0.00038376001934500647",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.00038376001922148722",
+            "site_term_seconds": "0",
+            "residual_seconds": "0.00038376001922148722",
+            "next_delta_seconds": "-0.00038376001922148722",
+            "et_seconds": "788061669.18400002"
+          },
+          {
+            "delta_seconds": "-0.00038376001922148722",
+            "tt_minus_tdb_seconds": "0.00038376001934500647",
+            "site_term_seconds": "0",
+            "residual_seconds": "1.2351925038345257e-13",
+            "next_delta_seconds": "-0.00038376001934500647",
+            "et_seconds": "788061669.18361628"
+          },
+          {
+            "delta_seconds": "-0.00038376001934500647",
+            "tt_minus_tdb_seconds": "0.00038376001934500647",
+            "site_term_seconds": "0",
+            "residual_seconds": "0",
+            "next_delta_seconds": "-0.00038376001934500647",
+            "et_seconds": "788061669.18361628"
+          }
+        ]
+      }
+    }
+  ]
+}
