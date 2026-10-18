@@ -254,8 +254,13 @@ provenance, input-domain rejection, and offline execution. Five faulty candidate
 and omitted acceleration) are rejected across all 48 rows each.
 
 The Quality Gate preserves the twelve earlier artifacts and adds
-`site-frame-mapping-record`. The retained canonical result and its clean
-implementation provenance are recorded after the implementation commit.
+`site-frame-mapping-record`. The [canonical record](../../../validation/results/site_frame_reference_run.json)
+was generated from clean implementation commit
+`ce57f47332f70652d8bc58e6cc2da19da673a71f` with Python 3.12.14 and NumPy 2.5.3.
+Its scientific fields were identical when replayed with NumPy 2.5.4. Ruff lint,
+format checks for the three new Python files, compilation and internal document
+links passed. A broader optional format check reported pre-existing formatting
+differences in fifteen older files; those frozen files were preserved.
 
 ## Next research boundary
 
