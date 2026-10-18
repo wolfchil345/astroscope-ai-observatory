@@ -1,0 +1,164 @@
+{
+  "schema_version": "1.0",
+  "mission": 38,
+  "baseline_commit": "809b0bc89aa0e4b96de2e8f35d81c417b1609650",
+  "scope": "Research-only plane-wave geometric barycentric coordinate inversion plus observer TAI/UTC representation validation. No production eligibility or observation accuracy claim.",
+  "model_id": "geometric-plane-wave-tdb-v1",
+  "model": "B = JD_TDB(t_observer) + dot(r_SSB_to_site_ICRS(t),unit_ICRS_target)/c; fixed infinite-distance target. Reference Skyfield/DE421, candidate Astropy/ERFA builtin. Not a complete relativistic BJD model.",
+  "omissions": [
+    "finite-distance effects",
+    "proper motion and radial velocity",
+    "solar Shapiro delay",
+    "explicit observer Einstein correction beyond library time-scale conversion",
+    "exposure integration",
+    "observed transit O-C",
+    "uncertainty transport",
+    "query membership",
+    "resolved-event persistence"
+  ],
+  "motion_assumption": "fixed_icrs_direction_at_infinity",
+  "coordinate_epoch": "J2000",
+  "sites": [
+    {
+      "name": "tokyo",
+      "latitude_deg": 35.6762,
+      "longitude_deg": 139.6503,
+      "elevation_m": 40
+    },
+    {
+      "name": "equator",
+      "latitude_deg": 0,
+      "longitude_deg": 30,
+      "elevation_m": 0
+    },
+    {
+      "name": "paranal",
+      "latitude_deg": -24.6272,
+      "longitude_deg": -70.4042,
+      "elevation_m": 2635
+    },
+    {
+      "name": "arctic",
+      "latitude_deg": 78.2232,
+      "longitude_deg": 15.6469,
+      "elevation_m": 20
+    }
+  ],
+  "targets": [
+    {
+      "ra_deg": 0,
+      "dec_deg": 0
+    },
+    {
+      "ra_deg": 90,
+      "dec_deg": 0
+    },
+    {
+      "ra_deg": 180,
+      "dec_deg": 0
+    },
+    {
+      "ra_deg": 270,
+      "dec_deg": 0
+    },
+    {
+      "ra_deg": 0,
+      "dec_deg": 89
+    },
+    {
+      "ra_deg": 180,
+      "dec_deg": -89
+    }
+  ],
+  "dates": [
+    "2024-03-20",
+    "2024-06-21",
+    "2024-09-22",
+    "2024-12-21"
+  ],
+  "hours": [
+    10,
+    12,
+    14
+  ],
+  "roles": [
+    "ingress_probe",
+    "midpoint_probe",
+    "egress_probe"
+  ],
+  "expected_geometric_case_count": 288,
+  "expected_leap_case_count": 5,
+  "geometric_guard_utc_interval": [
+    "2024-01-02T00:00:00",
+    "2024-12-30T00:00:00"
+  ],
+  "leap_guard_tai_interval": [
+    "2017-01-01T00:00:34",
+    "2017-01-01T00:00:38"
+  ],
+  "tolerances_seconds": {
+    "geometric_forward": 0.001,
+    "geometric_inverse": 0.001,
+    "observer_tai_utc": 1e-08,
+    "solver_residual": 1e-07
+  },
+  "tolerance_rationale": "Predeclared engineering acceptance limits for sampled cross-implementation agreement, not a proven physical error budget. 1 ms accommodates distinct ephemeris/clock/orientation models while remaining below the approximately 21 ms terrestrial site term. Separate 10 ns scale check and 100 ns numerical residual; no measured residual may tune these limits.",
+  "solver": {
+    "method": "fixed_point_subtraction_in_TDB_two_part_JD",
+    "max_iterations": 8,
+    "stopping_residual_seconds": 1e-07
+  },
+  "independence": "Reference generator imports no AstroScope, Astropy or ERFA; DE421 versus ERFA epv00. Shared IERS measurements, IAU orientation theory, WGS84 and physical constants disclosed. Manual Gregorian/Fraction leap pairs derive from Bulletin C52, not either library.",
+  "reference_environment": "validation/reference_generation/reference-requirements.txt",
+  "frozen_inputs": {
+    "validation/fixtures/solar_lunar_eop_v1.json": "6372ac20b566dc5e9b4f106caaef2751a624c7bb46e161252e3208f4b906c1fa",
+    "validation/fixtures/observer_arrival_leaps_v1.json": "1defa648097e056ce453cea1037f7395a9d99c930ef3e18de456133d840f9bad"
+  },
+  "mutation_requirements": [
+    "wrong light-time sign",
+    "scale-only conversion",
+    "geocentre substituted for site"
+  ],
+  "failure_requirements": [
+    "missing or incompatible target/site metadata",
+    "unsupported coordinate or correction model",
+    "already corrected input",
+    "nonfinite values",
+    "outside historical data domain",
+    "nonconvergence",
+    "leap-second datetime export"
+  ],
+  "eligibility": "All production strict predictions remain ineligible; benchmark successes cannot promote them. No online data retrieval in generation or evaluation after environment setup.",
+  "sources": [
+    {
+      "url": "https://arxiv.org/html/1005.4415v3",
+      "role": "distinguish geometric, clock, Shapiro and Einstein terms; no borrowed accuracy claim",
+      "inspected_utc": "2026-10-17"
+    },
+    {
+      "url": "https://docs.astropy.org/en/stable/time/index.html",
+      "role": "candidate light_travel_time and two-part time API",
+      "inspected_utc": "2026-10-17"
+    },
+    {
+      "url": "https://rhodesmill.org/skyfield/api-topos.html",
+      "role": "independent WGS84 observer vectors",
+      "inspected_utc": "2026-10-17"
+    },
+    {
+      "url": "https://rhodesmill.org/skyfield/accuracy-efficiency.html",
+      "role": "shared orientation theory and frozen polar-motion/leap data",
+      "inspected_utc": "2026-10-17"
+    },
+    {
+      "url": "https://datacenter.iers.org/data/16/bulletinc-052.txt",
+      "role": "2016 positive leap and 36/37 second offsets",
+      "inspected_utc": "2026-10-17"
+    },
+    {
+      "url": "https://datacenter.iers.org/data/16/bulletinc-068.txt",
+      "role": "37 second offset through 2024",
+      "inspected_utc": "2026-10-17"
+    }
+  ]
+}
