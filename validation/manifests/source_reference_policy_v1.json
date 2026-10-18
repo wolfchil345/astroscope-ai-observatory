@@ -1,0 +1,188 @@
+{
+  "schema_version": "1.0",
+  "mission": 40,
+  "baseline_commit": "eaf3e22b8fb819ef37e0f803595de5330d21e0c7",
+  "freeze_rule": "Commit before reference output generation, candidate implementation or numerical tests; do not retune after comparison.",
+  "scope": "Select an explicit research source convention; qualify only the supplied-vector solar Shapiro component and census a frozen historical sample domain. No end-to-end or physical arrival-time qualification.",
+  "convention": {
+    "id": "astroscope-tdb-solar-au-v1",
+    "source_coordinate": "JD_TDB_site + (dot(r_ssb_to_observer,n)/c + S_sun)/86400",
+    "solar_correction": "S_sun = 2 GM_sun/c^3 * ln((R_sun/au)*(1-mu)); mu=dot(observer_to_sun/R_sun,n)",
+    "solar_normalization": "distance_to_sun_in_au; zero at R_sun=1 au and mu=0; do not fit away offsets",
+    "solar_sign": "add negative PINT propagation delay to source coordinate",
+    "vector_epoch": "simultaneous geometric observer and Sun positions, no apparent-position or observe() light-time iteration",
+    "clock": "TT(TAI) to TDB using location-aware ERFA dtdb via Astropy; topocentric contribution included exactly once; no separate r_site.v_earth/c^2 addition",
+    "target": "fixed ICRS unit direction at infinity; no proper motion, parallax or radial velocity",
+    "omitted": [
+      "planetary Shapiro",
+      "higher-order and moving-body gravity",
+      "finite distance",
+      "target motion",
+      "atmosphere/instrument delays",
+      "exposure integration",
+      "target-system propagation",
+      "TT(BIPM) realization",
+      "uncertainty transport"
+    ],
+    "source_descriptor_required": {
+      "convention_id": "astroscope-tdb-solar-au-v1",
+      "scale": "tdb",
+      "reference_position": "ssb",
+      "target_model": "fixed_icrs_at_infinity",
+      "clock_model": "tt_tai_erfa_dtdb_site",
+      "topocentric_einstein": "included_once_in_clock",
+      "solar_model": "first_order_solar_distance_au",
+      "input_state": "source_coordinate"
+    },
+    "source_provenance_required": [
+      "source_id",
+      "algorithm_version",
+      "data_identity"
+    ],
+    "compatibility_claim": "Matching declarations permit this research comparison only; neither a generic BJD_TDB label nor self-declared metadata authenticates a catalogue source."
+  },
+  "constants": {
+    "c_m_per_s": "299792458",
+    "au_m": "149597870700",
+    "gm_sun_m3_per_s2": "132712440018000000000",
+    "gm_status": "fixed model constant matching PINT 1.1.7, not an exact physical measurement or uncertainty bound"
+  },
+  "component_domain": {
+    "radius_au_closed": [
+      "0.9",
+      "1.1"
+    ],
+    "cosine_closed": [
+      "-1",
+      "0.8"
+    ],
+    "meaning": "geometric solar elongation at least acos(0.8); research exclusion, not a solar-observing safety criterion",
+    "boundary_policy": "strict inclusive numeric comparisons; no epsilon expansion or clamping"
+  },
+  "synthetic_grid": {
+    "radii_au": [
+      "0.9",
+      "1",
+      "1.1"
+    ],
+    "cosine_sine_pairs": [
+      [
+        "-1",
+        "0"
+      ],
+      [
+        "-0.8",
+        "0.6"
+      ],
+      [
+        "0",
+        "1"
+      ],
+      [
+        "0.6",
+        "0.8"
+      ],
+      [
+        "0.8",
+        "0.6"
+      ]
+    ],
+    "axes": [
+      0,
+      1,
+      2
+    ],
+    "expected_cases": 45
+  },
+  "historical_census": {
+    "policy": "validation/manifests/observer_arrival_policy_v1.json",
+    "expected_candidates": 288,
+    "generation": "Skyfield 1.55/DE421 simultaneous Sun minus WGS84 observer vectors; frozen Mission 38 EOP/leaps and four dates, four sites, six directions, three hours",
+    "coverage": "finite samples only; no continuous-time, all-sky, horizon, weather or future-date qualification",
+    "outside_policy": "retain every excluded row, reasons and null reference correction; never silently omit it"
+  },
+  "reference": {
+    "package": "pint-pulsar",
+    "version": "1.1.7",
+    "tag_commit": "df54870102b5f4417ba06441ecaca1c6a1d33e05",
+    "method": "SolarSystemShapiro.ss_obj_shapiro_delay",
+    "method_sha256": "e74172deae5b02466a129ae136016facd062d09877479e69d39994d01cace312",
+    "barycentric_method_sha256": "1629f7d573dd58ff00c969a7498198ed07ce6c64a14209b5f585ec66ea5590f0",
+    "execution": "invoke installed PINT component, not a local copy or full timing model; negate returned delay for comparison",
+    "full_pipeline_executed": false,
+    "physical_reference_bound_seconds": null,
+    "independence": "PINT NumPy vector implementation versus local stdlib Decimal scalar implementation. Shared formula/constants and supplied Skyfield vectors are explicit; no independent geometry, clock or physical-reference uncertainty claim."
+  },
+  "numeric_policy": {
+    "candidate_decimal_precision": 70,
+    "comparison_tolerance_seconds": "0.000000000001",
+    "rationale": "Predeclared 1 ps component arithmetic agreement threshold, not an absolute physical error or inferred reference uncertainty. No refitting, mean subtraction or data-dependent tolerance.",
+    "input_size": "finite decimal strings, at most 80 characters and magnitude at most 1e40",
+    "vector_scalar_consistency_tolerance": "1e-12",
+    "vector_note": "Integrity check for serialized float vectors/scalars and unit direction; not a physical angular bound."
+  },
+  "mutation_policy": {
+    "faults": [
+      "wrong_sign",
+      "omit_radial_normalization"
+    ],
+    "requirement": "At least one detection per fault across eligible rows, while reporting all undetected cases and total denominators; exact-zero and R=1 examples may be insensitive."
+  },
+  "qualification": {
+    "component_status_if_pass": "qualified_for_supplied_input_component_comparison_only",
+    "full_reference_status": "unqualified",
+    "physical_arrival_bound_seconds": null,
+    "observing_eligible": false,
+    "blockers": [
+      "no matched independent full clock reference",
+      "reference physical uncertainty unestablished",
+      "real-source convention and astrometry unverified",
+      "continuous domain and inverse certificates absent",
+      "Mission 39 physical budget remains incomplete",
+      "resolved-event integration unavailable"
+    ]
+  },
+  "frozen_inputs": {
+    "validation/manifests/observer_arrival_policy_v1.json": "0d5a5fd556a2df8efc7cecfdbdbcb6c8c508f288bf29bda0ea686dfddf1411dd",
+    "validation/fixtures/solar_lunar_eop_v1.json": "6372ac20b566dc5e9b4f106caaef2751a624c7bb46e161252e3208f4b906c1fa",
+    "validation/fixtures/observer_arrival_leaps_v1.json": "1defa648097e056ce453cea1037f7395a9d99c930ef3e18de456133d840f9bad",
+    "validation/results/observer_arrival_reference_run.json": "e1b8659510ad4f09a0c26d46043a08af592f98057e4a1bc67172d28bc2610fc6",
+    "validation/results/arrival_budget_reference_run.json": "544a761bafd15b5559605d51c27be7260ed2b72892800b495cba9be8db006a4f",
+    "docs/research/evidence/arrival_clock_inclusion_audit_v1.json": "c9c12b0007f299ae5a92854ceba75c29a1eebbc4dbc342a3c32da661fd7680be",
+    "validation/observer_arrival_model.py": "a324728ed10acbf47e7d35bff4892b180d3e75e55dfa71a8bfca3e8448694622",
+    "src/astroscope/transit_timing.py": "7d1f72807a5991f94be66cface374162fd3ebb10c1cf2cdf0b18a5d7d716d27e"
+  },
+  "sources": [
+    {
+      "id": "EASTMAN2010",
+      "url": "https://arxiv.org/html/1005.4415v3",
+      "use": "term taxonomy and angular-only equation 5; do not equate this normalization with the selected radial convention"
+    },
+    {
+      "id": "PINT_SHAPIRO",
+      "url": "https://nanograv-pint.readthedocs.io/en/stable/_modules/pint/models/solar_system_shapiro.html",
+      "use": "component sign, vector direction and au normalization; installed 1.1.7 source hashes authoritative"
+    },
+    {
+      "id": "PINT_TIMING",
+      "url": "https://nanograv-pint.readthedocs.io/en/stable/_autosummary/pint.models.timing_model.TimingModel.html",
+      "use": "installed get_barycentric_toas subtracts delays; no full pipeline claimed"
+    },
+    {
+      "id": "SKYFIELD_VECTORS",
+      "url": "https://rhodesmill.org/skyfield/api-position.html",
+      "use": "simultaneous ICRF-axis vectors"
+    },
+    {
+      "id": "SKYFIELD_SITES",
+      "url": "https://rhodesmill.org/skyfield/api-topos.html",
+      "use": "WGS84 site vector generation"
+    },
+    {
+      "id": "CLOCK_INCLUSION",
+      "path": "docs/research/evidence/arrival_clock_inclusion_audit_v1.json",
+      "use": "retained Mission 39 location-aware clock audit; no new clock-accuracy claim"
+    }
+  ],
+  "sources_inspected_utc": "2026-10-18"
+}
