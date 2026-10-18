@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0",
+  "audit_id": "arrival-budget-v1",
+  "passed": true,
+  "pass_meaning": "Evidence classification and fail-closed budget audit; not physical accuracy",
+  "ledger_assessment": {
+    "status": "incomplete",
+    "conditional_subtotal": {
+      "numerator": "0",
+      "denominator": "1",
+      "seconds_upper_12dp": "0.000000000000"
+    },
+    "forward_total": null,
+    "unknown_terms": [
+      "clock_model",
+      "earth_orientation",
+      "ephemeris_vector",
+      "finite_distance",
+      "numeric_evaluation",
+      "other_relativistic",
+      "site_vector",
+      "solar_shapiro",
+      "target_direction_motion"
+    ],
+    "observing_eligible": false,
+    "evidence_authentication": "not_performed; declarations alone are not certification"
+  },
+  "conditional_examples": [
+    {
+      "id": "site_10m",
+      "inputs": {
+        "id": "site_10m",
+        "kind": "vector",
+        "error_m": "10"
+      },
+      "conditional_bound": {
+        "numerator": "5",
+        "denominator": "149896229",
+        "seconds_upper_12dp": "0.000000033357"
+      }
+    },
+    {
+      "id": "direction_1arcsec_upper",
+      "inputs": {
+        "id": "direction_1arcsec_upper",
+        "kind": "direction",
+        "radius_m": "164557657770",
+        "angle_rad_upper": "0.000004848137"
+      },
+      "conditional_bound": {
+        "numerator": "156124866784359",
+        "denominator": "58667800000000000",
+        "seconds_upper_12dp": "0.002661167912"
+      }
+    },
+    {
+      "id": "motion_25arcsec_upper",
+      "inputs": {
+        "id": "motion_25arcsec_upper",
+        "kind": "direction",
+        "radius_m": "164557657770",
+        "angle_rad_upper": "0.000121203425"
+      },
+      "conditional_bound": {
+        "numerator": "156124866784359",
+        "denominator": "2346712000000000",
+        "seconds_upper_12dp": "0.066529197782"
+      }
+    },
+    {
+      "id": "finite_distance_3e16m",
+      "inputs": {
+        "id": "finite_distance_3e16m",
+        "kind": "finite_distance",
+        "radius_m": "164557657770",
+        "distance_lower_m": "30000000000000000"
+      },
+      "conditional_bound": {
+        "numerator": "6182470943093251455",
+        "denominator": "4106723473449906122786",
+        "seconds_upper_12dp": "0.001505450996"
+      }
+    },
+    {
+      "id": "einstein_amplitude_only",
+      "inputs": {
+        "id": "einstein_amplitude_only",
+        "kind": "einstein_amplitude",
+        "site_radius_m": "6400000",
+        "earth_speed_m_per_s": "31000"
+      },
+      "conditional_bound": {
+        "numerator": "49600000000",
+        "denominator": "22468879468420441",
+        "seconds_upper_12dp": "0.000002207498"
+      }
+    },
+    {
+      "id": "inverse_synthetic",
+      "inputs": {
+        "id": "inverse_synthetic",
+        "kind": "inverse",
+        "forward_bound_s": "0.001",
+        "residual_s": "0.0000001",
+        "slope_lower": "0.9998",
+        "output_bound_s": "0.000000001"
+      },
+      "conditional_bound": {
+        "numerator": "5000504999",
+        "denominator": "4999000000000",
+        "seconds_upper_12dp": "0.001000301061"
+      }
+    }
+  ],
+  "physical_arrival_bound": null,
+  "observing_eligible": false,
+  "unchanged_mission38_sample_maxima_seconds": {
+    "forward": 2.1068341071739383e-05,
+    "inverse": 2.1105988556868738e-05,
+    "solver_residual": 4.759952432209502e-08,
+    "leap_reverse": 9.592326932761353e-12
+  },
+  "sample_maxima_classification": "sampled_discrepancy_not_absolute_bound",
+  "prospective_contract_scenario_count": 20,
+  "prospective_contract_execution": "not_executed_in_production",
+  "manifest_sha256": "38b716c50b4a8fecf3f65b8da6be04d038daedeafb7ab0ee766daaff17d35285",
+  "implementation_sha256": "16cebb1b89a94c5c56a87783d1e4a861d17a532b8163cbd8e9bb1d9128d974e6",
+  "environment": {
+    "python": "3.12.14",
+    "numeric_engine": "stdlib Fraction",
+    "network": "socket connections blocked",
+    "astronomy_imports_required": false
+  },
+  "implementation_commit": "5db627692860fd18cfb5ae8f733a5b182c65512f",
+  "checkout_commit": "5db627692860fd18cfb5ae8f733a5b182c65512f",
+  "working_tree_dirty": false
+}

@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "audit_id": "arrival-budget-v1",
+  "files": {
+    "validation/manifests/arrival_budget_policy_v1.json": "5aa06db53706331c6c4f600a3ed8fa5f35d7233072325e207f2b03eeadae769c",
+    "validation/manifests/observer_arrival_error_ledger_v1.json": "c57e93211d95fe373df5cff1f2a763b8ca07ee473c93674778cdf5856998931b",
+    "validation/manifests/resolved_event_contract_v1.json": "616dcaf2db64a5a060c29791d763a8f2e2392305d3d0d563de868ed0bec83552",
+    "docs/research/evidence/arrival_clock_inclusion_audit_v1.json": "c9c12b0007f299ae5a92854ceba75c29a1eebbc4dbc342a3c32da661fd7680be",
+    "validation/results/observer_arrival_reference_run.json": "e1b8659510ad4f09a0c26d46043a08af592f98057e4a1bc67172d28bc2610fc6"
+  }
+}

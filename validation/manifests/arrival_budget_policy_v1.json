@@ -1,0 +1,134 @@
+{
+  "schema_version": "1.0",
+  "mission": 39,
+  "baseline_commit": "9012c675b509f49df61a1ec83b7a330dd5efe99d",
+  "scope": "Conditional analytic error-bound audit and prospective resolved-event contract only; no new astronomical conversion or production eligibility",
+  "freeze_rule": "Commit before computed example results or audit tests. No retuning Mission 38 tolerances.",
+  "evidence_classes": [
+    "sampled_discrepancy",
+    "conditional_absolute_bound",
+    "standard_uncertainty",
+    "unknown",
+    "library_inclusion_audit"
+  ],
+  "required_forward_terms": [
+    "ephemeris_vector",
+    "site_vector",
+    "earth_orientation",
+    "target_direction_motion",
+    "finite_distance",
+    "clock_model",
+    "solar_shapiro",
+    "other_relativistic",
+    "numeric_evaluation"
+  ],
+  "excluded_from_forward_total": [
+    "source_ephemeris_uncertainty",
+    "fit_extrapolation_or_TTV",
+    "timestamp_measurement",
+    "exposure_integration",
+    "source_convention_identity",
+    "solver_residual",
+    "output_representation"
+  ],
+  "rules": [
+    "Required absolute terms must be present exactly once; sum absolute bounds linearly, never RSS them",
+    "A bound is conditional on explicit evidence and domain; input declarations are not certified",
+    "Unknown terms retain null totals; a sample maximum or standard deviation is never an absolute bound",
+    "Physical-time inversion requires positive derivative lower bound across the full bracket, independent root existence/bracketing proof, and all model terms",
+    "No measured Mission 38 residual supplies a global derivative, physical bound or domain certificate",
+    "Clock inclusion is audited before adding an observer Einstein term; prevent double counting",
+    "Nominal numerical query membership is separate from stochastic timing uncertainty and observing eligibility"
+  ],
+  "exact_constants": {
+    "c_m_per_s": "299792458",
+    "au_m": "149597870700"
+  },
+  "conditional_examples": [
+    {
+      "id": "site_10m",
+      "kind": "vector",
+      "error_m": "10"
+    },
+    {
+      "id": "direction_1arcsec_upper",
+      "kind": "direction",
+      "radius_m": "164557657770",
+      "angle_rad_upper": "0.000004848137"
+    },
+    {
+      "id": "motion_25arcsec_upper",
+      "kind": "direction",
+      "radius_m": "164557657770",
+      "angle_rad_upper": "0.000121203425"
+    },
+    {
+      "id": "finite_distance_3e16m",
+      "kind": "finite_distance",
+      "radius_m": "164557657770",
+      "distance_lower_m": "30000000000000000"
+    },
+    {
+      "id": "einstein_amplitude_only",
+      "kind": "einstein_amplitude",
+      "site_radius_m": "6400000",
+      "earth_speed_m_per_s": "31000"
+    },
+    {
+      "id": "inverse_synthetic",
+      "kind": "inverse",
+      "forward_bound_s": "0.001",
+      "residual_s": "0.0000001",
+      "slope_lower": "0.9998",
+      "output_bound_s": "0.000000001"
+    }
+  ],
+  "example_disclaimer": "Illustrative supplied inequalities only: radius 1.1 au, distance 3e16 m, speed 31 km/s and slope 0.9998 are not certified for any AstroScope domain. Angular values are explicit conservative rounded inputs, not catalogue uncertainties.",
+  "numeric_policy": "Fraction arithmetic on finite decimal-string inputs; exact rational outputs authoritative. Human decimal bounds round upward at 12 fractional places. No empirical scientific tolerance or accuracy acceptance threshold is introduced.",
+  "contract_policy": "Prospective manifest of required fields, status transitions, eligibility prerequisites, monotone query enclosures, boundary rules, uncertainty transport and migration. Not a runtime serializer, parser, production resolved object or observing approval.",
+  "coverage_policy": "Do not reclassify Mission 36 scenarios or Mission 37/38 historical evidence. New exact analytic tests establish only conditional arithmetic and contract consistency.",
+  "baseline_files": {
+    "validation/manifests/observer_arrival_policy_v1.json": "0d5a5fd556a2df8efc7cecfdbdbcb6c8c508f288bf29bda0ea686dfddf1411dd",
+    "validation/results/observer_arrival_reference_run.json": "e1b8659510ad4f09a0c26d46043a08af592f98057e4a1bc67172d28bc2610fc6",
+    "validation/observer_arrival_model.py": "a324728ed10acbf47e7d35bff4892b180d3e75e55dfa71a8bfca3e8448694622",
+    "src/astroscope/transit_timing.py": "7d1f72807a5991f94be66cface374162fd3ebb10c1cf2cdf0b18a5d7d716d27e"
+  },
+  "sources": [
+    {
+      "id": "EASTMAN2010",
+      "url": "https://arxiv.org/html/1005.4415v3",
+      "role": "Timing term taxonomy and geometric definitions; no borrowed accuracy claims",
+      "inspected_utc": "2026-10-18"
+    },
+    {
+      "id": "ASTROPYCORE",
+      "url": "https://docs.astropy.org/en/stable/_modules/astropy/time/core.html",
+      "role": "Location arguments in Time._get_delta_tdb_tt",
+      "inspected_utc": "2026-10-18"
+    },
+    {
+      "id": "ERFADTDB",
+      "url": "https://github.com/liberfa/erfa/blob/master/src/dtdb.c",
+      "role": "DTD B topocentric term and possible double counting",
+      "inspected_utc": "2026-10-18"
+    },
+    {
+      "id": "NISTUNC",
+      "url": "https://physics.nist.gov/cuu/Uncertainty/combination.html",
+      "role": "Covariance in standard-uncertainty propagation",
+      "inspected_utc": "2026-10-18"
+    },
+    {
+      "id": "NISTC",
+      "url": "https://physics.nist.gov/cuu/Constants/Value/c.html",
+      "role": "Exact speed of light",
+      "inspected_utc": "2026-10-18"
+    },
+    {
+      "id": "IAUAU",
+      "url": "https://iauarchive.eso.org/public/themes/measuring/",
+      "role": "Exact astronomical unit",
+      "inspected_utc": "2026-10-18"
+    }
+  ]
+}

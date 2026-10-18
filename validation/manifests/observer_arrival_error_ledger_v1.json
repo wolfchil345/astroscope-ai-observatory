@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "mission": 39,
+  "model_id": "geometric-plane-wave-tdb-v1",
+  "scope_id": "mission38_historical_sample_evidence_only",
+  "terms": [
+    {
+      "id": "ephemeris_vector",
+      "kind": "unknown",
+      "value_seconds": null,
+      "evidence": "Mission 38 canonical record and Mission 39 model review",
+      "domain": "mission38_historical_sample_evidence_only",
+      "reason": "Cross-library discrepancy is not a bound relative to the intended physical ephemeris; kernel fit error and model convention require evidence."
+    },
+    {
+      "id": "site_vector",
+      "kind": "unknown",
+      "value_seconds": null,
+      "evidence": "Mission 38 canonical record and Mission 39 model review",
+      "domain": "mission38_historical_sample_evidence_only",
+      "reason": "WGS84 metadata structure is checked, but site measurement/datum/epoch uncertainty is not certified."
+    },
+    {
+      "id": "earth_orientation",
+      "kind": "unknown",
+      "value_seconds": null,
+      "evidence": "Mission 38 canonical record and Mission 39 model review",
+      "domain": "mission38_historical_sample_evidence_only",
+      "reason": "Frozen EOP point values are reproducible; interpolation, measurement uncertainty and domain bounds remain unestablished."
+    },
+    {
+      "id": "target_direction_motion",
+      "kind": "unknown",
+      "value_seconds": null,
+      "evidence": "Mission 38 canonical record and Mission 39 model review",
+      "domain": "mission38_historical_sample_evidence_only",
+      "reason": "Synthetic fixed ICRS vectors have no general catalogue epoch, proper-motion/parallax/radial-velocity error certificate."
+    },
+    {
+      "id": "finite_distance",
+      "kind": "unknown",
+      "value_seconds": null,
+      "evidence": "Mission 38 canonical record and Mission 39 model review",
+      "domain": "mission38_historical_sample_evidence_only",
+      "reason": "Infinite-distance study inputs do not establish a distance lower bound or convention for real targets."
+    },
+    {
+      "id": "clock_model",
+      "kind": "unknown",
+      "value_seconds": null,
+      "evidence": "Mission 38 canonical record and Mission 39 model review",
+      "domain": "mission38_historical_sample_evidence_only",
+      "reason": "Location-aware ERFA dtdb includes a topocentric term; remaining model error and source-clock convention are not independently bounded here."
+    },
+    {
+      "id": "solar_shapiro",
+      "kind": "unknown",
+      "value_seconds": null,
+      "evidence": "Mission 38 canonical record and Mission 39 model review",
+      "domain": "mission38_historical_sample_evidence_only",
+      "reason": "Not explicitly included in geometric-plane-wave-tdb-v1; source convention, angular exclusion and bounded remainder are required."
+    },
+    {
+      "id": "other_relativistic",
+      "kind": "unknown",
+      "value_seconds": null,
+      "evidence": "Mission 38 canonical record and Mission 39 model review",
+      "domain": "mission38_historical_sample_evidence_only",
+      "reason": "Residual physical terms and non-overlapping partition require a stated target accuracy and reviewed model."
+    },
+    {
+      "id": "numeric_evaluation",
+      "kind": "unknown",
+      "value_seconds": null,
+      "evidence": "Mission 38 canonical record and Mission 39 model review",
+      "domain": "mission38_historical_sample_evidence_only",
+      "reason": "Observed solver residual is neither forward-evaluation roundoff bound nor continuous-domain guarantee."
+    }
+  ],
+  "non_bound_evidence": {
+    "mission38_result": "validation/results/observer_arrival_reference_run.json",
+    "classification": "sampled_discrepancy",
+    "physical_total_seconds": null
+  },
+  "slope_lower_bound": null,
+  "root_bracketing_certificate": null,
+  "observing_eligible": false,
+  "blocking_reasons": [
+    "source_timing_convention_unestablished",
+    "physical_model_bounds_incomplete",
+    "continuous_mapping_certificate_missing",
+    "resolved_event_integration_unimplemented"
+  ]
+}

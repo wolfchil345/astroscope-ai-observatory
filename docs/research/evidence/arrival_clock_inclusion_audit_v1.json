@@ -1,0 +1,23 @@
+{
+  "kind": "implementation_inclusion_audit_not_accuracy",
+  "versions": {
+    "astropy": "8.0.1",
+    "pyerfa": "2.0.1.5"
+  },
+  "source_method": "Time._get_delta_tdb_tt",
+  "method_sha256": "bf0e4dd22524b6c7f6480e58d8d22858c7e34a1d2e6a502ab5e8b7b035262a14",
+  "erfa_doc_sha256": "a1c0a6b6745fff8d8660091a88d32acd19147ec2d83943d8a978d056e82dbe24",
+  "geocentric_call": {
+    "longitude_rad": 0.0,
+    "u_km": 0.0,
+    "v_km": 0.0
+  },
+  "site_call": {
+    "longitude_rad": 2.437357536397837,
+    "u_km": 5187.066713942946,
+    "v_km": 3699.089485774044
+  },
+  "conclusion": "Site-aware Astropy dispatch passes nonzero topocentric arguments to dtdb. No additional Einstein correction may be added blindly. No numerical timing accuracy measured.",
+  "physical_error_bound": null,
+  "reproduction_python": "import hashlib, inspect, importlib.metadata, json, socket\nfrom unittest.mock import patch\nimport erfa\nfrom astropy.time import Time\nfrom astropy.coordinates import EarthLocation\nfrom astropy.utils import iers\ncalls=[]\ndef deny(*a,**k): raise RuntimeError('offline clock-dispatch audit')\ndef capture(jd1,jd2,ut,elong,u,v):\n calls.append(dict(longitude_rad=float(elong),u_km=float(u),v_km=float(v)))\n return 0.0\nwith patch.object(socket.socket,'connect',deny), patch.object(socket,'create_connection',deny), iers.conf.set_temp('auto_download',False), patch.object(erfa,'dtdb',capture):\n _=Time('2024-03-20T12:00:00',scale='tt').delta_tdb_tt\n site=EarthLocation.from_geodetic(139.6503,35.6762,40)\n _=Time('2024-03-20T12:00:00',scale='tt',location=site).delta_tdb_tt\nresult=dict(kind='implementation_inclusion_audit_not_accuracy',versions={p:importlib.metadata.version(p) for p in ['astropy','pyerfa']},source_method='Time._get_delta_tdb_tt',method_sha256=hashlib.sha256(inspect.getsource(Time._get_delta_tdb_tt).encode()).hexdigest(),erfa_doc_sha256=hashlib.sha256(erfa.dtdb.__doc__.encode()).hexdigest(),geocentric_call=calls[0],site_call=calls[1],conclusion='Site-aware Astropy dispatch passes nonzero topocentric arguments to dtdb. No additional Einstein correction may be added blindly. No numerical timing accuracy measured.',physical_error_bound=None)\nprint(json.dumps(result,indent=2))\n"
+}

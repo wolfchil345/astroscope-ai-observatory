@@ -159,3 +159,19 @@ jobs:
           name: observer-arrival-validation-record
           path: ${{ runner.temp }}/observer_arrival_reference_run.json
           if-no-files-found: error
+
+      - name: Audit observer-arrival error-budget contract
+        env:
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          python -m validation.arrival_budget \
+            --output "$RUNNER_TEMP/arrival_budget_reference_run.json"
+
+      - name: Upload observer-arrival error-budget audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: arrival-budget-audit-record
+          path: ${{ runner.temp }}/arrival_budget_reference_run.json
+          if-no-files-found: error

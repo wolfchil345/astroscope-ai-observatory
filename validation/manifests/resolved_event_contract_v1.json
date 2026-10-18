@@ -1,0 +1,255 @@
+{
+  "schema_version": "1.0",
+  "mission": 39,
+  "kind": "prospective_contract_not_runtime_schema",
+  "production_implementation": "not_started",
+  "eligibility_enabled": false,
+  "statuses": [
+    "unresolved",
+    "model_resolved_unvalidated",
+    "bounded_nominal_candidate",
+    "boundary_indeterminate",
+    "outside_query",
+    "eligible_for_specific_operation"
+  ],
+  "state_rule": "Future transitions require validated domain evidence and operation policy; none is enabled by this design artifact.",
+  "required_sections": [
+    {
+      "name": "identity",
+      "requirement": "schema/record kind, event and cycle IDs, source record digest, model version; no mutable public eligibility boolean"
+    },
+    {
+      "name": "source",
+      "requirement": "Original decimal values, JD/MJD/offset zero point, scale and reference location, complete parameter-set/fit/covariance provenance, duration basis, validity bounds"
+    },
+    {
+      "name": "observer",
+      "requirement": "Site vector/datum/epoch with bounded error; ICRS target epoch and motion/parallax/radial-velocity assumptions and limits"
+    },
+    {
+      "name": "model",
+      "requirement": "Included/omitted correction inventory, sign conventions, source-compatible clock and geometric convention; inclusion audit preventing Einstein double counting"
+    },
+    {
+      "name": "data",
+      "requirement": "Kernel/leap/EOP hashes, versions, licences/source attribution, validity/interpolation rules and coverage for full solving and query brackets"
+    },
+    {
+      "name": "instants",
+      "requirement": "TAI two-part decimal JD per midpoint/ingress/egress, units and lossless precision; optional UTC labels with explicit representability"
+    },
+    {
+      "name": "conversion_evidence",
+      "requirement": "Solver/version, iterations, forward residual units, evaluated bracket, positive derivative lower bound and provenance, absolute forward and output bounds, evidence-domain binding"
+    },
+    {
+      "name": "uncertainty",
+      "requirement": "Source and transported covariance/standard uncertainty separately from absolute numerical/model bounds; null and reasons for unsupported/unknown distributions"
+    },
+    {
+      "name": "query",
+      "requirement": "Original coordinate, closed or half-open endpoints, conservative candidate enclosure proof, candidate IDs and final tri-state membership with retained excluded/indeterminate reasons"
+    },
+    {
+      "name": "observing_margins",
+      "requirement": "Resolve coordinate contacts first; SI-elapsed baselines on TAI; nonzero sigma padding requires known transported uncertainty and policy"
+    },
+    {
+      "name": "eligibility",
+      "requirement": "Derived per-operation status and reasons, never trusted from persisted true; range-valid evidence and source/model compatibility rechecked"
+    },
+    {
+      "name": "persistence",
+      "requirement": "Unknowns null, exact decimal or two-part fields, source+data+evidence digests, complete provenance round trip; legacy schema-v1 and unresolved schema-v2 never auto-promoted"
+    }
+  ],
+  "error_budget_equation": "arrival_bound <= (absolute_forward_bound + absolute_solver_residual)/positive_slope_lower + output_representation_bound; conditional on a common bracket containing the root and approximate solution",
+  "query_rule": "Classify closed arrival-error interval [L,U] against exact query: closed [a,b] inside L>=a and U<=b, outside U<a or L>b; half-open [a,b) inside L>=a and U<b, outside U<a or L>=b; otherwise boundary_indeterminate. Empty [a,a) always outside.",
+  "query_scope": "Nominal conversion interval only; not a probabilistic coverage interval or candidate-generation implementation.",
+  "candidate_enclosure": "For a proven monotone forward map and bounded endpoint error, use outward rounded source-coordinate boundary enclosures, enumerate all possibly intersecting cycles, then final tri-state observer classification. Do not use an unproven fixed light-time pad.",
+  "uncertainty_rule": "For F(t,q)=B, implicit local Jacobian dt/dB=1/F_t and dt/dq=-F_q/F_t; transport the full joint covariance J Sigma J^T with units, cross terms and linearization validity. Unknown contributing terms stay unknown. Bounds are separate from standard uncertainties.",
+  "scenarios": [
+    {
+      "id": "RE01",
+      "input": "Source says BJD TDB but correction inventory is unknown",
+      "required_outcome": "unresolved: source_convention_unestablished",
+      "execution_status": "not_executed_in_production"
+    },
+    {
+      "id": "RE02",
+      "input": "Mission 38 maximum or 1 ms acceptance threshold supplied as absolute physical bound",
+      "required_outcome": "reject evidence-class substitution",
+      "execution_status": "not_executed_in_production"
+    },
+    {
+      "id": "RE03",
+      "input": "Unknown required bound or positive derivative certificate absent",
+      "required_outcome": "physical total remains null; no timing eligibility",
+      "execution_status": "not_executed_in_production"
+    },
+    {
+      "id": "RE04",
+      "input": "Standard deviation supplied as worst-case bound or RSS of absolute errors",
+      "required_outcome": "reject classification/aggregation",
+      "execution_status": "not_executed_in_production"
+    },
+    {
+      "id": "RE05",
+      "input": "Additional observer Einstein correction requested on top of site-aware dtdb",
+      "required_outcome": "reject until non-overlap or replacement derivation is supplied",
+      "execution_status": "not_executed_in_production"
+    },
+    {
+      "id": "RE06",
+      "input": "Source or target epoch/motion/distance evidence missing or outside validity",
+      "required_outcome": "unresolved; preserve missing fields and reasons",
+      "execution_status": "not_executed_in_production"
+    },
+    {
+      "id": "RE07",
+      "input": "Root not bracketed, derivative nonpositive/uncertified, or solver failed",
+      "required_outcome": "unresolved; no UTC scheduling use",
+      "execution_status": "not_executed_in_production"
+    },
+    {
+      "id": "RE08",
+      "input": "UTC observing range against barycentric source ephemeris",
+      "required_outcome": "prove enclosing candidate range, then classify resolved midpoint intervals",
+      "execution_status": "not_executed_in_production"
+    },
+    {
+      "id": "RE09",
+      "input": "Closed point query with exact zero-width interval at boundary",
+      "required_outcome": "inside; no duplicates",
+      "execution_status": "not_executed_in_production"
+    },
+    {
+      "id": "RE10",
+      "input": "Half-open upper endpoint equals resolved exact midpoint",
+      "required_outcome": "outside",
+      "execution_status": "not_executed_in_production"
+    },
+    {
+      "id": "RE11",
+      "input": "Conversion interval straddles an inclusion boundary",
+      "required_outcome": "boundary_indeterminate; retain candidate/reason",
+      "execution_status": "not_executed_in_production"
+    },
+    {
+      "id": "RE12",
+      "input": "Query boundary uncertainty is nonzero or unsupported",
+      "required_outcome": "propagate enclosure or remain indeterminate; never pretend exact query",
+      "execution_status": "not_executed_in_production"
+    },
+    {
+      "id": "RE13",
+      "input": "Midpoint correction copied to contacts",
+      "required_outcome": "reject unless separately derived bound; otherwise resolve each contact",
+      "execution_status": "not_executed_in_production"
+    },
+    {
+      "id": "RE14",
+      "input": "Nonzero sigma padding with unknown transported variance",
+      "required_outcome": "reject padded/ranked operation, preserve nominal result separately",
+      "execution_status": "not_executed_in_production"
+    },
+    {
+      "id": "RE15",
+      "input": "Elapsed observing margins cross a leap second",
+      "required_outcome": "add SI seconds on TAI, preserve UTC leap label",
+      "execution_status": "not_executed_in_production"
+    },
+    {
+      "id": "RE16",
+      "input": "Datetime/ICS cannot encode leap instant or export loses meaningful precision",
+      "required_outcome": "explicit export rejection/precision status; no silent shift",
+      "execution_status": "not_executed_in_production"
+    },
+    {
+      "id": "RE17",
+      "input": "Stored observing_eligible=true, tampered digest, or mismatched data version",
+      "required_outcome": "revalidate or reject; persisted authority is not trusted",
+      "execution_status": "not_executed_in_production"
+    },
+    {
+      "id": "RE18",
+      "input": "Legacy schedule or unresolved schema-v2 preview imported",
+      "required_outcome": "retain identity; require source metadata and recomputation",
+      "execution_status": "not_executed_in_production"
+    },
+    {
+      "id": "RE19",
+      "input": "Batch includes valid, unresolved, indeterminate and out-of-domain events",
+      "required_outcome": "retain all denominators and exclusion reasons; no silent missing cycles",
+      "execution_status": "not_executed_in_production"
+    },
+    {
+      "id": "RE20",
+      "input": "Known conversion bound but unknown astrophysical/TTV uncertainty",
+      "required_outcome": "do not claim measured-transit accuracy or calibrated confidence",
+      "execution_status": "not_executed_in_production"
+    }
+  ],
+  "mission36_traceability": {
+    "TC05": [
+      "RE08",
+      "RE19"
+    ],
+    "TC06": [
+      "RE02",
+      "RE03"
+    ],
+    "TC07": [
+      "RE06",
+      "RE07"
+    ],
+    "TC08": [
+      "RE05",
+      "RE13"
+    ],
+    "TC09": [
+      "RE09"
+    ],
+    "TC10": [
+      "RE10"
+    ],
+    "TC11": [
+      "RE11",
+      "RE12"
+    ],
+    "TC20": [
+      "RE14",
+      "RE20"
+    ],
+    "TC21": [
+      "RE15"
+    ],
+    "TC22": [
+      "RE16"
+    ],
+    "TC23": [
+      "RE18"
+    ],
+    "TC24": [
+      "RE17",
+      "RE18"
+    ],
+    "TC25": [
+      "RE06",
+      "RE20"
+    ],
+    "TC26": [
+      "RE02",
+      "RE04",
+      "RE05"
+    ]
+  },
+  "remaining_acceptance": [
+    "Independent full intended-model references with quantified reference error",
+    "Continuous or conservatively bounded model/data/geometry domain with root and monotonicity proof",
+    "Runtime immutable resolved objects and compatibility adapters",
+    "Query enumeration and uncertainty propagation",
+    "Persistence and export provenance plus all consumer bypass tests"
+  ],
+  "next_proposed_mission": "Mission 40: Observer-Arrival Source Convention and Reference-Domain Qualification; scope and implementation conditional on evidence feasibility"
+}
