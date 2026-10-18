@@ -1,0 +1,4442 @@
+{
+  "schema_version": "1.0",
+  "benchmark_id": "clock-reference-qualification-v1",
+  "audit_passed": true,
+  "clock_qualification_outcome": "unsuccessful",
+  "full_reference_status": "unqualified",
+  "qualified_route_count": 0,
+  "routes": [
+    {
+      "id": "pint_default",
+      "executable": true,
+      "matches_selected_site_clock_convention": true,
+      "independent_of_candidate_clock_backend": false,
+      "reference_uncertainty_established_for_domain": false,
+      "physical_reference_bound_seconds": null,
+      "qualified": false,
+      "reasons": [
+        "same_astropy_erfa_backend",
+        "reference_uncertainty_unestablished"
+      ]
+    },
+    {
+      "id": "pint_ephemeris",
+      "executable": false,
+      "matches_selected_site_clock_convention": null,
+      "independent_of_candidate_clock_backend": null,
+      "reference_uncertainty_established_for_domain": false,
+      "physical_reference_bound_seconds": null,
+      "qualified": false,
+      "reasons": [
+        "installed_method_not_implemented",
+        "reference_uncertainty_unestablished"
+      ]
+    },
+    {
+      "id": "skyfield_geocentric",
+      "executable": true,
+      "matches_selected_site_clock_convention": false,
+      "independent_of_candidate_clock_backend": true,
+      "reference_uncertainty_established_for_domain": false,
+      "physical_reference_bound_seconds": null,
+      "qualified": false,
+      "reasons": [
+        "geocentric_only",
+        "different_clock_approximation",
+        "reference_uncertainty_unestablished"
+      ]
+    },
+    {
+      "id": "erfa_explicit",
+      "executable": true,
+      "matches_selected_site_clock_convention": true,
+      "independent_of_candidate_clock_backend": false,
+      "reference_uncertainty_established_for_domain": false,
+      "physical_reference_bound_seconds": null,
+      "qualified": false,
+      "reasons": [
+        "same_erfa_backend",
+        "reference_uncertainty_unestablished"
+      ]
+    }
+  ],
+  "diagnostics": {
+    "pint_minus_astropy": {
+      "count": 48,
+      "minimum_seconds": "0E-19",
+      "maximum_seconds": "0E-19",
+      "maximum_absolute_seconds": "0E-19",
+      "interpretation": "shared_backend_reproduction_only"
+    },
+    "explicit_utc_minus_astropy": {
+      "count": 48,
+      "minimum_seconds": "0E-19",
+      "maximum_seconds": "0E-19",
+      "maximum_absolute_seconds": "0E-19",
+      "interpretation": "shared_backend_reproduction_only"
+    },
+    "skyfield_minus_astropy_geocentre": {
+      "count": 12,
+      "minimum_seconds": "0.00000233941653169338",
+      "maximum_seconds": "0.0000038915017365421",
+      "maximum_absolute_seconds": "0.0000038915017365421",
+      "interpretation": "diagnostic_difference_no_accuracy_threshold"
+    },
+    "site_minus_geocentre": {
+      "count": 48,
+      "minimum_seconds": "-0.0000019895327379577",
+      "maximum_seconds": "0.0000020874106949681",
+      "maximum_absolute_seconds": "0.0000020874106949681",
+      "interpretation": "diagnostic_difference_no_accuracy_threshold"
+    },
+    "ut1_minus_utc": {
+      "count": 48,
+      "minimum_seconds": "-7.9827236E-12",
+      "maximum_seconds": "6.4079566E-12",
+      "maximum_absolute_seconds": "7.9827236E-12",
+      "interpretation": "diagnostic_difference_no_accuracy_threshold"
+    }
+  },
+  "diagnostic_rows": [
+    {
+      "id": "2024-03-20_tokyo_10",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-19",
+        "explicit_utc_minus_astropy": "0E-19",
+        "skyfield_minus_astropy_geocentre": "0.0000031890706184588",
+        "site_minus_geocentre": "-0.0000019895327379577",
+        "ut1_minus_utc": "-3.428828E-13"
+      }
+    },
+    {
+      "id": "2024-03-20_tokyo_12",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-19",
+        "explicit_utc_minus_astropy": "0E-19",
+        "skyfield_minus_astropy_geocentre": "0.0000032047644967211",
+        "site_minus_geocentre": "-0.0000015343612587827",
+        "ut1_minus_utc": "-8.039589E-13"
+      }
+    },
+    {
+      "id": "2024-03-20_tokyo_14",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-19",
+        "explicit_utc_minus_astropy": "0E-19",
+        "skyfield_minus_astropy_geocentre": "0.0000032207956321975",
+        "site_minus_geocentre": "-7.994769761770E-7",
+        "ut1_minus_utc": "-1.0512140E-12"
+      }
+    },
+    {
+      "id": "2024-03-20_equator_10",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-19",
+        "explicit_utc_minus_astropy": "0E-19",
+        "skyfield_minus_astropy_geocentre": "0.0000031890706184588",
+        "site_minus_geocentre": "3.10101486670E-8",
+        "ut1_minus_utc": "1.3123075E-12"
+      }
+    },
+    {
+      "id": "2024-03-20_equator_12",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-17",
+        "explicit_utc_minus_astropy": "0E-17",
+        "skyfield_minus_astropy_geocentre": "0.0000032047644967211",
+        "site_minus_geocentre": "-9.464171421549E-7",
+        "ut1_minus_utc": "1.1494594E-12"
+      }
+    },
+    {
+      "id": "2024-03-20_equator_14",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-19",
+        "explicit_utc_minus_astropy": "0E-19",
+        "skyfield_minus_astropy_geocentre": "0.0000032207956321975",
+        "site_minus_geocentre": "-0.0000016703223623220",
+        "ut1_minus_utc": "6.774117E-13"
+      }
+    },
+    {
+      "id": "2024-03-20_paranal_10",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-19",
+        "explicit_utc_minus_astropy": "0E-19",
+        "skyfield_minus_astropy_geocentre": "0.0000031890706184588",
+        "site_minus_geocentre": "0.0000020874106949681",
+        "ut1_minus_utc": "-2.343549E-13"
+      }
+    },
+    {
+      "id": "2024-03-20_paranal_12",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-19",
+        "explicit_utc_minus_astropy": "0E-19",
+        "skyfield_minus_astropy_geocentre": "0.0000032047644967211",
+        "site_minus_geocentre": "0.0000020285039127933",
+        "ut1_minus_utc": "3.832351E-13"
+      }
+    },
+    {
+      "id": "2024-03-20_paranal_14",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-19",
+        "explicit_utc_minus_astropy": "0E-19",
+        "skyfield_minus_astropy_geocentre": "0.0000032207956321975",
+        "site_minus_geocentre": "0.0000015200613094711",
+        "ut1_minus_utc": "9.005881E-13"
+      }
+    },
+    {
+      "id": "2024-03-20_arctic_10",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-19",
+        "explicit_utc_minus_astropy": "0E-19",
+        "skyfield_minus_astropy_geocentre": "0.0000031890706184588",
+        "site_minus_geocentre": "-7.189166880222E-7",
+        "ut1_minus_utc": "2.592575E-13"
+      }
+    },
+    {
+      "id": "2024-03-20_arctic_12",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-19",
+        "explicit_utc_minus_astropy": "0E-19",
+        "skyfield_minus_astropy_geocentre": "0.0000032047644967211",
+        "site_minus_geocentre": "-9.252497855331E-7",
+        "ut1_minus_utc": "2.604629E-13"
+      }
+    },
+    {
+      "id": "2024-03-20_arctic_14",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-19",
+        "explicit_utc_minus_astropy": "0E-19",
+        "skyfield_minus_astropy_geocentre": "0.0000032207956321975",
+        "site_minus_geocentre": "-0.0000011044233839507",
+        "ut1_minus_utc": "1.917663E-13"
+      }
+    },
+    {
+      "id": "2024-06-21_tokyo_10",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-20",
+        "explicit_utc_minus_astropy": "0E-20",
+        "skyfield_minus_astropy_geocentre": "0.00000233941653169338",
+        "site_minus_geocentre": "-0.00000159162252884136",
+        "ut1_minus_utc": "-4.5490846E-13"
+      }
+    },
+    {
+      "id": "2024-06-21_tokyo_12",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-20",
+        "explicit_utc_minus_astropy": "0E-20",
+        "skyfield_minus_astropy_geocentre": "0.00000236633397884979",
+        "site_minus_geocentre": "-0.00000109519504232003",
+        "ut1_minus_utc": "-1.02674330E-12"
+      }
+    },
+    {
+      "id": "2024-06-21_tokyo_14",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-20",
+        "explicit_utc_minus_astropy": "0E-20",
+        "skyfield_minus_astropy_geocentre": "0.00000239331630061982",
+        "site_minus_geocentre": "-3.0425049888581E-7",
+        "ut1_minus_utc": "-1.31439634E-12"
+      }
+    },
+    {
+      "id": "2024-06-21_equator_10",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-20",
+        "explicit_utc_minus_astropy": "0E-20",
+        "skyfield_minus_astropy_geocentre": "0.00000233941653169338",
+        "site_minus_geocentre": "6.23917181353E-9",
+        "ut1_minus_utc": "1.67749863E-12"
+      }
+    },
+    {
+      "id": "2024-06-21_equator_12",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-20",
+        "explicit_utc_minus_astropy": "0E-20",
+        "skyfield_minus_astropy_geocentre": "0.00000236633397884979",
+        "site_minus_geocentre": "-0.00000103457183740552",
+        "ut1_minus_utc": "1.44051514E-12"
+      }
+    },
+    {
+      "id": "2024-06-21_equator_14",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-20",
+        "explicit_utc_minus_astropy": "0E-20",
+        "skyfield_minus_astropy_geocentre": "0.00000239331630061982",
+        "site_minus_geocentre": "-0.00000179800473434558",
+        "ut1_minus_utc": "8.2573152E-13"
+      }
+    },
+    {
+      "id": "2024-06-21_paranal_10",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-20",
+        "explicit_utc_minus_astropy": "0E-20",
+        "skyfield_minus_astropy_geocentre": "0.00000233941653169338",
+        "site_minus_geocentre": "0.00000185809263173034",
+        "ut1_minus_utc": "-2.8016472E-13"
+      }
+    },
+    {
+      "id": "2024-06-21_paranal_12",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-20",
+        "explicit_utc_minus_astropy": "0E-20",
+        "skyfield_minus_astropy_geocentre": "0.00000236633397884979",
+        "site_minus_geocentre": "0.00000178195337898699",
+        "ut1_minus_utc": "5.0272574E-13"
+      }
+    },
+    {
+      "id": "2024-06-21_paranal_14",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-20",
+        "explicit_utc_minus_astropy": "0E-20",
+        "skyfield_minus_astropy_geocentre": "0.00000239331630061982",
+        "site_minus_geocentre": "0.00000122743444027756",
+        "ut1_minus_utc": "1.13635566E-12"
+      }
+    },
+    {
+      "id": "2024-06-21_arctic_10",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-20",
+        "explicit_utc_minus_astropy": "0E-20",
+        "skyfield_minus_astropy_geocentre": "0.00000233941653169338",
+        "site_minus_geocentre": "1.1135189249818E-7",
+        "ut1_minus_utc": "3.3250480E-13"
+      }
+    },
+    {
+      "id": "2024-06-21_arctic_12",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-20",
+        "explicit_utc_minus_astropy": "0E-20",
+        "skyfield_minus_astropy_geocentre": "0.00000236633397884979",
+        "site_minus_geocentre": "-1.0796389877656E-7",
+        "ut1_minus_utc": "3.2768807E-13"
+      }
+    },
+    {
+      "id": "2024-06-21_arctic_14",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-20",
+        "explicit_utc_minus_astropy": "0E-20",
+        "skyfield_minus_astropy_geocentre": "0.00000239331630061982",
+        "site_minus_geocentre": "-2.9680327695081E-7",
+        "ut1_minus_utc": "2.3594202E-13"
+      }
+    },
+    {
+      "id": "2024-09-22_tokyo_10",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-19",
+        "explicit_utc_minus_astropy": "0E-19",
+        "skyfield_minus_astropy_geocentre": "0.0000038609115592088",
+        "site_minus_geocentre": "-9.844470947598E-7",
+        "ut1_minus_utc": "2.2793991E-12"
+      }
+    },
+    {
+      "id": "2024-09-22_tokyo_12",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-19",
+        "explicit_utc_minus_astropy": "0E-19",
+        "skyfield_minus_astropy_geocentre": "0.0000038764367567981",
+        "site_minus_geocentre": "-5.119446920899E-7",
+        "ut1_minus_utc": "5.0146573E-12"
+      }
+    },
+    {
+      "id": "2024-09-22_tokyo_14",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-19",
+        "explicit_utc_minus_astropy": "0E-19",
+        "skyfield_minus_astropy_geocentre": "0.0000038915017365421",
+        "site_minus_geocentre": "2.278942643761E-7",
+        "ut1_minus_utc": "6.4079566E-12"
+      }
+    },
+    {
+      "id": "2024-09-22_equator_10",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-19",
+        "explicit_utc_minus_astropy": "0E-19",
+        "skyfield_minus_astropy_geocentre": "0.0000038609115592088",
+        "site_minus_geocentre": "-3.04011253741E-8",
+        "ut1_minus_utc": "-7.9827236E-12"
+      }
+    },
+    {
+      "id": "2024-09-22_equator_12",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-19",
+        "explicit_utc_minus_astropy": "0E-19",
+        "skyfield_minus_astropy_geocentre": "0.0000038764367567981",
+        "site_minus_geocentre": "-9.915880407865E-7",
+        "ut1_minus_utc": "-6.8527283E-12"
+      }
+    },
+    {
+      "id": "2024-09-22_equator_14",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-19",
+        "explicit_utc_minus_astropy": "0E-19",
+        "skyfield_minus_astropy_geocentre": "0.0000038915017365421",
+        "site_minus_geocentre": "-0.0000016872530963730",
+        "ut1_minus_utc": "-3.8862609E-12"
+      }
+    },
+    {
+      "id": "2024-09-22_paranal_10",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-19",
+        "explicit_utc_minus_astropy": "0E-19",
+        "skyfield_minus_astropy_geocentre": "0.0000038609115592088",
+        "site_minus_geocentre": "0.0000013858159816347",
+        "ut1_minus_utc": "1.1992796E-12"
+      }
+    },
+    {
+      "id": "2024-09-22_paranal_12",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-19",
+        "explicit_utc_minus_astropy": "0E-19",
+        "skyfield_minus_astropy_geocentre": "0.0000038764367567981",
+        "site_minus_geocentre": "0.0000012987972215655",
+        "ut1_minus_utc": "-2.5437946E-12"
+      }
+    },
+    {
+      "id": "2024-09-22_paranal_14",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-19",
+        "explicit_utc_minus_astropy": "0E-19",
+        "skyfield_minus_astropy_geocentre": "0.0000038915017365421",
+        "site_minus_geocentre": "7.708971864571E-7",
+        "ut1_minus_utc": "-5.6074041E-12"
+      }
+    },
+    {
+      "id": "2024-09-22_arctic_10",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-19",
+        "explicit_utc_minus_astropy": "0E-19",
+        "skyfield_minus_astropy_geocentre": "0.0000038609115592088",
+        "site_minus_geocentre": "9.095708136170E-7",
+        "ut1_minus_utc": "-1.5898891E-12"
+      }
+    },
+    {
+      "id": "2024-09-22_arctic_12",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-19",
+        "explicit_utc_minus_astropy": "0E-19",
+        "skyfield_minus_astropy_geocentre": "0.0000038764367567981",
+        "site_minus_geocentre": "7.050113324004E-7",
+        "ut1_minus_utc": "-1.5674926E-12"
+      }
+    },
+    {
+      "id": "2024-09-22_arctic_14",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-19",
+        "explicit_utc_minus_astropy": "0E-19",
+        "skyfield_minus_astropy_geocentre": "0.0000038915017365421",
+        "site_minus_geocentre": "5.305909266257E-7",
+        "ut1_minus_utc": "-1.1251492E-12"
+      }
+    },
+    {
+      "id": "2024-12-21_tokyo_10",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-20",
+        "explicit_utc_minus_astropy": "0E-20",
+        "skyfield_minus_astropy_geocentre": "0.00000371403915979079",
+        "site_minus_geocentre": "-0.00000164438678302257",
+        "ut1_minus_utc": "2.06771627E-12"
+      }
+    },
+    {
+      "id": "2024-12-21_tokyo_12",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-20",
+        "explicit_utc_minus_astropy": "0E-20",
+        "skyfield_minus_astropy_geocentre": "0.00000372239130206698",
+        "site_minus_geocentre": "-0.00000112778967929024",
+        "ut1_minus_utc": "4.64274317E-12"
+      }
+    },
+    {
+      "id": "2024-12-21_tokyo_14",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-20",
+        "explicit_utc_minus_astropy": "0E-20",
+        "skyfield_minus_astropy_geocentre": "0.00000373030566966468",
+        "site_minus_geocentre": "-3.0968380032212E-7",
+        "ut1_minus_utc": "5.96953362E-12"
+      }
+    },
+    {
+      "id": "2024-12-21_equator_10",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-20",
+        "explicit_utc_minus_astropy": "0E-20",
+        "skyfield_minus_astropy_geocentre": "0.00000371403915979079",
+        "site_minus_geocentre": "-9.32482162612E-9",
+        "ut1_minus_utc": "-7.46985324E-12"
+      }
+    },
+    {
+      "id": "2024-12-21_equator_12",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-20",
+        "explicit_utc_minus_astropy": "0E-20",
+        "skyfield_minus_astropy_geocentre": "0.00000372239130206698",
+        "site_minus_geocentre": "-0.00000108194612519755",
+        "ut1_minus_utc": "-6.44629082E-12"
+      }
+    },
+    {
+      "id": "2024-12-21_equator_14",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-20",
+        "explicit_utc_minus_astropy": "0E-20",
+        "skyfield_minus_astropy_geocentre": "0.00000373030566966468",
+        "site_minus_geocentre": "-0.00000186457426027916",
+        "ut1_minus_utc": "-3.69842948E-12"
+      }
+    },
+    {
+      "id": "2024-12-21_paranal_10",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-19",
+        "explicit_utc_minus_astropy": "0E-19",
+        "skyfield_minus_astropy_geocentre": "0.00000371403915979079",
+        "site_minus_geocentre": "0.00000192500903895015",
+        "ut1_minus_utc": "1.19846104E-12"
+      }
+    },
+    {
+      "id": "2024-12-21_paranal_12",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-20",
+        "explicit_utc_minus_astropy": "0E-20",
+        "skyfield_minus_astropy_geocentre": "0.00000372239130206698",
+        "site_minus_geocentre": "0.00000184005877711146",
+        "ut1_minus_utc": "-2.30587267E-12"
+      }
+    },
+    {
+      "id": "2024-12-21_paranal_14",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-20",
+        "explicit_utc_minus_astropy": "0E-20",
+        "skyfield_minus_astropy_geocentre": "0.00000373030566966468",
+        "site_minus_geocentre": "0.00000126245426121478",
+        "ut1_minus_utc": "-5.18597996E-12"
+      }
+    },
+    {
+      "id": "2024-12-21_arctic_10",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-20",
+        "explicit_utc_minus_astropy": "0E-20",
+        "skyfield_minus_astropy_geocentre": "0.00000371403915979079",
+        "site_minus_geocentre": "1.0329524877730E-7",
+        "ut1_minus_utc": "-1.48341913E-12"
+      }
+    },
+    {
+      "id": "2024-12-21_arctic_12",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-20",
+        "explicit_utc_minus_astropy": "0E-20",
+        "skyfield_minus_astropy_geocentre": "0.00000372239130206698",
+        "site_minus_geocentre": "-1.2553552040310E-7",
+        "ut1_minus_utc": "-1.46958720E-12"
+      }
+    },
+    {
+      "id": "2024-12-21_arctic_14",
+      "shared_backend_controls_passed": true,
+      "differences_seconds": {
+        "pint_minus_astropy": "0E-20",
+        "explicit_utc_minus_astropy": "0E-20",
+        "skyfield_minus_astropy_geocentre": "0.00000373030566966468",
+        "site_minus_geocentre": "-3.2207945492823E-7",
+        "ut1_minus_utc": "-1.06223814E-12"
+      }
+    }
+  ],
+  "combined_counts": {
+    "candidates": 288,
+    "executed": 0,
+    "blocked": 288,
+    "solar_eligible": 240,
+    "solar_excluded": 48
+  },
+  "combined_cases": [
+    {
+      "id": "2024-03-20_tokyo_0_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_tokyo_10",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_tokyo_0_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_tokyo_12",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_tokyo_0_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_tokyo_14",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_tokyo_1_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_tokyo_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_tokyo_1_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_tokyo_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_tokyo_1_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_tokyo_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_tokyo_2_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_tokyo_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_tokyo_2_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_tokyo_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_tokyo_2_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_tokyo_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_tokyo_3_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_tokyo_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_tokyo_3_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_tokyo_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_tokyo_3_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_tokyo_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_tokyo_4_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_tokyo_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_tokyo_4_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_tokyo_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_tokyo_4_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_tokyo_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_tokyo_5_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_tokyo_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_tokyo_5_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_tokyo_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_tokyo_5_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_tokyo_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_equator_0_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_equator_10",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_equator_0_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_equator_12",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_equator_0_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_equator_14",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_equator_1_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_equator_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_equator_1_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_equator_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_equator_1_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_equator_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_equator_2_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_equator_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_equator_2_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_equator_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_equator_2_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_equator_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_equator_3_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_equator_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_equator_3_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_equator_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_equator_3_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_equator_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_equator_4_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_equator_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_equator_4_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_equator_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_equator_4_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_equator_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_equator_5_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_equator_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_equator_5_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_equator_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_equator_5_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_equator_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_paranal_0_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_paranal_10",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_paranal_0_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_paranal_12",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_paranal_0_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_paranal_14",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_paranal_1_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_paranal_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_paranal_1_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_paranal_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_paranal_1_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_paranal_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_paranal_2_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_paranal_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_paranal_2_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_paranal_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_paranal_2_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_paranal_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_paranal_3_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_paranal_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_paranal_3_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_paranal_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_paranal_3_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_paranal_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_paranal_4_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_paranal_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_paranal_4_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_paranal_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_paranal_4_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_paranal_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_paranal_5_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_paranal_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_paranal_5_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_paranal_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_paranal_5_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_paranal_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_arctic_0_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_arctic_10",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_arctic_0_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_arctic_12",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_arctic_0_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_arctic_14",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_arctic_1_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_arctic_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_arctic_1_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_arctic_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_arctic_1_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_arctic_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_arctic_2_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_arctic_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_arctic_2_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_arctic_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_arctic_2_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_arctic_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_arctic_3_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_arctic_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_arctic_3_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_arctic_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_arctic_3_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_arctic_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_arctic_4_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_arctic_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_arctic_4_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_arctic_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_arctic_4_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_arctic_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_arctic_5_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_arctic_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_arctic_5_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_arctic_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_arctic_5_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-03-20_arctic_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_tokyo_0_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_tokyo_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_tokyo_0_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_tokyo_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_tokyo_0_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_tokyo_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_tokyo_1_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_tokyo_10",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_tokyo_1_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_tokyo_12",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_tokyo_1_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_tokyo_14",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_tokyo_2_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_tokyo_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_tokyo_2_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_tokyo_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_tokyo_2_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_tokyo_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_tokyo_3_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_tokyo_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_tokyo_3_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_tokyo_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_tokyo_3_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_tokyo_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_tokyo_4_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_tokyo_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_tokyo_4_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_tokyo_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_tokyo_4_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_tokyo_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_tokyo_5_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_tokyo_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_tokyo_5_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_tokyo_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_tokyo_5_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_tokyo_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_equator_0_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_equator_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_equator_0_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_equator_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_equator_0_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_equator_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_equator_1_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_equator_10",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_equator_1_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_equator_12",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_equator_1_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_equator_14",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_equator_2_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_equator_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_equator_2_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_equator_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_equator_2_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_equator_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_equator_3_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_equator_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_equator_3_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_equator_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_equator_3_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_equator_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_equator_4_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_equator_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_equator_4_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_equator_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_equator_4_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_equator_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_equator_5_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_equator_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_equator_5_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_equator_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_equator_5_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_equator_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_paranal_0_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_paranal_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_paranal_0_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_paranal_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_paranal_0_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_paranal_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_paranal_1_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_paranal_10",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_paranal_1_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_paranal_12",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_paranal_1_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_paranal_14",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_paranal_2_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_paranal_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_paranal_2_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_paranal_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_paranal_2_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_paranal_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_paranal_3_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_paranal_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_paranal_3_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_paranal_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_paranal_3_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_paranal_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_paranal_4_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_paranal_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_paranal_4_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_paranal_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_paranal_4_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_paranal_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_paranal_5_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_paranal_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_paranal_5_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_paranal_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_paranal_5_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_paranal_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_arctic_0_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_arctic_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_arctic_0_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_arctic_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_arctic_0_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_arctic_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_arctic_1_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_arctic_10",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_arctic_1_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_arctic_12",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_arctic_1_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_arctic_14",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_arctic_2_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_arctic_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_arctic_2_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_arctic_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_arctic_2_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_arctic_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_arctic_3_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_arctic_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_arctic_3_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_arctic_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_arctic_3_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_arctic_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_arctic_4_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_arctic_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_arctic_4_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_arctic_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_arctic_4_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_arctic_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_arctic_5_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_arctic_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_arctic_5_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_arctic_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_arctic_5_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-06-21_arctic_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_tokyo_0_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_tokyo_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_tokyo_0_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_tokyo_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_tokyo_0_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_tokyo_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_tokyo_1_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_tokyo_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_tokyo_1_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_tokyo_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_tokyo_1_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_tokyo_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_tokyo_2_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_tokyo_10",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_tokyo_2_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_tokyo_12",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_tokyo_2_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_tokyo_14",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_tokyo_3_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_tokyo_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_tokyo_3_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_tokyo_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_tokyo_3_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_tokyo_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_tokyo_4_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_tokyo_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_tokyo_4_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_tokyo_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_tokyo_4_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_tokyo_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_tokyo_5_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_tokyo_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_tokyo_5_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_tokyo_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_tokyo_5_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_tokyo_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_equator_0_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_equator_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_equator_0_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_equator_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_equator_0_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_equator_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_equator_1_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_equator_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_equator_1_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_equator_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_equator_1_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_equator_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_equator_2_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_equator_10",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_equator_2_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_equator_12",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_equator_2_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_equator_14",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_equator_3_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_equator_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_equator_3_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_equator_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_equator_3_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_equator_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_equator_4_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_equator_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_equator_4_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_equator_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_equator_4_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_equator_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_equator_5_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_equator_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_equator_5_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_equator_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_equator_5_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_equator_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_paranal_0_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_paranal_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_paranal_0_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_paranal_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_paranal_0_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_paranal_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_paranal_1_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_paranal_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_paranal_1_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_paranal_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_paranal_1_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_paranal_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_paranal_2_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_paranal_10",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_paranal_2_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_paranal_12",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_paranal_2_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_paranal_14",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_paranal_3_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_paranal_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_paranal_3_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_paranal_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_paranal_3_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_paranal_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_paranal_4_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_paranal_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_paranal_4_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_paranal_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_paranal_4_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_paranal_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_paranal_5_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_paranal_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_paranal_5_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_paranal_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_paranal_5_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_paranal_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_arctic_0_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_arctic_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_arctic_0_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_arctic_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_arctic_0_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_arctic_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_arctic_1_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_arctic_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_arctic_1_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_arctic_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_arctic_1_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_arctic_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_arctic_2_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_arctic_10",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_arctic_2_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_arctic_12",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_arctic_2_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_arctic_14",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_arctic_3_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_arctic_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_arctic_3_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_arctic_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_arctic_3_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_arctic_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_arctic_4_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_arctic_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_arctic_4_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_arctic_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_arctic_4_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_arctic_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_arctic_5_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_arctic_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_arctic_5_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_arctic_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_arctic_5_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-09-22_arctic_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_tokyo_0_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_tokyo_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_tokyo_0_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_tokyo_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_tokyo_0_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_tokyo_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_tokyo_1_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_tokyo_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_tokyo_1_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_tokyo_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_tokyo_1_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_tokyo_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_tokyo_2_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_tokyo_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_tokyo_2_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_tokyo_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_tokyo_2_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_tokyo_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_tokyo_3_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_tokyo_10",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_tokyo_3_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_tokyo_12",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_tokyo_3_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_tokyo_14",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_tokyo_4_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_tokyo_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_tokyo_4_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_tokyo_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_tokyo_4_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_tokyo_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_tokyo_5_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_tokyo_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_tokyo_5_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_tokyo_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_tokyo_5_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_tokyo_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_equator_0_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_equator_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_equator_0_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_equator_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_equator_0_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_equator_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_equator_1_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_equator_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_equator_1_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_equator_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_equator_1_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_equator_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_equator_2_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_equator_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_equator_2_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_equator_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_equator_2_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_equator_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_equator_3_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_equator_10",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_equator_3_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_equator_12",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_equator_3_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_equator_14",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_equator_4_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_equator_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_equator_4_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_equator_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_equator_4_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_equator_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_equator_5_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_equator_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_equator_5_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_equator_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_equator_5_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_equator_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_paranal_0_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_paranal_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_paranal_0_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_paranal_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_paranal_0_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_paranal_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_paranal_1_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_paranal_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_paranal_1_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_paranal_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_paranal_1_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_paranal_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_paranal_2_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_paranal_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_paranal_2_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_paranal_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_paranal_2_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_paranal_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_paranal_3_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_paranal_10",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_paranal_3_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_paranal_12",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_paranal_3_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_paranal_14",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_paranal_4_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_paranal_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_paranal_4_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_paranal_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_paranal_4_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_paranal_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_paranal_5_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_paranal_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_paranal_5_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_paranal_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_paranal_5_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_paranal_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_arctic_0_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_arctic_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_arctic_0_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_arctic_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_arctic_0_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_arctic_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_arctic_1_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_arctic_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_arctic_1_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_arctic_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_arctic_1_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_arctic_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_arctic_2_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_arctic_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_arctic_2_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_arctic_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_arctic_2_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_arctic_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_arctic_3_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_arctic_10",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_arctic_3_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_arctic_12",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_arctic_3_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_arctic_14",
+      "solar_component_eligible": false,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference",
+        "solar_elongation_outside_component_domain"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_arctic_4_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_arctic_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_arctic_4_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_arctic_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_arctic_4_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_arctic_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_arctic_5_10",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_arctic_10",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_arctic_5_12",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_arctic_12",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_arctic_5_14",
+      "status": "blocked_before_combined_evaluation",
+      "clock_case_id": "2024-12-21_arctic_14",
+      "solar_component_eligible": true,
+      "reasons": [
+        "no_qualified_independent_matched_clock_reference"
+      ],
+      "reference_coordinate_jd": null,
+      "candidate_coordinate_jd": null,
+      "residual_seconds": null,
+      "observing_eligible": false
+    }
+  ],
+  "physical_clock_bound_seconds": null,
+  "physical_arrival_bound_seconds": null,
+  "observing_eligible": false,
+  "next_gate": "Acquire and qualify a separately implemented/integrated time-ephemeris reference, establish scale/rate/epoch/site mapping and domain uncertainty before any combined comparison; do not silently replace the selected convention.",
+  "manifest_sha256": "901e8e323427ed0c15c3be66731c3e23ca241e170e003c25a868fd6f4e2eb3c7",
+  "policy_sha256": "22183f6735d3237db5de337da5ab5498a0546c59d4d05d51957d94d1c7264c4f",
+  "fixture_sha256": "04677f587607412cd000da2fe64983d8c971b85ca890f17f1e613b9387d21c8a",
+  "python_version": "3.12.14",
+  "implementation_commit": "7a49cd724a20f4fa8c64ac27d777027faf72b0c3",
+  "checkout_commit": "7a49cd724a20f4fa8c64ac27d777027faf72b0c3",
+  "working_tree_dirty": false
+}
