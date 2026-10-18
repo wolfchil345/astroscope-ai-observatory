@@ -1,0 +1,644 @@
+{
+  "schema_version": "1.0",
+  "benchmark_id": "time-ephemeris-clock-mapping-v1",
+  "audit_passed": true,
+  "reference_model_id": "de440t-geocentric-tt-tdb-v1",
+  "selected_arrival_convention_id": "astroscope-tdb-solar-au-v1",
+  "geocentric_model_status": "independent_integrated_model_evaluated_not_accuracy_qualified",
+  "full_reference_status": "unqualified",
+  "same_kernel_reader_check": true,
+  "diagnostics": {
+    "historical_candidate_minus_reference": {
+      "count": 12,
+      "minimum_seconds": "-2.665113676574E-8",
+      "maximum_seconds": "-2.335027233987E-8",
+      "maximum_absolute_seconds": "2.665113676574E-8",
+      "interpretation": "model_difference_no_physical_accuracy_threshold"
+    },
+    "epoch_probe_candidate_minus_reference": {
+      "count": 2,
+      "minimum_seconds": "-1.7083200051770E-8",
+      "maximum_seconds": "-3.416552088998E-9",
+      "maximum_absolute_seconds": "1.7083200051770E-8",
+      "interpretation": "normalization_probes_no_fitted_offset"
+    },
+    "reader_offset_difference": {
+      "count": 14,
+      "minimum_seconds": "-1.312E-17",
+      "maximum_seconds": "1.6426E-17",
+      "maximum_absolute_seconds": "1.6426E-17",
+      "interpretation": "shared_kernel_interpolation_and_mapping_check_only"
+    }
+  },
+  "cases": [
+    {
+      "id": "2024-03-20_10",
+      "utc": "2024-03-20T10:00:00",
+      "kind": "historical",
+      "tt_seconds_from_j2000": "764200869.184",
+      "numerical_checks_passed": true,
+      "reference_tdb_minus_tt_seconds": "0.0015892440610065317",
+      "candidate_tdb_minus_tt_seconds": "0.0015892203444836648",
+      "candidate_minus_reference_seconds": "-2.37165228669E-8",
+      "jplephem_minus_cspice_seconds": "4.1E-18",
+      "reader_derivative_difference_seconds_per_second": "3.516E-24",
+      "candidate_minus_m41_archived_seconds": "0E-19",
+      "max_argument_quantization_seconds": {
+        "cspice": "4.97632160043701837759400063987413886934518814086914062E-8",
+        "jplephem": "2.543504830365694857619018875993788242340087890625E-12"
+      },
+      "iterations": {
+        "cspice": 3,
+        "jplephem": 2
+      }
+    },
+    {
+      "id": "2024-03-20_12",
+      "utc": "2024-03-20T12:00:00",
+      "kind": "historical",
+      "tt_seconds_from_j2000": "764208069.184",
+      "numerical_checks_passed": true,
+      "reference_tdb_minus_tt_seconds": "0.0015898281117250113",
+      "candidate_tdb_minus_tt_seconds": "0.0015898043983572649",
+      "candidate_minus_reference_seconds": "-2.37133677464E-8",
+      "jplephem_minus_cspice_seconds": "3.1E-18",
+      "reader_derivative_difference_seconds_per_second": "2.663E-24",
+      "candidate_minus_m41_archived_seconds": "0E-19",
+      "max_argument_quantization_seconds": {
+        "cspice": "3.77674867300982486373328583795228041708469390869140625E-8",
+        "jplephem": "2.6485619253335812572913710027933120727539062500E-15"
+      },
+      "iterations": {
+        "cspice": 3,
+        "jplephem": 2
+      }
+    },
+    {
+      "id": "2024-03-20_14",
+      "utc": "2024-03-20T14:00:00",
+      "kind": "historical",
+      "tt_seconds_from_j2000": "764215269.184",
+      "numerical_checks_passed": true,
+      "reference_tdb_minus_tt_seconds": "0.0015904085062370251",
+      "candidate_tdb_minus_tt_seconds": "0.0015903847960894331",
+      "candidate_minus_reference_seconds": "-2.37101475920E-8",
+      "jplephem_minus_cspice_seconds": "1.8E-18",
+      "reader_derivative_difference_seconds_per_second": "1.551E-24",
+      "candidate_minus_m41_archived_seconds": "0E-19",
+      "max_argument_quantization_seconds": {
+        "cspice": "2.2115550989985910401713908868259750306606292724609375E-8",
+        "jplephem": "3.9862868561613140627741813659667968750000000E-13"
+      },
+      "iterations": {
+        "cspice": 3,
+        "jplephem": 2
+      }
+    },
+    {
+      "id": "2024-06-21_10",
+      "utc": "2024-06-21T10:00:00",
+      "kind": "historical",
+      "tt_seconds_from_j2000": "772236069.184",
+      "numerical_checks_passed": true,
+      "reference_tdb_minus_tt_seconds": "0.00038972190272544159",
+      "candidate_tdb_minus_tt_seconds": "0.00038969855147963155",
+      "candidate_minus_reference_seconds": "-2.335124581004E-8",
+      "jplephem_minus_cspice_seconds": "-3.63E-18",
+      "reader_derivative_difference_seconds_per_second": "2.1E-25",
+      "candidate_minus_m41_archived_seconds": "0E-20",
+      "max_argument_quantization_seconds": {
+        "cspice": "1.52587890625E-8",
+        "jplephem": "7.983089744811877608299255371093750000000E-13"
+      },
+      "iterations": {
+        "cspice": 3,
+        "jplephem": 2
+      }
+    },
+    {
+      "id": "2024-06-21_12",
+      "utc": "2024-06-21T12:00:00",
+      "kind": "historical",
+      "tt_seconds_from_j2000": "772243269.184",
+      "numerical_checks_passed": true,
+      "reference_tdb_minus_tt_seconds": "0.00038744328252073213",
+      "candidate_tdb_minus_tt_seconds": "0.00038741993212804924",
+      "candidate_minus_reference_seconds": "-2.335039268289E-8",
+      "jplephem_minus_cspice_seconds": "7.6E-19",
+      "reader_derivative_difference_seconds_per_second": "-5E-26",
+      "candidate_minus_m41_archived_seconds": "0E-20",
+      "max_argument_quantization_seconds": {
+        "cspice": "1.52587890625E-8",
+        "jplephem": "3.4752118717451541130003533908165991306304931641E-15"
+      },
+      "iterations": {
+        "cspice": 3,
+        "jplephem": 2
+      }
+    },
+    {
+      "id": "2024-06-21_14",
+      "utc": "2024-06-21T14:00:00",
+      "kind": "historical",
+      "tt_seconds_from_j2000": "772250469.184",
+      "numerical_checks_passed": true,
+      "reference_tdb_minus_tt_seconds": "0.00038516384356118119",
+      "candidate_tdb_minus_tt_seconds": "0.00038514049328884132",
+      "candidate_minus_reference_seconds": "-2.335027233987E-8",
+      "jplephem_minus_cspice_seconds": "5.31E-18",
+      "reader_derivative_difference_seconds_per_second": "-2E-25",
+      "candidate_minus_m41_archived_seconds": "0E-20",
+      "max_argument_quantization_seconds": {
+        "cspice": "1.66297664555264262942202435624494682997465133666992188E-8",
+        "jplephem": "3.9862868561613140627741813659667968750000000E-13"
+      },
+      "iterations": {
+        "cspice": 3,
+        "jplephem": 2
+      }
+    },
+    {
+      "id": "2024-09-22_10",
+      "utc": "2024-09-22T10:00:00",
+      "kind": "historical",
+      "tt_seconds_from_j2000": "780271269.184",
+      "numerical_checks_passed": true,
+      "reference_tdb_minus_tt_seconds": "-0.0015995580234998115",
+      "candidate_tdb_minus_tt_seconds": "-0.0015995843139158495",
+      "candidate_minus_reference_seconds": "-2.62904160380E-8",
+      "jplephem_minus_cspice_seconds": "1.7E-18",
+      "reader_derivative_difference_seconds_per_second": "1.642E-24",
+      "candidate_minus_m41_archived_seconds": "0E-19",
+      "max_argument_quantization_seconds": {
+        "cspice": "2.30352184980037871797620141478546429425477981567382812E-8",
+        "jplephem": "7.983089744811877608299255371093750000000E-13"
+      },
+      "iterations": {
+        "cspice": 3,
+        "jplephem": 2
+      }
+    },
+    {
+      "id": "2024-09-22_12",
+      "utc": "2024-09-22T12:00:00",
+      "kind": "historical",
+      "tt_seconds_from_j2000": "780278469.184",
+      "numerical_checks_passed": true,
+      "reference_tdb_minus_tt_seconds": "-0.0016001053516915035",
+      "candidate_tdb_minus_tt_seconds": "-0.0016001316624570088",
+      "candidate_minus_reference_seconds": "-2.63107655053E-8",
+      "jplephem_minus_cspice_seconds": "-1.9E-18",
+      "reader_derivative_difference_seconds_per_second": "-1.835E-24",
+      "candidate_minus_m41_archived_seconds": "0E-19",
+      "max_argument_quantization_seconds": {
+        "cspice": "2.56831595707215226687125664284394588321447372436523438E-8",
+        "jplephem": "3.4252843617021966338143101893365383148193359375E-15"
+      },
+      "iterations": {
+        "cspice": 3,
+        "jplephem": 2
+      }
+    },
+    {
+      "id": "2024-09-22_14",
+      "utc": "2024-09-22T14:00:00",
+      "kind": "historical",
+      "tt_seconds_from_j2000": "780285669.184",
+      "numerical_checks_passed": true,
+      "reference_tdb_minus_tt_seconds": "-0.0016006489638334944",
+      "candidate_tdb_minus_tt_seconds": "-0.0016006752933410318",
+      "candidate_minus_reference_seconds": "-2.63295075374E-8",
+      "jplephem_minus_cspice_seconds": "3.0E-18",
+      "reader_derivative_difference_seconds_per_second": "2.947E-24",
+      "candidate_minus_m41_archived_seconds": "0E-19",
+      "max_argument_quantization_seconds": {
+        "cspice": "4.10919446535273208409577705424453597515821456909179688E-8",
+        "jplephem": "3.9862868561613140627741813659667968750000000E-13"
+      },
+      "iterations": {
+        "cspice": 3,
+        "jplephem": 2
+      }
+    },
+    {
+      "id": "2024-12-21_10",
+      "utc": "2024-12-21T10:00:00",
+      "kind": "historical",
+      "tt_seconds_from_j2000": "788047269.184",
+      "numerical_checks_passed": true,
+      "reference_tdb_minus_tt_seconds": "-0.00038839267038172777",
+      "candidate_tdb_minus_tt_seconds": "-0.00038841929701411565",
+      "candidate_minus_reference_seconds": "-2.662663238788E-8",
+      "jplephem_minus_cspice_seconds": "-7.70E-18",
+      "reader_derivative_difference_seconds_per_second": "5.7E-25",
+      "candidate_minus_m41_archived_seconds": "0E-20",
+      "max_argument_quantization_seconds": {
+        "cspice": "2.40638143449555669262096557758923154324293136596679688E-8",
+        "jplephem": "4.3541507560931891340771926479646936058998107910156E-12"
+      },
+      "iterations": {
+        "cspice": 3,
+        "jplephem": 2
+      }
+    },
+    {
+      "id": "2024-12-21_12",
+      "utc": "2024-12-21T12:00:00",
+      "kind": "historical",
+      "tt_seconds_from_j2000": "788054469.184",
+      "numerical_checks_passed": true,
+      "reference_tdb_minus_tt_seconds": "-0.00038607697646466483",
+      "candidate_tdb_minus_tt_seconds": "-0.00038610361510278067",
+      "candidate_minus_reference_seconds": "-2.663863811584E-8",
+      "jplephem_minus_cspice_seconds": "8.56E-18",
+      "reader_derivative_difference_seconds_per_second": "-7.2E-25",
+      "candidate_minus_m41_archived_seconds": "0E-20",
+      "max_argument_quantization_seconds": {
+        "cspice": "2.66537254722410549279132396804925519973039627075195312E-8",
+        "jplephem": "4.0712520160690601755959505680948495864868164062E-15"
+      },
+      "iterations": {
+        "cspice": 3,
+        "jplephem": 2
+      }
+    },
+    {
+      "id": "2024-12-21_14",
+      "utc": "2024-12-21T14:00:00",
+      "kind": "historical",
+      "tt_seconds_from_j2000": "788061669.184",
+      "numerical_checks_passed": true,
+      "reference_tdb_minus_tt_seconds": "-0.00038376001934500647",
+      "candidate_tdb_minus_tt_seconds": "-0.00038378667048177221",
+      "candidate_minus_reference_seconds": "-2.665113676574E-8",
+      "jplephem_minus_cspice_seconds": "-1.312E-17",
+      "reader_derivative_difference_seconds_per_second": "9.3E-25",
+      "candidate_minus_m41_archived_seconds": "0E-20",
+      "max_argument_quantization_seconds": {
+        "cspice": "4.05750701041270901703317264264114783145487308502197266E-8",
+        "jplephem": "3.9862868561613140627741813659667968750000000E-13"
+      },
+      "iterations": {
+        "cspice": 3,
+        "jplephem": 2
+      }
+    },
+    {
+      "id": "j2000_tt",
+      "utc": null,
+      "kind": "tt_epoch_probe",
+      "tt_seconds_from_j2000": "0.0",
+      "numerical_checks_passed": true,
+      "reference_tdb_minus_tt_seconds": "-0.000099290115743742695",
+      "candidate_tdb_minus_tt_seconds": "-0.000099307198943794465",
+      "candidate_minus_reference_seconds": "-1.7083200051770E-8",
+      "jplephem_minus_cspice_seconds": "0E-21",
+      "reader_derivative_difference_seconds_per_second": "0E-26",
+      "candidate_minus_m41_archived_seconds": null,
+      "max_argument_quantization_seconds": {
+        "cspice": "0",
+        "jplephem": "8.39092013373791273389556977235770318657159805297851559E-21"
+      },
+      "iterations": {
+        "cspice": 3,
+        "jplephem": 2
+      }
+    },
+    {
+      "id": "iau_epoch_tt",
+      "utc": null,
+      "kind": "tt_epoch_probe",
+      "tt_seconds_from_j2000": "-725803167.8160000",
+      "numerical_checks_passed": true,
+      "reference_tdb_minus_tt_seconds": "-0.000065500000000017747",
+      "candidate_tdb_minus_tt_seconds": "-0.000065503416552106745",
+      "candidate_minus_reference_seconds": "-3.416552088998E-9",
+      "jplephem_minus_cspice_seconds": "1.6426E-17",
+      "reader_derivative_difference_seconds_per_second": "2.1E-25",
+      "candidate_minus_m41_archived_seconds": null,
+      "max_argument_quantization_seconds": {
+        "cspice": "4.98504854478593658478891015306544431950896978378295898E-8",
+        "jplephem": "8.1057173473286781018032343126833438873291015625E-13"
+      },
+      "iterations": {
+        "cspice": 3,
+        "jplephem": 2
+      }
+    }
+  ],
+  "site_mapping_cases": [
+    {
+      "id": "2024-03-20_tokyo_10",
+      "geocentric_case_id": "2024-03-20_10",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_tokyo_12",
+      "geocentric_case_id": "2024-03-20_12",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_tokyo_14",
+      "geocentric_case_id": "2024-03-20_14",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_equator_10",
+      "geocentric_case_id": "2024-03-20_10",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_equator_12",
+      "geocentric_case_id": "2024-03-20_12",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_equator_14",
+      "geocentric_case_id": "2024-03-20_14",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_paranal_10",
+      "geocentric_case_id": "2024-03-20_10",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_paranal_12",
+      "geocentric_case_id": "2024-03-20_12",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_paranal_14",
+      "geocentric_case_id": "2024-03-20_14",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_arctic_10",
+      "geocentric_case_id": "2024-03-20_10",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_arctic_12",
+      "geocentric_case_id": "2024-03-20_12",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-03-20_arctic_14",
+      "geocentric_case_id": "2024-03-20_14",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_tokyo_10",
+      "geocentric_case_id": "2024-06-21_10",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_tokyo_12",
+      "geocentric_case_id": "2024-06-21_12",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_tokyo_14",
+      "geocentric_case_id": "2024-06-21_14",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_equator_10",
+      "geocentric_case_id": "2024-06-21_10",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_equator_12",
+      "geocentric_case_id": "2024-06-21_12",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_equator_14",
+      "geocentric_case_id": "2024-06-21_14",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_paranal_10",
+      "geocentric_case_id": "2024-06-21_10",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_paranal_12",
+      "geocentric_case_id": "2024-06-21_12",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_paranal_14",
+      "geocentric_case_id": "2024-06-21_14",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_arctic_10",
+      "geocentric_case_id": "2024-06-21_10",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_arctic_12",
+      "geocentric_case_id": "2024-06-21_12",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-06-21_arctic_14",
+      "geocentric_case_id": "2024-06-21_14",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_tokyo_10",
+      "geocentric_case_id": "2024-09-22_10",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_tokyo_12",
+      "geocentric_case_id": "2024-09-22_12",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_tokyo_14",
+      "geocentric_case_id": "2024-09-22_14",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_equator_10",
+      "geocentric_case_id": "2024-09-22_10",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_equator_12",
+      "geocentric_case_id": "2024-09-22_12",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_equator_14",
+      "geocentric_case_id": "2024-09-22_14",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_paranal_10",
+      "geocentric_case_id": "2024-09-22_10",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_paranal_12",
+      "geocentric_case_id": "2024-09-22_12",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_paranal_14",
+      "geocentric_case_id": "2024-09-22_14",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_arctic_10",
+      "geocentric_case_id": "2024-09-22_10",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_arctic_12",
+      "geocentric_case_id": "2024-09-22_12",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-09-22_arctic_14",
+      "geocentric_case_id": "2024-09-22_14",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_tokyo_10",
+      "geocentric_case_id": "2024-12-21_10",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_tokyo_12",
+      "geocentric_case_id": "2024-12-21_12",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_tokyo_14",
+      "geocentric_case_id": "2024-12-21_14",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_equator_10",
+      "geocentric_case_id": "2024-12-21_10",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_equator_12",
+      "geocentric_case_id": "2024-12-21_12",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_equator_14",
+      "geocentric_case_id": "2024-12-21_14",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_paranal_10",
+      "geocentric_case_id": "2024-12-21_10",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_paranal_12",
+      "geocentric_case_id": "2024-12-21_12",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_paranal_14",
+      "geocentric_case_id": "2024-12-21_14",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_arctic_10",
+      "geocentric_case_id": "2024-12-21_10",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_arctic_12",
+      "geocentric_case_id": "2024-12-21_12",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    },
+    {
+      "id": "2024-12-21_arctic_14",
+      "geocentric_case_id": "2024-12-21_14",
+      "status": "blocked_site_mapping_and_uncertainty",
+      "observing_eligible": false
+    }
+  ],
+  "combined_counts": {
+    "candidates": 288,
+    "executed": 0,
+    "blocked": 288,
+    "solar_eligible": 240,
+    "solar_excluded": 48
+  },
+  "combined_inventory_source": "validation/results/clock_reference_reference_run.json",
+  "physical_geocentric_clock_bound_seconds": null,
+  "physical_site_clock_bound_seconds": null,
+  "physical_arrival_bound_seconds": null,
+  "observing_eligible": false,
+  "next_gate": "Establish a bounded independent site-clock mapping and reconcile its convention with the selected model before any combined arrival comparison or production eligibility.",
+  "manifest_sha256": "0f185bd28ed24bfa30ea71dc0743b1fb9f6110ad602f92963491e2a8ab386519",
+  "policy_sha256": "4d8bd7af1422874d7984bb4fba2bde981485709e70fb38d53a357c67e9e38231",
+  "fixture_sha256": "f4d087bb1c53269f7f2e490a50067f2a1a72d2abed2bbf2b6d0d6cc1094cb540",
+  "python_version": "3.12.14",
+  "candidate_packages": {
+    "astropy": "8.0.1",
+    "pyerfa": "2.0.1.5",
+    "numpy": "2.5.3"
+  },
+  "implementation_commit": "99145db6da914e849e8cce7842b42036c9837882",
+  "checkout_commit": "99145db6da914e849e8cce7842b42036c9837882",
+  "working_tree_dirty": false
+}

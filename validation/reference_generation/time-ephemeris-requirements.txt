@@ -1,0 +1,4 @@
+# Isolated integrated-reference environment: no Astropy, ERFA, PINT or Skyfield.
+jplephem==2.24
+numpy==2.5.4
+spiceypy==8.3.0

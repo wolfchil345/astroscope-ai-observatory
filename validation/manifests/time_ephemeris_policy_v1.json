@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "mission": 42,
+  "baseline_commit": "fc959a380a920c7798185f3991bc5ca5404382ad",
+  "baseline_ci": {"run_id": 39109050918, "conclusion": "success"},
+  "freeze_rule": "Commit before first time-segment polynomial evaluation, fixture generation or numerical comparison. Metadata and source inspection preceded freeze. Retain failures; no fitted offsets, threshold tuning or silent reference replacement.",
+  "scope": "Acquire an integrated geocentric time ephemeris independent of ERFA/FB90, reproduce its interpolation through two readers, and map TT to its TDB argument. Research only; not full observer-arrival qualification.",
+  "selected_arrival_convention_id": "astroscope-tdb-solar-au-v1",
+  "reference_model_id": "de440t-geocentric-tt-tdb-v1",
+  "kernel": {
+    "url": "https://ssd.jpl.nasa.gov/ftp/eph/planets/bsp/de440t.bsp",
+    "filename": "de440t.bsp",
+    "sha256": "4f003b4437a8b479aaca262716a779e3683413200adfd6353c4901aab5de800e",
+    "size_bytes": 152747008,
+    "acquired_utc_date": "2026-10-18",
+    "provider_last_modified": "Tue, 22 Dec 2020 00:56:32 GMT",
+    "center": 1000000000,
+    "target": 1000000001,
+    "frame": 1,
+    "spk_type": 2,
+    "source": "DE-0440LE-0440",
+    "coverage_jd_tdb": ["2287184.5", "2688976.5"],
+    "quantity": "TT_minus_TDB",
+    "units": "seconds",
+    "argument_scale": "TDB",
+    "origin": "geocentre",
+    "redistribution": "Original binary and raw coefficient excerpts are not vendored. Publicly retain official acquisition URL, checksum and our derived research results; no blanket redistribution permission is claimed."
+  },
+  "reference_environment": "validation/reference_generation/time-ephemeris-requirements.txt",
+  "reference_packages": {"spiceypy": "8.3.0", "jplephem": "2.24", "numpy": "2.5.4"},
+  "cspice_toolkit": "CSPICE_N0067",
+  "reader_contract": {
+    "primary": "CSPICE spksfs/spkpvn raw Type 2 evaluation; no unitim, str2et, LSK approximation, aberration, light time or candidate imports",
+    "crosscheck": "jplephem SPK Type 2 compute_and_differentiate on two-part JD; derivative divided by 86400",
+    "shared": "Both readers consume the same DE440t coefficients. Reader agreement is implementation evidence, not two independent physical realizations.",
+    "input": "TT seconds from J2000 noon; preserve a separate small delta=TDB-TT. Gregorian 2024 UTC dates use independently constructed TT=UTC+37+32.184 seconds, never candidate TT output.",
+    "equation": "delta + D(TT + delta) = 0 where D(b)=TT-TDB at TDB coordinate b",
+    "solvers": {"cspice": "fixed_point", "jplephem": "newton"},
+    "max_iterations": 8,
+    "convergence_seconds": "1e-15",
+    "offset_agreement_seconds": "1e-12",
+    "derivative_agreement_seconds_per_second": "1e-15",
+    "equation_residual_seconds": "1e-15",
+    "historical_tt_input_agreement_seconds": "1e-9",
+    "engineering_only": "Tolerances check interpolation, solver algebra and serialization, not model accuracy. CSPICE uses double ET; archive its actual argument and quantization. A picosecond correction check does not imply picosecond absolute timestamp precision.",
+    "normalization": "Use kernel values as delivered. Preserve its IAU TDB rate/epoch convention, no fitted bias or forced zero at either probe. IAU constants are context, not an extra correction: LB=1.550519768e-8, LG=6.969290134e-10, T0=2443144.5003725 JD, TDB0=-65.5 microseconds."
+  },
+  "sample_design": {
+    "historical": "All 12 unique geocentric instants from Mission 38 dates x hours; do not inflate by four sites or six targets",
+    "historical_count": 12,
+    "tt_epoch_probes": [
+      {"id": "j2000_tt", "tt_jd": "2451545.0"},
+      {"id": "iau_epoch_tt", "tt_jd": "2443144.5003725"}
+    ],
+    "total_count": 14,
+    "diagnostics": "Retain every signed Astropy geocentric minus integrated reference difference, with no physical accuracy threshold; compare historical values with Mission 41 archival evidence. Site contributions are not included in the geocentric reference.",
+    "site_mapping": "Document required geocentre-to-site terms, scaling, frame and time arguments separately. Do not add a site Einstein term to the existing Astropy site clock or silently replace the selected convention. All 48 site clocks and 288 combined arrival cases remain unqualified."
+  },
+  "expected_limits": {
+    "physical_geocentric_clock_bound_seconds": null,
+    "physical_site_clock_bound_seconds": null,
+    "physical_arrival_bound_seconds": null,
+    "full_reference_status": "unqualified",
+    "observing_eligible": false
+  },
+  "frozen_inputs": {
+    "validation/manifests/clock_reference_policy_v1.json": "22183f6735d3237db5de337da5ab5498a0546c59d4d05d51957d94d1c7264c4f",
+    "validation/manifests/clock_reference_v1.json": "901e8e323427ed0c15c3be66731c3e23ca241e170e003c25a868fd6f4e2eb3c7",
+    "validation/fixtures/clock_reference_v1.json": "04677f587607412cd000da2fe64983d8c971b85ca890f17f1e613b9387d21c8a",
+    "validation/results/clock_reference_reference_run.json": "bae85b8fa02727ba06488670c6b326a8b75ddccdfa7acf4f395123b1b6bc2a54",
+    "validation/manifests/source_reference_policy_v1.json": "3967e040a850f900e92e6e48fd464fa58a918294e0147466806f4d8e96c05075",
+    "validation/manifests/observer_arrival_policy_v1.json": "0d5a5fd556a2df8efc7cecfdbdbcb6c8c508f288bf29bda0ea686dfddf1411dd",
+    "validation/fixtures/observer_arrival_leaps_v1.json": "1defa648097e056ce453cea1037f7395a9d99c930ef3e18de456133d840f9bad",
+    "docs/research/evidence/arrival_clock_inclusion_audit_v1.json": "c9c12b0007f299ae5a92854ceba75c29a1eebbc4dbc342a3c32da661fd7680be",
+    "validation/observer_arrival_model.py": "a324728ed10acbf47e7d35bff4892b180d3e75e55dfa71a8bfca3e8448694622",
+    "src/astroscope/transit_timing.py": "7d1f72807a5991f94be66cface374162fd3ebb10c1cf2cdf0b18a5d7d716d27e"
+  },
+  "sources": [
+    {"url": "https://ssd.jpl.nasa.gov/doc/Park.2021.AJ.DE440.pdf", "role": "Park et al. 2021, section 2.3: integrated time transformation, IAU normalization, site and higher-order terms"},
+    {"url": "https://calceph.imcce.fr/docs/latest/html/python/calceph.naifid.html", "role": "Coordinate-time segment target/center identifiers"},
+    {"url": "https://calceph.imcce.fr/docs/latest/html/python/calceph.multiple.pythonusage.html", "role": "TT-TDB is first component in seconds, JD argument in ephemeris timescale"},
+    {"url": "https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/spkpvn_c.html", "role": "Raw segment evaluation and TDB seconds since J2000"},
+    {"url": "https://ssd.jpl.nasa.gov/faq.html", "role": "Provider publication/linking guidance; no raw binary redistribution grant inferred"}
+  ],
+  "sources_inspected_utc": "2026-10-18",
+  "next_gate": "Establish a bounded independent site-clock mapping and reconcile its convention with the selected model before any combined arrival comparison or production eligibility."
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "files": {
+    "validation/manifests/time_ephemeris_policy_v1.json": "4d8bd7af1422874d7984bb4fba2bde981485709e70fb38d53a357c67e9e38231",
+    "validation/fixtures/time_ephemeris_v1.json": "f4d087bb1c53269f7f2e490a50067f2a1a72d2abed2bbf2b6d0d6cc1094cb540",
+    "validation/reference_generation/time_ephemeris.py": "4b45c5e1cf679663cb8088a52b92de9d16f775d522d650c4164839f2ddb855b8",
+    "validation/reference_generation/time-ephemeris-requirements.txt": "91aceb40d47c3cc22069a9d4c5aea58c3e5f290e6f549baa2e1d370f17be61a7",
+    "validation/manifests/clock_reference_policy_v1.json": "22183f6735d3237db5de337da5ab5498a0546c59d4d05d51957d94d1c7264c4f",
+    "validation/manifests/clock_reference_v1.json": "901e8e323427ed0c15c3be66731c3e23ca241e170e003c25a868fd6f4e2eb3c7",
+    "validation/fixtures/clock_reference_v1.json": "04677f587607412cd000da2fe64983d8c971b85ca890f17f1e613b9387d21c8a",
+    "validation/results/clock_reference_reference_run.json": "bae85b8fa02727ba06488670c6b326a8b75ddccdfa7acf4f395123b1b6bc2a54",
+    "validation/manifests/source_reference_policy_v1.json": "3967e040a850f900e92e6e48fd464fa58a918294e0147466806f4d8e96c05075",
+    "validation/manifests/observer_arrival_policy_v1.json": "0d5a5fd556a2df8efc7cecfdbdbcb6c8c508f288bf29bda0ea686dfddf1411dd",
+    "validation/fixtures/observer_arrival_leaps_v1.json": "1defa648097e056ce453cea1037f7395a9d99c930ef3e18de456133d840f9bad",
+    "docs/research/evidence/arrival_clock_inclusion_audit_v1.json": "c9c12b0007f299ae5a92854ceba75c29a1eebbc4dbc342a3c32da661fd7680be",
+    "validation/observer_arrival_model.py": "a324728ed10acbf47e7d35bff4892b180d3e75e55dfa71a8bfca3e8448694622",
+    "src/astroscope/transit_timing.py": "7d1f72807a5991f94be66cface374162fd3ebb10c1cf2cdf0b18a5d7d716d27e"
+  }
+}
