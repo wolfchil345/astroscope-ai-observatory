@@ -49,7 +49,7 @@ implementations, not two independent physical realizations. DE440t is independen
 of the candidate's ERFA/FB90 clock backend, but backend independence alone does
 not establish its uncertainty or site compatibility.
 
-The raw kernel is retained in a private project reference cache, not in Git.
+The raw kernel is retained in the local untracked project reference cache, not in Git.
 Neither it nor raw coefficient excerpts are republished. The
 [SSD FAQ](https://ssd.jpl.nasa.gov/faq.html) favors direct links and directs
 publication-permission questions to JPL; NAIF's redistribution rules for its own
@@ -200,8 +200,10 @@ used Streamlit 1.66.0. The [canonical audit record](../../../validation/results/
 was generated from clean implementation
 `99145db6da914e849e8cce7842b42036c9837882`, separately from the later documentation
 and result-retention commit. Its `working_tree_dirty` field is false.
-Published-head CI and artifact evidence must be verified and recorded in the PR
-before merge.
+Delivery is tracked in [PR #42](https://github.com/wolfchil345/astroscope-ai-observatory/pull/42).
+Published-head CI and artifact evidence must be verified and recorded in that PR
+before merge. The original kernel must be reacquired and checksum-verified if
+the local cache is lost; normal CI remains self-contained without that binary.
 
 ## Next gate
 

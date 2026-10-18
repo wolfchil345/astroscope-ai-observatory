@@ -29,7 +29,7 @@
 - Mission 39: Complete — Observer-Arrival Error Budget and Resolved-Event Contract, merged in [PR #39](https://github.com/wolfchil345/astroscope-ai-observatory/pull/39) (`eaf3e22b8fb819ef37e0f803595de5330d21e0c7`); physical timing bound remains unknown
 - Mission 40: Complete — Observer-Arrival Source Convention and Reference-Domain Qualification, merged in [PR #40](https://github.com/wolfchil345/astroscope-ai-observatory/pull/40); selected research convention and supplied-input solar component comparison only, full timing reference unqualified
 - Mission 41: Complete — Matched-Convention Observer-Arrival Reference Validation, merged in [PR #41](https://github.com/wolfchil345/astroscope-ai-observatory/pull/41) (`fc959a380a920c7798185f3991bc5ca5404382ad`); unsuccessful independent clock qualification retained
-- Mission 42: Active — Independent Time-Ephemeris Reference Acquisition and Clock Mapping; integrated geocentric reference evaluated, site-clock and combined qualification remain blocked
+- Mission 42: Active — Independent Time-Ephemeris Reference Acquisition and Clock Mapping, [PR #42](https://github.com/wolfchil345/astroscope-ai-observatory/pull/42); integrated geocentric reference evaluated, site-clock and combined qualification remain blocked
 - Proposed next: Mission 43 — Independent Site-Clock Mapping and Uncertainty Qualification; not started, pending Mission 42 review and merge
 
 ## Phase Progress
@@ -374,7 +374,7 @@
 - [x] Preserve all 48 blocked site mappings and 288 blocked combined arrival cases
 - [x] Reproduce the reference fixture byte-for-byte offline; add 46 tests and an eleventh CI artifact
 - [x] Complete full local quality gate: 3,153 tests passed in 123.05 seconds; Ruff, compilation, frozen inputs and documentation links passed; clean canonical record retained
-- [ ] Open pull request and verify published-head CI
+- [x] Open pull request — [PR #42](https://github.com/wolfchil345/astroscope-ai-observatory/pull/42); published-head CI and all eleven artifacts are required before merge, with verified evidence recorded in the PR
 - [ ] Merge Mission 42
 
 ## Phase 2 Deliverables
