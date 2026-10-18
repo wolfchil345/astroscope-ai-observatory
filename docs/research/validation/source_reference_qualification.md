@@ -210,6 +210,11 @@ was generated from clean implementation
 all exclusions and mutation denominators, source/manifest hashes, the null
 physical bounds and the explicit unqualified full-reference status.
 
+Delivery is tracked in [PR #40](https://github.com/wolfchil345/astroscope-ai-observatory/pull/40).
+The PR description records the final published-head CI run and nine retained
+artifacts after verification. Those checks must pass before merge; the clean
+canonical implementation record is retained separately from later documentation.
+
 The seven existing scientific benchmark steps and Mission 39 budget audit
 remain intact. A ninth CI artifact retains this component/reference-domain
 qualification record. Production timing, ranking and export gates stay closed.

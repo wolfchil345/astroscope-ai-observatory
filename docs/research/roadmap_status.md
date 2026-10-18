@@ -27,7 +27,7 @@
 - Mission 37: Complete — Strict Transit Timing Metadata and Eligibility Boundary, merged in [PR #37](https://github.com/wolfchil345/astroscope-ai-observatory/pull/37) (`809b0bc89aa0e4b96de2e8f35d81c417b1609650`); production observer-arrival conversion remains unavailable
 - Mission 38: Complete — Observer-Arrival Reference Protocol and Conversion Validation, merged in [PR #38](https://github.com/wolfchil345/astroscope-ai-observatory/pull/38) (`9012c675b509f49df61a1ec83b7a330dd5efe99d`); research-only geometric inversion and historical TAI/UTC evidence, no production eligibility
 - Mission 39: Complete — Observer-Arrival Error Budget and Resolved-Event Contract, merged in [PR #39](https://github.com/wolfchil345/astroscope-ai-observatory/pull/39) (`eaf3e22b8fb819ef37e0f803595de5330d21e0c7`); physical timing bound remains unknown
-- Mission 40: Active — Observer-Arrival Source Convention and Reference-Domain Qualification; selected research convention and supplied-input solar component comparison only, full timing reference unqualified
+- Mission 40: Active — Observer-Arrival Source Convention and Reference-Domain Qualification, [PR #40](https://github.com/wolfchil345/astroscope-ai-observatory/pull/40); selected research convention and supplied-input solar component comparison only, full timing reference unqualified
 - Proposed next: Mission 41 — Matched-Convention Observer-Arrival Reference Validation; not started, pending Mission 40 review and merge and compatible independent clock evidence
 
 ## Phase Progress
@@ -340,7 +340,7 @@
 - [x] Add 57 tests and ninth CI artifact; preserve seven prior benchmarks and budget audit
 - [x] Keep full reference/physical qualification incomplete and all observing gates closed
 - [x] Complete full local quality gate: 3,061 tests passed in 119.45 seconds; Ruff, compilation and documentation links passed
-- [ ] Open pull request and verify published-head CI
+- [x] Open pull request — [PR #40](https://github.com/wolfchil345/astroscope-ai-observatory/pull/40); published-head CI and nine artifacts must be verified before merge, with the final run recorded in the PR
 - [ ] Merge Mission 40
 
 ## Phase 2 Deliverables
