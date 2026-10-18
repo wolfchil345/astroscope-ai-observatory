@@ -237,5 +237,7 @@ remain open. No aggregate physical accuracy has been demonstrated.
 Proposed **Mission 41 — Matched-Convention Observer-Arrival Reference Validation**
 should first establish a compatible independent clock/reference path, then
 evaluate the combined selected convention with frozen assumptions and tolerances.
-It must retain any unsuccessful qualification outcome explicitly. Mission 41
-is not started; Mission 40 awaits review and merge.
+It must retain any unsuccessful qualification outcome explicitly. Mission 40 merged
+in PR #40 as `176ba2a504e64464f6f69e642dddb4bb98a05efc`; post-merge CI passed.
+[Mission 41](clock_reference_validation.md) now records the clock-route audit
+and its unsuccessful independent qualification outcome.
