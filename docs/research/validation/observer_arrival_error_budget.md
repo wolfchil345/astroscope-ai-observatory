@@ -286,4 +286,8 @@ Qualification** should select one explicit intended source convention and a
 feasible independent reference/domain protocol. It must decide which corrections
 are included, replaced or bounded and establish reference uncertainty before
 physical qualification or integration. Its exact implementation depends on that
-evidence; it is not started here. Mission 39 remains active until review and merge.
+evidence; it was not started in Mission 39. Mission 39 subsequently merged in PR #39 on
+2026-10-18 as `eaf3e22b8fb819ef37e0f803595de5330d21e0c7`; post-merge CI passed.
+[Mission 40](source_reference_qualification.md) now develops the source convention
+and bounded component reference. The historical Mission 39 audit and null
+physical timing bound remain unchanged.

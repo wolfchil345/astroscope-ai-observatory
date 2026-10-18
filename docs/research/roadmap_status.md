@@ -26,8 +26,9 @@
 - Mission 36: Complete — Transit Time-Coordinate and Uncertainty Contract, merged in [PR #36](https://github.com/wolfchil345/astroscope-ai-observatory/pull/36) (`e5a3c70e8aca77ed0132091d3b088eb73e2f1fcf`); design evidence only
 - Mission 37: Complete — Strict Transit Timing Metadata and Eligibility Boundary, merged in [PR #37](https://github.com/wolfchil345/astroscope-ai-observatory/pull/37) (`809b0bc89aa0e4b96de2e8f35d81c417b1609650`); production observer-arrival conversion remains unavailable
 - Mission 38: Complete — Observer-Arrival Reference Protocol and Conversion Validation, merged in [PR #38](https://github.com/wolfchil345/astroscope-ai-observatory/pull/38) (`9012c675b509f49df61a1ec83b7a330dd5efe99d`); research-only geometric inversion and historical TAI/UTC evidence, no production eligibility
-- Mission 39: Active — Observer-Arrival Error Budget and Resolved-Event Contract, [PR #39](https://github.com/wolfchil345/astroscope-ai-observatory/pull/39); conditional analytic audit and prospective design only, physical timing bound remains unknown
-- Proposed next: Mission 40 — Observer-Arrival Source Convention and Reference-Domain Qualification; not started, pending Mission 39 review and merge and reference feasibility
+- Mission 39: Complete — Observer-Arrival Error Budget and Resolved-Event Contract, merged in [PR #39](https://github.com/wolfchil345/astroscope-ai-observatory/pull/39) (`eaf3e22b8fb819ef37e0f803595de5330d21e0c7`); physical timing bound remains unknown
+- Mission 40: Active — Observer-Arrival Source Convention and Reference-Domain Qualification, [PR #40](https://github.com/wolfchil345/astroscope-ai-observatory/pull/40); selected research convention and supplied-input solar component comparison only, full timing reference unqualified
+- Proposed next: Mission 41 — Matched-Convention Observer-Arrival Reference Validation; not started, pending Mission 40 review and merge and compatible independent clock evidence
 
 ## Phase Progress
 
@@ -324,9 +325,27 @@
 - [x] Run full local suite: 3,004 tests passed in 114.70 seconds; Ruff passed
 - [x] Configure CI to rerun all seven benchmarks and retain eight artifacts; published-head verification is recorded in PR #39 and required before merge
 - [x] Open pull request — [PR #39](https://github.com/wolfchil345/astroscope-ai-observatory/pull/39)
-- [ ] Merge Mission 39
+- [x] Merge Mission 39 — PR #39, 2026-10-18 at 05:56:33 UTC; post-merge CI passed
+
+## Mission 40 Completion Checklist
+
+### Mission 40 — Observer-Arrival Source Convention and Reference-Domain Qualification
+
+- [x] Verify Mission 39 merge and successful post-merge quality gate
+- [x] Freeze source convention, reference-domain guards and numerical threshold before generation (`827cf8f`)
+- [x] Audit PINT sign, normalization and actual input types; retain unsuccessful setup attempts
+- [x] Archive 45 synthetic cases and all 288 historical candidates, including 48 explicit exclusions
+- [x] Compare 285 eligible inputs against pinned PINT with independent Decimal arithmetic
+- [x] Disclose complete sign/radial-omission fault-detection denominators
+- [x] Add 57 tests and ninth CI artifact; preserve seven prior benchmarks and budget audit
+- [x] Keep full reference/physical qualification incomplete and all observing gates closed
+- [x] Complete full local quality gate: 3,061 tests passed in 119.45 seconds; Ruff, compilation and documentation links passed
+- [x] Open pull request — [PR #40](https://github.com/wolfchil345/astroscope-ai-observatory/pull/40); published-head CI and nine artifacts must be verified before merge, with the final run recorded in the PR
+- [ ] Merge Mission 40
 
 ## Phase 2 Deliverables
+
+- [Observer-Arrival Source Convention and Reference-Domain Qualification — Mission 40](validation/source_reference_qualification.md)
 
 - [Observer-Arrival Error Budget and Resolved-Event Contract — Mission 39](validation/observer_arrival_error_budget.md)
 

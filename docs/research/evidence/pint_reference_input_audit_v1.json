@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "stage": "reference_input_setup_before_any_successful_numeric_fixture",
+  "package": "pint-pulsar==1.1.7",
+  "input_type": "astropy.table.Column",
+  "input_unit": "au",
+  "upstream_call_path": "TOAs.compute_posvels creates obs_sun_pos as table.Column with length unit; SolarSystemShapiro.solar_system_shapiro_delay passes that column to ss_obj_shapiro_delay",
+  "upstream_compute_posvels_sha256": "c8ef02aada330b41f4f936fc96e3c396ca09a5d3a408079f7e4ab1b638fdf027",
+  "setup_failure": "Direct astropy.units.Quantity input raised UnitConversionError (AU versus AU2) in this pinned stack. No fixture was emitted. Use upstream Column semantics rather than patching PINT or changing tolerances. A Column with a plain ndarray direction also raised UnitConversionError; upstream supplies a dimensionless Quantity direction. Both types must match the upstream caller.",
+  "reference_code_modified": false,
+  "scope": "Only a component call is executed, not the full TOA pipeline.",
+  "direction_input_type": "astropy.units.Quantity with dimensionless unit, matching AstrometryEquatorial.xyz_from_radec",
+  "upstream_direction_method_sha256": "b0d9dd3034ac20fe3312c3d19f4839f8ab9b2892b0d28d201108d9a7d2e136d3"
+}

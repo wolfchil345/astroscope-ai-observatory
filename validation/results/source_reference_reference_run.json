@@ -1,0 +1,3084 @@
+{
+  "schema_version": "1.0",
+  "audit_id": "source-reference-v1",
+  "passed": true,
+  "pass_meaning": "Supplied-input component agreement and domain accounting only",
+  "convention_id": "astroscope-tdb-solar-au-v1",
+  "summaries": {
+    "synthetic": {
+      "total": 45,
+      "compared": 45,
+      "excluded": 0,
+      "failed": 0,
+      "max_difference_seconds": "6.42322996503936295490383529875461979362559890321428838E-21"
+    },
+    "historical": {
+      "total": 288,
+      "compared": 240,
+      "excluded": 48,
+      "failed": 0,
+      "max_difference_seconds": "4.170467966037433367981789152455887493832885137031723582E-21"
+    }
+  },
+  "mutations": {
+    "wrong_sign": {
+      "detected": 282,
+      "undetected_ids": [
+        "synthetic_1_0_0",
+        "synthetic_1_0_1",
+        "synthetic_1_0_2"
+      ],
+      "denominator": 285,
+      "undetected": 3
+    },
+    "omit_radial_normalization": {
+      "detected": 270,
+      "undetected_ids": [
+        "synthetic_1_-1_0",
+        "synthetic_1_-1_1",
+        "synthetic_1_-1_2",
+        "synthetic_1_-0.8_0",
+        "synthetic_1_-0.8_1",
+        "synthetic_1_-0.8_2",
+        "synthetic_1_0_0",
+        "synthetic_1_0_1",
+        "synthetic_1_0_2",
+        "synthetic_1_0.6_0",
+        "synthetic_1_0.6_1",
+        "synthetic_1_0.6_2",
+        "synthetic_1_0.8_0",
+        "synthetic_1_0.8_1",
+        "synthetic_1_0.8_2"
+      ],
+      "denominator": 285,
+      "undetected": 15
+    }
+  },
+  "comparison_tolerance_seconds": "1E-12",
+  "reference_qualification": "qualified_for_supplied_input_component_comparison_only",
+  "full_reference_status": "unqualified",
+  "physical_reference_bound_seconds": null,
+  "physical_arrival_bound_seconds": null,
+  "observing_eligible": false,
+  "blockers": [
+    "no matched independent full clock reference",
+    "reference physical uncertainty unestablished",
+    "real-source convention and astrometry unverified",
+    "continuous domain and inverse certificates absent",
+    "Mission 39 physical budget remains incomplete",
+    "resolved-event integration unavailable"
+  ],
+  "radial_vs_angular_max_over_declared_radius_seconds": "0.000001037904532363651479622776274888678324984306428498436750561910212690685",
+  "radial_difference_meaning": "Convention difference 2GM/c^3 ln(R/au); not timing error",
+  "full_pint_timing_pipeline_executed": false,
+  "rows": [
+    {
+      "id": "synthetic_0.9_-1_0",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "0.000005790275795024620333997854916783693400034393347991388243081567458900695",
+      "reference_correction_seconds": "0.0000057902757950246214",
+      "difference_seconds": "1.066002145083216306599965606652008611756918432541099305E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_0.9_-1_1",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "0.000005790275795024620333997854916783693400034393347991388243081567458900695",
+      "reference_correction_seconds": "0.0000057902757950246214",
+      "difference_seconds": "1.066002145083216306599965606652008611756918432541099305E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_0.9_-1_2",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "0.000005790275795024620333997854916783693400034393347991388243081567458900695",
+      "reference_correction_seconds": "0.0000057902757950246214",
+      "difference_seconds": "1.066002145083216306599965606652008611756918432541099305E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_0.9_-0.8_0",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "0.000004752371262660968854375078641895015075050086919492951492519657246210010",
+      "reference_correction_seconds": "0.00000475237126266097",
+      "difference_seconds": "1.145624921358104984924949913080507048507480342753789990E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_0.9_-0.8_1",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "0.000004752371262660968854375078641895015075050086919492951492519657246210010",
+      "reference_correction_seconds": "0.00000475237126266097",
+      "difference_seconds": "1.145624921358104984924949913080507048507480342753789990E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_0.9_-0.8_2",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "0.000004752371262660968854375078641895015075050086919492951492519657246210010",
+      "reference_correction_seconds": "0.00000475237126266097",
+      "difference_seconds": "1.145624921358104984924949913080507048507480342753789990E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_0.9_0_0",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "-0.000001037904532363651479622776274888678324984306428498436750561910212690685",
+      "reference_correction_seconds": "-0.0000010379045323636513",
+      "difference_seconds": "1.79622776274888678324984306428498436750561910212690685E-22",
+      "passed": true
+    },
+    {
+      "id": "synthetic_0.9_0_1",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "-0.000001037904532363651479622776274888678324984306428498436750561910212690685",
+      "reference_correction_seconds": "-0.0000010379045323636513",
+      "difference_seconds": "1.79622776274888678324984306428498436750561910212690685E-22",
+      "passed": true
+    },
+    {
+      "id": "synthetic_0.9_0_2",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "-0.000001037904532363651479622776274888678324984306428498436750561910212690685",
+      "reference_correction_seconds": "-0.0000010379045323636513",
+      "difference_seconds": "1.79622776274888678324984306428498436750561910212690685E-22",
+      "passed": true
+    },
+    {
+      "id": "synthetic_0.9_0.6_0",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "-0.00001006426794409539576314940376896467337114600146889038138075761911412024",
+      "reference_correction_seconds": "-0.000010064267944095397",
+      "difference_seconds": "1.23685059623103532662885399853110961861924238088587976E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_0.9_0.6_1",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "-0.00001006426794409539576314940376896467337114600146889038138075761911412024",
+      "reference_correction_seconds": "-0.000010064267944095397",
+      "difference_seconds": "1.23685059623103532662885399853110961861924238088587976E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_0.9_0.6_2",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "-0.00001006426794409539576314940376896467337114600146889038138075761911412024",
+      "reference_correction_seconds": "-0.000010064267944095397",
+      "difference_seconds": "1.23685059623103532662885399853110961861924238088587976E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_0.9_0.8_0",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "-0.00001689244827148366757677003496063704509616470124538020637440109678571162",
+      "reference_correction_seconds": "-0.000016892448271483674",
+      "difference_seconds": "6.42322996503936295490383529875461979362559890321428838E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_0.9_0.8_1",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "-0.00001689244827148366757677003496063704509616470124538020637440109678571162",
+      "reference_correction_seconds": "-0.000016892448271483674",
+      "difference_seconds": "6.42322996503936295490383529875461979362559890321428838E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_0.9_0.8_2",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "-0.00001689244827148366757677003496063704509616470124538020637440109678571162",
+      "reference_correction_seconds": "-0.000016892448271483674",
+      "difference_seconds": "6.42322996503936295490383529875461979362559890321428838E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1_-1_0",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "0.000006828180327388271813620631191672371725018699776489824993643477671591380",
+      "reference_correction_seconds": "0.000006828180327388271",
+      "difference_seconds": "8.13620631191672371725018699776489824993643477671591380E-22",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1_-1_1",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "0.000006828180327388271813620631191672371725018699776489824993643477671591380",
+      "reference_correction_seconds": "0.000006828180327388271",
+      "difference_seconds": "8.13620631191672371725018699776489824993643477671591380E-22",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1_-1_2",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "0.000006828180327388271813620631191672371725018699776489824993643477671591380",
+      "reference_correction_seconds": "0.000006828180327388271",
+      "difference_seconds": "8.13620631191672371725018699776489824993643477671591380E-22",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1_-0.8_0",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "0.000005790275795024620333997854916783693400034393347991388243081567458900695",
+      "reference_correction_seconds": "0.0000057902757950246214",
+      "difference_seconds": "1.066002145083216306599965606652008611756918432541099305E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1_-0.8_1",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "0.000005790275795024620333997854916783693400034393347991388243081567458900695",
+      "reference_correction_seconds": "0.0000057902757950246214",
+      "difference_seconds": "1.066002145083216306599965606652008611756918432541099305E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1_-0.8_2",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "0.000005790275795024620333997854916783693400034393347991388243081567458900695",
+      "reference_correction_seconds": "0.0000057902757950246214",
+      "difference_seconds": "1.066002145083216306599965606652008611756918432541099305E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1_0_0",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "0E-75",
+      "reference_correction_seconds": "-1.0936786916791607E-21",
+      "difference_seconds": "1.093678691679160700000000000000000000000000000000000000E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1_0_1",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "0E-75",
+      "reference_correction_seconds": "-1.0936786916791607E-21",
+      "difference_seconds": "1.093678691679160700000000000000000000000000000000000000E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1_0_2",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "0E-75",
+      "reference_correction_seconds": "-1.0936786916791607E-21",
+      "difference_seconds": "1.093678691679160700000000000000000000000000000000000000E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1_0.6_0",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "-0.000009026363411731744283526627494075995046161695040391944630195708901429558",
+      "reference_correction_seconds": "-0.0000090263634117317442",
+      "difference_seconds": "8.3526627494075995046161695040391944630195708901429558E-23",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1_0.6_1",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "-0.000009026363411731744283526627494075995046161695040391944630195708901429558",
+      "reference_correction_seconds": "-0.0000090263634117317442",
+      "difference_seconds": "8.3526627494075995046161695040391944630195708901429558E-23",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1_0.6_2",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "-0.000009026363411731744283526627494075995046161695040391944630195708901429558",
+      "reference_correction_seconds": "-0.0000090263634117317442",
+      "difference_seconds": "8.3526627494075995046161695040391944630195708901429558E-23",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1_0.8_0",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "-0.00001585454373912001609714725868574836677118039481688176962383918657302094",
+      "reference_correction_seconds": "-0.000015854543739120018",
+      "difference_seconds": "1.90285274131425163322881960518311823037616081342697906E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1_0.8_1",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "-0.00001585454373912001609714725868574836677118039481688176962383918657302094",
+      "reference_correction_seconds": "-0.000015854543739120018",
+      "difference_seconds": "1.90285274131425163322881960518311823037616081342697906E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1_0.8_2",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "-0.00001585454373912001609714725868574836677118039481688176962383918657302094",
+      "reference_correction_seconds": "-0.000015854543739120018",
+      "difference_seconds": "1.90285274131425163322881960518311823037616081342697906E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1.1_-1_0",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "0.000007767079183204143364749170022903874250652996588712713381263914750007270",
+      "reference_correction_seconds": "0.0000077670791832041461",
+      "difference_seconds": "2.735250829977096125749347003411287286618736085249992730E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1.1_-1_1",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "0.000007767079183204143364749170022903874250652996588712713381263914750007270",
+      "reference_correction_seconds": "0.0000077670791832041461",
+      "difference_seconds": "2.735250829977096125749347003411287286618736085249992730E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1.1_-1_2",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "0.000007767079183204143364749170022903874250652996588712713381263914750007270",
+      "reference_correction_seconds": "0.0000077670791832041461",
+      "difference_seconds": "2.735250829977096125749347003411287286618736085249992730E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1.1_-0.8_0",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "0.000006729174650840491885126393748015195925668690160214276630702004537316585",
+      "reference_correction_seconds": "0.000006729174650840493",
+      "difference_seconds": "1.114873606251984804074331309839785723369297995462683415E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1.1_-0.8_1",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "0.000006729174650840491885126393748015195925668690160214276630702004537316585",
+      "reference_correction_seconds": "0.000006729174650840493",
+      "difference_seconds": "1.114873606251984804074331309839785723369297995462683415E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1.1_-0.8_2",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "0.000006729174650840491885126393748015195925668690160214276630702004537316585",
+      "reference_correction_seconds": "0.000006729174650840493",
+      "difference_seconds": "1.114873606251984804074331309839785723369297995462683415E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1.1_0_0",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "9.388988558158715511285388312315025256342968122228883876204370784158901E-7",
+      "reference_correction_seconds": "9.388988558158724E-7",
+      "difference_seconds": "8.488714611687684974743657031877771116123795629215841099E-22",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1.1_0_1",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "9.388988558158715511285388312315025256342968122228883876204370784158901E-7",
+      "reference_correction_seconds": "9.388988558158724E-7",
+      "difference_seconds": "8.488714611687684974743657031877771116123795629215841099E-22",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1.1_0_2",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "9.388988558158715511285388312315025256342968122228883876204370784158901E-7",
+      "reference_correction_seconds": "9.388988558158724E-7",
+      "difference_seconds": "8.488714611687684974743657031877771116123795629215841099E-22",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1.1_0.6_0",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "-0.000008087464555915872732398088662844492520527398228169056242575271823013668",
+      "reference_correction_seconds": "-0.0000080874645559158734",
+      "difference_seconds": "6.67601911337155507479472601771830943757424728176986332E-22",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1.1_0.6_1",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "-0.000008087464555915872732398088662844492520527398228169056242575271823013668",
+      "reference_correction_seconds": "-0.0000080874645559158734",
+      "difference_seconds": "6.67601911337155507479472601771830943757424728176986332E-22",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1.1_0.6_2",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "-0.000008087464555915872732398088662844492520527398228169056242575271823013668",
+      "reference_correction_seconds": "-0.0000080874645559158734",
+      "difference_seconds": "6.67601911337155507479472601771830943757424728176986332E-22",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1.1_0.8_0",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "-0.00001491564488330414454601871985451686424554609800465888123621874949460505",
+      "reference_correction_seconds": "-0.000014915644883304149",
+      "difference_seconds": "4.45398128014548313575445390199534111876378125050539495E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1.1_0.8_1",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "-0.00001491564488330414454601871985451686424554609800465888123621874949460505",
+      "reference_correction_seconds": "-0.000014915644883304149",
+      "difference_seconds": "4.45398128014548313575445390199534111876378125050539495E-21",
+      "passed": true
+    },
+    {
+      "id": "synthetic_1.1_0.8_2",
+      "cohort": "synthetic",
+      "status": "compared",
+      "correction_seconds": "-0.00001491564488330414454601871985451686424554609800465888123621874949460505",
+      "reference_correction_seconds": "-0.000014915644883304149",
+      "difference_seconds": "4.45398128014548313575445390199534111876378125050539495E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_tokyo_0_10",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-03-20_tokyo_0_12",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-03-20_tokyo_0_14",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-03-20_tokyo_1_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-3.237691466418012572946403963064903433961234568603573516300318276200760E-8",
+      "reference_correction_seconds": "-3.237691466417996E-8",
+      "difference_seconds": "1.6572946403963064903433961234568603573516300318276200760E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_tokyo_1_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-4.515347206164736713061876621790865307638328663428772117358097912327783E-8",
+      "reference_correction_seconds": "-4.5153472061646944E-8",
+      "difference_seconds": "4.2313061876621790865307638328663428772117358097912327783E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_tokyo_1_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-5.807676561435932123801067156594750371076126340891392560926368075084635E-8",
+      "reference_correction_seconds": "-5.8076765614359395E-8",
+      "difference_seconds": "7.376198932843405249628923873659108607439073631924915365E-23",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_tokyo_2_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006788227851533255316599581052331679730241755952715002172250419839780637",
+      "reference_correction_seconds": "0.0000067882278515332564",
+      "difference_seconds": "1.083400418947668320269758244047284997827749580160219363E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_tokyo_2_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006788603999358245172954304927538741182650357441475398135508842967998464",
+      "reference_correction_seconds": "0.0000067886039993582461",
+      "difference_seconds": "9.27045695072461258817349642558524601864491157032001536E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_tokyo_2_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006788901680977908425846468012813803313654497601675781747200779169600230",
+      "reference_correction_seconds": "0.0000067889016809779094",
+      "difference_seconds": "9.74153531987186196686345502398324218252799220830399770E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_tokyo_3_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-4.753035678664629952776426876684109711283178788122394037847458214486972E-8",
+      "reference_correction_seconds": "-4.7530356786645405E-8",
+      "difference_seconds": "8.9452776426876684109711283178788122394037847458214486972E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_tokyo_3_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-3.400050806860540453807864127533974446704612616406245574402594872861102E-8",
+      "reference_correction_seconds": "-3.4000508068604894E-8",
+      "difference_seconds": "5.1053807864127533974446704612616406245574402594872861102E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_tokyo_3_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.049528315235260739042829463362183958219152029808801166408523039640413E-8",
+      "reference_correction_seconds": "-2.0495283152352643E-8",
+      "difference_seconds": "3.560957170536637816041780847970191198833591476960359587E-23",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_tokyo_4_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.099113038146239605274621926720391650665453783216895353335648727838370E-7",
+      "reference_correction_seconds": "-2.0991130381462369E-7",
+      "difference_seconds": "2.705274621926720391650665453783216895353335648727838370E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_tokyo_4_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.152947042011911562583496798208158005892246653061118133754248364193925E-7",
+      "reference_correction_seconds": "-2.1529470420119132E-7",
+      "difference_seconds": "1.637416503201791841994107753346938881866245751635806075E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_tokyo_4_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.207488332329398150624044818767015902748718588598522070379879647474811E-7",
+      "reference_correction_seconds": "-2.2074883323293934E-7",
+      "difference_seconds": "4.750624044818767015902748718588598522070379879647474811E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_tokyo_5_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.271271677609697018753481251115988232671909439455977335979309116750098E-7",
+      "reference_correction_seconds": "1.271271677609695E-7",
+      "difference_seconds": "2.018753481251115988232671909439455977335979309116750098E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_tokyo_5_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.330642976757064902351336128145687838944215132901642334013816532197869E-7",
+      "reference_correction_seconds": "1.330642976757055E-7",
+      "difference_seconds": "9.902351336128145687838944215132901642334013816532197869E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_tokyo_5_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.389296697492826701772285805789756532906773815750292748421965696073988E-7",
+      "reference_correction_seconds": "1.3892966974928328E-7",
+      "difference_seconds": "6.098227714194210243467093226184249707251578034303926012E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_equator_0_10",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-03-20_equator_0_12",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-03-20_equator_0_14",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-03-20_equator_1_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-3.324263793236256564452394081887243419672524125090036922476747003718008E-8",
+      "reference_correction_seconds": "-3.3242637932362261E-8",
+      "difference_seconds": "3.0464452394081887243419672524125090036922476747003718008E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_equator_1_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-4.580997035191133177120222508884737885037440203133577472811335828442552E-8",
+      "reference_correction_seconds": "-4.5809970351911188E-8",
+      "difference_seconds": "1.4377120222508884737885037440203133577472811335828442552E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_equator_1_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-5.834708430298740935999948731857232894701616585724898424888631402940989E-8",
+      "reference_correction_seconds": "-5.8347084302986908E-8",
+      "difference_seconds": "5.0135999948731857232894701616585724898424888631402940989E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_equator_2_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006787702099602634192623275998067625554236885114055247331845601147534032",
+      "reference_correction_seconds": "0.0000067877020996026355",
+      "difference_seconds": "1.307376724001932374445763114885944752668154398852465968E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_equator_2_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006787978700749513401972912277347931703338455949029297191394106591041179",
+      "reference_correction_seconds": "0.0000067879787007495143",
+      "difference_seconds": "8.98027087722652068296661544050970702808605893408958821E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_equator_2_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006788345030932026929805219612827840564011322152848046492494121153303159",
+      "reference_correction_seconds": "0.0000067883450309320276",
+      "difference_seconds": "6.70194780387172159435988677847151953507505878846696841E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_equator_3_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-4.771596393612923773158803217051352663475828030884299593001817328135007E-8",
+      "reference_correction_seconds": "-4.7715963936129617E-8",
+      "difference_seconds": "3.7926841196782948647336524171969115700406998182671864993E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_equator_3_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-3.459456570237041591796395829299126709969853875681134780998950560286833E-8",
+      "reference_correction_seconds": "-3.4594565702370741E-8",
+      "difference_seconds": "3.2508203604170700873290030146124318865219001049439713167E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_equator_3_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.133752267142570003012154422346435269649379665084688437644445710318548E-8",
+      "reference_correction_seconds": "-2.1337522671425301E-8",
+      "difference_seconds": "3.9903012154422346435269649379665084688437644445710318548E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_equator_4_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.106870946074002011052788879006262607328569173294534609897333706195719E-7",
+      "reference_correction_seconds": "-2.1068709460740072E-7",
+      "difference_seconds": "5.188947211120993737392671430826705465390102666293804281E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_equator_4_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.161705468923644332718756144396237241902045707443921096044347816716217E-7",
+      "reference_correction_seconds": "-2.1617054689236436E-7",
+      "difference_seconds": "7.32718756144396237241902045707443921096044347816716217E-23",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_equator_4_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.215565386678793920663700139319832690035168405840908888452343165183519E-7",
+      "reference_correction_seconds": "-2.2155653866787925E-7",
+      "difference_seconds": "1.420663700139319832690035168405840908888452343165183519E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_equator_5_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.268427063733493480446058043794419174491222966317284017492232261543261E-7",
+      "reference_correction_seconds": "1.268427063733499E-7",
+      "difference_seconds": "5.519553941956205580825508777033682715982507767738456739E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_equator_5_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.326809073779725057235210067355917835330597476032492982364564880127874E-7",
+      "reference_correction_seconds": "1.3268090737797233E-7",
+      "difference_seconds": "1.757235210067355917835330597476032492982364564880127874E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_equator_5_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.386147332040703093912303868149438743339104600895205991159067049550527E-7",
+      "reference_correction_seconds": "1.3861473320407007E-7",
+      "difference_seconds": "2.393912303868149438743339104600895205991159067049550527E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_paranal_0_10",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-03-20_paranal_0_12",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-03-20_paranal_0_14",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-03-20_paranal_1_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-3.310062115388609983554790809621144095904450235442130028721507641337634E-8",
+      "reference_correction_seconds": "-3.3100621153886002E-8",
+      "difference_seconds": "9.783554790809621144095904450235442130028721507641337634E-23",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_paranal_1_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-4.611966349193016762405875927943138656557252494050017346299540393340654E-8",
+      "reference_correction_seconds": "-4.611966349193065E-8",
+      "difference_seconds": "4.8237594124072056861343442747505949982653700459606659346E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_paranal_1_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-5.902566554519714863078704562824825755683806541271269531994083744704511E-8",
+      "reference_correction_seconds": "-5.9025665545196831E-8",
+      "difference_seconds": "3.1763078704562824825755683806541271269531994083744704511E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_paranal_2_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006788205491723040736149711014007074175521753146655400639906357622183084",
+      "reference_correction_seconds": "0.0000067882054917230428",
+      "difference_seconds": "2.063850288985992925824478246853344599360093642377816916E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_paranal_2_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006788233665353987064470475385640771432428417417101907764552483029913182",
+      "reference_correction_seconds": "0.000006788233665353987",
+      "difference_seconds": "6.4470475385640771432428417417101907764552483029913182E-23",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_paranal_2_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006788283177354119950055617901944133364665042594255505842228113756497075",
+      "reference_correction_seconds": "0.0000067882831773541218",
+      "difference_seconds": "1.849944382098055866635334957405744494157771886243502925E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_paranal_3_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-4.685099201754650665757655258706677006081503155597098133543111691180649E-8",
+      "reference_correction_seconds": "-4.6850992017547735E-8",
+      "difference_seconds": "1.22834242344741293322993918496844402901866456888308819351E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_paranal_3_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-3.377523544410471045603565289294742140337913211162133570161186077150152E-8",
+      "reference_correction_seconds": "-3.3775235444104405E-8",
+      "difference_seconds": "3.0545603565289294742140337913211162133570161186077150152E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_paranal_3_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.078367925088842435188185841182840805707272750099180134925946368387171E-8",
+      "reference_correction_seconds": "-2.0783679250888816E-8",
+      "difference_seconds": "3.9164811814158817159194292727249900819865074053631612829E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_paranal_4_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.103605620113945569625575773086657141423627678979813708657849537682969E-7",
+      "reference_correction_seconds": "-2.1036056201139425E-7",
+      "difference_seconds": "3.069625575773086657141423627678979813708657849537682969E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_paranal_4_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.160925391640387923713665965323641898015914143151638324907209361499748E-7",
+      "reference_correction_seconds": "-2.1609253916403846E-7",
+      "difference_seconds": "3.323713665965323641898015914143151638324907209361499748E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_paranal_4_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.217958376683734270109221932067053163724124804073145185013065711656883E-7",
+      "reference_correction_seconds": "-2.217958376683739E-7",
+      "difference_seconds": "4.729890778067932946836275875195926854814986934288343117E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_paranal_5_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.275166897143736328443133935297224965178327050497739093564663610908783E-7",
+      "reference_correction_seconds": "1.275166897143734E-7",
+      "difference_seconds": "2.328443133935297224965178327050497739093564663610908783E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_paranal_5_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.331070452445796010876679294339387877546047035020867170456325722610038E-7",
+      "reference_correction_seconds": "1.3310704524457921E-7",
+      "difference_seconds": "3.910876679294339387877546047035020867170456325722610038E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_paranal_5_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.387252506195090398558840948536979229526905966762289513829088212094007E-7",
+      "reference_correction_seconds": "1.3872525061950844E-7",
+      "difference_seconds": "5.998558840948536979229526905966762289513829088212094007E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_arctic_0_10",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-03-20_arctic_0_12",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-03-20_arctic_0_14",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-03-20_arctic_1_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-3.291540680334322625945304966226693047003810279557679418182428341455881E-8",
+      "reference_correction_seconds": "-3.2915406803343733E-8",
+      "difference_seconds": "5.0674054695033773306952996189720442320581817571658544119E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_arctic_1_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-4.570165740671963927936799219386294504183714691915104198795045678740319E-8",
+      "reference_correction_seconds": "-4.5701657406719487E-8",
+      "difference_seconds": "1.5227936799219386294504183714691915104198795045678740319E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_arctic_1_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-5.848737062615907476057811868300543743087983145122862485683268750889333E-8",
+      "reference_correction_seconds": "-5.8487370626159139E-8",
+      "difference_seconds": "6.423942188131699456256912016854877137514316731249110667E-23",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_arctic_2_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006788039786466515394050356867194805187690313935546634003158235877299044",
+      "reference_correction_seconds": "0.0000067880397864665154",
+      "difference_seconds": "5.949643132805194812309686064453365996841764122700956E-24",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_arctic_2_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006788265550716531182815947517100130791523948190052587989420526994931629",
+      "reference_correction_seconds": "0.0000067882655507165319",
+      "difference_seconds": "7.17184052482899869208476051809947412010579473005068371E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_arctic_2_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006788503691882043210293018820075079376457712550455797468866356519352404",
+      "reference_correction_seconds": "0.0000067885036918820436",
+      "difference_seconds": "3.89706981179924920623542287449544202531133643480647596E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_arctic_3_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-4.736767215781781596411819322954432262968300460745504435557147816381903E-8",
+      "reference_correction_seconds": "-4.7367672157817437E-8",
+      "difference_seconds": "3.7896411819322954432262968300460745504435557147816381903E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_arctic_3_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-3.412937723257884388677396298627672422649074900684058497480849058562084E-8",
+      "reference_correction_seconds": "-3.4129377232579165E-8",
+      "difference_seconds": "3.2111322603701372327577350925099315941502519150941437916E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_arctic_3_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.088081159388273339029310149217486993557158505406557273352572905360296E-8",
+      "reference_correction_seconds": "-2.0880811593882748E-8",
+      "difference_seconds": "1.460970689850782513006442841494593442726647427094639704E-23",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_arctic_4_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.099301488602371522222391104931648892024426018965208258814501806534270E-7",
+      "reference_correction_seconds": "-2.0993014886023674E-7",
+      "difference_seconds": "4.122222391104931648892024426018965208258814501806534270E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_arctic_4_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.154641977123988815608738134050890944907322696780357634065816554547202E-7",
+      "reference_correction_seconds": "-2.1546419771239939E-7",
+      "difference_seconds": "5.084391261865949109055092677303219642365934183445452798E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_arctic_4_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.209782684826695967293836825637560142468797885679377520096927109313653E-7",
+      "reference_correction_seconds": "-2.2097826848266942E-7",
+      "difference_seconds": "1.767293836825637560142468797885679377520096927109313653E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_arctic_5_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.267753708630767144902013888481264536199791364518112197834230697407932E-7",
+      "reference_correction_seconds": "1.2677537086307738E-7",
+      "difference_seconds": "6.655097986111518735463800208635481887802165769302592068E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_arctic_5_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.325628446220298326122642738371711695716479531364828606831462789811994E-7",
+      "reference_correction_seconds": "1.3256284462202919E-7",
+      "difference_seconds": "6.426122642738371711695716479531364828606831462789811994E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-03-20_arctic_5_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.383690618203414121142618582734448192889398743609442910089879374089157E-7",
+      "reference_correction_seconds": "1.3836906182034127E-7",
+      "difference_seconds": "1.421142618582734448192889398743609442910089879374089157E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_tokyo_0_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.904532417820189753744705766416530820391436597973926179004238782286621E-7",
+      "reference_correction_seconds": "1.9045324178201914E-7",
+      "difference_seconds": "1.646255294233583469179608563402026073820995761217713379E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_tokyo_0_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "2.043462858345557359875949061342482451383618364705181866382825558993308E-7",
+      "reference_correction_seconds": "2.0434628583455618E-7",
+      "difference_seconds": "4.440124050938657517548616381635294818133617174441006692E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_tokyo_0_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "2.182157550769320995650159622717487545278970436478805949236135269431479E-7",
+      "reference_correction_seconds": "2.1821575507693308E-7",
+      "difference_seconds": "9.804349840377282512454721029563521194050763864730568521E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_tokyo_1_10",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-06-21_tokyo_1_12",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-06-21_tokyo_1_14",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-06-21_tokyo_2_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.266463502672773161800734360919642274032383684335198655420685436077204E-7",
+      "reference_correction_seconds": "1.2664635026727704E-7",
+      "difference_seconds": "2.761800734360919642274032383684335198655420685436077204E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_tokyo_2_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.130113724520352607373446275171720479512221173024578318492121901690679E-7",
+      "reference_correction_seconds": "1.130113724520358E-7",
+      "difference_seconds": "5.392626553724828279520487778826975421681507878098309321E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_tokyo_2_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "9.923536168213894587867429300790913677966353120100632811000720836970491E-8",
+      "reference_correction_seconds": "9.9235361682139324E-8",
+      "difference_seconds": "3.7812132570699209086322033646879899367188999279163029509E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_tokyo_3_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006571867885415270667680596989078518900685009197670508570293193988122997",
+      "reference_correction_seconds": "0.0000065718678854152723",
+      "difference_seconds": "1.632319403010921481099314990802329491429706806011877003E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_tokyo_3_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006572037012946460881651685128347421203844159818909549979015259627506976",
+      "reference_correction_seconds": "0.000006572037012946461",
+      "difference_seconds": "1.18348314871652578796155840181090450020984740372493024E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_tokyo_3_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006572128341686007897300723155016314132779092016294180595047168650773217",
+      "reference_correction_seconds": "0.0000065721283416860098",
+      "difference_seconds": "1.902699276844983685867220907983705819404952831349226783E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_tokyo_4_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-0.000004833871333122716406834280406964335406278895893891070104751194587130970",
+      "reference_correction_seconds": "-0.0000048338713331227144",
+      "difference_seconds": "2.006834280406964335406278895893891070104751194587130970E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_tokyo_4_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-0.000004833166727289490696670576441615741163557528159078588391351927574631447",
+      "reference_correction_seconds": "-0.0000048331667272894937",
+      "difference_seconds": "3.003329423558384258836442471840921411608648072425368553E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_tokyo_4_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-0.000004832552158700534530746205504644703913582296455391474114750126525843100",
+      "reference_correction_seconds": "-0.0000048325521587005348",
+      "difference_seconds": "2.69253794495355296086417703544608525885249873474156900E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_tokyo_5_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000003456136715751935721773189482674161474546787213604592221765599382613804",
+      "reference_correction_seconds": "0.0000034561367157519354",
+      "difference_seconds": "3.21773189482674161474546787213604592221765599382613804E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_tokyo_5_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000003456095192909988416990568937542246701446352633510360153193782385973856",
+      "reference_correction_seconds": "0.0000034560951929099897",
+      "difference_seconds": "1.283009431062457753298553647366489639846806217614026144E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_tokyo_5_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000003456002712025709939997019888369703421299232548863360370014813179668127",
+      "reference_correction_seconds": "0.0000034560027120257114",
+      "difference_seconds": "1.460002980111630296578700767451136639629985186820331873E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_equator_0_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.903863306680247006637675082622953206993517359997158989825610424564597E-7",
+      "reference_correction_seconds": "1.9038633066802291E-7",
+      "difference_seconds": "1.7906637675082622953206993517359997158989825610424564597E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_equator_0_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "2.038922815827045062336460966519147441163782659345693141321715680976424E-7",
+      "reference_correction_seconds": "2.0389228158270374E-7",
+      "difference_seconds": "7.662336460966519147441163782659345693141321715680976424E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_equator_0_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "2.175223976040037496770976857571391821021868975472306691410113978160448E-7",
+      "reference_correction_seconds": "2.1752239760400412E-7",
+      "difference_seconds": "3.703229023142428608178978131024527693308589886021839552E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_equator_1_10",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-06-21_equator_1_12",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-06-21_equator_1_14",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-06-21_equator_2_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.259409578606635442014147049073532385258580452991238295257911926128322E-7",
+      "reference_correction_seconds": "1.2594095786066182E-7",
+      "difference_seconds": "1.7242014147049073532385258580452991238295257911926128322E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_equator_2_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.125292903379873814701091914378483539561080500927489125036181692943437E-7",
+      "reference_correction_seconds": "1.1252929033798664E-7",
+      "difference_seconds": "7.414701091914378483539561080500927489125036181692943437E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_equator_2_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "9.913238159640210203192739164225868785263643059534938151330678566635975E-8",
+      "reference_correction_seconds": "9.9132381596403134E-8",
+      "difference_seconds": "1.03196807260835774131214736356940465061848669321433364025E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_equator_3_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006571393195368204518584799504854818962743630748980271004021762279389814",
+      "reference_correction_seconds": "0.0000065713931953682038",
+      "difference_seconds": "7.18584799504854818962743630748980271004021762279389814E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_equator_3_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006571472726444398510681478112212019489262095177587597407013835077453775",
+      "reference_correction_seconds": "0.0000065714727264443984",
+      "difference_seconds": "1.10681478112212019489262095177587597407013835077453775E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_equator_3_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006571639419319992993519266747720816855114569862848380783130048536348839",
+      "reference_correction_seconds": "0.0000065716394193199953",
+      "difference_seconds": "2.306480733252279183144885430137151619216869951463651161E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_equator_4_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-0.000004834900543034940815190827505559664620806547593593945389723406764123999",
+      "reference_correction_seconds": "-0.0000048349005430349444",
+      "difference_seconds": "3.584809172494440335379193452406406054610276593235876001E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_equator_4_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-0.000004834341100464325006970481399769523779123365095937884740025725798473440",
+      "reference_correction_seconds": "-0.0000048343411004643266",
+      "difference_seconds": "1.593029518600230476220876634904062115259974274201526560E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_equator_4_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-0.000004833621285219621928184059693596865466362884392240715931162974843625076",
+      "reference_correction_seconds": "-0.0000048336212852196219",
+      "difference_seconds": "2.8184059693596865466362884392240715931162974843625076E-23",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_equator_5_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000003456029225365674016525726697975198705059260671225207089133779303152693",
+      "reference_correction_seconds": "0.0000034560292253656748",
+      "difference_seconds": "7.83474273302024801294940739328774792910866220696847307E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_equator_5_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000003455931710781337445657219849232057080317656450368810261756053749851069",
+      "reference_correction_seconds": "0.0000034559317107813382",
+      "difference_seconds": "7.54342780150767942919682343549631189738243946250148931E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_equator_5_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000003455891240497573264640951824258869775216560088932122909047660058475026",
+      "reference_correction_seconds": "0.0000034558912404975732",
+      "difference_seconds": "6.4640951824258869775216560088932122909047660058475026E-23",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_paranal_0_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.912635568613249486697195547985724984455510465083673250301168983721451E-7",
+      "reference_correction_seconds": "1.9126355686132768E-7",
+      "difference_seconds": "2.7313302804452014275015544489534916326749698831016278549E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_paranal_0_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "2.047334884551257861069871939641283421105012734654899546407772303429353E-7",
+      "reference_correction_seconds": "2.0473348845512513E-7",
+      "difference_seconds": "6.561069871939641283421105012734654899546407772303429353E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_paranal_0_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "2.181198336613505647986393352428351913468899840863196217692320824697353E-7",
+      "reference_correction_seconds": "2.1811983366134938E-7",
+      "difference_seconds": "1.1847986393352428351913468899840863196217692320824697353E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_paranal_1_10",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-06-21_paranal_1_12",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-06-21_paranal_1_14",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-06-21_paranal_2_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.260862587359661869864066103927201758917194462269232004101919587558182E-7",
+      "reference_correction_seconds": "1.2608625873596953E-7",
+      "difference_seconds": "3.3430135933896072798241082805537730767995898080412441818E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_paranal_2_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.122531715546610925284042990062776514183639023739649755745724478280790E-7",
+      "reference_correction_seconds": "1.1225317155466115E-7",
+      "difference_seconds": "5.74715957009937223485816360976260350244254275521719210E-23",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_paranal_2_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "9.852706056323821620279964561670527410287773754878244494566639177276633E-8",
+      "reference_correction_seconds": "9.8527060563238011E-8",
+      "difference_seconds": "2.0520279964561670527410287773754878244494566639177276633E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_paranal_3_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006571912151446724831114425344857120808805260289240071946467860117624888",
+      "reference_correction_seconds": "0.0000065719121514467263",
+      "difference_seconds": "1.468885574655142879191194739710759928053532139882375112E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_paranal_3_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006571743023207233764947688545436934642676508102537419183793833596285095",
+      "reference_correction_seconds": "0.0000065717430232072359",
+      "difference_seconds": "2.135052311454563065357323491897462580816206166403714905E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_paranal_3_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006571597979081698866893434496661077154457748816995282220814975301885316",
+      "reference_correction_seconds": "0.0000065715979790817",
+      "difference_seconds": "1.133106565503338922845542251183004717779185024698114684E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_paranal_4_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-0.000004834324810230330141112901059687619622968866576043230404086254911627540",
+      "reference_correction_seconds": "-0.0000048343248102303265",
+      "difference_seconds": "3.641112901059687619622968866576043230404086254911627540E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_paranal_4_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-0.000004834137937053068489153249147486198110815196663287612770060075566121670",
+      "reference_correction_seconds": "-0.0000048341379370530673",
+      "difference_seconds": "1.189153249147486198110815196663287612770060075566121670E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_paranal_4_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-0.000004833890957624910229532033962566632018210847544112506167114862968276418",
+      "reference_correction_seconds": "-0.0000048338909576249144",
+      "difference_seconds": "4.170467966037433367981789152455887493832885137031723582E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_paranal_5_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000003456514424909336849444616055128548754145201788881376622925852010933509",
+      "reference_correction_seconds": "0.0000034565144249093395",
+      "difference_seconds": "2.650555383944871451245854798211118623377074147989066491E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_paranal_5_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000003456252200338258126330295280447909501238427680775145949072757524468203",
+      "reference_correction_seconds": "0.000003456252200338258",
+      "difference_seconds": "1.26330295280447909501238427680775145949072757524468203E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_paranal_5_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000003456007040893505242070683458574824747433003568533017775682733955779438",
+      "reference_correction_seconds": "0.000003456007040893506",
+      "difference_seconds": "7.57929316541425175252566996431466982224317266044220562E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_arctic_0_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.905502338152011776866938770537365699451630859450658968914437816772119E-7",
+      "reference_correction_seconds": "1.9055023381520004E-7",
+      "difference_seconds": "1.1376866938770537365699451630859450658968914437816772119E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_arctic_0_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "2.041698063048453108674394669643331653913640704001611345273201105754440E-7",
+      "reference_correction_seconds": "2.0416980630484554E-7",
+      "difference_seconds": "2.291325605330356668346086359295998388654726798894245560E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_arctic_0_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "2.177962696152506243551611067199025291268125700910532376173129264636829E-7",
+      "reference_correction_seconds": "2.1779626961525114E-7",
+      "difference_seconds": "5.156448388932800974708731874299089467623826870735363171E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_arctic_1_10",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-06-21_arctic_1_12",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-06-21_arctic_1_14",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-06-21_arctic_2_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.260644658415389110212644308543832731686986597778379559196427132584634E-7",
+      "reference_correction_seconds": "1.260644658415387E-7",
+      "difference_seconds": "2.110212644308543832731686986597778379559196427132584634E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_arctic_2_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.124394473223963874188318418328359622616618234414310646876818218490310E-7",
+      "reference_correction_seconds": "1.1243944732239552E-7",
+      "difference_seconds": "8.674188318418328359622616618234414310646876818218490310E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_arctic_2_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "9.880950495259701566111406131560375271787014255998272589554550853011842E-8",
+      "reference_correction_seconds": "9.8809504952597112E-8",
+      "difference_seconds": "9.633888593868439624728212985744001727410445449146988158E-23",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_arctic_3_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006571640993383855244331582820401275748066852849127096710777345844291641",
+      "reference_correction_seconds": "0.0000065716409933838565",
+      "difference_seconds": "1.255668417179598724251933147150872903289222654155708359E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_arctic_3_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006571666498312509638502327012675959320981217177198432752014894202156685",
+      "reference_correction_seconds": "0.0000065716664983125106",
+      "difference_seconds": "9.61497672987324040679018782822801567247985105797843315E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_arctic_3_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006571704636542263617811860389655795737526887562633307205731834675348058",
+      "reference_correction_seconds": "0.0000065717046365422624",
+      "difference_seconds": "1.217811860389655795737526887562633307205731834675348058E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_arctic_4_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-0.000004833992139169881129258879438514625823061019459213170545263150636502594",
+      "reference_correction_seconds": "-0.0000048339921391698828",
+      "difference_seconds": "1.670741120561485374176938980540786829454736849363497406E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_arctic_4_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-0.000004833510119158112881613381664499877410383613337231512977253036322209455",
+      "reference_correction_seconds": "-0.0000048335101191581143",
+      "difference_seconds": "1.418386618335500122589616386662768487022746963677790545E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_arctic_4_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-0.000004832982370890229151445045352214411382710355963830130102645358710709224",
+      "reference_correction_seconds": "-0.0000048329823708902303",
+      "difference_seconds": "1.148554954647785588617289644036169869897354641289290776E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_arctic_5_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000003455843418165592484164062574083032678958798342243931877630856722306729",
+      "reference_correction_seconds": "0.0000034558434181655934",
+      "difference_seconds": "9.15835937425916967321041201657756068122369143277693271E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_arctic_5_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000003455709023400660301427257257078861417793745058441552013786144393755543",
+      "reference_correction_seconds": "0.000003455709023400661",
+      "difference_seconds": "6.98572742742921138582206254941558447986213855606244457E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-06-21_arctic_5_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000003455583319495800817689122088696156381508221877084482875417897541837476",
+      "reference_correction_seconds": "0.0000034555833194958016",
+      "difference_seconds": "7.82310877911303843618491778122915517124582102458162524E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_tokyo_0_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006863715258065152172659082876027416922028618223716071897692950481188216",
+      "reference_correction_seconds": "0.000006863715258065153",
+      "difference_seconds": "8.27340917123972583077971381776283928102307049518811784E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_tokyo_0_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006863683623834466791340360154848694528521974907869108211921520220812443",
+      "reference_correction_seconds": "0.0000068636836238344685",
+      "difference_seconds": "1.708659639845151305471478025092130891788078479779187557E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_tokyo_0_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006863570570116200206238835409854603479344951061397861255698968530108196",
+      "reference_correction_seconds": "0.0000068635705701162015",
+      "difference_seconds": "1.293761164590145396520655048938602138744301031469891804E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_tokyo_1_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-3.588580306238290181708722138605569941781868810441414054192923571452145E-8",
+      "reference_correction_seconds": "-3.5885803062382773E-8",
+      "difference_seconds": "1.2881708722138605569941781868810441414054192923571452145E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_tokyo_1_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.291891269088760023971009785077083972711517066138874076305241808687346E-8",
+      "reference_correction_seconds": "-2.2918912690888478E-8",
+      "difference_seconds": "8.7776028990214922916027288482933861125923694758191312654E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_tokyo_1_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-9.982886138462601636171889256196493920118388411022048275047733369843655E-9",
+      "reference_correction_seconds": "-9.9828861384629233E-9",
+      "difference_seconds": "3.21663828110743803506079881611588977951724952266630156345E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_tokyo_2_10",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-09-22_tokyo_2_12",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-09-22_tokyo_2_14",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-09-22_tokyo_3_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.067451081342290501301324988507805939551090333836388392948989074138134E-7",
+      "reference_correction_seconds": "1.0674510813422885E-7",
+      "difference_seconds": "2.001301324988507805939551090333836388392948989074138134E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_tokyo_3_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "9.378452144970240281211107218270413763867853265839938782974477598955877E-8",
+      "reference_correction_seconds": "9.3784521449701874E-8",
+      "difference_seconds": "5.2881211107218270413763867853265839938782974477598955877E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_tokyo_3_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "8.067831732983918075166707091332394962492049008719359267852663474334259E-8",
+      "reference_correction_seconds": "8.067831732983835E-8",
+      "difference_seconds": "8.3075166707091332394962492049008719359267852663474334259E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_tokyo_4_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.759884551453163715036666257138135635282906890193192133293732014243410E-7",
+      "reference_correction_seconds": "1.7598845514531619E-7",
+      "difference_seconds": "1.815036666257138135635282906890193192133293732014243410E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_tokyo_4_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.814003115529630736782752992742524252850428102365227826898280007623340E-7",
+      "reference_correction_seconds": "1.814003115529621E-7",
+      "difference_seconds": "9.736782752992742524252850428102365227826898280007623340E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_tokyo_4_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.867375366504654757178274894831655438303958693295602073361194483186054E-7",
+      "reference_correction_seconds": "1.8673753665046503E-7",
+      "difference_seconds": "4.457178274894831655438303958693295602073361194483186054E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_tokyo_5_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.066399815631905986233721861985832467928741534049008425341878815357794E-7",
+      "reference_correction_seconds": "-1.0663998156319061E-7",
+      "difference_seconds": "1.13766278138014167532071258465950991574658121184642206E-23",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_tokyo_5_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.123792813340408819591573943642628454342189363260974599298050944939430E-7",
+      "reference_correction_seconds": "-1.1237928133404031E-7",
+      "difference_seconds": "5.719591573943642628454342189363260974599298050944939430E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_tokyo_5_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.181931495757508121734662508323711106666259390857203718021845174702233E-7",
+      "reference_correction_seconds": "-1.1819314957575051E-7",
+      "difference_seconds": "3.021734662508323711106666259390857203718021845174702233E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_equator_0_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006863173100492681249087197528956812435920792617098158455891353665559436",
+      "reference_correction_seconds": "0.0000068631731004926835",
+      "difference_seconds": "2.250912802471043187564079207382901841544108646334440564E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_equator_0_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006863061483917205203663809454245527869856651843234760811622939436741132",
+      "reference_correction_seconds": "0.0000068630614839172059",
+      "difference_seconds": "6.96336190545754472130143348156765239188377060563258868E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_equator_0_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006863035563955565975616877555090060442282753777654700637230868624539051",
+      "reference_correction_seconds": "0.0000068630355639555664",
+      "difference_seconds": "4.24383122444909939557717246222345299362769131375460949E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_equator_1_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-3.612340604122184922910119896076938273400552364689683813724674194599127E-8",
+      "reference_correction_seconds": "-3.6123406041221708E-8",
+      "difference_seconds": "1.4122910119896076938273400552364689683813724674194599127E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_equator_1_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.354991057986284115482894450424511066537268965479160147532505453298864E-8",
+      "reference_correction_seconds": "-2.3549910579863599E-8",
+      "difference_seconds": "7.5784517105549575488933462731034520839852467494546701136E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_equator_1_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.083730107804754270377384727606979987220770868412098157135653684281713E-8",
+      "reference_correction_seconds": "-1.0837301078047324E-8",
+      "difference_seconds": "2.1870377384727606979987220770868412098157135653684281713E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_equator_2_10",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-09-22_equator_2_12",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-09-22_equator_2_14",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-09-22_equator_3_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.059013440865511129125654939638458250258146553696512627418219134064012E-7",
+      "reference_correction_seconds": "1.0590134408655007E-7",
+      "difference_seconds": "1.0429125654939638458250258146553696512627418219134064012E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_equator_3_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "9.317180567051983738395281806637959494768124132905081281303556580171086E-8",
+      "reference_correction_seconds": "9.3171805670518987E-8",
+      "difference_seconds": "8.5038395281806637959494768124132905081281303556580171086E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_equator_3_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "8.046172953733272866813537478484849958941546846190604732365189707709368E-8",
+      "reference_correction_seconds": "8.046172953733366E-8",
+      "difference_seconds": "9.3133186462521515150041058453153809395267634810292290632E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_equator_4_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.752059606415288250256425523509756596276165278533255409578234146757864E-7",
+      "reference_correction_seconds": "1.7520596064152833E-7",
+      "difference_seconds": "4.950256425523509756596276165278533255409578234146757864E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_equator_4_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.805392893901044097265377849720838487684481700363390082137637399776628E-7",
+      "reference_correction_seconds": "1.8053928939010406E-7",
+      "difference_seconds": "3.497265377849720838487684481700363390082137637399776628E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_equator_4_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.859647233563646405887504574858196091768259958190882278717862391712095E-7",
+      "reference_correction_seconds": "1.8596472335636483E-7",
+      "difference_seconds": "1.894112495425141803908231740041809117721282137608287905E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_equator_5_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.069362646237929698330635943208164906514321420092572930207657567598074E-7",
+      "reference_correction_seconds": "-1.0693626462379238E-7",
+      "difference_seconds": "5.898330635943208164906514321420092572930207657567598074E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_equator_5_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.127546290804342420109789476856211927901670598508059318984205976181620E-7",
+      "reference_correction_seconds": "-1.1275462908043452E-7",
+      "difference_seconds": "2.779890210523143788072098329401491940681015794023818380E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_equator_5_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.184808927189236047035504605977204122505720606021092805894148591736644E-7",
+      "reference_correction_seconds": "-1.1848089271892388E-7",
+      "difference_seconds": "2.752964495394022795877494279393978907194105851408263356E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_paranal_0_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006863649241953233976311648587565451232587385907498213762992571715351065",
+      "reference_correction_seconds": "0.0000068636492419532348",
+      "difference_seconds": "8.23688351412434548767412614092501786237007428284648935E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_paranal_0_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006863279112340970627796163169541165441499928150656660266147445432980117",
+      "reference_correction_seconds": "0.0000068632791123409719",
+      "difference_seconds": "1.272203836830458834558500071849343339733852554567019883E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_paranal_0_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006862936127659729265313821984541695974758545301055587364274718376301411",
+      "reference_correction_seconds": "0.0000068629361276597297",
+      "difference_seconds": "4.34686178015458304025241454698944412635725281623698589E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_paranal_1_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-3.525546442929515034163235823644349932100253666592473653072498445093270E-8",
+      "reference_correction_seconds": "-3.5255464429295246E-8",
+      "difference_seconds": "9.565836764176355650067899746333407526346927501554906730E-23",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_paranal_1_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.275501588899210743050255953086196005947268165637802223159981537534144E-8",
+      "reference_correction_seconds": "-2.2755015888992196E-8",
+      "difference_seconds": "8.856949744046913803994052731834362197776840018462465856E-23",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_paranal_1_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.032884395412623304040826053545021047627285572441879387885127950045648E-8",
+      "reference_correction_seconds": "-1.0328843954126242E-8",
+      "difference_seconds": "8.95959173946454978952372714427558120612114872049954352E-24",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_paranal_2_10",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-09-22_paranal_2_12",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-09-22_paranal_2_14",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-09-22_paranal_3_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.059890336445416889306593852944403774531491805724783336016094959933735E-7",
+      "reference_correction_seconds": "1.0598903364454237E-7",
+      "difference_seconds": "6.810693406147055596225468508194275216663983905040066265E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_paranal_3_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "9.281600620659069500410278853021060731977618050405040609697737760109826E-8",
+      "reference_correction_seconds": "9.2816006206590685E-8",
+      "difference_seconds": "1.000410278853021060731977618050405040609697737760109826E-23",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_paranal_3_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "7.975753938368033089405537996532511523847073996700109238098942047572703E-8",
+      "reference_correction_seconds": "7.9757539383679601E-8",
+      "difference_seconds": "7.2989405537996532511523847073996700109238098942047572703E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_paranal_4_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.755104146670197964289530142643685917702021087083666286681018758783717E-7",
+      "reference_correction_seconds": "1.755104146670186E-7",
+      "difference_seconds": "1.1964289530142643685917702021087083666286681018758783717E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_paranal_4_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.805846709881147997517124566102926688120664800893994511274920261925373E-7",
+      "reference_correction_seconds": "1.8058467098811422E-7",
+      "difference_seconds": "5.797517124566102926688120664800893994511274920261925373E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_paranal_4_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.856933747163418188688852463422760641872291899265232118463630377409058E-7",
+      "reference_correction_seconds": "1.8569337471634095E-7",
+      "difference_seconds": "8.688688852463422760641872291899265232118463630377409058E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_paranal_5_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.062857440308746237707307519464542486611286768616808266076183681263597E-7",
+      "reference_correction_seconds": "-1.0628574403087513E-7",
+      "difference_seconds": "5.062292692480535457513388713231383191733923816318736403E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_paranal_5_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.123625410824219171354157998421463796525370600362802167220917025202589E-7",
+      "reference_correction_seconds": "-1.1236254108242153E-7",
+      "difference_seconds": "3.871354157998421463796525370600362802167220917025202589E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_paranal_5_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.184055046760212677326165909503112295879714665158117484657952969062332E-7",
+      "reference_correction_seconds": "-1.1840550467602125E-7",
+      "difference_seconds": "1.77326165909503112295879714665158117484657952969062332E-23",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_arctic_0_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006863508176118782088841907761504966754745926422123897289432232907289887",
+      "reference_correction_seconds": "0.0000068635081761187833",
+      "difference_seconds": "1.211158092238495033245254073577876102710567767092710113E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_arctic_0_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006863336235509801882687468253533391541270709282517865734246652496228966",
+      "reference_correction_seconds": "0.0000068633362355098014",
+      "difference_seconds": "4.82687468253533391541270709282517865734246652496228966E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_arctic_0_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006863176275523958707376579688519962229833002295440558601810466405693757",
+      "reference_correction_seconds": "0.0000068631762755239604",
+      "difference_seconds": "1.692623420311480037770166997704559441398189533594306243E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_arctic_1_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-3.575673839716721967609052450985450679666307382145688894109958832546284E-8",
+      "reference_correction_seconds": "-3.5756738397167426E-8",
+      "difference_seconds": "2.0632390947549014549320333692617854311105890041167453716E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_arctic_1_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.307993519954450514358695715472350989868501689593804969832174220341590E-8",
+      "reference_correction_seconds": "-2.3079935199544E-8",
+      "difference_seconds": "5.0514358695715472350989868501689593804969832174220341590E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_arctic_1_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.039038370500512057267111987959954934179964986191901054979047563160785E-8",
+      "reference_correction_seconds": "-1.0390383705004993E-8",
+      "difference_seconds": "1.2757267111987959954934179964986191901054979047563160785E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_arctic_2_10",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-09-22_arctic_2_12",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-09-22_arctic_2_14",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-09-22_arctic_3_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.062037878060679052209933874583746919400338336572997684721284994947716E-7",
+      "reference_correction_seconds": "1.0620378780606687E-7",
+      "difference_seconds": "1.0352209933874583746919400338336572997684721284994947716E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_arctic_3_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "9.325144810984414422929938963113856760405499117623859485272104525113341E-8",
+      "reference_correction_seconds": "9.3251448109844162E-8",
+      "difference_seconds": "1.777070061036886143239594500882376140514727895474886659E-23",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_arctic_3_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "8.029683967790722262714792173637218036619225171335492277447687343951033E-8",
+      "reference_correction_seconds": "8.0296839677907724E-8",
+      "difference_seconds": "5.0137285207826362781963380774828664507722552312656048967E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_arctic_4_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.759429665126081199488006473446667473798040451167419826193730328272809E-7",
+      "reference_correction_seconds": "1.7594296651260826E-7",
+      "difference_seconds": "1.400511993526553332526201959548832580173806269671727191E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_arctic_4_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.812152175363558457255968698513050624071570368712459851630757737391372E-7",
+      "reference_correction_seconds": "1.812152175363552E-7",
+      "difference_seconds": "6.457255968698513050624071570368712459851630757737391372E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_arctic_4_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "1.865062777897563018021826043050753320956368302310510334451617302437617E-7",
+      "reference_correction_seconds": "1.8650627778975699E-7",
+      "difference_seconds": "6.881978173956949246679043631697689489665548382697562383E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_arctic_5_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.070163391368473218391858230618069926955589253462522134317805704219023E-7",
+      "reference_correction_seconds": "-1.0701633913684778E-7",
+      "difference_seconds": "4.581608141769381930073044410746537477865682194295780977E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_arctic_5_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.128954221633178195443031557026754551509077190378663558102638992787957E-7",
+      "reference_correction_seconds": "-1.1289542216331897E-7",
+      "difference_seconds": "1.1504556968442973245448490922809621336441897361007212043E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-09-22_arctic_5_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.187558787848473949812482262317735780878698941941295884777077422076867E-7",
+      "reference_correction_seconds": "-1.1875587878484759E-7",
+      "difference_seconds": "1.950187517737682264219121301058058704115222922577923133E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_tokyo_0_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.070476933975881519879482157363520260067684130021606090347449806427515E-7",
+      "reference_correction_seconds": "-1.0704769339758869E-7",
+      "difference_seconds": "5.380120517842636479739932315869978393909652550193572485E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_tokyo_0_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.215844392652423625899745261248446334714749299309395334602257366475726E-7",
+      "reference_correction_seconds": "-1.215844392652432E-7",
+      "difference_seconds": "8.374100254738751553665285250700690604665397742633524274E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_tokyo_0_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.362678477765059634813326607990482496879812477987181786360835502484331E-7",
+      "reference_correction_seconds": "-1.362678477765064E-7",
+      "difference_seconds": "4.365186673392009517503120187522012818213639164497515669E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_tokyo_1_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006251731154705206333289538878297415598522196127245455787968035493644653",
+      "reference_correction_seconds": "0.0000062517311547052065",
+      "difference_seconds": "1.66710461121702584401477803872754544212031964506355347E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_tokyo_1_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006251861867448910385053922063338772325439230258735502237684977444687520",
+      "reference_correction_seconds": "0.0000062518618674489097",
+      "difference_seconds": "6.85053922063338772325439230258735502237684977444687520E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_tokyo_1_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006251911197182502353727974855331363892657165236049326867283487159563318",
+      "reference_correction_seconds": "0.0000062519111971825043",
+      "difference_seconds": "1.946272025144668636107342834763950673132716512840436682E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_tokyo_2_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.160398140531303783711399794047949192904061090393933781387297787559715E-7",
+      "reference_correction_seconds": "-2.1603981405313097E-7",
+      "difference_seconds": "5.916288600205952050807095938909606066218612702212440285E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_tokyo_2_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.011923788808943729342475818867553199217544023919184255625716178843791E-7",
+      "reference_correction_seconds": "-2.0119237888089474E-7",
+      "difference_seconds": "3.670657524181132446800782455976080815744374283821156209E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_tokyo_2_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.863718830229153179926031414795372709888048864871474629224350475829253E-7",
+      "reference_correction_seconds": "-1.8637188302291496E-7",
+      "difference_seconds": "3.579926031414795372709888048864871474629224350475829253E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_tokyo_3_10",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-12-21_tokyo_3_12",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-12-21_tokyo_3_14",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-12-21_tokyo_4_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000003137493038323510309130361298389187449525537419065558027992970953823287",
+      "reference_correction_seconds": "0.0000031374930383235107",
+      "difference_seconds": "3.90869638701610812550474462580934441972007029046176713E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_tokyo_4_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000003137376528334265422576294462871018481560546708976023619781730308296191",
+      "reference_correction_seconds": "0.0000031373765283342653",
+      "difference_seconds": "1.22576294462871018481560546708976023619781730308296191E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_tokyo_4_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000003137206795284006224243191126961891451507604275736009512194883886251790",
+      "reference_correction_seconds": "0.0000031372067952840059",
+      "difference_seconds": "3.24243191126961891451507604275736009512194883886251790E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_tokyo_5_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-0.000005157000289116362885350201588397044280819902786250653971907302613702691",
+      "reference_correction_seconds": "-0.0000051570002891163633",
+      "difference_seconds": "4.14649798411602955719180097213749346028092697386297309E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_tokyo_5_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-0.000005156447521125523664722033479326331452595543577700595757944129232697604",
+      "reference_correction_seconds": "-0.0000051564475211255229",
+      "difference_seconds": "7.64722033479326331452595543577700595757944129232697604E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_tokyo_5_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-0.000005155987253212546477090969066587287048868009965479640574317397829391350",
+      "reference_correction_seconds": "-0.0000051559872532125482",
+      "difference_seconds": "1.722909030933412712951131990034520359425682602170608650E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_equator_0_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.079683969415090977280299916737021691635673433276257315220300821242514E-7",
+      "reference_correction_seconds": "-1.0796839694150894E-7",
+      "difference_seconds": "1.577280299916737021691635673433276257315220300821242514E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_equator_0_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.222716191677113185791221492376902512394092673880054208189996225175481E-7",
+      "reference_correction_seconds": "-1.2227161916771098E-7",
+      "difference_seconds": "3.385791221492376902512394092673880054208189996225175481E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_equator_0_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.365629958202053741063331733722193389094023426972299239391434654784198E-7",
+      "reference_correction_seconds": "-1.3656299582020573E-7",
+      "difference_seconds": "3.558936668266277806610905976573027700760608565345215802E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_equator_1_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006251134457285378625196736599161108850062725980452617788813501336421908",
+      "reference_correction_seconds": "0.0000062511344572853791",
+      "difference_seconds": "4.74803263400838891149937274019547382211186498663578092E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_equator_1_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006251176081788312987061284337074710949670893868390172034243171337542186",
+      "reference_correction_seconds": "0.0000062511760817883144",
+      "difference_seconds": "1.412938715662925289050329106131609827965756828662457814E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_equator_1_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006251306735453649308187314424091475633755078263868142154320655240113799",
+      "reference_correction_seconds": "0.0000062513067354536507",
+      "difference_seconds": "1.391812685575908524366244921736131857845679344759886201E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_equator_2_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.163147329985404804885208734360078175010284981923008281523403728109658E-7",
+      "reference_correction_seconds": "-2.1631473299854173E-7",
+      "difference_seconds": "1.2495114791265639921824989715018076991718476596271890342E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_equator_2_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.018662942461459800188543179066443222885560861851151256688480285586974E-7",
+      "reference_correction_seconds": "-2.0186629424614639E-7",
+      "difference_seconds": "4.099811456820933556777114439138148848743311519714413026E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_equator_2_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.872897112088156714275232906114044409075147815482360616771077250467149E-7",
+      "reference_correction_seconds": "-1.8728971120881532E-7",
+      "difference_seconds": "3.514275232906114044409075147815482360616771077250467149E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_equator_3_10",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-12-21_equator_3_12",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-12-21_equator_3_14",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-12-21_equator_4_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000003136883458535291389297234347088961605692320282556689663876226392112744",
+      "reference_correction_seconds": "0.0000031368834585352913",
+      "difference_seconds": "8.9297234347088961605692320282556689663876226392112744E-23",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_equator_4_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000003136712408122643668952145354255096720905975259290421226903560273926325",
+      "reference_correction_seconds": "0.000003136712408122645",
+      "difference_seconds": "1.331047854645744903279094024740709578773096439726073675E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_equator_4_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000003136599667432581064623959842062841621985123344868941486672808976436971",
+      "reference_correction_seconds": "0.0000031365996674325805",
+      "difference_seconds": "5.64623959842062841621985123344868941486672808976436971E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_equator_5_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-0.000005157576700161919568457527951214245189310891344258920718504976543628768",
+      "reference_correction_seconds": "-0.0000051575767001619207",
+      "difference_seconds": "1.131542472048785754810689108655741079281495023456371232E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_equator_5_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-0.000005157166283249278226988195537801133457429997619462505632683245009205604",
+      "reference_correction_seconds": "-0.0000051571662832492802",
+      "difference_seconds": "1.973011804462198866542570002380537494367316754990794396E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_equator_5_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-0.000005156589611147721323438702380420557606805338889722015756413556494825716",
+      "reference_correction_seconds": "-0.0000051565896111477213",
+      "difference_seconds": "2.3438702380420557606805338889722015756413556494825716E-23",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_paranal_0_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.079691369553942394327767398682864381012249639720306534647218502584564E-7",
+      "reference_correction_seconds": "-1.0796913695539388E-7",
+      "difference_seconds": "3.594327767398682864381012249639720306534647218502584564E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_paranal_0_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.227053278182681613895926417936321358727467304806302879465480482512441E-7",
+      "reference_correction_seconds": "-1.2270532781826674E-7",
+      "difference_seconds": "1.4213895926417936321358727467304806302879465480482512441E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_paranal_0_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.373326170919020753206389956602638438444054986446367864121030943993956E-7",
+      "reference_correction_seconds": "-1.3733261709190224E-7",
+      "difference_seconds": "1.646793610043397361561555945013553632135878969056006044E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_paranal_1_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006251592974812737106618397439313257168737284052827788661438064400852429",
+      "reference_correction_seconds": "0.0000062515929748127388",
+      "difference_seconds": "1.693381602560686742831262715947172211338561935599147571E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_paranal_1_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006251375583328748550739139806242221863560163078854777737279176382962946",
+      "reference_correction_seconds": "0.0000062513755833287505",
+      "difference_seconds": "1.949260860193757778136439836921145222262720823617037054E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_paranal_1_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006251183767769484802785090246115490959011279327568536154736553459509077",
+      "reference_correction_seconds": "0.000006251183767769485",
+      "difference_seconds": "1.97214909753884509040988720672431463845263446540490923E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_paranal_2_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.155435907634599802307864293371129110912812000033861971613601843208879E-7",
+      "reference_correction_seconds": "-2.1554359076346042E-7",
+      "difference_seconds": "4.397692135706628870889087187999966138028386398156791121E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_paranal_2_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.011370726634293600059792706009555166880773009646298688245936384240953E-7",
+      "reference_correction_seconds": "-2.0113707266342858E-7",
+      "difference_seconds": "7.800059792706009555166880773009646298688245936384240953E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_paranal_2_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.868169852510645747028928673136266714748688328149552458616097684632364E-7",
+      "reference_correction_seconds": "-1.8681698525106448E-7",
+      "difference_seconds": "9.47028928673136266714748688328149552458616097684632364E-23",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_paranal_3_10",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-12-21_paranal_3_12",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-12-21_paranal_3_14",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-12-21_paranal_4_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000003137026850011631295058841867966000031160553000806186218225734869593466",
+      "reference_correction_seconds": "0.0000031370268500116323",
+      "difference_seconds": "1.004941158132033999968839446999193813781774265130406534E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_paranal_4_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000003136683654484670614858021410639855277607230225672562449643266738233091",
+      "reference_correction_seconds": "0.0000031366836544846716",
+      "difference_seconds": "9.85141978589360144722392769774327437550356733261766909E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_paranal_4_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000003136359100347389705236522548707677661162565733179809831473871990521312",
+      "reference_correction_seconds": "0.0000031363591003473907",
+      "difference_seconds": "9.94763477451292322338837434266820190168526128009478688E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_paranal_5_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-0.000005156637307374879067344279712125101326616518503158302145557392887037199",
+      "reference_correction_seconds": "-0.0000051566373073748822",
+      "difference_seconds": "3.132655720287874898673383481496841697854442607112962801E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_paranal_5_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-0.000005156616628805334262174187975944785456217165035473104875874983889863744",
+      "reference_correction_seconds": "-0.0000051566166288053323",
+      "difference_seconds": "1.962174187975944785456217165035473104875874983889863744E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_paranal_5_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-0.000005156529527303069583414661841203957021051677231038561632498520856655767",
+      "reference_correction_seconds": "-0.0000051565295273030732",
+      "difference_seconds": "3.616585338158796042978948322768961438367501479143344233E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_arctic_0_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.075129101633612989353061024630827937942719931626555718489773476091333E-7",
+      "reference_correction_seconds": "-1.0751291016336257E-7",
+      "difference_seconds": "1.2710646938975369172062057280068373444281510226523908667E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_arctic_0_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.220362062480126476204533653625442827750794755964073197401906182878529E-7",
+      "reference_correction_seconds": "-1.2203620624801241E-7",
+      "difference_seconds": "2.376204533653625442827750794755964073197401906182878529E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_arctic_0_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.365666059168441481062250228387125682235485558973506032998745008913284E-7",
+      "reference_correction_seconds": "-1.3656660591684297E-7",
+      "difference_seconds": "1.1781062250228387125682235485558973506032998745008913284E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_arctic_1_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006251563016801851403033194298557799148071222129995868649253746818190211",
+      "reference_correction_seconds": "0.000006251563016801854",
+      "difference_seconds": "2.596966805701442200851928777870004131350746253181809789E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_arctic_1_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006251546991341446142873555263671192861718082219002559398317847385354670",
+      "reference_correction_seconds": "0.0000062515469913414467",
+      "difference_seconds": "5.57126444736328807138281917780997440601682152614645330E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_arctic_1_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000006251543572830778535012160464879417540628380382981868385659555353881711",
+      "reference_correction_seconds": "0.0000062515435728307795",
+      "difference_seconds": "9.64987839535120582459371619617018131614340444646118289E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_arctic_2_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.158108781942094714670408437718385546678483292989105151830201730697928E-7",
+      "reference_correction_seconds": "-2.1581087819420828E-7",
+      "difference_seconds": "1.1914670408437718385546678483292989105151830201730697928E-21",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_arctic_2_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-2.012473704374771368912532457688878705454109966999342997109376832662675E-7",
+      "reference_correction_seconds": "-2.0124737043747732E-7",
+      "difference_seconds": "1.831087467542311121294545890033000657002890623167337325E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_arctic_2_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-1.866776531571114192499611597990346577638435303346444761549758688505440E-7",
+      "reference_correction_seconds": "-1.8667765315711152E-7",
+      "difference_seconds": "1.007500388402009653422361564696653555238450241311494560E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_arctic_3_10",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-12-21_arctic_3_12",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-12-21_arctic_3_14",
+      "cohort": "historical",
+      "status": "excluded",
+      "reasons": [
+        "solar_elongation_outside_component_domain"
+      ],
+      "difference_seconds": null
+    },
+    {
+      "id": "2024-12-21_arctic_4_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000003137524221305324103137967052163342841892163131134009333253467371018345",
+      "reference_correction_seconds": "0.0000031375242213053237",
+      "difference_seconds": "4.03137967052163342841892163131134009333253467371018345E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_arctic_4_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000003137313352903543104278490633091186515682567729529694949439516392461175",
+      "reference_correction_seconds": "0.0000031373133529035438",
+      "difference_seconds": "6.95721509366908813484317432270470305050560483607538825E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_arctic_4_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "0.000003137111397355928783070976023217040087340531712860925815158165988168950",
+      "reference_correction_seconds": "0.0000031371113973559293",
+      "difference_seconds": "5.16929023976782959912659468287139074184841834011831050E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_arctic_5_10",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-0.000005157471373765214924623761129373699343446778339442262899611793775805906",
+      "reference_correction_seconds": "-0.0000051574713737652142",
+      "difference_seconds": "7.24623761129373699343446778339442262899611793775805906E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_arctic_5_12",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-0.000005157145002474075964754987122234448188115181120109887601600907818622791",
+      "reference_correction_seconds": "-0.0000051571450024740764",
+      "difference_seconds": "4.35245012877765551811884818879890112398399092181377209E-22",
+      "passed": true
+    },
+    {
+      "id": "2024-12-21_arctic_5_14",
+      "cohort": "historical",
+      "status": "compared",
+      "correction_seconds": "-0.000005156769576896677842554392171821480520578232079961849492568953238312219",
+      "reference_correction_seconds": "-0.0000051567695768966793",
+      "difference_seconds": "1.457445607828178519479421767920038150507431046761687781E-21",
+      "passed": true
+    }
+  ],
+  "manifest_sha256": "416188065b985415c0f6e560eae138910e2d0a1dd39c504f6a1b013a9bdee454",
+  "implementation_sha256": "b15e5f520007a50a671946cf03595ca461668179367de7f5cbc0dba57bed4e19",
+  "environment": {
+    "python": "3.12.14",
+    "numeric_engine": "stdlib Decimal, 70 digits",
+    "network": "socket connections blocked",
+    "astronomy_imports_required": false
+  },
+  "implementation_commit": "37ce0ea036727b1c280ba4c95af06c38a6e18716",
+  "checkout_commit": "37ce0ea036727b1c280ba4c95af06c38a6e18716",
+  "working_tree_dirty": false
+}
