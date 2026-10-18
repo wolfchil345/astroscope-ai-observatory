@@ -180,7 +180,7 @@ regression also uses the same clock backend and is not independent accuracy evid
 
 The full local suite passed **3,107 tests in 122.05 seconds**. The 46 affected
 tests were rerun after the final fixture provenance update. Ruff, compilation,
-14 frozen historical input hashes and 33 relative documentation links passed.
+14 frozen historical input hashes and 34 relative documentation links passed.
 The local test environment used Python 3.12.14, Astropy 8.0.1, NumPy 2.5.3 and
 Streamlit 1.66.0; the separate reference environment is listed above.
 The [canonical audit record](../../../validation/results/clock_reference_reference_run.json)
@@ -189,6 +189,10 @@ It retains the negative qualification outcome, 48 diagnostic rows and all 288
 blocked combined cases. Later documentation/evidence commits are separate.
 The seven prior scientific benchmarks and both prior audits remain intact; a
 new tenth CI artifact retains this unsuccessful qualification audit.
+
+Delivery is tracked in [PR #41](https://github.com/wolfchil345/astroscope-ai-observatory/pull/41).
+The PR description records final published-head CI and artifact verification
+after completion; these checks are required before merge.
 
 ## Sources and next gate
 

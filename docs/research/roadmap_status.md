@@ -28,7 +28,7 @@
 - Mission 38: Complete — Observer-Arrival Reference Protocol and Conversion Validation, merged in [PR #38](https://github.com/wolfchil345/astroscope-ai-observatory/pull/38) (`9012c675b509f49df61a1ec83b7a330dd5efe99d`); research-only geometric inversion and historical TAI/UTC evidence, no production eligibility
 - Mission 39: Complete — Observer-Arrival Error Budget and Resolved-Event Contract, merged in [PR #39](https://github.com/wolfchil345/astroscope-ai-observatory/pull/39) (`eaf3e22b8fb819ef37e0f803595de5330d21e0c7`); physical timing bound remains unknown
 - Mission 40: Complete — Observer-Arrival Source Convention and Reference-Domain Qualification, merged in [PR #40](https://github.com/wolfchil345/astroscope-ai-observatory/pull/40); selected research convention and supplied-input solar component comparison only, full timing reference unqualified
-- Mission 41: Active — Matched-Convention Observer-Arrival Reference Validation; unsuccessful independent clock qualification retained, combined evaluation blocked
+- Mission 41: Active — Matched-Convention Observer-Arrival Reference Validation, [PR #41](https://github.com/wolfchil345/astroscope-ai-observatory/pull/41); unsuccessful independent clock qualification retained, combined evaluation blocked
 - Proposed next: Mission 42 — Independent Time-Ephemeris Reference Acquisition and Clock Mapping; not started, pending Mission 41 review and merge
 
 ## Phase Progress
@@ -357,7 +357,7 @@
 - [x] Add 46 tests, including live algorithm regression and rejection of false independence
 - [x] Reproduce the archived fixture byte-for-byte offline; preserve all historical records and gates
 - [x] Complete full local quality gate: 3,107 tests passed in 122.05 seconds; retain clean canonical evidence
-- [ ] Open pull request and verify published-head CI with ten artifacts
+- [x] Open pull request — [PR #41](https://github.com/wolfchil345/astroscope-ai-observatory/pull/41); published-head CI and ten artifacts are required before merge, with the verified final run recorded in the PR
 - [ ] Merge Mission 41
 
 ## Phase 2 Deliverables
