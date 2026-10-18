@@ -207,3 +207,19 @@ jobs:
           name: clock-reference-qualification-record
           path: ${{ runner.temp }}/clock_reference_reference_run.json
           if-no-files-found: error
+
+      - name: Audit integrated time-ephemeris clock mapping
+        env:
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          python -m validation.time_ephemeris \
+            --output "$RUNNER_TEMP/time_ephemeris_reference_run.json"
+
+      - name: Upload time-ephemeris clock-mapping audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: time-ephemeris-clock-mapping-record
+          path: ${{ runner.temp }}/time_ephemeris_reference_run.json
+          if-no-files-found: error

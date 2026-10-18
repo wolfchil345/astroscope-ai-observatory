@@ -28,8 +28,9 @@
 - Mission 38: Complete — Observer-Arrival Reference Protocol and Conversion Validation, merged in [PR #38](https://github.com/wolfchil345/astroscope-ai-observatory/pull/38) (`9012c675b509f49df61a1ec83b7a330dd5efe99d`); research-only geometric inversion and historical TAI/UTC evidence, no production eligibility
 - Mission 39: Complete — Observer-Arrival Error Budget and Resolved-Event Contract, merged in [PR #39](https://github.com/wolfchil345/astroscope-ai-observatory/pull/39) (`eaf3e22b8fb819ef37e0f803595de5330d21e0c7`); physical timing bound remains unknown
 - Mission 40: Complete — Observer-Arrival Source Convention and Reference-Domain Qualification, merged in [PR #40](https://github.com/wolfchil345/astroscope-ai-observatory/pull/40); selected research convention and supplied-input solar component comparison only, full timing reference unqualified
-- Mission 41: Active — Matched-Convention Observer-Arrival Reference Validation, [PR #41](https://github.com/wolfchil345/astroscope-ai-observatory/pull/41); unsuccessful independent clock qualification retained, combined evaluation blocked
-- Proposed next: Mission 42 — Independent Time-Ephemeris Reference Acquisition and Clock Mapping; not started, pending Mission 41 review and merge
+- Mission 41: Complete — Matched-Convention Observer-Arrival Reference Validation, merged in [PR #41](https://github.com/wolfchil345/astroscope-ai-observatory/pull/41) (`fc959a380a920c7798185f3991bc5ca5404382ad`); unsuccessful independent clock qualification retained
+- Mission 42: Active — Independent Time-Ephemeris Reference Acquisition and Clock Mapping; integrated geocentric reference evaluated, site-clock and combined qualification remain blocked
+- Proposed next: Mission 43 — Independent Site-Clock Mapping and Uncertainty Qualification; not started, pending Mission 42 review and merge
 
 ## Phase Progress
 
@@ -358,9 +359,27 @@
 - [x] Reproduce the archived fixture byte-for-byte offline; preserve all historical records and gates
 - [x] Complete full local quality gate: 3,107 tests passed in 122.05 seconds; retain clean canonical evidence
 - [x] Open pull request — [PR #41](https://github.com/wolfchil345/astroscope-ai-observatory/pull/41); published-head CI and ten artifacts are required before merge, with the verified final run recorded in the PR
-- [ ] Merge Mission 41
+- [x] Merge Mission 41 — PR #41, 2026-10-18 at 07:48:24 UTC (`fc959a380a920c7798185f3991bc5ca5404382ad`); post-merge Quality Gate 39109050918 passed
+
+## Mission 42 Completion Checklist
+
+### Mission 42 — Independent Time-Ephemeris Reference Acquisition and Clock Mapping
+
+- [x] Verify Mission 41 merge and successful post-merge quality gate
+- [x] Freeze source, normalization, inputs and engineering thresholds before values (`2a5aaff`)
+- [x] Acquire checksum-pinned DE440t and retain a private original-kernel cache without public raw redistribution
+- [x] Evaluate the independent geocentric time model with CSPICE and cross-check with jplephem
+- [x] Retain all 14 epochs and 28 solver traces with explicit sign, units and argument quantization
+- [x] Document geocentre-to-site mapping requirements without replacing the selected convention
+- [x] Preserve all 48 blocked site mappings and 288 blocked combined arrival cases
+- [x] Reproduce the reference fixture byte-for-byte offline; add 46 tests and an eleventh CI artifact
+- [ ] Complete full local quality gate and retain clean canonical evidence
+- [ ] Open pull request and verify published-head CI
+- [ ] Merge Mission 42
 
 ## Phase 2 Deliverables
+
+- [Independent Time-Ephemeris Reference Acquisition and Clock Mapping — Mission 42](validation/time_ephemeris_clock_mapping.md)
 
 - [Matched-Convention Observer-Arrival Reference Validation — Mission 41](validation/clock_reference_validation.md)
 
