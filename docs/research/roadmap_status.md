@@ -441,7 +441,7 @@
 - [x] Classify eight source claims and preserve the year-versus-century documentation discrepancy
 - [x] Preserve unknown physical bounds, six unresolved components and 288 blocked arrival cases
 - [x] Add 60 regression tests, offline regeneration and a fifteenth CI artifact
-- [ ] Retain clean canonical results and complete quality gate
+- [x] Retain clean canonical results from `f6cc15bb7206e19d3f97fa16c35faa74ffc1c861`; all 3425 local tests pass
 - [ ] Open pull request and verify final-head CI and artifact evidence
 - [ ] Merge Mission 46
 

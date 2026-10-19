@@ -161,8 +161,11 @@ regeneration, provenance, and false qualification even with zero discrepancies.
 The full local suite passed **3425 tests in 131.38 seconds**. Ruff lint,
 new-file formatting, compilation, 33 relative documentation links and all frozen
 input hashes passed. The live library reports ERFA 2.0.1, matching the reviewed
-source version. Clean canonical-record retention follows the implementation
-commit; final-head GitHub CI and artifact evidence will be recorded in the PR.
+source version. The [canonical record](../../../validation/results/time_normalization_reference_run.json)
+was generated from clean implementation commit
+`f6cc15bb7206e19d3f97fa16c35faa74ffc1c861` using Python 3.12.14,
+Astropy 8.0.1, PyERFA 2.0.1.5 and NumPy 2.5.3. Final-head GitHub CI and
+artifact verification will be recorded in the review PR.
 
 ## Next research boundary
 
