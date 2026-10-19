@@ -165,7 +165,9 @@ source version. The [canonical record](../../../validation/results/time_normaliz
 was generated from clean implementation commit
 `f6cc15bb7206e19d3f97fa16c35faa74ffc1c861` using Python 3.12.14,
 Astropy 8.0.1, PyERFA 2.0.1.5 and NumPy 2.5.3. Final-head GitHub CI and
-artifact verification will be recorded in the review PR.
+artifact verification is tracked in
+[PR #46](https://github.com/wolfchil345/astroscope-ai-observatory/pull/46), avoiding
+an untested follow-up commit solely to report CI completion.
 
 ## Next research boundary
 
