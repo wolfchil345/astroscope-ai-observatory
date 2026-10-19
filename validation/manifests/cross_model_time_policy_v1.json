@@ -1,0 +1,153 @@
+{
+  "schema_version": "1.0",
+  "mission": 47,
+  "baseline_commit": "72534fbdfe15d18d789c883d7356df5ac17cb05b",
+  "baseline_ci": {
+    "run_id": 39253030570,
+    "conclusion": "success"
+  },
+  "freeze_rule": "Commit before first INPOP time-segment polynomial evaluation, reference generation or new clock comparison. Source, archive and metadata inspection precede freeze. Retain failures; no offset/drift fitting, threshold tuning or silent reference replacement.",
+  "scope": "Acquire INPOP21a as a second integrated geocentric time ephemeris; qualify conventions and numerical mapping for the existing 14 epochs. Diagnose cross-model differences without inferring physical accuracy.",
+  "selected_arrival_convention_id": "astroscope-tdb-solar-au-v1",
+  "reference_model_id": "inpop21a-geocentric-tt-tdb-v1",
+  "kernel": {
+    "filename": "inpop21a_TDB_m100_p100_spice_time.bsp",
+    "size_bytes": 5694464,
+    "sha256": "b39d3faab00cd609685430e8f7f6c39c174341db24b387cad117199e11768687",
+    "center": 1000000000,
+    "target": 1000000001,
+    "frame": 1,
+    "spk_type": 2,
+    "source": "TT-TDB",
+    "coverage_jd_tdb": [
+      "2414105",
+      "2488985"
+    ],
+    "url": "https://ftp.imcce.fr/pub/ephem/planets/inpop21a/inpop21a_TDB_m100_p100_spice.tar.gz",
+    "quantity": "TT_minus_TDB",
+    "units": "seconds",
+    "argument_scale": "TDB",
+    "origin": "geocentre",
+    "redistribution": "Raw archive, BSP and source PDFs are not vendored. Retain source attribution, acquisition metadata and limited derived research values; no blanket redistribution grant is inferred."
+  },
+  "reference_environment": "validation/reference_generation/time-ephemeris-requirements.txt",
+  "reference_packages": {
+    "spiceypy": "8.3.0",
+    "jplephem": "2.24",
+    "numpy": "2.5.4"
+  },
+  "cspice_toolkit": "CSPICE_N0067",
+  "reader_contract": {
+    "primary": "CSPICE spksfs/spkpvn raw Type 2 evaluation; no unitim, str2et, LSK approximation, aberration, light time or candidate imports",
+    "crosscheck": "jplephem SPK Type 2 compute_and_differentiate on two-part JD; derivative divided by 86400",
+    "shared": "Both readers consume the same INPOP21a coefficients. Reader and solver designs are adapted from Mission 42, using the same packages. This is shared numerical infrastructure, not statistical independence of physical errors.",
+    "input": "TT seconds from J2000 noon; preserve a separate small delta=TDB-TT. Gregorian 2024 UTC dates use independently constructed TT=UTC+37+32.184 seconds, never candidate TT output.",
+    "equation": "delta + D(TT + delta) = 0 where D(b)=TT-TDB at TDB coordinate b",
+    "solvers": {
+      "cspice": "fixed_point",
+      "jplephem": "newton"
+    },
+    "max_iterations": 8,
+    "convergence_seconds": "1e-15",
+    "offset_agreement_seconds": "1e-12",
+    "derivative_agreement_seconds_per_second": "1e-15",
+    "equation_residual_seconds": "1e-15",
+    "historical_tt_input_agreement_seconds": "1e-9",
+    "engineering_only": "Tolerances check interpolation, solver algebra and serialization, not model accuracy. CSPICE uses double ET; archive its actual argument and quantization. A picosecond correction check does not imply picosecond absolute timestamp precision.",
+    "normalization": "Use kernel values as delivered. Preserve its IAU TDB rate/epoch convention, no fitted bias or forced zero at either probe. IAU constants are context, not an extra correction: LB=1.550519768e-8, LG=6.969290134e-10, T0=2443144.5003725 JD, TDB0=-65.5 microseconds."
+  },
+  "sample_design": {
+    "historical": "All 12 unique geocentric instants from Mission 38 dates x hours; do not inflate by four sites or six targets",
+    "historical_count": 12,
+    "tt_epoch_probes": [
+      {
+        "id": "j2000_tt",
+        "tt_jd": "2451545.0"
+      },
+      {
+        "id": "iau_epoch_tt",
+        "tt_jd": "2443144.5003725"
+      }
+    ],
+    "total_count": 14,
+    "diagnostics": "Archive signed INPOP21a-minus-DE440t and live-Astropy-minus-INPOP21a TDB-TT differences, plus closure against the archived Astropy-minus-DE440t edge. No physical accuracy threshold or fitted correction.",
+    "site_mapping": "No new site model or combined-arrival execution; all 48 site clocks and 288 combined arrival cases remain unqualified."
+  },
+  "expected_limits": {
+    "physical_geocentric_clock_bound_seconds": null,
+    "physical_site_clock_bound_seconds": null,
+    "physical_arrival_bound_seconds": null,
+    "full_reference_status": "unqualified",
+    "observing_eligible": false
+  },
+  "frozen_inputs": {
+    "validation/manifests/time_ephemeris_policy_v1.json": "4d8bd7af1422874d7984bb4fba2bde981485709e70fb38d53a357c67e9e38231",
+    "validation/manifests/time_ephemeris_v1.json": "0f185bd28ed24bfa30ea71dc0743b1fb9f6110ad602f92963491e2a8ab386519",
+    "validation/fixtures/time_ephemeris_v1.json": "f4d087bb1c53269f7f2e490a50067f2a1a72d2abed2bbf2b6d0d6cc1094cb540",
+    "validation/results/time_ephemeris_reference_run.json": "71edf7169ec6e78a61a21f8882729da5c7ac01b615ee28ef96b75ed4cf481980",
+    "validation/time_ephemeris.py": "890f115aa01326d28fadfa74ae930babcfd82477f2ad14bdd1960fc10d140c24",
+    "validation/manifests/observer_arrival_policy_v1.json": "0d5a5fd556a2df8efc7cecfdbdbcb6c8c508f288bf29bda0ea686dfddf1411dd",
+    "validation/fixtures/observer_arrival_leaps_v1.json": "1defa648097e056ce453cea1037f7395a9d99c930ef3e18de456133d840f9bad",
+    "validation/manifests/time_normalization_policy_v1.json": "c19f09e5c996c06000c66e168dc547e799ee31d49df0a2061a63e77db5029850",
+    "validation/manifests/time_normalization_v1.json": "87d5ee056efc868c7e921e2e71bc10cbb1d107cce46c5554381f2361269ccba5",
+    "validation/results/time_normalization_reference_run.json": "42a8a7a0673dda18afefff71a671b59641d59eaa06fde0a2debc475c699aa4b4",
+    "docs/research/evidence/time_normalization_evidence_v1.json": "f506128fff21768ec72c8247e60dcc0740771164a71898e3021ae10c01ace391",
+    "src/astroscope/transit_timing.py": "7d1f72807a5991f94be66cface374162fd3ebb10c1cf2cdf0b18a5d7d716d27e"
+  },
+  "sources": [
+    {
+      "url": "https://www.imcce.fr/recherche/equipes/asd/inpop/download21a",
+      "role": "Release acquisition and distribution contract"
+    },
+    {
+      "url": "https://www.imcce.fr/content/medias/recherche/equipes/asd/inpop/inpop08_preprint.pdf",
+      "role": "INPOP family integration and delivered normalization; not release-specific uncertainty"
+    },
+    {
+      "url": "https://www.imcce.fr/content/medias/recherche/equipes/asd/inpop/inpop21a.pdf",
+      "role": "Release-specific model and orbital evidence; no complete clock bound identified"
+    },
+    {
+      "url": "https://calceph.imcce.fr/docs/latest/html/python/calceph.naifid.html",
+      "role": "Coordinate-time identifiers"
+    },
+    {
+      "url": "https://calceph.imcce.fr/docs/latest/html/python/calceph.multiple.pythonusage.html",
+      "role": "Clock seconds and ephemeris argument"
+    },
+    {
+      "url": "https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/spkpvn_c.html",
+      "role": "Raw segment evaluation"
+    },
+    {
+      "url": "https://www.imcce.fr/mentions-legales",
+      "role": "Attribution and usage conditions"
+    }
+  ],
+  "sources_inspected_utc": "2026-10-19",
+  "next_gate": "Obtain source-matched uncertainty evidence or independently bounded contributions for the retained physical error budget. Cross-model agreement alone cannot qualify site clocks or combined observer arrival.",
+  "limits": {
+    "historical_candidate_replay_seconds": "1e-12",
+    "epoch_closure_seconds": "1e-12",
+    "triangle_closure_seconds": "1e-12"
+  },
+  "unresolved_components": [
+    "geocentric_time_ephemeris",
+    "earth_state",
+    "station_coordinates",
+    "earth_orientation",
+    "omitted_physics_and_coefficient_model",
+    "higher_order_remainder"
+  ],
+  "evidence_ledger": "docs/research/evidence/cross_model_time_evidence_v1.json",
+  "archive": {
+    "url": "https://ftp.imcce.fr/pub/ephem/planets/inpop21a/inpop21a_TDB_m100_p100_spice.tar.gz",
+    "filename": "inpop21a_TDB_m100_p100_spice.tar.gz",
+    "size_bytes": 24194181,
+    "sha256": "63502ef870a173e6573ad41a85d946d2d9e23a73fb66ca51bab1410aac9e7673",
+    "provider_last_modified": "Mon, 19 Jul 2021 11:27:21 GMT",
+    "acquired_utc_date": "2026-10-19",
+    "hash_origin": "Locally computed from the completed HTTPS download; not a provider-published checksum",
+    "extraction": "Read only the explicitly named regular file kernel.filename; do not extract other members."
+  }
+}

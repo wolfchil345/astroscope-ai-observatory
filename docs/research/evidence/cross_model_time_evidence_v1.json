@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "mission": 47,
+  "inspected_utc_date": "2026-10-19",
+  "claims": [
+    {
+      "id": "release_distribution",
+      "kind": "distribution_contract",
+      "source_url": "https://www.imcce.fr/recherche/equipes/asd/inpop/download21a",
+      "location": "Format notes and 100-year TDB SPICE download",
+      "finding": "INPOP21a SPICE distribution includes TT-TDB in seconds with TDB argument; ordinary JPL-format files omit the time transformation.",
+      "applicability": "Select the TDB SPICE archive, not the ordinary planetary binary or TCB product.",
+      "applicable_physical_bound_seconds": null
+    },
+    {
+      "id": "integrated_method",
+      "kind": "family_method",
+      "source_url": "https://www.imcce.fr/content/medias/recherche/equipes/asd/inpop/inpop08_preprint.pdf",
+      "location": "Fienga et al., 2009-06-10 author preprint, section 2.4, pp. 3-4",
+      "finding": "INPOP integrates the geocentric time transformation alongside dynamics, including c^-4 terms. An offset is applied before polynomial construction to satisfy the 1977 IAU origin. TT input requires an implicit mapping.",
+      "applicability": "Family method and normalization evidence; the older release's detailed body inventory is not asserted for INPOP21a. No extra TDB0 correction or forced J2000 zero.",
+      "applicable_physical_bound_seconds": null
+    },
+    {
+      "id": "historical_time_comparison",
+      "kind": "other_model_relative_comparison",
+      "source_url": "https://www.imcce.fr/content/medias/recherche/equipes/asd/inpop/inpop08_preprint.pdf",
+      "location": "Section 2.4, p. 4, Figure 1 and following discussion",
+      "finding": "The reported 6.74 ns/century drift concerns INPOP08 versus offset-corrected TE405.",
+      "applicability": "Different models and domain; neither an INPOP21a/DE440t result nor a physical bound for this mission.",
+      "applicable_physical_bound_seconds": null
+    },
+    {
+      "id": "release_model_evidence",
+      "kind": "release_model_and_orbit_comparison",
+      "source_url": "https://www.imcce.fr/content/medias/recherche/equipes/asd/inpop/inpop21a.pdf",
+      "location": "Fienga et al., June 2021, IMCCE Notes scientifiques et techniques S110, sections 1-3",
+      "finding": "INPOP21a updates observations and dynamical modeling; section 3.2 compares planetary coordinates with DE440. No complete TT-TDB uncertainty bound for the selected epochs was identified in this release note.",
+      "applicability": "Release-specific context. Orbital discrepancies and fitted parameter uncertainties are not a clock-error certificate.",
+      "applicable_physical_bound_seconds": null
+    },
+    {
+      "id": "reader_conventions",
+      "kind": "implementation_contract",
+      "source_url": "https://calceph.imcce.fr/docs/latest/html/python/calceph.naifid.html",
+      "location": "Coordinate-time NAIF identifiers; companion multiple-access usage documentation",
+      "finding": "TT-TDB uses target 1000000001 relative to center 1000000000. The clock is the first returned component in seconds.",
+      "applicability": "Special time segment semantics; ordinary SPK distance scaling is inapplicable. CALCEPH documentation is consulted, CALCEPH is not executed.",
+      "applicable_physical_bound_seconds": null
+    },
+    {
+      "id": "cross_model_interpretation",
+      "kind": "project_inference",
+      "source_url": "https://ssd.jpl.nasa.gov/doc/Park.2021.AJ.DE440.pdf",
+      "location": "DE440 section 2.3 and INPOP sources above; inference recorded by this project",
+      "finding": "Distinct integrated ephemeris families do not guarantee independent errors: time definitions, gravitational theory, observations and numerical reader infrastructure can be shared.",
+      "applicability": "Differences diagnose disagreement. Even exact agreement cannot bound common error; no covariance, probabilistic independence or physical certificate is inferred.",
+      "applicable_physical_bound_seconds": null
+    }
+  ],
+  "independence": {
+    "distinct_ephemeris_families": true,
+    "independent_of_candidate_fb90_series": true,
+    "statistically_independent_errors_established": false,
+    "readers_shared_between_models": true,
+    "same_kernel_within_each_reader_pair": true,
+    "independent_observation_clock_validation": false
+  },
+  "physical_geocentric_clock_bound_seconds": null,
+  "physical_site_clock_bound_seconds": null,
+  "physical_arrival_bound_seconds": null,
+  "observing_eligible": false
+}
