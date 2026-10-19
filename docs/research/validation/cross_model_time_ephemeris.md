@@ -177,7 +177,11 @@ both zero and large cross-model differences. The full local suite passed
 **3475 tests in 144.76 seconds**. Ruff lint, new-file formatting, compilation,
 all 17 manifest input hashes and the report's relative links passed. No
 scientific evaluation failed; no protocol threshold or input selection changed.
-Clean canonical provenance is retained after committing the implementation.
+The [canonical record](../../../validation/results/cross_model_time_reference_run.json)
+was generated from clean implementation commit
+`9d8f18aa34a35870374a481db612adaf04007ae8`, using Python 3.12.14,
+Astropy 8.0.1, PyERFA 2.0.1.5 and NumPy 2.5.3. Final-head GitHub CI and
+artifact verification will be tracked in the Mission 47 pull request.
 
 ## Next research boundary
 
