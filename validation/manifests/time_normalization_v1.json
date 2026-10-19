@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "mission": 46,
+  "files": {
+    "validation/manifests/time_ephemeris_policy_v1.json": "4d8bd7af1422874d7984bb4fba2bde981485709e70fb38d53a357c67e9e38231",
+    "validation/manifests/time_ephemeris_v1.json": "0f185bd28ed24bfa30ea71dc0743b1fb9f6110ad602f92963491e2a8ab386519",
+    "validation/fixtures/time_ephemeris_v1.json": "f4d087bb1c53269f7f2e490a50067f2a1a72d2abed2bbf2b6d0d6cc1094cb540",
+    "validation/results/time_ephemeris_reference_run.json": "71edf7169ec6e78a61a21f8882729da5c7ac01b615ee28ef96b75ed4cf481980",
+    "validation/results/coupled_clock_reference_run.json": "502e9177b1c973884c0389690637f6f318128fc82abd9c501ca97bfb5365616e",
+    "validation/manifests/coupled_clock_policy_v1.json": "165631bcedc9614e996734d17c711d6ae349ef13d9eeb4b137c21bbcda020081",
+    "validation/manifests/coupled_clock_v1.json": "f206e6b26ac7133300cb98ab3f0025e4d822001affa7670d4c9c0d85557eb6cb",
+    "validation/results/clock_reference_reference_run.json": "bae85b8fa02727ba06488670c6b326a8b75ddccdfa7acf4f395123b1b6bc2a54",
+    "src/astroscope/transit_timing.py": "7d1f72807a5991f94be66cface374162fd3ebb10c1cf2cdf0b18a5d7d716d27e",
+    "validation/manifests/time_normalization_policy_v1.json": "c19f09e5c996c06000c66e168dc547e799ee31d49df0a2061a63e77db5029850",
+    "validation/fixtures/time_normalization_v1.json": "a2d71cea44f36fa650a7560d556c1505ace637bdbb20feffbb7f02f751d78717",
+    "validation/reference_generation/time_normalization.py": "0fd2765dd9051872f803a7aece3fad8599da43c15cc86f270eae9c8c81d008f7",
+    "docs/research/evidence/time_normalization_evidence_v1.json": "f506128fff21768ec72c8247e60dcc0740771164a71898e3021ae10c01ace391"
+  }
+}

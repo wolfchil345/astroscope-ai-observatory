@@ -1,0 +1,11 @@
+{
+  "mission": 46,
+  "record_kind": "development_exception",
+  "canonical": false,
+  "error": "NormalizationError: sample_identity",
+  "cause": "Audit expected-ID transcription used 2024-06-20; all frozen historical inputs use 2024-06-21.",
+  "stage": "After affine controls; before historical candidate evaluations and result serialization. No partial numerical record was emitted.",
+  "repair": "Correct the expected-ID literal to the frozen 2024-06-21 date. No sample, threshold, reference or protocol changed.",
+  "audit_source_sha256": "a919d8b186987e1460a3c5e3505b421f384bb9aa252c1cc8d3272566cefc4835",
+  "protocol_commit": "435f351"
+}

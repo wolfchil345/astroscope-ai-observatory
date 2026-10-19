@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "mission": 46,
+  "baseline_commit": "ee10e9e04f5422bb0416b87662de571e9d76d135",
+  "baseline_ci": {
+    "run_id": 39231240199,
+    "conclusion": "success"
+  },
+  "freeze_rule": "Commit before new reference generation, live affine evaluation or diagnostic calculation. Prior mission values and primary-source statements were inspected first. No fitted offset, detrending, threshold tuning or case removal.",
+  "scope": "Exact normalization definitions and physical-uncertainty evidence for the existing clock models. Reuse all 14 Mission 42 geocentric samples, without presenting them as new physical observations. No production timing changes or new combined arrival execution.",
+  "selected_arrival_convention_id": "astroscope-tdb-solar-au-v1",
+  "constants": {
+    "LB": "1.550519768e-8",
+    "LG": "6.969290134e-10",
+    "T0_jd": "2443144.5003725",
+    "TDB0_seconds": "-0.0000655",
+    "seconds_per_day": "86400",
+    "j2000_jd": "2451545"
+  },
+  "equations": {
+    "tdb": "b=(1-LB)*c+LB*t0+TDB0; all lower-case coordinates are seconds from J2000",
+    "tt": "a=(1-LG)*g+LG*t0",
+    "closure": "given archived a and delta=b-a, recover c and g independently; this is affine algebra, not independent physical TCB-TCG evidence",
+    "epoch": "At the IAU geocentric origin c=g=a=t0 and b=t0+TDB0. TDB is not synchronized with TT there.",
+    "diagnostics": "Preserve raw candidate-reference differences. Compute epoch residual delta-TDB0 and a pairwise-range lower bound range/2 on any constant-shift max residual, without estimating or applying a shift. Separate all-14 and historical-12 domains."
+  },
+  "controls_tcb_or_tcg_seconds_from_T0": [
+    "-3155760000",
+    "-86400",
+    "-1",
+    "0",
+    "1",
+    "86400",
+    "31557600",
+    "3155760000",
+    "31557600000"
+  ],
+  "reference": "Python standard-library Fraction exact rational arithmetic, 90-digit Decimal serialization only. No candidate, audit, Astropy, ERFA or production imports. No new ephemeris evaluation; all 14 original CSPICE deltas retained.",
+  "candidate": "Independent 70-digit Decimal affine algebra and live ERFA tcbtdb/tdbtcb/tcgtt/tttcg with two-part JD. Live Astropy geocentric dtdb replay at the original TT inputs. Shared ERFA backend is not a physical reference.",
+  "limits": {
+    "decimal_replay_seconds": "1e-50",
+    "erfa_affine_seconds": "4e-11",
+    "historical_candidate_replay_seconds": "1e-12",
+    "de440t_epoch_closure_seconds": "1e-12"
+  },
+  "limit_meaning": "Engineering checks of arithmetic, two-part binary64 serialization and preserved epoch convention only. No physical accuracy threshold for candidate-reference differences or range diagnostics.",
+  "evidence_requirements": "Classify definitions, conditional formulation accuracy, model-relative comparison, expected secular behavior and numerical agreement separately. No such statement alone certifies physical DE440t or site-clock uncertainty. Preserve the IAU 2006 note 2 per-year versus ERFA v2.0.1 note 5 per-century discrepancy without silently choosing a bound.",
+  "unresolved_components": [
+    "geocentric_time_ephemeris",
+    "earth_state",
+    "station_coordinates",
+    "earth_orientation",
+    "omitted_physics_and_coefficient_model",
+    "higher_order_remainder"
+  ],
+  "expected_limits": {
+    "physical_geocentric_clock_bound_seconds": null,
+    "physical_site_clock_bound_seconds": null,
+    "physical_arrival_bound_seconds": null,
+    "observing_eligible": false
+  },
+  "frozen_inputs": {
+    "validation/manifests/time_ephemeris_policy_v1.json": "4d8bd7af1422874d7984bb4fba2bde981485709e70fb38d53a357c67e9e38231",
+    "validation/manifests/time_ephemeris_v1.json": "0f185bd28ed24bfa30ea71dc0743b1fb9f6110ad602f92963491e2a8ab386519",
+    "validation/fixtures/time_ephemeris_v1.json": "f4d087bb1c53269f7f2e490a50067f2a1a72d2abed2bbf2b6d0d6cc1094cb540",
+    "validation/results/time_ephemeris_reference_run.json": "71edf7169ec6e78a61a21f8882729da5c7ac01b615ee28ef96b75ed4cf481980",
+    "validation/results/coupled_clock_reference_run.json": "502e9177b1c973884c0389690637f6f318128fc82abd9c501ca97bfb5365616e",
+    "validation/manifests/coupled_clock_policy_v1.json": "165631bcedc9614e996734d17c711d6ae349ef13d9eeb4b137c21bbcda020081",
+    "validation/manifests/coupled_clock_v1.json": "f206e6b26ac7133300cb98ab3f0025e4d822001affa7670d4c9c0d85557eb6cb",
+    "validation/results/clock_reference_reference_run.json": "bae85b8fa02727ba06488670c6b326a8b75ddccdfa7acf4f395123b1b6bc2a54",
+    "src/astroscope/transit_timing.py": "7d1f72807a5991f94be66cface374162fd3ebb10c1cf2cdf0b18a5d7d716d27e"
+  },
+  "sources_inspected_utc": "2026-10-19",
+  "source_urls": [
+    "https://www.iers.org/fileadmin/SharedDocs/Publikationen/EN/IERS/resolutions/IAU/IAU2006_Resolution_B3.pdf",
+    "https://syrte.obspm.fr/IAU_resolutions/Resol-UAI.htm",
+    "https://ssd.jpl.nasa.gov/doc/Park.2021.AJ.DE440.pdf",
+    "https://github.com/liberfa/erfa/blob/9915ba38c9365f8b0738269b8c2ac1fdd5f8dee3/src/dtdb.c"
+  ],
+  "unavailable_source": "IERS Chapter 10 endpoint was attempted but inaccessible; no fresh reading claimed.",
+  "next_gate": "Acquire independent, scope-matched physical time-ephemeris uncertainty evidence; a passed normalization audit cannot open observing eligibility."
+}
