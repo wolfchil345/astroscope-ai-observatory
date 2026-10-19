@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "mission": 46,
+  "reviewed_utc": "2026-10-19",
+  "claims": [
+    {
+      "id": "iau2006_definition",
+      "source_url": "https://www.iers.org/fileadmin/SharedDocs/Publikationen/EN/IERS/resolutions/IAU/IAU2006_Resolution_B3.pdf",
+      "locator": "Resolution 3, p. 2, recommendation and notes 1, 5",
+      "kind": "definition",
+      "finding": "LB and TDB0 define an affine TCB-to-TDB map; at the 1977 geocentric origin TDB differs from TT by TDB0.",
+      "applicable_physical_bound_seconds": null,
+      "reason": "An exact coordinate definition supplies no measured ephemeris uncertainty."
+    },
+    {
+      "id": "iau2000_tt",
+      "source_url": "https://syrte.obspm.fr/IAU_resolutions/Resol-UAI.htm",
+      "locator": "B1.9 recommendation",
+      "kind": "definition",
+      "finding": "LG is a fixed defining rate constant for TT relative to TCG.",
+      "applicable_physical_bound_seconds": null,
+      "reason": "Defining LG does not certify the physical realization TT(TAI) or a station clock."
+    },
+    {
+      "id": "iau2006_drift",
+      "source_url": "https://www.iers.org/fileadmin/SharedDocs/Publikationen/EN/IERS/resolutions/IAU/IAU2006_Resolution_B3.pdf",
+      "locator": "Resolution 3, p. 2, note 2",
+      "kind": "expected_secular_behavior",
+      "finding": "Other ephemerides can imply residual geocentric TDB-TT drift; the stated expectation is 1 ns per year.",
+      "quoted_rate_ns": "1",
+      "quoted_rate_period": "year",
+      "applicable_physical_bound_seconds": null,
+      "reason": "An expectation about rate is not a DE440t absolute-error bound or an independently measured drift."
+    },
+    {
+      "id": "erfa_drift",
+      "source_url": "https://github.com/liberfa/erfa/blob/9915ba38c9365f8b0738269b8c2ac1fdd5f8dee3/src/dtdb.c",
+      "locator": "eraDtdb note 5, ERFA v2.0.1",
+      "kind": "expected_secular_behavior",
+      "finding": "The library documentation instead gives 1 ns per century for possible drift with future ephemerides.",
+      "quoted_rate_ns": "1",
+      "quoted_rate_period": "century",
+      "applicable_physical_bound_seconds": null,
+      "reason": "The rate statement differs from IAU 2006 note 2; do not silently substitute either as a hard bound."
+    },
+    {
+      "id": "erfa_de405_accuracy",
+      "source_url": "https://github.com/liberfa/erfa/blob/9915ba38c9365f8b0738269b8c2ac1fdd5f8dee3/src/dtdb.c",
+      "locator": "eraDtdb notes 6-8, ERFA v2.0.1",
+      "kind": "model_relative_comparison",
+      "finding": "The documented 3 ns comparison applies over 1950-2050 against DE405-based integrated time ephemerides.",
+      "applicable_physical_bound_seconds": null,
+      "reason": "DE405-relative model accuracy is not a physical DE440t, site-clock or arrival error certificate."
+    },
+    {
+      "id": "iau2000_formulation",
+      "source_url": "https://syrte.obspm.fr/IAU_resolutions/Resol-UAI.htm",
+      "locator": "B1.5 note 1",
+      "kind": "conditional_formulation_accuracy",
+      "finding": "The stated 0.2 ps quasi-periodic phase accuracy has spatial and formulation conditions; astronomical input errors can be larger.",
+      "applicable_physical_bound_seconds": null,
+      "reason": "The truncated ten-body site model and its uncertain inputs have not been shown to satisfy that complete formulation."
+    },
+    {
+      "id": "park_de440_model",
+      "source_url": "https://ssd.jpl.nasa.gov/doc/Park.2021.AJ.DE440.pdf",
+      "locator": "Section 2.3, equations 3-7, pp. 2-4",
+      "kind": "physical_model_specification",
+      "finding": "The integrated time transformation uses explicit normalization, external potentials and relativistic terms.",
+      "applicable_physical_bound_seconds": null,
+      "reason": "These equations do not themselves provide a complete numerical uncertainty bound for our archived DE440t geocentric values."
+    },
+    {
+      "id": "same_kernel_readers",
+      "source_url": "https://github.com/wolfchil345/astroscope-ai-observatory/blob/ee10e9e04f5422bb0416b87662de571e9d76d135/docs/research/validation/time_ephemeris_clock_mapping.md",
+      "locator": "Mission 42, same-kernel reader comparison",
+      "kind": "numerical_agreement",
+      "finding": "CSPICE and jplephem agree on archived DE440t evaluations while sharing the same physical model and coefficients.",
+      "applicable_physical_bound_seconds": null,
+      "reason": "Implementation agreement is not independent evidence of physical error."
+    }
+  ],
+  "source_discrepancies": [{"id": "drift_rate_period", "claims": ["iau2006_drift", "erfa_drift"], "status": "retained_not_resolved_into_bound"}],
+  "unavailable_sources": [{"url": "https://iers-conventions.obspm.fr/content/chapter10/icc10.pdf", "status": "access_failed", "new_findings": false}],
+  "physical_geocentric_clock_bound_seconds": null,
+  "physical_site_clock_bound_seconds": null,
+  "physical_arrival_bound_seconds": null,
+  "observing_eligible": false
+}

@@ -32,8 +32,9 @@
 - Mission 42: Complete — Independent Time-Ephemeris Reference Acquisition and Clock Mapping, merged in [PR #42](https://github.com/wolfchil345/astroscope-ai-observatory/pull/42) (`7d1e6557929f873389be369612b6855ae4db22cc`); integrated geocentric reference evaluated, physical site-clock qualification remains incomplete
 - Mission 43: Complete — Independent Site-Clock Mapping and Uncertainty Qualification, merged in [PR #43](https://github.com/wolfchil345/astroscope-ai-observatory/pull/43) (`6982a2419bdc7c3ced22bd5abe5d6d79d7c05c17`); post-merge Quality Gate 39133947130 passed, physical bounds remain unknown
 - Mission 44: Complete — Relativistic Site-Frame Mapping and Error-Bound Evidence, merged in [PR #44](https://github.com/wolfchil345/astroscope-ai-observatory/pull/44) (`c7bbcc54425ef9a2dc02550c45b94797bdb76bcf`); post-merge Quality Gate 39138219738 passed, numerical spatial inverse certified within the declared polynomial, physical qualification incomplete
-- Mission 45: Active — Coupled Relativistic Site-Clock Model and Reference Qualification, [PR #45](https://github.com/wolfchil345/astroscope-ai-observatory/pull/45); all 48 coupled site cases and 12 controls pass within the declared quantized model, physical timing bounds remain unknown
-- Proposed next: Mission 46 — Time-Ephemeris Normalization and Physical Uncertainty Evidence; not started, pending Mission 45 review and merge
+- Mission 45: Complete — Coupled Relativistic Site-Clock Model and Reference Qualification, merged in [PR #45](https://github.com/wolfchil345/astroscope-ai-observatory/pull/45) (`ee10e9e04f5422bb0416b87662de571e9d76d135`); post-merge Quality Gate 39231240199 passed, physical timing bounds remain unknown
+- Mission 46: Active — Time-Ephemeris Normalization and Physical Uncertainty Evidence; all 9 affine controls and 14 reused geocentric samples pass, no applicable physical uncertainty bound established
+- Proposed next: Mission 47 — Independent Time-Ephemeris Cross-Model Qualification; not started, pending Mission 46 review and merge
 
 ## Phase Progress
 
@@ -427,9 +428,26 @@
 - [x] Add 59 regression cases and a fourteenth CI artifact
 - [x] Retain clean canonical results from `fb4f1da4bfaa95912f292f8b8920a970b28e9653`; all 3365 tests pass
 - [x] Open [PR #45](https://github.com/wolfchil345/astroscope-ai-observatory/pull/45); final CI and artifact verification is recorded in the PR
-- [ ] Merge Mission 45
+- [x] Merge Mission 45 — PR #45; post-merge Quality Gate 39231240199 passed
+
+## Mission 46 Completion Checklist
+
+### Mission 46 — Time-Ephemeris Normalization and Physical Uncertainty Evidence
+
+- [x] Verify Mission 45 merge and successful post-merge Quality Gate
+- [x] Freeze normalization definitions, sample inventory, tolerances and evidence rules before evaluation
+- [x] Add independent exact-rational reference and live Decimal/ERFA affine checks
+- [x] Retain all 14 geocentric cases, epoch diagnostics and constant-shift lower bounds without fitting
+- [x] Classify eight source claims and preserve the year-versus-century documentation discrepancy
+- [x] Preserve unknown physical bounds, six unresolved components and 288 blocked arrival cases
+- [x] Add 60 regression tests, offline regeneration and a fifteenth CI artifact
+- [ ] Retain clean canonical results and complete quality gate
+- [ ] Open pull request and verify final-head CI and artifact evidence
+- [ ] Merge Mission 46
 
 ## Phase 2 Deliverables
+
+- [Time-Ephemeris Normalization and Physical Uncertainty Evidence — Mission 46](validation/time_ephemeris_normalization.md)
 
 - [Coupled Relativistic Site-Clock Model and Reference Qualification — Mission 45](validation/coupled_site_clock.md)
 
