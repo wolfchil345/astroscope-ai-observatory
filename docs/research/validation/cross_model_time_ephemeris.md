@@ -181,7 +181,9 @@ The [canonical record](../../../validation/results/cross_model_time_reference_ru
 was generated from clean implementation commit
 `9d8f18aa34a35870374a481db612adaf04007ae8`, using Python 3.12.14,
 Astropy 8.0.1, PyERFA 2.0.1.5 and NumPy 2.5.3. Final-head GitHub CI and
-artifact verification will be tracked in the Mission 47 pull request.
+artifact verification is tracked in
+[PR #47](https://github.com/wolfchil345/astroscope-ai-observatory/pull/47), avoiding
+an untested follow-up commit solely to report CI completion.
 
 ## Next research boundary
 
