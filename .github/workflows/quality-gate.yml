@@ -287,3 +287,19 @@ jobs:
           name: time-normalization-evidence-record
           path: ${{ runner.temp }}/time_normalization_reference_run.json
           if-no-files-found: error
+
+      - name: Audit independent time-ephemeris cross-model qualification
+        env:
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          python -m validation.cross_model_time \
+            --output "$RUNNER_TEMP/cross_model_time_reference_run.json"
+
+      - name: Upload cross-model time-ephemeris record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cross-model-time-ephemeris-record
+          path: ${{ runner.temp }}/cross_model_time_reference_run.json
+          if-no-files-found: error

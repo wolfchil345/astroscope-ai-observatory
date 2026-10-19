@@ -1,0 +1,1036 @@
+{
+  "schema_version": "1.0",
+  "evidence_kind": "integrated_geocentric_model_evaluation",
+  "model_id": "inpop21a-geocentric-tt-tdb-v1",
+  "policy_sha256": "db6cb4a33af6870308a25cdc5501bc589e6462f9bf511dd16153fce1f74fb19e",
+  "generator_sha256": "81a9d15efd0c40d8ab00353ac6410163584f5499ad924b03f2c05ab7f04b1ebd",
+  "kernel_sha256": "b39d3faab00cd609685430e8f7f6c39c174341db24b387cad117199e11768687",
+  "kernel_size_bytes": 5694464,
+  "segment": {
+    "center": 1000000000,
+    "target": 1000000001,
+    "frame": 1,
+    "spk_type": 2,
+    "source": "TT-TDB",
+    "coverage_jd_tdb": [
+      "2414105",
+      "2488985"
+    ]
+  },
+  "archive_sha256": "63502ef870a173e6573ad41a85d946d2d9e23a73fb66ca51bab1410aac9e7673",
+  "physical_model_family": "INPOP",
+  "numerical_algorithms": "Adapted from Mission 42; shared readers and solver design",
+  "units": "seconds",
+  "quantity": "TT_minus_TDB",
+  "argument_scale": "TDB",
+  "origin": "geocentre",
+  "packages": {
+    "spiceypy": "8.3.0",
+    "jplephem": "2.24",
+    "numpy": "2.5.4"
+  },
+  "cspice_toolkit": "CSPICE_N0067",
+  "python_version": "3.12.14",
+  "forbidden_imports": [],
+  "network": "socket connect/connect_ex/create_connection blocked",
+  "same_kernel_for_both_readers": true,
+  "raw_coefficients_vendored": false,
+  "physical_geocentric_clock_bound_seconds": null,
+  "observing_eligible": false,
+  "cases": [
+    {
+      "id": "2024-03-20_10",
+      "kind": "historical",
+      "utc": "2024-03-20T10:00:00",
+      "tt_seconds_from_j2000": "764200869.184",
+      "cspice": {
+        "method": "fixed_point",
+        "converged": true,
+        "delta_seconds": "0.0015892465221889298",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0015892465220596146",
+            "derivative_seconds_per_second": "-8.1372236225657234e-11",
+            "equation_residual_seconds": "-0.0015892465220596146",
+            "next_delta_seconds": "0.0015892465220596146",
+            "argument_et_seconds": "764200869.1840000152587890625",
+            "argument_quantization_seconds": "1.52587890625E-8"
+          },
+          {
+            "delta_seconds": "0.0015892465220596146",
+            "tt_minus_tdb_seconds": "-0.0015892465221889298",
+            "derivative_seconds_per_second": "-8.1372236113455328e-11",
+            "equation_residual_seconds": "-1.2931517835712558e-13",
+            "next_delta_seconds": "0.0015892465221889298",
+            "argument_et_seconds": "764200869.18558919429779052734375",
+            "argument_quantization_seconds": "-5.22242690872663783974161333389929495751857757568359375E-8"
+          },
+          {
+            "delta_seconds": "0.0015892465221889298",
+            "tt_minus_tdb_seconds": "-0.0015892465221889298",
+            "derivative_seconds_per_second": "-8.1372236113455328e-11",
+            "equation_residual_seconds": "0",
+            "next_delta_seconds": "0.0015892465221889298",
+            "argument_et_seconds": "764200869.18558919429779052734375",
+            "argument_quantization_seconds": "-5.22243984024447355229980871627049054950475692749023438E-8"
+          }
+        ]
+      },
+      "jplephem": {
+        "method": "newton",
+        "converged": true,
+        "delta_seconds": "0.0015892465221889339",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0015892465220596133",
+            "derivative_seconds_per_second": "-8.137223622565832e-11",
+            "equation_residual_seconds": "-0.0015892465220596133",
+            "next_delta_seconds": "0.0015892465221889339",
+            "argument_jd_parts": [
+              "2460389",
+              "0.9174674074074073981677202027640305459499359130859375"
+            ],
+            "argument_quantization_seconds": "-7.983089744811877608299255371093750000000E-13"
+          },
+          {
+            "delta_seconds": "0.0015892465221889339",
+            "tt_minus_tdb_seconds": "-0.0015892465221889339",
+            "derivative_seconds_per_second": "-8.1372236113451631e-11",
+            "equation_residual_seconds": "0",
+            "next_delta_seconds": "0.0015892465221889339",
+            "argument_jd_parts": [
+              "2460389",
+              "0.9174674258014643424274936478468589484691619873046875"
+            ],
+            "argument_quantization_seconds": "-3.0031984572798098298562763375230133533477783203125E-12"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2024-03-20_12",
+      "kind": "historical",
+      "utc": "2024-03-20T12:00:00",
+      "tt_seconds_from_j2000": "764208069.184",
+      "cspice": {
+        "method": "fixed_point",
+        "converged": true,
+        "delta_seconds": "0.0015898305728858162",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0015898305727572604",
+            "derivative_seconds_per_second": "-8.08641585735712e-11",
+            "equation_residual_seconds": "-0.0015898305727572604",
+            "next_delta_seconds": "0.0015898305727572604",
+            "argument_et_seconds": "764208069.1840000152587890625",
+            "argument_quantization_seconds": "1.52587890625E-8"
+          },
+          {
+            "delta_seconds": "0.0015898305727572604",
+            "tt_minus_tdb_seconds": "-0.0015898305728858162",
+            "derivative_seconds_per_second": "-8.0864158461446313e-11",
+            "equation_residual_seconds": "-1.2855580315551673e-13",
+            "next_delta_seconds": "0.0015898305728858162",
+            "argument_et_seconds": "764208069.18558979034423828125",
+            "argument_quantization_seconds": "-4.022851897918233721185288231936283409595489501953125E-8"
+          },
+          {
+            "delta_seconds": "0.0015898305728858162",
+            "tt_minus_tdb_seconds": "-0.0015898305728858162",
+            "derivative_seconds_per_second": "-8.0864158461446313e-11",
+            "equation_residual_seconds": "0",
+            "next_delta_seconds": "0.0015898305728858162",
+            "argument_et_seconds": "764208069.18558979034423828125",
+            "argument_quantization_seconds": "-4.02286475349854927285875305642548482865095138549804688E-8"
+          }
+        ]
+      },
+      "jplephem": {
+        "method": "newton",
+        "converged": true,
+        "delta_seconds": "0.0015898305728858197",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0015898305727572593",
+            "derivative_seconds_per_second": "-8.0864158573572286e-11",
+            "equation_residual_seconds": "-0.0015898305727572593",
+            "next_delta_seconds": "0.0015898305728858197",
+            "argument_jd_parts": [
+              "2460390",
+              "0.0008007407407407407529120746403350494801998138427734375"
+            ],
+            "argument_quantization_seconds": "1.0516032489249482750892639160156250000000E-15"
+          },
+          {
+            "delta_seconds": "0.0015898305728858197",
+            "tt_minus_tdb_seconds": "-0.0015898305728858195",
+            "derivative_seconds_per_second": "-8.0864158461443469e-11",
+            "equation_residual_seconds": "2.1684043449710089e-19",
+            "next_delta_seconds": "0.0015898305728858195",
+            "argument_jd_parts": [
+              "2460390",
+              "0.00080075914155755653807411409417227332596667110919952392578125"
+            ],
+            "argument_quantization_seconds": "-9.301014819440567293895583134144544601440429688E-16"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2024-03-20_14",
+      "kind": "historical",
+      "utc": "2024-03-20T14:00:00",
+      "tt_seconds_from_j2000": "764215269.184",
+      "cspice": {
+        "method": "fixed_point",
+        "converged": true,
+        "delta_seconds": "0.0015904109673762345",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0015904109672484376",
+            "derivative_seconds_per_second": "-8.0356624818785321e-11",
+            "equation_residual_seconds": "-0.0015904109672484376",
+            "next_delta_seconds": "0.0015904109672484376",
+            "argument_et_seconds": "764215269.1840000152587890625",
+            "argument_quantization_seconds": "1.52587890625E-8"
+          },
+          {
+            "delta_seconds": "0.0015904109672484376",
+            "tt_minus_tdb_seconds": "-0.0015904109673762345",
+            "derivative_seconds_per_second": "-8.035662470673952e-11",
+            "equation_residual_seconds": "-1.2779686163477688e-13",
+            "next_delta_seconds": "0.0015904109673762345",
+            "argument_et_seconds": "764215269.18559038639068603515625",
+            "argument_quantization_seconds": "-2.45765624024389672808155182792688719928264617919921875E-8"
+          },
+          {
+            "delta_seconds": "0.0015904109673762345",
+            "tt_minus_tdb_seconds": "-0.0015904109673762345",
+            "derivative_seconds_per_second": "-8.035662470673952e-11",
+            "equation_residual_seconds": "0",
+            "next_delta_seconds": "0.0015904109673762345",
+            "argument_et_seconds": "764215269.18559038639068603515625",
+            "argument_quantization_seconds": "-2.45766901993006020576970627189439255744218826293945312E-8"
+          }
+        ]
+      },
+      "jplephem": {
+        "method": "newton",
+        "converged": true,
+        "delta_seconds": "0.0015904109673762366",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0015904109672484365",
+            "derivative_seconds_per_second": "-8.0356624818786394e-11",
+            "equation_residual_seconds": "-0.0015904109672484365",
+            "next_delta_seconds": "0.0015904109673762366",
+            "argument_jd_parts": [
+              "2460390",
+              "0.08413407407407406946031613870218279771506786346435546875"
+            ],
+            "argument_quantization_seconds": "-3.9862868561613140627741813659667968750000000E-13"
+          },
+          {
+            "delta_seconds": "0.0015904109673762366",
+            "tt_minus_tdb_seconds": "-0.0015904109673762364",
+            "derivative_seconds_per_second": "-8.0356624706737788e-11",
+            "equation_residual_seconds": "2.1684043449710089e-19",
+            "next_delta_seconds": "0.0015904109673762364",
+            "argument_jd_parts": [
+              "2460390",
+              "0.08413409248160841347186078564845956861972808837890625"
+            ],
+            "argument_quantization_seconds": "-4.522678533763757613428424519952386617660522460938E-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2024-06-21_10",
+      "kind": "historical",
+      "utc": "2024-06-21T10:00:00",
+      "tt_seconds_from_j2000": "772236069.184",
+      "cspice": {
+        "method": "fixed_point",
+        "converged": true,
+        "delta_seconds": "0.00038972435316701623",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0003897243532903226",
+            "derivative_seconds_per_second": "3.1641756267806415e-10",
+            "equation_residual_seconds": "-0.0003897243532903226",
+            "next_delta_seconds": "0.0003897243532903226",
+            "argument_et_seconds": "772236069.1840000152587890625",
+            "argument_quantization_seconds": "1.52587890625E-8"
+          },
+          {
+            "delta_seconds": "0.0003897243532903226",
+            "tt_minus_tdb_seconds": "-0.00038972435316701623",
+            "derivative_seconds_per_second": "3.1641756268431732e-10",
+            "equation_residual_seconds": "1.2330636728688504e-13",
+            "next_delta_seconds": "0.00038972435316701623",
+            "argument_et_seconds": "772236069.18438971042633056640625",
+            "argument_quantization_seconds": "-1.39269597561929650564316318650526227429509162902832031E-8"
+          },
+          {
+            "delta_seconds": "0.00038972435316701623",
+            "tt_minus_tdb_seconds": "-0.00038972435316701623",
+            "derivative_seconds_per_second": "3.1641756268431732e-10",
+            "equation_residual_seconds": "0",
+            "next_delta_seconds": "0.00038972435316701623",
+            "argument_et_seconds": "772236069.18438971042633056640625",
+            "argument_quantization_seconds": "-1.39268364498256781713880769757452071644365787506103516E-8"
+          }
+        ]
+      },
+      "jplephem": {
+        "method": "newton",
+        "converged": true,
+        "delta_seconds": "0.00038972435316701179",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.00038972435329032742",
+            "derivative_seconds_per_second": "3.1641756267806394e-10",
+            "equation_residual_seconds": "-0.00038972435329032742",
+            "next_delta_seconds": "0.00038972435316701179",
+            "argument_jd_parts": [
+              "2460482",
+              "0.9174674074074073981677202027640305459499359130859375"
+            ],
+            "argument_quantization_seconds": "-7.983089744811877608299255371093750000000E-13"
+          },
+          {
+            "delta_seconds": "0.00038972435316701179",
+            "tt_minus_tdb_seconds": "-0.00038972435316701184",
+            "derivative_seconds_per_second": "3.1641756268431753e-10",
+            "equation_residual_seconds": "-5.4210108624275222e-20",
+            "next_delta_seconds": "0.00038972435316701184",
+            "argument_jd_parts": [
+              "2460482",
+              "0.91746741191810599058698016960988752543926239013671875"
+            ],
+            "argument_quantization_seconds": "4.4197032999550300846891559558571316301822662353516E-12"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2024-06-21_12",
+      "kind": "historical",
+      "utc": "2024-06-21T12:00:00",
+      "tt_seconds_from_j2000": "772243269.184",
+      "cspice": {
+        "method": "fixed_point",
+        "converged": true,
+        "delta_seconds": "0.00038744573297331192",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.00038744573309594608",
+            "derivative_seconds_per_second": "3.165321885758837e-10",
+            "equation_residual_seconds": "-0.00038744573309594608",
+            "next_delta_seconds": "0.00038744573309594608",
+            "argument_et_seconds": "772243269.1840000152587890625",
+            "argument_quantization_seconds": "1.52587890625E-8"
+          },
+          {
+            "delta_seconds": "0.00038744573309594608",
+            "tt_minus_tdb_seconds": "-0.00038744573297331192",
+            "derivative_seconds_per_second": "3.1653218858200277e-10",
+            "equation_residual_seconds": "1.2263416193994403e-13",
+            "next_delta_seconds": "0.00038744573297331192",
+            "argument_et_seconds": "772243269.1843874454498291015625",
+            "argument_quantization_seconds": "-2.83266844515461801989886225783266127109527587890625E-10"
+          },
+          {
+            "delta_seconds": "0.00038744573297331192",
+            "tt_minus_tdb_seconds": "-0.00038744573297331192",
+            "derivative_seconds_per_second": "3.1653218858200277e-10",
+            "equation_residual_seconds": "0",
+            "next_delta_seconds": "0.00038744573297331192",
+            "argument_et_seconds": "772243269.1843874454498291015625",
+            "argument_quantization_seconds": "-2.831442103535218579590804210965870879590511322021484E-10"
+          }
+        ]
+      },
+      "jplephem": {
+        "method": "newton",
+        "converged": true,
+        "delta_seconds": "0.00038744573297331186",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.0003874457330959509",
+            "derivative_seconds_per_second": "3.1653218857588349e-10",
+            "equation_residual_seconds": "-0.0003874457330959509",
+            "next_delta_seconds": "0.00038744573297331186",
+            "argument_jd_parts": [
+              "2460483",
+              "0.0008007407407407407529120746403350494801998138427734375"
+            ],
+            "argument_quantization_seconds": "1.0516032489249482750892639160156250000000E-15"
+          },
+          {
+            "delta_seconds": "0.00038744573297331186",
+            "tt_minus_tdb_seconds": "-0.00038744573297331186",
+            "derivative_seconds_per_second": "3.1653218858200282e-10",
+            "equation_residual_seconds": "0",
+            "next_delta_seconds": "0.00038744573297331186",
+            "argument_jd_parts": [
+              "2460483",
+              "0.000800745225066353850940092939936221227981150150299072265625"
+            ],
+            "argument_quantization_seconds": "-5.906377817388452911018248414620757102966308594E-16"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2024-06-21_14",
+      "kind": "historical",
+      "utc": "2024-06-21T14:00:00",
+      "tt_seconds_from_j2000": "772250469.184",
+      "cspice": {
+        "method": "fixed_point",
+        "converged": true,
+        "delta_seconds": "0.00038516629402480867",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.00038516629414676932",
+            "derivative_seconds_per_second": "3.1664499284569575e-10",
+            "equation_residual_seconds": "-0.00038516629414676932",
+            "next_delta_seconds": "0.00038516629414676932",
+            "argument_et_seconds": "772250469.1840000152587890625",
+            "argument_quantization_seconds": "1.52587890625E-8"
+          },
+          {
+            "delta_seconds": "0.00038516629414676932",
+            "tt_minus_tdb_seconds": "-0.00038516629402480867",
+            "derivative_seconds_per_second": "3.1664499285168133e-10",
+            "equation_residual_seconds": "1.2196065555039604e-13",
+            "next_delta_seconds": "0.00038516629402480867",
+            "argument_et_seconds": "772250469.18438518047332763671875",
+            "argument_quantization_seconds": "1.41791808673939929985596819506099564023315906524658203E-8"
+          },
+          {
+            "delta_seconds": "0.00038516629402480867",
+            "tt_minus_tdb_seconds": "-0.00038516629402480867",
+            "derivative_seconds_per_second": "3.1664499285168133e-10",
+            "equation_residual_seconds": "0",
+            "next_delta_seconds": "0.00038516629402480867",
+            "argument_et_seconds": "772250469.18438518047332763671875",
+            "argument_quantization_seconds": "1.41793028280495433945951333498669555410742759704589844E-8"
+          }
+        ]
+      },
+      "jplephem": {
+        "method": "newton",
+        "converged": true,
+        "delta_seconds": "0.00038516629402481317",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "-0.00038516629414677415",
+            "derivative_seconds_per_second": "3.1664499284569554e-10",
+            "equation_residual_seconds": "-0.00038516629414677415",
+            "next_delta_seconds": "0.00038516629402481317",
+            "argument_jd_parts": [
+              "2460483",
+              "0.08413407407407406946031613870218279771506786346435546875"
+            ],
+            "argument_quantization_seconds": "-3.9862868561613140627741813659667968750000000E-13"
+          },
+          {
+            "delta_seconds": "0.00038516629402481317",
+            "tt_minus_tdb_seconds": "-0.00038516629402481317",
+            "derivative_seconds_per_second": "3.1664499285168112e-10",
+            "equation_residual_seconds": "0",
+            "next_delta_seconds": "0.00038516629402481317",
+            "argument_jd_parts": [
+              "2460483",
+              "0.0841340785320172923622550342770409770309925079345703125"
+            ],
+            "argument_quantization_seconds": "3.52856663159151207054264887119643390178680419922E-14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2024-09-22_10",
+      "kind": "historical",
+      "utc": "2024-09-22T10:00:00",
+      "tt_seconds_from_j2000": "780271269.184",
+      "cspice": {
+        "method": "fixed_point",
+        "converged": true,
+        "delta_seconds": "-0.0015995555371356651",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.0015995555372576718",
+            "derivative_seconds_per_second": "7.6275619461433688e-11",
+            "equation_residual_seconds": "0.0015995555372576718",
+            "next_delta_seconds": "-0.0015995555372576718",
+            "argument_et_seconds": "780271269.1840000152587890625",
+            "argument_quantization_seconds": "1.52587890625E-8"
+          },
+          {
+            "delta_seconds": "-0.0015995555372576718",
+            "tt_minus_tdb_seconds": "0.0015995555371356651",
+            "derivative_seconds_per_second": "7.6275619575934846e-11",
+            "equation_residual_seconds": "-1.2200678835283529e-13",
+            "next_delta_seconds": "-0.0015995555371356651",
+            "argument_et_seconds": "780271269.1824004650115966796875",
+            "argument_quantization_seconds": "2.05488543515326693711386951690656132996082305908203125E-8"
+          },
+          {
+            "delta_seconds": "-0.0015995555371356651",
+            "tt_minus_tdb_seconds": "0.0015995555371356651",
+            "derivative_seconds_per_second": "7.6275619575934846e-11",
+            "equation_residual_seconds": "0",
+            "next_delta_seconds": "-0.0015995555371356651",
+            "argument_et_seconds": "780271269.1824004650115966796875",
+            "argument_quantization_seconds": "2.05487323447443165358450301027914974838495254516601562E-8"
+          }
+        ]
+      },
+      "jplephem": {
+        "method": "newton",
+        "converged": true,
+        "delta_seconds": "-0.0015995555371356635",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.0015995555372576708",
+            "derivative_seconds_per_second": "7.6275619461434774e-11",
+            "equation_residual_seconds": "0.0015995555372576708",
+            "next_delta_seconds": "-0.0015995555371356635",
+            "argument_jd_parts": [
+              "2460575",
+              "0.9174674074074073981677202027640305459499359130859375"
+            ],
+            "argument_quantization_seconds": "-7.983089744811877608299255371093750000000E-13"
+          },
+          {
+            "delta_seconds": "-0.0015995555371356635",
+            "tt_minus_tdb_seconds": "0.0015995555371356635",
+            "derivative_seconds_per_second": "7.6275619575936332e-11",
+            "equation_residual_seconds": "0",
+            "next_delta_seconds": "-0.0015995555371356635",
+            "argument_jd_parts": [
+              "2460575",
+              "0.91746738889403312011694424654706381261348724365234375"
+            ],
+            "argument_quantization_seconds": "-1.2862324781648393212662995210848748683929443359375E-12"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2024-09-22_12",
+      "kind": "historical",
+      "utc": "2024-09-22T12:00:00",
+      "tt_seconds_from_j2000": "780278469.184",
+      "cspice": {
+        "method": "fixed_point",
+        "converged": true,
+        "delta_seconds": "-0.0016001028652822234",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.0016001028654034502",
+            "derivative_seconds_per_second": "7.5759856509158437e-11",
+            "equation_residual_seconds": "0.0016001028654034502",
+            "next_delta_seconds": "-0.0016001028654034502",
+            "argument_et_seconds": "780278469.1840000152587890625",
+            "argument_quantization_seconds": "1.52587890625E-8"
+          },
+          {
+            "delta_seconds": "-0.0016001028654034502",
+            "tt_minus_tdb_seconds": "0.0016001028652822234",
+            "derivative_seconds_per_second": "7.5759856623862383e-11",
+            "equation_residual_seconds": "-1.2122681330994922e-13",
+            "next_delta_seconds": "-0.0016001028652822234",
+            "argument_et_seconds": "780278469.18239986896514892578125",
+            "argument_quantization_seconds": "-2.8169447623981047623686890801764093339443206787109375E-8"
+          },
+          {
+            "delta_seconds": "-0.0016001028652822234",
+            "tt_minus_tdb_seconds": "0.0016001028652822234",
+            "derivative_seconds_per_second": "7.5759856623862383e-11",
+            "equation_residual_seconds": "0",
+            "next_delta_seconds": "-0.0016001028652822234",
+            "argument_et_seconds": "780278469.18239986896514892578125",
+            "argument_quantization_seconds": "-2.81695688507943575729086660430766642093658447265625E-8"
+          }
+        ]
+      },
+      "jplephem": {
+        "method": "newton",
+        "converged": true,
+        "delta_seconds": "-0.0016001028652822254",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.0016001028654034489",
+            "derivative_seconds_per_second": "7.5759856509159523e-11",
+            "equation_residual_seconds": "0.0016001028654034489",
+            "next_delta_seconds": "-0.0016001028652822254",
+            "argument_jd_parts": [
+              "2460576",
+              "0.0008007407407407407529120746403350494801998138427734375"
+            ],
+            "argument_quantization_seconds": "1.0516032489249482750892639160156250000000E-15"
+          },
+          {
+            "delta_seconds": "-0.0016001028652822254",
+            "tt_minus_tdb_seconds": "0.0016001028652822254",
+            "derivative_seconds_per_second": "7.5759856623860367e-11",
+            "equation_residual_seconds": "0",
+            "next_delta_seconds": "-0.0016001028652822254",
+            "argument_jd_parts": [
+              "2460576",
+              "0.000800722221031651879528945325859012882574461400508880615234375"
+            ],
+            "argument_quantization_seconds": "4.6166768324917839549925702158361673355102539062E-15"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2024-09-22_14",
+      "kind": "historical",
+      "utc": "2024-09-22T14:00:00",
+      "tt_seconds_from_j2000": "780285669.184",
+      "cspice": {
+        "method": "fixed_point",
+        "converged": true,
+        "delta_seconds": "-0.0016006464773790797",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.0016006464774995161",
+            "derivative_seconds_per_second": "7.5243388595454902e-11",
+            "equation_residual_seconds": "0.0016006464774995161",
+            "next_delta_seconds": "-0.0016006464774995161",
+            "argument_et_seconds": "780285669.1840000152587890625",
+            "argument_quantization_seconds": "1.52587890625E-8"
+          },
+          {
+            "delta_seconds": "-0.0016006464774995161",
+            "tt_minus_tdb_seconds": "0.0016006464773790797",
+            "derivative_seconds_per_second": "7.5243388710346322e-11",
+            "equation_residual_seconds": "-1.2043642992620729e-13",
+            "next_delta_seconds": "-0.0016006464773790797",
+            "argument_et_seconds": "780285669.18239939212799072265625",
+            "argument_quantization_seconds": "3.86054902387685666687033858579525258392095565795898438E-8"
+          },
+          {
+            "delta_seconds": "-0.0016006464773790797",
+            "tt_minus_tdb_seconds": "0.0016006464773790797",
+            "derivative_seconds_per_second": "7.5243388710346322e-11",
+            "equation_residual_seconds": "0",
+            "next_delta_seconds": "-0.0016006464773790797",
+            "argument_et_seconds": "780285669.18239939212799072265625",
+            "argument_quantization_seconds": "3.860536980233864046141434300807304680347442626953125E-8"
+          }
+        ]
+      },
+      "jplephem": {
+        "method": "newton",
+        "converged": true,
+        "delta_seconds": "-0.0016006464773790769",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.0016006464774995148",
+            "derivative_seconds_per_second": "7.5243388595456001e-11",
+            "equation_residual_seconds": "0.0016006464774995148",
+            "next_delta_seconds": "-0.0016006464773790769",
+            "argument_jd_parts": [
+              "2460576",
+              "0.08413407407407406946031613870218279771506786346435546875"
+            ],
+            "argument_quantization_seconds": "-3.9862868561613140627741813659667968750000000E-13"
+          },
+          {
+            "delta_seconds": "-0.0016006464773790769",
+            "tt_minus_tdb_seconds": "0.0016006464773790769",
+            "derivative_seconds_per_second": "7.5243388710349087e-11",
+            "equation_residual_seconds": "0",
+            "next_delta_seconds": "-0.0016006464773790769",
+            "argument_jd_parts": [
+              "2460576",
+              "0.0841340555480731833171148537076078355312347412109375"
+            ],
+            "argument_quantization_seconds": "4.176755868251502690213783353101462125778198242188E-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2024-12-21_10",
+      "kind": "historical",
+      "utc": "2024-12-21T10:00:00",
+      "tt_seconds_from_j2000": "788047269.184",
+      "cspice": {
+        "method": "fixed_point",
+        "converged": true,
+        "delta_seconds": "-0.00038839014562928642",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.00038839014550440693",
+            "derivative_seconds_per_second": "-3.2153626373324363e-10",
+            "equation_residual_seconds": "0.00038839014550440693",
+            "next_delta_seconds": "-0.00038839014550440693",
+            "argument_et_seconds": "788047269.1840000152587890625",
+            "argument_quantization_seconds": "1.52587890625E-8"
+          },
+          {
+            "delta_seconds": "-0.00038839014550440693",
+            "tt_minus_tdb_seconds": "0.00038839014562928642",
+            "derivative_seconds_per_second": "-3.215362637237522e-10",
+            "equation_residual_seconds": "1.2487949042905289e-13",
+            "next_delta_seconds": "-0.00038839014562928642",
+            "argument_et_seconds": "788047269.1836116313934326171875",
+            "argument_quantization_seconds": "2.15389370241182188936424068970154621638357639312744141E-8"
+          },
+          {
+            "delta_seconds": "-0.00038839014562928642",
+            "tt_minus_tdb_seconds": "0.00038839014562928642",
+            "derivative_seconds_per_second": "-3.215362637237522e-10",
+            "equation_residual_seconds": "0",
+            "next_delta_seconds": "-0.00038839014562928642",
+            "argument_et_seconds": "788047269.1836116313934326171875",
+            "argument_quantization_seconds": "2.15390619036086479465286203094365191645920276641845703E-8"
+          }
+        ]
+      },
+      "jplephem": {
+        "method": "newton",
+        "converged": true,
+        "delta_seconds": "-0.00038839014562929331",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.00038839014550441181",
+            "derivative_seconds_per_second": "-3.2153626373324327e-10",
+            "equation_residual_seconds": "0.00038839014550441181",
+            "next_delta_seconds": "-0.00038839014562929331",
+            "argument_jd_parts": [
+              "2460665",
+              "0.9174674074074073981677202027640305459499359130859375"
+            ],
+            "argument_quantization_seconds": "-7.983089744811877608299255371093750000000E-13"
+          },
+          {
+            "delta_seconds": "-0.00038839014562929331",
+            "tt_minus_tdb_seconds": "0.00038839014562929336",
+            "derivative_seconds_per_second": "-3.2153626372375168e-10",
+            "equation_residual_seconds": "5.4210108624275222e-20",
+            "next_delta_seconds": "-0.00038839014562929336",
+            "argument_jd_parts": [
+              "2460665",
+              "0.91746740291215111984257646327023394405841827392578125"
+            ],
+            "argument_quantization_seconds": "2.3836919122582900243401127227116376161575317382812E-12"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2024-12-21_12",
+      "kind": "historical",
+      "utc": "2024-12-21T12:00:00",
+      "tt_seconds_from_j2000": "788054469.184",
+      "cspice": {
+        "method": "fixed_point",
+        "converged": true,
+        "delta_seconds": "-0.00038607445169630669",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.00038607445157208759",
+            "derivative_seconds_per_second": "-3.2171196584833688e-10",
+            "equation_residual_seconds": "0.00038607445157208759",
+            "next_delta_seconds": "-0.00038607445157208759",
+            "argument_et_seconds": "788054469.1840000152587890625",
+            "argument_quantization_seconds": "1.52587890625E-8"
+          },
+          {
+            "delta_seconds": "-0.00038607445157208759",
+            "tt_minus_tdb_seconds": "0.00038607445169630669",
+            "derivative_seconds_per_second": "-3.2171196583892811e-10",
+            "equation_residual_seconds": "1.2421910288579197e-13",
+            "next_delta_seconds": "-0.00038607445169630669",
+            "argument_et_seconds": "788054469.18361389636993408203125",
+            "argument_quantization_seconds": "-2.91784938303805974069149442584603093564510345458984375E-8"
+          },
+          {
+            "delta_seconds": "-0.00038607445169630669",
+            "tt_minus_tdb_seconds": "0.00038607445169630669",
+            "derivative_seconds_per_second": "-3.2171196583892811e-10",
+            "equation_residual_seconds": "0",
+            "next_delta_seconds": "-0.00038607445169630669",
+            "argument_et_seconds": "788054469.18361389636993408203125",
+            "argument_quantization_seconds": "-2.91783696112777116149494815999787533655762672424316406E-8"
+          }
+        ]
+      },
+      "jplephem": {
+        "method": "newton",
+        "converged": true,
+        "delta_seconds": "-0.00038607445169629731",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.00038607445157209252",
+            "derivative_seconds_per_second": "-3.2171196584833646e-10",
+            "equation_residual_seconds": "0.00038607445157209252",
+            "next_delta_seconds": "-0.00038607445169629731",
+            "argument_jd_parts": [
+              "2460666",
+              "0.0008007407407407407529120746403350494801998138427734375"
+            ],
+            "argument_quantization_seconds": "1.0516032489249482750892639160156250000000E-15"
+          },
+          {
+            "delta_seconds": "-0.00038607445169629731",
+            "tt_minus_tdb_seconds": "0.00038607445169629726",
+            "derivative_seconds_per_second": "-3.2171196583892884e-10",
+            "equation_residual_seconds": "-5.4210108624275222e-20",
+            "next_delta_seconds": "-0.00038607445169629726",
+            "argument_jd_parts": [
+              "2460666",
+              "0.00080073627228643864776891359014143745298497378826141357421875"
+            ],
+            "argument_quantization_seconds": "-4.5354531762187288990162414847873151302337646484E-15"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2024-12-21_14",
+      "kind": "historical",
+      "utc": "2024-12-21T14:00:00",
+      "tt_seconds_from_j2000": "788061669.184",
+      "cspice": {
+        "method": "fixed_point",
+        "converged": true,
+        "delta_seconds": "-0.00038375749456077762",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.00038375749443725837",
+            "derivative_seconds_per_second": "-3.2188715085778038e-10",
+            "equation_residual_seconds": "0.00038375749443725837",
+            "next_delta_seconds": "-0.00038375749443725837",
+            "argument_et_seconds": "788061669.1840000152587890625",
+            "argument_quantization_seconds": "1.52587890625E-8"
+          },
+          {
+            "delta_seconds": "-0.00038375749443725837",
+            "tt_minus_tdb_seconds": "0.00038375749456077762",
+            "derivative_seconds_per_second": "-3.218871508484577e-10",
+            "equation_residual_seconds": "1.2351925038345257e-13",
+            "next_delta_seconds": "-0.00038375749456077762",
+            "argument_et_seconds": "788061669.18361628055572509765625",
+            "argument_quantization_seconds": "3.80501623560231330700709406755777308717370033264160156E-8"
+          },
+          {
+            "delta_seconds": "-0.00038375749456077762",
+            "tt_minus_tdb_seconds": "0.00038375749456077762",
+            "derivative_seconds_per_second": "-3.218871508484577e-10",
+            "equation_residual_seconds": "0",
+            "next_delta_seconds": "-0.00038375749456077762",
+            "argument_et_seconds": "788061669.18361628055572509765625",
+            "argument_quantization_seconds": "3.80502858752735165226432911822485039010643959045410156E-8"
+          }
+        ]
+      },
+      "jplephem": {
+        "method": "newton",
+        "converged": true,
+        "delta_seconds": "-0.00038375749456078987",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "0.00038375749443726325",
+            "derivative_seconds_per_second": "-3.2188715085778007e-10",
+            "equation_residual_seconds": "0.00038375749443726325",
+            "next_delta_seconds": "-0.00038375749456078987",
+            "argument_jd_parts": [
+              "2460666",
+              "0.08413407407407406946031613870218279771506786346435546875"
+            ],
+            "argument_quantization_seconds": "-3.9862868561613140627741813659667968750000000E-13"
+          },
+          {
+            "delta_seconds": "-0.00038375749456078987",
+            "tt_minus_tdb_seconds": "0.00038375749456078987",
+            "derivative_seconds_per_second": "-3.2188715084845677e-10",
+            "equation_residual_seconds": "0",
+            "next_delta_seconds": "-0.00038375749456078987",
+            "argument_jd_parts": [
+              "2460666",
+              "0.08413406963243640068750295313293463550508022308349609375"
+            ],
+            "argument_quantization_seconds": "-4.198098760982427180010745360050350427627563476562E-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "j2000_tt",
+      "kind": "tt_epoch_probe",
+      "utc": null,
+      "tt_seconds_from_j2000": "0.0",
+      "cspice": {
+        "method": "fixed_point",
+        "converged": true,
+        "delta_seconds": "-9.9288930732230519e-05",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "9.9288930698981223e-05",
+            "derivative_seconds_per_second": "-3.3487407199312993e-10",
+            "equation_residual_seconds": "9.9288930698981223e-05",
+            "next_delta_seconds": "-9.9288930698981223e-05",
+            "argument_et_seconds": "0",
+            "argument_quantization_seconds": "0.0"
+          },
+          {
+            "delta_seconds": "-9.9288930698981223e-05",
+            "tt_minus_tdb_seconds": "9.9288930732230519e-05",
+            "derivative_seconds_per_second": "-3.3487407199203293e-10",
+            "equation_residual_seconds": "3.3249295786248745e-14",
+            "next_delta_seconds": "-9.9288930732230519e-05",
+            "argument_et_seconds": "-0.000099288930698981223339251445114683747306116856634616851806640625",
+            "argument_quantization_seconds": "0E-66"
+          },
+          {
+            "delta_seconds": "-9.9288930732230519e-05",
+            "tt_minus_tdb_seconds": "9.9288930732230519e-05",
+            "derivative_seconds_per_second": "-3.3487407199203293e-10",
+            "equation_residual_seconds": "0",
+            "next_delta_seconds": "-9.9288930732230519e-05",
+            "argument_et_seconds": "-0.00009928893073223051912550018993641742781619541347026824951171875",
+            "argument_quantization_seconds": "0E-65"
+          }
+        ]
+      },
+      "jplephem": {
+        "method": "newton",
+        "converged": true,
+        "delta_seconds": "-9.9288930732230506e-05",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "9.9288930698981223e-05",
+            "derivative_seconds_per_second": "-3.3487407199312993e-10",
+            "equation_residual_seconds": "9.9288930698981223e-05",
+            "next_delta_seconds": "-9.9288930732230506e-05",
+            "argument_jd_parts": [
+              "2451545",
+              "0"
+            ],
+            "argument_quantization_seconds": "0.0"
+          },
+          {
+            "delta_seconds": "-9.9288930732230506e-05",
+            "tt_minus_tdb_seconds": "9.9288930732230519e-05",
+            "derivative_seconds_per_second": "-3.3487407199203293e-10",
+            "equation_residual_seconds": "1.3552527156068805e-20",
+            "next_delta_seconds": "-9.9288930732230519e-05",
+            "argument_jd_parts": [
+              "2451545",
+              "-1.1491774390304456050812165917619778188196733026416040956974029541015625E-9"
+            ],
+            "argument_quantization_seconds": "5.29395592033937711917701562924776226282119750976562504E-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "iau_epoch_tt",
+      "kind": "tt_epoch_probe",
+      "utc": null,
+      "tt_seconds_from_j2000": "-725803167.8160000",
+      "cspice": {
+        "method": "fixed_point",
+        "converged": true,
+        "delta_seconds": "-6.5500000000016446e-05",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "6.5499999978418027e-05",
+            "derivative_seconds_per_second": "-3.2941936760192231e-10",
+            "equation_residual_seconds": "6.5499999978418027e-05",
+            "next_delta_seconds": "-6.5499999978418027e-05",
+            "argument_et_seconds": "-725803167.8159999847412109375",
+            "argument_quantization_seconds": "1.52587890625E-8"
+          },
+          {
+            "delta_seconds": "-6.5499999978418027e-05",
+            "tt_minus_tdb_seconds": "6.5500000000016446e-05",
+            "derivative_seconds_per_second": "-3.2941936760217982e-10",
+            "equation_residual_seconds": "2.1598418583138046e-14",
+            "next_delta_seconds": "-6.5500000000016446e-05",
+            "argument_et_seconds": "-725803167.8160655498504638671875",
+            "argument_quantization_seconds": "-4.98504854491604084548717068514633865561336278915405273E-8"
+          },
+          {
+            "delta_seconds": "-6.5500000000016446e-05",
+            "tt_minus_tdb_seconds": "6.5500000000016446e-05",
+            "derivative_seconds_per_second": "-3.2941936760217982e-10",
+            "equation_residual_seconds": "0",
+            "next_delta_seconds": "-6.5500000000016446e-05",
+            "argument_et_seconds": "-725803167.8160655498504638671875",
+            "argument_quantization_seconds": "-4.98504638507418253168257393781459541060030460357666016E-8"
+          }
+        ]
+      },
+      "jplephem": {
+        "method": "newton",
+        "converged": true,
+        "delta_seconds": "-6.550000000000002e-05",
+        "trace": [
+          {
+            "delta_seconds": "0",
+            "tt_minus_tdb_seconds": "6.5499999978423055e-05",
+            "derivative_seconds_per_second": "-3.2941936760192236e-10",
+            "equation_residual_seconds": "6.5499999978423055e-05",
+            "next_delta_seconds": "-6.550000000000002e-05",
+            "argument_jd_parts": [
+              "2443145",
+              "-0.49962750000000000216715534406830556690692901611328125"
+            ],
+            "argument_quantization_seconds": "-1.8724222172750160098075866699218750000000E-13"
+          },
+          {
+            "delta_seconds": "-6.550000000000002e-05",
+            "tt_minus_tdb_seconds": "6.550000000000002e-05",
+            "derivative_seconds_per_second": "-3.2941936760217967e-10",
+            "equation_residual_seconds": "0",
+            "next_delta_seconds": "-6.550000000000002e-05",
+            "argument_jd_parts": [
+              "2443145",
+              "-0.499627500758101861233484441982000134885311126708984375"
+            ],
+            "argument_quantization_seconds": "-8.105730357754747927856442402116954326629638671875E-13"
+          }
+        ]
+      }
+    }
+  ]
+}

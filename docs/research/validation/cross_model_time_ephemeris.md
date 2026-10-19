@@ -11,7 +11,8 @@ This mission follows the [Mission 46 next boundary](time_ephemeris_normalization
 The [protocol](../../../validation/manifests/cross_model_time_policy_v1.json) is
 committed before the first INPOP time-polynomial evaluation or new clock comparison.
 Source inspection, archive acquisition and segment metadata inspection precede
-that freeze. Failed checks must be retained, with no fitted bias, recentering,
+that freeze, committed as `118baf1eba0e69b2ce480fec4db3ece219c7fb15`.
+Failed checks must be retained, with no fitted bias, recentering,
 threshold adjustment or silent replacement of the selected reference.
 
 The sample set remains the 12 unique historical geocentric instants, J2000 TT,
@@ -32,6 +33,13 @@ extracted. The original archive, kernel and publication PDFs remain local inputs
 this repository retains attributed, limited derived research values and
 acquisition instructions. The provider's [usage conditions][7] are linked;
 no blanket raw-data redistribution permission is inferred.
+
+The completed archive is 24,194,181 bytes; the selected member is
+`inpop21a_TDB_m100_p100_spice_time.bsp`, 5,694,464 bytes. Its unique Type 2
+segment has identifier `TT-TDB`, frame 1 and coverage JD(TDB) 2414105–2488985.
+Hashes are locally computed acquisition pins, not provider-published checksums.
+The initial download timed out and was resumed; only the completed archive was
+hashed for the protocol and extracted. No partial-download hash was accepted.
 
 | Property | Contract |
 |---|---|
@@ -117,13 +125,13 @@ remains **288 candidates, 0 executed, 288 blocked** (240 solar-eligible,
 
 Acquire the exact archive URL in the protocol and verify its checksum before
 extracting only the named BSP. Verify the extracted checksum and size too.
-Create an isolated environment from the pinned
+Use Python 3.12.14 for byte-identical reference provenance and an isolated environment from the pinned
 [reference requirements](../../../validation/reference_generation/time-ephemeris-requirements.txt),
 then run:
 
 ```sh
 python -m validation.reference_generation.cross_model_time \
-  --kernel /absolute/path/to/the/pinned/kernel.bsp \
+  --kernel inpop21a_TDB_m100_p100_spice_time.bsp \
   --output /tmp/cross_model_time_v1.json
 cmp validation/fixtures/cross_model_time_v1.json /tmp/cross_model_time_v1.json
 python -m validation.cross_model_time --output /tmp/cross_model_time_reference_run.json
@@ -137,16 +145,49 @@ Both executables block network connections. The manifest pins the new fixture,
 generator, ledger, protocol, requirements and historical inputs.
 CI retains all prior artifacts and adds `cross-model-time-ephemeris-record`.
 
-Results, clean canonical provenance and quality-gate evidence will be recorded
-after evaluation under the committed protocol.
+## Results
+
+All 28 reader/solver runs converged and all 14 numerical cases passed on the
+first evaluation under the frozen protocol. Regeneration in the pinned reference
+environment is byte-identical. Maximum reader offset difference is
+1.6426×10⁻¹⁷ s; maximum derivative difference is 3.697×10⁻²⁴ s/s.
+The INPOP IAU-origin closure residual is −1.6446×10⁻¹⁷ s. These small residuals
+describe arithmetic on delivered polynomials, not physical clock accuracy.
+
+Maximum actual-argument quantization is 5.22243984×10⁻⁸ s for CSPICE ET and
+4.41970330×10⁻¹² s for jplephem's two-part JD. All live-candidate replay and
+comparison-triangle residuals are zero at retained serialization precision.
+
+| Samples | INPOP21a−DE440t, ns | Astropy−INPOP21a, ns |
+|---|---:|---:|
+| 12 historical epochs | +2.45044157464 to +2.52478422885 | −29.17592099459 to −25.80073596735 |
+| J2000 TT | +1.185011512176 | −18.268211563946 |
+| IAU-origin TT | +0.000000001301 | −3.416552090299 |
+
+The [fixture](../../../validation/fixtures/cross_model_time_v1.json) retains the
+full traces. The [manifest](../../../validation/manifests/cross_model_time_v1.json)
+pins all inputs. Source review establishes no applicable complete physical
+uncertainty bound; the numerical qualification is explicitly limited to sampled
+geocentric cross-model diagnostics. It does not rank either model by truth.
+
+All **50 new regression tests pass**: convention and trace corruption, checksum
+and provenance rejection, triangle signs, delivered normalization, historical
+continuity, independence claims, missing evidence, and closed eligibility with
+both zero and large cross-model differences. The full local suite passed
+**3475 tests in 144.76 seconds**. Ruff lint, new-file formatting, compilation,
+all 17 manifest input hashes and the report's relative links passed. No
+scientific evaluation failed; no protocol threshold or input selection changed.
+Clean canonical provenance is retained after committing the implementation.
 
 ## Next research boundary
 
-A future mission should address a declared unresolved uncertainty component
-with source-matched evidence, preserving these cross-model differences as
-diagnostics. It must not equate an ephemeris difference with a physical bound
-or enable combined arrival execution without satisfying the existing gates.
-No subsequent mission is started here.
+Proposed **Mission 48 — Geocentric Time-Ephemeris Sensitivity and Uncertainty
+Propagation** should derive a source-matched sensitivity contract for integrated
+clock dependence on ephemeris inputs, distinguish correlated input errors from
+numerical checks, and identify which required uncertainty inputs are available.
+Missing input bounds must stay unknown. These cross-model differences remain
+diagnostics and cannot enable combined arrival execution. Mission 48 is not
+started and requires Mission 47 review and merge.
 
 ## Primary references
 
