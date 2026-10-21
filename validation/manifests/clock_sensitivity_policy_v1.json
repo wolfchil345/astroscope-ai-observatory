@@ -1,0 +1,295 @@
+{
+  "schema_version": "1.0",
+  "mission": 48,
+  "baseline_commit": "d1c2d0d39ea5e50da761a220004e65fc25bf5062",
+  "baseline_ci": {
+    "run_id": 39650383938,
+    "conclusion": "success"
+  },
+  "freeze_rule": "Commit this policy and protocol before any new sensitivity or covariance evaluation. Preserve failures and thresholds; no fitting or uncertainty inferred from agreement.",
+  "model_id": "geocentric-clock-sensitivity-v1",
+  "selected_arrival_convention_id": "astroscope-tdb-solar-au-v1",
+  "protocol": "docs/research/validation/clock_sensitivity_protocol.md",
+  "constants": {
+    "c_m_s": "299792458",
+    "LB": "1.550519768e-8",
+    "LG": "6.969290134e-10"
+  },
+  "leading_rate": "(1+LB-LG)*(LB-(v.v/2+sum(mu_A/r_A))/c^2)-LG",
+  "body_ids": [
+    10,
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    301
+  ],
+  "state_count": 12,
+  "partials_per_state": 43,
+  "mapping_count": 28,
+  "reference_arithmetic": "Python 3.12 standard library: Decimal precision 100 for square-root rate partials; exact Fraction for mapping and synthetic covariance, serialized at 100 digits",
+  "candidate_arithmetic": "NumPy binary64 analytic gradients and complex-step scalar differentiation; Decimal precision 70 implicit gains and covariance propagation; exact rational PSD domain validation",
+  "complex_steps": {
+    "velocity_m_s": "1e-3",
+    "displacement_m": "1",
+    "gm_relative": "1e-12"
+  },
+  "limits": {
+    "partial_absolute": "1e-45",
+    "partial_relative": "5e-13",
+    "rate_seconds_per_second": "1e-22",
+    "mapping_absolute": "1e-60",
+    "covariance_absolute": "1e-60",
+    "minimum_mapping_denominator": "0.5"
+  },
+  "controls": [
+    {
+      "id": "independent",
+      "jacobian": [
+        "1",
+        "1"
+      ],
+      "covariance": [
+        [
+          "4",
+          "0"
+        ],
+        [
+          "0",
+          "9"
+        ]
+      ],
+      "box_bounds": [
+        "2",
+        "3"
+      ],
+      "input_units": [
+        "s",
+        "s"
+      ],
+      "output_unit": "s"
+    },
+    {
+      "id": "positive_correlation",
+      "jacobian": [
+        "1",
+        "1"
+      ],
+      "covariance": [
+        [
+          "4",
+          "3"
+        ],
+        [
+          "3",
+          "9"
+        ]
+      ],
+      "box_bounds": [
+        "2",
+        "3"
+      ],
+      "input_units": [
+        "s",
+        "s"
+      ],
+      "output_unit": "s"
+    },
+    {
+      "id": "negative_correlation",
+      "jacobian": [
+        "1",
+        "1"
+      ],
+      "covariance": [
+        [
+          "4",
+          "-3"
+        ],
+        [
+          "-3",
+          "9"
+        ]
+      ],
+      "box_bounds": [
+        "2",
+        "3"
+      ],
+      "input_units": [
+        "s",
+        "s"
+      ],
+      "output_unit": "s"
+    },
+    {
+      "id": "perfect_cancellation",
+      "jacobian": [
+        "1",
+        "-1"
+      ],
+      "covariance": [
+        [
+          "4",
+          "4"
+        ],
+        [
+          "4",
+          "4"
+        ]
+      ],
+      "box_bounds": [
+        "2",
+        "2"
+      ],
+      "input_units": [
+        "s",
+        "s"
+      ],
+      "output_unit": "s"
+    },
+    {
+      "id": "constant_rate_two_intervals",
+      "jacobian": [
+        "2",
+        "3"
+      ],
+      "covariance": [
+        [
+          "4",
+          "4"
+        ],
+        [
+          "4",
+          "4"
+        ]
+      ],
+      "box_bounds": [
+        "2",
+        "2"
+      ],
+      "input_units": [
+        "s/s",
+        "s/s"
+      ],
+      "output_unit": "s"
+    },
+    {
+      "id": "anchor_rate_correlation",
+      "jacobian": [
+        "1",
+        "5"
+      ],
+      "covariance": [
+        [
+          "4",
+          "-2"
+        ],
+        [
+          "-2",
+          "1"
+        ]
+      ],
+      "box_bounds": [
+        "2",
+        "1"
+      ],
+      "input_units": [
+        "s",
+        "s/s"
+      ],
+      "output_unit": "s"
+    },
+    {
+      "id": "zero_variance",
+      "jacobian": [
+        "1",
+        "2"
+      ],
+      "covariance": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "box_bounds": [
+        "0",
+        "0"
+      ],
+      "input_units": [
+        "s",
+        "s"
+      ],
+      "output_unit": "s"
+    },
+    {
+      "id": "unknown_covariance",
+      "jacobian": [
+        "1",
+        "1"
+      ],
+      "covariance": null,
+      "box_bounds": null,
+      "input_units": [
+        "s",
+        "s"
+      ],
+      "output_unit": "s"
+    },
+    {
+      "id": "unknown_cross_covariance",
+      "jacobian": [
+        "1",
+        "1"
+      ],
+      "covariance": [
+        [
+          "4",
+          null
+        ],
+        [
+          null,
+          "9"
+        ]
+      ],
+      "box_bounds": [
+        "2",
+        "3"
+      ],
+      "input_units": [
+        "s",
+        "s"
+      ],
+      "output_unit": "s"
+    }
+  ],
+  "unresolved_components": [
+    "geocentric_time_ephemeris",
+    "earth_state",
+    "station_coordinates",
+    "earth_orientation",
+    "omitted_physics_and_coefficient_model",
+    "higher_order_remainder"
+  ],
+  "physical_geocentric_clock_bound_seconds": null,
+  "physical_site_clock_bound_seconds": null,
+  "physical_arrival_bound_seconds": null,
+  "observing_eligible": false,
+  "frozen_inputs": {
+    "docs/research/validation/clock_sensitivity_protocol.md": "da781370a7250dce57d848cbb676809ad15034f890f08367fc6520af957dd317",
+    "validation/fixtures/coupled_clock_v1.json": "7e2908d034599ff67da79399f6c1dbac9c18aae8bd98ef47cb0e8d4312c6e870",
+    "validation/manifests/coupled_clock_policy_v1.json": "165631bcedc9614e996734d17c711d6ae349ef13d9eeb4b137c21bbcda020081",
+    "validation/fixtures/time_ephemeris_v1.json": "f4d087bb1c53269f7f2e490a50067f2a1a72d2abed2bbf2b6d0d6cc1094cb540",
+    "validation/fixtures/cross_model_time_v1.json": "32a4217b5af383313cdb584e563c8efe578d2dbda98c6ffbba6da6d512411a93",
+    "validation/results/cross_model_time_reference_run.json": "89426db282a630123318ed95e276491b23dff4494cb4db3303fe7c4fb437cfc1",
+    "validation/manifests/observer_arrival_policy_v1.json": "0d5a5fd556a2df8efc7cecfdbdbcb6c8c508f288bf29bda0ea686dfddf1411dd",
+    "src/astroscope/transit_timing.py": "7d1f72807a5991f94be66cface374162fd3ebb10c1cf2cdf0b18a5d7d716d27e"
+  }
+}
