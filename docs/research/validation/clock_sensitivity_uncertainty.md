@@ -127,8 +127,15 @@ is retained. A clock-only numeric parser rejected outer-planet positions above
 repairs that unit-domain mismatch; frozen acceptance thresholds and reference
 values did not change. The original clock parser remains unchanged.
 
-Canonical clean-commit provenance and the full-suite result are recorded after
-the implementation commit. CI adds a seventeenth retained artifact,
+The [canonical record](../../../validation/results/clock_sensitivity_reference_run.json)
+was generated from clean implementation commit
+`c28a4629633169d77f1a62005ded3122c76d3481` (`working_tree_dirty=false`).
+Its SHA-256 is `f1129ef041735564da72f240d530e32d04f35d86f8829945a1a3edd9f79f54bb`.
+Runtime: Python 3.12.14, NumPy 2.5.3, Astropy 8.0.1 and PyERFA 2.0.1.5;
+the latter two are environment provenance, not sensitivity reference providers.
+All 62 Mission 48 tests pass, including exact offline regeneration and canonical
+replay. The full-suite result is recorded before publication.
+CI adds a seventeenth retained artifact,
 `clock-sensitivity-uncertainty-record`. Final-head CI and downloaded artifact
 verification are recorded in the pull request before handoff.
 
