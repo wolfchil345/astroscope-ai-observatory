@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "mission": 50,
+  "review_date_utc": "2026-10-21",
+  "sources": [
+    {
+      "id": "cvodes711",
+      "url": "https://sundials.readthedocs.io/en/v7.1.1/cvodes/Mathematics_link.html",
+      "location": "sections 4.2.6, 4.2.7 equation 4.14, and 4.2.7.4",
+      "finding": "Initial-condition derivatives and both state-transport and explicit parameter terms enter forward sensitivities; integral sensitivities require their own integrands.",
+      "limitation": "Mathematical formulation only. CVODES is not installed or used as this mission's reference solver."
+    },
+    {
+      "id": "inpop08",
+      "url": "https://www.imcce.fr/content/medias/recherche/equipes/asd/inpop/inpop08_preprint.pdf",
+      "location": "section 2.4 equation 10",
+      "finding": "Time ephemeris integration is coupled to the dynamical trajectories.",
+      "limitation": "The manufactured clock functional is our test construction, not an INPOP approximation or physical covariance product."
+    },
+    {
+      "id": "gum2008",
+      "url": "https://www.iso.org/sites/JCGM/GUM/JCGM100/C045315e-html/C045315e_FILES/MAIN_C045315e/05_e.html",
+      "location": "sections 5.1 and 5.2",
+      "finding": "First-order variance propagation retains local sensitivities and input correlations.",
+      "limitation": "Synthetic covariance calculations do not establish a physical confidence interval or deterministic bound."
+    },
+    {
+      "id": "gum2026",
+      "url": "https://www.bipm.org/documents/20126/2071204/JCGM_100_Amd1_2026.pdf",
+      "location": "page 1, amendments to 4.1.4 and H.1.7",
+      "finding": "Significant nonlinearity can require correction of both the output estimate and uncertainty.",
+      "limitation": "No physical distribution, nonlinear remainder or model-discrepancy bound is supplied by this mission."
+    }
+  ],
+  "reference_scope": "Independent numerical implementation of manufactured systems; no independent physical reference.",
+  "physical_receipt_status": "Mission 49 retained: two nominal products, 18 unestablished requirements.",
+  "physical_covariance_acquired": false,
+  "physical_covariance_propagated": false,
+  "unresolved_components": [
+    "geocentric_time_ephemeris",
+    "earth_state",
+    "station_coordinates",
+    "earth_orientation",
+    "omitted_physics_and_coefficient_model",
+    "higher_order_remainder"
+  ],
+  "observing_eligible": false,
+  "physical_geocentric_clock_bound_seconds": null,
+  "physical_site_clock_bound_seconds": null,
+  "physical_arrival_bound_seconds": null
+}
