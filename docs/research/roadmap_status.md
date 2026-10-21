@@ -33,8 +33,9 @@
 - Mission 43: Complete — Independent Site-Clock Mapping and Uncertainty Qualification, merged in [PR #43](https://github.com/wolfchil345/astroscope-ai-observatory/pull/43) (`6982a2419bdc7c3ced22bd5abe5d6d79d7c05c17`); post-merge Quality Gate 39133947130 passed, physical bounds remain unknown
 - Mission 44: Complete — Relativistic Site-Frame Mapping and Error-Bound Evidence, merged in [PR #44](https://github.com/wolfchil345/astroscope-ai-observatory/pull/44) (`c7bbcc54425ef9a2dc02550c45b94797bdb76bcf`); post-merge Quality Gate 39138219738 passed, numerical spatial inverse certified within the declared polynomial, physical qualification incomplete
 - Mission 45: Complete — Coupled Relativistic Site-Clock Model and Reference Qualification, merged in [PR #45](https://github.com/wolfchil345/astroscope-ai-observatory/pull/45) (`ee10e9e04f5422bb0416b87662de571e9d76d135`); post-merge Quality Gate 39231240199 passed, physical timing bounds remain unknown
-- Mission 46: Active — Time-Ephemeris Normalization and Physical Uncertainty Evidence, [PR #46](https://github.com/wolfchil345/astroscope-ai-observatory/pull/46); all 9 affine controls and 14 reused geocentric samples pass, no applicable physical uncertainty bound established
-- Proposed next: Mission 47 — Independent Time-Ephemeris Cross-Model Qualification; not started, pending Mission 46 review and merge
+- Mission 46: Complete — Time-Ephemeris Normalization and Physical Uncertainty Evidence, merged in [PR #46](https://github.com/wolfchil345/astroscope-ai-observatory/pull/46) (`72534fbdfe15d18d789c883d7356df5ac17cb05b`); post-merge Quality Gate 39253030570 passed, no applicable physical uncertainty bound established
+- Mission 47: Active — Independent Time-Ephemeris Cross-Model Qualification, [PR #47](https://github.com/wolfchil345/astroscope-ai-observatory/pull/47); all 14 INPOP21a/DE440t geocentric cases pass, diagnostics only; physical uncertainty remains unqualified
+- Proposed next: Mission 48 — Geocentric Time-Ephemeris Sensitivity and Uncertainty Propagation; not started, pending Mission 47 review and merge
 
 ## Phase Progress
 
