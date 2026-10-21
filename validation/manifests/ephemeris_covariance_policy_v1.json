@@ -1,0 +1,268 @@
+{
+  "schema_version": "1.0",
+  "mission": 49,
+  "model_id": "ephemeris-covariance-qualification-v1",
+  "baseline_commit": "8e635a9331d2bf508e4552384c16d47d6be2b687",
+  "baseline_ci": {
+    "run_id": 39660413036,
+    "conclusion": "success"
+  },
+  "selected_arrival_convention_id": "astroscope-tdb-solar-au-v1",
+  "freeze_rule": "Commit before new reference generation or numerical qualification; retain failures, no post-result threshold changes.",
+  "requirements": [
+    "covariance_payload",
+    "parameter_basis_and_units",
+    "reference_epoch_and_scale",
+    "nominal_solution_link",
+    "full_correlations",
+    "estimated_and_consider_parameters",
+    "integrated_trajectory_response",
+    "clock_anchor_and_cross_covariance",
+    "validity_interval"
+  ],
+  "source_ids": [
+    "jpl_export",
+    "park2021",
+    "inpop21a_catalog",
+    "inpop21a_note",
+    "fienga2024",
+    "rambaux2026",
+    "rambaux2026_cds",
+    "sbdb",
+    "horizons"
+  ],
+  "targets": [
+    {
+      "id": "DE440t",
+      "kernel_sha256": "4f003b4437a8b479aaca262716a779e3683413200adfd6353c4901aab5de800e",
+      "quantity": "TT_minus_TDB",
+      "units": "seconds",
+      "origin": "geocentre",
+      "time_scale": "TDB",
+      "requirements": {
+        "covariance_payload": null,
+        "parameter_basis_and_units": null,
+        "reference_epoch_and_scale": null,
+        "nominal_solution_link": null,
+        "full_correlations": null,
+        "estimated_and_consider_parameters": null,
+        "integrated_trajectory_response": null,
+        "clock_anchor_and_cross_covariance": null,
+        "validity_interval": null
+      }
+    },
+    {
+      "id": "INPOP21a",
+      "kernel_sha256": "b39d3faab00cd609685430e8f7f6c39c174341db24b387cad117199e11768687",
+      "quantity": "TT_minus_TDB",
+      "units": "seconds",
+      "origin": "geocentre",
+      "time_scale": "TDB",
+      "requirements": {
+        "covariance_payload": null,
+        "parameter_basis_and_units": null,
+        "reference_epoch_and_scale": null,
+        "nominal_solution_link": null,
+        "full_correlations": null,
+        "estimated_and_consider_parameters": null,
+        "integrated_trajectory_response": null,
+        "clock_anchor_and_cross_covariance": null,
+        "validity_interval": null
+      }
+    }
+  ],
+  "synthetic_context": {
+    "solution_id": "synthetic-fit-v1",
+    "kernel_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "quantity": "TT_minus_TDB_seconds",
+    "origin": "geocentre",
+    "frame": "BCRS",
+    "time_scale": "TDB",
+    "reference_epoch_jd": "2451545.0",
+    "validity_jd": [
+      "2451545.0",
+      "2451546.0"
+    ],
+    "parameters": [
+      {
+        "id": "x",
+        "unit": "km",
+        "role": "estimated"
+      },
+      {
+        "id": "v",
+        "unit": "km/s",
+        "role": "estimated"
+      },
+      {
+        "id": "mu",
+        "unit": "km^3/s^2",
+        "role": "consider"
+      }
+    ],
+    "response_kind": "integrated_parameter_response",
+    "anchor_kind": "fixed_conventional"
+  },
+  "controls": [
+    {
+      "id": "identity",
+      "order": [
+        0,
+        1,
+        2
+      ],
+      "scales": [
+        "1",
+        "1",
+        "1"
+      ],
+      "covariance": [
+        [
+          "4",
+          "1",
+          "-2"
+        ],
+        [
+          "1",
+          "9",
+          "0"
+        ],
+        [
+          "-2",
+          "0",
+          "4"
+        ]
+      ],
+      "jacobian": [
+        "1",
+        "2",
+        "-1"
+      ]
+    },
+    {
+      "id": "permutation",
+      "order": [
+        2,
+        0,
+        1
+      ],
+      "scales": [
+        "1",
+        "1",
+        "1"
+      ],
+      "covariance": [
+        [
+          "4",
+          "1",
+          "-2"
+        ],
+        [
+          "1",
+          "9",
+          "0"
+        ],
+        [
+          "-2",
+          "0",
+          "4"
+        ]
+      ],
+      "jacobian": [
+        "1",
+        "2",
+        "-1"
+      ]
+    },
+    {
+      "id": "si_permutation",
+      "order": [
+        2,
+        0,
+        1
+      ],
+      "scales": [
+        "1000000000",
+        "1000",
+        "1000"
+      ],
+      "covariance": [
+        [
+          "4",
+          "1",
+          "-2"
+        ],
+        [
+          "1",
+          "9",
+          "0"
+        ],
+        [
+          "-2",
+          "0",
+          "4"
+        ]
+      ],
+      "jacobian": [
+        "1",
+        "2",
+        "-1"
+      ]
+    },
+    {
+      "id": "singular_si_permutation",
+      "order": [
+        2,
+        0,
+        1
+      ],
+      "scales": [
+        "1000000000",
+        "1000",
+        "1000"
+      ],
+      "covariance": [
+        [
+          "4",
+          "6",
+          "-2"
+        ],
+        [
+          "6",
+          "9",
+          "-3"
+        ],
+        [
+          "-2",
+          "-3",
+          "1"
+        ]
+      ],
+      "jacobian": [
+        "1",
+        "-1",
+        "-1"
+      ]
+    }
+  ],
+  "numerical_acceptance": "exact Decimal equality to independent Fraction reference; terminating decimal controls only",
+  "unresolved_components": [
+    "geocentric_time_ephemeris",
+    "earth_state",
+    "station_coordinates",
+    "earth_orientation",
+    "omitted_physics_and_coefficient_model",
+    "higher_order_remainder"
+  ],
+  "physical_geocentric_clock_bound_seconds": null,
+  "physical_site_clock_bound_seconds": null,
+  "physical_arrival_bound_seconds": null,
+  "observing_eligible": false,
+  "frozen_inputs": {
+    "validation/results/clock_sensitivity_reference_run.json": "f1129ef041735564da72f240d530e32d04f35d86f8829945a1a3edd9f79f54bb",
+    "validation/manifests/clock_sensitivity_v1.json": "19a99e72f5d4ace6031b0bad206b6c1eb76d74245258ff70a157a24054d833ed",
+    "validation/manifests/time_ephemeris_policy_v1.json": "4d8bd7af1422874d7984bb4fba2bde981485709e70fb38d53a357c67e9e38231",
+    "validation/manifests/cross_model_time_policy_v1.json": "db6cb4a33af6870308a25cdc5501bc589e6462f9bf511dd16153fce1f74fb19e",
+    "src/astroscope/transit_timing.py": "7d1f72807a5991f94be66cface374162fd3ebb10c1cf2cdf0b18a5d7d716d27e"
+  }
+}
