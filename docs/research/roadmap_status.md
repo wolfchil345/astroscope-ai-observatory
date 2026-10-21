@@ -36,7 +36,7 @@
 - Mission 46: Complete — Time-Ephemeris Normalization and Physical Uncertainty Evidence, merged in [PR #46](https://github.com/wolfchil345/astroscope-ai-observatory/pull/46) (`72534fbdfe15d18d789c883d7356df5ac17cb05b`); post-merge Quality Gate 39253030570 passed, no applicable physical uncertainty bound established
 - Mission 47: Complete — Independent Time-Ephemeris Cross-Model Qualification, merged in [PR #47](https://github.com/wolfchil345/astroscope-ai-observatory/pull/47) (`d1c2d0d39ea5e50da761a220004e65fc25bf5062`); post-merge Quality Gate 39650383938 passed, cross-model differences remain diagnostics
 - Mission 48: Complete — Geocentric Time-Ephemeris Sensitivity and Uncertainty Propagation, merged in [PR #48](https://github.com/wolfchil345/astroscope-ai-observatory/pull/48); all 516 local rate partials, 28 mappings and nine synthetic covariance controls pass; physical uncertainty remains unknown
-- Mission 49: Active — Ephemeris Covariance Provenance and Applicability Qualification; frozen protocol, bounded source review and synthetic receipt/basis-transform controls; physical covariance remains unqualified
+- Mission 49: Active — Ephemeris Covariance Provenance and Applicability Qualification, [PR #49](https://github.com/wolfchil345/astroscope-ai-observatory/pull/49); nine-source review and four independent synthetic controls; physical covariance remains unqualified
 
 ## Phase Progress
 
@@ -478,8 +478,9 @@
 - [x] Add metadata mismatch, missing-correlation and physical-promotion rejection controls
 - [x] Preserve all six unresolved components, 48 unqualified site clocks and 288 blocked arrivals
 - [x] Add offline regeneration and an eighteenth CI artifact
-- [ ] Retain a clean canonical result and run the complete quality gate
-- [ ] Open Mission 49 PR and verify final-head CI and downloaded artifact
+- [x] Retain clean canonical results from `ef7417ef4118086fc9201856f42722e7737bc804`
+- [x] Add 74 Mission 49 cases; track complete quality-gate evidence in the PR
+- [x] Open [PR #49](https://github.com/wolfchil345/astroscope-ai-observatory/pull/49); final-head CI and downloaded artifact verification are recorded there before handoff
 - [ ] Merge Mission 49
 
 ## Phase 2 Deliverables

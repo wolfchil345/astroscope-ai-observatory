@@ -113,7 +113,12 @@ The [canonical record](../../../validation/results/ephemeris_covariance_referenc
 was generated from clean implementation commit
 `ef7417ef4118086fc9201856f42722e7737bc804`; its SHA-256 is
 `e8bb0ec2f8c721353cfefd3cb73455318643c62d75e0b5035e6358c71b0fb639`.
-The complete regression suite and final-head CI verification are pending.
+The final regression inventory is 74 Mission 49 cases (3617 repository cases).
+Ruff and local Markdown-link checks pass. Full-suite results, the final PR head,
+CI run, all 18 artifact identities, downloaded ZIP checksum and exact scientific
+record comparison are recorded in [PR #49](https://github.com/wolfchil345/astroscope-ai-observatory/pull/49)
+before handoff. Keeping that final-head evidence in the PR avoids creating a
+new unverified commit solely to describe the completed CI run.
 
 ## Remaining qualification gate
 
