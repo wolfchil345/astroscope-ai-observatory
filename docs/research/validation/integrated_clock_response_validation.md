@@ -81,10 +81,10 @@ on the frozen cases, not a universal integration error certificate.
 
 | Finest-grid diagnostic | Maximum absolute discrepancy | Frozen limit |
 |---|---:|---:|
-| Position | 1.755e-11 m | 1e-7 m |
-| Velocity | 1.498e-11 m/s | 1e-7 m/s |
+| Position | 1.754e-11 m | 1e-7 m |
+| Velocity | 1.497e-11 m/s | 1e-7 m/s |
 | Accumulated clock | 2.398e-13 s | 1e-9 s |
-| Recovered implicit argument | 2.379e-13 s | 1e-8 s |
+| Recovered implicit argument | 2.378e-13 s | 1e-8 s |
 
 Every derivative is checked in its corresponding state/parameter units. The
 largest clock-partial error occupies approximately 0.000111 of its allowed
@@ -130,7 +130,11 @@ The initial targeted suite passed 70 cases, with the canonical-record comparison
 deferred until its clean implementation commit. Two endpoint-coordinate guards
 were then added. Final validation comprises 73 Mission 50 tests and 3690
 repository tests, including the canonical comparison with no skip.
-Canonical provenance and final-head CI evidence are recorded before handoff.
+The [canonical record](../../../validation/results/integrated_clock_response_reference_run.json)
+was generated from clean implementation commit
+`209da4bcc9c406dc25bf9f555bd4ba10a5ae5530`. Its SHA-256 is
+`930dccd98ac0f743f0606e8478aa77039376fae42004c661f69473aaa97770fe`.
+Full-suite and final-head CI evidence are recorded before handoff.
 
 ## Offline reproduction
 
