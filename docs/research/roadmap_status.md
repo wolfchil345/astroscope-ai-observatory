@@ -34,8 +34,9 @@
 - Mission 44: Complete — Relativistic Site-Frame Mapping and Error-Bound Evidence, merged in [PR #44](https://github.com/wolfchil345/astroscope-ai-observatory/pull/44) (`c7bbcc54425ef9a2dc02550c45b94797bdb76bcf`); post-merge Quality Gate 39138219738 passed, numerical spatial inverse certified within the declared polynomial, physical qualification incomplete
 - Mission 45: Complete — Coupled Relativistic Site-Clock Model and Reference Qualification, merged in [PR #45](https://github.com/wolfchil345/astroscope-ai-observatory/pull/45) (`ee10e9e04f5422bb0416b87662de571e9d76d135`); post-merge Quality Gate 39231240199 passed, physical timing bounds remain unknown
 - Mission 46: Complete — Time-Ephemeris Normalization and Physical Uncertainty Evidence, merged in [PR #46](https://github.com/wolfchil345/astroscope-ai-observatory/pull/46) (`72534fbdfe15d18d789c883d7356df5ac17cb05b`); post-merge Quality Gate 39253030570 passed, no applicable physical uncertainty bound established
-- Mission 47: Active — Independent Time-Ephemeris Cross-Model Qualification, [PR #47](https://github.com/wolfchil345/astroscope-ai-observatory/pull/47); all 14 INPOP21a/DE440t geocentric cases pass, diagnostics only; physical uncertainty remains unqualified
-- Proposed next: Mission 48 — Geocentric Time-Ephemeris Sensitivity and Uncertainty Propagation; not started, pending Mission 47 review and merge
+- Mission 47: Complete — Independent Time-Ephemeris Cross-Model Qualification, merged in [PR #47](https://github.com/wolfchil345/astroscope-ai-observatory/pull/47) (`d1c2d0d39ea5e50da761a220004e65fc25bf5062`); post-merge Quality Gate 39650383938 passed, cross-model differences remain diagnostics
+- Mission 48: Active — Geocentric Time-Ephemeris Sensitivity and Uncertainty Propagation, [PR #48](https://github.com/wolfchil345/astroscope-ai-observatory/pull/48); all 516 local rate partials, 28 mappings and nine synthetic covariance controls pass; physical uncertainty remains unknown
+- Proposed next: Mission 49 — Ephemeris Covariance Provenance and Applicability Qualification; not started, pending Mission 48 review and merge
 
 ## Phase Progress
 
@@ -444,9 +445,30 @@
 - [x] Add 60 regression tests, offline regeneration and a fifteenth CI artifact
 - [x] Retain clean canonical results from `f6cc15bb7206e19d3f97fa16c35faa74ffc1c861`; all 3425 local tests pass
 - [x] Open [PR #46](https://github.com/wolfchil345/astroscope-ai-observatory/pull/46); final-head CI and artifact verification is tracked in the PR
-- [ ] Merge Mission 46
+- [x] Merge Mission 46 — PR #46; post-merge Quality Gate 39253030570 passed
+
+## Mission 48 Completion Checklist
+
+### Mission 48 — Geocentric Time-Ephemeris Sensitivity and Uncertainty Propagation
+
+- [x] Verify Mission 47 merge and successful post-merge Quality Gate
+- [x] Freeze integrated sensitivity contract, samples, controls and limits before evaluation
+- [x] Add independent standard-library reference for 516 local partials, 28 mappings and nine controls
+- [x] Check analytic and complex-step gradients, correlated propagation and singular PSD covariance
+- [x] Preserve unknown cross covariance, missing physical inputs and nonlinear limitations
+- [x] Retain the initial SI input-parser failure without changing frozen comparison thresholds
+- [x] Preserve all six unresolved components, 48 unqualified site clocks and 288 blocked arrivals
+- [x] Add offline regeneration and a seventeenth CI artifact
+- [x] Retain clean canonical results from `c28a4629633169d77f1a62005ded3122c76d3481`
+- [x] Run all 3537 original local cases; add six portability guards for 68 Mission 48 tests and 3543 final CI cases
+- [x] Retain the initial CI residual-string comparison failure and enforce unchanged frozen limits across environments
+- [x] Open [PR #48](https://github.com/wolfchil345/astroscope-ai-observatory/pull/48); final-head CI and artifact verification are recorded in the PR before handoff
+- [ ] Merge Mission 48
 
 ## Phase 2 Deliverables
+
+- [Geocentric Time-Ephemeris Sensitivity and Uncertainty Propagation — Mission 48](validation/clock_sensitivity_uncertainty.md)
+- [Independent Time-Ephemeris Cross-Model Qualification — Mission 47](validation/cross_model_time_ephemeris.md)
 
 - [Time-Ephemeris Normalization and Physical Uncertainty Evidence — Mission 46](validation/time_ephemeris_normalization.md)
 

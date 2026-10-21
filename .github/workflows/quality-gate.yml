@@ -303,3 +303,19 @@ jobs:
           name: cross-model-time-ephemeris-record
           path: ${{ runner.temp }}/cross_model_time_reference_run.json
           if-no-files-found: error
+
+      - name: Audit geocentric clock sensitivity and uncertainty propagation
+        env:
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          python -m validation.clock_sensitivity \
+            --output "$RUNNER_TEMP/clock_sensitivity_reference_run.json"
+
+      - name: Upload clock-sensitivity uncertainty record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: clock-sensitivity-uncertainty-record
+          path: ${{ runner.temp }}/clock_sensitivity_reference_run.json
+          if-no-files-found: error

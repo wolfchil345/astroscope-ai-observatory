@@ -1,0 +1,467 @@
+{
+  "mission": 48,
+  "run_id": 39656208517,
+  "job_id": 119417040415,
+  "head": "000a8e331b2e88154492cde78c5a1950c5b961f3",
+  "url": "https://github.com/wolfchil345/astroscope-ai-observatory/actions/runs/39656208517",
+  "test_result": "1 failed, 3536 passed in 203.84s",
+  "failed_test": "test_canonical_scientific_record_replays",
+  "audit_passed_in_both_records": true,
+  "identical_top_level_fields": 23,
+  "cause": "The test required exact string identity of binary64 analytic-gradient residuals across environments. Scientific comparisons against the independent reference passed under the unchanged frozen limits; only rates' analytic residual fields differed.",
+  "repair": "Compare immutable structure, independent references, conventions, gates and exact-arithmetic results exactly. Validate both sets of binary64 diagnostics against the original frozen reference limits, retain raw diagnostics, and verify the stored canonical file checksum. No scientific threshold or reference value changes.",
+  "frozen_limits_changed": false,
+  "reference_fixture_changed": false,
+  "canonical_record_changed": false,
+  "diff_sign_convention": "In this pytest assertion diff, minus entries are the CI runtime values and plus entries are the stored canonical values.",
+  "raw_pytest_diff_entries": [
+    {
+      "case": "2024-03-20_12",
+      "partial": "d_9_1",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "-1.063595803494501024379354057565451321909256837253159515836721659293071E-47"
+    },
+    {
+      "case": "2024-03-20_12",
+      "partial": "d_9_1",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "-5.442653504509554371016009005346439232160075405617271302577560046448668E-47"
+    },
+    {
+      "case": "2024-03-20_12",
+      "partial": "d_9_2",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "-1.051479907632644354155129651270813262285903451497107567591640283939401E-47"
+    },
+    {
+      "case": "2024-03-20_12",
+      "partial": "d_9_2",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "-3.241008758140171027473457125161307217411312735679163460962059477517199E-47"
+    },
+    {
+      "case": "2024-03-20_14",
+      "partial": "d_1_0",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "-2.651746994380571232609192983423518670435203648385707957738558007072230E-42"
+    },
+    {
+      "case": "2024-03-20_14",
+      "partial": "d_1_0",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "-1.216817366911958551983293890134644552004215419904155807459320084369084E-42"
+    },
+    {
+      "case": "2024-03-20_14",
+      "partial": "d_1_1",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "-6.695586652102204103509333263588640007549989913425258438487782863524625E-43"
+    },
+    {
+      "case": "2024-03-20_14",
+      "partial": "d_1_1",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "-3.108262583430672401944585530366454711472519342221378062789688056766760E-43"
+    },
+    {
+      "case": "2024-03-20_14",
+      "partial": "d_1_2",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "-4.346767418659468713485134238931854360796972934432301095953317444273658E-43"
+    },
+    {
+      "case": "2024-03-20_14",
+      "partial": "d_1_2",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "-2.553105384323702862702760372320761712758237648830360908104270040894726E-43"
+    },
+    {
+      "case": "2024-03-20_14",
+      "partial": "d_5_0",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "-1.823886575066895877311483315780984200390190990094432838401862301615202E-40"
+    },
+    {
+      "case": "2024-03-20_14",
+      "partial": "d_5_0",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "1.282334809292835388966752362877467120147394236195391395556223944482459E-42"
+    },
+    {
+      "case": "2024-03-20_14",
+      "partial": "d_6_0",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "2.375070569732240474557225864964451841673790368371823707655857408891888E-42"
+    },
+    {
+      "case": "2024-03-20_14",
+      "partial": "d_6_0",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "2.533394460923004336457161135758643773656960202407665811212366417214223E-41"
+    },
+    {
+      "case": "2024-03-20_14",
+      "partial": "d_6_1",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "-1.186384650025294118125433998922389887180961294778194782784251660971933E-42"
+    },
+    {
+      "case": "2024-03-20_14",
+      "partial": "d_6_1",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "-6.926103159899744840629030372077886360904914208704403383901203351784518E-42"
+    },
+    {
+      "case": "2024-03-20_14",
+      "partial": "d_6_2",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "1.743631185487464599906986083580846979945615363347268008062840587055838E-42"
+    },
+    {
+      "case": "2024-03-20_14",
+      "partial": "d_6_2",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "-1.126228069449760761344812102996901256916361093615836292495635258350454E-42"
+    },
+    {
+      "case": "2024-06-21_10",
+      "partial": "d_9_1",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "-9.514497282303304927631318359080238759796910204537357113706597824652338E-47"
+    },
+    {
+      "case": "2024-06-21_10",
+      "partial": "d_9_1",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "-1.389355498331835827426797330686122667004772877290146890044743621180793E-46"
+    },
+    {
+      "case": "2024-06-21_10",
+      "partial": "d_9_2",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "-4.385203002239396725989122469626814002803041654324512050872389419393008E-47"
+    },
+    {
+      "case": "2024-06-21_10",
+      "partial": "d_9_2",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "-6.574731852746923399307449943517307957928450938506567944242808612970807E-47"
+    },
+    {
+      "case": "2024-06-21_12",
+      "partial": "d_8_0",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "-5.388428556272577416582795795329755211536732883030188440221146945853265E-43"
+    },
+    {
+      "case": "2024-06-21_12",
+      "partial": "d_8_0",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "8.960867718413549389676195137558985972773149401785333062571232281178196E-43"
+    },
+    {
+      "case": "2024-06-21_12",
+      "partial": "d_8_1",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "-1.513119130071288676124915722150981108783685507324479363243375733581078E-46"
+    },
+    {
+      "case": "2024-06-21_12",
+      "partial": "d_8_1",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "1.249986551317688203311238011074818020401893391144067835432730710531683E-45"
+    },
+    {
+      "case": "2024-06-21_12",
+      "partial": "d_8_2",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "-5.632541296229222220384597129732773152809690806944178687909768571016956E-46"
+    },
+    {
+      "case": "2024-06-21_12",
+      "partial": "d_8_2",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "-1.177364184422145878942829637929260636552306461570654404284752312822002E-44"
+    },
+    {
+      "case": "2024-06-21_14",
+      "partial": "d_8_0",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "-9.472060731724885914158098560760237916882812841605001117985696239133313E-44"
+    },
+    {
+      "case": "2024-06-21_14",
+      "partial": "d_8_0",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "6.227442064170574811713685610368346800466659858247260639597619989602399E-43"
+    },
+    {
+      "case": "2024-06-21_14",
+      "partial": "d_8_1",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "1.161717071874137800534180670967533297770317951991337646731571192429049E-45"
+    },
+    {
+      "case": "2024-06-21_14",
+      "partial": "d_8_1",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "2.563015536198954871457910254257449429050579893867853418488639476318840E-45"
+    },
+    {
+      "case": "2024-06-21_14",
+      "partial": "d_8_2",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "-6.560669874568743013309947046251124024326355495819520713197506633323774E-45"
+    },
+    {
+      "case": "2024-06-21_14",
+      "partial": "d_8_2",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "-2.898144530376581614808962037888978212481054656584377306131059917556043E-44"
+    },
+    {
+      "case": "2024-06-21_14",
+      "partial": "d_301_0",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "9.924148907584849256162701421756932086114071957541824874686245220514213E-39"
+    },
+    {
+      "case": "2024-06-21_14",
+      "partial": "d_301_0",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "4.046677153473411716319018735645703697020744173681387267142486689122126E-39"
+    },
+    {
+      "case": "2024-06-21_14",
+      "partial": "d_301_1",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "9.805973567431959562619557484195177619573634384045747074039945903743648E-38"
+    },
+    {
+      "case": "2024-06-21_14",
+      "partial": "d_301_1",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "5.103996164142809530744611335306194908298972156957396988004939078629979E-38"
+    },
+    {
+      "case": "2024-06-21_14",
+      "partial": "d_301_2",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "4.668535203160822631016927581192263012076192934616167891830854305432006E-38"
+    },
+    {
+      "case": "2024-06-21_14",
+      "partial": "d_301_2",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "2.317546501516247615079454506747771656438861821071992848813350892875171E-38"
+    },
+    {
+      "case": "2024-09-22_10",
+      "partial": "d_8_1",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "2.050983746819520024088018159295617448704524099512165178614800859382084E-44"
+    },
+    {
+      "case": "2024-09-22_10",
+      "partial": "d_8_1",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "9.299449753596663673490344926636845436803145460109525612091462322702511E-45"
+    },
+    {
+      "case": "2024-09-22_12",
+      "partial": "d_4_0",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "1.013017720554388847590434535698306889302734590614147686936184108997094E-42"
+    },
+    {
+      "case": "2024-09-22_12",
+      "partial": "d_4_0",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "6.542853136872356774339597623760883596949875334937596493663746283213078E-43"
+    },
+    {
+      "case": "2024-09-22_12",
+      "partial": "d_4_1",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "-5.650181070925888071006496800342959885725446073493094005963848867128241E-42"
+    },
+    {
+      "case": "2024-09-22_12",
+      "partial": "d_4_1",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "-2.780321815988662709754698613765211648863469616529989705405373021721949E-42"
+    },
+    {
+      "case": "2024-09-22_12",
+      "partial": "d_4_2",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "-1.864879404253360668006093682770074595570917900391636000114609168606849E-42"
+    },
+    {
+      "case": "2024-09-22_12",
+      "partial": "d_4_2",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "-1.147414590519054327693144136125637536355423786150859924974990207255276E-42"
+    },
+    {
+      "case": "2024-12-21_10",
+      "partial": "d_4_0",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "1.951809725278349630182141802220412843196398596171486310290738689310162E-42"
+    },
+    {
+      "case": "2024-12-21_10",
+      "partial": "d_4_0",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "-3.787908784596101092321454570935083630527554317754722290826213001502422E-42"
+    },
+    {
+      "case": "2024-12-21_10",
+      "partial": "d_4_1",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "-4.646266877409230236066542572691922501047773344521499407580567504221336E-42"
+    },
+    {
+      "case": "2024-12-21_10",
+      "partial": "d_4_1",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "1.093451632465220486437053800463573972676179569404709193536384186591249E-42"
+    },
+    {
+      "case": "2024-12-21_10",
+      "partial": "d_301_0",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "1.578770324030216078591910879284063539262460823486390700963492725363087E-38"
+    },
+    {
+      "case": "2024-12-21_10",
+      "partial": "d_301_0",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "-3.123207079258933953283035269604919172012201403601959385071514099750582E-38"
+    },
+    {
+      "case": "2024-12-21_10",
+      "partial": "d_301_1",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "-4.291777602110234045421225376839469687066488943957687887938168736893364E-39"
+    },
+    {
+      "case": "2024-12-21_10",
+      "partial": "d_301_1",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "7.463165906112641034266139995382987091120166623763187327149348325890808E-39"
+    },
+    {
+      "case": "2024-12-21_10",
+      "partial": "d_301_2",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "-2.529644067080699597746355650769639554285132776348648994433137471678973E-39"
+    },
+    {
+      "case": "2024-12-21_10",
+      "partial": "d_301_2",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "3.347827687030737942097327035341588834808195007511788613110621059713113E-39"
+    },
+    {
+      "case": "2024-12-21_12",
+      "partial": "d_10_0",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "4.952259139013924317244173400778813643317706602303334609786840191697078E-38"
+    },
+    {
+      "case": "2024-12-21_12",
+      "partial": "d_10_0",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "2.502817357247742853692272518898309320430443752149845237518333665834094E-39"
+    },
+    {
+      "case": "2024-12-21_12",
+      "partial": "d_10_1",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "1.299527663219447672513649564403904471752859372827451466974584443643732E-35"
+    },
+    {
+      "case": "2024-12-21_12",
+      "partial": "d_10_1",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "9.582144797742526435366335028832489766654584269283384494962269641463283E-37"
+    },
+    {
+      "case": "2024-12-21_12",
+      "partial": "d_10_2",
+      "side": "-",
+      "field": "analytic_minus_reference",
+      "value": "4.009416655342432845644164367744798378488856347389268291075097475402927E-36"
+    },
+    {
+      "case": "2024-12-21_12",
+      "partial": "d_10_2",
+      "side": "+",
+      "field": "analytic_minus_reference",
+      "value": "-2.009114420867679195155766702833099491942711303283819819049711260742570E-36"
+    }
+  ]
+}

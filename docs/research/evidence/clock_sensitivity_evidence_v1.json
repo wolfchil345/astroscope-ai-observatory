@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "mission": 48,
+  "review_date_utc": "2026-10-21",
+  "review_scope": "Bounded primary-source review and existing archived inputs; not an exhaustive search for unpublished covariance products.",
+  "sources": [
+    {"id":"inpop08", "url":"https://www.imcce.fr/content/medias/recherche/equipes/asd/inpop/inpop08_preprint.pdf", "location":"sections 2.1 and 2.4, equation 10", "finding":"Integrated rate and delivered normalization define the selected kinetic and monopole term.", "limitation":"Family equations do not establish complete INPOP21a parameter sensitivities or clock uncertainty."},
+    {"id":"de440", "url":"https://ssd.jpl.nasa.gov/doc/Park.2021.AJ.DE440.pdf", "location":"sections 2.3 and 3.1, Table 2", "finding":"Time ephemeris integration uses gravitational and dynamical inputs; the body inventory exceeds this mission's ten bodies.", "limitation":"Nominal masses and orbital comparisons do not provide the complete covariance and remainder inputs required here."},
+    {"id":"gum2008", "url":"https://www.iso.org/sites/JCGM/GUM/JCGM100/C045315e-html/C045315e_FILES/MAIN_C045315e/05_e.html", "location":"sections 5.1.2, 5.1.3 and 5.2", "finding":"First-order propagation uses local partial derivatives and retains correlated input terms.", "limitation":"A standard uncertainty is not an unconditional deterministic error bound."},
+    {"id":"gum2026", "url":"https://www.bipm.org/documents/20126/2071204/JCGM_100_Amd1_2026.pdf", "location":"page 1, amendments to 4.1.4 and H.1.7", "finding":"Significant nonlinearity requires attention to both the estimate and its uncertainty, using higher-order terms or an appropriate distribution propagation method.", "limitation":"No physical distribution, linearization domain or remainder evidence is supplied by our synthetic controls."},
+    {"id":"inpop21a", "url":"https://www.imcce.fr/content/medias/recherche/equipes/asd/inpop/inpop21a.pdf", "location":"release model and observational/orbital comparisons", "finding":"Release-specific evidence contextualizes the second integrated time ephemeris used in Mission 47.", "limitation":"A complete source-matched clock covariance is not established by this reviewed material."}
+  ],
+  "inputs": [
+    {"id":"nominal_states_and_gm", "status":"archived", "evidence":"validation/fixtures/coupled_clock_v1.json", "use":"Fixed supplied-input kinetic/monopole partials at 12 geocentric arguments."},
+    {"id":"nominal_clock_derivatives", "status":"archived", "evidence":"Mission 42 and 47 final CSPICE solution traces", "use":"28 implicit offset/argument gains; no time-path interpolation."},
+    {"id":"complete_fitted_covariance", "status":"not_established", "evidence":"Reviewed DE440 and INPOP21a primary papers", "use":"Unknown; do not substitute inter-model differences or diagonal guesses."},
+    {"id":"cross_epoch_state_covariance", "status":"not_established", "evidence":"Archived nominal states contain no joint time-path covariance", "use":"Unknown; independent-epoch root-sum-square is unsupported."},
+    {"id":"parameter_trajectory_jacobian", "status":"not_established", "evidence":"Instantaneous state partials do not encode fitted dynamical response", "use":"Required to propagate fitted parameter covariance into integrated clock uncertainty."},
+    {"id":"model_discrepancy_bound", "status":"not_established", "evidence":"Mission 47 cross-model diagnostics and selected ten-body truncation", "use":"Agreement is diagnostic; omitted contributions remain unbounded."},
+    {"id":"nonlinear_remainder_bound", "status":"not_established", "evidence":"Local derivatives and synthetic covariance controls only", "use":"No certified physical linearization domain or nonlinear uncertainty bound."}
+  ],
+  "unresolved_components": ["geocentric_time_ephemeris", "earth_state", "station_coordinates", "earth_orientation", "omitted_physics_and_coefficient_model", "higher_order_remainder"],
+  "physical_geocentric_clock_bound_seconds": null,
+  "physical_site_clock_bound_seconds": null,
+  "physical_arrival_bound_seconds": null,
+  "observing_eligible": false
+}
