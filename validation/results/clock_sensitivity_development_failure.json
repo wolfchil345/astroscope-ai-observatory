@@ -1,0 +1,12 @@
+{
+  "mission": 48,
+  "stage": "initial audit input conversion, before first rate or partial comparison",
+  "protocol_commit": "3fe2829",
+  "error": "TimeEphemerisError: numeric_domain",
+  "cause": "The reused Mission 42 clock-number parser capped magnitudes at 1e12. Archived outer-planet displacement components in metres legitimately exceed that clock-oriented input limit.",
+  "repair": "Add a separate finite decimal parser for the declared SI state and sensitivity quantities. Retain strict string syntax and bounded numeric resources; accept magnitudes through 1e30. Preserve the original Mission 42 parser.",
+  "frozen_comparison_thresholds_changed": false,
+  "reference_values_changed": false,
+  "physical_qualification_changed": false,
+  "numerical_result_produced_before_failure": false
+}
