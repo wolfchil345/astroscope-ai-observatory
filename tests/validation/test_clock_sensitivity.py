@@ -15,6 +15,7 @@ import numpy as np
 import pytest
 
 from validation import clock_sensitivity as cs
+from validation.clock_sensitivity_records import compare_records
 
 
 @pytest.fixture
@@ -271,16 +272,60 @@ def test_reference_has_only_stdlib_imports_and_regenerates_identically(tmp_path)
 
 def test_canonical_scientific_record_replays():
     path = cs.ROOT / "validation/results/clock_sensitivity_reference_run.json"
+    assert cs.sha(path) == "f1129ef041735564da72f240d530e32d04f35d86f8829945a1a3edd9f79f54bb"
     canonical = json.loads(path.read_text())
     current = cs.evaluate()
-    runtime = {
-        "python_version",
-        "candidate_packages",
-        "implementation_commit",
-        "checkout_commit",
-        "working_tree_dirty",
-    }
-    assert {k: v for k, v in canonical.items() if k not in runtime} == {
-        k: v for k, v in current.items() if k not in runtime
-    }
+    policy, fixture, *_ = cs.load_inputs()
+    assert compare_records(canonical, current, policy, fixture)["scientific_contract_matches"]
     assert canonical["working_tree_dirty"] is False
+
+
+def test_record_comparison_replays_actual_ci_roundoff_difference():
+    canonical = json.loads(
+        (cs.ROOT / "validation/results/clock_sensitivity_reference_run.json").read_text()
+    )
+    actual = copy.deepcopy(canonical)
+    failure = json.loads(
+        (cs.ROOT / "validation/results/clock_sensitivity_ci_portability_failure.json").read_text()
+    )
+    changes = failure["raw_pytest_diff_entries"]
+    assert len(changes) == 64
+    by_id = {row["id"]: row for row in actual["rates"]}
+    for change in changes:
+        row = by_id[change["case"]]
+        partial = next(p for p in row["partials"] if p["id"] == change["partial"])
+        if change["side"] == "+":
+            original = next(r for r in canonical["rates"] if r["id"] == change["case"])
+            fixed = next(p for p in original["partials"] if p["id"] == change["partial"])
+            assert fixed[change["field"]] == change["value"]
+        else:
+            partial[change["field"]] = change["value"]
+    policy, fixture, *_ = cs.load_inputs()
+    result = compare_records(canonical, actual, policy, fixture)
+    assert result == dict(
+        scientific_contract_matches=True,
+        binary64_diagnostic_fields_differing=32,
+        binary64_diagnostics_identical=False,
+    )
+
+
+@pytest.mark.parametrize("fault", ["residual", "reference", "tolerance", "gate", "summary"])
+def test_portable_record_comparison_does_not_hide_a_regression(fault):
+    canonical = json.loads(
+        (cs.ROOT / "validation/results/clock_sensitivity_reference_run.json").read_text()
+    )
+    actual = copy.deepcopy(canonical)
+    partial = actual["rates"][0]["partials"][0]
+    if fault == "residual":
+        partial["analytic_minus_reference"] = str(D(partial["tolerance"]) * 2)
+    elif fault == "reference":
+        partial["reference"] = "0"
+    elif fault == "tolerance":
+        partial["tolerance"] = "1"
+    elif fault == "gate":
+        actual["observing_eligible"] = True
+    else:
+        actual["diagnostics"]["max_partial_error_fraction_of_tolerance"] = "0"
+    policy, fixture, *_ = cs.load_inputs()
+    with pytest.raises(ValueError):
+        compare_records(canonical, actual, policy, fixture)

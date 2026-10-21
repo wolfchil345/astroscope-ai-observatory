@@ -35,7 +35,7 @@
 - Mission 45: Complete — Coupled Relativistic Site-Clock Model and Reference Qualification, merged in [PR #45](https://github.com/wolfchil345/astroscope-ai-observatory/pull/45) (`ee10e9e04f5422bb0416b87662de571e9d76d135`); post-merge Quality Gate 39231240199 passed, physical timing bounds remain unknown
 - Mission 46: Complete — Time-Ephemeris Normalization and Physical Uncertainty Evidence, merged in [PR #46](https://github.com/wolfchil345/astroscope-ai-observatory/pull/46) (`72534fbdfe15d18d789c883d7356df5ac17cb05b`); post-merge Quality Gate 39253030570 passed, no applicable physical uncertainty bound established
 - Mission 47: Complete — Independent Time-Ephemeris Cross-Model Qualification, merged in [PR #47](https://github.com/wolfchil345/astroscope-ai-observatory/pull/47) (`d1c2d0d39ea5e50da761a220004e65fc25bf5062`); post-merge Quality Gate 39650383938 passed, cross-model differences remain diagnostics
-- Mission 48: Active — Geocentric Time-Ephemeris Sensitivity and Uncertainty Propagation; all 516 local rate partials, 28 mappings and nine synthetic covariance controls pass; physical uncertainty remains unknown
+- Mission 48: Active — Geocentric Time-Ephemeris Sensitivity and Uncertainty Propagation, [PR #48](https://github.com/wolfchil345/astroscope-ai-observatory/pull/48); all 516 local rate partials, 28 mappings and nine synthetic covariance controls pass; physical uncertainty remains unknown
 - Proposed next: Mission 49 — Ephemeris Covariance Provenance and Applicability Qualification; not started, pending Mission 48 review and merge
 
 ## Phase Progress
@@ -459,8 +459,10 @@
 - [x] Retain the initial SI input-parser failure without changing frozen comparison thresholds
 - [x] Preserve all six unresolved components, 48 unqualified site clocks and 288 blocked arrivals
 - [x] Add offline regeneration and a seventeenth CI artifact
-- [ ] Record clean canonical provenance and complete quality-gate results
-- [ ] Open Mission 48 pull request and verify final-head CI artifacts
+- [x] Retain clean canonical results from `c28a4629633169d77f1a62005ded3122c76d3481`
+- [x] Run all 3537 original local cases; add six portability guards for 68 Mission 48 tests and 3543 final CI cases
+- [x] Retain the initial CI residual-string comparison failure and enforce unchanged frozen limits across environments
+- [x] Open [PR #48](https://github.com/wolfchil345/astroscope-ai-observatory/pull/48); final-head CI and artifact verification are recorded in the PR before handoff
 - [ ] Merge Mission 48
 
 ## Phase 2 Deliverables

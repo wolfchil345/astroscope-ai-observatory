@@ -133,11 +133,28 @@ was generated from clean implementation commit
 Its SHA-256 is `f1129ef041735564da72f240d530e32d04f35d86f8829945a1a3edd9f79f54bb`.
 Runtime: Python 3.12.14, NumPy 2.5.3, Astropy 8.0.1 and PyERFA 2.0.1.5;
 the latter two are environment provenance, not sensitivity reference providers.
-All 62 Mission 48 tests pass, including exact offline regeneration and canonical
-replay. The full-suite result is recorded before publication.
+The full local suite passed all 3537 tests in 681.57 seconds. Six additional
+portability regression controls bring the Mission 48 test inventory to 68;
+the final CI suite therefore contains 3543 tests. Exact offline reference
+regeneration is preserved.
 CI adds a seventeenth retained artifact,
 `clock-sensitivity-uncertainty-record`. Final-head CI and downloaded artifact
-verification are recorded in the pull request before handoff.
+verification are recorded in [PR #48](https://github.com/wolfchil345/astroscope-ai-observatory/pull/48)
+before handoff.
+
+The [initial CI portability failure](../../../validation/results/clock_sensitivity_ci_portability_failure.json)
+is also retained, including all 32 differing analytic residuals. Run 39656208517
+passed 3536 tests but failed the new canonical test because it demanded identical
+binary64 residual strings between environments. Both records passed every frozen
+numerical comparison, and their other 23 top-level fields were identical.
+The corrected [record comparator](../../../validation/clock_sensitivity_records.py)
+checks independent reference values, conventions, exact-arithmetic results and
+qualification gates exactly, and validates both sets of floating-point diagnostics
+against the original frozen limits. It also checks their summary consistency;
+regression tests reject altered references, limits, eligibility or excess errors.
+The original canonical bytes and their checksum are retained. A CI artifact may
+therefore have different last-bit residuals while satisfying the same scientific
+contract; raw diagnostics and both runtime environments remain available.
 
 ## Next research gate
 
