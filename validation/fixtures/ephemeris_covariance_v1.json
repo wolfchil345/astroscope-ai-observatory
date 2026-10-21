@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "model_id": "ephemeris-covariance-qualification-v1",
+  "policy_sha256": "a968d2dab7e51e2c3dffdd08c41f0b5d6ad326f9e0a6aaa9128f83cd4ef565ad",
+  "generator_sha256": "f610fbb17f3214a80dea49ea0bd5bd6b47325af62e57071422dcb74d721092ac",
+  "independent_physical_reference": false,
+  "controls": [
+    {
+      "id": "identity",
+      "covariance": [
+        [
+          "4",
+          "1",
+          "-2"
+        ],
+        [
+          "1",
+          "9",
+          "0"
+        ],
+        [
+          "-2",
+          "0",
+          "4"
+        ]
+      ],
+      "jacobian": [
+        "1",
+        "2",
+        "-1"
+      ],
+      "variance": "52"
+    },
+    {
+      "id": "permutation",
+      "covariance": [
+        [
+          "4",
+          "-2",
+          "0"
+        ],
+        [
+          "-2",
+          "4",
+          "1"
+        ],
+        [
+          "0",
+          "1",
+          "9"
+        ]
+      ],
+      "jacobian": [
+        "-1",
+        "1",
+        "2"
+      ],
+      "variance": "52"
+    },
+    {
+      "id": "si_permutation",
+      "covariance": [
+        [
+          "4000000000000000000",
+          "-2000000000000",
+          "0"
+        ],
+        [
+          "-2000000000000",
+          "4000000",
+          "1000000"
+        ],
+        [
+          "0",
+          "1000000",
+          "9000000"
+        ]
+      ],
+      "jacobian": [
+        "-0.000000001",
+        "0.001",
+        "0.002"
+      ],
+      "variance": "52"
+    },
+    {
+      "id": "singular_si_permutation",
+      "covariance": [
+        [
+          "1000000000000000000",
+          "-2000000000000",
+          "-3000000000000"
+        ],
+        [
+          "-2000000000000",
+          "4000000",
+          "6000000"
+        ],
+        [
+          "-3000000000000",
+          "6000000",
+          "9000000"
+        ]
+      ],
+      "jacobian": [
+        "-0.000000001",
+        "0.001",
+        "-0.001"
+      ],
+      "variance": "0"
+    }
+  ]
+}

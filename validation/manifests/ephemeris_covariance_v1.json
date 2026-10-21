@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "model_id": "ephemeris-covariance-qualification-v1",
+  "files": {
+    "validation/manifests/ephemeris_covariance_policy_v1.json": "a968d2dab7e51e2c3dffdd08c41f0b5d6ad326f9e0a6aaa9128f83cd4ef565ad",
+    "docs/research/validation/ephemeris_covariance_protocol.md": "49b6eac2e1ab53ac744202f3d2ef6b2eb1bde4d508637ca2e24826e67bd9582b",
+    "validation/reference_generation/ephemeris_covariance.py": "f610fbb17f3214a80dea49ea0bd5bd6b47325af62e57071422dcb74d721092ac",
+    "validation/fixtures/ephemeris_covariance_v1.json": "ddf3b3c86e5a7eb867a1ba66d92b03bf865104ae4527514a57b6ea3cfa6b372b",
+    "docs/research/evidence/ephemeris_covariance_evidence_v1.json": "ed60c3b8fb8f52db05030b934d017ec8f8b88125c562c8d18ed057171d57e38a",
+    "validation/clock_sensitivity.py": "3502676c56efa263d14eff5a393c903f3e6e98073de33749a4f40714a5ac707a",
+    "validation/time_ephemeris.py": "890f115aa01326d28fadfa74ae930babcfd82477f2ad14bdd1960fc10d140c24",
+    "validation/results/clock_sensitivity_reference_run.json": "f1129ef041735564da72f240d530e32d04f35d86f8829945a1a3edd9f79f54bb",
+    "validation/manifests/clock_sensitivity_v1.json": "19a99e72f5d4ace6031b0bad206b6c1eb76d74245258ff70a157a24054d833ed",
+    "validation/manifests/time_ephemeris_policy_v1.json": "4d8bd7af1422874d7984bb4fba2bde981485709e70fb38d53a357c67e9e38231",
+    "validation/manifests/cross_model_time_policy_v1.json": "db6cb4a33af6870308a25cdc5501bc589e6462f9bf511dd16153fce1f74fb19e",
+    "src/astroscope/transit_timing.py": "7d1f72807a5991f94be66cface374162fd3ebb10c1cf2cdf0b18a5d7d716d27e"
+  }
+}
