@@ -1,0 +1,59 @@
+{
+  "mission": 50,
+  "status": "development_audit_aborted",
+  "reason": "finite_decimal_string_required",
+  "stage": "reference augmented-state parsing",
+  "initial_fixture_sha256": "394c3a41a090e82d81f28f203b260dde0ef6c3df90839fa8d4e4ca6e9301613a",
+  "initial_generator_sha256": "03310322223deb79f95e0277a28e1570611e64592f14b86614a0a81f70cd563a",
+  "frozen_policy_sha256": "7e6d6596d032786b6fe87834f7541c785c118cd5018aee40df4c6096ad79dd3d",
+  "offending_exact_zeros": [
+    {
+      "case": "forced_oscillator:zero",
+      "index": 4,
+      "raw": "0E-158"
+    },
+    {
+      "case": "forced_oscillator:zero",
+      "index": 8,
+      "raw": "-0E-160"
+    },
+    {
+      "case": "forced_oscillator:zero",
+      "index": 10,
+      "raw": "0E-158"
+    },
+    {
+      "case": "forced_oscillator:zero",
+      "index": 13,
+      "raw": "0E-322"
+    },
+    {
+      "case": "forced_oscillator:zero",
+      "index": 14,
+      "raw": "0E-322"
+    },
+    {
+      "case": "forced_oscillator:zero",
+      "index": 15,
+      "raw": "0E-320"
+    }
+  ],
+  "cause": "100-digit oscillator series arithmetic retained long exponents on exact zero; the inherited finite-decimal parser accepts at most two exponent digits.",
+  "repair": "Reference serialization emits exact zero as 0. No nonzero value, input, precision, equation or acceptance criterion changes.",
+  "scientific_comparisons_complete": false,
+  "thresholds_changed": false,
+  "observing_eligible": false,
+  "followup_failure": {
+    "reason": "finite_decimal_string_required",
+    "stage": "implicit solver initial zero span",
+    "raw": "0E-100",
+    "cause": "A zero derived from the 100-digit TT reference retains its exponent internally.",
+    "repair": "Normalize internal Decimal zero before passing it to the inherited parser; reject unsupported span types."
+  },
+  "second_followup_failure": {
+    "reason": "finite_decimal_string_required",
+    "stage": "zero sensitivity passed to reused covariance parser",
+    "cause": "RK4 at zero interval retains long zero exponents in sensitivity values.",
+    "repair": "Use exact-zero normalization at the covariance serialization boundary as well. The inherited parser and numerical limits remain unchanged."
+  }
+}

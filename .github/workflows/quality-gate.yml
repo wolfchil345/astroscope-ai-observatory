@@ -335,3 +335,19 @@ jobs:
           name: ephemeris-covariance-qualification-record
           path: ${{ runner.temp }}/ephemeris_covariance_reference_run.json
           if-no-files-found: error
+
+      - name: Audit integrated clock parameter response
+        env:
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          python -m validation.integrated_clock_response \
+            --output "$RUNNER_TEMP/integrated_clock_response_reference_run.json"
+
+      - name: Upload integrated clock parameter-response record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: integrated-clock-parameter-response-record
+          path: ${{ runner.temp }}/integrated_clock_response_reference_run.json
+          if-no-files-found: error
