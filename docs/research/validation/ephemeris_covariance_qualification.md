@@ -109,8 +109,11 @@ all scientific values must match exactly across local and CI environments.
 Initial targeted verification passed 73 tests; the canonical comparison was
 intentionally deferred until its clean record existed. No numerical or
 scientific failure occurred and no frozen acceptance criterion was changed.
-Canonical provenance, full-suite results and PR verification are recorded below
-when completed.
+The [canonical record](../../../validation/results/ephemeris_covariance_reference_run.json)
+was generated from clean implementation commit
+`ef7417ef4118086fc9201856f42722e7737bc804`; its SHA-256 is
+`e8bb0ec2f8c721353cfefd3cb73455318643c62d75e0b5035e6358c71b0fb639`.
+The complete regression suite and final-head CI verification are pending.
 
 ## Remaining qualification gate
 
