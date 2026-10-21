@@ -1,0 +1,194 @@
+{
+  "schema_version": "1.0",
+  "mission": 49,
+  "model_id": "ephemeris-covariance-qualification-v1",
+  "selected_arrival_convention_id": "astroscope-tdb-solar-au-v1",
+  "audit_passed": true,
+  "counts": {
+    "reviewed_sources": 9,
+    "target_products": 2,
+    "qualified_physical_products": 0,
+    "missing_target_requirements": 18,
+    "synthetic_controls": 4
+  },
+  "targets": [
+    {
+      "id": "DE440t",
+      "status": "not_qualified",
+      "missing_requirements": [
+        "covariance_payload",
+        "parameter_basis_and_units",
+        "reference_epoch_and_scale",
+        "nominal_solution_link",
+        "full_correlations",
+        "estimated_and_consider_parameters",
+        "integrated_trajectory_response",
+        "clock_anchor_and_cross_covariance",
+        "validity_interval"
+      ],
+      "kernel_sha256": "4f003b4437a8b479aaca262716a779e3683413200adfd6353c4901aab5de800e"
+    },
+    {
+      "id": "INPOP21a",
+      "status": "not_qualified",
+      "missing_requirements": [
+        "covariance_payload",
+        "parameter_basis_and_units",
+        "reference_epoch_and_scale",
+        "nominal_solution_link",
+        "full_correlations",
+        "estimated_and_consider_parameters",
+        "integrated_trajectory_response",
+        "clock_anchor_and_cross_covariance",
+        "validity_interval"
+      ],
+      "kernel_sha256": "b39d3faab00cd609685430e8f7f6c39c174341db24b387cad117199e11768687"
+    }
+  ],
+  "controls": [
+    {
+      "id": "identity",
+      "covariance": [
+        [
+          "4",
+          "1",
+          "-2"
+        ],
+        [
+          "1",
+          "9",
+          "0"
+        ],
+        [
+          "-2",
+          "0",
+          "4"
+        ]
+      ],
+      "jacobian": [
+        "1",
+        "2",
+        "-1"
+      ],
+      "variance": "52",
+      "original_variance": "52",
+      "passed": true
+    },
+    {
+      "id": "permutation",
+      "covariance": [
+        [
+          "4",
+          "-2",
+          "0"
+        ],
+        [
+          "-2",
+          "4",
+          "1"
+        ],
+        [
+          "0",
+          "1",
+          "9"
+        ]
+      ],
+      "jacobian": [
+        "-1",
+        "1",
+        "2"
+      ],
+      "variance": "52",
+      "original_variance": "52",
+      "passed": true
+    },
+    {
+      "id": "si_permutation",
+      "covariance": [
+        [
+          "4000000000000000000",
+          "-2000000000000",
+          "0"
+        ],
+        [
+          "-2000000000000",
+          "4000000",
+          "1000000"
+        ],
+        [
+          "0",
+          "1000000",
+          "9000000"
+        ]
+      ],
+      "jacobian": [
+        "-0.000000001",
+        "0.001",
+        "0.002"
+      ],
+      "variance": "52.000000000000000000",
+      "original_variance": "52",
+      "passed": true
+    },
+    {
+      "id": "singular_si_permutation",
+      "covariance": [
+        [
+          "1000000000000000000",
+          "-2000000000000",
+          "-3000000000000"
+        ],
+        [
+          "-2000000000000",
+          "4000000",
+          "6000000"
+        ],
+        [
+          "-3000000000000",
+          "6000000",
+          "9000000"
+        ]
+      ],
+      "jacobian": [
+        "-0.000000001",
+        "0.001",
+        "-0.001"
+      ],
+      "variance": "0.000000000000000000",
+      "original_variance": "0",
+      "passed": true
+    }
+  ],
+  "physical_covariance_acquired": false,
+  "physical_covariance_propagated": false,
+  "physical_linearization_domain_established": false,
+  "full_reference_status": "unqualified",
+  "site_clocks_unqualified": 48,
+  "combined_counts": {
+    "candidates": 288,
+    "executed": 0,
+    "blocked": 288,
+    "solar_eligible": 240,
+    "solar_excluded": 48
+  },
+  "unresolved_components": [
+    "geocentric_time_ephemeris",
+    "earth_state",
+    "station_coordinates",
+    "earth_orientation",
+    "omitted_physics_and_coefficient_model",
+    "higher_order_remainder"
+  ],
+  "physical_geocentric_clock_bound_seconds": null,
+  "physical_site_clock_bound_seconds": null,
+  "physical_arrival_bound_seconds": null,
+  "observing_eligible": false,
+  "manifest_sha256": "2effc0268a24542bfb3ac119a0e219aaa21932ce758747fbc85c2f9a780633f3",
+  "policy_sha256": "a968d2dab7e51e2c3dffdd08c41f0b5d6ad326f9e0a6aaa9128f83cd4ef565ad",
+  "fixture_sha256": "ddf3b3c86e5a7eb867a1ba66d92b03bf865104ae4527514a57b6ea3cfa6b372b",
+  "evidence_sha256": "ed60c3b8fb8f52db05030b934d017ec8f8b88125c562c8d18ed057171d57e38a",
+  "python_version": "3.12.14",
+  "implementation_commit": "ef7417ef4118086fc9201856f42722e7737bc804",
+  "checkout_commit": "ef7417ef4118086fc9201856f42722e7737bc804",
+  "working_tree_dirty": false
+}
