@@ -319,3 +319,19 @@ jobs:
           name: clock-sensitivity-uncertainty-record
           path: ${{ runner.temp }}/clock_sensitivity_reference_run.json
           if-no-files-found: error
+
+      - name: Audit ephemeris covariance provenance and applicability
+        env:
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          python -m validation.ephemeris_covariance \
+            --output "$RUNNER_TEMP/ephemeris_covariance_reference_run.json"
+
+      - name: Upload ephemeris covariance qualification record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ephemeris-covariance-qualification-record
+          path: ${{ runner.temp }}/ephemeris_covariance_reference_run.json
+          if-no-files-found: error

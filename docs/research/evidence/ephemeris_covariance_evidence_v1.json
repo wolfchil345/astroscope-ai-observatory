@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0",
+  "mission": 49,
+  "review_scope": "Bounded public primary-source review; no provider contact, private covariance or full-text access claimed.",
+  "sources": [
+    {
+      "id": "jpl_export",
+      "url": "https://ssd.jpl.nasa.gov/planets/eph_export.html",
+      "location": "INTRODUCTION; ACCESSING THE JPL PLANETARY EPHEMERIDES",
+      "classification": "nominal_distribution",
+      "finding": "Nominal Chebyshev positions/velocities use km and TDB days; export documentation distinguishes DE440 and DE441 dynamics.",
+      "limitation": "Nominal series do not supply the required joint fitted covariance or integrated clock response.",
+      "review_date_utc": "2026-10-21"
+    },
+    {
+      "id": "park2021",
+      "url": "https://ssd.jpl.nasa.gov/doc/Park.2021.AJ.DE440.pdf",
+      "location": "abstract; sections 2.3 and 3.1",
+      "classification": "model_description",
+      "finding": "DE440 and DE441 use the same fitting data but differ in lunar core/mantle damping; the time ephemeris is integrated with dynamical inputs.",
+      "limitation": "A release label, nominal constants or model comparisons cannot certify a source-matched covariance receipt.",
+      "review_date_utc": "2026-10-21"
+    },
+    {
+      "id": "inpop21a_catalog",
+      "url": "https://ftp.imcce.fr/pub/ephem/planets/inpop21a/",
+      "location": "directory description and file inventory inspected 2026-10-21 UTC",
+      "classification": "nominal_distribution",
+      "finding": "Catalog lists TCB/TDB headers, ASCII archives, binary files, TCBtcg/TDBtt time files, SPICE archive, README and testpo files.",
+      "limitation": "No complete covariance/trajectory-response product was identified in this inspected listing; this is not a global absence claim.",
+      "review_date_utc": "2026-10-21"
+    },
+    {
+      "id": "inpop21a_note",
+      "url": "https://www.imcce.fr/content/medias/recherche/equipes/asd/inpop/inpop21a.pdf",
+      "location": "release note S110, June 2021; release model and orbital comparisons",
+      "classification": "model_description",
+      "finding": "The release note supplies INPOP21a model and observational comparison context.",
+      "limitation": "It did not establish an acquired, complete clock covariance with parameter ordering and trajectory response for the archived kernel.",
+      "review_date_utc": "2026-10-21"
+    },
+    {
+      "id": "fienga2024",
+      "url": "https://arxiv.org/html/2409.10043v1",
+      "location": "section 2.2.2, Figure 6; section 3",
+      "classification": "scoped_covariance_analysis",
+      "finding": "Authors explicitly use INPOP21a covariance and partial derivatives for lunar libration, with a reference epoch described as J2000; section 3 includes simulated new lunar observations.",
+      "limitation": "Angular marginal uncertainties and figures do not provide the complete joint planetary covariance or geocentric clock response. Do not infer numeric epoch/scale or zeros for missing correlations.",
+      "review_date_utc": "2026-10-21"
+    },
+    {
+      "id": "rambaux2026",
+      "url": "https://researchportal.northumbria.ac.uk/en/publications/lunar-reference-systems-and-their-realisations-using-inpop-epheme/",
+      "location": "institutional abstract and DOI 10.1051/0004-6361/202555962",
+      "classification": "partial_access",
+      "finding": "The separate 2026 paper describes lunar PA/ME reference realizations, Euler-angle uncertainty propagation and lunar timescales.",
+      "limitation": "Full publisher HTML/PDF and institutional PDF returned HTTP 403. Only the abstract and linked CDS supplement were reviewed; full-text conclusions and data availability remain unverified.",
+      "review_date_utc": "2026-10-21"
+    },
+    {
+      "id": "rambaux2026_cds",
+      "url": "https://cdsarc.cds.unistra.fr/viz-bin/ReadMe/J/A%2BA/705/A88?format=html&tex=true",
+      "location": "Description, File Summary and byte-by-byte table",
+      "classification": "series_supplement",
+      "finding": "Supplement lists isigma.dat, p1.dat, p2.dat, rho.dat and tau.dat: lunar librational/polar series with Fourier and Poisson coefficients.",
+      "limitation": "The inspected supplement is not a complete fit covariance plus integrated geocentric clock Jacobian.",
+      "review_date_utc": "2026-10-21"
+    },
+    {
+      "id": "sbdb",
+      "url": "https://ssd-api.jpl.nasa.gov/doc/sbdb.html",
+      "location": "query parameters cov/full-prec/soln-epoch; covariance output fields",
+      "classification": "different_object_covariance",
+      "finding": "Small-body covariance is tied to solution epoch (TDB JD), ordered labels and fitted parameters. mat/vec use au, deg, d; src square-root format uses au, rad, d. Upper-triangle vectors are column-major.",
+      "limitation": "An asteroid/comet covariance, including one computed using a named planetary ephemeris, is not that planetary solution covariance. No SBDB product is ingested.",
+      "review_date_utc": "2026-10-21"
+    },
+    {
+      "id": "horizons",
+      "url": "https://ssd.jpl.nasa.gov/horizons/manual.html",
+      "location": "statistical uncertainty quantities; close-approach uncertainty discussion",
+      "classification": "different_object_uncertainty",
+      "finding": "Documented asteroid/comet formal uncertainty propagation uses a linearized model; systematic error and long propagation or encounters can invalidate optimistic interpretation.",
+      "limitation": "Statistical output does not establish geocentric clock covariance or a deterministic physical bound.",
+      "review_date_utc": "2026-10-21"
+    }
+  ],
+  "targets": [
+    {
+      "id": "DE440t",
+      "kernel_sha256": "4f003b4437a8b479aaca262716a779e3683413200adfd6353c4901aab5de800e",
+      "quantity": "TT_minus_TDB",
+      "units": "seconds",
+      "origin": "geocentre",
+      "time_scale": "TDB",
+      "requirements": {
+        "covariance_payload": null,
+        "parameter_basis_and_units": null,
+        "reference_epoch_and_scale": null,
+        "nominal_solution_link": null,
+        "full_correlations": null,
+        "estimated_and_consider_parameters": null,
+        "integrated_trajectory_response": null,
+        "clock_anchor_and_cross_covariance": null,
+        "validity_interval": null
+      }
+    },
+    {
+      "id": "INPOP21a",
+      "kernel_sha256": "b39d3faab00cd609685430e8f7f6c39c174341db24b387cad117199e11768687",
+      "quantity": "TT_minus_TDB",
+      "units": "seconds",
+      "origin": "geocentre",
+      "time_scale": "TDB",
+      "requirements": {
+        "covariance_payload": null,
+        "parameter_basis_and_units": null,
+        "reference_epoch_and_scale": null,
+        "nominal_solution_link": null,
+        "full_correlations": null,
+        "estimated_and_consider_parameters": null,
+        "integrated_trajectory_response": null,
+        "clock_anchor_and_cross_covariance": null,
+        "validity_interval": null
+      }
+    }
+  ],
+  "physical_covariance_acquired": false,
+  "physical_covariance_propagated": false,
+  "unresolved_components": [
+    "geocentric_time_ephemeris",
+    "earth_state",
+    "station_coordinates",
+    "earth_orientation",
+    "omitted_physics_and_coefficient_model",
+    "higher_order_remainder"
+  ],
+  "observing_eligible": false,
+  "physical_geocentric_clock_bound_seconds": null,
+  "physical_site_clock_bound_seconds": null,
+  "physical_arrival_bound_seconds": null
+}
