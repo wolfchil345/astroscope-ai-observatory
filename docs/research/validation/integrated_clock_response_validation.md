@@ -134,7 +134,9 @@ The [canonical record](../../../validation/results/integrated_clock_response_ref
 was generated from clean implementation commit
 `209da4bcc9c406dc25bf9f555bd4ba10a5ae5530`. Its SHA-256 is
 `930dccd98ac0f743f0606e8478aa77039376fae42004c661f69473aaa97770fe`.
-Full-suite and final-head CI evidence are recorded before handoff.
+Full-suite, final-head CI and downloaded artifact evidence are recorded in
+[PR #50](https://github.com/wolfchil345/astroscope-ai-observatory/pull/50)
+before handoff.
 
 ## Offline reproduction
 
@@ -173,4 +175,4 @@ clock/site/arrival bounds are null and `observing_eligible=false`.
 Physical propagation still requires provider-supported, source-matched inputs
 and applicable trajectory responses. This mission establishes a numerical test
 harness for that future work, without claiming those missing inputs were acquired.
-Phase 2 remains active. Mission 50 awaits review and merge.
+Phase 2 remains active. Mission 50 awaits review and merge in PR #50.

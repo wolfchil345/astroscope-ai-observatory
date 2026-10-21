@@ -38,7 +38,7 @@
 - Mission 48: Complete — Geocentric Time-Ephemeris Sensitivity and Uncertainty Propagation, merged in [PR #48](https://github.com/wolfchil345/astroscope-ai-observatory/pull/48); all 516 local rate partials, 28 mappings and nine synthetic covariance controls pass; physical uncertainty remains unknown
 - Mission 49: Complete — Ephemeris Covariance Provenance and Applicability Qualification, merged in [PR #49](https://github.com/wolfchil345/astroscope-ai-observatory/pull/49); nine-source review and four independent synthetic controls; physical covariance remains unqualified
 
-- Mission 50: Active — Integrated Geocentric Clock Parameter-Response Validation; manufactured dynamics and clock functionals only, physical qualification remains incomplete
+- Mission 50: Active — Integrated Geocentric Clock Parameter-Response Validation, [PR #50](https://github.com/wolfchil345/astroscope-ai-observatory/pull/50); manufactured dynamics and clock functionals only, physical qualification remains incomplete
 
 ## Phase Progress
 
@@ -498,8 +498,9 @@
 - [x] Retain zero-serialization failures and their repairs
 - [x] Preserve all 18 physical receipt gaps, six unresolved components and 288 blocked arrivals
 - [x] Add offline regeneration, rejection tests and a nineteenth CI artifact
-- [ ] Retain clean canonical results and complete full-suite verification
-- [ ] Open Mission 50 PR and verify final-head CI/artifact evidence
+- [x] Retain clean canonical results from `209da4bcc9c406dc25bf9f555bd4ba10a5ae5530`
+- [x] Add 73 Mission 50 tests; track complete quality-gate evidence in the PR
+- [x] Open [PR #50](https://github.com/wolfchil345/astroscope-ai-observatory/pull/50); final-head CI and downloaded artifact verification are recorded there before handoff
 - [ ] Merge Mission 50
 
 ## Phase 2 Deliverables
