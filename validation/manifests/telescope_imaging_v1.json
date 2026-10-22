@@ -1,0 +1,42 @@
+{
+  "baseline_commit": "b3a4345786565bd112e1d4cd6be90762c3a5725d",
+  "counts": {
+    "field": 6,
+    "imaging": 105,
+    "mosaic": 96,
+    "optical": 100
+  },
+  "data_license": "Original synthetic numerical fixture under repository MIT license; no copied third-party tables.",
+  "files": {
+    "validation/fixtures/telescope_imaging_v1.json": "5dce6007255aabfdb1cfaa49768a63ff451643467426d132a61eede65617ed97",
+    "validation/reference_generation/telescope_imaging.py": "2201176e412263b873cb18c5fb71f0f8dd685e62a139ab37357b2bfb78a2d3b7"
+  },
+  "independence_limit": "Independent numerical implementation of elementary geometry, not an independent physical optical experiment. Resolution and label coefficients are application conventions, not validated measurements.",
+  "mission": 52,
+  "policy": {
+    "excluded": "Distortion, vignetting, aberrations, measured resolution/seeing, spherical mosaics, rotations, near-field focus, arbitrary IEEE extreme inputs.",
+    "heuristics": "Uncalibrated; boundary contract tests are separate from reference accuracy.",
+    "rationale": "Half output quantum plus 1e-10 absolute arithmetic allowance; integer topology exact. Fixed before production evaluation.",
+    "rounding_slack": 1e-10,
+    "scope": "Ideal rectilinear infinity-focus geometry, declared 206.265 plate-scale constant, conventional resolution coefficients, planar axis-aligned tiling.",
+    "unrounded_absolute_degrees": 1e-10
+  },
+  "reference_method": "90-digit Decimal half-angle/alternating atan and Machin pi; Fraction coverage enumeration; no production imports; stdlib only.",
+  "references": [
+    {
+      "accessed": "2026-10-22",
+      "authors": "Gregory Hollows; Nicholas James",
+      "id": "EO-FOV",
+      "locator": "Equation 1",
+      "supports": "Full angular field = 2 atan(sensor dimension/(2 focal length)); ideal model limitations.",
+      "url": "https://www.edmundoptics.com/knowledge-center/application-notes/imaging/understanding-focal-length-and-field-of-view"
+    },
+    {
+      "accessed": "2026-10-22",
+      "id": "CELESTRON-EYE",
+      "supports": "Focal-length/magnification relationship and dependence of useful magnification on observing conditions. Its 60x/inch recommendation differs from the app 2x/mm heuristic; not a calibration.",
+      "url": "https://www.celestron.com/blogs/knowledgebase/how-to-determine-which-eyepieces-to-use-with-your-telescope"
+    }
+  ],
+  "schema_version": "1.0"
+}

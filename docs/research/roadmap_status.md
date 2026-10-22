@@ -39,7 +39,9 @@
 - Mission 49: Complete — Ephemeris Covariance Provenance and Applicability Qualification, merged in [PR #49](https://github.com/wolfchil345/astroscope-ai-observatory/pull/49); nine-source review and four independent synthetic controls; physical covariance remains unqualified
 
 - Mission 50: Complete — Integrated Geocentric Clock Parameter-Response Validation, merged in [PR #50](https://github.com/wolfchil345/astroscope-ai-observatory/pull/50) (`4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed`); post-merge Quality Gate 39669626225 passed; synthetic machinery validated, physical qualification remains incomplete
-- Mission 51: Active — Phase 2 Coverage and Exit-Criteria Audit, [PR #51](https://github.com/wolfchil345/astroscope-ai-observatory/pull/51); eight original scientific areas mapped, bounded follow-up proposed; Phase 2 exit is not approved
+- Mission 51: Complete — Phase 2 Coverage and Exit-Criteria Audit, [PR #51](https://github.com/wolfchil345/astroscope-ai-observatory/pull/51); merged at `b3a4345786565bd112e1d4cd6be90762c3a5725d`; post-merge Quality Gate 39714054048 passed; Phase 2 exit is not approved
+
+- Mission 52: Active — Telescope and Imaging Scientific Validation, [PR #52](https://github.com/wolfchil345/astroscope-ai-observatory/pull/52); independent W01 dossier and diagonal geometry correction under review
 
 ## Phase Progress
 
@@ -71,7 +73,7 @@ within their original domains; no completion percentage is inferred.
 | E04 Reproducibility and provenance | Partial; cross-experiment reconciliation required |
 | E05 Claims and uncertainty | Restrictions preserved; physical arrival qualification blocked |
 | E06 Workflow and contract traceability | Partial |
-| E07 Software acceptance | Mission 50 baseline passed; future exit commit needs fresh CI |
+| E07 Software acceptance | Mission 51 baseline passed; future exit commit needs fresh CI |
 | E08 Reviewed Phase 2 exit decision | Not performed |
 
 The [acceptance requirements](phase_2_coverage_audit.md#phase-2-exit-gates) define
@@ -81,7 +83,7 @@ scope decision with enforced exclusions; this audit grants no such exit.
 
 | Package | Remaining deliverable | Status |
 |---|---|---|
-| W01 | Telescope and imaging scientific validation | Proposed next: Mission 52, not started |
+| W01 | Telescope and imaging scientific validation | Mission 52 active; bounded dossier under review |
 | W02 | Seven enabled planets: position/distance/reference validation | Proposed |
 | W03 | Visibility and transit-window sampling sensitivity | Proposed; reuse Missions 33–35 |
 | W04 | Planner/schedule/weather/ranking heuristic characterisation | Proposed; calibration remains Phase 3 |
@@ -320,6 +322,7 @@ completion date. Their dependencies and stop conditions are specified in the
 - Mission 48 — Geocentric Time-Ephemeris Sensitivity and Uncertainty Propagation, merged in [PR #48](https://github.com/wolfchil345/astroscope-ai-observatory/pull/48)
 - Mission 49 — Ephemeris Covariance Provenance and Applicability Qualification, merged in [PR #49](https://github.com/wolfchil345/astroscope-ai-observatory/pull/49)
 - Mission 50 — Integrated Geocentric Clock Parameter-Response Validation, merged in [PR #50](https://github.com/wolfchil345/astroscope-ai-observatory/pull/50)
+- Mission 51 — Phase 2 Coverage and Exit-Criteria Audit, merged in [PR #51](https://github.com/wolfchil345/astroscope-ai-observatory/pull/51)
 
 ## Mission 35 Completion Checklist
 
@@ -576,9 +579,28 @@ completion date. Their dependencies and stop conditions are specified in the
 - [x] Preserve all numerical policies, fixtures, results, tests, production code and 19 CI artifacts
 - [x] Verify 57 relative links, 31 baseline source hashes, coverage/gate/package references and preserved unknowns; Ruff passed
 - [x] Open [PR #51](https://github.com/wolfchil345/astroscope-ai-observatory/pull/51); final-head Quality Gate and 19-artifact inventory evidence are recorded there before handoff
-- [ ] Merge Mission 51; Phase 2 remains active
+- [x] Merge Mission 51 — `b3a4345786565bd112e1d4cd6be90762c3a5725d`; post-merge CI passed; Phase 2 remains active
+
+## Mission 52 Completion Checklist
+
+### Mission 52 — Telescope and Imaging Scientific Validation
+
+- [x] Verify Mission 51 merge and successful post-merge CI
+- [x] Freeze independent Decimal/Fraction reference and acceptance policy before evaluation
+- [x] Retain baseline: 272/307 cases pass, 35 diagonal-field failures
+- [x] Correct ideal sensor-diagonal geometry without changing tolerances
+- [x] Verify all 307 reference cases, offline regeneration and failure-sensitive controls
+- [x] Preserve heuristic labels as uncalibrated and X01 physical qualification restrictions
+- [x] Add a twentieth CI artifact while retaining the existing 19
+- [x] Record clean canonical corrected results at `ee89c33d924be20eae6f113fa49f9c03d77ad12a`
+- [x] Add 403 tests; 436 focused tests and Ruff pass; final-head full-suite CI evidence is recorded in the PR before handoff
+- [x] Open [PR #52](https://github.com/wolfchil345/astroscope-ai-observatory/pull/52)
+- [ ] Merge Mission 52; Phase 2 remains active
 
 ## Phase 2 Deliverables
+
+- [Telescope and Imaging Scientific Validation — Mission 52](validation/telescope_imaging_validation.md)
+
 
 - [Phase 2 Coverage and Exit-Criteria Audit — Mission 51](phase_2_coverage_audit.md)
 

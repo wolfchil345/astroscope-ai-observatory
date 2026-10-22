@@ -223,7 +223,7 @@ def calculate_sensor_field_degrees(
     sensor_size_mm: float,
     effective_focal_length_mm: float,
 ) -> float:
-    """Calculate an exact angular sensor dimension."""
+    """Return the ideal rectilinear full angle at infinity focus (no distortion)."""
 
     _validate_positive_finite(
         sensor_size_mm,
@@ -319,9 +319,9 @@ def calculate_astrophotography_setup(
         effective_focal_length_mm=(effective_focal_length),
     )
 
-    field_diagonal = hypot(
-        field_width,
-        field_height,
+    field_diagonal = calculate_sensor_field_degrees(
+        sensor_size_mm=hypot(camera.sensor_width_mm, camera.sensor_height_mm),
+        effective_focal_length_mm=effective_focal_length,
     )
 
     seeing_disk_pixels = seeing_arcseconds / image_scale
