@@ -130,6 +130,9 @@ ephemeris defect or as clean canonical evidence.
 
 ## Results and reproducibility
 
+The corrected clean run passes all 623 cases under the declared eligibility rules.
+It was executed at implementation commit
+`b4586a5d9e044324375a231948f0e45df3ff7713` with `git_dirty=false`.
 Execution evidence is recorded in the
 [canonical result](../../../validation/results/planetary_positions_reference_run.json).
 It includes each actual/reference value, metric allowance, exclusion, classification,

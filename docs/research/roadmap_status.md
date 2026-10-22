@@ -608,7 +608,7 @@ completion date. Their dependencies and stop conditions are specified in the
 - [x] Freeze 623 independent reference cases, policy and source provenance before evaluation
 - [x] Cover all seven planets with explicit frame, target, scale, EOP and range conventions
 - [x] Reuse Mission 34 data and limits without restarting the Sun/Moon benchmark
-- [ ] Record residuals, eligibility denominators, exclusions and clean canonical results
+- [x] Record clean canonical results: 623 cases pass, 606 angular-eligible, 17 solar-excluded; all 623 ranges checked; initial harness-label failure retained
 - [x] Verify offline replay, byte-identical reference regeneration and 692 focused tests (672 new); Ruff passed
 - [x] Add a twenty-first CI artifact while preserving the existing 20
 - [x] Preserve physical timing restrictions and active Phase 2 status
