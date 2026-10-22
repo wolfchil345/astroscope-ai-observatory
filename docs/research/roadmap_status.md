@@ -39,7 +39,7 @@
 - Mission 49: Complete — Ephemeris Covariance Provenance and Applicability Qualification, merged in [PR #49](https://github.com/wolfchil345/astroscope-ai-observatory/pull/49); nine-source review and four independent synthetic controls; physical covariance remains unqualified
 
 - Mission 50: Complete — Integrated Geocentric Clock Parameter-Response Validation, merged in [PR #50](https://github.com/wolfchil345/astroscope-ai-observatory/pull/50) (`4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed`); post-merge Quality Gate 39669626225 passed; synthetic machinery validated, physical qualification remains incomplete
-- Mission 51: Active — Phase 2 Coverage and Exit-Criteria Audit; eight original scientific areas mapped, bounded follow-up proposed; Phase 2 exit is not approved
+- Mission 51: Active — Phase 2 Coverage and Exit-Criteria Audit, [PR #51](https://github.com/wolfchil345/astroscope-ai-observatory/pull/51); eight original scientific areas mapped, bounded follow-up proposed; Phase 2 exit is not approved
 
 ## Phase Progress
 
@@ -575,7 +575,7 @@ completion date. Their dependencies and stop conditions are specified in the
 - [x] Reconcile Mission 50 status and completed-mission index through Mission 50
 - [x] Preserve all numerical policies, fixtures, results, tests, production code and 19 CI artifacts
 - [x] Verify 57 relative links, 31 baseline source hashes, coverage/gate/package references and preserved unknowns; Ruff passed
-- [ ] Open Mission 51 PR and verify final-head Quality Gate and artifact inventory
+- [x] Open [PR #51](https://github.com/wolfchil345/astroscope-ai-observatory/pull/51); final-head Quality Gate and 19-artifact inventory evidence are recorded there before handoff
 - [ ] Merge Mission 51; Phase 2 remains active
 
 ## Phase 2 Deliverables

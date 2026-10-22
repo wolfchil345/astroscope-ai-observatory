@@ -164,7 +164,7 @@ artifact. Documentation verification checks relative links, evidence paths and
 hashes against the baseline, eight unique coverage IDs, gate/work-package
 references and preserved physical unknowns. The existing full Quality Gate
 must pass on the final PR head, retaining all 19 artifacts. Final execution
-evidence belongs in the Mission 51 PR; baseline evidence is not substituted
+evidence belongs in [PR #51](https://github.com/wolfchil345/astroscope-ai-observatory/pull/51); baseline evidence is not substituted
 for that run. Local checks passed for 31 baseline source hashes, 57 relative
 documentation links, coverage/gate/package references, the completed-mission
 index and inherited physical restrictions. Ruff passed. No Phase 2 completion
