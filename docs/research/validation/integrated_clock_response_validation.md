@@ -175,4 +175,7 @@ clock/site/arrival bounds are null and `observing_eligible=false`.
 Physical propagation still requires provider-supported, source-matched inputs
 and applicable trajectory responses. This mission establishes a numerical test
 harness for that future work, without claiming those missing inputs were acquired.
-Phase 2 remains active. Mission 50 awaits review and merge in PR #50.
+Phase 2 remains active. Mission 50 merged through PR #50 at
+`4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed`; post-merge
+[Quality Gate 39669626225](https://github.com/wolfchil345/astroscope-ai-observatory/actions/runs/39669626225)
+passed. This status update preserves the original canonical evidence and limits.
