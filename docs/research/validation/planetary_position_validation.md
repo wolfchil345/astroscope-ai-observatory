@@ -1,5 +1,7 @@
 # Mission 53 — Planetary Position Validation
 
+Review: [PR #53](https://github.com/wolfchil345/astroscope-ai-observatory/pull/53).
+
 ## Scope
 
 This is W02 / P2-04 from the [Mission 51 audit](../phase_2_coverage_audit.md):

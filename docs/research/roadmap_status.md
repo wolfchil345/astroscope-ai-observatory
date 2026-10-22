@@ -43,7 +43,7 @@
 
 - Mission 52: Complete — Telescope and Imaging Scientific Validation, [PR #52](https://github.com/wolfchil345/astroscope-ai-observatory/pull/52); merged at `2e22f2319c4afa681b8dfd219a5f920916db14f0`; post-merge Quality Gate 39797889297 passed; bounded W01 evidence retained
 
-- Mission 53: Active — Planetary Position Validation (W02); seven enabled planets, frozen 2024 reference corpus
+- Mission 53: Active — Planetary Position Validation (W02), [PR #53](https://github.com/wolfchil345/astroscope-ai-observatory/pull/53); seven enabled planets, frozen 2024 reference corpus
 
 ## Phase Progress
 
@@ -612,7 +612,7 @@ completion date. Their dependencies and stop conditions are specified in the
 - [x] Verify offline replay, byte-identical reference regeneration and 692 focused tests (672 new); Ruff passed
 - [x] Add a twenty-first CI artifact while preserving the existing 20
 - [x] Preserve physical timing restrictions and active Phase 2 status
-- [ ] Open Mission 53 PR and verify final-head CI
+- [x] Open [PR #53](https://github.com/wolfchil345/astroscope-ai-observatory/pull/53); final-head full-suite CI and 21-artifact evidence are recorded there before handoff
 - [ ] Merge Mission 53
 
 ## Phase 2 Deliverables
