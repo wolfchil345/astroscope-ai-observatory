@@ -1,0 +1,462 @@
+{
+  "schema_version": "1.0",
+  "mission": 51,
+  "kind": "coverage_desk_audit_not_new_scientific_validation",
+  "baseline_commit": "4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed",
+  "review_date": "2026-10-22",
+  "review_timezone": "Asia/Tokyo",
+  "governing_scope": "docs/research/phase_1_exit_audit.md#phase-2-readiness",
+  "report": "docs/research/phase_2_coverage_audit.md",
+  "phase_status": {
+    "0": "complete",
+    "1": "complete",
+    "2": "active",
+    "3": "planned",
+    "4": "planned",
+    "5": "planned",
+    "6": "planned",
+    "7": "planned",
+    "8": "planned"
+  },
+  "phase_2_exit_approved": false,
+  "new_numerical_experiments": 0,
+  "new_scientific_tests": 0,
+  "new_ci_artifacts": 0,
+  "source_hash_semantics": "SHA-256 of exact files at baseline_commit, not a requirement that later working-tree documentation stay identical.",
+  "source_sha256": {
+    ".github/workflows/quality-gate.yml": "bc694ac4571d9810af488a6f0083bb5a7f6115c3e7375904fa26430bd0bf59fa",
+    "docs/research/phase_1_exit_audit.md": "3886a03415d5b5f8c8e1d16a58289f1dc7ca23a3263d625886af3caddee2a156",
+    "docs/research/roadmap_status.md": "329806cd3a3c4498d333680dad314df3920234d6a6ada3c1223182b7e62d8208",
+    "docs/research/v0.2.0_research_baseline.md": "16f177b90960300470e42234625084dc48ecb3eaaf949e3166e75653c83f9cb5",
+    "docs/research/validation/celestial_coordinate_validation.md": "e855890d8d4d2780c9fc1ef23069bdb7b3a0c080ba1cfa2f89c0651d35992b35",
+    "docs/research/validation/civil_time_validation.md": "4b0a79c1491056b2a6b8a8a8a7cb52f251803730442cf8397e7dda26e95f30e7",
+    "docs/research/validation/ephemeris_covariance_qualification.md": "f1d2462c959a91fb76e9eca81dab59e3adeed87ab68d67911e9182fa801fb485",
+    "docs/research/validation/integrated_clock_response_validation.md": "dc697d827b9a15a56596876a6e8fc3bd0e476a674c00cae70f4e65674ff16a87",
+    "docs/research/validation/observer_time_validation.md": "fc6213bfff296badbdf62346d822442b227e142a370eb1b87ed42d22bb99f495",
+    "docs/research/validation/schedule_interval_validation.md": "fdb3be81a9a4e5e46427091f795cbd7128adfee2bd9eaa908fa9e9bbe983db0f",
+    "docs/research/validation/solar_lunar_twilight_validation.md": "31d9a97b3c572af4fb7dc51d30ad6bb45d9c8b4bf5425413bdd07277d3ba0826",
+    "docs/research/validation/strict_transit_timing_boundary.md": "6af16c1c42edef9f7545ce08f8d0a7c16a2fa753d4030c40c4ad40533531ad26",
+    "docs/research/validation/transit_ephemeris_validation.md": "f0e23d33c1035468e930166b603007aee5defde036ddba5ed817ba5ae35600a0",
+    "docs/research/validation/weather_provider_contract.md": "b6393d15a0c0d05c89b2ab517f97d46496b82a3ec9228652ecad47170460da2c",
+    "src/astroscope/light_curve.py": "f6fd35435b552627d53155d2dca3fc558ea5edcb5dc58aa896c7dc23f040b3ef",
+    "src/astroscope/light_curve_period.py": "50b305831bbdb0f7d5c2afe5db5f367ac3e76261dc283aecaa0e5991d0fc7ee0",
+    "src/astroscope/solar_system.py": "88b75c5b58c039053f11040cdc83bba4e63729bd3874729a911caa75a1093b4e",
+    "tests/test_imaging.py": "eb4ef99fed22ebb20900b2694e55fa424fb081239f14369a99b85be04c0329a4",
+    "tests/test_light_curve_detrending.py": "deb9b5a7ce2f64d788d8cb8476d7b131c8fdae29147cb732d0cba9f67c9bc0b7",
+    "tests/test_light_curve_period.py": "3f85523dbbeff23560a3b3744960f54bfe8937108b8ee38cbc6533e850724381",
+    "tests/test_light_curve_transit_search.py": "5af34033676400e2e0a22a29c20fd42f1528db0f62d317f2117180cad8f23d08",
+    "tests/test_planner.py": "0078d6b22b58169b449b87c599a7cb548e26b1a77953e9d9d3f7699bcd4ba6c5",
+    "tests/test_schedule.py": "7e4a5d713e4dc6b1824f005ea1a8b3ed845864d36c3cf49f1f7359ba0eca05de",
+    "tests/test_solar_system.py": "672f91a4263e50567f4d0be67e063ca9f72eed1d50d493106477cc8f14a8c934",
+    "tests/test_telescope.py": "053d5c4e8d90760f1f3fc1771f0b832b02ffc5f5874442c73a49e75ea5b2e6cc",
+    "tests/test_transit_ranking.py": "ae47ebcebeb43dd75e809710893578eb15968b86e61c136355afe49c1db99cac",
+    "tests/test_transit_visibility.py": "4b9d030e11f38cafca3c825e361c0c0b54bdfc847c9dfab76ac6642a3a77c161",
+    "tests/test_visibility.py": "d906997f06cfec87e7d668312e14a2e83214edae9fcb0a9677ad446c069b5f4a",
+    "validation/manifests/transit_timing_boundary_coverage_v1.json": "030758462d4b97843b0d27e113f0e43100394c7681309143d0566e0cbf92116f",
+    "validation/results/celestial_coordinates_reference_run.json": "e6f9010ad96fead29cbd49056940a063f1dd5513611dca5ca54bedc12e408dd3",
+    "validation/results/integrated_clock_response_reference_run.json": "930dccd98ac0f743f0606e8478aa77039376fae42004c661f69473aaa97770fe"
+  },
+  "coverage": [
+    {
+      "id": "P2-01",
+      "area": "Observer and time handling",
+      "evidence_class": "bounded_reference_evidence",
+      "follow_up": [
+        "W06",
+        "X01"
+      ],
+      "evidence_paths": [
+        "docs/research/validation/observer_time_validation.md",
+        "docs/research/validation/civil_time_validation.md",
+        "docs/research/validation/schedule_interval_validation.md",
+        "docs/research/validation/weather_provider_contract.md",
+        "docs/research/validation/celestial_coordinate_validation.md"
+      ]
+    },
+    {
+      "id": "P2-02",
+      "area": "Coordinate conversion",
+      "evidence_class": "bounded_reference_evidence",
+      "follow_up": [
+        "W06"
+      ],
+      "evidence_paths": [
+        "docs/research/validation/celestial_coordinate_validation.md",
+        "validation/results/celestial_coordinates_reference_run.json"
+      ]
+    },
+    {
+      "id": "P2-03",
+      "area": "Visibility",
+      "evidence_class": "mixed_coverage",
+      "follow_up": [
+        "W03"
+      ],
+      "evidence_paths": [
+        "docs/research/validation/celestial_coordinate_validation.md",
+        "docs/research/validation/solar_lunar_twilight_validation.md",
+        "tests/test_visibility.py",
+        "tests/test_transit_visibility.py"
+      ]
+    },
+    {
+      "id": "P2-04",
+      "area": "Solar System positions",
+      "evidence_class": "mixed_coverage",
+      "follow_up": [
+        "W02"
+      ],
+      "evidence_paths": [
+        "docs/research/validation/solar_lunar_twilight_validation.md",
+        "src/astroscope/solar_system.py",
+        "tests/test_solar_system.py"
+      ]
+    },
+    {
+      "id": "P2-05",
+      "area": "Telescope and imaging",
+      "evidence_class": "analytic_synthetic_controls",
+      "follow_up": [
+        "W01"
+      ],
+      "evidence_paths": [
+        "tests/test_telescope.py",
+        "tests/test_imaging.py"
+      ]
+    },
+    {
+      "id": "P2-06",
+      "area": "Planner and schedule heuristics",
+      "evidence_class": "mixed_coverage",
+      "follow_up": [
+        "W04"
+      ],
+      "evidence_paths": [
+        "docs/research/validation/schedule_interval_validation.md",
+        "docs/research/validation/weather_provider_contract.md",
+        "tests/test_planner.py",
+        "tests/test_schedule.py",
+        "tests/test_transit_ranking.py"
+      ]
+    },
+    {
+      "id": "P2-07",
+      "area": "Transit calculations",
+      "evidence_class": "mixed_coverage",
+      "follow_up": [
+        "W03",
+        "W06",
+        "X01"
+      ],
+      "evidence_paths": [
+        "docs/research/validation/transit_ephemeris_validation.md",
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "validation/manifests/transit_timing_boundary_coverage_v1.json",
+        "docs/research/validation/ephemeris_covariance_qualification.md",
+        "docs/research/validation/integrated_clock_response_validation.md",
+        "validation/results/integrated_clock_response_reference_run.json",
+        "tests/test_transit_visibility.py"
+      ]
+    },
+    {
+      "id": "P2-08",
+      "area": "Light-curve analysis",
+      "evidence_class": "analytic_synthetic_controls",
+      "follow_up": [
+        "W05"
+      ],
+      "evidence_paths": [
+        "src/astroscope/light_curve.py",
+        "src/astroscope/light_curve_period.py",
+        "tests/test_light_curve_period.py",
+        "tests/test_light_curve_transit_search.py",
+        "tests/test_light_curve_detrending.py"
+      ]
+    }
+  ],
+  "exit_gates": [
+    {
+      "id": "E01",
+      "name": "Coverage inventory",
+      "baseline_status": "documented_review_pending"
+    },
+    {
+      "id": "E02",
+      "name": "Reference qualification",
+      "baseline_status": "partial"
+    },
+    {
+      "id": "E03",
+      "name": "Robustness and integration",
+      "baseline_status": "partial"
+    },
+    {
+      "id": "E04",
+      "name": "Reproducibility and provenance",
+      "baseline_status": "partial"
+    },
+    {
+      "id": "E05",
+      "name": "Claims and uncertainty",
+      "baseline_status": "physical_qualification_blocked"
+    },
+    {
+      "id": "E06",
+      "name": "Workflow and contract traceability",
+      "baseline_status": "partial"
+    },
+    {
+      "id": "E07",
+      "name": "Software acceptance",
+      "baseline_status": "baseline_passed_final_exit_pending"
+    },
+    {
+      "id": "E08",
+      "name": "Exit decision",
+      "baseline_status": "not_performed"
+    }
+  ],
+  "work_packages": [
+    {
+      "id": "W01",
+      "name": "Telescope and imaging",
+      "depends_on": [],
+      "status": "proposed_not_started"
+    },
+    {
+      "id": "W02",
+      "name": "Planetary positions",
+      "depends_on": [],
+      "status": "proposed_not_started"
+    },
+    {
+      "id": "W03",
+      "name": "Visibility and transit sampling",
+      "depends_on": [],
+      "status": "proposed_not_started"
+    },
+    {
+      "id": "W04",
+      "name": "Heuristic characterisation",
+      "depends_on": [
+        "W02",
+        "W03"
+      ],
+      "status": "proposed_not_started"
+    },
+    {
+      "id": "W05",
+      "name": "Light-curve validation",
+      "depends_on": [],
+      "status": "proposed_not_started"
+    },
+    {
+      "id": "W06",
+      "name": "Coverage/provenance reconciliation",
+      "depends_on": [
+        "W01",
+        "W02",
+        "W03",
+        "W04",
+        "W05"
+      ],
+      "status": "proposed_not_started"
+    },
+    {
+      "id": "W07",
+      "name": "Phase 2 exit review",
+      "depends_on": [
+        "W06",
+        "X01_disposition_review"
+      ],
+      "status": "proposed_not_started"
+    }
+  ],
+  "dependency_notes": {
+    "W04": "W02/W03 apply to end-to-end astronomical claims; controlled-input characterisation can proceed independently.",
+    "W03": "Reuses Missions 33-35; physical conversion remains separately blocked by X01.",
+    "X01_disposition_review": "A reviewed limitation/scope decision is not physical qualification or permission to enable arrival outputs."
+  },
+  "external_blocker": {
+    "id": "X01",
+    "status": "unestablished_physical_evidence",
+    "automatic_deferral_allowed": false,
+    "required_action": "New source-matched covariance/response/anchor evidence plus remaining physical components and full-reference qualification; preserve unknowns meanwhile."
+  },
+  "inherited_physical_status": {
+    "physical_covariance_acquired": false,
+    "physical_covariance_propagated": false,
+    "physical_linearization_domain_established": false,
+    "full_reference_status": "unqualified",
+    "inherited_unestablished_receipt_requirements": 18,
+    "site_clocks_unqualified": 48,
+    "combined_counts": {
+      "candidates": 288,
+      "executed": 0,
+      "blocked": 288,
+      "solar_eligible": 240,
+      "solar_excluded": 48
+    },
+    "unresolved_components": [
+      "geocentric_time_ephemeris",
+      "earth_state",
+      "station_coordinates",
+      "earth_orientation",
+      "omitted_physics_and_coefficient_model",
+      "higher_order_remainder"
+    ],
+    "physical_geocentric_clock_bound_seconds": null,
+    "physical_site_clock_bound_seconds": null,
+    "physical_arrival_bound_seconds": null,
+    "observing_eligible": false
+  },
+  "proposed_next_mission": {
+    "number": 52,
+    "title": "Telescope and Imaging Scientific Validation",
+    "work_package": "W01",
+    "started": false
+  },
+  "baseline_ci": {
+    "run_id": 39669626225,
+    "url": "https://github.com/wolfchil345/astroscope-ai-observatory/actions/runs/39669626225",
+    "conclusion": "success",
+    "artifact_count": 19,
+    "artifact_verification_scope": "API inventory, head identity and expiry; no claim that all baseline archives were downloaded in this audit.",
+    "artifacts": [
+      {
+        "name": "celestial-coordinate-validation-record",
+        "id": 12380150155,
+        "digest": "sha256:fa2bb40193c634b7bd96a7ca61ef8200e5b5000a781c287f197304b7ef10cb33",
+        "expired": false,
+        "head_sha": "4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed"
+      },
+      {
+        "name": "civil-time-validation-record",
+        "id": 12379975514,
+        "digest": "sha256:19e20f86dc4ecc4c6bef38d0962f28af7450bfea57997cd8c4504a6cf46b1ad4",
+        "expired": false,
+        "head_sha": "4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed"
+      },
+      {
+        "name": "schedule-interval-validation-record",
+        "id": 12379945644,
+        "digest": "sha256:3faaf9e1de7b14d37ca9f8a98b5b474f3dbfa97a7575a6400684c38337ef0adf",
+        "expired": false,
+        "head_sha": "4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed"
+      },
+      {
+        "name": "time-ephemeris-clock-mapping-record",
+        "id": 12379836411,
+        "digest": "sha256:f717830b5bd3c79f236adce278472220b37fc6cb374959f843550fa2fcae1421",
+        "expired": false,
+        "head_sha": "4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed"
+      },
+      {
+        "name": "integrated-clock-parameter-response-record",
+        "id": 12379801529,
+        "digest": "sha256:c51301c3751db13ff4a3dcf729fd0837458578f722c51b8cf38064b7205d64fa",
+        "expired": false,
+        "head_sha": "4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed"
+      },
+      {
+        "name": "observer-arrival-validation-record",
+        "id": 12379486679,
+        "digest": "sha256:c05eb30836e8d697b67cefced12ead73f67ebbda9d25b9da35af36c7c8d7e964",
+        "expired": false,
+        "head_sha": "4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed"
+      },
+      {
+        "name": "source-reference-qualification-record",
+        "id": 12379481651,
+        "digest": "sha256:54d17c8a2ed7339f270dfee939e1bbbbe433589ec015db0f82e2faa5b4945b43",
+        "expired": false,
+        "head_sha": "4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed"
+      },
+      {
+        "name": "cross-model-time-ephemeris-record",
+        "id": 12379351785,
+        "digest": "sha256:87c089f04bfd423eb72a6785b2bfc1750bb7192c33d1cee35538e935cffedf5b",
+        "expired": false,
+        "head_sha": "4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed"
+      },
+      {
+        "name": "coupled-site-clock-record",
+        "id": 12379306735,
+        "digest": "sha256:a59a1aeffd2b1ae477b8695bf325724c1938d7d1d6f44dc742be39d49c8901f1",
+        "expired": false,
+        "head_sha": "4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed"
+      },
+      {
+        "name": "arrival-budget-audit-record",
+        "id": 12379286747,
+        "digest": "sha256:e743eb4817becd2da89200ad306dd7a0ddd94483811a2b85499bbf85e2981631",
+        "expired": false,
+        "head_sha": "4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed"
+      },
+      {
+        "name": "clock-sensitivity-uncertainty-record",
+        "id": 12378829062,
+        "digest": "sha256:a2e3e5777045808b74f30e671f97af3818a78b5210ef90ceca5f330b4f698d15",
+        "expired": false,
+        "head_sha": "4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed"
+      },
+      {
+        "name": "time-normalization-evidence-record",
+        "id": 12378774292,
+        "digest": "sha256:f3be0020b7d1056990848389d2c685931cfb5f1e2129f0da5a167eb44329fa05",
+        "expired": false,
+        "head_sha": "4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed"
+      },
+      {
+        "name": "clock-reference-qualification-record",
+        "id": 12378699285,
+        "digest": "sha256:a13518d6d82e17fa1e7f2ad50fa21e6b8cb5bb6cb38432544aa1cfc0c0c761e0",
+        "expired": false,
+        "head_sha": "4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed"
+      },
+      {
+        "name": "site-clock-qualification-record",
+        "id": 12378654363,
+        "digest": "sha256:b666e1b02a54e9a85d3a3103cbb21ce34106a1515039ead8ae122fdee1f5513c",
+        "expired": false,
+        "head_sha": "4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed"
+      },
+      {
+        "name": "ephemeris-covariance-qualification-record",
+        "id": 12378624454,
+        "digest": "sha256:f0bc496ab1a3801ffd5a51c4f28c6e256496f34082ff7ea1f5a37629daca993a",
+        "expired": false,
+        "head_sha": "4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed"
+      },
+      {
+        "name": "site-frame-mapping-record",
+        "id": 12378564548,
+        "digest": "sha256:92dc484b605f357a2256410f385207327410eee3824df7a526fa125f1f2fd03c",
+        "expired": false,
+        "head_sha": "4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed"
+      },
+      {
+        "name": "transit-ephemeris-validation-record",
+        "id": 12378559493,
+        "digest": "sha256:af3d60abe1f2fa3f87311674cc8781d140c7d62f85693c47f288c19527853968",
+        "expired": false,
+        "head_sha": "4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed"
+      },
+      {
+        "name": "solar-lunar-twilight-validation-record",
+        "id": 12378504575,
+        "digest": "sha256:a2052cf243b3a6c830f141887b5e52aa1256bd2a405b32ee8ba9715a30f3282e",
+        "expired": false,
+        "head_sha": "4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed"
+      },
+      {
+        "name": "observer-time-validation-record",
+        "id": 12378079741,
+        "digest": "sha256:39ec74ae052e144b4e840fef30554202513538c87547999ba3ff1cb6c713feea",
+        "expired": false,
+        "head_sha": "4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed"
+      }
+    ]
+  },
+  "final_pr_ci_evidence_location": "Mission 51 PR body, verified before handoff; baseline run is not a substitute."
+}

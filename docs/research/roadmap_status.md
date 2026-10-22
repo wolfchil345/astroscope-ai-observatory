@@ -38,7 +38,8 @@
 - Mission 48: Complete — Geocentric Time-Ephemeris Sensitivity and Uncertainty Propagation, merged in [PR #48](https://github.com/wolfchil345/astroscope-ai-observatory/pull/48); all 516 local rate partials, 28 mappings and nine synthetic covariance controls pass; physical uncertainty remains unknown
 - Mission 49: Complete — Ephemeris Covariance Provenance and Applicability Qualification, merged in [PR #49](https://github.com/wolfchil345/astroscope-ai-observatory/pull/49); nine-source review and four independent synthetic controls; physical covariance remains unqualified
 
-- Mission 50: Active — Integrated Geocentric Clock Parameter-Response Validation, [PR #50](https://github.com/wolfchil345/astroscope-ai-observatory/pull/50); manufactured dynamics and clock functionals only, physical qualification remains incomplete
+- Mission 50: Complete — Integrated Geocentric Clock Parameter-Response Validation, merged in [PR #50](https://github.com/wolfchil345/astroscope-ai-observatory/pull/50) (`4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed`); post-merge Quality Gate 39669626225 passed; synthetic machinery validated, physical qualification remains incomplete
+- Mission 51: Active — Phase 2 Coverage and Exit-Criteria Audit, [PR #51](https://github.com/wolfchil345/astroscope-ai-observatory/pull/51); eight original scientific areas mapped, bounded follow-up proposed; Phase 2 exit is not approved
 
 ## Phase Progress
 
@@ -53,6 +54,45 @@
 | 6 | Robotic Observatory Control | ⏳ Planned |
 | 7 | Professional Astronomy Interoperability | ⏳ Planned |
 | 8 | Research Publication Package | ⏳ Planned |
+
+## Phase 2 Exit Gates and Remaining Work
+
+The [Mission 51 coverage audit](phase_2_coverage_audit.md) maps all eight original
+scientific areas. Its [evidence ledger](evidence/phase_2_coverage_audit_v1.json)
+pins the inspected baseline. This is a coverage decision record, not Phase 2
+exit approval or new scientific qualification. Completed benchmarks remain valid
+within their original domains; no completion percentage is inferred.
+
+| Gate | Current assessment |
+|---|---|
+| E01 Coverage inventory | Documented; review pending |
+| E02 Independent reference qualification | Partial |
+| E03 Robustness and integration | Partial |
+| E04 Reproducibility and provenance | Partial; cross-experiment reconciliation required |
+| E05 Claims and uncertainty | Restrictions preserved; physical arrival qualification blocked |
+| E06 Workflow and contract traceability | Partial |
+| E07 Software acceptance | Mission 50 baseline passed; future exit commit needs fresh CI |
+| E08 Reviewed Phase 2 exit decision | Not performed |
+
+The [acceptance requirements](phase_2_coverage_audit.md#phase-2-exit-gates) define
+what closes each gate. Unknown physical bounds cannot be relabelled as zero or
+closed by synthetic tests. Any limited-scope exit requires an explicit reviewed
+scope decision with enforced exclusions; this audit grants no such exit.
+
+| Package | Remaining deliverable | Status |
+|---|---|---|
+| W01 | Telescope and imaging scientific validation | Proposed next: Mission 52, not started |
+| W02 | Seven enabled planets: position/distance/reference validation | Proposed |
+| W03 | Visibility and transit-window sampling sensitivity | Proposed; reuse Missions 33–35 |
+| W04 | Planner/schedule/weather/ranking heuristic characterisation | Proposed; calibration remains Phase 3 |
+| W05 | Light-curve recovery, null/noise/alias/gap and published-data validation | Proposed |
+| W06 | Coverage, provenance and deferred-contract reconciliation | Proposed |
+| W07 | Formal Phase 2 exit review | Pending preceding evidence and blocker disposition |
+| X01 | Physical clock/site/arrival qualification | Blocked by applicable evidence and model qualification |
+
+Packages are bounded deliverables, not a promise of one PR each or a fixed
+completion date. Their dependencies and stop conditions are specified in the
+[audit](phase_2_coverage_audit.md#bounded-remaining-work). Phases 3–8 remain planned.
 
 ## Mission 26 Completion Checklist
 
@@ -260,6 +300,26 @@
 - Mission 28 — Civil-Time Interval Semantics and Validation Design, merged in PR #23
 - Mission 29 — Strict Observation-Schedule Interval Boundary Resolution, merged in PR #25
 - Mission 30 — Observation-Log Interval Model and Fold-Provenance Persistence, merged in PR #27
+- Mission 31 — Weather Interval Provider-Contract Evidence and Correction, merged in [PR #29](https://github.com/wolfchil345/astroscope-ai-observatory/pull/29)
+- Mission 32 — Observation-Schedule Interval Validation Evidence and Benchmark, merged in [PR #31](https://github.com/wolfchil345/astroscope-ai-observatory/pull/31)
+- Mission 33 — Celestial Coordinate Validation Benchmark, merged in [PR #33](https://github.com/wolfchil345/astroscope-ai-observatory/pull/33)
+- Mission 34 — Solar, Lunar, and Twilight Validation, merged in [PR #34](https://github.com/wolfchil345/astroscope-ai-observatory/pull/34)
+- Mission 35 — Exoplanet Transit Ephemeris Validation, merged in [PR #35](https://github.com/wolfchil345/astroscope-ai-observatory/pull/35)
+- Mission 36 — Transit Time-Coordinate and Uncertainty Contract, merged in [PR #36](https://github.com/wolfchil345/astroscope-ai-observatory/pull/36)
+- Mission 37 — Strict Transit Timing Metadata and Eligibility Boundary, merged in [PR #37](https://github.com/wolfchil345/astroscope-ai-observatory/pull/37)
+- Mission 38 — Observer-Arrival Reference Protocol and Conversion Validation, merged in [PR #38](https://github.com/wolfchil345/astroscope-ai-observatory/pull/38)
+- Mission 39 — Observer-Arrival Error Budget and Resolved-Event Contract, merged in [PR #39](https://github.com/wolfchil345/astroscope-ai-observatory/pull/39)
+- Mission 40 — Observer-Arrival Source Convention and Reference-Domain Qualification, merged in [PR #40](https://github.com/wolfchil345/astroscope-ai-observatory/pull/40)
+- Mission 41 — Matched-Convention Observer-Arrival Reference Validation, merged in [PR #41](https://github.com/wolfchil345/astroscope-ai-observatory/pull/41)
+- Mission 42 — Independent Time-Ephemeris Reference Acquisition and Clock Mapping, merged in [PR #42](https://github.com/wolfchil345/astroscope-ai-observatory/pull/42)
+- Mission 43 — Independent Site-Clock Mapping and Uncertainty Qualification, merged in [PR #43](https://github.com/wolfchil345/astroscope-ai-observatory/pull/43)
+- Mission 44 — Relativistic Site-Frame Mapping and Error-Bound Evidence, merged in [PR #44](https://github.com/wolfchil345/astroscope-ai-observatory/pull/44)
+- Mission 45 — Coupled Relativistic Site-Clock Model and Reference Qualification, merged in [PR #45](https://github.com/wolfchil345/astroscope-ai-observatory/pull/45)
+- Mission 46 — Time-Ephemeris Normalization and Physical Uncertainty Evidence, merged in [PR #46](https://github.com/wolfchil345/astroscope-ai-observatory/pull/46)
+- Mission 47 — Independent Time-Ephemeris Cross-Model Qualification, merged in [PR #47](https://github.com/wolfchil345/astroscope-ai-observatory/pull/47)
+- Mission 48 — Geocentric Time-Ephemeris Sensitivity and Uncertainty Propagation, merged in [PR #48](https://github.com/wolfchil345/astroscope-ai-observatory/pull/48)
+- Mission 49 — Ephemeris Covariance Provenance and Applicability Qualification, merged in [PR #49](https://github.com/wolfchil345/astroscope-ai-observatory/pull/49)
+- Mission 50 — Integrated Geocentric Clock Parameter-Response Validation, merged in [PR #50](https://github.com/wolfchil345/astroscope-ai-observatory/pull/50)
 
 ## Mission 35 Completion Checklist
 
@@ -501,9 +561,26 @@
 - [x] Retain clean canonical results from `209da4bcc9c406dc25bf9f555bd4ba10a5ae5530`
 - [x] Add 73 Mission 50 tests; track complete quality-gate evidence in the PR
 - [x] Open [PR #50](https://github.com/wolfchil345/astroscope-ai-observatory/pull/50); final-head CI and downloaded artifact verification are recorded there before handoff
-- [ ] Merge Mission 50
+- [x] Merge Mission 50 — `4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed`; post-merge Quality Gate 39669626225 passed
+
+## Mission 51 Completion Checklist
+
+### Mission 51 — Phase 2 Coverage and Exit-Criteria Audit
+
+- [x] Verify Mission 50 merge, successful post-merge CI and 19-artifact inventory
+- [x] Map all eight original scientific areas to existing evidence and limits
+- [x] Credit completed independent benchmarks and existing analytic/synthetic tests
+- [x] Record eight exit gates and seven bounded work packages with dependencies
+- [x] Preserve X01: 18 receipt gaps, six unresolved components, 48 unqualified site clocks and 288 blocked arrivals
+- [x] Reconcile Mission 50 status and completed-mission index through Mission 50
+- [x] Preserve all numerical policies, fixtures, results, tests, production code and 19 CI artifacts
+- [x] Verify 57 relative links, 31 baseline source hashes, coverage/gate/package references and preserved unknowns; Ruff passed
+- [x] Open [PR #51](https://github.com/wolfchil345/astroscope-ai-observatory/pull/51); final-head Quality Gate and 19-artifact inventory evidence are recorded there before handoff
+- [ ] Merge Mission 51; Phase 2 remains active
 
 ## Phase 2 Deliverables
+
+- [Phase 2 Coverage and Exit-Criteria Audit — Mission 51](phase_2_coverage_audit.md)
 
 - [Integrated Geocentric Clock Parameter-Response Validation — Mission 50](validation/integrated_clock_response_validation.md)
 
