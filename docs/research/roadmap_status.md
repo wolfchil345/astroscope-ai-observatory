@@ -41,7 +41,9 @@
 - Mission 50: Complete — Integrated Geocentric Clock Parameter-Response Validation, merged in [PR #50](https://github.com/wolfchil345/astroscope-ai-observatory/pull/50) (`4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed`); post-merge Quality Gate 39669626225 passed; synthetic machinery validated, physical qualification remains incomplete
 - Mission 51: Complete — Phase 2 Coverage and Exit-Criteria Audit, [PR #51](https://github.com/wolfchil345/astroscope-ai-observatory/pull/51); merged at `b3a4345786565bd112e1d4cd6be90762c3a5725d`; post-merge Quality Gate 39714054048 passed; Phase 2 exit is not approved
 
-- Mission 52: Active — Telescope and Imaging Scientific Validation, [PR #52](https://github.com/wolfchil345/astroscope-ai-observatory/pull/52); independent W01 dossier and diagonal geometry correction under review
+- Mission 52: Complete — Telescope and Imaging Scientific Validation, [PR #52](https://github.com/wolfchil345/astroscope-ai-observatory/pull/52); merged at `2e22f2319c4afa681b8dfd219a5f920916db14f0`; post-merge Quality Gate 39797889297 passed; bounded W01 evidence retained
+
+- Mission 53: Active — Planetary Position Validation (W02); seven enabled planets, frozen 2024 reference corpus
 
 ## Phase Progress
 
@@ -73,7 +75,7 @@ within their original domains; no completion percentage is inferred.
 | E04 Reproducibility and provenance | Partial; cross-experiment reconciliation required |
 | E05 Claims and uncertainty | Restrictions preserved; physical arrival qualification blocked |
 | E06 Workflow and contract traceability | Partial |
-| E07 Software acceptance | Mission 51 baseline passed; future exit commit needs fresh CI |
+| E07 Software acceptance | Mission 52 baseline passed; future exit commit needs fresh CI |
 | E08 Reviewed Phase 2 exit decision | Not performed |
 
 The [acceptance requirements](phase_2_coverage_audit.md#phase-2-exit-gates) define
@@ -83,8 +85,8 @@ scope decision with enforced exclusions; this audit grants no such exit.
 
 | Package | Remaining deliverable | Status |
 |---|---|---|
-| W01 | Telescope and imaging scientific validation | Mission 52 active; bounded dossier under review |
-| W02 | Seven enabled planets: position/distance/reference validation | Proposed |
+| W01 | Telescope and imaging scientific validation | Mission 52 merged; bounded ideal-geometry dossier complete |
+| W02 | Seven enabled planets: position/distance/reference validation | Mission 53 active |
 | W03 | Visibility and transit-window sampling sensitivity | Proposed; reuse Missions 33–35 |
 | W04 | Planner/schedule/weather/ranking heuristic characterisation | Proposed; calibration remains Phase 3 |
 | W05 | Light-curve recovery, null/noise/alias/gap and published-data validation | Proposed |
@@ -323,6 +325,7 @@ completion date. Their dependencies and stop conditions are specified in the
 - Mission 49 — Ephemeris Covariance Provenance and Applicability Qualification, merged in [PR #49](https://github.com/wolfchil345/astroscope-ai-observatory/pull/49)
 - Mission 50 — Integrated Geocentric Clock Parameter-Response Validation, merged in [PR #50](https://github.com/wolfchil345/astroscope-ai-observatory/pull/50)
 - Mission 51 — Phase 2 Coverage and Exit-Criteria Audit, merged in [PR #51](https://github.com/wolfchil345/astroscope-ai-observatory/pull/51)
+- Mission 52 — Telescope and Imaging Scientific Validation, merged in [PR #52](https://github.com/wolfchil345/astroscope-ai-observatory/pull/52)
 
 ## Mission 35 Completion Checklist
 
@@ -595,9 +598,27 @@ completion date. Their dependencies and stop conditions are specified in the
 - [x] Record clean canonical corrected results at `ee89c33d924be20eae6f113fa49f9c03d77ad12a`
 - [x] Add 403 tests; 436 focused tests and Ruff pass; final-head full-suite CI evidence is recorded in the PR before handoff
 - [x] Open [PR #52](https://github.com/wolfchil345/astroscope-ai-observatory/pull/52)
-- [ ] Merge Mission 52; Phase 2 remains active
+- [x] Merge Mission 52 — `2e22f2319c4afa681b8dfd219a5f920916db14f0`; post-merge CI passed; Phase 2 remains active
+
+## Mission 53 Completion Checklist
+
+### Mission 53 — Planetary Position Validation
+
+- [x] Verify Mission 52 merge and successful post-merge CI
+- [x] Freeze 623 independent reference cases, policy and source provenance before evaluation
+- [x] Cover all seven planets with explicit frame, target, scale, EOP and range conventions
+- [x] Reuse Mission 34 data and limits without restarting the Sun/Moon benchmark
+- [ ] Record residuals, eligibility denominators, exclusions and clean canonical results
+- [x] Verify offline replay, byte-identical reference regeneration and 692 focused tests (672 new); Ruff passed
+- [x] Add a twenty-first CI artifact while preserving the existing 20
+- [x] Preserve physical timing restrictions and active Phase 2 status
+- [ ] Open Mission 53 PR and verify final-head CI
+- [ ] Merge Mission 53
 
 ## Phase 2 Deliverables
+
+- [Planetary Position Validation — Mission 53](validation/planetary_position_validation.md)
+
 
 - [Telescope and Imaging Scientific Validation — Mission 52](validation/telescope_imaging_validation.md)
 

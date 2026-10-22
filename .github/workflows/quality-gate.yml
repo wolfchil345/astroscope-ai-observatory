@@ -367,3 +367,19 @@ jobs:
           name: telescope-imaging-validation-record
           path: ${{ runner.temp }}/telescope_imaging_reference_run.json
           if-no-files-found: error
+
+      - name: Audit planetary positions
+        env:
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          python -m validation.planetary_positions \
+            --output "$RUNNER_TEMP/planetary_positions_reference_run.json"
+
+      - name: Upload planetary position validation record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: planetary-position-validation-record
+          path: ${{ runner.temp }}/planetary_positions_reference_run.json
+          if-no-files-found: error
