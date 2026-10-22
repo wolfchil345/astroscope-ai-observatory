@@ -207,7 +207,16 @@ def evaluate(case, policy):
         if result.altitude_degrees < 20
         else "observable"
     )
-    directions = ("N", "NE", "E", "SE", "S", "SW", "W", "NW")
+    directions = (
+        "north",
+        "northeast",
+        "east",
+        "southeast",
+        "south",
+        "southwest",
+        "west",
+        "northwest",
+    )
     expected_cardinal = directions[int((ref["azimuth_degrees"] + 22.5) // 45) % 8]
     actual_cardinal = directions[int((result.azimuth_degrees + 22.5) // 45) % 8]
     guard = bound / 3600

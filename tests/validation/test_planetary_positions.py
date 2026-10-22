@@ -243,3 +243,40 @@ def test_wrap_and_sexagesimal_controls():
     assert bench.sexagesimal("23:59:59.000", True) == pytest.approx(360 - 15 / 3600)
     assert bench.sexagesimal("-00:00:01.00") == pytest.approx(-1 / 3600)
     assert bench.direction_error(90, 0, 90, 180) < 1e-9
+
+
+def test_initial_label_failure_is_retained():
+    record = json.loads(
+        (
+            bench.ROOT / "validation/results/planetary_positions_initial_label_failure.json"
+        ).read_text()
+    )
+    assert record["failed_cases"] == 623 and not record["overall_passed"]
+    assert all(not r["contracts"]["cardinal_internal"] for r in record["results"])
+    assert all(m["passed"] for r in record["results"] for m in r["metrics"].values())
+    assert record["environment"]["git_dirty"] is True
+
+
+@pytest.mark.parametrize(
+    "azimuth,label",
+    [
+        (0, "north"),
+        (45, "northeast"),
+        (90, "east"),
+        (135, "southeast"),
+        (180, "south"),
+        (225, "southwest"),
+        (270, "west"),
+        (315, "northwest"),
+    ],
+)
+def test_cardinal_contract_uses_api_keys(azimuth, label, monkeypatch):
+    case = copy.deepcopy(FIXTURE["cases"][0])
+    with bench.frozen_environment():
+        result = bench.body_at(case)
+    monkeypatch.setattr(
+        bench,
+        "body_at",
+        lambda _: replace(result, azimuth_degrees=azimuth, cardinal_direction=label),
+    )
+    assert bench.evaluate(case, POLICY)["contracts"]["cardinal_internal"]
