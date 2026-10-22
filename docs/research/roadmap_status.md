@@ -41,7 +41,7 @@
 - Mission 50: Complete — Integrated Geocentric Clock Parameter-Response Validation, merged in [PR #50](https://github.com/wolfchil345/astroscope-ai-observatory/pull/50) (`4aae68b9035c6cbf7d4ad36d9c1f88ad358d33ed`); post-merge Quality Gate 39669626225 passed; synthetic machinery validated, physical qualification remains incomplete
 - Mission 51: Complete — Phase 2 Coverage and Exit-Criteria Audit, [PR #51](https://github.com/wolfchil345/astroscope-ai-observatory/pull/51); merged at `b3a4345786565bd112e1d4cd6be90762c3a5725d`; post-merge Quality Gate 39714054048 passed; Phase 2 exit is not approved
 
-- Mission 52: Active — Telescope and Imaging Scientific Validation; independent W01 dossier and diagonal geometry correction under review
+- Mission 52: Active — Telescope and Imaging Scientific Validation, [PR #52](https://github.com/wolfchil345/astroscope-ai-observatory/pull/52); independent W01 dossier and diagonal geometry correction under review
 
 ## Phase Progress
 
@@ -592,8 +592,9 @@ completion date. Their dependencies and stop conditions are specified in the
 - [x] Verify all 307 reference cases, offline regeneration and failure-sensitive controls
 - [x] Preserve heuristic labels as uncalibrated and X01 physical qualification restrictions
 - [x] Add a twentieth CI artifact while retaining the existing 19
-- [ ] Record clean canonical corrected results and final full-suite CI evidence
-- [ ] Open Mission 52 PR
+- [x] Record clean canonical corrected results at `ee89c33d924be20eae6f113fa49f9c03d77ad12a`
+- [x] Add 403 tests; 436 focused tests and Ruff pass; final-head full-suite CI evidence is recorded in the PR before handoff
+- [x] Open [PR #52](https://github.com/wolfchil345/astroscope-ai-observatory/pull/52)
 - [ ] Merge Mission 52; Phase 2 remains active
 
 ## Phase 2 Deliverables

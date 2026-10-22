@@ -1,5 +1,7 @@
 # Mission 52 — Telescope and Imaging Scientific Validation
 
+Review: [PR #52](https://github.com/wolfchil345/astroscope-ai-observatory/pull/52).
+
 ## Scope and decision
 
 This implements W01 / P2-05 of the [Mission 51 audit](../phase_2_coverage_audit.md).
@@ -113,7 +115,9 @@ remain unchanged. Camera ordering may change where the corrected diagonal
 ordering differs; this is the intended geometric correction.
 
 The [corrected record](../../../validation/results/telescope_imaging_reference_run.json)
-retains the complete corpus, source/input hashes, commit identity, clean/dirty
+was generated on clean implementation commit
+`ee89c33d924be20eae6f113fa49f9c03d77ad12a` and retains the complete corpus,
+source/input hashes, commit identity, clean/dirty
 state, execution time, Python version, OS/architecture and error metrics. Only
 stdlib modules participate in this benchmark; astronomy databases, time scales,
 EOP and ephemerides are not applicable. The full project's dependency environment
@@ -147,7 +151,10 @@ The fixture is deterministic; execution timestamps, checkout identity and platfo
 provenance in result records naturally vary. The runner exits nonzero on a failed
 metric and writes its diagnostic record before returning. CI adds the twentieth
 artifact, `telescope-imaging-validation-record`, while preserving the existing
-19 audits. Final-head full-suite and artifact evidence is recorded in the PR.
+19 audits. The 403 new tests and 33 existing optics/imaging tests passed locally
+(436 total); Ruff passed. Final-head full-suite and artifact evidence is recorded
+in PR #52 before handoff; this avoids changing the tested head merely to embed
+its future CI result.
 
 ## Remaining boundaries
 
