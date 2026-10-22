@@ -19,7 +19,7 @@ from astroscope import imaging, telescope
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURE = "validation/fixtures/telescope_imaging_v1.json"
 MANIFEST = "validation/manifests/telescope_imaging_v1.json"
-EXPECTED_MANIFEST_SHA256 = "4b6ec1be2792face3564fb8212cd213d1b1350c290e11ed4fad30b3528354d7e"
+EXPECTED_MANIFEST_SHA256 = "5e27a79431022355680925300fadea5a2419ba90aa2e84861bb87653294573f6"
 
 
 def sha(path):

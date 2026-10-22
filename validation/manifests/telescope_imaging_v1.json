@@ -9,7 +9,7 @@
   "data_license": "Original synthetic numerical fixture under repository MIT license; no copied third-party tables.",
   "files": {
     "validation/fixtures/telescope_imaging_v1.json": "5dce6007255aabfdb1cfaa49768a63ff451643467426d132a61eede65617ed97",
-    "validation/reference_generation/telescope_imaging.py": "d8b8e29dc2c40a043cce071d6155b4a6e930044bfe45e649951d75e5bc03ad78"
+    "validation/reference_generation/telescope_imaging.py": "2201176e412263b873cb18c5fb71f0f8dd685e62a139ab37357b2bfb78a2d3b7"
   },
   "independence_limit": "Independent numerical implementation of elementary geometry, not an independent physical optical experiment. Resolution and label coefficients are application conventions, not validated measurements.",
   "mission": 52,

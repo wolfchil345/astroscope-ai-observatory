@@ -164,15 +164,15 @@ def make_fixture():
             fwq, fhq, oq, twq, thq = map(Q, (fw, fh, overlap, tw, th))
             step_fraction = 1 - oq / 100
 
-            def cover(field_size, target):
+            def cover(field_size, target, step_fraction):
                 n, coverage = 1, field_size
                 while coverage < target:
                     n += 1
                     coverage += field_size * step_fraction
                 return n, coverage
 
-            nx, cx = cover(fwq, twq)
-            ny, cy = cover(fhq, thq)
+            nx, cx = cover(fwq, twq, step_fraction)
+            ny, cy = cover(fhq, thq, step_fraction)
             expected = dict(
                 panels_horizontal=nx,
                 panels_vertical=ny,

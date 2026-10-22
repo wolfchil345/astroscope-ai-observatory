@@ -351,3 +351,19 @@ jobs:
           name: integrated-clock-parameter-response-record
           path: ${{ runner.temp }}/integrated_clock_response_reference_run.json
           if-no-files-found: error
+
+      - name: Audit telescope and imaging geometry
+        env:
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          python -m validation.telescope_imaging \
+            --output "$RUNNER_TEMP/telescope_imaging_reference_run.json"
+
+      - name: Upload telescope and imaging validation record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: telescope-imaging-validation-record
+          path: ${{ runner.temp }}/telescope_imaging_reference_run.json
+          if-no-files-found: error
