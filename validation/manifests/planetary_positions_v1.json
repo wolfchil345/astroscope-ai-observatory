@@ -1,0 +1,58 @@
+{
+  "baseline_commit": "2e22f2319c4afa681b8dfd219a5f920916db14f0",
+  "body_counts": {
+    "jupiter": 89,
+    "mars": 89,
+    "mercury": 89,
+    "neptune": 89,
+    "saturn": 89,
+    "uranus": 89,
+    "venus": 89
+  },
+  "case_count": 623,
+  "category_counts": {
+    "altitude_boundary_0": 7,
+    "altitude_boundary_20": 7,
+    "daily_max_elongation": 7,
+    "daily_min_elongation": 7,
+    "monthly": 84,
+    "season_grid": 504,
+    "zenith": 7
+  },
+  "files": {
+    "validation/fixtures/planetary_positions_v1.json": "dfc38266dca6b5b45673dc8e72057aa1a84331bd2d405ed1ce7682dfe4afd072",
+    "validation/fixtures/solar_lunar_eop_v1.json": "6372ac20b566dc5e9b4f106caaef2751a624c7bb46e161252e3208f4b906c1fa",
+    "validation/manifests/planetary_positions_policy_v1.json": "fc689af200c829b8d5d858d9dc6a2d37b6033ba30d6e86bfdabbf7c947b3339d",
+    "validation/reference_generation/planetary_positions.py": "fde75e02a0ab765faf7a2d0452ba290b3c3cb80e1400322cf111da9d6d0e1762",
+    "validation/reference_generation/reference-requirements.txt": "c795c399b6d84aa137aeebafc30e8814ce92a07eed8277db5da5742cbea9c25e"
+  },
+  "limits": "UTC 2024 fixed sites and constructed reference snapshots only; no unresolved body-centre, refraction or physical clock qualification.",
+  "mission": 53,
+  "references": [
+    {
+      "accessed": "2026-10-22",
+      "id": "ERFA-PLAN94",
+      "revision_in_source": "2023 May 5",
+      "supports": "Approximate heliocentric algorithm, J2000 axes and historical error tables; not topocentric confidence bounds.",
+      "url": "https://github.com/liberfa/erfa/blob/master/src/plan94.c"
+    },
+    {
+      "accessed": "2026-10-22",
+      "id": "ASTROPY-GET-BODY",
+      "supports": "Topocentric apparent GCRS returned by get_body; observer light-time.",
+      "url": "https://docs.astropy.org/en/stable/api/astropy.coordinates.get_body.html"
+    },
+    {
+      "accessed": "2026-10-22",
+      "id": "SKYFIELD-POSITIONS",
+      "supports": "ICRS-oriented axes, astrometric versus apparent corrections, equinox-of-date distinction.",
+      "url": "https://rhodesmill.org/skyfield/positions.html"
+    },
+    {
+      "id": "JPL-DE421",
+      "supports": "Existing locally pinned DE421 kernel, digest and data provenance inherited from Missions 33/34; no new kernel download.",
+      "url": "https://ssd.jpl.nasa.gov/ftp/eph/planets/bsp/de421.bsp"
+    }
+  ],
+  "schema_version": "1.0"
+}

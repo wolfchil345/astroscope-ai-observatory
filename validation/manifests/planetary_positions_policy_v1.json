@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "mission": 53,
+  "policy_status": "Frozen before production residual evaluation",
+  "direction_arcsec": {"mercury": 30, "venus": 30, "mars": 90, "jupiter": 120, "saturn": 180, "uranus": 180, "neptune": 60},
+  "distance_km": {"mercury": 5000, "venus": 10000, "mars": 50000, "jupiter": 500000, "saturn": 1500000, "uranus": 3000000, "neptune": 1000000},
+  "sun_separation_additional_arcsec": 5,
+  "moon_separation_additional_arcsec": 60,
+  "azimuth_projection_factor": 12,
+  "azimuth_excluded_abs_altitude_deg": 85,
+  "solar_exclusion_deg": 3,
+  "minimum_altitude_deg": 20,
+  "au_km": 149597870.7,
+  "distance_unit_relative_tolerance": 1e-12,
+  "ra_format_arcsec": 0.007501,
+  "dec_format_arcsec": 0.005001,
+  "conventions": {
+    "time": "UTC in 2024; TAI-UTC=37 s; TT=TAI+32.184 s; TDB from each engine; no event-time conversion claim",
+    "eop": "Reuse Mission 34 frozen daily IERS rows, linear DUT1 and polar motion; no downloads",
+    "site": "WGS84 geodetic latitude, east-positive longitude, ellipsoidal elevation in metres",
+    "reference_targets": "DE421 system barycentres 1,2,4,5,6,7,8; Mercury/Venus centre segments coincide and Mars segment is zero in this kernel. No resolved planetary disk-centre qualification for giant planets.",
+    "angles": "Apparent topocentric directions; RA/Dec on non-precessed ICRS-aligned axes (not true equator/equinox of date); reference includes light-time, aberration and gravitational deflection",
+    "distance": "Observer-to-retarded-target astrometric distance; apparent transformation preserves norm to floating precision",
+    "horizontal": "Unrefracted altitude; azimuth north=0 east=90; no horizon dip, limb, atmosphere or terrain",
+    "production": "Astropy builtin ERFA PLAN94 approximate planets, EPV00 Earth, existing Moon model; not switched to a JPL kernel"
+  },
+  "rationale": {
+    "direction": "Fixed planner-scale acceptance goals informed by ERFA PLAN94's historical heliocentric errors and geocentric amplification. These goals are not converted confidence bounds or global maxima. Mercury/Venus 30 arcsec; Mars 90; Jupiter 120; Saturn/Uranus 180; Neptune 60. Any failure remains reported, not fitted away.",
+    "distance": "Fixed conservative regression budgets covering radial plus transverse heliocentric approximation contributions projected onto observer range. ERFA's tabulated R error alone is not a topocentric range bound. No physical covariance or statistical coverage is asserted.",
+    "separations": "Triangle-inequality budgets: planetary direction goal plus existing Mission 34 Sun 5 arcsec / Moon 60 arcsec allowance.",
+    "azimuth": "12 exceeds sec(85 degrees); full horizontal direction remains checked at zenith where azimuth is excluded.",
+    "solar": "Within 3 degrees of Sun, angular comparisons are retained as diagnostics but excluded from qualification because deflection/occultation conventions are not matched. Range and output contracts remain gated.",
+    "classifications": "Within direction tolerance of altitude 0/20 degrees, classification is boundary_indeterminate; reference labels outside guards must agree. Cardinal directions similarly guard 22.5+45k boundaries. Contracts using actual returned angles are always checked."
+  }
+}
