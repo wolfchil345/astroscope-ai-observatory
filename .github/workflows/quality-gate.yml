@@ -439,3 +439,20 @@ jobs:
             ${{ runner.temp }}/light_curve_campaign_reference_run.json
             ${{ runner.temp }}/light_curve_bls_diagnostic.json
           if-no-files-found: error
+
+      - name: Trace BLS phase-bin discrepancies without changing scientific acceptance
+        if: ${{ !cancelled() }}
+        env:
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          python -m validation.bls_discrepancy \
+            --output "$RUNNER_TEMP/bls_discrepancy_reference_run.json"
+
+      - name: Upload BLS mechanism investigation
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bls-discrepancy-investigation-record
+          path: ${{ runner.temp }}/bls_discrepancy_reference_run.json
+          if-no-files-found: error

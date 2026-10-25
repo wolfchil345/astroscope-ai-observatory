@@ -49,7 +49,9 @@
 
 - Mission 55: Complete — Planner, Weather, Ranking and Schedule Heuristic Characterisation (W04), [PR #55](https://github.com/wolfchil345/astroscope-ai-observatory/pull/55)
 
-- Mission 56: Active — Light-Curve Recovery and Validation Baseline (W05); 252 trials, 10/10 required recoveries, nine unresolved numerical failures. Reproduction audit is not scientific acceptance.
+- Mission 56: Complete — Light-Curve Recovery and Validation Baseline (W05); 252 trials, 10/10 required recoveries, nine unresolved numerical failures. Reproduction audit is not scientific acceptance.
+
+- Mission 57: Active — BLS Numerical Discrepancy Investigation; phase-bin mechanism traced, production correction pending.
 
 ## Phase Progress
 
@@ -95,7 +97,7 @@ scope decision with enforced exclusions; this audit grants no such exit.
 | W02 | Seven enabled planets: position/distance/reference validation | Mission 53 merged; bounded W02 dossier complete |
 | W03 | Visibility and transit-window sampling sensitivity | Mission 54 merged; bounded W03 dossier complete |
 | W04 | Planner/schedule/weather/ranking heuristic characterisation | Mission 55 merged; bounded W04 dossier complete; calibration remains Phase 3 |
-| W05 | Light-curve recovery, null/noise/alias/gap and published-data validation | Mission 56 baseline active; nine BLS discrepancies retained; not complete |
+| W05 | Light-curve recovery, null/noise/alias/gap and published-data validation | Mission 56 merged; Mission 57 mechanism investigation active; nine production discrepancies unresolved |
 | W06 | Coverage, provenance and deferred-contract reconciliation | Proposed |
 | W07 | Formal Phase 2 exit review | Pending preceding evidence and blocker disposition |
 | X01 | Physical clock/site/arrival qualification | Blocked by applicable evidence and model qualification |
@@ -652,10 +654,25 @@ completion date. Their dependencies and stop conditions are specified in the
 - [x] Add offline regeneration, analytic controls, strict expected failures and observation audit
 - [x] Add CI artifact 24 without replacing previous evidence
 - [x] Open [PR #56](https://github.com/wolfchil345/astroscope-ai-observatory/pull/56); final-head CI and artifact verification are recorded there before handoff
-- [ ] Merge Mission 56
+- [x] Merge Mission 56 — `0ef98f5ca1f2f104c87c26baf306def8f8cc9f13`; post-merge Quality Gate 40200543887 passed
 - [ ] Close W05 — blocked pending discrepancy disposition and scope review
 
+## Mission 57 — BLS Numerical Discrepancy Investigation
+
+- [x] Verify Mission 56 merge and successful post-merge CI
+- [x] Pin upstream source and separate source trace from independent reference
+- [x] Reproduce nine retained failures and analytic six-point counterexample
+- [x] Retain all 95 sensitivity measurements, including 22 fast-bound violations
+- [x] Preserve Mission 56 inputs, thresholds, production code and expected failures
+- [x] Add CI artifact 25 with offline mechanism checks
+- [ ] Open PR and verify final-head CI/artifact evidence
+- [ ] Merge Mission 57
+- [ ] Resolve production BLS discrepancies and review W05 closure
+
 ## Phase 2 Deliverables
+
+- [BLS Numerical Discrepancy Investigation — Mission 57](validation/bls_discrepancy_investigation.md)
+
 
 - [Light-Curve Recovery and Validation Baseline — Mission 56](validation/light_curve_validation.md)
 
