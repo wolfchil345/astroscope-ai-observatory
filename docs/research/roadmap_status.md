@@ -53,7 +53,9 @@
 
 - Mission 57: Complete — BLS Numerical Discrepancy Investigation, merged in [PR #57](https://github.com/wolfchil345/astroscope-ai-observatory/pull/57) (`e2caf52d42ff1f053b05557be0ce045f251ef8bb`); post-merge Quality Gate 40204219013 passed.
 
-- Mission 58: Active — BLS Physical-Membership Correction and Validation; 252/252 frozen trials pass, all nine historical discrepancies corrected; review and merge pending.
+- Mission 58: Complete — BLS Physical-Membership Correction and Validation, merged in [PR #58](https://github.com/wolfchil345/astroscope-ai-observatory/pull/58) (`bbad4c43982cd6a5ae88a07471c63b8f99e260df`); post-merge Quality Gate 40207906117 passed.
+
+- Mission 59: Active — Phase 2 Coverage and Provenance Reconciliation (W06); bounded W05 closure recommended, all 26 strict-transit scenarios reconciled, catalogue-derived validation gap G59-01 retained; review and merge pending.
 
 ## Phase Progress
 
@@ -79,13 +81,13 @@ within their original domains; no completion percentage is inferred.
 
 | Gate | Current assessment |
 |---|---|
-| E01 Coverage inventory | Documented; review pending |
-| E02 Independent reference qualification | Partial |
-| E03 Robustness and integration | Partial |
-| E04 Reproducibility and provenance | Partial; cross-experiment reconciliation required |
+| E01 Coverage inventory | Mission 59 reconciles eight areas and catalogue/display claims; exit review pending |
+| E02 Independent reference qualification | Partial; W01–W05 bounded evidence credited, G59-01 and X01 remain |
+| E03 Robustness and integration | Partial; catalogue-derived quantity/model dossier remains G59-01 |
+| E04 Reproducibility and provenance | Reconciled in Mission 59 with explicit G59-02/G59-03 gaps; exit disposition pending |
 | E05 Claims and uncertainty | Restrictions preserved; physical arrival qualification blocked |
-| E06 Workflow and contract traceability | Partial |
-| E07 Software acceptance | Mission 52 baseline passed; future exit commit needs fresh CI |
+| E06 Workflow and contract traceability | All 26 strict-transit scenarios mapped; production 13 boundary / 5 partial / 8 deferred; catalogue gaps remain |
+| E07 Software acceptance | Mission 58 merge CI passed; Mission 59 final-head checks recorded in its PR; future exit commit needs fresh CI |
 | E08 Reviewed Phase 2 exit decision | Not performed |
 
 The [acceptance requirements](phase_2_coverage_audit.md#phase-2-exit-gates) define
@@ -99,9 +101,9 @@ scope decision with enforced exclusions; this audit grants no such exit.
 | W02 | Seven enabled planets: position/distance/reference validation | Mission 53 merged; bounded W02 dossier complete |
 | W03 | Visibility and transit-window sampling sensitivity | Mission 54 merged; bounded W03 dossier complete |
 | W04 | Planner/schedule/weather/ranking heuristic characterisation | Mission 55 merged; bounded W04 dossier complete; calibration remains Phase 3 |
-| W05 | Light-curve recovery, null/noise/alias/gap and published-data validation | Missions 56–57 merged; Mission 58 correction passes all frozen trials; bounded closure pending review and merge |
-| W06 | Coverage, provenance and deferred-contract reconciliation | Proposed |
-| W07 | Formal Phase 2 exit review | Pending preceding evidence and blocker disposition |
+| W05 | Light-curve recovery, null/noise/alias/gap and published-data validation | Missions 56–58 merged; bounded evidence complete; Mission 59 recommends closure within the recorded limits |
+| W06 | Coverage, provenance and deferred-contract reconciliation | Mission 59 delivered for review; G59-01/02/03 remain explicit |
+| W07 | Formal Phase 2 exit review | Pending G59-01 evidence and explicit provenance/scope/X01 disposition |
 | X01 | Physical clock/site/arrival qualification | Blocked by applicable evidence and model qualification |
 
 Packages are bounded deliverables, not a promise of one PR each or a fixed
@@ -657,7 +659,7 @@ completion date. Their dependencies and stop conditions are specified in the
 - [x] Add CI artifact 24 without replacing previous evidence
 - [x] Open [PR #56](https://github.com/wolfchil345/astroscope-ai-observatory/pull/56); final-head CI and artifact verification are recorded there before handoff
 - [x] Merge Mission 56 — `0ef98f5ca1f2f104c87c26baf306def8f8cc9f13`; post-merge Quality Gate 40200543887 passed
-- [ ] Close W05 — blocked pending discrepancy disposition and scope review
+- [ ] Confirm bounded W05 closure through Mission 59 review — current discrepancies corrected; scientific limits retained
 
 ## Mission 57 — BLS Numerical Discrepancy Investigation
 
@@ -670,7 +672,7 @@ completion date. Their dependencies and stop conditions are specified in the
 - [x] Open [PR #57](https://github.com/wolfchil345/astroscope-ai-observatory/pull/57); final-head CI/artifact evidence is recorded there before handoff
 - [x] Merge Mission 57 — `e2caf52d42ff1f053b05557be0ce045f251ef8bb`; post-merge Quality Gate 40204219013 passed
 - [x] Resolve production BLS discrepancies — Mission 58 frozen-corpus correction evidence
-- [ ] Review W05 closure after Mission 58 review and merge
+- [x] Review bounded W05 evidence in Mission 59; closure recommendation awaits that PR review
 
 ## Mission 58 — BLS Physical-Membership Correction and Validation
 
@@ -682,9 +684,28 @@ completion date. Their dependencies and stop conditions are specified in the
 - [x] Preserve the nine historical failures in a sealed validation-only runner
 - [x] Add CI artifact 26 while retaining all previous artifacts
 - [x] Open [PR #58](https://github.com/wolfchil345/astroscope-ai-observatory/pull/58); final-head CI and artifact evidence are recorded there before handoff
-- [ ] Merge Mission 58 and review bounded W05 closure
+- [x] Merge Mission 58 — `bbad4c43982cd6a5ae88a07471c63b8f99e260df`; post-merge Quality Gate 40207906117 passed
+- [x] Review bounded W05 evidence in Mission 59; retain all historical failures and limits
+
+## Mission 59 — Phase 2 Coverage and Provenance Reconciliation
+
+- [x] Verify Mission 58 merge, successful post-merge CI and 26-artifact inventory
+- [x] Review bounded W05 closure using current and retained historical evidence
+- [x] Reconcile eight original scientific areas and E01–E06 evidence
+- [x] Map all 26 strict-transit scenarios without promoting research-only paths
+- [x] Distinguish catalogue transport, derived quantities and educational/display models
+- [x] Pin 26 canonical records, 160 inspected files and explicit provenance gaps
+- [x] Preserve production, tests, scientific corpora, CI and all physical unknowns
+- [x] Open [PR #59](https://github.com/wolfchil345/astroscope-ai-observatory/pull/59); final-head CI and artifact verification are recorded there before handoff
+- [ ] Merge Mission 59 and confirm its bounded documentary dispositions
+
+G59-01 is the remaining catalogue-derived/model validation dossier; proposed
+Mission 60 addresses it. G59-02/G59-03 require explicit provenance/scope review.
+These findings do not grant Phase 2 exit or begin Phase 3.
 
 ## Phase 2 Deliverables
+
+- [Phase 2 Coverage and Provenance Reconciliation — Mission 59](phase_2_reconciliation.md)
 
 - [BLS Physical-Membership Correction and Validation — Mission 58](validation/physical_bls_validation.md)
 

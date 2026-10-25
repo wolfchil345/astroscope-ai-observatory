@@ -1,5 +1,7 @@
 # Mission 51 — Phase 2 Coverage and Exit-Criteria Audit
 
+> Historical Mission 51 audit. [Mission 59 reconciliation](phase_2_reconciliation.md) records the later W01–W05 evidence, all 26 strict-transit scenarios and current gaps without changing this baseline ledger. Phase 2 exit remains unapproved.
+
 ## Decision
 
 **Phase 2 remains active; this is a coverage audit, not a Phase 2 exit approval.**
