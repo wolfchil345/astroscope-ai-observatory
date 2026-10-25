@@ -43,7 +43,9 @@
 
 - Mission 52: Complete — Telescope and Imaging Scientific Validation, [PR #52](https://github.com/wolfchil345/astroscope-ai-observatory/pull/52); merged at `2e22f2319c4afa681b8dfd219a5f920916db14f0`; post-merge Quality Gate 39797889297 passed; bounded W01 evidence retained
 
-- Mission 53: Active — Planetary Position Validation (W02), [PR #53](https://github.com/wolfchil345/astroscope-ai-observatory/pull/53); seven enabled planets, frozen 2024 reference corpus
+- Mission 53: Complete — Planetary Position Validation (W02), [PR #53](https://github.com/wolfchil345/astroscope-ai-observatory/pull/53); merged at `9f708a2876f1175d3347f8ef0b1a883ce623a5d9`; post-merge Quality Gate 40180399610 passed; bounded 2024 reference corpus
+
+- Mission 54: Active — Visibility and Transit-Window Sampling Validation (W03), [PR #54](https://github.com/wolfchil345/astroscope-ai-observatory/pull/54); independent supplied-UTC windows and sampling diagnostics
 
 ## Phase Progress
 
@@ -86,8 +88,8 @@ scope decision with enforced exclusions; this audit grants no such exit.
 | Package | Remaining deliverable | Status |
 |---|---|---|
 | W01 | Telescope and imaging scientific validation | Mission 52 merged; bounded ideal-geometry dossier complete |
-| W02 | Seven enabled planets: position/distance/reference validation | Mission 53 active |
-| W03 | Visibility and transit-window sampling sensitivity | Proposed; reuse Missions 33–35 |
+| W02 | Seven enabled planets: position/distance/reference validation | Mission 53 merged; bounded W02 dossier complete |
+| W03 | Visibility and transit-window sampling sensitivity | Mission 54 active; reuse Missions 33–35 |
 | W04 | Planner/schedule/weather/ranking heuristic characterisation | Proposed; calibration remains Phase 3 |
 | W05 | Light-curve recovery, null/noise/alias/gap and published-data validation | Proposed |
 | W06 | Coverage, provenance and deferred-contract reconciliation | Proposed |
@@ -613,9 +615,22 @@ completion date. Their dependencies and stop conditions are specified in the
 - [x] Add a twenty-first CI artifact while preserving the existing 20
 - [x] Preserve physical timing restrictions and active Phase 2 status
 - [x] Open [PR #53](https://github.com/wolfchil345/astroscope-ai-observatory/pull/53); final-head full-suite CI and 21-artifact evidence are recorded there before handoff
-- [ ] Merge Mission 53
+- [x] Merge Mission 53
+
+## Mission 54 — Visibility and Transit-Window Sampling Validation
+
+- [x] Verify Mission 53 merge and post-merge Quality Gate
+- [x] Freeze independent windows and acceptance policy before evaluation
+- [x] Validate 48 window/grid cases and retain sampling diagnostics
+- [x] Preserve strict timing guards and unknown physical bounds
+- [x] Add offline replay, reference regeneration and boundary/counterexample tests
+- [x] Add CI artifact 22 while preserving existing artifacts
+- [x] Open [PR #54](https://github.com/wolfchil345/astroscope-ai-observatory/pull/54); final-head full-suite CI and artifact evidence are recorded there before handoff
+- [ ] Merge Mission 54
 
 ## Phase 2 Deliverables
+
+- [Visibility and Transit-Window Sampling Validation — Mission 54](validation/visibility_sampling_validation.md)
 
 - [Planetary Position Validation — Mission 53](validation/planetary_position_validation.md)
 
