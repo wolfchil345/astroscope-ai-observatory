@@ -20,9 +20,13 @@ def physical_bls_power(times, values, uncertainties, periods, durations, oversam
         if uncertainties is None
         else 1 / np.asarray(uncertainties, dtype=float) ** 2
     )
+    if not np.all(np.isfinite(weights)) or np.any(weights <= 0):
+        raise ValueError("Unrepresentable transit weights")
     total_w = np.sum(weights)
     total_y = np.sum(weights * y)
     width = float(np.min(durations)) / oversample
+    if not np.isfinite(total_w) or not np.isfinite(total_y) or not width > 0:
+        raise ValueError("Unrepresentable transit sums or phase spacing")
     output = {
         k: [] for k in ["power", "duration", "transit_time", "depth", "depth_err", "depth_snr"]
     }
@@ -35,7 +39,10 @@ def physical_bls_power(times, values, uncertainties, periods, durations, oversam
         wy = w * y[order]
         sw = np.concatenate([[0.0], np.cumsum(np.tile(w, 2))])
         sy = np.concatenate([[0.0], np.cumsum(np.tile(wy, 2))])
-        centers = np.arange(int(np.ceil(period / width)), dtype=float) * width
+        phase_count = np.ceil(period / width)
+        if not np.isfinite(phase_count) or phase_count > 1_000_000:
+            raise ValueError("Physical transit search exceeds one million phases per period")
+        centers = np.arange(int(phase_count), dtype=float) * width
         centers = centers[centers < period]
         # Score the representable returned times, including absolute-epoch rounding.
         absolute_centers = origin + centers
