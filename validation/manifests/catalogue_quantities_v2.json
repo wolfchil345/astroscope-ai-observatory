@@ -1,0 +1,17 @@
+{
+  "baseline_commit": "9303287a591026b63921844630e90b772bfa0226",
+  "files": {
+    "docs/research/validation/catalogue_quantities_protocol.md": "dedc25093c4474e2d18ec856491ffbcb20f4b5723068b7b514ec4bb81248f511",
+    "docs/research/validation/catalogue_reference_amendment.md": "8b6056d55388597988d40e76a3992c0b8a123ddb871b07dd8c8d042c27743142",
+    "validation/fixtures/catalogue_binary_inputs_v2.json": "2335f3e88e8f254ab4366d585a83a3dac12558951df37db76c9ee1037fa200f0",
+    "validation/fixtures/catalogue_quantities_v1.json": "2e899f03ebef8ef9e68aa3e3a6a5b38dce15ea3eff61c68622fedc8cd311b576",
+    "validation/manifests/catalogue_quantities_policy_v1.json": "9d0f17e31511037bf0a3ae3ba5af94c138b1cc8a983d5c095daa62aedb5201fe",
+    "validation/manifests/catalogue_quantities_sources_v1.json": "ddbe60493a57039638142d80f62e85d2036bf753a8cc24ff477d6e80f5ddd14d",
+    "validation/manifests/catalogue_quantities_v1.json": "01ba3c742d9292c0df98f7339a4819d99c54b6757a0008f22857303428b52490",
+    "validation/reference_generation/catalogue_binary_inputs.py": "0a96c596aa374e4660606a3dee030c3025a1f1836e860847540df97d615864c3",
+    "validation/reference_generation/catalogue_quantities.py": "c25d4a8dbd936151181ebec2337527db0279bc91967dc64447e0a6c22144b9fa"
+  },
+  "mission": 60,
+  "original_freeze_commit": "cb9ad18",
+  "version": 2
+}

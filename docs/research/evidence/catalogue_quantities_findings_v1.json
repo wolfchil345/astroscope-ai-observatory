@@ -1,0 +1,137 @@
+{
+  "G59-01": "dossier delivered; acceptance and display-domain findings remain open",
+  "G59-02": "exit provenance disposition pending",
+  "G59-03": "mutable catalogue/static-input scope disposition pending",
+  "baseline_ci": {
+    "artifact_count": 26,
+    "artifact_head_and_expiry_checked": true,
+    "baseline_archives_downloaded_in_mission_60": 0,
+    "conclusion": "success",
+    "historical_xfails": 9,
+    "passed_tests": 6120,
+    "run_id": 40213548200,
+    "test_duration_seconds": 346.19
+  },
+  "baseline_commit": "9303287a591026b63921844630e90b772bfa0226",
+  "canonical_implementation_commit": "105a7ace4e423966bf95365a8f235cddd56df21f",
+  "canonical_record": "validation/results/catalogue_quantities_reference_run.json",
+  "canonical_record_sha256": "b8e66e9d15033583456920e91e596bd6f92ceefec39aa3e7409950864cb3d289",
+  "case_count": 911,
+  "failed_cases": 17,
+  "findings": [
+    {
+      "failed_case_ids": [
+        "CQ0895",
+        "CQ0897"
+      ],
+      "finding": "Conversion convention and common-radius coherence",
+      "id": "G60-01",
+      "required_disposition": "Resolve and document Earth radius/unit convention before correction",
+      "status": "open"
+    },
+    {
+      "failed_case_ids": [
+        "CQ0750",
+        "CQ0751",
+        "CQ0752",
+        "CQ0753",
+        "CQ0754",
+        "CQ0755"
+      ],
+      "finding": "Source-coordinate domain",
+      "id": "G60-02",
+      "required_disposition": "Reject nonfinite/out-of-range source coordinates",
+      "status": "open"
+    },
+    {
+      "failed_case_ids": [
+        "CQ0759",
+        "CQ0760"
+      ],
+      "finding": "Nonfinite screen radius",
+      "id": "G60-03",
+      "required_disposition": "Enforce finite positive radius; CSV sanitation already passes",
+      "status": "open"
+    },
+    {
+      "failed_case_ids": [
+        "CQ0881",
+        "CQ0903"
+      ],
+      "finding": "Greater-than-unit depth",
+      "id": "G60-04",
+      "required_disposition": "Reject unsupported radius/depth domain or separately validate replacement model",
+      "status": "open"
+    },
+    {
+      "failed_case_ids": [
+        "CQ0898",
+        "CQ0900",
+        "CQ0901",
+        "CQ0902"
+      ],
+      "finding": "Extreme arithmetic",
+      "id": "G60-05",
+      "required_disposition": "Finite safe evaluation or explicit unknown/rejection",
+      "status": "open"
+    },
+    {
+      "failed_case_ids": [
+        "CQ0904"
+      ],
+      "finding": "Underflowed model duration",
+      "id": "G60-06",
+      "required_disposition": "Reject unresolved duration or validate normalized arithmetic",
+      "status": "open"
+    },
+    {
+      "failed_case_ids": [],
+      "finding": "Local-sky display distortion and singularities",
+      "id": "G60-07",
+      "required_disposition": "Explicit domain/approximation disposition; sampled diagnostics are not a continuous bound",
+      "status": "open"
+    }
+  ],
+  "inherited_physical_status": {
+    "combined_arrival_candidates": 288,
+    "combined_blocked": 288,
+    "combined_executed": 0,
+    "observing_eligible": false,
+    "physical_arrival_bound_seconds": null,
+    "physical_covariance_acquired": false,
+    "physical_covariance_propagated": false,
+    "physical_geocentric_clock_bound_seconds": null,
+    "physical_site_clock_bound_seconds": null,
+    "site_clocks_unqualified": 48,
+    "solar_eligible": 240,
+    "solar_excluded": 48,
+    "unestablished_covariance_requirements": 18,
+    "unknown_physical_components": 6
+  },
+  "local_verification": {
+    "controlled_scientific_faults_detected": 4,
+    "existing_catalogue_and_visual_tests_passed": 49,
+    "mission60_passed_tests": 946,
+    "mission60_strict_xfails": 17,
+    "observation_mutations_detected": 4,
+    "offline_replay_with_generators_blocked": true,
+    "reference_regeneration_offline_and_byte_identical": true,
+    "ruff": "passed",
+    "tampered_fixture_rejected": true
+  },
+  "mission": 60,
+  "next_mission": {
+    "number": 61,
+    "status": "proposed; not started",
+    "title": "Catalogue Numerical-Domain and Convention Correction"
+  },
+  "observation_audit_passed": true,
+  "original_protocol_freeze_commit": "cb9ad1865bf2c982c9fdf78da08246a0c41bd19f",
+  "overall_passed": false,
+  "passed_cases": 894,
+  "phase_2": "active",
+  "phase_2_exit_approved": false,
+  "pilot_record_commit": "4062f4523e9ba82c41b912e68b2325ef4ccd5063",
+  "production_changed": false,
+  "reference_amendment_commit": "fc101645449bd501beb50fd4f01363eeb9bdfd9f"
+}
