@@ -415,3 +415,27 @@ jobs:
           name: heuristic-characterisation-validation-record
           path: ${{ runner.temp }}/heuristic_characterisation_reference_run.json
           if-no-files-found: error
+
+      - name: Reproduce light-curve baseline including known scientific failures
+        if: ${{ !cancelled() }}
+        env:
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          audit_status=0
+          python -m validation.light_curve_campaign --audit-observed-baseline \
+            --output "$RUNNER_TEMP/light_curve_campaign_reference_run.json" || audit_status=$?
+          python -m validation.light_curve_bls_diagnostic \
+            --record "$RUNNER_TEMP/light_curve_campaign_reference_run.json" \
+            --output "$RUNNER_TEMP/light_curve_bls_diagnostic.json"
+          exit "$audit_status"
+
+      - name: Upload light-curve baseline and retained discrepancies
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: light-curve-validation-record
+          path: |
+            ${{ runner.temp }}/light_curve_campaign_reference_run.json
+            ${{ runner.temp }}/light_curve_bls_diagnostic.json
+          if-no-files-found: error

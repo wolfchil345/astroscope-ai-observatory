@@ -1,0 +1,9 @@
+{
+  "files": {
+    "validation/fixtures/light_curve_campaign_v1.json": "43c2c700ed2647d4bcd8a1484fe4521c9b7d25b65c12450624a19de6e7ac8de3",
+    "validation/fixtures/published/kplr006922244-2010078095331_llc.fits": "3dd9096da2753b01a1bbc2bd97b58da7526f4b98ea06c07b83c67d70abfe0224",
+    "validation/manifests/light_curve_campaign_policy_v1.json": "d246d911f0efe70a6f018c7ca7f1e1fe0fa25c16e0523fa8daae5eb78aec54b7",
+    "validation/reference_generation/light_curve_campaign.py": "d63baa46a04744c58027cfd617d520e1b392f2a223406c1e4c546421d73ce4c7"
+  },
+  "mission": 56
+}
