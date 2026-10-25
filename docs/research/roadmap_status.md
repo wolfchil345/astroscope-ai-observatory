@@ -47,7 +47,9 @@
 
 - Mission 54: Complete — Visibility and Transit-Window Sampling Validation (W03), [PR #54](https://github.com/wolfchil345/astroscope-ai-observatory/pull/54); merged at `10a196818778d9521b31de7b4e5ce12a045153e3`; post-merge Quality Gate 40182344024 passed; bounded W03 sampling dossier
 
-- Mission 55: Active — Planner, Weather, Ranking and Schedule Heuristic Characterisation (W04), [PR #55](https://github.com/wolfchil345/astroscope-ai-observatory/pull/55)
+- Mission 55: Complete — Planner, Weather, Ranking and Schedule Heuristic Characterisation (W04), [PR #55](https://github.com/wolfchil345/astroscope-ai-observatory/pull/55)
+
+- Mission 56: Active — Light-Curve Recovery and Validation Baseline (W05); 252 trials, 10/10 required recoveries, nine unresolved numerical failures. Reproduction audit is not scientific acceptance.
 
 ## Phase Progress
 
@@ -92,8 +94,8 @@ scope decision with enforced exclusions; this audit grants no such exit.
 | W01 | Telescope and imaging scientific validation | Mission 52 merged; bounded ideal-geometry dossier complete |
 | W02 | Seven enabled planets: position/distance/reference validation | Mission 53 merged; bounded W02 dossier complete |
 | W03 | Visibility and transit-window sampling sensitivity | Mission 54 merged; bounded W03 dossier complete |
-| W04 | Planner/schedule/weather/ranking heuristic characterisation | Mission 55 active; calibration remains Phase 3 |
-| W05 | Light-curve recovery, null/noise/alias/gap and published-data validation | Proposed |
+| W04 | Planner/schedule/weather/ranking heuristic characterisation | Mission 55 merged; bounded W04 dossier complete; calibration remains Phase 3 |
+| W05 | Light-curve recovery, null/noise/alias/gap and published-data validation | Mission 56 baseline active; nine BLS discrepancies retained; not complete |
 | W06 | Coverage, provenance and deferred-contract reconciliation | Proposed |
 | W07 | Formal Phase 2 exit review | Pending preceding evidence and blocker disposition |
 | X01 | Physical clock/site/arrival qualification | Blocked by applicable evidence and model qualification |
@@ -639,9 +641,24 @@ completion date. Their dependencies and stop conditions are specified in the
 - [x] Preserve strict timing restrictions and active Phase 2 status
 - [x] Add CI artifact 23 without replacing previous evidence
 - [x] Open [PR #55](https://github.com/wolfchil345/astroscope-ai-observatory/pull/55); final-head full-suite CI and artifact evidence are recorded there before handoff
-- [ ] Merge Mission 55
+- [x] Merge Mission 55 — `a6b5d8bedfdd32f374d4632b4af5656f29014466`; post-merge Quality Gate 40191044692 passed
+
+## Mission 56 — Light-Curve Recovery and Validation Baseline
+
+- [x] Verify Mission 55 merge and successful post-merge CI
+- [x] Freeze synthetic inputs, Kepler archive selection and scientific policy before evaluation
+- [x] Retain first failure record and correct independent-reference defects
+- [x] Retain 252 trials and nine unresolved BLS discrepancies; all ten required periods recovered
+- [x] Add offline regeneration, analytic controls, strict expected failures and observation audit
+- [x] Add CI artifact 24 without replacing previous evidence
+- [ ] Open PR and verify final-head full-suite CI and artifact contents
+- [ ] Merge Mission 56
+- [ ] Close W05 — blocked pending discrepancy disposition and scope review
 
 ## Phase 2 Deliverables
+
+- [Light-Curve Recovery and Validation Baseline — Mission 56](validation/light_curve_validation.md)
+
 
 - [Heuristic Characterisation — Mission 55](validation/heuristic_characterisation.md)
 

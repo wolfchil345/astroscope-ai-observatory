@@ -3,6 +3,7 @@
 import argparse
 import importlib.metadata
 import json
+import math
 import os
 import platform
 import subprocess
@@ -27,6 +28,7 @@ ROOT = Path(__file__).resolve().parents[1]
 FIXTURE = "validation/fixtures/light_curve_campaign_v1.json"
 POLICY = "validation/manifests/light_curve_campaign_policy_v1.json"
 MANIFEST = "validation/manifests/light_curve_campaign_v1.json"
+OBSERVED = "validation/fixtures/light_curve_observed_baseline_v1.json"
 
 
 def load_inputs():
@@ -40,6 +42,7 @@ def load_inputs():
     raw = (ROOT / "validation/fixtures/published/kplr006922244-2010078095331_llc.fits").read_bytes()
     spans = published["provenance"]["hdu_integrity"]
     assert spans[0]["start"] == 0 and spans[-1]["end"] == len(raw)
+    assert all(a["end"] == b["start"] for a, b in zip(spans, spans[1:], strict=False))
     for span in spans:
         if raw_checksum(raw[span["start"] : span["end"]]) != 0xFFFFFFFF:
             raise ValueError("Raw FITS HDU checksum mismatch")
@@ -125,10 +128,17 @@ def evaluate(case, stage, algorithm, policy):
                     curve, **kwargs, samples_per_peak=policy["ls_samples_per_peak"]
                 )
                 best = result.best_candidate
-                reference = ls_power(times, values, errors, best.frequency)
+                reference = (
+                    None
+                    if case["kind"] == "constant"
+                    else ls_power(times, values, errors, best.frequency)
+                )
                 residual = None if reference is None else abs(best.power - reference)
                 row["reference"] = {
                     "direct_weighted_power": reference,
+                    "exclusion": "constant input; processed roundoff is not a signal"
+                    if case["kind"] == "constant"
+                    else None,
                     "absolute_power_error": residual,
                 }
                 numeric_ok = reference is None or residual <= policy["ls_power_absolute_goal"]
@@ -259,15 +269,71 @@ def run_benchmark():
     }
 
 
+def observation_mismatches(actual, expected, path="root"):
+    """Regression comparison, NOT scientific acceptance or an independent oracle.
+
+    Includes every trial, candidate, failure, warning and null summary. Float
+    allowances only absorb platform roundoff; acceptance policy is unchanged.
+    """
+    if isinstance(expected, dict):
+        if not isinstance(actual, dict) or actual.keys() != expected.keys():
+            return [path + ": keys"]
+        return [
+            issue
+            for key in expected
+            for issue in observation_mismatches(actual[key], expected[key], path + "." + key)
+        ]
+    if isinstance(expected, list):
+        if not isinstance(actual, list) or len(actual) != len(expected):
+            return [path + ": length"]
+        return [
+            issue
+            for i, (a, e) in enumerate(zip(actual, expected, strict=True))
+            for issue in observation_mismatches(a, e, f"{path}[{i}]")
+        ]
+    if isinstance(expected, float):
+        return (
+            []
+            if isinstance(actual, (float, int))
+            and math.isclose(actual, expected, rel_tol=1e-8, abs_tol=1e-9)
+            else [path + ": numeric mismatch"]
+        )
+    return [] if type(actual) is type(expected) and actual == expected else [path + ": mismatch"]
+
+
+def audit_observations(result):
+    baseline = json.loads((ROOT / OBSERVED).read_text())
+    issues = observation_mismatches(
+        {k: result[k] for k in baseline["observations"]}, baseline["observations"]
+    )
+    return {
+        "passed": not issues,
+        "mismatches": issues,
+        "baseline_sha256": sha(ROOT / OBSERVED),
+        "meaning": "reproduces observed successes AND failures; not scientific acceptance",
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument(
+        "--audit-observed-baseline",
+        action="store_true",
+        help="Exit on reproduction audit; retain failed scientific acceptance",
+    )
     args = parser.parse_args()
     result = run_benchmark()
+    result["observation_audit"] = audit_observations(result)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, sort_keys=True, allow_nan=False) + "\n")
     print(json.dumps({k: result[k] for k in ["trial_count", "failed_trials", "overall_passed"]}))
-    return 0 if result["overall_passed"] else 1
+    success = (
+        result["observation_audit"]["passed"]
+        if args.audit_observed_baseline
+        else result["overall_passed"]
+    )
+    return 0 if success else 1
 
 
 if __name__ == "__main__":

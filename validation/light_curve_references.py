@@ -16,6 +16,7 @@ def raw_checksum(data):
 def ls_power(times, values, errors, frequency):
     t = np.asarray(times, dtype=float)
     y = np.asarray(values, dtype=float)
+    y = y - y[0]
     e = np.asarray(errors, dtype=float)
     t = t - t[0]
     design = np.column_stack(
@@ -36,18 +37,23 @@ def exact_box_snr(times, values, errors, period, duration):
     weight = 1 / np.asarray(errors, dtype=float) ** 2
     # Objective uses two independent weighted means, positive dimming only.
     best = 0.0
-    for boundary in phase:
-        for start in [boundary - 1e-10, boundary - duration + 1e-10]:
-            mask = np.remainder(phase - start, period) < duration
-            inside = weight[mask].sum()
-            outside = weight[~mask].sum()
-            if inside == 0 or outside == 0:
-                continue
-            depth = np.average(y[~mask], weights=weight[~mask]) - np.average(
-                y[mask], weights=weight[mask]
-            )
-            snr = depth / math.sqrt(1 / inside + 1 / outside)
-            best = max(best, float(snr))
+    boundaries = np.unique(np.remainder(np.concatenate([phase, phase - duration]), period))
+    next_boundaries = np.roll(boundaries, -1)
+    midpoints = np.remainder(
+        boundaries + np.remainder(next_boundaries - boundaries, period) / 2, period
+    )
+    for start in np.concatenate([boundaries, midpoints]):
+        delta = np.remainder(phase - start, period)
+        mask = (delta > 0) & (delta < duration)
+        inside = weight[mask].sum()
+        outside = weight[~mask].sum()
+        if inside == 0 or outside == 0:
+            continue
+        depth = np.average(y[~mask], weights=weight[~mask]) - np.average(
+            y[mask], weights=weight[mask]
+        )
+        snr = depth / math.sqrt(1 / inside + 1 / outside)
+        best = max(best, float(snr))
     return best
 
 
