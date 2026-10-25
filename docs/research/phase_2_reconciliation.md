@@ -1,5 +1,11 @@
 # Mission 59 — Phase 2 Coverage and Provenance Reconciliation
 
+**Subsequent status:** Mission 59 merged at `9303287a591026b63921844630e90b772bfa0226`;
+its post-merge CI passed. [Mission 60](validation/catalogue_quantities_validation.md)
+now delivers the catalogue/model dossier with 17 acceptance failures and a
+projection-domain finding. G59-01 remains open. The original audit below and its
+baseline ledger remain historical; no Phase 2 exit is granted.
+
 ## Decision
 
 **W05 has complete bounded evidence through Missions 56–58; this PR recommends
