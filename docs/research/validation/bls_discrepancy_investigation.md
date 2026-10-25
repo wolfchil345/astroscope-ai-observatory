@@ -146,8 +146,10 @@ passed, nine strict expected failures**, including 108 new passing tests.
 executed cleanly at `010ea438b310c76cb73404d62691fd822c4cb446`.
 CI adds artifact 25, `bls-discrepancy-investigation-record`, preserving the previous
 24. Exit zero means the mechanism checks passed; the record explicitly keeps
-`production_scientific_failures_resolved=false`. Final-head CI and downloaded
-artifact verification will be recorded in the PR before handoff.
+`production_scientific_failures_resolved=false`. Full local suite on the original numerical kernel: **5761 passed, nine strict
+expected failures** (199.10 seconds); Ruff and new-file formatting checks pass.
+Final-head CI and downloaded artifact verification are recorded in
+[PR #57](https://github.com/wolfchil345/astroscope-ai-observatory/pull/57).
 
 ## Next bounded work
 
