@@ -156,7 +156,8 @@ formatting, source/input hashes and changed Markdown link targets passed. Campai
 CI adds artifact 26, `physical-bls-validation-record`, retaining all 25 prior
 artifacts. Its exit status requires all frozen trials and all nine old failures
 to pass on current production. Final-head CI and downloaded artifact verification
-will be recorded in the Mission 58 pull request before handoff.
+are recorded in [PR #58](https://github.com/wolfchil345/astroscope-ai-observatory/pull/58)
+before handoff.
 
 ## Remaining research boundaries
 

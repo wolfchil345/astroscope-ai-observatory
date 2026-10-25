@@ -681,7 +681,7 @@ completion date. Their dependencies and stop conditions are specified in the
 - [x] Pass all 252 frozen trials and all ten required recoveries without relaxing scientific goals
 - [x] Preserve the nine historical failures in a sealed validation-only runner
 - [x] Add CI artifact 26 while retaining all previous artifacts
-- [ ] Open Mission 58 PR and verify final-head CI/artifact evidence
+- [x] Open [PR #58](https://github.com/wolfchil345/astroscope-ai-observatory/pull/58); final-head CI and artifact evidence are recorded there before handoff
 - [ ] Merge Mission 58 and review bounded W05 closure
 
 ## Phase 2 Deliverables
