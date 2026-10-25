@@ -146,7 +146,7 @@ all cases, expected/actual values, residuals, missing labels and regret.
 
 CI adds `heuristic-characterisation-validation-record` as artifact 23 while
 retaining the previous 22. Final-head full-suite CI, artifact inventory and
-new-artifact verification are recorded in the PR before handoff.
+new-artifact verification are recorded in [PR #55](https://github.com/wolfchil345/astroscope-ai-observatory/pull/55) before handoff.
 
 ## Limits and next work
 

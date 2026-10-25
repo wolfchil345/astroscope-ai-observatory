@@ -47,7 +47,7 @@
 
 - Mission 54: Complete — Visibility and Transit-Window Sampling Validation (W03), [PR #54](https://github.com/wolfchil345/astroscope-ai-observatory/pull/54); merged at `10a196818778d9521b31de7b4e5ce12a045153e3`; post-merge Quality Gate 40182344024 passed; bounded W03 sampling dossier
 
-- Mission 55: Active — Planner, Weather, Ranking and Schedule Heuristic Characterisation (W04)
+- Mission 55: Active — Planner, Weather, Ranking and Schedule Heuristic Characterisation (W04), [PR #55](https://github.com/wolfchil345/astroscope-ai-observatory/pull/55)
 
 ## Phase Progress
 
@@ -638,7 +638,7 @@ completion date. Their dependencies and stop conditions are specified in the
 - [x] Document missing-input priors, ties, weight reversals and sampling sensitivity
 - [x] Preserve strict timing restrictions and active Phase 2 status
 - [x] Add CI artifact 23 without replacing previous evidence
-- [ ] Open PR and verify final-head CI/artifacts
+- [x] Open [PR #55](https://github.com/wolfchil345/astroscope-ai-observatory/pull/55); final-head full-suite CI and artifact evidence are recorded there before handoff
 - [ ] Merge Mission 55
 
 ## Phase 2 Deliverables
