@@ -383,3 +383,19 @@ jobs:
           name: planetary-position-validation-record
           path: ${{ runner.temp }}/planetary_positions_reference_run.json
           if-no-files-found: error
+
+      - name: Audit visibility and transit-window sampling
+        env:
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          python -m validation.visibility_sampling \
+            --output "$RUNNER_TEMP/visibility_sampling_reference_run.json"
+
+      - name: Upload visibility and transit-window sampling record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visibility-sampling-validation-record
+          path: ${{ runner.temp }}/visibility_sampling_reference_run.json
+          if-no-files-found: error

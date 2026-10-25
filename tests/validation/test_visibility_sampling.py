@@ -96,8 +96,12 @@ def test_sparse_grid_can_miss_internal_obstruction(inputs, monkeypatch):
         )
 
     monkeypatch.setattr(tv, "sample_transit_visibility", controlled)
-    coarse = tv.analyze_transit_visibility(event, None, None, sample_count=3)
-    dense = tv.analyze_transit_visibility(event, None, None, sample_count=9)
+    coarse = tv.analyze_transit_visibility(
+        event, tv.ObserverSite("test", 0, 0), tv.TransitTarget("test", 0, 0), sample_count=3
+    )
+    dense = tv.analyze_transit_visibility(
+        event, tv.ObserverSite("test", 0, 0), tv.TransitTarget("test", 0, 0), sample_count=9
+    )
     assert coarse.full_observation_window_visible
     assert coarse.observable_sample_fraction == 1
     assert not dense.full_observation_window_visible
@@ -121,7 +125,9 @@ def test_zero_duration_and_tie_contract(inputs, monkeypatch):
         egress_jd=100.5,
         observation_end_jd=101,
     )
-    result = tv.analyze_transit_visibility(event, None, None, sample_count=3)
+    result = tv.analyze_transit_visibility(
+        event, tv.ObserverSite("test", 0, 0), tv.TransitTarget("test", 0, 0), sample_count=3
+    )
     assert result.midpoint_sample.julian_date == 100  # first on exact tie
     assert result.maximum_airmass is None
     event = replace(
@@ -132,7 +138,9 @@ def test_zero_duration_and_tie_contract(inputs, monkeypatch):
         egress_jd=100,
         observation_end_jd=100,
     )
-    result = tv.analyze_transit_visibility(event, None, None, sample_count=3)
+    result = tv.analyze_transit_visibility(
+        event, tv.ObserverSite("test", 0, 0), tv.TransitTarget("test", 0, 0), sample_count=3
+    )
     assert [s.julian_date for s in result.samples] == [100] * 3
     assert result.observable_sample_fraction == 0
 
@@ -159,3 +167,30 @@ def test_fixture_has_dense_diagnostics_and_no_physical_promotion(inputs):
     assert all(len(w["grids"]["241"]["jd"]) == 241 for w in fixture["windows"])
     manifest = json.loads((ROOT / "validation/manifests/visibility_sampling_v1.json").read_text())
     assert "validation/fixtures/solar_lunar_eop_v1.json" in manifest["files"]
+
+
+def test_offline_runner_without_reference_engine(tmp_path):
+    import subprocess
+    import sys
+
+    output = tmp_path / "record.json"
+    code = """
+import socket, sys
+from pathlib import Path
+def deny(*args, **kwargs):
+    raise AssertionError('Network forbidden')
+socket.socket.connect = deny
+socket.socket.connect_ex = deny
+socket.create_connection = deny
+sys.modules['skyfield'] = None
+sys.modules['skyfield_data'] = None
+from validation.visibility_sampling import main
+sys.argv = ['visibility_sampling', '--output', sys.argv[1]]
+raise SystemExit(main())
+"""
+    subprocess.run([sys.executable, "-c", code, str(output)], cwd=ROOT, check=True, timeout=180)
+    result = json.loads(output.read_text())
+    assert result["case_count"] == 48
+    assert result["sample_count"] == 592
+    assert result["overall_passed"]
+    assert not result["physical_arrival_qualification_changed"]
