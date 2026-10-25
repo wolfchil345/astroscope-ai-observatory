@@ -145,20 +145,51 @@ python -m validation.light_curve_bls_diagnostic --record /tmp/light_curve_audit.
 The generator decodes the frozen FITS with Astropy; its numerical injection and
 runtime reference regression do not call Astropy periodograms. Runtime evaluates
 frozen JSON; tests deny socket connections and require byte-identical regeneration.
-The post-evaluation [observation baseline](../../../validation/fixtures/light_curve_observed_baseline_v1.json)
+The post-evaluation [original observation baseline](../../../validation/fixtures/light_curve_observed_baseline_v1.json)
 is explicitly a regression snapshot, not an independent reference or revised
-acceptance policy. It compares all observations with float roundoff tolerances
-1e-8 relative / 1e-9 absolute. Changed failure identities, missing trials, degraded
-values, improved results or changed metadata require review; they cannot silently
-pass. Nine strict expected-failure tests expose unresolved scientific checks.
+acceptance policy. It compares every observation with float roundoff tolerances
+1e-8 relative / 1e-9 absolute against one complete supported variant. Changed
+failure identities, missing trials, degraded values, improved results or changed
+metadata require review; they cannot silently pass. Mixing rows from variants
+is rejected. Nine strict expected-failure tests expose unresolved scientific checks.
 CLI tests verify default exit failure, explicit audit success and mutation rejection.
 
+### Retained cross-platform audit failure
+
+[CI run 40193626649](https://github.com/wolfchil345/astroscope-ai-observatory/actions/runs/40193626649)
+failed eight tests: six trial snapshots plus aggregate and CLI audit checks
+(5644 passed, nine expected failures). All nine scientific failure identities,
+required recoveries and null counts were unchanged. The audit steps were skipped
+following the test failure, so uploads found no generated files; this was not
+loss of previously committed evidence. The new light-curve step now runs even
+after a test failure and writes both records while preserving its failure exit.
+
+Local replay with `OPENBLAS_CORETYPE=Haswell OPENBLAS_NUM_THREADS=1` reproduced
+the same six affected trial IDs and mismatch paths. Detrending roundoff changes
+nearly tied BLS candidates on five curves and the meaningless LS candidates on
+a constant curve. For daily-sampled sine seed 1, equally strong BLS peaks
+(SNR 52.35211398) move from 1.58879745 to 1.58667179 days. Re-evaluating the
+independent bound at the changed period gives 52.35211398 rather than 54.01604741;
+both satisfy the original bound. No scientific threshold was loosened.
+
+The [investigation record](../../../validation/results/light_curve_platform_investigation.json)
+and [complete Haswell observation variant](../../../validation/fixtures/light_curve_observed_haswell_v1.json)
+retain this evidence alongside the original snapshot. The audit requires the
+entire campaign to match one variant; no row-wise mixing or selective omissions
+are allowed. This is bounded reproducibility for two observed numerical-kernel
+variants, not a claim of bitwise portability or unique candidate selection.
+Unknown variants fail review. All raw candidate outputs remain in the records.
+Requested OpenBLAS settings and machine architecture are recorded in new runs;
+no specific numerical kernel is forced on the production application.
+
 The [canonical record](../../../validation/results/light_curve_campaign_reference_run.json)
-was executed cleanly at `0f38a93be98112cf2163ff6b3254e4f46707b378`; its observation
-audit passes while scientific acceptance remains false. The
+was first executed cleanly at `0f38a93be98112cf2163ff6b3254e4f46707b378`.
+The current canonical replay includes both supported observation variants; its
+observation audit passes while scientific acceptance remains false. The
 [diagnostic record](../../../validation/results/light_curve_bls_diagnostic.json)
-retains all nine comparisons. Focused tests: **662 passed, nine strict xfailed**
-(391 new passing tests and nine new expected failures); Ruff lint passes.
+retains all nine comparisons. Initial focused tests: **662 passed, nine strict xfailed**. The platform fix
+adds a whole-variant mixing rejection test (392 new passing tests and nine new
+expected failures); updated validation is recorded below. Ruff lint passes.
 Formatting checks pass for all new Python files; a repository-wide format check
 reports 15 pre-existing files, left unchanged.
 The canonical record identifies the clean implementation commit, source/input

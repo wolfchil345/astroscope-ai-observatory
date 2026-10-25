@@ -37,14 +37,20 @@ def record():
             raise AssertionError("Network forbidden in campaign")
 
         m.setattr(socket.socket, "connect", deny)
-        return run_benchmark()
+        result = run_benchmark()
+        return result
+
+
+@pytest.fixture(scope="module")
+def matched_baseline(record):
+    audit = audit_observations(record)
+    assert audit["passed"], audit["mismatches"]
+    return json.loads((ROOT / audit["matched_variants"][0]).read_text())
 
 
 @pytest.mark.parametrize("index", range(252), ids=["/".join(t) for t in TRIALS])
-def test_every_trial_reproduces_retained_observation(index, record):
-    baseline = json.loads(
-        (ROOT / "validation/fixtures/light_curve_observed_baseline_v1.json").read_text()
-    )
+def test_every_trial_reproduces_retained_observation(index, record, matched_baseline):
+    baseline = matched_baseline
     assert not observation_mismatches(
         record["results"][index], baseline["observations"]["results"][index]
     )
@@ -206,3 +212,14 @@ def test_input_hash_mutation_rejected(monkeypatch):
     monkeypatch.setattr(campaign, "sha", lambda path: "invalid")
     with pytest.raises(ValueError, match="Checksum mismatch"):
         campaign.load_inputs()
+
+
+def test_audit_requires_one_complete_variant():
+    from validation.light_curve_campaign import OBSERVED, OBSERVED_HASWELL
+
+    a = json.loads((ROOT / OBSERVED).read_text())["observations"]
+    b = json.loads((ROOT / OBSERVED_HASWELL).read_text())["observations"]
+    assert audit_observations(a)["passed"] and audit_observations(b)["passed"]
+    # Mix a Haswell constant result into the original campaign: neither full variant.
+    a["results"][242] = b["results"][242]
+    assert not audit_observations(a)["passed"]

@@ -29,6 +29,7 @@ FIXTURE = "validation/fixtures/light_curve_campaign_v1.json"
 POLICY = "validation/manifests/light_curve_campaign_policy_v1.json"
 MANIFEST = "validation/manifests/light_curve_campaign_v1.json"
 OBSERVED = "validation/fixtures/light_curve_observed_baseline_v1.json"
+OBSERVED_HASWELL = "validation/fixtures/light_curve_observed_haswell_v1.json"
 
 
 def load_inputs():
@@ -259,6 +260,9 @@ def run_benchmark():
             "checkout_commit": os.getenv("ASTROSCOPE_CHECKOUT_COMMIT", git("rev-parse", "HEAD")),
             "git_dirty": bool(git("status", "--porcelain")),
             "python": platform.python_version(),
+            "machine": platform.machine(),
+            "requested_openblas_coretype": os.getenv("OPENBLAS_CORETYPE"),
+            "requested_openblas_num_threads": os.getenv("OPENBLAS_NUM_THREADS"),
             "platform": platform.platform(),
             "versions": {x: importlib.metadata.version(x) for x in ["astropy", "numpy", "scipy"]},
             "source_sha256": {x: sha(ROOT / x) for x in sources},
@@ -302,15 +306,20 @@ def observation_mismatches(actual, expected, path="root"):
 
 
 def audit_observations(result):
-    baseline = json.loads((ROOT / OBSERVED).read_text())
-    issues = observation_mismatches(
-        {k: result[k] for k in baseline["observations"]}, baseline["observations"]
-    )
+    variants = []
+    for path in [OBSERVED, OBSERVED_HASWELL]:
+        baseline = json.loads((ROOT / path).read_text())
+        issues = observation_mismatches(
+            {k: result[k] for k in baseline["observations"]}, baseline["observations"]
+        )
+        variants.append({"path": path, "sha256": sha(ROOT / path), "mismatches": issues})
+    matched = [v["path"] for v in variants if not v["mismatches"]]
     return {
-        "passed": not issues,
-        "mismatches": issues,
-        "baseline_sha256": sha(ROOT / OBSERVED),
-        "meaning": "reproduces observed successes AND failures; not scientific acceptance",
+        "passed": bool(matched),
+        "matched_variants": matched,
+        "baseline_sha256": {v["path"]: v["sha256"] for v in variants},
+        "mismatches": [] if matched else {v["path"]: v["mismatches"] for v in variants},
+        "meaning": "one WHOLE observed variant, successes AND failures; not scientific acceptance",
     }
 
 
