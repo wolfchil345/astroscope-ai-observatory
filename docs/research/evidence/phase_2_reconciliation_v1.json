@@ -2143,7 +2143,7 @@
       "runner": "validation/physical_bls_campaign.py"
     }
   ],
-  "final_pr_ci_evidence_location": "Mission 59 PR body, verified on final head before handoff.",
+  "final_pr_ci_evidence_location": "https://github.com/wolfchil345/astroscope-ai-observatory/pull/59 (final-head verification recorded before handoff)",
   "findings": [
     {
       "action": "Proposed Mission 60: independent reference/control corpus, declared conventions/domains and failure-sensitive review of C02/C03/C05/C06/C07. Preserve educational limits; no new live ingestion or features.",

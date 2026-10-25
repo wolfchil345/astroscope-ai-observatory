@@ -696,7 +696,7 @@ completion date. Their dependencies and stop conditions are specified in the
 - [x] Distinguish catalogue transport, derived quantities and educational/display models
 - [x] Pin 26 canonical records, 160 inspected files and explicit provenance gaps
 - [x] Preserve production, tests, scientific corpora, CI and all physical unknowns
-- [ ] Open Mission 59 PR and record final-head CI/artifact verification
+- [x] Open [PR #59](https://github.com/wolfchil345/astroscope-ai-observatory/pull/59); final-head CI and artifact verification are recorded there before handoff
 - [ ] Merge Mission 59 and confirm its bounded documentary dispositions
 
 G59-01 is the remaining catalogue-derived/model validation dossier; proposed

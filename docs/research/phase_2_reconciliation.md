@@ -281,7 +281,7 @@ link targets. All **160 hash checks and 130 local Markdown targets passed**;
 three negative documentary controls rejected a missing scenario, an altered hash
 and an unauthorized exit flag. Ruff and whitespace checks passed. The baseline
 four-archive checks are described above. Final-head
-CI and artifact verification will be recorded in the Mission 59 PR before handoff;
+CI and artifact verification are recorded in [PR #59](https://github.com/wolfchil345/astroscope-ai-observatory/pull/59) before handoff;
 the baseline run does not substitute for final-head acceptance.
 
 A minimal offline integrity check from the repository root is:
