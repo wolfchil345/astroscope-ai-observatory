@@ -1,0 +1,57 @@
+{
+  "baseline_commit": "9303287a591026b63921844630e90b772bfa0226",
+  "external_data_downloaded": false,
+  "mission": 60,
+  "reviewed_at_utc_date": "2026-10-25",
+  "rights": "Factual constants and original summaries only; no papers, figures or real catalogue rows redistributed. Synthetic fixtures and authored code are repository material.",
+  "sources": [
+    {
+      "id": "R01",
+      "title": "Gaia DR3 source field definitions",
+      "url": "https://irsa.ipac.caltech.edu/data/Gaia/dr3/gaia_dr3_source_colDescriptions.html",
+      "used_for": "parallax/error in mas, proper-motion components in mas/year, magnitudes and BP-RP. Authoritative archive schema, not a frozen source catalogue."
+    },
+    {
+      "id": "R02",
+      "title": "Bailer-Jones 2015, Estimating distances from parallaxes, v2",
+      "url": "https://arxiv.org/abs/1507.02105v2",
+      "used_for": "Positive reciprocal parallax is a naive calculation. No noisy-parallax inference, prior or uncertainty qualification is provided by arithmetic checks."
+    },
+    {
+      "id": "R03",
+      "title": "IAU 2015 Resolution B3, arXiv v1",
+      "url": "https://arxiv.org/html/1510.07674v1",
+      "used_for": "Nominal equatorial Earth radius 6378100 m and solar radius 695700000 m are exact conversion constants, not measured sizes with zero uncertainty."
+    },
+    {
+      "id": "R04",
+      "title": "JPL Solar System Dynamics, Astrodynamic Parameters",
+      "url": "https://ssd.jpl.nasa.gov/astro_par.html",
+      "used_for": "Astronomical unit is 149597870700 m, IAU 2012 Resolution B1."
+    },
+    {
+      "id": "R05",
+      "title": "NASA/NSSDC Earth Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html",
+      "used_for": "Volumetric mean radius 6371.000 km and mass 5.9722e24 kg used only for definition sensitivity. Listed density is 5513 kg/m^3; legacy 5.514 g/cm^3 is not claimed to match current physical precision."
+    },
+    {
+      "id": "R06",
+      "title": "NASA Exoplanet Archive composite-parameter calculation notes",
+      "url": "https://exoplanetarchive.ipac.caltech.edu/docs/pscp_calc.html",
+      "used_for": "Spherical density 3M/(4piR^3). Composite values can combine references and need not be jointly physically consistent. Derived fields do not establish joint-fit covariance."
+    },
+    {
+      "id": "R07",
+      "title": "Winn, Transits and Occultations, arXiv v5",
+      "url": "https://arxiv.org/html/1001.2010v5",
+      "used_for": "Circular random-orientation probability including grazing events uses (Rstar+Rp)/a. Area-ratio depth omits limb darkening, dilution and grazing geometry. This paper does not calibrate the product heuristic or its illustrative trapezoid."
+    },
+    {
+      "id": "R08",
+      "title": "Gaia DR3 datamodel, source catalogue",
+      "url": "https://gea.esac.esa.int/archive/documentation/GDR3/Gaia_archive/chap_datamodel/sec_dm_main_source_catalogue/ssec_dm_gaia_source.html",
+      "used_for": "Search-indexed official documentation supports total proper-motion norm of pmra and pmdec. Direct full-page retrieval returned 503 during this review; R01 supplied accessible field definitions."
+    }
+  ]
+}

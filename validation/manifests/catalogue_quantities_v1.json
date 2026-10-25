@@ -1,0 +1,11 @@
+{
+  "baseline_commit": "9303287a591026b63921844630e90b772bfa0226",
+  "files": {
+    "docs/research/validation/catalogue_quantities_protocol.md": "dedc25093c4474e2d18ec856491ffbcb20f4b5723068b7b514ec4bb81248f511",
+    "validation/fixtures/catalogue_quantities_v1.json": "2e899f03ebef8ef9e68aa3e3a6a5b38dce15ea3eff61c68622fedc8cd311b576",
+    "validation/manifests/catalogue_quantities_policy_v1.json": "9d0f17e31511037bf0a3ae3ba5af94c138b1cc8a983d5c095daa62aedb5201fe",
+    "validation/manifests/catalogue_quantities_sources_v1.json": "ddbe60493a57039638142d80f62e85d2036bf753a8cc24ff477d6e80f5ddd14d",
+    "validation/reference_generation/catalogue_quantities.py": "c25d4a8dbd936151181ebec2337527db0279bc91967dc64447e0a6c22144b9fa"
+  },
+  "mission": 60
+}
