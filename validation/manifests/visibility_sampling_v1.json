@@ -1,0 +1,9 @@
+{
+  "files": {
+    "validation/fixtures/solar_lunar_eop_v1.json": "6372ac20b566dc5e9b4f106caaef2751a624c7bb46e161252e3208f4b906c1fa",
+    "validation/fixtures/visibility_sampling_v1.json": "3b63651777f2e66de59fafc63144363c884a5c38f0a1e39520d8a805422a0e5a",
+    "validation/manifests/visibility_sampling_policy_v1.json": "1af68cdb03286788b86d9a1f24a857a7a1709ff3f9afa6afde9f2f595dabbb82",
+    "validation/reference_generation/visibility_sampling.py": "72c50ec3dbc0edffbb91d45849162ead7632a15f9248b2f051a2a82befc9c81e"
+  },
+  "mission": 54
+}

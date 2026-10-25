@@ -1,0 +1,18 @@
+{
+  "mission": 54,
+  "status": "Frozen before production evaluation",
+  "sample_counts": [3, 9, 25],
+  "dense_reference_count": 241,
+  "minimum_altitude_degrees": 20,
+  "darkness_sun_altitude_degrees": -18,
+  "tolerances_degrees": {
+    "target_altitude_degrees": 0.001388888888888889,
+    "sun_altitude_degrees": 0.001388888888888889,
+    "moon_separation_degrees": 0.016666666666666666
+  },
+  "rationale": "Planner-scale 5 arcsec stellar/Sun and 60 arcsec Moon comparison goals inherited from Missions 33/34. Not physical uncertainty bounds. No post-evaluation tolerance fitting.",
+  "boundary_policy": "Inclusive target >= minimum and Sun <= darkness. Within corresponding angular goal, independent labels are indeterminate; compare count intervals, never force agreement.",
+  "sampling_policy": "Uniform inclusive UTC JD grid, nearest sampled mid-transit (first on exact tie). Fractions are sample counts, not time integrals. 241-point grid is a sensitivity diagnostic, not continuous coverage certification.",
+  "timing": "Explicit UTC observing inputs in 2024; synthetic event geometry, no catalogue ephemeris or barycentric arrival conversion. Zero timing uncertainty is a supplied placeholder, not an established physical bound.",
+  "physical_arrival_qualification_changed": false
+}
