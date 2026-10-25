@@ -3,13 +3,16 @@
 import csv
 from collections.abc import Callable, Iterable, Mapping
 from dataclasses import dataclass
+from fractions import Fraction
 from io import StringIO
-from math import isfinite
+from math import isfinite, pi
 from statistics import median
 from typing import Any, Final, Literal
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
+
+from astroscope._catalogue_numerics import positive_ratio
 
 EXOPLANET_TAP_SYNC_URL: Final[str] = "https://exoplanetarchive.ipac.caltech.edu/TAP/sync"
 
@@ -17,10 +20,24 @@ EXOPLANET_TABLE: Final[str] = "pscomppars"
 
 DEFAULT_USER_AGENT: Final[str] = "AstroScope-AI-Observatory/1.0"
 
-EARTH_DENSITY_G_CM3: Final[float] = 5.514
-EARTH_RADIUS_IN_SOLAR_RADII: Final[float] = 0.0091577
-EARTH_RADIUS_IN_AU: Final[float] = 4.26352e-5
-SOLAR_RADIUS_IN_AU: Final[float] = 0.00465047
+# IAU 2015 B3 nominal lengths/GM; CODATA 2018 G. Assumed calculation units,
+# not a qualification of every archive row's source convention.
+NOMINAL_EARTH_RADIUS_M: Final[float] = 6378100.0
+NOMINAL_SOLAR_RADIUS_M: Final[float] = 695700000.0
+ASTRONOMICAL_UNIT_M: Final[float] = 149597870700.0
+NOMINAL_EARTH_GM: Final[float] = 3.986004e14
+GRAVITATIONAL_CONSTANT: Final[float] = 6.67430e-11
+CALCULATION_CONVENTION: Final[str] = "nominal_spherical_v1"
+# Spherical planet coefficient, NOT measured Earth density or ellipsoidal volume.
+EARTH_DENSITY_G_CM3: Final[float] = (
+    NOMINAL_EARTH_GM
+    / GRAVITATIONAL_CONSTANT
+    / (4.0 * pi * NOMINAL_EARTH_RADIUS_M**3 / 3.0)
+    / 1000.0
+)
+EARTH_RADIUS_IN_SOLAR_RADII: Final[float] = NOMINAL_EARTH_RADIUS_M / NOMINAL_SOLAR_RADIUS_M
+EARTH_RADIUS_IN_AU: Final[float] = NOMINAL_EARTH_RADIUS_M / ASTRONOMICAL_UNIT_M
+SOLAR_RADIUS_IN_AU: Final[float] = NOMINAL_SOLAR_RADIUS_M / ASTRONOMICAL_UNIT_M
 
 TemperateStatus = Literal[
     "temperate_terrestrial_candidate",
@@ -181,6 +198,7 @@ class ExoplanetRecord:
     transit_depth_ppm: float | None
     transit_probability_percent: float | None
     temperate_status: TemperateStatus
+    calculation_convention: str | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -209,7 +227,7 @@ def calculate_planet_density_g_cm3(
     mass_earth: float | None,
     radius_earth: float | None,
 ) -> float | None:
-    """Estimate bulk density from Earth-relative mass and radius."""
+    """Estimate spherical density in the declared nominal mass/radius convention."""
 
     if (
         mass_earth is None
@@ -221,14 +239,14 @@ def calculate_planet_density_g_cm3(
     ):
         return None
 
-    return EARTH_DENSITY_G_CM3 * mass_earth / radius_earth**3
+    return positive_ratio((EARTH_DENSITY_G_CM3, mass_earth), (radius_earth,) * 3)
 
 
 def calculate_transit_depth_ppm(
     radius_earth: float | None,
     stellar_radius_solar: float | None,
 ) -> float | None:
-    """Estimate transit depth from planet and stellar radii."""
+    """Area-ratio depth for Rp <= Rstar; unsupported or unrepresentable is unknown."""
 
     if (
         radius_earth is None
@@ -240,9 +258,22 @@ def calculate_transit_depth_ppm(
     ):
         return None
 
-    radius_ratio = radius_earth * EARTH_RADIUS_IN_SOLAR_RADII / stellar_radius_solar
-
-    return radius_ratio**2 * 1_000_000.0
+    if Fraction(radius_earth) * int(NOMINAL_EARTH_RADIUS_M) > Fraction(stellar_radius_solar) * int(
+        NOMINAL_SOLAR_RADIUS_M
+    ):
+        return None
+    depth = positive_ratio(
+        (
+            1_000_000.0,
+            EARTH_RADIUS_IN_SOLAR_RADII,
+            EARTH_RADIUS_IN_SOLAR_RADII,
+            radius_earth,
+            radius_earth,
+        ),
+        (stellar_radius_solar, stellar_radius_solar),
+    )
+    # The exact domain check above permits equality; contain final rounding at unity.
+    return None if depth is None else min(1_000_000.0, depth)
 
 
 def calculate_transit_probability_percent(
@@ -250,7 +281,7 @@ def calculate_transit_probability_percent(
     planet_radius_earth: float | None,
     semi_major_axis_au: float | None,
 ) -> float | None:
-    """Estimate geometric transit probability for a circular orbit."""
+    """Circular isotropic-orientation probability for a > Rstar + Rp only."""
 
     if (
         stellar_radius_solar is None
@@ -265,13 +296,15 @@ def calculate_transit_probability_percent(
     ):
         return None
 
-    stellar_radius_au = stellar_radius_solar * SOLAR_RADIUS_IN_AU
-
-    planet_radius_au = planet_radius_earth * EARTH_RADIUS_IN_AU
-
-    probability = (stellar_radius_au + planet_radius_au) / semi_major_axis_au
-
-    return min(100.0, probability * 100.0)
+    # Exact binary input ratios avoid intermediate overflow, including subnormals.
+    radius_sum = Fraction(stellar_radius_solar) * int(NOMINAL_SOLAR_RADIUS_M) + Fraction(
+        planet_radius_earth
+    ) * int(NOMINAL_EARTH_RADIUS_M)
+    axis = Fraction(semi_major_axis_au) * int(ASTRONOMICAL_UNIT_M)
+    if radius_sum >= axis:
+        return None
+    result = float(100 * radius_sum / axis)
+    return result if result > 0 else None
 
 
 def classify_temperate_candidate(
@@ -281,7 +314,7 @@ def classify_temperate_candidate(
 ) -> TemperateStatus:
     """Apply a transparent educational temperate-world screen."""
 
-    if radius_earth is None or radius_earth <= 0.0:
+    if radius_earth is None or not isfinite(radius_earth) or radius_earth <= 0.0:
         return "insufficient_data"
 
     temperature_available = (
@@ -478,6 +511,7 @@ def _record_from_row(
     transit_flag = _parse_optional_int(row.get("tran_flag"))
 
     return ExoplanetRecord(
+        calculation_convention=CALCULATION_CONVENTION,
         planet_name=_required_text(
             row,
             "pl_name",

@@ -44,3 +44,7 @@ target-version = "py312"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
+
+# Preserve reversible Mission 60 source bytes; only import prefixes differ.
+[tool.ruff.lint.per-file-ignores]
+"validation/historical/mission60_catalogue/*.py" = ["I001", "E501"]

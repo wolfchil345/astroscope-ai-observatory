@@ -17,6 +17,7 @@ from astroscope.gaia_export import (
 )
 from astroscope.gaia_visuals import (
     GaiaChartLabels,
+    LocalSkyProjectionError,
     create_hr_diagram,
     create_local_sky_figure,
     create_proper_motion_figure,
@@ -400,18 +401,18 @@ def _display_search_result(
     )
 
     with sky_tab:
-        sky_figure = create_local_sky_figure(
-            result.sources,
-            center_ra_deg=(result.request.center_ra_deg),
-            center_dec_deg=(result.request.center_dec_deg),
-            labels=labels,
-        )
-
-        st.plotly_chart(
-            sky_figure,
-            width="stretch",
-            key="mission13_local_sky",
-        )
+        try:
+            sky_figure = create_local_sky_figure(
+                result.sources,
+                center_ra_deg=result.request.center_ra_deg,
+                center_dec_deg=result.request.center_dec_deg,
+                labels=labels,
+            )
+        except LocalSkyProjectionError:
+            st.info(translate("gaia_projection_domain", language))
+        else:
+            st.caption(translate("gaia_projection_domain", language))
+            st.plotly_chart(sky_figure, width="stretch", key="mission13_local_sky")
 
     with hr_tab:
         hr_figure = create_hr_diagram(

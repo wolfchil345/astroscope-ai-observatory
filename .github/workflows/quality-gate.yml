@@ -491,3 +491,20 @@ jobs:
           name: catalogue-quantities-validation-record
           path: ${{ runner.temp }}/catalogue_quantities_reference_run.json
           if-no-files-found: error
+
+      - name: Validate corrected catalogue domains and conventions
+        if: ${{ !cancelled() }}
+        env:
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          python -m validation.catalogue_correction \
+            --output "$RUNNER_TEMP/catalogue_correction_reference_run.json"
+
+      - name: Upload current catalogue correction acceptance
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: catalogue-correction-validation-record
+          path: ${{ runner.temp }}/catalogue_correction_reference_run.json
+          if-no-files-found: error

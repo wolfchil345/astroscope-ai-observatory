@@ -11,10 +11,12 @@ from fractions import Fraction
 
 import pytest
 
-from astroscope import exoplanet_catalog as exo
-from astroscope import gaia_catalog as gaia
-from astroscope.exoplanet_visuals import calculate_trapezoid_transit_flux
 from validation import catalogue_quantities as campaign
+from validation.historical.mission60_catalogue import exoplanet_catalog as exo
+from validation.historical.mission60_catalogue import gaia_catalog as gaia
+from validation.historical.mission60_catalogue.exoplanet_visuals import (
+    calculate_trapezoid_transit_flux,
+)
 
 POLICY, FIXTURE = campaign.load_inputs()
 BASELINE = json.loads((campaign.ROOT / campaign.OBSERVATIONS).read_text())
@@ -32,7 +34,8 @@ def test_independent_catalogue_reference(case):
     "case", [c for c in FIXTURE["cases"] if c["id"] in KNOWN_FAILURES], ids=lambda c: c["id"]
 )
 @pytest.mark.xfail(
-    strict=True, reason="Mission 60 retained acceptance discrepancy; G59-01 stays open"
+    strict=True,
+    reason="Historical Mission 60 acceptance discrepancy; current production tested by Mission 61",
 )
 def test_retained_catalogue_scientific_failure(case):
     assert campaign.evaluate(case, POLICY)["passed"]

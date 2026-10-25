@@ -2,6 +2,7 @@
 
 from collections.abc import Sequence
 from dataclasses import dataclass
+from fractions import Fraction
 from math import isfinite, sqrt
 
 import plotly.graph_objects as go
@@ -409,8 +410,8 @@ def calculate_trapezoid_transit_flux(
 ) -> tuple[float, ...]:
     """Calculate a simple symmetric trapezoidal transit model."""
 
-    if not isfinite(depth_ppm) or depth_ppm <= 0.0:
-        raise ValueError("Transit depth must be a positive finite value.")
+    if not isfinite(depth_ppm) or not 0.0 < depth_ppm <= 1_000_000.0:
+        raise ValueError("Transit depth must be finite and in (0, 1000000] ppm.")
 
     if not isfinite(duration_hours) or duration_hours <= 0.0:
         raise ValueError("Transit duration must be a positive finite value.")
@@ -418,28 +419,28 @@ def calculate_trapezoid_transit_flux(
     if not isfinite(ingress_fraction) or not 0.0 < ingress_fraction < 0.5:
         raise ValueError("Ingress fraction must be greater than 0 and below 0.5.")
 
-    half_duration = duration_hours / 2.0
-    ingress_duration = duration_hours * ingress_fraction
+    half_duration = Fraction(duration_hours) / 2
+    ingress_duration = Fraction(duration_hours) * Fraction(ingress_fraction)
 
     flat_half_duration = half_duration - ingress_duration
 
-    fractional_depth = depth_ppm / 1_000_000.0
+    fractional_depth = Fraction(depth_ppm) / 1_000_000
     flux_values: list[float] = []
 
     for time_value in time_hours:
         if not isfinite(time_value):
             raise ValueError("Transit times must be finite.")
 
-        absolute_time = abs(time_value)
+        absolute_time = abs(Fraction(time_value))
 
         if absolute_time >= half_duration:
-            depth_scale = 0.0
+            depth_scale = 0
         elif absolute_time <= flat_half_duration:
-            depth_scale = 1.0
+            depth_scale = 1
         else:
             depth_scale = (half_duration - absolute_time) / ingress_duration
 
-        flux_values.append(1.0 - fractional_depth * depth_scale)
+        flux_values.append(float(1 - fractional_depth * depth_scale))
 
     return tuple(flux_values)
 
@@ -461,13 +462,16 @@ def create_transit_simulation_figure(
     ):
         raise ValueError("Transit sample count must be between 51 and 5001.")
 
-    display_half_width = duration_hours * 0.9
     interval_count = sample_count - 1
 
     time_values = tuple(
-        -display_half_width + (2.0 * display_half_width * index / interval_count)
-        for index in range(sample_count)
+        (1.8 * index / interval_count - 0.9) * duration_hours for index in range(sample_count)
     )
+
+    if any(not isfinite(t) for t in time_values) or any(
+        a >= b for a, b in zip(time_values[:-1], time_values[1:], strict=True)
+    ):
+        raise ValueError("Transit duration cannot form a finite resolved plotting grid.")
 
     flux_values = calculate_trapezoid_transit_flux(
         time_values,

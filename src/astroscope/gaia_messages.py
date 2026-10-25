@@ -3,6 +3,39 @@
 from typing import Final
 
 GAIA_TRANSLATIONS: Final[dict[str, dict[str, str]]] = {
+    "gaia_projection_domain": {
+        "en": (
+            "Local sky chart: center |Dec| ≤ "
+            "60° and source separation ≤ 0.25"
+            "°. The small-field approximation"
+            " has a conservative geometric er"
+            "ror below 10 arcsec in this doma"
+            "in. Wider or polar fields remain"
+            " available in the other catalogu"
+            "e views."
+        ),
+        "ja": (
+            "局所星図は中心の |赤緯| ≤ 60°、天体までの角距離 ≤ 0"
+            ".25° に対応します。この範囲の小視野近似の幾何学的誤差上限は"
+            "10秒角未満です。広い視野や極付近は他のカタログ表示で確認できま"
+            "す。"
+        ),
+        "ko": (
+            "국소 하늘 차트는 중심 |적위| ≤ 60°, 천체 각거리 "
+            "≤ 0.25° 범위를 지원합니다. 이 범위에서 작은 시야 "
+            "근사의 보수적 기하 오차는 10각초 미만입니다. 넓은 시야"
+            "와 극 부근은 다른 목록 보기에서 확인할 수 있습니다."
+        ),
+        "th": (
+            "แผนที่ท้องฟ้าเฉพาะที่รองรับ |เดค"
+            "ลิเนชันศูนย์กลาง| ≤ 60° และระยะเ"
+            "ชิงมุมของวัตถุ ≤ 0.25° โดยขอบเขต"
+            "ความคลาดเคลื่อนทางเรขาคณิตของการ"
+            "ประมาณนี้ต่ำกว่า 10 พิลิปดา มุมก"
+            "ว้างหรือบริเวณขั้วดูได้ในมุมมองร"
+            "ายการอื่น"
+        ),
+    },
     "gaia_section": {
         "en": "Gaia DR3 stellar catalogue explorer",
         "ja": "Gaia DR3恒星カタログ探索",

@@ -623,7 +623,7 @@ def _render_transit_simulator(
         selected_planet.transit_depth_ppm
         if (
             selected_planet.transit_depth_ppm is not None
-            and selected_planet.transit_depth_ppm > 0.0
+            and 0.1 <= selected_planet.transit_depth_ppm <= 1_000_000.0
         )
         else 1000.0
     )
@@ -824,6 +824,7 @@ def _render_planet_inspector(
             language,
         )
     )
+    st.caption(_t("exoplanet_convention_note", language))
 
 
 def _render_export(

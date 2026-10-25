@@ -16,10 +16,12 @@ from decimal import Decimal
 from io import StringIO
 from pathlib import Path
 
-from astroscope import exoplanet_catalog as exo
-from astroscope import gaia_catalog as gaia
-from astroscope.exoplanet_visuals import calculate_trapezoid_transit_flux
-from astroscope.gaia_visuals import calculate_local_offsets_deg
+from validation.historical.mission60_catalogue import exoplanet_catalog as exo
+from validation.historical.mission60_catalogue import gaia_catalog as gaia
+from validation.historical.mission60_catalogue.exoplanet_visuals import (
+    calculate_trapezoid_transit_flux,
+)
+from validation.historical.mission60_catalogue.gaia_visuals import calculate_local_offsets_deg
 
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURE = "validation/fixtures/catalogue_quantities_v1.json"
@@ -28,10 +30,10 @@ MANIFEST = "validation/manifests/catalogue_quantities_v2.json"
 AMENDMENT = "validation/fixtures/catalogue_binary_inputs_v2.json"
 OBSERVATIONS = "validation/fixtures/catalogue_quantities_observed_v1.json"
 SOURCE_PATHS = [
-    "src/astroscope/gaia_catalog.py",
-    "src/astroscope/gaia_visuals.py",
-    "src/astroscope/exoplanet_catalog.py",
-    "src/astroscope/exoplanet_visuals.py",
+    "validation/historical/mission60_catalogue/gaia_catalog.py",
+    "validation/historical/mission60_catalogue/gaia_visuals.py",
+    "validation/historical/mission60_catalogue/exoplanet_catalog.py",
+    "validation/historical/mission60_catalogue/exoplanet_visuals.py",
     "validation/catalogue_quantities.py",
 ]
 
@@ -196,10 +198,10 @@ def assess(case, actual, exception, policy):
     return matches(actual, case["expected"], atol=atol, rtol=rtol)
 
 
-def evaluate(case, policy):
+def evaluate(case, policy, *, evaluator=None):
     actual, exception = None, None
     try:
-        actual = call_production(case)
+        actual = (evaluator or call_production)(case)
     except (ValueError, OverflowError, ZeroDivisionError, TypeError) as error:
         exception = type(error)
     row = {
@@ -252,6 +254,7 @@ def run_benchmark():
     rows = [evaluate(c, policy) for c in fixture["cases"]]
     return {
         "mission": 60,
+        "execution_target": "isolated historical Mission 60; not current production",
         "executed_at_utc": datetime.now(UTC).isoformat(),
         "case_count": len(rows),
         "failed_cases": sum(not r["passed"] for r in rows),
@@ -287,6 +290,27 @@ def run_benchmark():
     }
 
 
+def verify_retained_sources(expected):
+    manifest = json.loads(
+        (ROOT / "validation/manifests/mission60_retained_sources_v1.json").read_text()
+    )
+    if set(expected) != set(manifest["files"]):
+        return False
+    for path, digest in expected.items():
+        entry = manifest["files"][path]
+        raw = (ROOT / entry["retained_path"]).read_bytes()
+        restored = raw.replace(
+            b"from validation.historical.mission60_catalogue.", b"from astroscope."
+        )
+        if (
+            sha(ROOT / entry["retained_path"]) != entry["retained_sha256"]
+            or hashlib.sha256(restored).hexdigest() != digest
+            or digest != entry["original_sha256"]
+        ):
+            return False
+    return True
+
+
 def audit_observations(result):
     """Compare ALL successes, failures and diagnostics to one observed baseline.
 
@@ -297,9 +321,7 @@ def audit_observations(result):
     passed = matches(current, baseline["observations"], atol=2e-9, rtol=2e-12)
     expected_inputs = baseline["input_sha256"]
     passed = passed and all(sha(ROOT / p) == h for p, h in expected_inputs.items())
-    passed = passed and all(
-        sha(ROOT / p) == h for p, h in baseline["production_source_sha256"].items()
-    )
+    passed = passed and verify_retained_sources(baseline["production_source_sha256"])
     return {
         "passed": passed,
         "baseline_sha256": sha(ROOT / OBSERVATIONS),

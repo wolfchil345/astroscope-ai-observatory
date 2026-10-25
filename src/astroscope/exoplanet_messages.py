@@ -3,6 +3,47 @@
 from typing import Final
 
 EXOPLANET_TRANSLATIONS: Final[dict[str, dict[str, str]]] = {
+    "exoplanet_convention_note": {
+        "en": (
+            "Calculations assume IAU nominal "
+            "Earth/Sun radii and a spherical "
+            "planet with Earth mass GM/G (COD"
+            "ATA 2018 G). Archive input conve"
+            "ntions are unqualified; density "
+            "is not measured Earth density. D"
+            "epth requires a planet no larger"
+            " than its star; circular probabi"
+            "lity requires an exterior orbit."
+            " Unsupported results are unknown"
+            "."
+        ),
+        "ja": (
+            "計算はIAU公称の地球・太陽半径と球形惑星、地球質量 GM/G（"
+            "CODATA 2018のG）を仮定します。入力値の規約は未検証で"
+            "、密度は地球の実測密度ではありません。減光率は惑星半径が恒星以下"
+            "、円軌道確率は外部軌道の場合のみ計算し、範囲外は不明とします。"
+        ),
+        "ko": (
+            "계산은 IAU 공칭 지구·태양 반지름, 구형 행성 및 지구"
+            " 질량 GM/G(CODATA 2018 G)를 가정합니다. "
+            "입력 규약은 검증되지 않았으며 밀도는 지구의 측정 밀도가 "
+            "아닙니다. 깊이는 행성이 별보다 크지 않을 때, 원궤도 확"
+            "률은 외부 궤도일 때만 계산하며 범위 밖은 알 수 없음으로"
+            " 표시합니다."
+        ),
+        "th": (
+            "การคำนวณสมมติรัศมีโลกและดวงอาทิต"
+            "ย์ตามค่ามาตรฐาน IAU ดาวเคราะห์ทร"
+            "งกลม และมวลโลก GM/G (G จาก CODAT"
+            "A 2018) ยังไม่รับรองข้อตกลงของข้"
+            "อมูลต้นทาง ความหนาแน่นไม่ใช่ค่าท"
+            "ี่วัดได้ของโลก คำนวณความลึกเมื่อ"
+            "ดาวเคราะห์ไม่ใหญ่กว่าดาวฤกษ์ และ"
+            "ความน่าจะเป็นวงโคจรวงกลมเมื่อวงโ"
+            "คจรอยู่ภายนอกเท่านั้น กรณีนอกขอบ"
+            "เขตจะแสดงว่าไม่ทราบ"
+        ),
+    },
     "exoplanet_title": {
         "en": "NASA Exoplanet Transit Explorer",
         "ja": "NASA系外惑星トランジット・エクスプローラー",
