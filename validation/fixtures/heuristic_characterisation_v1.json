@@ -1,0 +1,4923 @@
+{
+  "cases": [
+    {
+      "expected": "0",
+      "family": "planner_altitude",
+      "id": "planner_altitude-0000",
+      "inputs": [
+        -90
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "planner_altitude",
+      "id": "planner_altitude-0001",
+      "inputs": [
+        -1
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "planner_altitude",
+      "id": "planner_altitude-0002",
+      "inputs": [
+        0
+      ]
+    },
+    {
+      "expected": "0.000599999999999999999999999999999999999999999999999999999999998",
+      "family": "planner_altitude",
+      "id": "planner_altitude-0003",
+      "inputs": [
+        0.001
+      ]
+    },
+    {
+      "expected": "12.0000000000000000000000000000000000000000000000000000000000",
+      "family": "planner_altitude",
+      "id": "planner_altitude-0004",
+      "inputs": [
+        20
+      ]
+    },
+    {
+      "expected": "27.0",
+      "family": "planner_altitude",
+      "id": "planner_altitude-0005",
+      "inputs": [
+        45
+      ]
+    },
+    {
+      "expected": "44.9994000000000000000000000000000000000000000000000000000000",
+      "family": "planner_altitude",
+      "id": "planner_altitude-0006",
+      "inputs": [
+        74.999
+      ]
+    },
+    {
+      "expected": "45",
+      "family": "planner_altitude",
+      "id": "planner_altitude-0007",
+      "inputs": [
+        75
+      ]
+    },
+    {
+      "expected": "45",
+      "family": "planner_altitude",
+      "id": "planner_altitude-0008",
+      "inputs": [
+        75.001
+      ]
+    },
+    {
+      "expected": "45",
+      "family": "planner_altitude",
+      "id": "planner_altitude-0009",
+      "inputs": [
+        90
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "planner_airmass",
+      "id": "planner_airmass-0010",
+      "inputs": [
+        null
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_airmass",
+      "id": "planner_airmass-0011",
+      "inputs": [
+        0.5
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_airmass",
+      "id": "planner_airmass-0012",
+      "inputs": [
+        1
+      ]
+    },
+    {
+      "expected": "19.9900",
+      "family": "planner_airmass",
+      "id": "planner_airmass-0013",
+      "inputs": [
+        1.001
+      ]
+    },
+    {
+      "expected": "10.0",
+      "family": "planner_airmass",
+      "id": "planner_airmass-0014",
+      "inputs": [
+        2
+      ]
+    },
+    {
+      "expected": "0.0100",
+      "family": "planner_airmass",
+      "id": "planner_airmass-0015",
+      "inputs": [
+        2.999
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "planner_airmass",
+      "id": "planner_airmass-0016",
+      "inputs": [
+        3
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "planner_airmass",
+      "id": "planner_airmass-0017",
+      "inputs": [
+        3.001
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "planner_airmass",
+      "id": "planner_airmass-0018",
+      "inputs": [
+        10
+      ]
+    },
+    {
+      "expected": "15",
+      "family": "planner_darkness",
+      "id": "planner_darkness-0019",
+      "inputs": [
+        -90
+      ]
+    },
+    {
+      "expected": "15",
+      "family": "planner_darkness",
+      "id": "planner_darkness-0020",
+      "inputs": [
+        -18.001
+      ]
+    },
+    {
+      "expected": "15",
+      "family": "planner_darkness",
+      "id": "planner_darkness-0021",
+      "inputs": [
+        -18
+      ]
+    },
+    {
+      "expected": "14.9991666666666666666666666666666666666666666666666666666667",
+      "family": "planner_darkness",
+      "id": "planner_darkness-0022",
+      "inputs": [
+        -17.999
+      ]
+    },
+    {
+      "expected": "7.5",
+      "family": "planner_darkness",
+      "id": "planner_darkness-0023",
+      "inputs": [
+        -9
+      ]
+    },
+    {
+      "expected": "0.000833333333333333333333333333333333333333333333333333333333334",
+      "family": "planner_darkness",
+      "id": "planner_darkness-0024",
+      "inputs": [
+        -0.001
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "planner_darkness",
+      "id": "planner_darkness-0025",
+      "inputs": [
+        0
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "planner_darkness",
+      "id": "planner_darkness-0026",
+      "inputs": [
+        0.001
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "planner_darkness",
+      "id": "planner_darkness-0027",
+      "inputs": [
+        90
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "planner_moon",
+      "id": "planner_moon-0028",
+      "inputs": [
+        0,
+        0,
+        false
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0029",
+      "inputs": [
+        0,
+        0,
+        true
+      ]
+    },
+    {
+      "expected": "0.000222222222222222222222222222222222222222222222222222222222222",
+      "family": "planner_moon",
+      "id": "planner_moon-0030",
+      "inputs": [
+        0.001,
+        0,
+        false
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0031",
+      "inputs": [
+        0.001,
+        0,
+        true
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0032",
+      "inputs": [
+        90,
+        0,
+        false
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0033",
+      "inputs": [
+        90,
+        0,
+        true
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0034",
+      "inputs": [
+        180,
+        0,
+        false
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0035",
+      "inputs": [
+        180,
+        0,
+        true
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "planner_moon",
+      "id": "planner_moon-0036",
+      "inputs": [
+        0,
+        30,
+        false
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0037",
+      "inputs": [
+        0,
+        30,
+        true
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "planner_moon",
+      "id": "planner_moon-0038",
+      "inputs": [
+        30,
+        30,
+        false
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0039",
+      "inputs": [
+        30,
+        30,
+        true
+      ]
+    },
+    {
+      "expected": "0.000333333333333333333333333333333333333333333333333333333333334",
+      "family": "planner_moon",
+      "id": "planner_moon-0040",
+      "inputs": [
+        30.001,
+        30,
+        false
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0041",
+      "inputs": [
+        30.001,
+        30,
+        true
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0042",
+      "inputs": [
+        90,
+        30,
+        false
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0043",
+      "inputs": [
+        90,
+        30,
+        true
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0044",
+      "inputs": [
+        180,
+        30,
+        false
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0045",
+      "inputs": [
+        180,
+        30,
+        true
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "planner_moon",
+      "id": "planner_moon-0046",
+      "inputs": [
+        0,
+        89.999,
+        false
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0047",
+      "inputs": [
+        0,
+        89.999,
+        true
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "planner_moon",
+      "id": "planner_moon-0048",
+      "inputs": [
+        89.999,
+        89.999,
+        false
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0049",
+      "inputs": [
+        89.999,
+        89.999,
+        true
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0050",
+      "inputs": [
+        90.0,
+        89.999,
+        false
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0051",
+      "inputs": [
+        90.0,
+        89.999,
+        true
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0052",
+      "inputs": [
+        180,
+        89.999,
+        false
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0053",
+      "inputs": [
+        180,
+        89.999,
+        true
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "planner_moon",
+      "id": "planner_moon-0054",
+      "inputs": [
+        0,
+        90,
+        false
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0055",
+      "inputs": [
+        0,
+        90,
+        true
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "planner_moon",
+      "id": "planner_moon-0056",
+      "inputs": [
+        90,
+        90,
+        false
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0057",
+      "inputs": [
+        90,
+        90,
+        true
+      ]
+    },
+    {
+      "expected": "0.000222222222222222222222222222222222222222222222222222222222222",
+      "family": "planner_moon",
+      "id": "planner_moon-0058",
+      "inputs": [
+        90.001,
+        90,
+        false
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0059",
+      "inputs": [
+        90.001,
+        90,
+        true
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0060",
+      "inputs": [
+        180,
+        90,
+        false
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0061",
+      "inputs": [
+        180,
+        90,
+        true
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "planner_moon",
+      "id": "planner_moon-0062",
+      "inputs": [
+        0,
+        179.999,
+        false
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0063",
+      "inputs": [
+        0,
+        179.999,
+        true
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "planner_moon",
+      "id": "planner_moon-0064",
+      "inputs": [
+        90,
+        179.999,
+        false
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0065",
+      "inputs": [
+        90,
+        179.999,
+        true
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "planner_moon",
+      "id": "planner_moon-0066",
+      "inputs": [
+        179.999,
+        179.999,
+        false
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0067",
+      "inputs": [
+        179.999,
+        179.999,
+        true
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0068",
+      "inputs": [
+        180,
+        179.999,
+        false
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0069",
+      "inputs": [
+        180,
+        179.999,
+        true
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "planner_moon",
+      "id": "planner_moon-0070",
+      "inputs": [
+        0,
+        180,
+        false
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0071",
+      "inputs": [
+        0,
+        180,
+        true
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "planner_moon",
+      "id": "planner_moon-0072",
+      "inputs": [
+        90,
+        180,
+        false
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0073",
+      "inputs": [
+        90,
+        180,
+        true
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0074",
+      "inputs": [
+        180,
+        180,
+        false
+      ]
+    },
+    {
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0075",
+      "inputs": [
+        180,
+        180,
+        true
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "rank_altitude",
+      "id": "rank_altitude-0076",
+      "inputs": [
+        -90
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "rank_altitude",
+      "id": "rank_altitude-0077",
+      "inputs": [
+        0
+      ]
+    },
+    {
+      "expected": "0.0000111111111111111111111111111111111111111111111111111111111111",
+      "family": "rank_altitude",
+      "id": "rank_altitude-0078",
+      "inputs": [
+        0.001
+      ]
+    },
+    {
+      "expected": "0.5",
+      "family": "rank_altitude",
+      "id": "rank_altitude-0079",
+      "inputs": [
+        45
+      ]
+    },
+    {
+      "expected": "0.999988888888888888888888888888888888888888888888888888888889",
+      "family": "rank_altitude",
+      "id": "rank_altitude-0080",
+      "inputs": [
+        89.999
+      ]
+    },
+    {
+      "expected": "1",
+      "family": "rank_altitude",
+      "id": "rank_altitude-0081",
+      "inputs": [
+        90
+      ]
+    },
+    {
+      "expected": "1",
+      "family": "rank_altitude",
+      "id": "rank_altitude-0082",
+      "inputs": [
+        100
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "rank_moon",
+      "id": "rank_moon-0083",
+      "inputs": [
+        0
+      ]
+    },
+    {
+      "expected": "0.0000111111111111111111111111111111111111111111111111111111111111",
+      "family": "rank_moon",
+      "id": "rank_moon-0084",
+      "inputs": [
+        0.001
+      ]
+    },
+    {
+      "expected": "0.5",
+      "family": "rank_moon",
+      "id": "rank_moon-0085",
+      "inputs": [
+        45
+      ]
+    },
+    {
+      "expected": "0.999988888888888888888888888888888888888888888888888888888889",
+      "family": "rank_moon",
+      "id": "rank_moon-0086",
+      "inputs": [
+        89.999
+      ]
+    },
+    {
+      "expected": "1",
+      "family": "rank_moon",
+      "id": "rank_moon-0087",
+      "inputs": [
+        90
+      ]
+    },
+    {
+      "expected": "1",
+      "family": "rank_moon",
+      "id": "rank_moon-0088",
+      "inputs": [
+        90.001
+      ]
+    },
+    {
+      "expected": "1",
+      "family": "rank_moon",
+      "id": "rank_moon-0089",
+      "inputs": [
+        180
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "rank_depth",
+      "id": "rank_depth-0090",
+      "inputs": [
+        0
+      ]
+    },
+    {
+      "expected": "0.0752566818678054890436998899260908947651032378014306595879991",
+      "family": "rank_depth",
+      "id": "rank_depth-0091",
+      "inputs": [
+        1
+      ]
+    },
+    {
+      "expected": "0.501074903366021290658605798564449006703175248818508547107619",
+      "family": "rank_depth",
+      "id": "rank_depth-0092",
+      "inputs": [
+        100
+      ]
+    },
+    {
+      "expected": "0.750100375665657453914981132775825519821334330908372520547496",
+      "family": "rank_depth",
+      "id": "rank_depth-0093",
+      "inputs": [
+        1000
+      ]
+    },
+    {
+      "expected": "0.999999989143840900657835096694332884782302649057106254989462",
+      "family": "rank_depth",
+      "id": "rank_depth-0094",
+      "inputs": [
+        9999.999
+      ]
+    },
+    {
+      "expected": "1",
+      "family": "rank_depth",
+      "id": "rank_depth-0095",
+      "inputs": [
+        10000
+      ]
+    },
+    {
+      "expected": "1",
+      "family": "rank_depth",
+      "id": "rank_depth-0096",
+      "inputs": [
+        10000.001
+      ]
+    },
+    {
+      "expected": "1",
+      "family": "rank_depth",
+      "id": "rank_depth-0097",
+      "inputs": [
+        1000000.0
+      ]
+    },
+    {
+      "expected": "1",
+      "family": "rank_timing",
+      "id": "rank_timing-0098",
+      "inputs": [
+        0
+      ]
+    },
+    {
+      "expected": "0.999500124979169270572938366505553225024726223024869084435858",
+      "family": "rank_timing",
+      "id": "rank_timing-0099",
+      "inputs": [
+        0.001
+      ]
+    },
+    {
+      "expected": "0.606530659712633423603799534991180453441918135487186955682892",
+      "family": "rank_timing",
+      "id": "rank_timing-0100",
+      "inputs": [
+        1
+      ]
+    },
+    {
+      "expected": "0.367879441171442321595523770161460867445811131031767834507837",
+      "family": "rank_timing",
+      "id": "rank_timing-0101",
+      "inputs": [
+        2
+      ]
+    },
+    {
+      "expected": "0.135335283236612691893999494972484403407631545909575881468159",
+      "family": "rank_timing",
+      "id": "rank_timing-0102",
+      "inputs": [
+        4
+      ]
+    },
+    {
+      "expected": "0.0000453999297624848515355915155605506102379180888665649692590713",
+      "family": "rank_timing",
+      "id": "rank_timing-0103",
+      "inputs": [
+        20
+      ]
+    },
+    {
+      "expected": "1.92874984796391778301734281652701257475283265123026291089781E-22",
+      "family": "rank_timing",
+      "id": "rank_timing-0104",
+      "inputs": [
+        100
+      ]
+    },
+    {
+      "expected": "5.07595889754945676529180947957433691930559928289283736183239E-435",
+      "family": "rank_timing",
+      "id": "rank_timing-0105",
+      "inputs": [
+        2000
+      ]
+    },
+    {
+      "expected": "1",
+      "family": "rank_brightness",
+      "id": "rank_brightness-0106",
+      "inputs": [
+        -5
+      ]
+    },
+    {
+      "expected": "1",
+      "family": "rank_brightness",
+      "id": "rank_brightness-0107",
+      "inputs": [
+        4.999
+      ]
+    },
+    {
+      "expected": "1",
+      "family": "rank_brightness",
+      "id": "rank_brightness-0108",
+      "inputs": [
+        5
+      ]
+    },
+    {
+      "expected": "0.999909090909090909090909090909090909090909090909090909090909",
+      "family": "rank_brightness",
+      "id": "rank_brightness-0109",
+      "inputs": [
+        5.001
+      ]
+    },
+    {
+      "expected": "0.5",
+      "family": "rank_brightness",
+      "id": "rank_brightness-0110",
+      "inputs": [
+        10.5
+      ]
+    },
+    {
+      "expected": "0.0000909090909090909090909090909090909090909090909090909090909091",
+      "family": "rank_brightness",
+      "id": "rank_brightness-0111",
+      "inputs": [
+        15.999
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "rank_brightness",
+      "id": "rank_brightness-0112",
+      "inputs": [
+        16
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "rank_brightness",
+      "id": "rank_brightness-0113",
+      "inputs": [
+        16.001
+      ]
+    },
+    {
+      "expected": "0",
+      "family": "rank_brightness",
+      "id": "rank_brightness-0114",
+      "inputs": [
+        25
+      ]
+    },
+    {
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0115",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "90.0",
+      "family": "weather",
+      "id": "weather-0116",
+      "inputs": {
+        "cloud_cover_percent": 25,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "80.0",
+      "family": "weather",
+      "id": "weather-0117",
+      "inputs": {
+        "cloud_cover_percent": 50,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "70.0",
+      "family": "weather",
+      "id": "weather-0118",
+      "inputs": {
+        "cloud_cover_percent": 75,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "60.0",
+      "family": "weather",
+      "id": "weather-0119",
+      "inputs": {
+        "cloud_cover_percent": 100,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0120",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "93.8",
+      "family": "weather",
+      "id": "weather-0121",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 25,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "87.5",
+      "family": "weather",
+      "id": "weather-0122",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 50,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "81.2",
+      "family": "weather",
+      "id": "weather-0123",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 75,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "75.0",
+      "family": "weather",
+      "id": "weather-0124",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 100,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0125",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0126",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0.499,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "25.0",
+      "family": "weather",
+      "id": "weather-0127",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0.5,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "25.0",
+      "family": "weather",
+      "id": "weather-0128",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0.501,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "25.0",
+      "family": "weather",
+      "id": "weather-0129",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 10,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "85.0",
+      "family": "weather",
+      "id": "weather-0130",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 0,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "92.5",
+      "family": "weather",
+      "id": "weather-0131",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 10000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0132",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 19999.999,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0133",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0134",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000.001,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0135",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 1000000.0,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0136",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 0,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0137",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 59.999,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0138",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0139",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60.001,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "94.3",
+      "family": "weather",
+      "id": "weather-0140",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 80,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "90.0",
+      "family": "weather",
+      "id": "weather-0141",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 94.999,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "90.0",
+      "family": "weather",
+      "id": "weather-0142",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 95,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "90.0",
+      "family": "weather",
+      "id": "weather-0143",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 95.001,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "90.0",
+      "family": "weather",
+      "id": "weather-0144",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 100,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0145",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 0
+      }
+    },
+    {
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0146",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 9.999
+      }
+    },
+    {
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0147",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0148",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10.001
+      }
+    },
+    {
+      "expected": "95.0",
+      "family": "weather",
+      "id": "weather-0149",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 25
+      }
+    },
+    {
+      "expected": "90.0",
+      "family": "weather",
+      "id": "weather-0150",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 39.999
+      }
+    },
+    {
+      "expected": "90.0",
+      "family": "weather",
+      "id": "weather-0151",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 40
+      }
+    },
+    {
+      "expected": "90.0",
+      "family": "weather",
+      "id": "weather-0152",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 40.001
+      }
+    },
+    {
+      "expected": "90.0",
+      "family": "weather",
+      "id": "weather-0153",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 100
+      }
+    },
+    {
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0154",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0155",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 59.999,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "20.0",
+      "family": "weather",
+      "id": "weather-0156",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 60,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "20.0",
+      "family": "weather",
+      "id": "weather-0157",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 60.001,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "20.0",
+      "family": "weather",
+      "id": "weather-0158",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 100,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0159",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "60.0",
+      "family": "weather",
+      "id": "weather-0160",
+      "inputs": {
+        "cloud_cover_percent": 100,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "20.0",
+      "family": "weather",
+      "id": "weather-0161",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 60,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "20.0",
+      "family": "weather",
+      "id": "weather-0162",
+      "inputs": {
+        "cloud_cover_percent": 100,
+        "precipitation_mm": 0,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 60,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "25.0",
+      "family": "weather",
+      "id": "weather-0163",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0.5,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "25.0",
+      "family": "weather",
+      "id": "weather-0164",
+      "inputs": {
+        "cloud_cover_percent": 100,
+        "precipitation_mm": 0.5,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 0,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "20.0",
+      "family": "weather",
+      "id": "weather-0165",
+      "inputs": {
+        "cloud_cover_percent": 0,
+        "precipitation_mm": 0.5,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 60,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "20.0",
+      "family": "weather",
+      "id": "weather-0166",
+      "inputs": {
+        "cloud_cover_percent": 100,
+        "precipitation_mm": 0.5,
+        "precipitation_probability_percent": 0,
+        "relative_humidity_percent": 60,
+        "visibility_m": 20000,
+        "wind_gusts_kmh": 60,
+        "wind_speed_kmh": 10
+      }
+    },
+    {
+      "expected": "poor",
+      "family": "planner_rating",
+      "id": "planner_rating-0167",
+      "inputs": [
+        0
+      ]
+    },
+    {
+      "expected": "excellent",
+      "family": "planner_rating",
+      "id": "planner_rating-0168",
+      "inputs": [
+        100
+      ]
+    },
+    {
+      "expected": "poor",
+      "family": "planner_rating",
+      "id": "planner_rating-0169",
+      "inputs": [
+        34.999
+      ]
+    },
+    {
+      "expected": "fair",
+      "family": "planner_rating",
+      "id": "planner_rating-0170",
+      "inputs": [
+        35
+      ]
+    },
+    {
+      "expected": "fair",
+      "family": "planner_rating",
+      "id": "planner_rating-0171",
+      "inputs": [
+        35.001
+      ]
+    },
+    {
+      "expected": "fair",
+      "family": "planner_rating",
+      "id": "planner_rating-0172",
+      "inputs": [
+        49.999
+      ]
+    },
+    {
+      "expected": "good",
+      "family": "planner_rating",
+      "id": "planner_rating-0173",
+      "inputs": [
+        50
+      ]
+    },
+    {
+      "expected": "good",
+      "family": "planner_rating",
+      "id": "planner_rating-0174",
+      "inputs": [
+        50.001
+      ]
+    },
+    {
+      "expected": "good",
+      "family": "planner_rating",
+      "id": "planner_rating-0175",
+      "inputs": [
+        64.999
+      ]
+    },
+    {
+      "expected": "very_good",
+      "family": "planner_rating",
+      "id": "planner_rating-0176",
+      "inputs": [
+        65
+      ]
+    },
+    {
+      "expected": "very_good",
+      "family": "planner_rating",
+      "id": "planner_rating-0177",
+      "inputs": [
+        65.001
+      ]
+    },
+    {
+      "expected": "very_good",
+      "family": "planner_rating",
+      "id": "planner_rating-0178",
+      "inputs": [
+        79.999
+      ]
+    },
+    {
+      "expected": "excellent",
+      "family": "planner_rating",
+      "id": "planner_rating-0179",
+      "inputs": [
+        80
+      ]
+    },
+    {
+      "expected": "excellent",
+      "family": "planner_rating",
+      "id": "planner_rating-0180",
+      "inputs": [
+        80.001
+      ]
+    },
+    {
+      "expected": "unsuitable",
+      "family": "weather_rating",
+      "id": "weather_rating-0181",
+      "inputs": [
+        0
+      ]
+    },
+    {
+      "expected": "excellent",
+      "family": "weather_rating",
+      "id": "weather_rating-0182",
+      "inputs": [
+        100
+      ]
+    },
+    {
+      "expected": "unsuitable",
+      "family": "weather_rating",
+      "id": "weather_rating-0183",
+      "inputs": [
+        29.999
+      ]
+    },
+    {
+      "expected": "poor",
+      "family": "weather_rating",
+      "id": "weather_rating-0184",
+      "inputs": [
+        30
+      ]
+    },
+    {
+      "expected": "poor",
+      "family": "weather_rating",
+      "id": "weather_rating-0185",
+      "inputs": [
+        30.001
+      ]
+    },
+    {
+      "expected": "poor",
+      "family": "weather_rating",
+      "id": "weather_rating-0186",
+      "inputs": [
+        49.999
+      ]
+    },
+    {
+      "expected": "fair",
+      "family": "weather_rating",
+      "id": "weather_rating-0187",
+      "inputs": [
+        50
+      ]
+    },
+    {
+      "expected": "fair",
+      "family": "weather_rating",
+      "id": "weather_rating-0188",
+      "inputs": [
+        50.001
+      ]
+    },
+    {
+      "expected": "fair",
+      "family": "weather_rating",
+      "id": "weather_rating-0189",
+      "inputs": [
+        64.999
+      ]
+    },
+    {
+      "expected": "good",
+      "family": "weather_rating",
+      "id": "weather_rating-0190",
+      "inputs": [
+        65
+      ]
+    },
+    {
+      "expected": "good",
+      "family": "weather_rating",
+      "id": "weather_rating-0191",
+      "inputs": [
+        65.001
+      ]
+    },
+    {
+      "expected": "good",
+      "family": "weather_rating",
+      "id": "weather_rating-0192",
+      "inputs": [
+        79.999
+      ]
+    },
+    {
+      "expected": "excellent",
+      "family": "weather_rating",
+      "id": "weather_rating-0193",
+      "inputs": [
+        80
+      ]
+    },
+    {
+      "expected": "excellent",
+      "family": "weather_rating",
+      "id": "weather_rating-0194",
+      "inputs": [
+        80.001
+      ]
+    },
+    {
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0195",
+      "inputs": [
+        0.999,
+        0,
+        79.999
+      ]
+    },
+    {
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0196",
+      "inputs": [
+        0.999,
+        0,
+        80
+      ]
+    },
+    {
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0197",
+      "inputs": [
+        0.999,
+        0,
+        89.999
+      ]
+    },
+    {
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0198",
+      "inputs": [
+        0.999,
+        0,
+        90
+      ]
+    },
+    {
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0199",
+      "inputs": [
+        0.999,
+        0,
+        94.999
+      ]
+    },
+    {
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0200",
+      "inputs": [
+        0.999,
+        0,
+        95
+      ]
+    },
+    {
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0201",
+      "inputs": [
+        1,
+        0,
+        79.999
+      ]
+    },
+    {
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0202",
+      "inputs": [
+        1,
+        0,
+        80
+      ]
+    },
+    {
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0203",
+      "inputs": [
+        1,
+        0,
+        89.999
+      ]
+    },
+    {
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0204",
+      "inputs": [
+        1,
+        0,
+        90
+      ]
+    },
+    {
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0205",
+      "inputs": [
+        1,
+        0,
+        94.999
+      ]
+    },
+    {
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0206",
+      "inputs": [
+        1,
+        0,
+        95
+      ]
+    },
+    {
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0207",
+      "inputs": [
+        1.001,
+        0,
+        79.999
+      ]
+    },
+    {
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0208",
+      "inputs": [
+        1.001,
+        0,
+        80
+      ]
+    },
+    {
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0209",
+      "inputs": [
+        1.001,
+        0,
+        89.999
+      ]
+    },
+    {
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0210",
+      "inputs": [
+        1.001,
+        0,
+        90
+      ]
+    },
+    {
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0211",
+      "inputs": [
+        1.001,
+        0,
+        94.999
+      ]
+    },
+    {
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0212",
+      "inputs": [
+        1.001,
+        0,
+        95
+      ]
+    },
+    {
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0213",
+      "inputs": [
+        2.499,
+        0,
+        79.999
+      ]
+    },
+    {
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0214",
+      "inputs": [
+        2.499,
+        0,
+        80
+      ]
+    },
+    {
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0215",
+      "inputs": [
+        2.499,
+        0,
+        89.999
+      ]
+    },
+    {
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0216",
+      "inputs": [
+        2.499,
+        0,
+        90
+      ]
+    },
+    {
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0217",
+      "inputs": [
+        2.499,
+        0,
+        94.999
+      ]
+    },
+    {
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0218",
+      "inputs": [
+        2.499,
+        0,
+        95
+      ]
+    },
+    {
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0219",
+      "inputs": [
+        2.5,
+        0,
+        79.999
+      ]
+    },
+    {
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0220",
+      "inputs": [
+        2.5,
+        0,
+        80
+      ]
+    },
+    {
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0221",
+      "inputs": [
+        2.5,
+        0,
+        89.999
+      ]
+    },
+    {
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0222",
+      "inputs": [
+        2.5,
+        0,
+        90
+      ]
+    },
+    {
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0223",
+      "inputs": [
+        2.5,
+        0,
+        94.999
+      ]
+    },
+    {
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0224",
+      "inputs": [
+        2.5,
+        0,
+        95
+      ]
+    },
+    {
+      "expected": "moderate",
+      "family": "dew",
+      "id": "dew-0225",
+      "inputs": [
+        2.501,
+        0,
+        79.999
+      ]
+    },
+    {
+      "expected": "moderate",
+      "family": "dew",
+      "id": "dew-0226",
+      "inputs": [
+        2.501,
+        0,
+        80
+      ]
+    },
+    {
+      "expected": "moderate",
+      "family": "dew",
+      "id": "dew-0227",
+      "inputs": [
+        2.501,
+        0,
+        89.999
+      ]
+    },
+    {
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0228",
+      "inputs": [
+        2.501,
+        0,
+        90
+      ]
+    },
+    {
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0229",
+      "inputs": [
+        2.501,
+        0,
+        94.999
+      ]
+    },
+    {
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0230",
+      "inputs": [
+        2.501,
+        0,
+        95
+      ]
+    },
+    {
+      "expected": "moderate",
+      "family": "dew",
+      "id": "dew-0231",
+      "inputs": [
+        4.999,
+        0,
+        79.999
+      ]
+    },
+    {
+      "expected": "moderate",
+      "family": "dew",
+      "id": "dew-0232",
+      "inputs": [
+        4.999,
+        0,
+        80
+      ]
+    },
+    {
+      "expected": "moderate",
+      "family": "dew",
+      "id": "dew-0233",
+      "inputs": [
+        4.999,
+        0,
+        89.999
+      ]
+    },
+    {
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0234",
+      "inputs": [
+        4.999,
+        0,
+        90
+      ]
+    },
+    {
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0235",
+      "inputs": [
+        4.999,
+        0,
+        94.999
+      ]
+    },
+    {
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0236",
+      "inputs": [
+        4.999,
+        0,
+        95
+      ]
+    },
+    {
+      "expected": "moderate",
+      "family": "dew",
+      "id": "dew-0237",
+      "inputs": [
+        5,
+        0,
+        79.999
+      ]
+    },
+    {
+      "expected": "moderate",
+      "family": "dew",
+      "id": "dew-0238",
+      "inputs": [
+        5,
+        0,
+        80
+      ]
+    },
+    {
+      "expected": "moderate",
+      "family": "dew",
+      "id": "dew-0239",
+      "inputs": [
+        5,
+        0,
+        89.999
+      ]
+    },
+    {
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0240",
+      "inputs": [
+        5,
+        0,
+        90
+      ]
+    },
+    {
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0241",
+      "inputs": [
+        5,
+        0,
+        94.999
+      ]
+    },
+    {
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0242",
+      "inputs": [
+        5,
+        0,
+        95
+      ]
+    },
+    {
+      "expected": "low",
+      "family": "dew",
+      "id": "dew-0243",
+      "inputs": [
+        5.001,
+        0,
+        79.999
+      ]
+    },
+    {
+      "expected": "moderate",
+      "family": "dew",
+      "id": "dew-0244",
+      "inputs": [
+        5.001,
+        0,
+        80
+      ]
+    },
+    {
+      "expected": "moderate",
+      "family": "dew",
+      "id": "dew-0245",
+      "inputs": [
+        5.001,
+        0,
+        89.999
+      ]
+    },
+    {
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0246",
+      "inputs": [
+        5.001,
+        0,
+        90
+      ]
+    },
+    {
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0247",
+      "inputs": [
+        5.001,
+        0,
+        94.999
+      ]
+    },
+    {
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0248",
+      "inputs": [
+        5.001,
+        0,
+        95
+      ]
+    },
+    {
+      "expected": {
+        "recommended": true,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0249",
+      "inputs": {
+        "missing_airmass": false,
+        "moon": false,
+        "status": "observable",
+        "threshold": 44.5
+      }
+    },
+    {
+      "expected": {
+        "recommended": true,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0250",
+      "inputs": {
+        "missing_airmass": false,
+        "moon": false,
+        "status": "observable",
+        "threshold": 54.499
+      }
+    },
+    {
+      "expected": {
+        "recommended": true,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0251",
+      "inputs": {
+        "missing_airmass": false,
+        "moon": false,
+        "status": "observable",
+        "threshold": 54.5
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0252",
+      "inputs": {
+        "missing_airmass": false,
+        "moon": false,
+        "status": "observable",
+        "threshold": 54.501
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0253",
+      "inputs": {
+        "missing_airmass": false,
+        "moon": false,
+        "status": "observable",
+        "threshold": 64.5
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0254",
+      "inputs": {
+        "missing_airmass": false,
+        "moon": false,
+        "status": "low_altitude",
+        "threshold": 44.5
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0255",
+      "inputs": {
+        "missing_airmass": false,
+        "moon": false,
+        "status": "low_altitude",
+        "threshold": 54.499
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0256",
+      "inputs": {
+        "missing_airmass": false,
+        "moon": false,
+        "status": "low_altitude",
+        "threshold": 54.5
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0257",
+      "inputs": {
+        "missing_airmass": false,
+        "moon": false,
+        "status": "low_altitude",
+        "threshold": 54.501
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0258",
+      "inputs": {
+        "missing_airmass": false,
+        "moon": false,
+        "status": "low_altitude",
+        "threshold": 64.5
+      }
+    },
+    {
+      "expected": {
+        "recommended": true,
+        "total": "64.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0259",
+      "inputs": {
+        "missing_airmass": false,
+        "moon": true,
+        "status": "observable",
+        "threshold": 44.5
+      }
+    },
+    {
+      "expected": {
+        "recommended": true,
+        "total": "64.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0260",
+      "inputs": {
+        "missing_airmass": false,
+        "moon": true,
+        "status": "observable",
+        "threshold": 54.499
+      }
+    },
+    {
+      "expected": {
+        "recommended": true,
+        "total": "64.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0261",
+      "inputs": {
+        "missing_airmass": false,
+        "moon": true,
+        "status": "observable",
+        "threshold": 54.5
+      }
+    },
+    {
+      "expected": {
+        "recommended": true,
+        "total": "64.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0262",
+      "inputs": {
+        "missing_airmass": false,
+        "moon": true,
+        "status": "observable",
+        "threshold": 54.501
+      }
+    },
+    {
+      "expected": {
+        "recommended": true,
+        "total": "64.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0263",
+      "inputs": {
+        "missing_airmass": false,
+        "moon": true,
+        "status": "observable",
+        "threshold": 64.5
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "64.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0264",
+      "inputs": {
+        "missing_airmass": false,
+        "moon": true,
+        "status": "low_altitude",
+        "threshold": 44.5
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "64.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0265",
+      "inputs": {
+        "missing_airmass": false,
+        "moon": true,
+        "status": "low_altitude",
+        "threshold": 54.499
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "64.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0266",
+      "inputs": {
+        "missing_airmass": false,
+        "moon": true,
+        "status": "low_altitude",
+        "threshold": 54.5
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "64.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0267",
+      "inputs": {
+        "missing_airmass": false,
+        "moon": true,
+        "status": "low_altitude",
+        "threshold": 54.501
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "64.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0268",
+      "inputs": {
+        "missing_airmass": false,
+        "moon": true,
+        "status": "low_altitude",
+        "threshold": 64.5
+      }
+    },
+    {
+      "expected": {
+        "recommended": true,
+        "total": "44.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0269",
+      "inputs": {
+        "missing_airmass": true,
+        "moon": false,
+        "status": "observable",
+        "threshold": 44.5
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0270",
+      "inputs": {
+        "missing_airmass": true,
+        "moon": false,
+        "status": "observable",
+        "threshold": 54.499
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0271",
+      "inputs": {
+        "missing_airmass": true,
+        "moon": false,
+        "status": "observable",
+        "threshold": 54.5
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0272",
+      "inputs": {
+        "missing_airmass": true,
+        "moon": false,
+        "status": "observable",
+        "threshold": 54.501
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0273",
+      "inputs": {
+        "missing_airmass": true,
+        "moon": false,
+        "status": "observable",
+        "threshold": 64.5
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0274",
+      "inputs": {
+        "missing_airmass": true,
+        "moon": false,
+        "status": "low_altitude",
+        "threshold": 44.5
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0275",
+      "inputs": {
+        "missing_airmass": true,
+        "moon": false,
+        "status": "low_altitude",
+        "threshold": 54.499
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0276",
+      "inputs": {
+        "missing_airmass": true,
+        "moon": false,
+        "status": "low_altitude",
+        "threshold": 54.5
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0277",
+      "inputs": {
+        "missing_airmass": true,
+        "moon": false,
+        "status": "low_altitude",
+        "threshold": 54.501
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0278",
+      "inputs": {
+        "missing_airmass": true,
+        "moon": false,
+        "status": "low_altitude",
+        "threshold": 64.5
+      }
+    },
+    {
+      "expected": {
+        "recommended": true,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0279",
+      "inputs": {
+        "missing_airmass": true,
+        "moon": true,
+        "status": "observable",
+        "threshold": 44.5
+      }
+    },
+    {
+      "expected": {
+        "recommended": true,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0280",
+      "inputs": {
+        "missing_airmass": true,
+        "moon": true,
+        "status": "observable",
+        "threshold": 54.499
+      }
+    },
+    {
+      "expected": {
+        "recommended": true,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0281",
+      "inputs": {
+        "missing_airmass": true,
+        "moon": true,
+        "status": "observable",
+        "threshold": 54.5
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0282",
+      "inputs": {
+        "missing_airmass": true,
+        "moon": true,
+        "status": "observable",
+        "threshold": 54.501
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0283",
+      "inputs": {
+        "missing_airmass": true,
+        "moon": true,
+        "status": "observable",
+        "threshold": 64.5
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0284",
+      "inputs": {
+        "missing_airmass": true,
+        "moon": true,
+        "status": "low_altitude",
+        "threshold": 44.5
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0285",
+      "inputs": {
+        "missing_airmass": true,
+        "moon": true,
+        "status": "low_altitude",
+        "threshold": 54.499
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0286",
+      "inputs": {
+        "missing_airmass": true,
+        "moon": true,
+        "status": "low_altitude",
+        "threshold": 54.5
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0287",
+      "inputs": {
+        "missing_airmass": true,
+        "moon": true,
+        "status": "low_altitude",
+        "threshold": 54.501
+      }
+    },
+    {
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0288",
+      "inputs": {
+        "missing_airmass": true,
+        "moon": true,
+        "status": "low_altitude",
+        "threshold": 64.5
+      }
+    }
+  ],
+  "mission": 55,
+  "rankings": [
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0.5",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0.5",
+        "0"
+      ],
+      "expected_total": "53.6787944117144232159552377016146086744581113103176783450784",
+      "full": false,
+      "high": false,
+      "id": "profile0-alpha",
+      "missing": true,
+      "name": "alpha",
+      "profile": 0,
+      "weights": [
+        "0.30",
+        "0.15",
+        "0.15",
+        "0.10",
+        "0.10",
+        "0.10",
+        "0.05",
+        "0.05"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0",
+        "0"
+      ],
+      "expected_total": "46.1787944117144232159552377016146086744581113103176783450784",
+      "full": false,
+      "high": false,
+      "id": "profile0-beta",
+      "missing": false,
+      "name": "beta",
+      "profile": 0,
+      "weights": [
+        "0.30",
+        "0.15",
+        "0.15",
+        "0.10",
+        "0.10",
+        "0.10",
+        "0.05",
+        "0.05"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "1",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "1",
+        "1"
+      ],
+      "expected_total": "66.1787944117144232159552377016146086744581113103176783450784",
+      "full": true,
+      "high": true,
+      "id": "profile0-gamma",
+      "missing": false,
+      "name": "gamma",
+      "profile": 0,
+      "weights": [
+        "0.30",
+        "0.15",
+        "0.15",
+        "0.10",
+        "0.10",
+        "0.10",
+        "0.05",
+        "0.05"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0.5",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0.5",
+        "0"
+      ],
+      "expected_total": "53.6787944117144232159552377016146086744581113103176783450784",
+      "full": false,
+      "high": false,
+      "id": "profile1-alpha",
+      "missing": true,
+      "name": "alpha",
+      "profile": 1,
+      "weights": [
+        "2.10",
+        "1.05",
+        "1.05",
+        "0.70",
+        "0.70",
+        "0.70",
+        "0.35",
+        "0.35"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0",
+        "0"
+      ],
+      "expected_total": "46.1787944117144232159552377016146086744581113103176783450784",
+      "full": false,
+      "high": false,
+      "id": "profile1-beta",
+      "missing": false,
+      "name": "beta",
+      "profile": 1,
+      "weights": [
+        "2.10",
+        "1.05",
+        "1.05",
+        "0.70",
+        "0.70",
+        "0.70",
+        "0.35",
+        "0.35"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "1",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "1",
+        "1"
+      ],
+      "expected_total": "66.1787944117144232159552377016146086744581113103176783450784",
+      "full": true,
+      "high": true,
+      "id": "profile1-gamma",
+      "missing": false,
+      "name": "gamma",
+      "profile": 1,
+      "weights": [
+        "2.10",
+        "1.05",
+        "1.05",
+        "0.70",
+        "0.70",
+        "0.70",
+        "0.35",
+        "0.35"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0.5",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0.5",
+        "0"
+      ],
+      "expected_total": "50.0000000000000000000000000000000000000000000000000000000000",
+      "full": false,
+      "high": false,
+      "id": "profile2-alpha",
+      "missing": true,
+      "name": "alpha",
+      "profile": 2,
+      "weights": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0",
+        "0"
+      ],
+      "expected_total": "50.0000000000000000000000000000000000000000000000000000000000",
+      "full": false,
+      "high": false,
+      "id": "profile2-beta",
+      "missing": false,
+      "name": "beta",
+      "profile": 2,
+      "weights": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "1",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "1",
+        "1"
+      ],
+      "expected_total": "50.0000000000000000000000000000000000000000000000000000000000",
+      "full": true,
+      "high": true,
+      "id": "profile2-gamma",
+      "missing": false,
+      "name": "gamma",
+      "profile": 2,
+      "weights": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0.5",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0.5",
+        "0"
+      ],
+      "expected_total": "50.0000000000000000000000000000000000000000000000000000000000",
+      "full": false,
+      "high": false,
+      "id": "profile3-alpha",
+      "missing": true,
+      "name": "alpha",
+      "profile": 3,
+      "weights": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0",
+        "0"
+      ],
+      "expected_total": "50.0000000000000000000000000000000000000000000000000000000000",
+      "full": false,
+      "high": false,
+      "id": "profile3-beta",
+      "missing": false,
+      "name": "beta",
+      "profile": 3,
+      "weights": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "1",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "1",
+        "1"
+      ],
+      "expected_total": "50.0000000000000000000000000000000000000000000000000000000000",
+      "full": true,
+      "high": true,
+      "id": "profile3-gamma",
+      "missing": false,
+      "name": "gamma",
+      "profile": 3,
+      "weights": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0.5",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0.5",
+        "0"
+      ],
+      "expected_total": "100.000000000000000000000000000000000000000000000000000000000",
+      "full": false,
+      "high": false,
+      "id": "profile4-alpha",
+      "missing": true,
+      "name": "alpha",
+      "profile": 4,
+      "weights": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0",
+        "0"
+      ],
+      "expected_total": "100.000000000000000000000000000000000000000000000000000000000",
+      "full": false,
+      "high": false,
+      "id": "profile4-beta",
+      "missing": false,
+      "name": "beta",
+      "profile": 4,
+      "weights": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "1",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "1",
+        "1"
+      ],
+      "expected_total": "100.000000000000000000000000000000000000000000000000000000000",
+      "full": true,
+      "high": true,
+      "id": "profile4-gamma",
+      "missing": false,
+      "name": "gamma",
+      "profile": 4,
+      "weights": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0.5",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0.5",
+        "0"
+      ],
+      "expected_total": "50.0000000000000000000000000000000000000000000000000000000000",
+      "full": false,
+      "high": false,
+      "id": "profile5-alpha",
+      "missing": true,
+      "name": "alpha",
+      "profile": 5,
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0",
+        "0"
+      ],
+      "expected_total": "50.0000000000000000000000000000000000000000000000000000000000",
+      "full": false,
+      "high": false,
+      "id": "profile5-beta",
+      "missing": false,
+      "name": "beta",
+      "profile": 5,
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "1",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "1",
+        "1"
+      ],
+      "expected_total": "50.0000000000000000000000000000000000000000000000000000000000",
+      "full": true,
+      "high": true,
+      "id": "profile5-gamma",
+      "missing": false,
+      "name": "gamma",
+      "profile": 5,
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0.5",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0.5",
+        "0"
+      ],
+      "expected_total": "50.0000000000000000000000000000000000000000000000000000000000",
+      "full": false,
+      "high": false,
+      "id": "profile6-alpha",
+      "missing": true,
+      "name": "alpha",
+      "profile": 6,
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0",
+        "0"
+      ],
+      "expected_total": "0E-60",
+      "full": false,
+      "high": false,
+      "id": "profile6-beta",
+      "missing": false,
+      "name": "beta",
+      "profile": 6,
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "1",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "1",
+        "1"
+      ],
+      "expected_total": "100.000000000000000000000000000000000000000000000000000000000",
+      "full": true,
+      "high": true,
+      "id": "profile6-gamma",
+      "missing": false,
+      "name": "gamma",
+      "profile": 6,
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0.5",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0.5",
+        "0"
+      ],
+      "expected_total": "36.7879441171442321595523770161460867445811131031767834507837",
+      "full": false,
+      "high": false,
+      "id": "profile7-alpha",
+      "missing": true,
+      "name": "alpha",
+      "profile": 7,
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0",
+        "0"
+      ],
+      "expected_total": "36.7879441171442321595523770161460867445811131031767834507837",
+      "full": false,
+      "high": false,
+      "id": "profile7-beta",
+      "missing": false,
+      "name": "beta",
+      "profile": 7,
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "1",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "1",
+        "1"
+      ],
+      "expected_total": "36.7879441171442321595523770161460867445811131031767834507837",
+      "full": true,
+      "high": true,
+      "id": "profile7-gamma",
+      "missing": false,
+      "name": "gamma",
+      "profile": 7,
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0.5",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0.5",
+        "0"
+      ],
+      "expected_total": "50.0000000000000000000000000000000000000000000000000000000000",
+      "full": false,
+      "high": false,
+      "id": "profile8-alpha",
+      "missing": true,
+      "name": "alpha",
+      "profile": 8,
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0",
+        "0"
+      ],
+      "expected_total": "0E-60",
+      "full": false,
+      "high": false,
+      "id": "profile8-beta",
+      "missing": false,
+      "name": "beta",
+      "profile": 8,
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "1",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "1",
+        "1"
+      ],
+      "expected_total": "100.000000000000000000000000000000000000000000000000000000000",
+      "full": true,
+      "high": true,
+      "id": "profile8-gamma",
+      "missing": false,
+      "name": "gamma",
+      "profile": 8,
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0.5",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0.5",
+        "0"
+      ],
+      "expected_total": "0E-60",
+      "full": false,
+      "high": false,
+      "id": "profile9-alpha",
+      "missing": true,
+      "name": "alpha",
+      "profile": 9,
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0",
+        "0"
+      ],
+      "expected_total": "0E-60",
+      "full": false,
+      "high": false,
+      "id": "profile9-beta",
+      "missing": false,
+      "name": "beta",
+      "profile": 9,
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "1",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "1",
+        "1"
+      ],
+      "expected_total": "100.000000000000000000000000000000000000000000000000000000000",
+      "full": true,
+      "high": true,
+      "id": "profile9-gamma",
+      "missing": false,
+      "name": "gamma",
+      "profile": 9,
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0.5",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0.5",
+        "0"
+      ],
+      "expected_total": "52.8298418551649409353501828473958528265062394694751371885218",
+      "full": false,
+      "high": false,
+      "id": "profile10-alpha",
+      "missing": true,
+      "name": "alpha",
+      "profile": 10,
+      "weights": [
+        "0.60",
+        "0.15",
+        "0.15",
+        "0.10",
+        "0.10",
+        "0.10",
+        "0.05",
+        "0.05"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0",
+        "0"
+      ],
+      "expected_total": "47.0606110859341717045809520781650835957370087002443679577526",
+      "full": false,
+      "high": false,
+      "id": "profile10-beta",
+      "missing": false,
+      "name": "beta",
+      "profile": 10,
+      "weights": [
+        "0.60",
+        "0.15",
+        "0.15",
+        "0.10",
+        "0.10",
+        "0.10",
+        "0.05",
+        "0.05"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "1",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "1",
+        "1"
+      ],
+      "expected_total": "62.4452264705495563199655674627804682111216240848597525731372",
+      "full": true,
+      "high": true,
+      "id": "profile10-gamma",
+      "missing": false,
+      "name": "gamma",
+      "profile": 10,
+      "weights": [
+        "0.60",
+        "0.15",
+        "0.15",
+        "0.10",
+        "0.10",
+        "0.10",
+        "0.05",
+        "0.05"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0.5",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0.5",
+        "0"
+      ],
+      "expected_total": "53.1989516623603680138741197405344423256157489654936333435464",
+      "full": false,
+      "high": false,
+      "id": "profile11-alpha",
+      "missing": true,
+      "name": "alpha",
+      "profile": 11,
+      "weights": [
+        "0.30",
+        "0.30",
+        "0.15",
+        "0.10",
+        "0.10",
+        "0.10",
+        "0.05",
+        "0.05"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0",
+        "0"
+      ],
+      "expected_total": "46.6772125319255854051784675666213988473548794002762420391986",
+      "full": false,
+      "high": false,
+      "id": "profile11-beta",
+      "missing": false,
+      "name": "beta",
+      "profile": 11,
+      "weights": [
+        "0.30",
+        "0.30",
+        "0.15",
+        "0.10",
+        "0.10",
+        "0.10",
+        "0.05",
+        "0.05"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "1",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "1",
+        "1"
+      ],
+      "expected_total": "64.0685168797516723617002066970561814560505315741892855174595",
+      "full": true,
+      "high": true,
+      "id": "profile11-gamma",
+      "missing": false,
+      "name": "gamma",
+      "profile": 11,
+      "weights": [
+        "0.30",
+        "0.30",
+        "0.15",
+        "0.10",
+        "0.10",
+        "0.10",
+        "0.05",
+        "0.05"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0.5",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0.5",
+        "0"
+      ],
+      "expected_total": "59.7206907927951506225697719144474858038766185307110246478943",
+      "full": false,
+      "high": false,
+      "id": "profile12-alpha",
+      "missing": true,
+      "name": "alpha",
+      "profile": 12,
+      "weights": [
+        "0.30",
+        "0.15",
+        "0.30",
+        "0.10",
+        "0.10",
+        "0.10",
+        "0.05",
+        "0.05"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0",
+        "0"
+      ],
+      "expected_total": "53.1989516623603680138741197405344423256157489654936333435464",
+      "full": false,
+      "high": false,
+      "id": "profile12-beta",
+      "missing": false,
+      "name": "beta",
+      "profile": 12,
+      "weights": [
+        "0.30",
+        "0.15",
+        "0.30",
+        "0.10",
+        "0.10",
+        "0.10",
+        "0.05",
+        "0.05"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "1",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "1",
+        "1"
+      ],
+      "expected_total": "70.5902560101864549703958588709692249343114011394066768218073",
+      "full": true,
+      "high": true,
+      "id": "profile12-gamma",
+      "missing": false,
+      "name": "gamma",
+      "profile": 12,
+      "weights": [
+        "0.30",
+        "0.15",
+        "0.30",
+        "0.10",
+        "0.10",
+        "0.10",
+        "0.05",
+        "0.05"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0.5",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0.5",
+        "0"
+      ],
+      "expected_total": "53.3443585561040211054138524560132806131437375548342530409804",
+      "full": false,
+      "high": false,
+      "id": "profile13-alpha",
+      "missing": true,
+      "name": "alpha",
+      "profile": 13,
+      "weights": [
+        "0.30",
+        "0.15",
+        "0.15",
+        "0.20",
+        "0.10",
+        "0.10",
+        "0.05",
+        "0.05"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0",
+        "0"
+      ],
+      "expected_total": "46.5261767379222029235956706378314624313255557366524348591622",
+      "full": false,
+      "high": false,
+      "id": "profile13-beta",
+      "missing": false,
+      "name": "beta",
+      "profile": 13,
+      "weights": [
+        "0.30",
+        "0.15",
+        "0.15",
+        "0.20",
+        "0.10",
+        "0.10",
+        "0.05",
+        "0.05"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "1",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "1",
+        "1"
+      ],
+      "expected_total": "64.7079949197403847417774888196496442495073739184706166773440",
+      "full": true,
+      "high": true,
+      "id": "profile13-gamma",
+      "missing": false,
+      "name": "gamma",
+      "profile": 13,
+      "weights": [
+        "0.30",
+        "0.15",
+        "0.15",
+        "0.20",
+        "0.10",
+        "0.10",
+        "0.05",
+        "0.05"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0.5",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0.5",
+        "0"
+      ],
+      "expected_total": "53.3443585561040211054138524560132806131437375548342530409804",
+      "full": false,
+      "high": false,
+      "id": "profile14-alpha",
+      "missing": true,
+      "name": "alpha",
+      "profile": 14,
+      "weights": [
+        "0.30",
+        "0.15",
+        "0.15",
+        "0.10",
+        "0.20",
+        "0.10",
+        "0.05",
+        "0.05"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0",
+        "0"
+      ],
+      "expected_total": "41.9807221924676574690502160923769169767801011911978894046167",
+      "full": false,
+      "high": false,
+      "id": "profile14-beta",
+      "missing": false,
+      "name": "beta",
+      "profile": 14,
+      "weights": [
+        "0.30",
+        "0.15",
+        "0.15",
+        "0.10",
+        "0.20",
+        "0.10",
+        "0.05",
+        "0.05"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "1",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "1",
+        "1"
+      ],
+      "expected_total": "69.2534494651949301963229433651041897040528284639251621318895",
+      "full": true,
+      "high": true,
+      "id": "profile14-gamma",
+      "missing": false,
+      "name": "gamma",
+      "profile": 14,
+      "weights": [
+        "0.30",
+        "0.15",
+        "0.15",
+        "0.10",
+        "0.20",
+        "0.10",
+        "0.05",
+        "0.05"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0.5",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0.5",
+        "0"
+      ],
+      "expected_total": "52.1432625667534967562822503665720157717420205642139606274152",
+      "full": false,
+      "high": false,
+      "id": "profile15-alpha",
+      "missing": true,
+      "name": "alpha",
+      "profile": 15,
+      "weights": [
+        "0.30",
+        "0.15",
+        "0.15",
+        "0.10",
+        "0.10",
+        "0.20",
+        "0.05",
+        "0.05"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0",
+        "0"
+      ],
+      "expected_total": "45.3250807485716785744640685483901975899238387460321424455970",
+      "full": false,
+      "high": false,
+      "id": "profile15-beta",
+      "missing": false,
+      "name": "beta",
+      "profile": 15,
+      "weights": [
+        "0.30",
+        "0.15",
+        "0.15",
+        "0.10",
+        "0.10",
+        "0.20",
+        "0.05",
+        "0.05"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "1",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "1",
+        "1"
+      ],
+      "expected_total": "63.5068989303898603926458867302083794081056569278503242637788",
+      "full": true,
+      "high": true,
+      "id": "profile15-gamma",
+      "missing": false,
+      "name": "gamma",
+      "profile": 15,
+      "weights": [
+        "0.30",
+        "0.15",
+        "0.15",
+        "0.10",
+        "0.10",
+        "0.20",
+        "0.05",
+        "0.05"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0.5",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0.5",
+        "0"
+      ],
+      "expected_total": "53.5036137254423078247192740015377225471029631526835031857890",
+      "full": false,
+      "high": false,
+      "id": "profile16-alpha",
+      "missing": true,
+      "name": "alpha",
+      "profile": 16,
+      "weights": [
+        "0.30",
+        "0.15",
+        "0.15",
+        "0.10",
+        "0.10",
+        "0.10",
+        "0.10",
+        "0.05"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0",
+        "0"
+      ],
+      "expected_total": "43.9798042016327840151954644777281987375791536288739793762651",
+      "full": false,
+      "high": false,
+      "id": "profile16-beta",
+      "missing": false,
+      "name": "beta",
+      "profile": 16,
+      "weights": [
+        "0.30",
+        "0.15",
+        "0.15",
+        "0.10",
+        "0.10",
+        "0.10",
+        "0.10",
+        "0.05"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "1",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "1",
+        "1"
+      ],
+      "expected_total": "67.7893280111565935390049882872520082613886774383977889000747",
+      "full": true,
+      "high": true,
+      "id": "profile16-gamma",
+      "missing": false,
+      "name": "gamma",
+      "profile": 16,
+      "weights": [
+        "0.30",
+        "0.15",
+        "0.15",
+        "0.10",
+        "0.10",
+        "0.10",
+        "0.10",
+        "0.05"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0.5",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0.5",
+        "0"
+      ],
+      "expected_total": "51.1226613444899268723383216205853415947220107717311222334080",
+      "full": false,
+      "high": false,
+      "id": "profile17-alpha",
+      "missing": true,
+      "name": "alpha",
+      "profile": 17,
+      "weights": [
+        "0.30",
+        "0.15",
+        "0.15",
+        "0.10",
+        "0.10",
+        "0.10",
+        "0.05",
+        "0.10"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "0",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "0",
+        "0"
+      ],
+      "expected_total": "43.9798042016327840151954644777281987375791536288739793762651",
+      "full": false,
+      "high": false,
+      "id": "profile17-beta",
+      "missing": false,
+      "name": "beta",
+      "profile": 17,
+      "weights": [
+        "0.30",
+        "0.15",
+        "0.15",
+        "0.10",
+        "0.10",
+        "0.10",
+        "0.05",
+        "0.10"
+      ]
+    },
+    {
+      "components": [
+        "0.5",
+        "0.5",
+        "1",
+        "0.5",
+        "1",
+        "0.367879441171442321595523770161460867445811131031767834507837",
+        "1",
+        "1"
+      ],
+      "expected_total": "67.7893280111565935390049882872520082613886774383977889000747",
+      "full": true,
+      "high": true,
+      "id": "profile17-gamma",
+      "missing": false,
+      "name": "gamma",
+      "profile": 17,
+      "weights": [
+        "0.30",
+        "0.15",
+        "0.15",
+        "0.10",
+        "0.10",
+        "0.10",
+        "0.05",
+        "0.10"
+      ]
+    }
+  ],
+  "reference": "Decimal precision 60; exhaustive 2^3 path enumeration",
+  "schedules": [
+    {
+      "id": "alternating-cost0",
+      "optimal_paths": [
+        [
+          0,
+          1,
+          0
+        ]
+      ],
+      "optimal_utility": 270,
+      "scores": [
+        [
+          90,
+          89
+        ],
+        [
+          89,
+          90
+        ],
+        [
+          90,
+          89
+        ]
+      ],
+      "switch_penalty": 0
+    },
+    {
+      "id": "alternating-cost5",
+      "optimal_paths": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "optimal_utility": 269,
+      "scores": [
+        [
+          90,
+          89
+        ],
+        [
+          89,
+          90
+        ],
+        [
+          90,
+          89
+        ]
+      ],
+      "switch_penalty": 5
+    },
+    {
+      "id": "alternating-cost20",
+      "optimal_paths": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "optimal_utility": 269,
+      "scores": [
+        [
+          90,
+          89
+        ],
+        [
+          89,
+          90
+        ],
+        [
+          90,
+          89
+        ]
+      ],
+      "switch_penalty": 20
+    },
+    {
+      "id": "constant-cost0",
+      "optimal_paths": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "optimal_utility": 270,
+      "scores": [
+        [
+          90,
+          80
+        ],
+        [
+          90,
+          80
+        ],
+        [
+          90,
+          80
+        ]
+      ],
+      "switch_penalty": 0
+    },
+    {
+      "id": "constant-cost5",
+      "optimal_paths": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "optimal_utility": 270,
+      "scores": [
+        [
+          90,
+          80
+        ],
+        [
+          90,
+          80
+        ],
+        [
+          90,
+          80
+        ]
+      ],
+      "switch_penalty": 5
+    },
+    {
+      "id": "constant-cost20",
+      "optimal_paths": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "optimal_utility": 270,
+      "scores": [
+        [
+          90,
+          80
+        ],
+        [
+          90,
+          80
+        ],
+        [
+          90,
+          80
+        ]
+      ],
+      "switch_penalty": 20
+    },
+    {
+      "id": "exact_tie-cost0",
+      "optimal_paths": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "optimal_utility": 210,
+      "scores": [
+        [
+          70,
+          70
+        ],
+        [
+          70,
+          70
+        ],
+        [
+          70,
+          70
+        ]
+      ],
+      "switch_penalty": 0
+    },
+    {
+      "id": "exact_tie-cost5",
+      "optimal_paths": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "optimal_utility": 210,
+      "scores": [
+        [
+          70,
+          70
+        ],
+        [
+          70,
+          70
+        ],
+        [
+          70,
+          70
+        ]
+      ],
+      "switch_penalty": 5
+    },
+    {
+      "id": "exact_tie-cost20",
+      "optimal_paths": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "optimal_utility": 210,
+      "scores": [
+        [
+          70,
+          70
+        ],
+        [
+          70,
+          70
+        ],
+        [
+          70,
+          70
+        ]
+      ],
+      "switch_penalty": 20
+    }
+  ]
+}

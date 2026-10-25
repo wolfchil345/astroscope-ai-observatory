@@ -1,0 +1,13 @@
+{
+  "mission": 55,
+  "status": "Frozen before production evaluation",
+  "absolute_score_tolerance": 1e-10,
+  "weighted_total_tolerance": 1e-10,
+  "interpretation": "Arithmetic regression goals only, not accuracy of observing utility or forecast probabilities",
+  "rounding": "Decimal half-even at one decimal; cases avoid ambiguous binary half-ties. Threshold-adjacent controls are separated by 0.001.",
+  "schedule_objective": "Sum of controlled per-slot scores minus stated synthetic switching penalty. Production ignores switching costs; expected regret is diagnostic, not a failed optimality contract.",
+  "missing_inputs": "Planner missing airmass gets zero component; transit depth/brightness default to 0.5 with missing flags; weather numeric fields required; unresolved timing not eligible.",
+  "sampling": "Controlled score trajectories only; Mission 54 retains physical window-sampling limitations.",
+  "physical_arrival_qualification_changed": false,
+  "observational_calibration_established": false
+}

@@ -1,0 +1,8 @@
+{
+  "files": {
+    "validation/fixtures/heuristic_characterisation_v1.json": "e224eea3b1ff65c174266969b26ed0296ee1022f03f6820589ce341f12df87e4",
+    "validation/manifests/heuristic_characterisation_policy_v1.json": "1ef060f424092c12e8173bb955def1526ea980818e135e62bfc54cb8ce4f2681",
+    "validation/reference_generation/heuristic_characterisation.py": "86d53677d2836b86b4ec8511cb965d1bc108a85593fc5ae4c2b091e641bc2c25"
+  },
+  "mission": 55
+}
