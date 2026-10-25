@@ -142,7 +142,8 @@ unreviewed upstream source, and preserve the distinction between a successful
 mechanism audit and unresolved production science. Focused validation: **500
 passed, nine strict expected failures**, including 108 new passing tests.
 
-[Canonical investigation record](../../../validation/results/bls_discrepancy_reference_run.json).
+[Canonical investigation record](../../../validation/results/bls_discrepancy_reference_run.json),
+executed cleanly at `010ea438b310c76cb73404d62691fd822c4cb446`.
 CI adds artifact 25, `bls-discrepancy-investigation-record`, preserving the previous
 24. Exit zero means the mechanism checks passed; the record explicitly keeps
 `production_scientific_failures_resolved=false`. Final-head CI and downloaded
