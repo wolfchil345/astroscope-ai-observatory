@@ -121,7 +121,11 @@ fixed ensembles do not calibrate universal FAPs, detection probabilities or surv
 false-positive rates. BLS SNR is not a calibrated false-alarm probability.
 Clipping can remove transit information; detrending can alter periods and depths.
 All diagnostic outcomes remain in the record rather than conditioning results
-on successful recoveries.
+on successful recoveries. Kepler-8 BLS returns 3.524205 days on both normalized
+and detrended branches (within the 1% goal); LS returns its half-period. Clipping
+removes 57 points, after which neither algorithm recovers the fundamental. Across
+all trials the retained classifications are 77 fundamentals, eight daily aliases,
+two half-periods, 39 other periods, 124 without periodic truth and two rejections.
 
 ## Offline replay and CI meaning
 
@@ -149,6 +153,14 @@ values, improved results or changed metadata require review; they cannot silentl
 pass. Nine strict expected-failure tests expose unresolved scientific checks.
 CLI tests verify default exit failure, explicit audit success and mutation rejection.
 
+The [canonical record](../../../validation/results/light_curve_campaign_reference_run.json)
+was executed cleanly at `0f38a93be98112cf2163ff6b3254e4f46707b378`; its observation
+audit passes while scientific acceptance remains false. The
+[diagnostic record](../../../validation/results/light_curve_bls_diagnostic.json)
+retains all nine comparisons. Focused tests: **662 passed, nine strict xfailed**
+(391 new passing tests and nine new expected failures); Ruff lint passes.
+Formatting checks pass for all new Python files; a repository-wide format check
+reports 15 pre-existing files, left unchanged.
 The canonical record identifies the clean implementation commit, source/input
 hashes, package versions and all 252 outcomes. CI retains the previous 23 artifacts
 and adds `light-curve-validation-record` with the campaign and diagnostic records.
