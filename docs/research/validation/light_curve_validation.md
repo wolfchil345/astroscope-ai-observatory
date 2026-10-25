@@ -165,7 +165,9 @@ The canonical record identifies the clean implementation commit, source/input
 hashes, package versions and all 252 outcomes. CI retains the previous 23 artifacts
 and adds `light-curve-validation-record` with the campaign and diagnostic records.
 A green CI run means reproducible baseline and passing software tests; it does
-**not** change `overall_passed=false`. Final-head evidence is recorded in the PR.
+**not** change `overall_passed=false`. Local full suite: **5652 passed, nine strict xfailed** (194.13 seconds).
+Final-head CI and artifact verification are recorded in
+[PR #56](https://github.com/wolfchil345/astroscope-ai-observatory/pull/56).
 
 ## Follow-up and preserved restrictions
 

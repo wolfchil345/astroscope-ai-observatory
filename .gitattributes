@@ -1,0 +1,3 @@
+
+# Preserve archived FITS bytes and display them as binary evidence.
+*.fits binary
