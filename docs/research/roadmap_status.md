@@ -56,7 +56,8 @@
 - Mission 58: Complete — BLS Physical-Membership Correction and Validation, merged in [PR #58](https://github.com/wolfchil345/astroscope-ai-observatory/pull/58) (`bbad4c43982cd6a5ae88a07471c63b8f99e260df`); post-merge Quality Gate 40207906117 passed.
 
 - Mission 59: Complete — Phase 2 Coverage and Provenance Reconciliation (W06), [PR #59](https://github.com/wolfchil345/astroscope-ai-observatory/pull/59); merged at `9303287a591026b63921844630e90b772bfa0226`; post-merge Quality Gate 40213548200 passed. Bounded W05 closure confirmed; Phase 2 remains active.
-- Mission 60: Active — Catalogue-Derived Quantity and Educational-Model Validation; 911 cases, 894 meeting goals, 17 retained acceptance failures; dossier delivered in [PR #60](https://github.com/wolfchil345/astroscope-ai-observatory/pull/60), review and merge pending. G59-01 remains open.
+- Mission 60: Complete — [PR #60](https://github.com/wolfchil345/astroscope-ai-observatory/pull/60) merged at `e94271ad`; post-merge CI passed (7,066 tests, 26 historical xfails). Its 17 catalogue failures remain isolated historical evidence.
+- Mission 61: Active — Catalogue Numerical-Domain and Convention Correction; 1,252 current acceptance cases pass. G60-01–G60-07 and G59-01 bounded closure recommended on review/merge; Phase 2 exit remains pending.
 
 ## Phase Progress
 
@@ -84,11 +85,11 @@ within their original domains; no completion percentage is inferred.
 |---|---|
 | E01 Coverage inventory | Mission 59 reconciles eight areas and catalogue/display claims; exit review pending |
 | E02 Independent reference qualification | Partial; W01–W05 bounded evidence credited, G59-01 and X01 remain |
-| E03 Robustness and integration | Partial; Mission 60 dossier delivered with 17 acceptance failures and projection-domain finding; G59-01 remains open |
+| E03 Robustness and integration | Mission 61 corrects the bounded catalogue findings; review/merge and W07 disposition pending |
 | E04 Reproducibility and provenance | Reconciled in Mission 59 with explicit G59-02/G59-03 gaps; exit disposition pending |
 | E05 Claims and uncertainty | Restrictions preserved; physical arrival qualification blocked |
 | E06 Workflow and contract traceability | All 26 strict-transit scenarios mapped; production 13 boundary / 5 partial / 8 deferred; catalogue gaps remain |
-| E07 Software acceptance | Mission 59 merge CI passed (6,120 tests, nine historical xfails); Mission 60 final-head checks recorded in its PR; future exit commit needs fresh CI |
+| E07 Software acceptance | Mission 60 merge CI passed (7,066 tests, 26 historical xfails); Mission 61 final-head evidence recorded in its PR; future exit commit needs fresh CI |
 | E08 Reviewed Phase 2 exit decision | Not performed |
 
 The [acceptance requirements](phase_2_coverage_audit.md#phase-2-exit-gates) define
@@ -700,8 +701,9 @@ completion date. Their dependencies and stop conditions are specified in the
 - [x] Open [PR #59](https://github.com/wolfchil345/astroscope-ai-observatory/pull/59); final-head CI and artifact verification are recorded there before handoff
 - [x] Merge Mission 59 and confirm its bounded documentary dispositions — `9303287a591026b63921844630e90b772bfa0226`; post-merge CI passed
 
-Mission 60 delivers the G59-01 dossier with 17 retained failures and an explicit
-projection-domain finding; G59-01 remains open. G59-02/G59-03 require explicit provenance/scope review.
+Mission 60 delivers the historical G59-01 dossier with 17 retained failures.
+Mission 61 corrects the bounded findings and recommends closure on review/merge;
+its enforced projection domain and convention limits remain explicit. G59-02/G59-03 require explicit provenance/scope review.
 These findings do not grant Phase 2 exit or begin Phase 3.
 
 ## Mission 60 — Catalogue-Derived Quantity and Educational-Model Validation
@@ -714,14 +716,33 @@ These findings do not grant Phase 2 exit or begin Phase 3.
 - [x] Add offline regeneration, negative controls, strict xfails and a separate reproduction audit
 - [x] Record clean canonical result, source/environment hashes and G60-01–G60-07 findings
 - [x] Open [PR #60](https://github.com/wolfchil345/astroscope-ai-observatory/pull/60); final-head CI and artifact verification are recorded there before handoff
-- [ ] Merge Mission 60; retain unresolved acceptance findings
+- [x] Merge Mission 60; post-merge CI passed and 27 artifact identities verified
 
 [Mission 60 dossier](validation/catalogue_quantities_validation.md) and
 [findings ledger](evidence/catalogue_quantities_findings_v1.json) distinguish
-reproduction from scientific acceptance. Proposed Mission 61 — Catalogue
-Numerical-Domain and Convention Correction — is not started. Phase 2 remains active.
+reproduction from scientific acceptance. Mission 61 provides the bounded correction
+below; the original findings and failed record remain historical. Phase 2 remains active.
+
+## Mission 61 — Catalogue Numerical-Domain and Convention Correction
+
+- [x] Verify Mission 60 merge and post-merge CI before changing production
+- [x] Freeze explicit nominal convention, numerical domains and independent successor references
+- [x] Preserve all 911 original inputs and the full historical Mission 60 replay
+- [x] Correct seven finding groups; enforce supported chart domain with an analytic bound
+- [x] Pass all 1,252 current acceptance cases with no current expected failures
+- [x] Verify offline regeneration, mutation detection, CSV semantics and four-language dashboards
+- [x] Record clean canonical result and add the 28th CI artifact
+- [ ] Review and merge Mission 61; confirm bounded G59-01 closure
+
+The [Mission 61 report](validation/catalogue_correction_validation.md) and
+[ledger](evidence/catalogue_correction_findings_v1.json) recommend bounded closure
+of G60-01–G60-07 and G59-01. G59-02/G59-03 and W07 formal exit remain pending;
+X01 physical qualification is unchanged. Proposed Mission 62 — Phase 2 Exit
+Readiness and Provenance Disposition — is not started.
 
 ## Phase 2 Deliverables
+
+- [Catalogue Numerical-Domain and Convention Correction — Mission 61](validation/catalogue_correction_validation.md)
 
 - [Catalogue-Derived Quantity and Educational-Model Validation — Mission 60](validation/catalogue_quantities_validation.md)
 

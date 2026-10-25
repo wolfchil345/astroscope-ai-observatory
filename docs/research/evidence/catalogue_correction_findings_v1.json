@@ -1,0 +1,151 @@
+{
+  "G59-01": "bounded correction closure recommended on review and merge",
+  "G59-02": "explicit historical provenance disposition pending W07",
+  "G59-03": "explicit mutable/static catalogue scope disposition pending W07",
+  "analytic_projection_bound_arcsec": "7.7286904550760697674636200964745660908342232638390249298678779612119381660073719",
+  "baseline_ci": {
+    "all_artifact_names_head_expiry_verified": true,
+    "artifact_count": 27,
+    "baseline_archives_downloaded_in_mission_61": 0,
+    "conclusion": "success",
+    "historical_xfails": 26,
+    "passed_tests": 7066,
+    "run_id": 40217057624,
+    "test_duration_seconds": 397.11
+  },
+  "baseline_commit": "e94271adfaf90c22c986fe2433f91b2a0b844489",
+  "canonical_implementation_commit": "ce0cc2983939dc1e1a84eec175a07abfabf07ae8",
+  "canonical_record": "validation/results/catalogue_correction_reference_run.json",
+  "canonical_record_sha256": "becd902ca1fb20a7f88249f83db0c85acc00ad02eb4b301398bc895ed7791404",
+  "case_count": 1252,
+  "extension_case_count": 341,
+  "failed_cases": 0,
+  "findings": [
+    {
+      "finding": "Conversion convention and common-radius coherence",
+      "id": "G60-01",
+      "original_failed_case_ids": [
+        "CQ0895",
+        "CQ0897"
+      ],
+      "status": "corrected within frozen convention/domain; bounded closure recommended on review and merge"
+    },
+    {
+      "finding": "Source-coordinate domain",
+      "id": "G60-02",
+      "original_failed_case_ids": [
+        "CQ0750",
+        "CQ0751",
+        "CQ0752",
+        "CQ0753",
+        "CQ0754",
+        "CQ0755"
+      ],
+      "status": "corrected within frozen convention/domain; bounded closure recommended on review and merge"
+    },
+    {
+      "finding": "Nonfinite screen radius",
+      "id": "G60-03",
+      "original_failed_case_ids": [
+        "CQ0759",
+        "CQ0760"
+      ],
+      "status": "corrected within frozen convention/domain; bounded closure recommended on review and merge"
+    },
+    {
+      "finding": "Greater-than-unit depth",
+      "id": "G60-04",
+      "original_failed_case_ids": [
+        "CQ0881",
+        "CQ0903"
+      ],
+      "status": "corrected within frozen convention/domain; bounded closure recommended on review and merge"
+    },
+    {
+      "finding": "Extreme arithmetic",
+      "id": "G60-05",
+      "original_failed_case_ids": [
+        "CQ0898",
+        "CQ0900",
+        "CQ0901",
+        "CQ0902"
+      ],
+      "status": "corrected within frozen convention/domain; bounded closure recommended on review and merge"
+    },
+    {
+      "finding": "Underflowed model duration",
+      "id": "G60-06",
+      "original_failed_case_ids": [
+        "CQ0904"
+      ],
+      "status": "corrected within frozen convention/domain; bounded closure recommended on review and merge"
+    },
+    {
+      "finding": "Local-sky display distortion and singularities",
+      "id": "G60-07",
+      "original_failed_case_ids": [],
+      "status": "corrected within frozen convention/domain; bounded closure recommended on review and merge"
+    }
+  ],
+  "historical_mission60": {
+    "case_count": 911,
+    "complete_observation_audit_passed": true,
+    "failed_cases": 17,
+    "original_reference_and_result_files_unchanged": true,
+    "overall_passed": false,
+    "source_transformation": "Only two reversible internal import-prefix changes; original and retained bytes hash verified."
+  },
+  "inherited_physical_status": {
+    "combined_arrival_candidates": 288,
+    "combined_blocked": 288,
+    "combined_executed": 0,
+    "observing_eligible": false,
+    "physical_arrival_bound_seconds": null,
+    "physical_covariance_acquired": false,
+    "physical_covariance_propagated": false,
+    "physical_geocentric_clock_bound_seconds": null,
+    "physical_site_clock_bound_seconds": null,
+    "site_clocks_unqualified": 48,
+    "solar_eligible": 240,
+    "solar_excluded": 48,
+    "unestablished_covariance_requirements": 18,
+    "unknown_physical_components": 6
+  },
+  "local_verification": {
+    "controlled_faults_detected": 6,
+    "current_replay_offline_with_generator_blocked": true,
+    "current_xfails": 0,
+    "four_language_dashboard_integration": true,
+    "full_suite_duration_seconds": 267.51,
+    "full_suite_historical_xfails": 26,
+    "full_suite_passed_tests": 8356,
+    "mission61_tests": 1290,
+    "reference_regeneration_offline_and_byte_identical": true,
+    "ruff": "passed",
+    "tampered_fixture_rejected": true
+  },
+  "maximum_sampled_projection_error_arcsec": 3.8194818058520235,
+  "mission": 61,
+  "next_mission": {
+    "number": 62,
+    "status": "proposed; not started",
+    "title": "Phase 2 Exit Readiness and Provenance Disposition"
+  },
+  "observational_calibration_established": false,
+  "original_case_count": 911,
+  "overall_passed": true,
+  "phase_2": "active",
+  "phase_2_exit_approved": false,
+  "physical_arrival_qualification_changed": false,
+  "projection_accepted_cases": 195,
+  "projection_rejected_cases": 697,
+  "prose_count_correction_commit": "260e4fc",
+  "protocol_freeze_commit": "f86c85e",
+  "requirement_counts": {
+    "reject": 714,
+    "reject_or_null": 1,
+    "value": 536,
+    "value_or_reject": 1
+  },
+  "title": "Catalogue Numerical-Domain and Convention Correction"
+}
