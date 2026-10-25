@@ -24,7 +24,8 @@ from astroscope.gaia_visuals import calculate_local_offsets_deg
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURE = "validation/fixtures/catalogue_quantities_v1.json"
 POLICY = "validation/manifests/catalogue_quantities_policy_v1.json"
-MANIFEST = "validation/manifests/catalogue_quantities_v1.json"
+MANIFEST = "validation/manifests/catalogue_quantities_v2.json"
+AMENDMENT = "validation/fixtures/catalogue_binary_inputs_v2.json"
 OBSERVATIONS = "validation/fixtures/catalogue_quantities_observed_v1.json"
 SOURCE_PATHS = [
     "src/astroscope/gaia_catalog.py",
@@ -49,6 +50,13 @@ def load_inputs():
         if sha(ROOT / path) != digest:
             raise ValueError(f"Checksum mismatch: {path}")
     fixture = json.loads((ROOT / FIXTURE).read_text())
+    replacements = json.loads((ROOT / AMENDMENT).read_text())["replacements"]
+    by_id = {c["id"]: c for c in fixture["cases"]}
+    for replacement in replacements:
+        case = by_id[replacement["id"]]
+        if case["family"] != "offsets" or case["requirement"] != "value":
+            raise ValueError("Amendment outside the valid offset reference scope")
+        case["expected"] = replacement["expected"]
     ids = [c["id"] for c in fixture["cases"]]
     if len(ids) != len(set(ids)):
         raise ValueError("Duplicate case IDs")
@@ -92,7 +100,13 @@ def call_production(case):
         obj = gaia.parse_gaia_csv(csv_text(row))[0]
         return {k: getattr(obj, k) for k in case["expected"]}
     if family == "exoplanet_row":
-        row = dict(pl_name="synthetic b", hostname="synthetic", **inputs)
+        row = dict(
+            pl_name="synthetic b",
+            hostname="synthetic",
+            discoverymethod="synthetic",
+            tran_flag="0",
+            **inputs,
+        )
         obj = exo.parse_exoplanet_csv(csv_text(row))[0]
         return {k: getattr(obj, k) for k in case["expected"]}
     if family == "offsets":
@@ -265,7 +279,7 @@ def run_benchmark():
             "python_implementation": platform.python_implementation(),
             "versions": {x: importlib.metadata.version(x) for x in ["astropy", "numpy", "plotly"]},
             "source_sha256": {p: sha(ROOT / p) for p in SOURCE_PATHS},
-            "input_sha256": {p: sha(ROOT / p) for p in [FIXTURE, POLICY, MANIFEST]},
+            "input_sha256": {p: sha(ROOT / p) for p in [FIXTURE, POLICY, MANIFEST, AMENDMENT]},
             "network_required": False,
             "randomness": "none",
         },
