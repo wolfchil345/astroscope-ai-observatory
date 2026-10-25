@@ -56,7 +56,7 @@
 - Mission 58: Complete — BLS Physical-Membership Correction and Validation, merged in [PR #58](https://github.com/wolfchil345/astroscope-ai-observatory/pull/58) (`bbad4c43982cd6a5ae88a07471c63b8f99e260df`); post-merge Quality Gate 40207906117 passed.
 
 - Mission 59: Complete — Phase 2 Coverage and Provenance Reconciliation (W06), [PR #59](https://github.com/wolfchil345/astroscope-ai-observatory/pull/59); merged at `9303287a591026b63921844630e90b772bfa0226`; post-merge Quality Gate 40213548200 passed. Bounded W05 closure confirmed; Phase 2 remains active.
-- Mission 60: Active — Catalogue-Derived Quantity and Educational-Model Validation; 911 cases, 894 meeting goals, 17 retained acceptance failures; dossier delivered, review and merge pending. G59-01 remains open.
+- Mission 60: Active — Catalogue-Derived Quantity and Educational-Model Validation; 911 cases, 894 meeting goals, 17 retained acceptance failures; dossier delivered in [PR #60](https://github.com/wolfchil345/astroscope-ai-observatory/pull/60), review and merge pending. G59-01 remains open.
 
 ## Phase Progress
 
@@ -713,7 +713,8 @@ These findings do not grant Phase 2 exit or begin Phase 3.
 - [x] Characterize local-sky distortion and educational/physical model limits
 - [x] Add offline regeneration, negative controls, strict xfails and a separate reproduction audit
 - [x] Record clean canonical result, source/environment hashes and G60-01–G60-07 findings
-- [ ] Complete final PR verification and merge Mission 60
+- [x] Open [PR #60](https://github.com/wolfchil345/astroscope-ai-observatory/pull/60); final-head CI and artifact verification are recorded there before handoff
+- [ ] Merge Mission 60; retain unresolved acceptance findings
 
 [Mission 60 dossier](validation/catalogue_quantities_validation.md) and
 [findings ledger](evidence/catalogue_quantities_findings_v1.json) distinguish

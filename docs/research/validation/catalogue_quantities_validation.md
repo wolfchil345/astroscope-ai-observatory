@@ -182,7 +182,8 @@ Ruff and whitespace checks pass. The CI workflow preserves all 26 old artifacts
 and adds `catalogue-quantities-validation-record`, for **27** total. The new
 artifact retains `overall_passed: false`, all 17 failed IDs, full results and the
 separate `observation_audit` result. Final PR checks and artifact verification are
-recorded in the PR before handoff. Old nine BLS xfails remain historical; the
+recorded in [PR #60](https://github.com/wolfchil345/astroscope-ai-observatory/pull/60)
+before handoff. Old nine BLS xfails remain historical; the
 17 catalogue failures are current unmet goals and must not be described as fixed.
 
 Replay after installing `.[dev,validation]`:
