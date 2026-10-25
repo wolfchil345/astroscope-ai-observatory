@@ -8,7 +8,7 @@ import os
 import platform
 import subprocess
 from collections import Counter
-from dataclasses import asdict, fields
+from dataclasses import asdict, fields, replace
 from datetime import UTC, date, datetime, time
 from pathlib import Path
 from unittest.mock import patch
@@ -200,6 +200,39 @@ def evaluate_schedule(case):
     }
 
 
+def weight_tradeoffs(fixture):
+    base = candidate(fixture["rankings"][1])
+    a = replace(
+        base, visibility=replace(base.visibility, observable_sample_fraction=1), transit_depth_ppm=0
+    )
+    b = replace(
+        base,
+        visibility=replace(base.visibility, observable_sample_fraction=0),
+        transit_depth_ppm=10000,
+    )
+    zero = {f.name: 0 for f in fields(r.RankingWeights)}
+    scenarios = [
+        ("default", r.RankingWeights(), 20),
+        ("depth_only", r.RankingWeights(**dict(zero, transit_depth=1)), -100),
+        ("observable_only", r.RankingWeights(**dict(zero, observable_fraction=1)), 100),
+    ]
+    rows = []
+    for name, weight, expected in scenarios:
+        sa = r.score_transit_candidate(a, weights=weight).total_score
+        sb = r.score_transit_candidate(b, weights=weight).total_score
+        rows.append(
+            {
+                "id": name,
+                "a_score": sa,
+                "b_score": sb,
+                "a_minus_b": sa - sb,
+                "expected_difference": expected,
+                "passed": abs(sa - sb - expected) <= 1e-10,
+            }
+        )
+    return rows
+
+
 def git(*args):
     return subprocess.check_output(["git", *args], cwd=ROOT, text=True).strip()
 
@@ -214,7 +247,8 @@ def run_benchmark():
         for x in ["planner", "weather", "schedule", "transit_ranking", "transit_timing"]
     ]
     sources += ["validation/heuristic_characterisation.py", "validation/celestial_coordinates.py"]
-    all_rows = rows + ranks + schedules
+    tradeoffs = weight_tradeoffs(fixture)
+    all_rows = rows + ranks + schedules + tradeoffs
     return {
         "mission": 55,
         "executed_at_utc": datetime.now(UTC).isoformat(),
@@ -224,6 +258,8 @@ def run_benchmark():
         "family_counts": dict(Counter(x["family"] for x in rows)),
         "ranking_case_count": len(ranks),
         "schedule_case_count": len(schedules),
+        "tradeoff_case_count": len(tradeoffs),
+        "weight_tradeoffs": tradeoffs,
         "maximum_schedule_regret": max(x["regret"] for x in schedules),
         "policy": policy,
         "physical_arrival_qualification_changed": False,

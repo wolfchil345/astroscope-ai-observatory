@@ -399,3 +399,19 @@ jobs:
           name: visibility-sampling-validation-record
           path: ${{ runner.temp }}/visibility_sampling_reference_run.json
           if-no-files-found: error
+
+      - name: Audit planner weather ranking and schedule heuristics
+        env:
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          python -m validation.heuristic_characterisation \
+            --output "$RUNNER_TEMP/heuristic_characterisation_reference_run.json"
+
+      - name: Upload heuristic characterisation record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: heuristic-characterisation-validation-record
+          path: ${{ runner.temp }}/heuristic_characterisation_reference_run.json
+          if-no-files-found: error
