@@ -100,6 +100,9 @@ a scientific residual failure or a production-code change.
 
 ## Reproduction and evidence
 
+Local validation passed: 197 focused tests, including 57 new Mission 54 tests; Ruff passed.
+The canonical run uses clean implementation commit `5562173`.
+
 From the repository root after installing `.[dev,validation]`:
 
 ```bash
