@@ -20,8 +20,8 @@ from astroscope.light_curve_processing import (
     normalize_light_curve,
     sigma_clip_light_curve,
 )
-from astroscope.light_curve_transit_search import search_box_least_squares
 from validation.celestial_coordinates import sha
+from validation.historical.mission57_light_curve_transit_search import search_box_least_squares
 from validation.light_curve_references import exact_box_snr, ls_power, raw_checksum, wilson
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -84,7 +84,7 @@ def classify_period(period, truth, goal):
     return "other"
 
 
-def evaluate(case, stage, algorithm, policy):
+def evaluate(case, stage, algorithm, policy, *, bls_search=search_box_least_squares):
     required = stage != "sigma_clipped" and (
         (
             case["regime"] == "uniform"
@@ -148,7 +148,7 @@ def evaluate(case, stage, algorithm, policy):
                     and best.false_alarm_probability < policy["ls_fap_flag_threshold"]
                 )
             else:
-                result = search_box_least_squares(
+                result = bls_search(
                     curve,
                     **kwargs,
                     durations=policy["bls_durations_days"],
@@ -216,10 +216,10 @@ def git(*args):
     return subprocess.check_output(["git", *args], cwd=ROOT, text=True).strip()
 
 
-def run_benchmark():
+def run_benchmark(*, bls_search=search_box_least_squares):
     policy, fixture = load_inputs()
     rows = [
-        evaluate(c, stage, algorithm, policy)
+        evaluate(c, stage, algorithm, policy, bls_search=bls_search)
         for c in fixture["cases"]
         for stage in policy["stages"]
         for algorithm in ["ls", "bls"]
@@ -235,11 +235,16 @@ def run_benchmark():
     ]
     sources += [
         "validation/light_curve_campaign.py",
+        "validation/historical/mission57_light_curve_transit_search.py",
+        "src/astroscope/_physical_bls.py",
         "validation/light_curve_references.py",
         "validation/celestial_coordinates.py",
     ]
     return {
-        "mission": 56,
+        "mission": 56 if bls_search is search_box_least_squares else 58,
+        "execution_target": "historical pre-Mission-58 fast wrapper"
+        if bls_search is search_box_least_squares
+        else "current production physical-window search",
         "executed_at_utc": datetime.now(UTC).isoformat(),
         "input_case_count": 42,
         "trial_count": len(rows),

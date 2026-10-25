@@ -11,6 +11,7 @@ from typing import Final, Literal
 import numpy as np
 from astropy.timeseries import BoxLeastSquares
 
+from astroscope._physical_bls import physical_bls_power
 from astroscope.light_curve import LightCurve, LightCurveError
 
 TransitSearchObjective = Literal["likelihood", "snr"]
@@ -295,7 +296,12 @@ def search_box_least_squares(
     frequency_factor: float = 1.0,
     candidate_count: int = 5,
 ) -> BoxLeastSquaresSearchResult:
-    """Search a flux light curve for periodic box-shaped transit signals."""
+    """Search physical half-open transit windows on a finite period/phase grid.
+
+    Phase spacing is min(durations)/oversample. Every duration and phase is
+    recomputed at every trial period before candidate selection. No fast BLS
+    phase-bin approximation is used; this costs more than the legacy search.
+    """
 
     resolved_minimum_period = _finite_float(
         minimum_period,
@@ -351,17 +357,14 @@ def search_box_least_squares(
             dy=uncertainties,
         )
 
-        raw_result = model.autopower(
-            np.asarray(
-                resolved_durations,
-                dtype=float,
-            ),
-            objective=objective,
-            method="fast",
-            oversample=oversample,
+        periods = model.autoperiod(
+            np.asarray(resolved_durations, dtype=float),
             minimum_period=resolved_minimum_period,
             maximum_period=resolved_maximum_period,
             frequency_factor=resolved_frequency_factor,
+        )
+        raw_result = physical_bls_power(
+            times, values, uncertainties, periods, resolved_durations, oversample, objective
         )
     except (
         FloatingPointError,

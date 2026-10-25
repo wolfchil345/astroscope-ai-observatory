@@ -1,0 +1,10 @@
+{
+  "mission": 58,
+  "status": "Frozen before corrected campaign evaluation",
+  "contract": "Keep Astropy autoperiod grid and candidate separation. At each period and every supplied duration evaluate all phase centers j*min(duration)/oversample < period. Windows are half-open [center-duration/2,center+duration/2) on phases relative to minimum input time. Weighted inside/outside means use each observation exactly once. Evaluate physical memberships without phase binning. Rank newly computed objective values across durations/phases/periods.",
+  "objectives": "snr = depth/sqrt(1/Win+1/Wout); likelihood retains existing Astropy convention 0.5*Win*depth^2. Nonnegative dimming only. No calibrated false-alarm claim.",
+  "tie_rule": "First tested duration (ascending), then first phase, then existing stable period ranking on exact ties",
+  "scientific_policy": "Reuse Mission 56 policy and independent references byte-for-byte: all 252 trials must pass, ten required period recoveries remain required, numerical goals unchanged.",
+  "independent_membership_tolerance": 1e-8,
+  "qualification": "Finite period/phase/duration grid only, not continuous global optimum or physical timing qualification. Preserve historical failed runs in a labelled validation-only legacy runner."
+}
