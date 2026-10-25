@@ -1,0 +1,4462 @@
+{
+  "case_count": 355,
+  "environment": {
+    "checkout_commit": "e7e5756e635c28cc53fcb3cadeda1dd33589a1ca",
+    "git_dirty": false,
+    "implementation_commit": "e7e5756e635c28cc53fcb3cadeda1dd33589a1ca",
+    "input_sha256": {
+      "validation/fixtures/heuristic_characterisation_v1.json": "e224eea3b1ff65c174266969b26ed0296ee1022f03f6820589ce341f12df87e4",
+      "validation/manifests/heuristic_characterisation_policy_v1.json": "1ef060f424092c12e8173bb955def1526ea980818e135e62bfc54cb8ce4f2681",
+      "validation/manifests/heuristic_characterisation_v1.json": "074f2294a6b2442f144b2abeda8f41093431eb2eaa3fbe24315641a677426621"
+    },
+    "network_required": false,
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "python": "3.12.14",
+    "randomness": "none",
+    "source_sha256": {
+      "src/astroscope/planner.py": "07ac6f6ab794ba0bb575b29adf4dc763c707573a7d00af2db36c0430358e5c15",
+      "src/astroscope/schedule.py": "103aae4ec513917269db7738a834692dc2d5e4af1ba5bbdf116960cc2efba63c",
+      "src/astroscope/transit_ranking.py": "1538c902216c34d30ce3a656fae52eafe406f82ab5f1c5fbfd2bd9b9f47fdbb6",
+      "src/astroscope/transit_timing.py": "7d1f72807a5991f94be66cface374162fd3ebb10c1cf2cdf0b18a5d7d716d27e",
+      "src/astroscope/weather.py": "12b75decc193c7b2ef503b4d440665e872db6412e3cb354a9da600f068934fed",
+      "validation/celestial_coordinates.py": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+      "validation/heuristic_characterisation.py": "fd3f34fc746c60fc31aae0fe4a54f23f4a07a15d21320fedbec4adee636e4d05"
+    },
+    "versions": {
+      "astropy": "8.0.2",
+      "numpy": "2.5.4"
+    }
+  },
+  "executed_at_utc": "2026-10-25T11:37:52.852838+00:00",
+  "failed_cases": 0,
+  "family_counts": {
+    "dew": 54,
+    "plan_entry": 40,
+    "planner_airmass": 9,
+    "planner_altitude": 10,
+    "planner_darkness": 9,
+    "planner_moon": 48,
+    "planner_rating": 14,
+    "rank_altitude": 7,
+    "rank_brightness": 9,
+    "rank_depth": 8,
+    "rank_moon": 7,
+    "rank_timing": 8,
+    "weather": 52,
+    "weather_rating": 14
+  },
+  "maximum_schedule_regret": 39,
+  "mission": 55,
+  "observational_calibration_established": false,
+  "overall_passed": true,
+  "physical_arrival_qualification_changed": false,
+  "policy": {
+    "absolute_score_tolerance": 1e-10,
+    "interpretation": "Arithmetic regression goals only, not accuracy of observing utility or forecast probabilities",
+    "missing_inputs": "Planner missing airmass gets zero component; transit depth/brightness default to 0.5 with missing flags; weather numeric fields required; unresolved timing not eligible.",
+    "mission": 55,
+    "observational_calibration_established": false,
+    "physical_arrival_qualification_changed": false,
+    "rounding": "Decimal half-even at one decimal; cases avoid ambiguous binary half-ties. Threshold-adjacent controls are separated by 0.001.",
+    "sampling": "Controlled score trajectories only; Mission 54 retains physical window-sampling limitations.",
+    "schedule_objective": "Sum of controlled per-slot scores minus stated synthetic switching penalty. Production ignores switching costs; expected regret is diagnostic, not a failed optimality contract.",
+    "status": "Frozen before production evaluation",
+    "weighted_total_tolerance": 1e-10
+  },
+  "ranking_case_count": 54,
+  "ranking_results": [
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile0-alpha",
+      "passed": true,
+      "profile": 0,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.5,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [
+          "transit_depth_ppm",
+          "host_magnitude"
+        ],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 53.67879441171443,
+        "transit_depth_score": 0.5
+      },
+      "total_error": 7.105427357601002e-15
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile0-beta",
+      "passed": true,
+      "profile": 0,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 46.17879441171443,
+        "transit_depth_score": 0.0
+      },
+      "total_error": 7.105427357601002e-15
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile0-gamma",
+      "passed": true,
+      "profile": 0,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 1.0,
+        "host_brightness_score": 1.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 66.17879441171443,
+        "transit_depth_score": 1.0
+      },
+      "total_error": 1.4210854715202004e-14
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile1-alpha",
+      "passed": true,
+      "profile": 1,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.5,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [
+          "transit_depth_ppm",
+          "host_magnitude"
+        ],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 53.67879441171443,
+        "transit_depth_score": 0.5
+      },
+      "total_error": 7.105427357601002e-15
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile1-beta",
+      "passed": true,
+      "profile": 1,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 46.17879441171443,
+        "transit_depth_score": 0.0
+      },
+      "total_error": 7.105427357601002e-15
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile1-gamma",
+      "passed": true,
+      "profile": 1,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 1.0,
+        "host_brightness_score": 1.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 66.17879441171442,
+        "transit_depth_score": 1.0
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile2-alpha",
+      "passed": true,
+      "profile": 2,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.5,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [
+          "transit_depth_ppm",
+          "host_magnitude"
+        ],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 50.0,
+        "transit_depth_score": 0.5
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile2-beta",
+      "passed": true,
+      "profile": 2,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 50.0,
+        "transit_depth_score": 0.0
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile2-gamma",
+      "passed": true,
+      "profile": 2,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 1.0,
+        "host_brightness_score": 1.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 50.0,
+        "transit_depth_score": 1.0
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile3-alpha",
+      "passed": true,
+      "profile": 3,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.5,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [
+          "transit_depth_ppm",
+          "host_magnitude"
+        ],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 50.0,
+        "transit_depth_score": 0.5
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile3-beta",
+      "passed": true,
+      "profile": 3,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 50.0,
+        "transit_depth_score": 0.0
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile3-gamma",
+      "passed": true,
+      "profile": 3,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 1.0,
+        "host_brightness_score": 1.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 50.0,
+        "transit_depth_score": 1.0
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile4-alpha",
+      "passed": true,
+      "profile": 4,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.5,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [
+          "transit_depth_ppm",
+          "host_magnitude"
+        ],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 100.0,
+        "transit_depth_score": 0.5
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile4-beta",
+      "passed": true,
+      "profile": 4,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 100.0,
+        "transit_depth_score": 0.0
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile4-gamma",
+      "passed": true,
+      "profile": 4,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 1.0,
+        "host_brightness_score": 1.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 100.0,
+        "transit_depth_score": 1.0
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile5-alpha",
+      "passed": true,
+      "profile": 5,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.5,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [
+          "transit_depth_ppm",
+          "host_magnitude"
+        ],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 50.0,
+        "transit_depth_score": 0.5
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile5-beta",
+      "passed": true,
+      "profile": 5,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 50.0,
+        "transit_depth_score": 0.0
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile5-gamma",
+      "passed": true,
+      "profile": 5,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 1.0,
+        "host_brightness_score": 1.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 50.0,
+        "transit_depth_score": 1.0
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile6-alpha",
+      "passed": true,
+      "profile": 6,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.5,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [
+          "transit_depth_ppm",
+          "host_magnitude"
+        ],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 50.0,
+        "transit_depth_score": 0.5
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile6-beta",
+      "passed": true,
+      "profile": 6,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 0.0,
+        "transit_depth_score": 0.0
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile6-gamma",
+      "passed": true,
+      "profile": 6,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 1.0,
+        "host_brightness_score": 1.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 100.0,
+        "transit_depth_score": 1.0
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile7-alpha",
+      "passed": true,
+      "profile": 7,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.5,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [
+          "transit_depth_ppm",
+          "host_magnitude"
+        ],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 36.787944117144235,
+        "transit_depth_score": 0.5
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile7-beta",
+      "passed": true,
+      "profile": 7,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 36.787944117144235,
+        "transit_depth_score": 0.0
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile7-gamma",
+      "passed": true,
+      "profile": 7,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 1.0,
+        "host_brightness_score": 1.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 36.787944117144235,
+        "transit_depth_score": 1.0
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile8-alpha",
+      "passed": true,
+      "profile": 8,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.5,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [
+          "transit_depth_ppm",
+          "host_magnitude"
+        ],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 50.0,
+        "transit_depth_score": 0.5
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile8-beta",
+      "passed": true,
+      "profile": 8,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 0.0,
+        "transit_depth_score": 0.0
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile8-gamma",
+      "passed": true,
+      "profile": 8,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 1.0,
+        "host_brightness_score": 1.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 100.0,
+        "transit_depth_score": 1.0
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile9-alpha",
+      "passed": true,
+      "profile": 9,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.5,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [
+          "transit_depth_ppm",
+          "host_magnitude"
+        ],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 0.0,
+        "transit_depth_score": 0.5
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile9-beta",
+      "passed": true,
+      "profile": 9,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 0.0,
+        "transit_depth_score": 0.0
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile9-gamma",
+      "passed": true,
+      "profile": 9,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 1.0,
+        "host_brightness_score": 1.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 100.0,
+        "transit_depth_score": 1.0
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile10-alpha",
+      "passed": true,
+      "profile": 10,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.5,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [
+          "transit_depth_ppm",
+          "host_magnitude"
+        ],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 52.82984185516495,
+        "transit_depth_score": 0.5
+      },
+      "total_error": 7.105427357601002e-15
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile10-beta",
+      "passed": true,
+      "profile": 10,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 47.06061108593418,
+        "transit_depth_score": 0.0
+      },
+      "total_error": 7.105427357601002e-15
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile10-gamma",
+      "passed": true,
+      "profile": 10,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 1.0,
+        "host_brightness_score": 1.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 62.445226470549564,
+        "transit_depth_score": 1.0
+      },
+      "total_error": 7.105427357601002e-15
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile11-alpha",
+      "passed": true,
+      "profile": 11,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.5,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [
+          "transit_depth_ppm",
+          "host_magnitude"
+        ],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 53.19895166236037,
+        "transit_depth_score": 0.5
+      },
+      "total_error": 7.105427357601002e-15
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile11-beta",
+      "passed": true,
+      "profile": 11,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 46.67721253192558,
+        "transit_depth_score": 0.0
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile11-gamma",
+      "passed": true,
+      "profile": 11,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 1.0,
+        "host_brightness_score": 1.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 64.06851687975168,
+        "transit_depth_score": 1.0
+      },
+      "total_error": 1.4210854715202004e-14
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile12-alpha",
+      "passed": true,
+      "profile": 12,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.5,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [
+          "transit_depth_ppm",
+          "host_magnitude"
+        ],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 59.72069079279516,
+        "transit_depth_score": 0.5
+      },
+      "total_error": 7.105427357601002e-15
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile12-beta",
+      "passed": true,
+      "profile": 12,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 53.19895166236037,
+        "transit_depth_score": 0.0
+      },
+      "total_error": 7.105427357601002e-15
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile12-gamma",
+      "passed": true,
+      "profile": 12,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 1.0,
+        "host_brightness_score": 1.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 70.59025601018647,
+        "transit_depth_score": 1.0
+      },
+      "total_error": 1.4210854715202004e-14
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile13-alpha",
+      "passed": true,
+      "profile": 13,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.5,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [
+          "transit_depth_ppm",
+          "host_magnitude"
+        ],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 53.34435855610402,
+        "transit_depth_score": 0.5
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile13-beta",
+      "passed": true,
+      "profile": 13,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 46.5261767379222,
+        "transit_depth_score": 0.0
+      },
+      "total_error": 7.105427357601002e-15
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile13-gamma",
+      "passed": true,
+      "profile": 13,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 1.0,
+        "host_brightness_score": 1.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 64.70799491974039,
+        "transit_depth_score": 1.0
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile14-alpha",
+      "passed": true,
+      "profile": 14,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.5,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [
+          "transit_depth_ppm",
+          "host_magnitude"
+        ],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 53.34435855610402,
+        "transit_depth_score": 0.5
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile14-beta",
+      "passed": true,
+      "profile": 14,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 41.98072219246766,
+        "transit_depth_score": 0.0
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile14-gamma",
+      "passed": true,
+      "profile": 14,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 1.0,
+        "host_brightness_score": 1.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 69.25344946519493,
+        "transit_depth_score": 1.0
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile15-alpha",
+      "passed": true,
+      "profile": 15,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.5,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [
+          "transit_depth_ppm",
+          "host_magnitude"
+        ],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 52.1432625667535,
+        "transit_depth_score": 0.5
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile15-beta",
+      "passed": true,
+      "profile": 15,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 45.32508074857167,
+        "transit_depth_score": 0.0
+      },
+      "total_error": 7.105427357601002e-15
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile15-gamma",
+      "passed": true,
+      "profile": 15,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 1.0,
+        "host_brightness_score": 1.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 63.506898930389866,
+        "transit_depth_score": 1.0
+      },
+      "total_error": 7.105427357601002e-15
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile16-alpha",
+      "passed": true,
+      "profile": 16,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.5,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [
+          "transit_depth_ppm",
+          "host_magnitude"
+        ],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 53.503613725442314,
+        "transit_depth_score": 0.5
+      },
+      "total_error": 7.105427357601002e-15
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile16-beta",
+      "passed": true,
+      "profile": 16,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 43.97980420163278,
+        "transit_depth_score": 0.0
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile16-gamma",
+      "passed": true,
+      "profile": 16,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 1.0,
+        "host_brightness_score": 1.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 67.7893280111566,
+        "transit_depth_score": 1.0
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile17-alpha",
+      "passed": true,
+      "profile": 17,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.5,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [
+          "transit_depth_ppm",
+          "host_magnitude"
+        ],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 51.12266134448993,
+        "transit_depth_score": 0.5
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile17-beta",
+      "passed": true,
+      "profile": 17,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 0.0,
+        "host_brightness_score": 0.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 43.97980420163278,
+        "transit_depth_score": 0.0
+      },
+      "total_error": 0.0
+    },
+    {
+      "component_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "id": "profile17-gamma",
+      "passed": true,
+      "profile": 17,
+      "score": {
+        "darkness_fraction_score": 1,
+        "full_window_visibility_score": 1.0,
+        "host_brightness_score": 1.0,
+        "midpoint_altitude_score": 0.5,
+        "missing_fields": [],
+        "moon_separation_score": 0.5,
+        "observable_fraction_score": 0.5,
+        "timing_confidence_score": 0.36787944117144233,
+        "total_score": 67.7893280111566,
+        "transit_depth_score": 1.0
+      },
+      "total_error": 0.0
+    }
+  ],
+  "schedule_case_count": 9,
+  "schedule_results": [
+    {
+      "exhaustive_optimal_utility": 270,
+      "gross_score": 270,
+      "id": "alternating-cost0",
+      "net_utility": 270,
+      "optimal_paths": [
+        [
+          0,
+          1,
+          0
+        ]
+      ],
+      "passed": true,
+      "production_optimizes_switch_cost": false,
+      "regret": 0,
+      "selected_path": [
+        0,
+        1,
+        0
+      ],
+      "switches": 2
+    },
+    {
+      "exhaustive_optimal_utility": 269,
+      "gross_score": 270,
+      "id": "alternating-cost5",
+      "net_utility": 260,
+      "optimal_paths": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "passed": true,
+      "production_optimizes_switch_cost": false,
+      "regret": 9,
+      "selected_path": [
+        0,
+        1,
+        0
+      ],
+      "switches": 2
+    },
+    {
+      "exhaustive_optimal_utility": 269,
+      "gross_score": 270,
+      "id": "alternating-cost20",
+      "net_utility": 230,
+      "optimal_paths": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "passed": true,
+      "production_optimizes_switch_cost": false,
+      "regret": 39,
+      "selected_path": [
+        0,
+        1,
+        0
+      ],
+      "switches": 2
+    },
+    {
+      "exhaustive_optimal_utility": 270,
+      "gross_score": 270,
+      "id": "constant-cost0",
+      "net_utility": 270,
+      "optimal_paths": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "passed": true,
+      "production_optimizes_switch_cost": false,
+      "regret": 0,
+      "selected_path": [
+        0,
+        0,
+        0
+      ],
+      "switches": 0
+    },
+    {
+      "exhaustive_optimal_utility": 270,
+      "gross_score": 270,
+      "id": "constant-cost5",
+      "net_utility": 270,
+      "optimal_paths": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "passed": true,
+      "production_optimizes_switch_cost": false,
+      "regret": 0,
+      "selected_path": [
+        0,
+        0,
+        0
+      ],
+      "switches": 0
+    },
+    {
+      "exhaustive_optimal_utility": 270,
+      "gross_score": 270,
+      "id": "constant-cost20",
+      "net_utility": 270,
+      "optimal_paths": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "passed": true,
+      "production_optimizes_switch_cost": false,
+      "regret": 0,
+      "selected_path": [
+        0,
+        0,
+        0
+      ],
+      "switches": 0
+    },
+    {
+      "exhaustive_optimal_utility": 210,
+      "gross_score": 210,
+      "id": "exact_tie-cost0",
+      "net_utility": 210,
+      "optimal_paths": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "passed": true,
+      "production_optimizes_switch_cost": false,
+      "regret": 0,
+      "selected_path": [
+        0,
+        0,
+        0
+      ],
+      "switches": 0
+    },
+    {
+      "exhaustive_optimal_utility": 210,
+      "gross_score": 210,
+      "id": "exact_tie-cost5",
+      "net_utility": 210,
+      "optimal_paths": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "passed": true,
+      "production_optimizes_switch_cost": false,
+      "regret": 0,
+      "selected_path": [
+        0,
+        0,
+        0
+      ],
+      "switches": 0
+    },
+    {
+      "exhaustive_optimal_utility": 210,
+      "gross_score": 210,
+      "id": "exact_tie-cost20",
+      "net_utility": 210,
+      "optimal_paths": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "passed": true,
+      "production_optimizes_switch_cost": false,
+      "regret": 0,
+      "selected_path": [
+        0,
+        0,
+        0
+      ],
+      "switches": 0
+    }
+  ],
+  "score_results": [
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "planner_altitude",
+      "id": "planner_altitude-0000",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "planner_altitude",
+      "id": "planner_altitude-0001",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "planner_altitude",
+      "id": "planner_altitude-0002",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0006,
+      "expected": "0.000599999999999999999999999999999999999999999999999999999999998",
+      "family": "planner_altitude",
+      "id": "planner_altitude-0003",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 12.0,
+      "expected": "12.0000000000000000000000000000000000000000000000000000000000",
+      "family": "planner_altitude",
+      "id": "planner_altitude-0004",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 27.0,
+      "expected": "27.0",
+      "family": "planner_altitude",
+      "id": "planner_altitude-0005",
+      "passed": true
+    },
+    {
+      "absolute_error": 7.105427357601002e-15,
+      "actual": 44.999399999999994,
+      "expected": "44.9994000000000000000000000000000000000000000000000000000000",
+      "family": "planner_altitude",
+      "id": "planner_altitude-0006",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 45.0,
+      "expected": "45",
+      "family": "planner_altitude",
+      "id": "planner_altitude-0007",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 45.0,
+      "expected": "45",
+      "family": "planner_altitude",
+      "id": "planner_altitude-0008",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 45.0,
+      "expected": "45",
+      "family": "planner_altitude",
+      "id": "planner_altitude-0009",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "planner_airmass",
+      "id": "planner_airmass-0010",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_airmass",
+      "id": "planner_airmass-0011",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_airmass",
+      "id": "planner_airmass-0012",
+      "passed": true
+    },
+    {
+      "absolute_error": 3.552713678800501e-15,
+      "actual": 19.990000000000002,
+      "expected": "19.9900",
+      "family": "planner_airmass",
+      "id": "planner_airmass-0013",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 10.0,
+      "expected": "10.0",
+      "family": "planner_airmass",
+      "id": "planner_airmass-0014",
+      "passed": true
+    },
+    {
+      "absolute_error": 1.1015494072452725e-15,
+      "actual": 0.009999999999998899,
+      "expected": "0.0100",
+      "family": "planner_airmass",
+      "id": "planner_airmass-0015",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "planner_airmass",
+      "id": "planner_airmass-0016",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "planner_airmass",
+      "id": "planner_airmass-0017",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "planner_airmass",
+      "id": "planner_airmass-0018",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 15.0,
+      "expected": "15",
+      "family": "planner_darkness",
+      "id": "planner_darkness-0019",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 15.0,
+      "expected": "15",
+      "family": "planner_darkness",
+      "id": "planner_darkness-0020",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 15.0,
+      "expected": "15",
+      "family": "planner_darkness",
+      "id": "planner_darkness-0021",
+      "passed": true
+    },
+    {
+      "absolute_error": 1.7763568394002505e-15,
+      "actual": 14.999166666666666,
+      "expected": "14.9991666666666666666666666666666666666666666666666666666667",
+      "family": "planner_darkness",
+      "id": "planner_darkness-0022",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 7.5,
+      "expected": "7.5",
+      "family": "planner_darkness",
+      "id": "planner_darkness-0023",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0008333333333333334,
+      "expected": "0.000833333333333333333333333333333333333333333333333333333333334",
+      "family": "planner_darkness",
+      "id": "planner_darkness-0024",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "planner_darkness",
+      "id": "planner_darkness-0025",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "planner_darkness",
+      "id": "planner_darkness-0026",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "planner_darkness",
+      "id": "planner_darkness-0027",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "planner_moon",
+      "id": "planner_moon-0028",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0029",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.00022222222222222223,
+      "expected": "0.000222222222222222222222222222222222222222222222222222222222222",
+      "family": "planner_moon",
+      "id": "planner_moon-0030",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0031",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0032",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0033",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0034",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0035",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "planner_moon",
+      "id": "planner_moon-0036",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0037",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "planner_moon",
+      "id": "planner_moon-0038",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0039",
+      "passed": true
+    },
+    {
+      "absolute_error": 4.073889663114283e-16,
+      "actual": 0.0003333333333337407,
+      "expected": "0.000333333333333333333333333333333333333333333333333333333333334",
+      "family": "planner_moon",
+      "id": "planner_moon-0040",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0041",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0042",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0043",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0044",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0045",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "planner_moon",
+      "id": "planner_moon-0046",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0047",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "planner_moon",
+      "id": "planner_moon-0048",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0049",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0050",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0051",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0052",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0053",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "planner_moon",
+      "id": "planner_moon-0054",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0055",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "planner_moon",
+      "id": "planner_moon-0056",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0057",
+      "passed": true
+    },
+    {
+      "absolute_error": 1.061054456102939e-15,
+      "actual": 0.0002222222222232833,
+      "expected": "0.000222222222222222222222222222222222222222222222222222222222222",
+      "family": "planner_moon",
+      "id": "planner_moon-0058",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0059",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0060",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0061",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "planner_moon",
+      "id": "planner_moon-0062",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0063",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "planner_moon",
+      "id": "planner_moon-0064",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0065",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "planner_moon",
+      "id": "planner_moon-0066",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0067",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0068",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0069",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "planner_moon",
+      "id": "planner_moon-0070",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0071",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "planner_moon",
+      "id": "planner_moon-0072",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0073",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0074",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20",
+      "family": "planner_moon",
+      "id": "planner_moon-0075",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "rank_altitude",
+      "id": "rank_altitude-0076",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "rank_altitude",
+      "id": "rank_altitude-0077",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 1.1111111111111112e-05,
+      "expected": "0.0000111111111111111111111111111111111111111111111111111111111111",
+      "family": "rank_altitude",
+      "id": "rank_altitude-0078",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.5,
+      "expected": "0.5",
+      "family": "rank_altitude",
+      "id": "rank_altitude-0079",
+      "passed": true
+    },
+    {
+      "absolute_error": 1.1102230246251565e-16,
+      "actual": 0.9999888888888888,
+      "expected": "0.999988888888888888888888888888888888888888888888888888888889",
+      "family": "rank_altitude",
+      "id": "rank_altitude-0080",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 1.0,
+      "expected": "1",
+      "family": "rank_altitude",
+      "id": "rank_altitude-0081",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 1.0,
+      "expected": "1",
+      "family": "rank_altitude",
+      "id": "rank_altitude-0082",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "rank_moon",
+      "id": "rank_moon-0083",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 1.1111111111111112e-05,
+      "expected": "0.0000111111111111111111111111111111111111111111111111111111111111",
+      "family": "rank_moon",
+      "id": "rank_moon-0084",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.5,
+      "expected": "0.5",
+      "family": "rank_moon",
+      "id": "rank_moon-0085",
+      "passed": true
+    },
+    {
+      "absolute_error": 1.1102230246251565e-16,
+      "actual": 0.9999888888888888,
+      "expected": "0.999988888888888888888888888888888888888888888888888888888889",
+      "family": "rank_moon",
+      "id": "rank_moon-0086",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 1.0,
+      "expected": "1",
+      "family": "rank_moon",
+      "id": "rank_moon-0087",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 1.0,
+      "expected": "1",
+      "family": "rank_moon",
+      "id": "rank_moon-0088",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 1.0,
+      "expected": "1",
+      "family": "rank_moon",
+      "id": "rank_moon-0089",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "rank_depth",
+      "id": "rank_depth-0090",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.07525668186780549,
+      "expected": "0.0752566818678054890436998899260908947651032378014306595879991",
+      "family": "rank_depth",
+      "id": "rank_depth-0091",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.5010749033660213,
+      "expected": "0.501074903366021290658605798564449006703175248818508547107619",
+      "family": "rank_depth",
+      "id": "rank_depth-0092",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.7501003756656575,
+      "expected": "0.750100375665657453914981132775825519821334330908372520547496",
+      "family": "rank_depth",
+      "id": "rank_depth-0093",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.9999999891438409,
+      "expected": "0.999999989143840900657835096694332884782302649057106254989462",
+      "family": "rank_depth",
+      "id": "rank_depth-0094",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 1.0,
+      "expected": "1",
+      "family": "rank_depth",
+      "id": "rank_depth-0095",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 1.0,
+      "expected": "1",
+      "family": "rank_depth",
+      "id": "rank_depth-0096",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 1.0,
+      "expected": "1",
+      "family": "rank_depth",
+      "id": "rank_depth-0097",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 1.0,
+      "expected": "1",
+      "family": "rank_timing",
+      "id": "rank_timing-0098",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.9995001249791693,
+      "expected": "0.999500124979169270572938366505553225024726223024869084435858",
+      "family": "rank_timing",
+      "id": "rank_timing-0099",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.6065306597126334,
+      "expected": "0.606530659712633423603799534991180453441918135487186955682892",
+      "family": "rank_timing",
+      "id": "rank_timing-0100",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.36787944117144233,
+      "expected": "0.367879441171442321595523770161460867445811131031767834507837",
+      "family": "rank_timing",
+      "id": "rank_timing-0101",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.1353352832366127,
+      "expected": "0.135335283236612691893999494972484403407631545909575881468159",
+      "family": "rank_timing",
+      "id": "rank_timing-0102",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 4.5399929762484854e-05,
+      "expected": "0.0000453999297624848515355915155605506102379180888665649692590713",
+      "family": "rank_timing",
+      "id": "rank_timing-0103",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 1.9287498479639178e-22,
+      "expected": "1.92874984796391778301734281652701257475283265123026291089781E-22",
+      "family": "rank_timing",
+      "id": "rank_timing-0104",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "5.07595889754945676529180947957433691930559928289283736183239E-435",
+      "family": "rank_timing",
+      "id": "rank_timing-0105",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 1.0,
+      "expected": "1",
+      "family": "rank_brightness",
+      "id": "rank_brightness-0106",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 1.0,
+      "expected": "1",
+      "family": "rank_brightness",
+      "id": "rank_brightness-0107",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 1.0,
+      "expected": "1",
+      "family": "rank_brightness",
+      "id": "rank_brightness-0108",
+      "passed": true
+    },
+    {
+      "absolute_error": 1.1102230246251565e-16,
+      "actual": 0.9999090909090907,
+      "expected": "0.999909090909090909090909090909090909090909090909090909090909",
+      "family": "rank_brightness",
+      "id": "rank_brightness-0109",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.5,
+      "expected": "0.5",
+      "family": "rank_brightness",
+      "id": "rank_brightness-0110",
+      "passed": true
+    },
+    {
+      "absolute_error": 5.037474343910775e-17,
+      "actual": 9.090909090904053e-05,
+      "expected": "0.0000909090909090909090909090909090909090909090909090909090909091",
+      "family": "rank_brightness",
+      "id": "rank_brightness-0111",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "rank_brightness",
+      "id": "rank_brightness-0112",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "rank_brightness",
+      "id": "rank_brightness-0113",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": "0",
+      "family": "rank_brightness",
+      "id": "rank_brightness-0114",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 100.0,
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0115",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 90.0,
+      "expected": "90.0",
+      "family": "weather",
+      "id": "weather-0116",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 80.0,
+      "expected": "80.0",
+      "family": "weather",
+      "id": "weather-0117",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 70.0,
+      "expected": "70.0",
+      "family": "weather",
+      "id": "weather-0118",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 60.0,
+      "expected": "60.0",
+      "family": "weather",
+      "id": "weather-0119",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 100.0,
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0120",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 93.8,
+      "expected": "93.8",
+      "family": "weather",
+      "id": "weather-0121",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 87.5,
+      "expected": "87.5",
+      "family": "weather",
+      "id": "weather-0122",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 81.2,
+      "expected": "81.2",
+      "family": "weather",
+      "id": "weather-0123",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 75.0,
+      "expected": "75.0",
+      "family": "weather",
+      "id": "weather-0124",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 100.0,
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0125",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 100.0,
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0126",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 25.0,
+      "expected": "25.0",
+      "family": "weather",
+      "id": "weather-0127",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 25.0,
+      "expected": "25.0",
+      "family": "weather",
+      "id": "weather-0128",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 25.0,
+      "expected": "25.0",
+      "family": "weather",
+      "id": "weather-0129",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 85.0,
+      "expected": "85.0",
+      "family": "weather",
+      "id": "weather-0130",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 92.5,
+      "expected": "92.5",
+      "family": "weather",
+      "id": "weather-0131",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 100.0,
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0132",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 100.0,
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0133",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 100.0,
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0134",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 100.0,
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0135",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 100.0,
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0136",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 100.0,
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0137",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 100.0,
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0138",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 100.0,
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0139",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 94.3,
+      "expected": "94.3",
+      "family": "weather",
+      "id": "weather-0140",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 90.0,
+      "expected": "90.0",
+      "family": "weather",
+      "id": "weather-0141",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 90.0,
+      "expected": "90.0",
+      "family": "weather",
+      "id": "weather-0142",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 90.0,
+      "expected": "90.0",
+      "family": "weather",
+      "id": "weather-0143",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 90.0,
+      "expected": "90.0",
+      "family": "weather",
+      "id": "weather-0144",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 100.0,
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0145",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 100.0,
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0146",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 100.0,
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0147",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 100.0,
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0148",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 95.0,
+      "expected": "95.0",
+      "family": "weather",
+      "id": "weather-0149",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 90.0,
+      "expected": "90.0",
+      "family": "weather",
+      "id": "weather-0150",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 90.0,
+      "expected": "90.0",
+      "family": "weather",
+      "id": "weather-0151",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 90.0,
+      "expected": "90.0",
+      "family": "weather",
+      "id": "weather-0152",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 90.0,
+      "expected": "90.0",
+      "family": "weather",
+      "id": "weather-0153",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 100.0,
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0154",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 100.0,
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0155",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20.0",
+      "family": "weather",
+      "id": "weather-0156",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20.0",
+      "family": "weather",
+      "id": "weather-0157",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20.0",
+      "family": "weather",
+      "id": "weather-0158",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 100.0,
+      "expected": "100.0",
+      "family": "weather",
+      "id": "weather-0159",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 60.0,
+      "expected": "60.0",
+      "family": "weather",
+      "id": "weather-0160",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20.0",
+      "family": "weather",
+      "id": "weather-0161",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20.0",
+      "family": "weather",
+      "id": "weather-0162",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 25.0,
+      "expected": "25.0",
+      "family": "weather",
+      "id": "weather-0163",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 25.0,
+      "expected": "25.0",
+      "family": "weather",
+      "id": "weather-0164",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20.0",
+      "family": "weather",
+      "id": "weather-0165",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": 20.0,
+      "expected": "20.0",
+      "family": "weather",
+      "id": "weather-0166",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "poor",
+      "expected": "poor",
+      "family": "planner_rating",
+      "id": "planner_rating-0167",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "excellent",
+      "expected": "excellent",
+      "family": "planner_rating",
+      "id": "planner_rating-0168",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "poor",
+      "expected": "poor",
+      "family": "planner_rating",
+      "id": "planner_rating-0169",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "fair",
+      "expected": "fair",
+      "family": "planner_rating",
+      "id": "planner_rating-0170",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "fair",
+      "expected": "fair",
+      "family": "planner_rating",
+      "id": "planner_rating-0171",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "fair",
+      "expected": "fair",
+      "family": "planner_rating",
+      "id": "planner_rating-0172",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "good",
+      "expected": "good",
+      "family": "planner_rating",
+      "id": "planner_rating-0173",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "good",
+      "expected": "good",
+      "family": "planner_rating",
+      "id": "planner_rating-0174",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "good",
+      "expected": "good",
+      "family": "planner_rating",
+      "id": "planner_rating-0175",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "very_good",
+      "expected": "very_good",
+      "family": "planner_rating",
+      "id": "planner_rating-0176",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "very_good",
+      "expected": "very_good",
+      "family": "planner_rating",
+      "id": "planner_rating-0177",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "very_good",
+      "expected": "very_good",
+      "family": "planner_rating",
+      "id": "planner_rating-0178",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "excellent",
+      "expected": "excellent",
+      "family": "planner_rating",
+      "id": "planner_rating-0179",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "excellent",
+      "expected": "excellent",
+      "family": "planner_rating",
+      "id": "planner_rating-0180",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "unsuitable",
+      "expected": "unsuitable",
+      "family": "weather_rating",
+      "id": "weather_rating-0181",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "excellent",
+      "expected": "excellent",
+      "family": "weather_rating",
+      "id": "weather_rating-0182",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "unsuitable",
+      "expected": "unsuitable",
+      "family": "weather_rating",
+      "id": "weather_rating-0183",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "poor",
+      "expected": "poor",
+      "family": "weather_rating",
+      "id": "weather_rating-0184",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "poor",
+      "expected": "poor",
+      "family": "weather_rating",
+      "id": "weather_rating-0185",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "poor",
+      "expected": "poor",
+      "family": "weather_rating",
+      "id": "weather_rating-0186",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "fair",
+      "expected": "fair",
+      "family": "weather_rating",
+      "id": "weather_rating-0187",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "fair",
+      "expected": "fair",
+      "family": "weather_rating",
+      "id": "weather_rating-0188",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "fair",
+      "expected": "fair",
+      "family": "weather_rating",
+      "id": "weather_rating-0189",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "good",
+      "expected": "good",
+      "family": "weather_rating",
+      "id": "weather_rating-0190",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "good",
+      "expected": "good",
+      "family": "weather_rating",
+      "id": "weather_rating-0191",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "good",
+      "expected": "good",
+      "family": "weather_rating",
+      "id": "weather_rating-0192",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "excellent",
+      "expected": "excellent",
+      "family": "weather_rating",
+      "id": "weather_rating-0193",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "excellent",
+      "expected": "excellent",
+      "family": "weather_rating",
+      "id": "weather_rating-0194",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "critical",
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0195",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "critical",
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0196",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "critical",
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0197",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "critical",
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0198",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "critical",
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0199",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "critical",
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0200",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "critical",
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0201",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "critical",
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0202",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "critical",
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0203",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "critical",
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0204",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "critical",
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0205",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "critical",
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0206",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "high",
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0207",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "high",
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0208",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "high",
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0209",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "high",
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0210",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "high",
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0211",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "critical",
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0212",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "high",
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0213",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "high",
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0214",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "high",
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0215",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "high",
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0216",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "high",
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0217",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "critical",
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0218",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "high",
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0219",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "high",
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0220",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "high",
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0221",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "high",
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0222",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "high",
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0223",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "critical",
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0224",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "moderate",
+      "expected": "moderate",
+      "family": "dew",
+      "id": "dew-0225",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "moderate",
+      "expected": "moderate",
+      "family": "dew",
+      "id": "dew-0226",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "moderate",
+      "expected": "moderate",
+      "family": "dew",
+      "id": "dew-0227",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "high",
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0228",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "high",
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0229",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "critical",
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0230",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "moderate",
+      "expected": "moderate",
+      "family": "dew",
+      "id": "dew-0231",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "moderate",
+      "expected": "moderate",
+      "family": "dew",
+      "id": "dew-0232",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "moderate",
+      "expected": "moderate",
+      "family": "dew",
+      "id": "dew-0233",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "high",
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0234",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "high",
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0235",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "critical",
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0236",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "moderate",
+      "expected": "moderate",
+      "family": "dew",
+      "id": "dew-0237",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "moderate",
+      "expected": "moderate",
+      "family": "dew",
+      "id": "dew-0238",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "moderate",
+      "expected": "moderate",
+      "family": "dew",
+      "id": "dew-0239",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "high",
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0240",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "high",
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0241",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "critical",
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0242",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "low",
+      "expected": "low",
+      "family": "dew",
+      "id": "dew-0243",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "moderate",
+      "expected": "moderate",
+      "family": "dew",
+      "id": "dew-0244",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "moderate",
+      "expected": "moderate",
+      "family": "dew",
+      "id": "dew-0245",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "high",
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0246",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "high",
+      "expected": "high",
+      "family": "dew",
+      "id": "dew-0247",
+      "passed": true
+    },
+    {
+      "absolute_error": null,
+      "actual": "critical",
+      "expected": "critical",
+      "family": "dew",
+      "id": "dew-0248",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": true,
+        "total": "54.5"
+      },
+      "expected": {
+        "recommended": true,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0249",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": true,
+        "total": "54.5"
+      },
+      "expected": {
+        "recommended": true,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0250",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": true,
+        "total": "54.5"
+      },
+      "expected": {
+        "recommended": true,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0251",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0252",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0253",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0254",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0255",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0256",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0257",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0258",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": true,
+        "total": "64.5"
+      },
+      "expected": {
+        "recommended": true,
+        "total": "64.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0259",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": true,
+        "total": "64.5"
+      },
+      "expected": {
+        "recommended": true,
+        "total": "64.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0260",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": true,
+        "total": "64.5"
+      },
+      "expected": {
+        "recommended": true,
+        "total": "64.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0261",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": true,
+        "total": "64.5"
+      },
+      "expected": {
+        "recommended": true,
+        "total": "64.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0262",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": true,
+        "total": "64.5"
+      },
+      "expected": {
+        "recommended": true,
+        "total": "64.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0263",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "64.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "64.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0264",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "64.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "64.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0265",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "64.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "64.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0266",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "64.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "64.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0267",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "64.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "64.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0268",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": true,
+        "total": "44.5"
+      },
+      "expected": {
+        "recommended": true,
+        "total": "44.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0269",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0270",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0271",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0272",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0273",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0274",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0275",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0276",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0277",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "44.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0278",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": true,
+        "total": "54.5"
+      },
+      "expected": {
+        "recommended": true,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0279",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": true,
+        "total": "54.5"
+      },
+      "expected": {
+        "recommended": true,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0280",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": true,
+        "total": "54.5"
+      },
+      "expected": {
+        "recommended": true,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0281",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0282",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0283",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0284",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0285",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0286",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0287",
+      "passed": true
+    },
+    {
+      "absolute_error": 0.0,
+      "actual": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "expected": {
+        "recommended": false,
+        "total": "54.5"
+      },
+      "family": "plan_entry",
+      "id": "plan_entry-0288",
+      "passed": true
+    }
+  ],
+  "tradeoff_case_count": 3,
+  "weight_tradeoffs": [
+    {
+      "a_minus_b": 20.000000000000007,
+      "a_score": 61.178794411714435,
+      "b_score": 41.17879441171443,
+      "expected_difference": 20,
+      "id": "default",
+      "passed": true
+    },
+    {
+      "a_minus_b": -100.0,
+      "a_score": 0.0,
+      "b_score": 100.0,
+      "expected_difference": -100,
+      "id": "depth_only",
+      "passed": true
+    },
+    {
+      "a_minus_b": 100.0,
+      "a_score": 100.0,
+      "b_score": 0.0,
+      "expected_difference": 100,
+      "id": "observable_only",
+      "passed": true
+    }
+  ]
+}
