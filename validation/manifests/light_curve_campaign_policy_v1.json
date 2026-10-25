@@ -1,0 +1,23 @@
+{
+  "mission": 56,
+  "status": "Frozen before production recovery evaluation",
+  "stages": ["normalized", "linear_detrended", "sigma_clipped"],
+  "sigma_clip": 5.0,
+  "minimum_period_days": 1.0,
+  "maximum_period_days": 6.0,
+  "ls_samples_per_peak": 10,
+  "bls_durations_days": [0.12, 0.18, 0.24],
+  "bls_oversample": 10,
+  "bls_frequency_factor": 3.0,
+  "relative_period_goal": 0.01,
+  "ls_power_absolute_goal": 0.01,
+  "bls_exact_snr_upper_slack": 0.00001,
+  "ls_fap_flag_threshold": 0.01,
+  "bls_snr_flag_threshold": 6.0,
+  "required_recovery": "Only matching algorithm on uniform synthetic sine/box, normalized and linear_detrended; published BLS normalized and linear_detrended. All other recovery and false-positive outcomes are diagnostics and retained.",
+  "constant_policy": "Zero-variance period search may reject with typed error or return finite candidates; neither is evidence of a detection.",
+  "reference_policy": "LS direct weighted sine/cosine/intercept least squares at returned best frequency; allow fast-grid approximation within 0.01 absolute normalized power. BLS exhaustive phase-window weighted two-level regression at returned period and duration gives an upper bound on achievable positive depth SNR, not an independent global period oracle.",
+  "false_positive_policy": "Count threshold flags on 10 fixed white and 10 fixed AR(1) red nulls separately by algorithm and stage; report denominator and Wilson interval. No false-positive-rate or FAP calibration acceptance threshold.",
+  "sampling_and_preprocessing": "Archive selection and synthetic truth fixed before search. Compare identical search settings before/after preprocessing. No tuning to preserve recoveries.",
+  "physical_arrival_qualification_changed": false
+}
