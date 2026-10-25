@@ -212,6 +212,7 @@ def run():
     reproduced = all(not m["fast_within_bound"] for m in retained) and len(retained) == 9
     return {
         "mission": 57,
+        "execution_target": "historical Astropy fast-search mechanism; not current production",
         "executed_at_utc": datetime.now(UTC).isoformat(),
         "policy": policy,
         "selected_trial_count": len(rows),

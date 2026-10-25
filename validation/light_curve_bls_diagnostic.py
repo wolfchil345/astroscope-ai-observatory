@@ -50,6 +50,7 @@ def diagnose(record):
         )
     return {
         "mission": 56,
+        "execution_target": "historical pre-Mission-58 fast search; not current production",
         "campaign_environment": record["environment"],
         "diagnostic_source_sha256": sha(ROOT / "validation/light_curve_bls_diagnostic.py"),
         "independent_oracle": "validation.light_curve_references.exact_box_snr",

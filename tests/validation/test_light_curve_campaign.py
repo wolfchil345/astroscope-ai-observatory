@@ -1,4 +1,4 @@
-"""Mission 56: independent controls and explicit reproduction of scientific failures."""
+"""Historical Mission 56 controls and explicit reproduction of pre-correction failures."""
 
 import copy
 import itertools
@@ -57,6 +57,7 @@ def test_every_trial_reproduces_retained_observation(index, record, matched_base
 
 
 def test_scientific_failure_is_explicit_and_separate_from_reproduction(record):
+    assert record["execution_target"] == "historical pre-Mission-58 fast wrapper"
     assert record["overall_passed"] is False
     assert record["failed_trials"] == 9
     assert record["required_recovery_count"] == record["required_recovery_successes"] == 10
@@ -172,8 +173,8 @@ def test_wilson_and_alias_controls():
     ]
     + [("red_null-uniform-2", "linear_detrended")],
 )
-@pytest.mark.xfail(strict=True, reason="Retained BLS upper-bound violation; W05 remains open")
-def test_unresolved_bls_scientific_acceptance(trial_id, stage, record):
+@pytest.mark.xfail(strict=True, reason="Historical pre-Mission-58 BLS upper-bound violation")
+def test_historical_bls_scientific_failure(trial_id, stage, record):
     row = next(
         r
         for r in record["results"]

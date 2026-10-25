@@ -416,7 +416,7 @@ jobs:
           path: ${{ runner.temp }}/heuristic_characterisation_reference_run.json
           if-no-files-found: error
 
-      - name: Reproduce light-curve baseline including known scientific failures
+      - name: Reproduce historical light-curve baseline including known scientific failures
         if: ${{ !cancelled() }}
         env:
           ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
@@ -440,7 +440,7 @@ jobs:
             ${{ runner.temp }}/light_curve_bls_diagnostic.json
           if-no-files-found: error
 
-      - name: Trace BLS phase-bin discrepancies without changing scientific acceptance
+      - name: Preserve historical BLS phase-bin investigation
         if: ${{ !cancelled() }}
         env:
           ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
@@ -455,4 +455,21 @@ jobs:
         with:
           name: bls-discrepancy-investigation-record
           path: ${{ runner.temp }}/bls_discrepancy_reference_run.json
+          if-no-files-found: error
+
+      - name: Validate corrected production BLS on frozen scientific campaign
+        if: ${{ !cancelled() }}
+        env:
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          python -m validation.physical_bls_campaign \
+            --output "$RUNNER_TEMP/physical_bls_reference_run.json"
+
+      - name: Upload physical BLS correction validation
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: physical-bls-validation-record
+          path: ${{ runner.temp }}/physical_bls_reference_run.json
           if-no-files-found: error
