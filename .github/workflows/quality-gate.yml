@@ -473,3 +473,21 @@ jobs:
           name: physical-bls-validation-record
           path: ${{ runner.temp }}/physical_bls_reference_run.json
           if-no-files-found: error
+
+      - name: Reproduce catalogue baseline including retained acceptance failures
+        if: ${{ !cancelled() }}
+        env:
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          python -m validation.catalogue_quantities \
+            --audit-known-discrepancies \
+            --output "$RUNNER_TEMP/catalogue_quantities_reference_run.json"
+
+      - name: Upload catalogue validation and retained discrepancies
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: catalogue-quantities-validation-record
+          path: ${{ runner.temp }}/catalogue_quantities_reference_run.json
+          if-no-files-found: error

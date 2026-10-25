@@ -297,6 +297,9 @@ def audit_observations(result):
     passed = matches(current, baseline["observations"], atol=2e-9, rtol=2e-12)
     expected_inputs = baseline["input_sha256"]
     passed = passed and all(sha(ROOT / p) == h for p, h in expected_inputs.items())
+    passed = passed and all(
+        sha(ROOT / p) == h for p, h in baseline["production_source_sha256"].items()
+    )
     return {
         "passed": passed,
         "baseline_sha256": sha(ROOT / OBSERVATIONS),
