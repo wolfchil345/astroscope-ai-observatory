@@ -141,6 +141,11 @@
   "projection_rejected_cases": 697,
   "prose_count_correction_commit": "260e4fc",
   "protocol_freeze_commit": "f86c85e",
+  "pull_request": {
+    "number": 61,
+    "status": "open; review and merge pending",
+    "url": "https://github.com/wolfchil345/astroscope-ai-observatory/pull/61"
+  },
   "requirement_counts": {
     "reject": 714,
     "reject_or_null": 1,

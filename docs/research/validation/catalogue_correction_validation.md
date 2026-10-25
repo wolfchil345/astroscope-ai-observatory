@@ -6,6 +6,8 @@ active; formal exit, composite-input provenance and physical arrival qualificati
 are not approved. Mission 60's 911-case baseline and all 17 failures remain
 reproducible against isolated historical source.
 
+Review and merge: [PR #61](https://github.com/wolfchil345/astroscope-ai-observatory/pull/61).
+
 ## Baseline and experiment chronology
 
 Mission 60 PR #60 merged at `e94271adfaf90c22c986fe2433f91b2a0b844489`.

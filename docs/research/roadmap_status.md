@@ -57,7 +57,7 @@
 
 - Mission 59: Complete — Phase 2 Coverage and Provenance Reconciliation (W06), [PR #59](https://github.com/wolfchil345/astroscope-ai-observatory/pull/59); merged at `9303287a591026b63921844630e90b772bfa0226`; post-merge Quality Gate 40213548200 passed. Bounded W05 closure confirmed; Phase 2 remains active.
 - Mission 60: Complete — [PR #60](https://github.com/wolfchil345/astroscope-ai-observatory/pull/60) merged at `e94271ad`; post-merge CI passed (7,066 tests, 26 historical xfails). Its 17 catalogue failures remain isolated historical evidence.
-- Mission 61: Active — Catalogue Numerical-Domain and Convention Correction; 1,252 current acceptance cases pass. G60-01–G60-07 and G59-01 bounded closure recommended on review/merge; Phase 2 exit remains pending.
+- Mission 61: Active — [PR #61](https://github.com/wolfchil345/astroscope-ai-observatory/pull/61), Catalogue Numerical-Domain and Convention Correction; 1,252 current acceptance cases pass. G60-01–G60-07 and G59-01 bounded closure recommended on review/merge; Phase 2 exit remains pending.
 
 ## Phase Progress
 
@@ -732,6 +732,7 @@ below; the original findings and failed record remain historical. Phase 2 remain
 - [x] Pass all 1,252 current acceptance cases with no current expected failures
 - [x] Verify offline regeneration, mutation detection, CSV semantics and four-language dashboards
 - [x] Record clean canonical result and add the 28th CI artifact
+- [x] Open [PR #61](https://github.com/wolfchil345/astroscope-ai-observatory/pull/61); final-head CI and artifact checks recorded there before handoff
 - [ ] Review and merge Mission 61; confirm bounded G59-01 closure
 
 The [Mission 61 report](validation/catalogue_correction_validation.md) and
