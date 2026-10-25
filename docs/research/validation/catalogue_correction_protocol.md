@@ -9,7 +9,7 @@ byte/hash verification. Its 17 acceptance failures remain historical failures.
 ## Contract and independent reference
 
 The successor fixture retains all 911 original inputs and IDs, explicitly records
-each changed interpretation, and adds 640 projection boundary cases plus 21
+each changed interpretation, and adds 320 projection boundary cases plus 21
 extreme arithmetic/model cases. No tolerance is relaxed. Constants/coherence are
 tightened. Density, depth and circular exterior-orbit probability use one stated
 nominal convention. Current acceptance must pass every case; historical replay
