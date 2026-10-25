@@ -1,23 +1,26 @@
 {
   "campaign_environment": {
-    "checkout_commit": "0f38a93be98112cf2163ff6b3254e4f46707b378",
+    "checkout_commit": "89ee45f4a93da199e5b0f12e3f7d89bfc0dfec85",
     "git_dirty": false,
-    "implementation_commit": "0f38a93be98112cf2163ff6b3254e4f46707b378",
+    "implementation_commit": "89ee45f4a93da199e5b0f12e3f7d89bfc0dfec85",
     "input_sha256": {
       "validation/fixtures/light_curve_campaign_v1.json": "43c2c700ed2647d4bcd8a1484fe4521c9b7d25b65c12450624a19de6e7ac8de3",
       "validation/manifests/light_curve_campaign_policy_v1.json": "d246d911f0efe70a6f018c7ca7f1e1fe0fa25c16e0523fa8daae5eb78aec54b7",
       "validation/manifests/light_curve_campaign_v1.json": "7b10d257df73967fb1e08b128e1f46fca003a9ee704992323cb9bd717c37aa1f"
     },
+    "machine": "x86_64",
     "network_required": false,
     "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
     "python": "3.12.14",
+    "requested_openblas_coretype": "Haswell",
+    "requested_openblas_num_threads": "1",
     "source_sha256": {
       "src/astroscope/light_curve.py": "f6fd35435b552627d53155d2dca3fc558ea5edcb5dc58aa896c7dc23f040b3ef",
       "src/astroscope/light_curve_period.py": "50b305831bbdb0f7d5c2afe5db5f367ac3e76261dc283aecaa0e5991d0fc7ee0",
       "src/astroscope/light_curve_processing.py": "9fa1e6ddffbc2f2a7454c67d24ffd3bb6fe6a26beed9643492b838d8a714893e",
       "src/astroscope/light_curve_transit_search.py": "daa92537c91274c774379385de85dfce3862fda73ccd891c2001054ecd2fd55a",
       "validation/celestial_coordinates.py": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
-      "validation/light_curve_campaign.py": "8ccdeb167f3d61226eedbb106bf3c3ac789937d3eb732ef778197ecfcdfb215b",
+      "validation/light_curve_campaign.py": "ec0b8da31818540a5b680849afff989af8fcd3bc8869d1655867d0fb0ef15499",
       "validation/light_curve_references.py": "7489dcf46af96056d4d071b3419e44802d26b7f9f8b71efc701f9c0891b4f2fc"
     },
     "versions": {

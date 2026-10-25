@@ -184,12 +184,15 @@ no specific numerical kernel is forced on the production application.
 
 The [canonical record](../../../validation/results/light_curve_campaign_reference_run.json)
 was first executed cleanly at `0f38a93be98112cf2163ff6b3254e4f46707b378`.
-The current canonical replay includes both supported observation variants; its
+The current canonical replay at `89ee45f4a93da199e5b0f12e3f7d89bfc0dfec85`
+uses the explicit Haswell kernel and audits both supported observation variants; its
 observation audit passes while scientific acceptance remains false. The
 [diagnostic record](../../../validation/results/light_curve_bls_diagnostic.json)
 retains all nine comparisons. Initial focused tests: **662 passed, nine strict xfailed**. The platform fix
 adds a whole-variant mixing rejection test (392 new passing tests and nine new
-expected failures); updated validation is recorded below. Ruff lint passes.
+expected failures); updated focused validation: **663 passed, nine strict xfailed** on Haswell,
+and **392 passed, nine strict xfailed** for the new campaign on the original
+kernel. Ruff lint passes.
 Formatting checks pass for all new Python files; a repository-wide format check
 reports 15 pre-existing files, left unchanged.
 The canonical record identifies the clean implementation commit, source/input
