@@ -1,5 +1,7 @@
 # Mission 56 — Light-Curve Recovery and Validation Baseline
 
+> Historical mission record: [Mission 58](physical_bls_validation.md) adds the production correction and a separate passing replay. This document and its frozen results describe the earlier implementation; its failed observations remain reproducible through the labelled historical runner.
+
 ## Decision and scope
 
 W05 remains **active**. The frozen campaign executes 252 trials on 42 datasets.

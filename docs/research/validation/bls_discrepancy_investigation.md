@@ -1,5 +1,7 @@
 # Mission 57 — BLS Numerical Discrepancy Investigation
 
+> Historical mission record: [Mission 58](physical_bls_validation.md) adds the production correction and a separate passing replay. This document and its frozen results describe the earlier implementation; its failed observations remain reproducible through the labelled historical runner.
+
 ## Decision
 
 The nine Mission 56 BLS discrepancies are explained by a source-traced phase-bin

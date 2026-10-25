@@ -27,7 +27,7 @@ def test_exact_fraction_grid(seed, period, objective, weighted):
     durations = [0.125, 0.25, 0.375]
     ref = brute_grid(t, y, errors, period, durations, 2, objective)
     out = physical_bls_power(t, y, errors if weighted else None, [period], durations, 2, objective)
-    assert out.power[0] == pytest.approx(ref[0]["power"], abs=1e-8)
+    assert out.power[0] == pytest.approx(ref[0]["power"], rel=0, abs=1e-8)
     match = [
         r
         for r in ref
@@ -35,7 +35,7 @@ def test_exact_fraction_grid(seed, period, objective, weighted):
     ]
     assert match
     for k, target in [("depth", "depth"), ("depth_err", "depth_error"), ("depth_snr", "depth_snr")]:
-        assert getattr(out, k)[0] == pytest.approx(match[0][target], abs=1e-8)
+        assert getattr(out, k)[0] == pytest.approx(match[0][target], rel=0, abs=1e-8)
 
 
 def test_mission57_witness_is_corrected_and_full_periods_reranked():
@@ -79,8 +79,8 @@ def test_wrapping_duplicate_phases_epoch_and_affine_invariance(origin, objective
     ref = brute_grid(t, y, e, 1.0, [0.125, 0.25], 4, objective)
     out = physical_bls_power(t, y, e, [1.0], [0.125, 0.25], 4, objective)
     scaled = physical_bls_power(t, 3 * y + 17, 3 * e, [1.0], [0.125, 0.25], 4, objective)
-    assert out.power[0] == pytest.approx(ref[0]["power"], abs=1e-8)
-    assert scaled.power[0] == pytest.approx(out.power[0], abs=1e-8)
+    assert out.power[0] == pytest.approx(ref[0]["power"], rel=0, abs=1e-8)
+    assert scaled.power[0] == pytest.approx(out.power[0], rel=0, abs=1e-8)
 
 
 def test_historical_engine_is_byte_sealed():
@@ -123,5 +123,5 @@ def test_all_period_samples_against_independent_enumeration(objective):
     durations = [0.125, 0.25, 0.375]
     out = physical_bls_power(t, y, None, periods, durations, 2, objective)
     refs = [brute_grid(t, y, np.ones(len(t)), p, durations, 2, objective)[0] for p in periods]
-    assert out.power == pytest.approx([r["power"] for r in refs], abs=1e-8)
+    assert out.power == pytest.approx([r["power"] for r in refs], rel=0, abs=1e-8)
     assert int(np.argmax(out.power)) == int(np.argmax([r["power"] for r in refs]))
