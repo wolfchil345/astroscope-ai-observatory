@@ -1,0 +1,27 @@
+{
+  "files": {
+    "src/astroscope/exoplanet_catalog.py": {
+      "original_sha256": "990c411fe9660acc83e77fce0fa98febd9f2fcc61d3855d38aaf2087567f10cb",
+      "retained_path": "validation/historical/mission60_catalogue/exoplanet_catalog.py",
+      "retained_sha256": "990c411fe9660acc83e77fce0fa98febd9f2fcc61d3855d38aaf2087567f10cb"
+    },
+    "src/astroscope/exoplanet_visuals.py": {
+      "original_sha256": "a5e6b6b9bc71269a90a76237338619bb1569afbb47a453de0e41f4029bed9c90",
+      "retained_path": "validation/historical/mission60_catalogue/exoplanet_visuals.py",
+      "retained_sha256": "6cd6684e39a908510d395893b943984fdcde2c40037d279d125839cb318b1b15"
+    },
+    "src/astroscope/gaia_catalog.py": {
+      "original_sha256": "60aa0ed7a37b00f995b66ac67bd2fc750aec1fecf95d496919ede84ce1ca2974",
+      "retained_path": "validation/historical/mission60_catalogue/gaia_catalog.py",
+      "retained_sha256": "60aa0ed7a37b00f995b66ac67bd2fc750aec1fecf95d496919ede84ce1ca2974"
+    },
+    "src/astroscope/gaia_visuals.py": {
+      "original_sha256": "42d1c763a325cf932f6294ec08ace95b6b88db84099c74b06299f1f82c6dc8fb",
+      "retained_path": "validation/historical/mission60_catalogue/gaia_visuals.py",
+      "retained_sha256": "6c37d8b637eccd6aa8c631f3131dccdad9fc5aa204ef1c9a2df55516346acc34"
+    }
+  },
+  "mission": 61,
+  "origin_commit": "e94271adfaf90c22c986fe2433f91b2a0b844489",
+  "transformation": "Only two from astroscope.<catalog> import prefixes become from validation.historical.mission60_catalogue.<catalog> import. Reversing these reconstructs original source bytes."
+}

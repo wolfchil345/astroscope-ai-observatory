@@ -1,0 +1,11 @@
+{
+  "files": {
+    "docs/research/validation/catalogue_correction_protocol.md": "0c85eab3baaf6bb7315ba74d5d3fbbb1d7bf2c8de4ec9482546d5ac65819eff8",
+    "validation/fixtures/catalogue_correction_v1.json": "044323514ac8890a72cca16a67d69d44c85b0581a46079a0d9943a33ca1ae939",
+    "validation/manifests/catalogue_correction_policy_v1.json": "1b62d65a51574c84ffc0bbc8330837ce9fdda125b3b07814596df22017be927c",
+    "validation/manifests/catalogue_correction_sources_v1.json": "597114a4e9abfccd6afa16d602125fa5e38192ac8eec207cd0646caa71d6b417",
+    "validation/manifests/mission60_retained_sources_v1.json": "bea572342c0176953e6936161ff977bfdf360acf4c232b23b54717d77f898289",
+    "validation/reference_generation/catalogue_correction.py": "7c810f6d8ba5c397ba543366708e3fe73b9f841ed3effbc0e21c490579b11b4c"
+  },
+  "mission": 61
+}
