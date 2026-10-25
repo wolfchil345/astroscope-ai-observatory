@@ -1,5 +1,7 @@
 # Mission 58 — BLS Physical-Membership Correction and Validation
 
+> Mission 58 merged in [PR #58](https://github.com/wolfchil345/astroscope-ai-observatory/pull/58) at `bbad4c43982cd6a5ae88a07471c63b8f99e260df`; post-merge Quality Gate 40207906117 passed. [Mission 59](../phase_2_reconciliation.md) reviews bounded W05 closure. The results and original validation scope below are unchanged.
+
 ## Decision and scope
 
 The corrected production BLS search passes all **252 frozen Mission 56 trials**,
