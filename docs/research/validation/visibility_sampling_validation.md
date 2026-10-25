@@ -124,7 +124,7 @@ the corpus, policy, generator and shared IERS input. The
 records clean implementation identity, environment, source/input hashes, every
 residual, denominator, contract and sampling diagnostic. CI runs the complete
 suite and publishes `visibility-sampling-validation-record` as artifact 22,
-preserving the previous 21. Final-head CI evidence is recorded in the PR before
+preserving the previous 21. Final-head CI evidence is recorded in [PR #54](https://github.com/wolfchil345/astroscope-ai-observatory/pull/54) before
 handoff.
 
 ## Qualification limits and remaining work
