@@ -11,7 +11,7 @@
 - Mission 24: Complete — Sky Map Visualization Boundary Extraction, merged in PR #15
 - Phase 1 Exit Audit: PASS — Phase 1 complete
 - Phase 2: Complete within the explicitly accepted Mission 62 scope; physical qualification X01 remains blocked
-- Phase 3: Active — Observation Optimisation entry protocol; no optimizer evaluation yet
+- Phase 3: Active — Controlled synthetic corpus and exhaustive reference release; no optimizer comparison yet
 - Mission 25: Complete — Observer-Time Validation Baseline, merged in PR #17
 - Mission 26: Complete — Observer-Instant Civil-Time Transition Policy and Correction, merged in PR #19
 - Mission 27: Complete — Strict Civil-Time Resolution Validation Evidence, merged in PR #21
@@ -60,7 +60,8 @@
 - Mission 60: Complete — [PR #60](https://github.com/wolfchil345/astroscope-ai-observatory/pull/60) merged at `e94271ad`; post-merge CI passed (7,066 tests, 26 historical xfails). Its 17 catalogue failures remain isolated historical evidence.
 - Mission 61: Complete — [PR #61](https://github.com/wolfchil345/astroscope-ai-observatory/pull/61) merged at `ef21bc7cbec61a0f8b9b389e88683368dfcd42ed`; post-merge Quality Gate 40256448851 passed (8,356 tests, 26 historical xfails), and all 28 artifact archives were downloaded and checked. G60-01–G60-07 and G59-01 have bounded closure.
 - Mission 62: Complete — [PR #62](https://github.com/wolfchil345/astroscope-ai-observatory/pull/62) merged at `cbc054d1cd5cf65d9750137743c54c8d435ea114`, accepting its limited-scope exit. Post-merge Quality Gate 40271565621 passed (8,356 tests, 26 historical xfails); all 28 archives verified. Historical provenance, catalogue and X01 exclusions remain.
-- Mission 63: Active — Phase 3 Entry Protocol and Observation-Optimisation Baseline Definition; protocol review pending, 432 profile cases planned and no new scientific outcomes. Production remains unchanged.
+- Mission 63: Complete — [PR #63](https://github.com/wolfchil345/astroscope-ai-observatory/pull/63) merged at `c489863badae5d28e6ae05e3b5d2f65565a0b1aa`; entry protocol accepted. Post-merge Quality Gate 40283019178 passed (8,356 tests, 26 historical xfails), all 28 archives verified.
+- Mission 64: Implemented; review/merge pending — [Controlled Schedule Corpus and Independent Oracle](validation/controlled_schedule_corpus.md): 432 primary cases, 16 controls and frozen exhaustive references; no B0/B1/B2 evaluation or production change.
 
 ## Phase Progress
 
@@ -69,7 +70,7 @@
 | 0 | Feature Freeze & Research Baseline | ✅ Complete |
 | 1 | Research Software Architecture | ✅ Complete |
 | 2 | Scientific Validation | ✅ Limited-scope exit accepted; exclusions retained |
-| 3 | Observation Optimisation | 🚧 Active: entry protocol only |
+| 3 | Observation Optimisation | 🚧 Active: frozen corpus/E0 release; M64 review pending |
 | 4 | Real AI Layer | ⏳ Planned |
 | 5 | Uncertainty-Aware Planning | ⏳ Planned |
 | 6 | Robotic Observatory Control | ⏳ Planned |
@@ -117,8 +118,8 @@ merge and records the transition; CI success alone was not the approval.
 
 Packages are bounded deliverables, not a promise of one PR each or a fixed
 completion date. Their dependencies and stop conditions are specified in the
-[audit](phase_2_coverage_audit.md#bounded-remaining-work). Phase 3 is active only
-within its entry protocol; Phases 4–8 remain planned.
+[audit](phase_2_coverage_audit.md#bounded-remaining-work). Phase 3 is active within its controlled supplied-input protocol;
+Phases 4–8 remain planned.
 
 ## Mission 26 Completion Checklist
 
@@ -782,21 +783,45 @@ records that acceptance and the separately requested start of Mission 63.
 - [x] Define exact acceptance, adverse-result retention, provenance, offline isolation and evaluation-access rules
 - [x] Preserve all production, tests, scientific records, 28 CI artifacts and physical restrictions
 - [x] Verify documentary integrity and negative controls; final-head CI/archives are recorded in the PR before handoff
-- [ ] Review and merge the Mission 63 protocol before dependent input/oracle work
+- [x] Review and merge the Mission 63 protocol before dependent input/oracle work
 
 The [entry protocol](phase_3_entry_protocol.md),
 [machine-readable specification](protocols/observation_optimisation_v1.json) and
 [transition evidence](evidence/phase_3_entry_v1.json) make no new optimizer result,
 calibration claim or production promotion. Evaluation-reserved inputs are public,
-not a blind holdout. Phase 3 gates P3-E02–P3-E06 remain unfulfilled.
+not a blind holdout. The historical M63 records remain unchanged; M64 records
+subsequent implementation under the accepted protocol.
 
-**Proposed Mission 64 — Controlled Schedule Corpus and Independent Oracle**:
-generate and freeze inputs and independent exhaustive reference outputs under the
-merged protocol. Do not implement/evaluate the DP candidate or alter production
-in that mission. Mission 64 is not started.
+## Mission 64 — Controlled Schedule Corpus and Independent Oracle
+
+- [x] Verify Mission 63 merge, post-merge CI and all 28 archive receipts
+- [x] Preserve the preregistered IDs, formulas, splits, controls and exact acceptance rules
+- [x] Freeze generator, independent E0 source, tests and configuration before primary oracle generation
+- [x] Materialize 432 primary inputs and 16 controls with hashes and source provenance
+- [x] Freeze all 448 exhaustive references separately from source; no candidate evaluations
+- [x] Verify 20,645,809 enumerated paths, analytic controls and independent path arithmetic
+- [x] Reject 48 variants in 16 invalid-input classes; pass 59 metamorphic and nine scoped fault checks
+- [x] Pass 21 new local tests and byte-identical replay in a fresh interpreter without site packages
+- [x] Preserve prior scientific records, production, tests, thresholds and X01 restrictions
+- [x] Add a complete offline audit and 29th CI artifact; record exact-final-head CI receipts in the PR before handoff
+- [ ] Review and merge the Mission 64 input/reference release
+
+The [report](validation/controlled_schedule_corpus.md),
+[release ledger](evidence/schedule_corpus_release_v1.json) and
+[access record](evidence/schedule_corpus_access_v1.json) distinguish corpus/reference
+acceptance from optimizer performance. P3-E02 has implemented evidence pending
+review; P3-E03–P3-E06 remain open. Production and physical timing qualification
+are unchanged. The C13 real-scheduler endpoint and block tests remain pending.
+
+**Proposed Mission 65 — Controlled Scheduler Baselines and Adapter Validation**:
+after M64 merge, implement the validation-only real B0 adapter and B1 policy,
+check development cases and actual endpoint/block semantics, then freeze their
+source/configuration before evaluation-reserved candidate access. B2 and comparative
+evaluation remain later work. Mission 65 has not started.
 
 ## Phase 3 Deliverables
 
+- [Controlled Schedule Corpus and Independent Oracle — Mission 64](validation/controlled_schedule_corpus.md)
 - [Entry Protocol and Observation-Optimisation Baseline Definition — Mission 63](phase_3_entry_protocol.md)
 
 ## Phase 2 Deliverables

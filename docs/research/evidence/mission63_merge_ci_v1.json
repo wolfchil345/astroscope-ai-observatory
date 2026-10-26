@@ -1,0 +1,813 @@
+{
+  "mission": 63,
+  "merge_commit": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+  "run_id": 40283019178,
+  "job_id": 121440294202,
+  "conclusion": "success",
+  "documentary_checks": {
+    "archives": 28,
+    "baseline_hashes": 27,
+    "meaning": "Documentary checks only; protocol review pending",
+    "negative_controls_rejected": 8,
+    "planned_profile_ids": 432,
+    "protected_entries": 5,
+    "relative_links": 73,
+    "scientific_evaluations": 0,
+    "specified_controls": 16,
+    "specified_invalid_classes": 16
+  },
+  "job_log_sha256": "6c419cc629245fbb203535cca22a3e0987cb72577c04877eff275a3e766ddcae",
+  "job_log_evidence_lines": [
+    "2026-10-26T06:59:11.1514648Z Version: 20261021.618",
+    "2026-10-26T06:59:11.1520882Z ##[group]Operating System",
+    "2026-10-26T06:59:11.1521680Z Ubuntu",
+    "2026-10-26T06:59:11.1524556Z Image: ubuntu-24.04",
+    "2026-10-26T06:59:11.1525238Z Version: 20261012.334.1",
+    "2026-10-26T06:59:11.1526502Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md",
+    "2026-10-26T06:59:14.0704745Z Successfully set up CPython (3.12.15)",
+    "2026-10-26T06:59:14.8297130Z Cache hit for: setup-python-Linux-x64-24.04-Ubuntu-python-3.12.15-pip-3ea5abd073f1eb2e57460995dd1084b45f3347175405d3a02e2b0755bea2145b",
+    "2026-10-26T06:59:18.5266843Z Cache restored from key: setup-python-Linux-x64-24.04-Ubuntu-python-3.12.15-pip-3ea5abd073f1eb2e57460995dd1084b45f3347175405d3a02e2b0755bea2145b",
+    "2026-10-26T06:59:21.0350512Z Successfully installed pip-26.2.2",
+    "2026-10-26T06:59:50.1114275Z Successfully installed MarkupSafe-3.0.4 PyYAML-6.0.3 altair-6.3.0 anyio-4.15.1 astropy-8.0.2 astropy-iers-data-0.2026.10.19.0.52.1 astroscope-ai-observatory-0.2.0 attrs-26.1.0 certifi-2026.10.23 charset_normalizer-3.5.2 click-8.5.0 h11-0.16.0 idna-3.20 iniconfig-2.3.1 itsdangerous-2.2.0 jinja2-3.1.6 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 narwhals-2.27.1 numpy-2.5.4 packaging-26.3 pandas-3.1.0 pillow-13.0.0 plotly-7.1.0 pluggy-1.7.0 protobuf-7.36.2 pyarrow-26.0.0 pydeck-0.9.3 pyerfa-2.0.1.5 pygments-2.21.0 pytest-9.1.1 python-dateutil-3.0.0 python-multipart-0.0.32 referencing-0.37.0 requests-2.34.2 rpds-py-2026.9.1 ruff-0.17.2 scipy-1.18.1 six-1.17.0 starlette-1.10.0 streamlit-1.66.1 typing-extensions-4.16.0 tzdata-2026.3 urllib3-2.8.0 uvicorn-0.54.0 watchdog-6.0.0 websockets-17.3",
+    "2026-10-26T07:06:39.4355904Z 8356 passed, 26 xfailed in 408.02s (0:06:48)",
+    "2026-10-26T07:12:51.2817350Z Cache hit occurred on the primary key setup-python-Linux-x64-24.04-Ubuntu-python-3.12.15-pip-3ea5abd073f1eb2e57460995dd1084b45f3347175405d3a02e2b0755bea2145b, not saving cache."
+  ],
+  "tests": {
+    "passed": 8356,
+    "historical_expected_failures": 26
+  },
+  "artifact_count": 28,
+  "archives_downloaded": 28,
+  "receipts": [
+    {
+      "mission": 25,
+      "id": "M25",
+      "artifact_name": "observer-time-validation-record",
+      "artifact_id": 12632988826,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "053a7155af436e44c98d1815f0de839f1ff535b7204fd491369a7d4db78c36e8",
+      "record_sha256": "20ed65fcfc03a22f0cb49455a5fa6512224a56cc059d9e196391eaf220ca116b",
+      "archive_members": [
+        "observer_time_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [],
+      "scientific_status": {
+        "aggregate_status": "passed"
+      }
+    },
+    {
+      "mission": 27,
+      "id": "M27",
+      "artifact_name": "civil-time-validation-record",
+      "artifact_id": 12632908920,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "15be9a37c7a09c15c890f9e62375e4d0a6e24a6446b6ba8f0b7629d9ca2ceb01",
+      "record_sha256": "066395e451f4724a425183362df9530a92289538315f7a439d85bba6d29259a4",
+      "archive_members": [
+        "civil_time_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [],
+      "scientific_status": {
+        "aggregate_status": "passed"
+      }
+    },
+    {
+      "mission": 32,
+      "id": "M32",
+      "artifact_name": "schedule-interval-validation-record",
+      "artifact_id": 12632554422,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "dbf6452a8eca393f4be9e4456415abbd898bb4a7966c0243fb9820eb1020a8f1",
+      "record_sha256": "d152790e4f79215061c569d1ffde727985fdb94cd0f822ab218dde0e9c0b296f",
+      "archive_members": [
+        "schedule_interval_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [],
+      "scientific_status": {
+        "aggregate_status": "passed"
+      }
+    },
+    {
+      "mission": 33,
+      "id": "M33",
+      "artifact_name": "celestial-coordinate-validation-record",
+      "artifact_id": 12633073729,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "b6c813afe7715a9738a565ebad5b61a423b0b67e20a69c548e45ceaa3edacc04",
+      "record_sha256": "304e73a1ee7784a68d98b4e31036023fb4f2d21f34ce2ea0b9a7410294d596a8",
+      "archive_members": [
+        "celestial_coordinates_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [
+        "pyproject.toml",
+        "src/astroscope/coordinates.py",
+        "src/astroscope/observer.py",
+        "src/astroscope/visibility.py",
+        "validation/celestial_coordinates.py",
+        "validation/fixtures/celestial_coordinates_v1.json",
+        "validation/fixtures/celestial_eop_v1.json",
+        "validation/manifests/celestial_coordinates_v1.json",
+        "validation/reference_generation/celestial_coordinates.py",
+        "validation/requirements-celestial.txt"
+      ],
+      "scientific_status": {
+        "aggregate_status": "passed",
+        "case_count": 768,
+        "failed_cases": 0,
+        "case_pass_percent": 100,
+        "input_contract_count": 13,
+        "failed_input_contracts": 0
+      }
+    },
+    {
+      "mission": 34,
+      "id": "M34",
+      "artifact_name": "solar-lunar-twilight-validation-record",
+      "artifact_id": 12633625203,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "02cdf5c2d1d5dd66e62df6054db6505ee47b6c53b0a7c5a22e98481b0cc4f96c",
+      "record_sha256": "9056764548bd395142d254cb2687d7e279d30cee6e85be515134400445913319",
+      "archive_members": [
+        "solar_lunar_twilight_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [
+        "src/astroscope/observer.py",
+        "src/astroscope/planner.py",
+        "src/astroscope/solar_system.py",
+        "src/astroscope/transit_visibility.py",
+        "src/astroscope/visibility.py",
+        "validation/celestial_coordinates.py",
+        "validation/fixtures/solar_lunar_eop_v1.json",
+        "validation/fixtures/solar_lunar_twilight_v1.json",
+        "validation/manifests/solar_lunar_twilight_policy_v1.json",
+        "validation/manifests/solar_lunar_twilight_v1.json",
+        "validation/reference_generation/solar_lunar_twilight.py",
+        "validation/requirements-celestial.txt",
+        "validation/solar_lunar_twilight.py"
+      ],
+      "scientific_status": {
+        "aggregate_status": "passed",
+        "case_count": 354,
+        "failed_cases": 0,
+        "window_count": 120,
+        "failed_windows": 0,
+        "event_count": 188,
+        "expected_event_count": 188,
+        "native_event_api_status": "unsupported: all event times are validation-derived crossings"
+      }
+    },
+    {
+      "mission": 35,
+      "id": "M35",
+      "artifact_name": "transit-ephemeris-validation-record",
+      "artifact_id": 12633480941,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "b22b62ac29b70cc84dc3e356036e9eece6e2408cba6b53c511cced5eeb347635",
+      "record_sha256": "314fc3a1d175e50d2b358b834fdfb17f0f0748210f4c75265bed149e02c6a786",
+      "archive_members": [
+        "transit_ephemeris_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [
+        "src/astroscope/transit_schedule_application.py",
+        "src/astroscope/transit_schedule_exports.py",
+        "src/astroscope/transit_scheduler.py",
+        "src/astroscope/transit_visibility.py",
+        "validation/fixtures/transit_ephemeris_sources_v1.json",
+        "validation/fixtures/transit_ephemeris_v1.json",
+        "validation/manifests/transit_ephemeris_policy_v1.json",
+        "validation/manifests/transit_ephemeris_v1.json",
+        "validation/reference_generation/transit_ephemeris.py",
+        "validation/requirements-transit.txt",
+        "validation/transit_ephemeris.py"
+      ],
+      "scientific_status": {
+        "overall_passed": true,
+        "scientific_status": "bounded_arithmetic_only; barycentric_to_UTC_unsupported"
+      }
+    },
+    {
+      "mission": 38,
+      "id": "M38",
+      "artifact_name": "observer-arrival-validation-record",
+      "artifact_id": 12633408023,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "6a963a4940f7abb2eae6c29bf8ec587d1d8bc5b628196212ed2d4c22c0b34ee4",
+      "record_sha256": "fbdfa9266f2a83b1cf0ae259d6bfb6fa1f60f8bd454caef8c168b14327655c54",
+      "archive_members": [
+        "observer_arrival_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [
+        "validation/observer_arrival.py",
+        "validation/observer_arrival_model.py"
+      ],
+      "scientific_status": {
+        "passed": true,
+        "observing_eligible": false
+      }
+    },
+    {
+      "mission": 39,
+      "id": "M39",
+      "artifact_name": "arrival-budget-audit-record",
+      "artifact_id": 12633451276,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "3c5153f88c2d0369e70858bddb0154cf153aa7d74590a656899a3910826119c4",
+      "record_sha256": "40927ad24d7008c203616852072dfa5c8b9edcf7ca63a2ec8b6f3d1efbe8ecc1",
+      "archive_members": [
+        "arrival_budget_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [],
+      "scientific_status": {
+        "passed": true,
+        "pass_meaning": "Evidence classification and fail-closed budget audit; not physical accuracy",
+        "observing_eligible": false,
+        "prospective_contract_scenario_count": 20
+      }
+    },
+    {
+      "mission": 40,
+      "id": "M40",
+      "artifact_name": "source-reference-qualification-record",
+      "artifact_id": 12633243805,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "50d6024a7b94add2a69f6c99847ef540963b548b6ac7b12acf32e676f0361b55",
+      "record_sha256": "6a12eb21186d8c0d4740e485adad5975bf5f6170d6340618ea1e9daec3e955ff",
+      "archive_members": [
+        "source_reference_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [],
+      "scientific_status": {
+        "passed": true,
+        "pass_meaning": "Supplied-input component agreement and domain accounting only",
+        "full_reference_status": "unqualified",
+        "observing_eligible": false
+      }
+    },
+    {
+      "mission": 41,
+      "id": "M41",
+      "artifact_name": "clock-reference-qualification-record",
+      "artifact_id": 12632604789,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "442e13d1bd9ae339e3378ed9b6f124362bcb50e00f1fdaf982f170990b6c567b",
+      "record_sha256": "c5b2618003563ee70dead7570c06dfb74cdf5a3d26bb88affc32f0e1e37b1270",
+      "archive_members": [
+        "clock_reference_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [],
+      "scientific_status": {
+        "audit_passed": true,
+        "full_reference_status": "unqualified",
+        "qualified_route_count": 0,
+        "observing_eligible": false
+      }
+    },
+    {
+      "mission": 42,
+      "id": "M42",
+      "artifact_name": "time-ephemeris-clock-mapping-record",
+      "artifact_id": 12632754695,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "33c2d5985ab5d6db2372360eb1ca63ebb76664a2b3f88310ad5a2dbc4e2b94e5",
+      "record_sha256": "463942d487cb5b35dea72cdfdaaca88f9b7b8673fdd82670710acfae70fadf09",
+      "archive_members": [
+        "time_ephemeris_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [],
+      "scientific_status": {
+        "audit_passed": true,
+        "geocentric_model_status": "independent_integrated_model_evaluated_not_accuracy_qualified",
+        "full_reference_status": "unqualified",
+        "observing_eligible": false
+      }
+    },
+    {
+      "mission": 43,
+      "id": "M43",
+      "artifact_name": "site-clock-qualification-record",
+      "artifact_id": 12633590327,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "aa3d9ad1b2bca00d8606f18563c698d5702cd0b8276d6e14c29b3dd9d209f0ee",
+      "record_sha256": "762ca7455816c9caf3244a9b7075a420660e3e63d3a2d9bbe048436362ed3ec0",
+      "archive_members": [
+        "site_clock_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [],
+      "scientific_status": {
+        "audit_passed": true,
+        "site_reference_status": "unqualified",
+        "geocentric_control_count": 12,
+        "geocentric_controls_passed": true,
+        "formal_eop_record_count": 8,
+        "observing_eligible": false
+      }
+    },
+    {
+      "mission": 44,
+      "id": "M44",
+      "artifact_name": "site-frame-mapping-record",
+      "artifact_id": 12632964457,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "d2ecdfcd13fe2bd29e4badef046e92e4857c61eb5956e6b518c94cc4019752bd",
+      "record_sha256": "d02976feb3fc1ea1c29cb756b7b9914e2fd170b93df6affd59c4bc98b2024739",
+      "archive_members": [
+        "site_frame_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [],
+      "scientific_status": {
+        "audit_passed": true,
+        "zero_control_count": 12,
+        "reference_case_count": 48,
+        "observing_eligible": false
+      }
+    },
+    {
+      "mission": 45,
+      "id": "M45",
+      "artifact_name": "coupled-site-clock-record",
+      "artifact_id": 12633233890,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "9286329291d43ed4ef6a4d130873ee052acb720def025346682a241976dc30fc",
+      "record_sha256": "059b9ca7e97323adc5bfd02660e2fd02552cb70a2114ef66a2187ffc7806dc0a",
+      "archive_members": [
+        "coupled_clock_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [],
+      "scientific_status": {
+        "audit_passed": true,
+        "observing_eligible": false
+      }
+    },
+    {
+      "mission": 46,
+      "id": "M46",
+      "artifact_name": "time-normalization-evidence-record",
+      "artifact_id": 12633610277,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "dda1445c98edbbfea314336df1cbda063ad90af52e97306ad31a0514f20c5286",
+      "record_sha256": "7c0570ac0136c0cf82c44a4aabc0ec0cd5a772b048233fadff23ed75dff2ef22",
+      "archive_members": [
+        "time_normalization_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [],
+      "scientific_status": {
+        "audit_passed": true,
+        "normalization_status": "affine_numerical_checks_only",
+        "full_reference_status": "unqualified",
+        "observing_eligible": false
+      }
+    },
+    {
+      "mission": 47,
+      "id": "M47",
+      "artifact_name": "cross-model-time-ephemeris-record",
+      "artifact_id": 12632789691,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "2ca96a129d83ea87b88ed66e2c9af0598f55c64c7d69b67e4609e5a99d69ce2d",
+      "record_sha256": "dcfc755487886506a3e2532e8f50fa2176c9976cb389a9707b8bddfb393d63dc",
+      "archive_members": [
+        "cross_model_time_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [],
+      "scientific_status": {
+        "audit_passed": true,
+        "cross_model_status": "qualified_for_sampled_geocentric_diagnostics_only",
+        "full_reference_status": "unqualified",
+        "observing_eligible": false
+      }
+    },
+    {
+      "mission": 48,
+      "id": "M48",
+      "artifact_name": "clock-sensitivity-uncertainty-record",
+      "artifact_id": 12633590357,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "3ee269e32449fbd6b6f9063042cbb7124392a57423bba3768b2f52862d129e2a",
+      "record_sha256": "3369c5a857f75755da44c497e9133cdbe4a41c5cc35372161bfe548951dc176e",
+      "archive_members": [
+        "clock_sensitivity_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [],
+      "scientific_status": {
+        "audit_passed": true,
+        "full_reference_status": "unqualified",
+        "observing_eligible": false
+      }
+    },
+    {
+      "mission": 49,
+      "id": "M49",
+      "artifact_name": "ephemeris-covariance-qualification-record",
+      "artifact_id": 12632999371,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "899c8f4cb317128c691488c8710fa54d42cd6e9ef7a034ea6228b6b19501677b",
+      "record_sha256": "ee340367927669a6e073bb77eace0902a63e1f1146f2ff7df8e3a7498662a9fb",
+      "archive_members": [
+        "ephemeris_covariance_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [],
+      "scientific_status": {
+        "audit_passed": true,
+        "full_reference_status": "unqualified",
+        "observing_eligible": false
+      }
+    },
+    {
+      "mission": 50,
+      "id": "M50",
+      "artifact_name": "integrated-clock-parameter-response-record",
+      "artifact_id": 12632759707,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "7d1427a6c3e28f1bfd1ac1f7e101091b4cbb2497b8255f4ead774df3b84419cc",
+      "record_sha256": "bb48afe46a8b020c25805922e4635fc01825a8e38d8451efd939b74d53f5e6c0",
+      "archive_members": [
+        "integrated_clock_response_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [],
+      "scientific_status": {
+        "audit_passed": true,
+        "full_reference_status": "unqualified",
+        "observing_eligible": false
+      }
+    },
+    {
+      "mission": 52,
+      "id": "M52",
+      "artifact_name": "telescope-imaging-validation-record",
+      "artifact_id": 12632604855,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "1171b70605d5a9d1e454c65b7017054da1a5d1f110c71328456da121f739f6d5",
+      "record_sha256": "9e58a7f76afcbd7a30e0cfeba4f199e98a8e8a1f813ded65d0f4a3d77e3e06e8",
+      "archive_members": [
+        "telescope_imaging_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [
+        "src/astroscope/imaging.py",
+        "src/astroscope/telescope.py",
+        "validation/fixtures/telescope_imaging_v1.json",
+        "validation/manifests/telescope_imaging_v1.json",
+        "validation/telescope_imaging.py"
+      ],
+      "scientific_status": {
+        "case_count": 307,
+        "failed_cases": 0,
+        "overall_passed": true,
+        "passed_cases": 307,
+        "scientific_status": "bounded ideal geometry and declared numerical conventions only"
+      }
+    },
+    {
+      "mission": 53,
+      "id": "M53",
+      "artifact_name": "planetary-position-validation-record",
+      "artifact_id": 12633515759,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "b95e26549db7e4d9ea53b566c5cfe72795bb26e179e733931e9ef2bc2cfa133a",
+      "record_sha256": "dcb403c78407b0f81cedb8a798de191a5879ca30e7cc81d6ccb21daf0c8157ca",
+      "archive_members": [
+        "planetary_positions_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [
+        "src/astroscope/observer.py",
+        "src/astroscope/solar_system.py",
+        "src/astroscope/visibility.py",
+        "validation/celestial_coordinates.py",
+        "validation/fixtures/planetary_positions_v1.json",
+        "validation/fixtures/solar_lunar_eop_v1.json",
+        "validation/manifests/planetary_positions_policy_v1.json",
+        "validation/manifests/planetary_positions_v1.json",
+        "validation/planetary_positions.py",
+        "validation/reference_generation/planetary_positions.py",
+        "validation/reference_generation/reference-requirements.txt",
+        "validation/solar_lunar_twilight.py"
+      ],
+      "scientific_status": {
+        "case_count": 623,
+        "failed_cases": 0,
+        "overall_passed": true,
+        "scientific_status": "Bounded UTC-2024 planner-scale cross-model comparison; no covariance or universal accuracy guarantee"
+      }
+    },
+    {
+      "mission": 54,
+      "id": "M54",
+      "artifact_name": "visibility-sampling-validation-record",
+      "artifact_id": 12632828200,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "ae1a5541bc235573193e57e0236456b036b5c22f31dd490399e8c18cdb2ad85b",
+      "record_sha256": "8b5350196b1d379d367db4b9e853ae54a029cd2e138806ee9355d153a9b64bf4",
+      "archive_members": [
+        "visibility_sampling_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [
+        "src/astroscope/transit_scheduler.py",
+        "src/astroscope/transit_timing.py",
+        "src/astroscope/transit_visibility.py",
+        "validation/celestial_coordinates.py",
+        "validation/fixtures/visibility_sampling_v1.json",
+        "validation/manifests/visibility_sampling_policy_v1.json",
+        "validation/manifests/visibility_sampling_v1.json",
+        "validation/solar_lunar_twilight.py",
+        "validation/visibility_sampling.py"
+      ],
+      "scientific_status": {
+        "case_count": 48,
+        "failed_cases": 0,
+        "overall_passed": true,
+        "sample_count": 592
+      }
+    },
+    {
+      "mission": 55,
+      "id": "M55",
+      "artifact_name": "heuristic-characterisation-validation-record",
+      "artifact_id": 12632343984,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "7c80c00effe19170e3faca3e77fcec2f115ebeab122f55d1bf70472dadf81be2",
+      "record_sha256": "2307cd73aa76d632f7a8030442488d23ab16f520a01da880d538ce270ee9b818",
+      "archive_members": [
+        "heuristic_characterisation_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [
+        "src/astroscope/planner.py",
+        "src/astroscope/schedule.py",
+        "src/astroscope/transit_ranking.py",
+        "src/astroscope/transit_timing.py",
+        "src/astroscope/weather.py",
+        "validation/celestial_coordinates.py",
+        "validation/fixtures/heuristic_characterisation_v1.json",
+        "validation/heuristic_characterisation.py",
+        "validation/manifests/heuristic_characterisation_policy_v1.json",
+        "validation/manifests/heuristic_characterisation_v1.json"
+      ],
+      "scientific_status": {
+        "case_count": 355,
+        "failed_cases": 0,
+        "overall_passed": true,
+        "ranking_case_count": 54,
+        "schedule_case_count": 9,
+        "tradeoff_case_count": 3
+      }
+    },
+    {
+      "mission": 56,
+      "id": "M56",
+      "artifact_name": "light-curve-validation-record",
+      "artifact_id": 12632878066,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "c5776a4eaaba875c0afdc02cd9969e2e2557ed2f9bb6f18dd1ba0b33ce0f879d",
+      "record_sha256": "274f2b200adfd805751fb2d4c4de1f060ef66ed054ba901081d98a786814533a",
+      "archive_members": [
+        "light_curve_campaign_reference_run.json",
+        "light_curve_bls_diagnostic.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [
+        "src/astroscope/_physical_bls.py",
+        "src/astroscope/light_curve.py",
+        "src/astroscope/light_curve_period.py",
+        "src/astroscope/light_curve_processing.py",
+        "src/astroscope/light_curve_transit_search.py",
+        "validation/celestial_coordinates.py",
+        "validation/fixtures/light_curve_campaign_v1.json",
+        "validation/fixtures/light_curve_observed_baseline_v1.json",
+        "validation/fixtures/light_curve_observed_haswell_v1.json",
+        "validation/historical/mission57_light_curve_transit_search.py",
+        "validation/light_curve_campaign.py",
+        "validation/light_curve_references.py",
+        "validation/manifests/light_curve_campaign_policy_v1.json",
+        "validation/manifests/light_curve_campaign_v1.json"
+      ],
+      "scientific_status": {
+        "execution_target": "historical pre-Mission-58 fast wrapper",
+        "failed_trials": 9,
+        "input_case_count": 42,
+        "overall_passed": false,
+        "required_recovery_count": 10,
+        "trial_count": 252
+      }
+    },
+    {
+      "mission": 57,
+      "id": "M57",
+      "artifact_name": "bls-discrepancy-investigation-record",
+      "artifact_id": 12632658461,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "f33ac73305f8078e99aa45e6daa32031bbc9c14286b1a4d8ddd6158a1b0333d1",
+      "record_sha256": "f3a8ab4b6dd9abf01fe6d11074c1f7145db94163f4b4e31d5b42869dfeed78ea",
+      "archive_members": [
+        "bls_discrepancy_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [
+        "src/astroscope/light_curve_processing.py",
+        "src/astroscope/light_curve_transit_search.py",
+        "validation/bls_discrepancy.py",
+        "validation/light_curve_campaign.py",
+        "validation/light_curve_references.py",
+        "validation/manifests/bls_discrepancy_policy_v1.json",
+        "validation/manifests/light_curve_campaign_v1.json",
+        "validation/results/light_curve_campaign_reference_run.json"
+      ],
+      "scientific_status": {
+        "execution_target": "historical Astropy fast-search mechanism; not current production",
+        "measurement_count": 95,
+        "mechanism_checks_passed": true,
+        "production_scientific_failures_resolved": false,
+        "retained_nine_failures_reproduced": true,
+        "selected_trial_count": 19
+      }
+    },
+    {
+      "mission": 58,
+      "id": "M58",
+      "artifact_name": "physical-bls-validation-record",
+      "artifact_id": 12633680646,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "f0089970723dfbfb8a660d96e97c206e16445c55bd66bf53ab0ac24653c2ca39",
+      "record_sha256": "ff9a4dd1312efffd0e636c3a721d0a311dc3c803e7acea7b8bcd7576d29683ef",
+      "archive_members": [
+        "physical_bls_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [
+        "src/astroscope/_physical_bls.py",
+        "src/astroscope/light_curve.py",
+        "src/astroscope/light_curve_period.py",
+        "src/astroscope/light_curve_processing.py",
+        "src/astroscope/light_curve_transit_search.py",
+        "validation/celestial_coordinates.py",
+        "validation/fixtures/light_curve_campaign_v1.json",
+        "validation/historical/mission57_light_curve_transit_search.py",
+        "validation/light_curve_campaign.py",
+        "validation/light_curve_references.py",
+        "validation/manifests/light_curve_campaign_policy_v1.json",
+        "validation/manifests/light_curve_campaign_v1.json",
+        "validation/manifests/physical_bls_policy_v1.json",
+        "validation/physical_bls_campaign.py",
+        "validation/results/light_curve_campaign_reference_run.json"
+      ],
+      "scientific_status": {
+        "all_nine_previous_failures_pass": true,
+        "execution_target": "current production physical-window search",
+        "failed_trials": 0,
+        "input_case_count": 42,
+        "overall_passed": true,
+        "required_recovery_count": 10,
+        "trial_count": 252
+      }
+    },
+    {
+      "mission": 60,
+      "id": "M60",
+      "artifact_name": "catalogue-quantities-validation-record",
+      "artifact_id": 12633461597,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "aebe245dc7c11a89d993cd381de8aff04caa2fa381bc50f9c19d9a9064173059",
+      "record_sha256": "de305d8710c05ecd6d1447277ae8d07949bcebaa4e2396507bc4dcc12bcb19a5",
+      "archive_members": [
+        "catalogue_quantities_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [
+        "validation/catalogue_quantities.py",
+        "validation/fixtures/catalogue_binary_inputs_v2.json",
+        "validation/fixtures/catalogue_quantities_v1.json",
+        "validation/historical/mission60_catalogue/exoplanet_catalog.py",
+        "validation/historical/mission60_catalogue/exoplanet_visuals.py",
+        "validation/historical/mission60_catalogue/gaia_catalog.py",
+        "validation/historical/mission60_catalogue/gaia_visuals.py",
+        "validation/manifests/catalogue_quantities_policy_v1.json",
+        "validation/manifests/catalogue_quantities_v2.json"
+      ],
+      "scientific_status": {
+        "case_count": 911,
+        "execution_target": "isolated historical Mission 60; not current production",
+        "failed_cases": 17,
+        "overall_passed": false
+      }
+    },
+    {
+      "mission": 61,
+      "id": "M61",
+      "artifact_name": "catalogue-correction-validation-record",
+      "artifact_id": 12633304159,
+      "expired": false,
+      "head": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+      "archive_sha256": "7bee84eddc611c83778f62b4cff3ffc88da8e432979b195c4990a6d1d97db59a",
+      "record_sha256": "a703ddb159cceb425481218869bf2970b27c1db807f5809f24a697d46576920e",
+      "archive_members": [
+        "catalogue_correction_reference_run.json"
+      ],
+      "implementation_identity_verified": true,
+      "path_digest_checks": [
+        "src/astroscope/_catalogue_numerics.py",
+        "src/astroscope/exoplanet_catalog.py",
+        "src/astroscope/exoplanet_dashboard.py",
+        "src/astroscope/exoplanet_export.py",
+        "src/astroscope/exoplanet_messages.py",
+        "src/astroscope/exoplanet_visuals.py",
+        "src/astroscope/gaia_catalog.py",
+        "src/astroscope/gaia_dashboard.py",
+        "src/astroscope/gaia_messages.py",
+        "src/astroscope/gaia_visuals.py",
+        "validation/catalogue_correction.py",
+        "validation/catalogue_quantities.py",
+        "validation/fixtures/catalogue_correction_v1.json",
+        "validation/manifests/catalogue_correction_policy_v1.json",
+        "validation/manifests/catalogue_correction_v1.json"
+      ],
+      "scientific_status": {
+        "case_count": 1252,
+        "execution_target": "current production",
+        "failed_cases": 0,
+        "original_case_count": 911,
+        "overall_passed": true
+      }
+    }
+  ],
+  "current_job_environment_from_m61": {
+    "checkout_commit": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+    "git_dirty": false,
+    "implementation_commit": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+    "input_sha256": {
+      "validation/fixtures/catalogue_correction_v1.json": "044323514ac8890a72cca16a67d69d44c85b0581a46079a0d9943a33ca1ae939",
+      "validation/manifests/catalogue_correction_policy_v1.json": "1b62d65a51574c84ffc0bbc8330837ce9fdda125b3b07814596df22017be927c",
+      "validation/manifests/catalogue_correction_v1.json": "5518992485a9cbd11293f89a3822717f2196be3fa830d92361f63760d3215c6a"
+    },
+    "network_required": false,
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "python": "3.12.15",
+    "randomness": "none",
+    "source_sha256": {
+      "src/astroscope/_catalogue_numerics.py": "b4fe797bad593490c085331f2705e91fdc1ce3e6438effb339831d82be09e04f",
+      "src/astroscope/exoplanet_catalog.py": "f436aada18cb09341469b2dd1e5c075957c63485be9a2eba4f23e5e19c09f8b1",
+      "src/astroscope/exoplanet_dashboard.py": "86b7ca35adce1481568ef92ad0a3a22325860f05b42185cb25f1260c85e2fbcb",
+      "src/astroscope/exoplanet_export.py": "e11aab06b60f48476455aa1f2945c6e23558ae1536d316f5232047d2e37e6033",
+      "src/astroscope/exoplanet_messages.py": "15c87357012a5bece3a02f9f5da94a32560c5567d5cde6fdf0a3bf5a3cddc38f",
+      "src/astroscope/exoplanet_visuals.py": "2d1902997f1a529bd49df26d073ee176ee72776a43e848f9c71b85454797afbb",
+      "src/astroscope/gaia_catalog.py": "0f15dbf90041de019b5c22b0f6ef0d46368fc2d712e5ae92d4faa409a1635dd3",
+      "src/astroscope/gaia_dashboard.py": "bde520e440e3252fd8738bf2d305b07eddd004c4854358a5c530e9ec7849390e",
+      "src/astroscope/gaia_messages.py": "561fee1ac1f2a5e99e40eee7e873930ded56ccbb9617880b683940b29d4784ab",
+      "src/astroscope/gaia_visuals.py": "3d6ed1350ee314b9c599e7464dc1d6e89a6fc24e2cb6c426a85d9132ef4de65c",
+      "validation/catalogue_correction.py": "c66057db734c3c9961a01bf6d9f52efb88ddc742226a2d726d7af97d490c5110",
+      "validation/catalogue_quantities.py": "ecc4e6b1391c91917852553a3ab430a9d62d9c3c76929485a17fbf7b918cd615"
+    },
+    "versions": {
+      "astropy": "8.0.2",
+      "numpy": "2.5.4",
+      "plotly": "7.1.0"
+    }
+  },
+  "scope": "All archive digests, payload identities, available path digests, acceptance/audit statuses and guarded claims checked. This is current frozen-fixture CI replay, not original-environment reconstruction or raw-reference regeneration."
+}
