@@ -1,0 +1,59 @@
+{
+  "blind": false,
+  "candidate_outputs_inspected": 0,
+  "events": [
+    {
+      "candidate_outputs": 0,
+      "id": "M64-A01",
+      "inputs": "all 432 primary matrices plus 16 development controls",
+      "outputs": "development analytic/control/metamorphic/mutant E0 outcomes only",
+      "primary_oracle_outputs": false,
+      "reason": "contract/formula/independence and fault-sensitivity checks; no primary E0 computation",
+      "stage": "two local source-development preflight invocations before source freeze"
+    },
+    {
+      "candidate_outputs": 0,
+      "command": "python3 -m validation.schedule_corpus_audit --freeze-source-commit ef71cec709a775e76f2c21bcbdb4aa156b1fd47c",
+      "id": "M64-A02",
+      "inputs": "all 432 primary cases and 16 controls",
+      "outputs": "all 448 E0 rows, including 216 evaluation-reserved references",
+      "reason": "freeze the independent reference before any candidate exists",
+      "source_commit": "ef71cec709a775e76f2c21bcbdb4aa156b1fd47c",
+      "stage": "clean source checkpoint generation"
+    },
+    {
+      "candidate_outputs": 0,
+      "command": "python3 -m unittest discover -s tests/validation -p test_schedule_corpus.py -v",
+      "id": "M64-A03",
+      "inputs": "all frozen cases",
+      "outputs": "all E0 records independently checked; fresh -I -S child replays all 448 E0 outputs",
+      "result": "21 passed; no source/configuration changes after generation",
+      "stage": "local 21-test suite after generation, before release commit"
+    },
+    {
+      "candidate_outputs": 0,
+      "id": "M64-A04",
+      "outputs": "row and enumeration counts from frozen E0 release",
+      "reason": "confirm complete denominators without candidate comparison",
+      "stage": "release completeness inspection"
+    },
+    {
+      "candidate_outputs": 0,
+      "command": "python3 -m validation.schedule_corpus_audit --output /tmp/mission64_canonical_run.json",
+      "id": "M64-A05",
+      "implementation_commit": "a9dc0b9496d7c7d940fdbfa078c159d9d70e963b",
+      "outputs": "all 448 E0 records replayed; canonical audit retained",
+      "result": "passed, byte-identical input/reference",
+      "stage": "clean release canonical replay"
+    }
+  ],
+  "future_candidate_rule": "Freeze candidate implementation/configuration and access decision separately before evaluation-reserved outputs; retain failures and label subsequent exposed evaluation as regression, not unseen.",
+  "future_replays": "Each PR/post-merge CI test child and explicit benchmark replays public E0 outputs; record run/head/artifact in CI/PR receipts. No candidate execution is present in either command.",
+  "mission": 64,
+  "protocol_id": "P3-SCHEDULE-001-v1",
+  "public_inputs": true,
+  "recorded_at_utc": "2026-10-26T07:24:30.806895+00:00",
+  "release_commit": "a9dc0b9496d7c7d940fdbfa078c159d9d70e963b",
+  "schema_version": 1,
+  "source_commit": "ef71cec709a775e76f2c21bcbdb4aa156b1fd47c"
+}
