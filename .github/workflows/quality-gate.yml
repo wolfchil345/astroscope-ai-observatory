@@ -527,3 +527,20 @@ jobs:
           name: schedule-corpus-validation-record
           path: ${{ runner.temp }}/schedule_corpus_reference_run.json
           if-no-files-found: error
+
+      - name: Validate controlled scheduler baselines on development cases
+        timeout-minutes: 10
+        env:
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          python -m validation.schedule_baseline_audit \
+            --output "$RUNNER_TEMP/schedule_baselines_reference_run.json"
+
+      - name: Upload controlled scheduler baseline validation
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: schedule-baselines-validation-record
+          path: ${{ runner.temp }}/schedule_baselines_reference_run.json
+          if-no-files-found: error
