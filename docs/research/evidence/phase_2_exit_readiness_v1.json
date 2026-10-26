@@ -1,0 +1,3099 @@
+{
+  "baseline_ci_evidence": "docs/research/evidence/mission61_merge_ci_v1.json",
+  "baseline_ci_evidence_sha256": "cc5c7b6e61e50e866984c6b1bdaceb37dea0fe0f9e647d754722b6ac5281d896",
+  "baseline_commit": "ef21bc7cbec61a0f8b9b389e88683368dfcd42ed",
+  "baseline_file_sha256": {
+    ".github/workflows/quality-gate.yml": "8240b8eb215a54c0ac3a3afd4322c06c6907fd63e2f537e2bd3d7c711455490d",
+    "docs/research/architecture_limitations_map.md": "a7145a52ad55efea6e4b522d521f1ecbc8accec63c3d6cd3ac0f0702e6595c74",
+    "docs/research/evidence/catalogue_correction_findings_v1.json": "2111da75bfe6b9cde843a46a4243c0fe0a77c5aa0ca19649673410f160661501",
+    "docs/research/evidence/phase_2_coverage_audit_v1.json": "621ddc735f659d182c0879a94d8dd0147b549762c687d8c7de32a13b93cd3972",
+    "docs/research/phase_1_exit_audit.md": "3886a03415d5b5f8c8e1d16a58289f1dc7ca23a3263d625886af3caddee2a156",
+    "docs/research/phase_2_coverage_audit.md": "7164ba8bea6b2cab43ac0d9bcc6da16fd9547b7753055a135f6aff746328e050",
+    "docs/research/phase_2_reconciliation.md": "a9a4750baef98fbcc9ec079c8e96ff0a6492e5832a0245ab141a4a273f990203",
+    "docs/research/v0.2.0_research_baseline.md": "16f177b90960300470e42234625084dc48ecb3eaaf949e3166e75653c83f9cb5",
+    "docs/research/validation/bls_discrepancy_investigation.md": "fea1906cb78783d4fc2d9022f4d66f4d5748e65643e0b009865556d786773e26",
+    "docs/research/validation/catalogue_correction_protocol.md": "ca33a05afd76d77cbf16e933bab57c93f3be34d3f813ce06a706dde43f260cd2",
+    "docs/research/validation/catalogue_correction_validation.md": "32c071ce20fe7b4ecf9f42c9c61976701c720e7ed1abcfe3c4feac83ebaa7a00",
+    "docs/research/validation/catalogue_quantities_validation.md": "f1407f362bf45a15688cd5e030f0ce4768c27405c3c74254c35b6e6fdb6c3d8c",
+    "docs/research/validation/celestial_coordinate_validation.md": "e855890d8d4d2780c9fc1ef23069bdb7b3a0c080ba1cfa2f89c0651d35992b35",
+    "docs/research/validation/civil_time_validation.md": "4b0a79c1491056b2a6b8a8a8a7cb52f251803730442cf8397e7dda26e95f30e7",
+    "docs/research/validation/clock_reference_validation.md": "ac6d70fed83b572a7bd060c5a33ddfaa9e95bb59b99323123b2391ecf2b805bf",
+    "docs/research/validation/clock_sensitivity_uncertainty.md": "82445ad15fa0299f5575f99d3cea9927189769c142b033af97eb9c221930162d",
+    "docs/research/validation/coupled_site_clock.md": "56fd585755a71c1a7b255b4a769967c1d400bfca976209c824c392bab26de104",
+    "docs/research/validation/cross_model_time_ephemeris.md": "2d5022402afe44791e73774d35cc01481bf18513b4ed95ef0d11b61a72e5e632",
+    "docs/research/validation/ephemeris_covariance_qualification.md": "f1d2462c959a91fb76e9eca81dab59e3adeed87ab68d67911e9182fa801fb485",
+    "docs/research/validation/heuristic_characterisation.md": "e46ced87d245eda6e23147af73db3c5cc34b935e64f7e65f92fcde12520359c5",
+    "docs/research/validation/integrated_clock_response_validation.md": "bdcb348543bed0d9c300949f0d5c63f98f60e315ffd343d4f91b1bf2b9c4b232",
+    "docs/research/validation/light_curve_validation.md": "3929e621c20132fca431ec539631db0c7f8b5ad76fa0a4f891baf8bd9b5f61f8",
+    "docs/research/validation/observer_arrival_error_budget.md": "7a22e8062030b5e518ed6036866d4702ff697c8a8c71729cd3e36202308f5ef5",
+    "docs/research/validation/observer_arrival_validation.md": "64303dde297b6e6f63df16fc0d3cadabcd2089a1cf4216f286bef693ed6a253f",
+    "docs/research/validation/observer_time_validation.md": "fc6213bfff296badbdf62346d822442b227e142a370eb1b87ed42d22bb99f495",
+    "docs/research/validation/physical_bls_validation.md": "812596e242020f9cd69c2b7be3419dbe213862b06baf4a0d012a620944a81150",
+    "docs/research/validation/planetary_position_validation.md": "50cb49f6ad280f4c51dc1a5fb831ce8d073eaf0bb157f713270a4ce48578ea43",
+    "docs/research/validation/schedule_interval_validation.md": "fdb3be81a9a4e5e46427091f795cbd7128adfee2bd9eaa908fa9e9bbe983db0f",
+    "docs/research/validation/site_clock_mapping.md": "220a8bc3e764ad5812392588d58957584b27be22585e42c2494e5040b8a58314",
+    "docs/research/validation/site_frame_mapping.md": "5790187cbdaec4f599519832300678019933a205afb4b56e0a7606e225597acc",
+    "docs/research/validation/solar_lunar_twilight_validation.md": "31d9a97b3c572af4fb7dc51d30ad6bb45d9c8b4bf5425413bdd07277d3ba0826",
+    "docs/research/validation/source_reference_qualification.md": "288265504ae1cbd5d33e49f2b5922d772a1e01e9d5e573ff8ecf1835575061b8",
+    "docs/research/validation/strict_transit_timing_boundary.md": "6af16c1c42edef9f7545ce08f8d0a7c16a2fa753d4030c40c4ad40533531ad26",
+    "docs/research/validation/telescope_imaging_validation.md": "73fede09045d0e742a87bcb84d0a22bbcea698fa7a343b6805127d856694deb1",
+    "docs/research/validation/time_ephemeris_clock_mapping.md": "a08e49a141ad5e636ffde33d5abcf09084228bb4216707fe129ae42e0bb07a1b",
+    "docs/research/validation/time_ephemeris_normalization.md": "d5ce1b7fd67dbdbc8dbbf791cd7b5dc361c54495c4c81ef58c65ceecd871b384",
+    "docs/research/validation/transit_ephemeris_validation.md": "f0e23d33c1035468e930166b603007aee5defde036ddba5ed817ba5ae35600a0",
+    "docs/research/validation/transit_time_coordinate_contract.md": "2962117d020b8cd4a6d565f270727e8e3ec99621c0bf9a41dd0626188a30b10e",
+    "docs/research/validation/visibility_sampling_validation.md": "06fa840d1cac11b25142b82934672abce5f8a1dcc7b718f957b2a461ced06ca0",
+    "docs/research/validation/weather_provider_contract.md": "b6393d15a0c0d05c89b2ab517f97d46496b82a3ec9228652ecad47170460da2c",
+    "pyproject.toml": "79fc6ed0ba841ad6d17a122df9ccec014a027143ac6d24e0099372ea16fc5c53",
+    "src/astroscope/_catalogue_numerics.py": "b4fe797bad593490c085331f2705e91fdc1ce3e6438effb339831d82be09e04f",
+    "src/astroscope/coordinates.py": "bb53f0991ba135e6c5d5f67510bc2986e73442318ffe6b44a2155ab800eb08e9",
+    "src/astroscope/exoplanet_catalog.py": "f436aada18cb09341469b2dd1e5c075957c63485be9a2eba4f23e5e19c09f8b1",
+    "src/astroscope/exoplanet_export.py": "e11aab06b60f48476455aa1f2945c6e23558ae1536d316f5232047d2e37e6033",
+    "src/astroscope/exoplanet_visuals.py": "2d1902997f1a529bd49df26d073ee176ee72776a43e848f9c71b85454797afbb",
+    "src/astroscope/gaia_catalog.py": "0f15dbf90041de019b5c22b0f6ef0d46368fc2d712e5ae92d4faa409a1635dd3",
+    "src/astroscope/gaia_dashboard.py": "bde520e440e3252fd8738bf2d305b07eddd004c4854358a5c530e9ec7849390e",
+    "src/astroscope/gaia_export.py": "3aba0f7205396a018d4bc148061dc7e29efaf6fbeaf08dfea35fb851857fc10b",
+    "src/astroscope/gaia_visuals.py": "3d6ed1350ee314b9c599e7464dc1d6e89a6fc24e2cb6c426a85d9132ef4de65c",
+    "src/astroscope/imaging.py": "756841cf8218b15ba16f250ed95d4ce8916063fc2d5516c9a335be08ed9bd43f",
+    "src/astroscope/sky_map.py": "6b8efc18858d4f1029736ce002103e6bb09d8fb2e99c6190b14f50a7b9372edb",
+    "src/astroscope/sky_map_visuals.py": "33bddf39813b3d2e89325bdec5d2f7f8ccfd1b3cb3ca2f3d3d97979eadea2e17",
+    "src/astroscope/transit_schedule_exports.py": "8d9050090190ed219a378e266acc869cb58fa64baefe2b18a3b83111c7b8558c",
+    "src/astroscope/transit_timing.py": "7d1f72807a5991f94be66cface374162fd3ebb10c1cf2cdf0b18a5d7d716d27e",
+    "src/astroscope/transit_timing_dashboard.py": "422a6bb2fba587afc7ab88acc300f1261abecb11bed6b7bb2b68b247e2dccb15",
+    "tests/test_exoplanet_catalog.py": "168721ece56c362b109aeb2c35295b3b6e6dd2244ae6eb5ffdad44cfdd7874cc",
+    "tests/test_exoplanet_visuals.py": "5e12d4f3c745e20735dd5f795e94c3edaa7b0e829a01abd8edb99d98a2690b86",
+    "tests/test_gaia_catalog.py": "868df7b13a0a8acda844aa1794ddea433448bea0cc8942144a98e59c93a98b86",
+    "tests/test_gaia_visuals.py": "a0d96a215287b3f44bc4ed7e9a600eaedd189c0cd432a2557ff9889752b0ece1",
+    "tests/test_sky_map.py": "5ef7973e047d1448f796689158cc7c319097096183552a80e81c3403ab16f8e1",
+    "tests/test_sky_map_visuals.py": "89e7674c83b1daf4e676039f459454fd6ec2428bbc06ca763520b74015e22469",
+    "tests/test_transit_timing.py": "b80ab93bb1819879b8c1508a1c8d5cef004c9c3b5df7c2c1feeea67d68cbb2fa",
+    "tests/test_transit_timing_dashboard.py": "e3ace2b847ba0f5db84a1e83c2ffa13b6f49dc9718f8f52bfcf1abbf7afc990a",
+    "tests/validation/test_catalogue_correction.py": "7c88b400d96d45f35878ecbae395501e0038bebb4d4c8b5e300bc999182680d6",
+    "tests/validation/test_observer_arrival.py": "c33d9d68eb6746d91d53cb1c3cb2f8a9349c5d72c5535289ed1174708a828051",
+    "validation/arrival_budget.py": "16cebb1b89a94c5c56a87783d1e4a861d17a532b8163cbd8e9bb1d9128d974e6",
+    "validation/bls_discrepancy.py": "494d5768d4572849056930a99229899de1513495394c7812b1d582dcba8e04b6",
+    "validation/catalogue_correction.py": "c66057db734c3c9961a01bf6d9f52efb88ddc742226a2d726d7af97d490c5110",
+    "validation/catalogue_quantities.py": "ecc4e6b1391c91917852553a3ab430a9d62d9c3c76929485a17fbf7b918cd615",
+    "validation/celestial_coordinates.py": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+    "validation/civil_time.py": "6a5203a64c4a06bc265a202127c40e4649301dccaf56f1147bd66b3bb58eff90",
+    "validation/clock_reference.py": "19f665da63e1fd6630cefa7e50f4812e28fab03d6d06db525f55a7d5d24f8a55",
+    "validation/clock_sensitivity.py": "3502676c56efa263d14eff5a393c903f3e6e98073de33749a4f40714a5ac707a",
+    "validation/coupled_clock.py": "55c84bc1ec1dd08ffda364133785458e98d798b5b694815bc647bbf5cc220441",
+    "validation/cross_model_time.py": "3b5170bb1fa40a9486e7e62dab04c424f6693df65b597264b9e7bf2ce20d4680",
+    "validation/ephemeris_covariance.py": "ab503342fbe48d89c0f089d605d4d73a4d3c24a284f00011b71cb0119a78c678",
+    "validation/fixtures/catalogue_correction_v1.json": "044323514ac8890a72cca16a67d69d44c85b0581a46079a0d9943a33ca1ae939",
+    "validation/heuristic_characterisation.py": "fd3f34fc746c60fc31aae0fe4a54f23f4a07a15d21320fedbec4adee636e4d05",
+    "validation/integrated_clock_response.py": "d23fbcc62c27bfa3eb532bf565117be34f705aa39d91aaccbe3a10a6faa6f542",
+    "validation/light_curve_campaign.py": "07402030156ebbc266efca75657d41ffdd351812bbdb207eaeb4cf370d2a6340",
+    "validation/manifests/arrival_budget_policy_v1.json": "5aa06db53706331c6c4f600a3ed8fa5f35d7233072325e207f2b03eeadae769c",
+    "validation/manifests/arrival_budget_v1.json": "38b716c50b4a8fecf3f65b8da6be04d038daedeafb7ab0ee766daaff17d35285",
+    "validation/manifests/bls_discrepancy_policy_v1.json": "1a8321a825004402f70a7fd6a3260d965a6579ea2c39b0a22eb05b6a53ca42bc",
+    "validation/manifests/catalogue_correction_policy_v1.json": "1b62d65a51574c84ffc0bbc8330837ce9fdda125b3b07814596df22017be927c",
+    "validation/manifests/catalogue_correction_sources_v1.json": "597114a4e9abfccd6afa16d602125fa5e38192ac8eec207cd0646caa71d6b417",
+    "validation/manifests/catalogue_correction_v1.json": "5518992485a9cbd11293f89a3822717f2196be3fa830d92361f63760d3215c6a",
+    "validation/manifests/catalogue_quantities_policy_v1.json": "9d0f17e31511037bf0a3ae3ba5af94c138b1cc8a983d5c095daa62aedb5201fe",
+    "validation/manifests/catalogue_quantities_v2.json": "5d5a1b87e3ae582232e2b59f146e7a23edd6f270cee34f2ce74ffa2f6cc6cef0",
+    "validation/manifests/celestial_coordinates_v1.json": "d9a5d2c37cea081243c6ea9a3267408d323ae662af77d5e35be1d59fdfff39e8",
+    "validation/manifests/civil_time_v2.json": "a041cfdd5494b858354d2b028abc4c888ad79ff71be3265750bbc9cba1e617a2",
+    "validation/manifests/clock_reference_policy_v1.json": "22183f6735d3237db5de337da5ab5498a0546c59d4d05d51957d94d1c7264c4f",
+    "validation/manifests/clock_reference_v1.json": "901e8e323427ed0c15c3be66731c3e23ca241e170e003c25a868fd6f4e2eb3c7",
+    "validation/manifests/clock_sensitivity_policy_v1.json": "96541902017ea9d4455c18ff8dcacd76ff0fe00cc3ca2235008c3b6c453042dd",
+    "validation/manifests/clock_sensitivity_v1.json": "19a99e72f5d4ace6031b0bad206b6c1eb76d74245258ff70a157a24054d833ed",
+    "validation/manifests/coupled_clock_policy_v1.json": "165631bcedc9614e996734d17c711d6ae349ef13d9eeb4b137c21bbcda020081",
+    "validation/manifests/coupled_clock_v1.json": "f206e6b26ac7133300cb98ab3f0025e4d822001affa7670d4c9c0d85557eb6cb",
+    "validation/manifests/cross_model_time_policy_v1.json": "db6cb4a33af6870308a25cdc5501bc589e6462f9bf511dd16153fce1f74fb19e",
+    "validation/manifests/cross_model_time_v1.json": "6eac9b8f7294e4207c7ef1a8f31e3d56a2957ca9b0472784bc7bb4109419353d",
+    "validation/manifests/ephemeris_covariance_policy_v1.json": "a968d2dab7e51e2c3dffdd08c41f0b5d6ad326f9e0a6aaa9128f83cd4ef565ad",
+    "validation/manifests/ephemeris_covariance_v1.json": "2effc0268a24542bfb3ac119a0e219aaa21932ce758747fbc85c2f9a780633f3",
+    "validation/manifests/heuristic_characterisation_policy_v1.json": "1ef060f424092c12e8173bb955def1526ea980818e135e62bfc54cb8ce4f2681",
+    "validation/manifests/heuristic_characterisation_v1.json": "074f2294a6b2442f144b2abeda8f41093431eb2eaa3fbe24315641a677426621",
+    "validation/manifests/integrated_clock_response_policy_v1.json": "7e6d6596d032786b6fe87834f7541c785c118cd5018aee40df4c6096ad79dd3d",
+    "validation/manifests/integrated_clock_response_v1.json": "650ecae469f622fc208b65a6e085592e126808e0a863fa3590384122286d34ab",
+    "validation/manifests/light_curve_campaign_policy_v1.json": "d246d911f0efe70a6f018c7ca7f1e1fe0fa25c16e0523fa8daae5eb78aec54b7",
+    "validation/manifests/light_curve_campaign_v1.json": "7b10d257df73967fb1e08b128e1f46fca003a9ee704992323cb9bd717c37aa1f",
+    "validation/manifests/mission60_retained_sources_v1.json": "bea572342c0176953e6936161ff977bfdf360acf4c232b23b54717d77f898289",
+    "validation/manifests/observer_arrival_error_ledger_v1.json": "c57e93211d95fe373df5cff1f2a763b8ca07ee473c93674778cdf5856998931b",
+    "validation/manifests/observer_arrival_policy_v1.json": "0d5a5fd556a2df8efc7cecfdbdbcb6c8c508f288bf29bda0ea686dfddf1411dd",
+    "validation/manifests/observer_arrival_v1.json": "6509f789568eb7df8642bb7a3ef0be719027fcd6b07583ca0946f5876533fb1e",
+    "validation/manifests/observer_time_v1.json": "314fcdb8a2a25ec9a32c381b68efc9f71e836d290a68c82b592a1e1a7df7d1aa",
+    "validation/manifests/physical_bls_policy_v1.json": "1d43ee7baabc0bd350b0ef5570c1af4b51f380af43fe8c408d743cd3252f891c",
+    "validation/manifests/planetary_positions_policy_v1.json": "fc689af200c829b8d5d858d9dc6a2d37b6033ba30d6e86bfdabbf7c947b3339d",
+    "validation/manifests/planetary_positions_v1.json": "cea2d25e82f965e88ac0cfbafa8083385f3370c67354bc1a5694a148db4a17d8",
+    "validation/manifests/resolved_event_contract_v1.json": "616dcaf2db64a5a060c29791d763a8f2e2392305d3d0d563de868ed0bec83552",
+    "validation/manifests/schedule_interval_v1.json": "4619a66978a4c5fe544f7a255e06bcb67dc3c657e0b60bcdcb56bce7d327f351",
+    "validation/manifests/site_clock_policy_v1.json": "13711d101822d702f75951297df2af6072f15ac1bd9eea92045840761072af91",
+    "validation/manifests/site_clock_v1.json": "58fcf843f88f16f23f0e9c694a029ae61fdc9e531532d6f77241384d4aee8579",
+    "validation/manifests/site_frame_policy_v1.json": "d40d995c719f832cfef19b3aa60b5e5c72bd4243c4ad4fb127dc60f89f4ecb03",
+    "validation/manifests/site_frame_v1.json": "0348cbaf4482789341ea3b58ad01748b0b7ca21a0eef0c9bf7d20ddf8155998f",
+    "validation/manifests/solar_lunar_twilight_policy_v1.json": "e3c1ae38bc1115687528c22bce74b623aa1f10162b55459e9787bf9d3228a11d",
+    "validation/manifests/solar_lunar_twilight_v1.json": "f5938576fd0fc445e117b61c7e8fb0587911f272a39afd9cca95c7c937847041",
+    "validation/manifests/source_reference_policy_v1.json": "3967e040a850f900e92e6e48fd464fa58a918294e0147466806f4d8e96c05075",
+    "validation/manifests/source_reference_v1.json": "416188065b985415c0f6e560eae138910e2d0a1dd39c504f6a1b013a9bdee454",
+    "validation/manifests/telescope_imaging_v1.json": "5e27a79431022355680925300fadea5a2419ba90aa2e84861bb87653294573f6",
+    "validation/manifests/time_ephemeris_policy_v1.json": "4d8bd7af1422874d7984bb4fba2bde981485709e70fb38d53a357c67e9e38231",
+    "validation/manifests/time_ephemeris_v1.json": "0f185bd28ed24bfa30ea71dc0743b1fb9f6110ad602f92963491e2a8ab386519",
+    "validation/manifests/time_normalization_policy_v1.json": "c19f09e5c996c06000c66e168dc547e799ee31d49df0a2061a63e77db5029850",
+    "validation/manifests/time_normalization_v1.json": "87d5ee056efc868c7e921e2e71bc10cbb1d107cce46c5554381f2361269ccba5",
+    "validation/manifests/transit_ephemeris_policy_v1.json": "4492d571d482c0483ce69e7fe05d6f53ba9fa4f0cb0bc1abaedbcbc0e80be287",
+    "validation/manifests/transit_ephemeris_v1.json": "41c3059129eaf8278091e78535c548d60614101ada958f4c75d4a616c3de9900",
+    "validation/manifests/transit_time_contract_v1.json": "0b51dcb88160562e2cd68c047f36c9eae0e88dab459ba66e9f07e2d7cbd29ab1",
+    "validation/manifests/transit_timing_boundary_coverage_v1.json": "030758462d4b97843b0d27e113f0e43100394c7681309143d0566e0cbf92116f",
+    "validation/manifests/transit_timing_boundary_policy_v1.json": "74e30baab0f90e56ea959771247b5c5b6172919183d7ad387bacb1c5b4c1f5b7",
+    "validation/manifests/visibility_sampling_policy_v1.json": "1af68cdb03286788b86d9a1f24a857a7a1709ff3f9afa6afde9f2f595dabbb82",
+    "validation/manifests/visibility_sampling_v1.json": "873ca587c322a7c7932b6b6da44ee2f503c4a27cbe3f7e04a3276453250ab55d",
+    "validation/manifests/weather_provider_contract_v1.json": "eb691efd80e597aca7f3fd05b7065661a1000da63a0b8bb1889d6785453b9195",
+    "validation/observer_arrival.py": "a608624a16d6e1478798384522d4ecbc8933caaf09e66c6c91cba832155dc244",
+    "validation/observer_time.py": "90f7f7fce84f3fafee702c93334d8964f991f427861380d9366b1f33018475ca",
+    "validation/physical_bls_campaign.py": "6ec1e30ea0b02e95cd6117af28de64ced2c398335dd2646766dfc702fd00f9e8",
+    "validation/planetary_positions.py": "580416319d2448d84a8cf45fbfc2b60f946bef070556c544d7b9b0d06321e8b7",
+    "validation/reference_generation/catalogue_correction.py": "7c810f6d8ba5c397ba543366708e3fe73b9f841ed3effbc0e21c490579b11b4c",
+    "validation/results/arrival_budget_reference_run.json": "544a761bafd15b5559605d51c27be7260ed2b72892800b495cba9be8db006a4f",
+    "validation/results/bls_discrepancy_reference_run.json": "6356f77e3eec3f9a53167d9c386b5c34ea874d2454d5b69607e96d0a19815307",
+    "validation/results/catalogue_correction_reference_run.json": "becd902ca1fb20a7f88249f83db0c85acc00ad02eb4b301398bc895ed7791404",
+    "validation/results/catalogue_quantities_reference_run.json": "b8e66e9d15033583456920e91e596bd6f92ceefec39aa3e7409950864cb3d289",
+    "validation/results/celestial_coordinates_reference_run.json": "e6f9010ad96fead29cbd49056940a063f1dd5513611dca5ca54bedc12e408dd3",
+    "validation/results/civil_time_reference_run.json": "9b85785374bd29c5f7fd2dd0327861a7b3c897a4e4bec287a05b453f6999be77",
+    "validation/results/clock_reference_reference_run.json": "bae85b8fa02727ba06488670c6b326a8b75ddccdfa7acf4f395123b1b6bc2a54",
+    "validation/results/clock_sensitivity_reference_run.json": "f1129ef041735564da72f240d530e32d04f35d86f8829945a1a3edd9f79f54bb",
+    "validation/results/coupled_clock_reference_run.json": "502e9177b1c973884c0389690637f6f318128fc82abd9c501ca97bfb5365616e",
+    "validation/results/cross_model_time_reference_run.json": "89426db282a630123318ed95e276491b23dff4494cb4db3303fe7c4fb437cfc1",
+    "validation/results/ephemeris_covariance_reference_run.json": "e8bb0ec2f8c721353cfefd3cb73455318643c62d75e0b5035e6358c71b0fb639",
+    "validation/results/heuristic_characterisation_reference_run.json": "04028e30c3138842bd69f631639a9ec6a3a9c3e9e61bae6102ccb4cdef18dd86",
+    "validation/results/integrated_clock_response_reference_run.json": "930dccd98ac0f743f0606e8478aa77039376fae42004c661f69473aaa97770fe",
+    "validation/results/light_curve_campaign_reference_run.json": "c8bf66029a52a0698b2dcad5c75a9f5e4ab2ade214628eafc29d9f97da199173",
+    "validation/results/observer_arrival_reference_run.json": "e1b8659510ad4f09a0c26d46043a08af592f98057e4a1bc67172d28bc2610fc6",
+    "validation/results/observer_time_reference_run.json": "195a1422ea37a24638dd94da0e74cef4e58d83f2d6e57f5b92ccaaa60bd221f8",
+    "validation/results/physical_bls_reference_run.json": "f36372dc54d08553d00a0c6c8c1cb08887cacc65a7de693bd791c103de48b188",
+    "validation/results/planetary_positions_reference_run.json": "1b0f479e1e4b5943cc232e1d181c1ae03a1f571c2b13be1d290b58236b82e30d",
+    "validation/results/schedule_interval_reference_run.json": "14214fbd32d6ea2da2c5b1dbf5bb52bed9dafea6113a7ab9e05b858ed7adc5a7",
+    "validation/results/site_clock_reference_run.json": "60ce1a2963713af967ab51a200744a428ad11684b9dcd358051853984928d525",
+    "validation/results/site_frame_reference_run.json": "c5c0cc8aeaa4f55ed6e11262ac7fb04f4f338ca991dfa9aad4bacebd690aded0",
+    "validation/results/solar_lunar_twilight_reference_run.json": "35323153e1d1f4fadda9575ae1bb8c24bff749a6bbe24b50a53c495dd26bce87",
+    "validation/results/source_reference_reference_run.json": "bc5e023e4ca17148fbf88f6d06d271cdd4be6a203f9458fb55caac88e56052de",
+    "validation/results/telescope_imaging_reference_run.json": "3d93f73fea0d9facec42eba2912eb52c6ca820af29e70cadb8fce242009d7894",
+    "validation/results/time_ephemeris_reference_run.json": "71edf7169ec6e78a61a21f8882729da5c7ac01b615ee28ef96b75ed4cf481980",
+    "validation/results/time_normalization_reference_run.json": "42a8a7a0673dda18afefff71a671b59641d59eaa06fde0a2debc475c699aa4b4",
+    "validation/results/transit_ephemeris_reference_run.json": "d4c41d0442dd5c357f675ae7d7d0ab09b30e704ef7b03658b573fe4069277dbf",
+    "validation/results/visibility_sampling_reference_run.json": "19d1111ee43a60e3fbb7d707a0954007fe3b13bec573c749b6633cc716572910",
+    "validation/results/weather_provider_contract_reference_run.json": "6906d7e3bb555940b511b83816f9fa192a9fc23cf332666a2777a16b9b10bb1e",
+    "validation/schedule_interval.py": "482aecf72bc128711cad00111bf019ac83931b5b0788a809c491be9f85b74f22",
+    "validation/site_clock.py": "1780e46573681a242436e6898ec47049679d898a194ce12c87a6ff57d65986d0",
+    "validation/site_frame.py": "20e6ab9c829900a01515f2cabf80d3ba902b8866a5920a3d2c6884ffefe27a34",
+    "validation/solar_lunar_twilight.py": "f2417efb2ca1a3b4e5856d565fd26cddc92eccdd5ad0b75607dcfd227e057ea0",
+    "validation/source_reference.py": "b15e5f520007a50a671946cf03595ca461668179367de7f5cbc0dba57bed4e19",
+    "validation/telescope_imaging.py": "4ec12294c938cf3702b257172e28761c008436bbb806dc17ec24bbf78cad623f",
+    "validation/time_ephemeris.py": "890f115aa01326d28fadfa74ae930babcfd82477f2ad14bdd1960fc10d140c24",
+    "validation/time_normalization.py": "d12a6bc41d9766d8311c42cb5333f709a6bb8a98bc144d8e32ab9844976727ef",
+    "validation/transit_ephemeris.py": "5cea18479f2c9be061d5f7bc869c04ec25e479b71afd7c33ff07d9adc31f3c47",
+    "validation/visibility_sampling.py": "6b35ec60d37e3abecc3e77dc520c9f63d4e329f46d7fdacbdffae538f384ef4f"
+  },
+  "catalogue_and_visualisation": [
+    {
+      "assessment": "Queries and injected-response parsing tests; row-limited mutable data with no retained response/retrieval envelope.",
+      "claim": "Gaia TAP/CSV and source fields",
+      "classification": "transport_and_ingestion",
+      "disposition": "G59-03 explicit proposed scope exclusion; transport/presentation stays enabled without scientific input qualification",
+      "evidence_paths": [
+        "src/astroscope/gaia_catalog.py",
+        "tests/test_gaia_catalog.py"
+      ],
+      "id": "C01"
+    },
+    {
+      "assessment": "Frozen supplied-input arithmetic and finite/null handling accepted; no parallax zero-point, Bayesian distance, extinction or covariance model.",
+      "claim": "Gaia distance, absolute G, colour, proper motion and SNR",
+      "classification": "derived_numerical_quantities",
+      "disposition": "G59-01 bounded closure confirmed by Mission 61 merge",
+      "evidence_paths": [
+        "src/astroscope/gaia_catalog.py",
+        "tests/test_gaia_catalog.py",
+        "docs/research/validation/catalogue_correction_validation.md",
+        "tests/validation/test_catalogue_correction.py"
+      ],
+      "id": "C02"
+    },
+    {
+      "assessment": "Enforced center abs(Dec)<=60 deg, separation<=0.25 deg plus 1e-10 deg pad; conservative geometric bound 7.728691 arcsec. Unsupported chart rejects; other views remain.",
+      "claim": "Gaia local-sky offsets",
+      "classification": "display_approximation",
+      "disposition": "G59-01 bounded closure confirmed by Mission 61 merge",
+      "evidence_paths": [
+        "src/astroscope/gaia_visuals.py",
+        "tests/test_gaia_visuals.py",
+        "docs/research/validation/catalogue_correction_validation.md",
+        "tests/validation/test_catalogue_correction.py"
+      ],
+      "id": "C03"
+    },
+    {
+      "assessment": "pscomppars parameters are parsed without joint-fit uncertainty/reference metadata in ExoplanetRecord; no strict ephemeris adapter.",
+      "claim": "Exoplanet TAP/CSV and composite fields",
+      "classification": "transport_and_ingestion",
+      "disposition": "G59-03 explicit proposed scope exclusion; transport/presentation stays enabled without scientific input qualification",
+      "evidence_paths": [
+        "src/astroscope/exoplanet_catalog.py",
+        "tests/test_exoplanet_catalog.py"
+      ],
+      "id": "C04"
+    },
+    {
+      "assessment": "One declared nominal spherical convention, finite/unknown safeguards, Rp<=Rstar depth and exterior circular-orbit probability; input conventions and mass provenance remain unqualified.",
+      "claim": "Density, radius-ratio depth, circular probability",
+      "classification": "derived_numerical_quantities",
+      "disposition": "G59-01 bounded closure confirmed by Mission 61 merge",
+      "evidence_paths": [
+        "src/astroscope/exoplanet_catalog.py",
+        "tests/test_exoplanet_catalog.py",
+        "docs/research/validation/catalogue_correction_validation.md",
+        "tests/validation/test_catalogue_correction.py"
+      ],
+      "id": "C05"
+    },
+    {
+      "assessment": "Finite positive radius and closed threshold/OR behavior validated; no habitability or terrestrial-composition calibration.",
+      "claim": "Temperate-world classification",
+      "classification": "heuristic_screen",
+      "disposition": "G59-01 bounded closure confirmed by Mission 61 merge",
+      "evidence_paths": [
+        "src/astroscope/exoplanet_catalog.py",
+        "tests/test_exoplanet_catalog.py",
+        "docs/research/validation/catalogue_correction_validation.md",
+        "tests/validation/test_catalogue_correction.py"
+      ],
+      "id": "C06"
+    },
+    {
+      "assessment": "Exact rational educational trapezoid supported within depth/duration/ingress contract; no fitted astrophysical model or exposure integration.",
+      "claim": "Trapezoidal transit illustration",
+      "classification": "educational_model",
+      "disposition": "G59-01 bounded closure confirmed by Mission 61 merge",
+      "evidence_paths": [
+        "src/astroscope/exoplanet_visuals.py",
+        "tests/test_exoplanet_visuals.py",
+        "docs/research/validation/catalogue_correction_validation.md",
+        "tests/validation/test_catalogue_correction.py"
+      ],
+      "id": "C07"
+    },
+    {
+      "assessment": "Coordinates and angular sizes are curated display inputs, not a maintained catalogue. M33/M52 validate calculations on supplied inputs, not astrophysical correctness of every preset.",
+      "claim": "Static target presets and sky/imaging presentation",
+      "classification": "static_inputs_and_presentation",
+      "disposition": "G59-03 explicit proposed scope exclusion; transport/presentation stays enabled without scientific input qualification",
+      "evidence_paths": [
+        "src/astroscope/coordinates.py",
+        "src/astroscope/sky_map.py",
+        "src/astroscope/sky_map_visuals.py",
+        "src/astroscope/imaging.py",
+        "tests/test_sky_map.py",
+        "tests/test_sky_map_visuals.py"
+      ],
+      "id": "C08"
+    }
+  ],
+  "coverage": [
+    {
+      "area": "Observer and time handling",
+      "exit_gates": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06"
+      ],
+      "experiments": [
+        "M25",
+        "M27",
+        "M32",
+        "M33"
+      ],
+      "id": "P2-01",
+      "packages": [
+        "W06",
+        "X01"
+      ],
+      "supported_boundary": "Bounded civil-time, interval and fixed-site arithmetic; physical arrival clocks remain X01."
+    },
+    {
+      "area": "Coordinate conversion",
+      "exit_gates": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06"
+      ],
+      "experiments": [
+        "M33",
+        "M60",
+        "M61"
+      ],
+      "id": "P2-02",
+      "packages": [
+        "W06"
+      ],
+      "supported_boundary": "Bounded fixed ICRS/WGS84 unrefracted transforms; no proper-motion/refraction accuracy or Gaia display-projection qualification. Mission 61 adds a separately enforced small-field display domain; no stellar astrometric calibration."
+    },
+    {
+      "area": "Visibility",
+      "exit_gates": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06"
+      ],
+      "experiments": [
+        "M33",
+        "M34",
+        "M54"
+      ],
+      "id": "P2-03",
+      "packages": [
+        "W03",
+        "W06"
+      ],
+      "supported_boundary": "Sampled boundaries and sensitivity characterized; no continuous observing coverage certificate."
+    },
+    {
+      "area": "Solar System positions",
+      "exit_gates": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06"
+      ],
+      "experiments": [
+        "M34",
+        "M53"
+      ],
+      "id": "P2-04",
+      "packages": [
+        "W02",
+        "W06"
+      ],
+      "supported_boundary": "Sun/Moon and seven enabled planets in recorded 2024 domains; no native rise/set API or universal error bound."
+    },
+    {
+      "area": "Telescope and imaging",
+      "exit_gates": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06"
+      ],
+      "experiments": [
+        "M52"
+      ],
+      "id": "P2-05",
+      "packages": [
+        "W01",
+        "W06"
+      ],
+      "supported_boundary": "Independent ideal-geometry dossier; no measured optics, seeing or empirical magnification/sampling calibration."
+    },
+    {
+      "area": "Planner and schedule heuristics",
+      "exit_gates": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06"
+      ],
+      "experiments": [
+        "M32",
+        "M55"
+      ],
+      "id": "P2-06",
+      "packages": [
+        "W04",
+        "W06"
+      ],
+      "supported_boundary": "Controlled heuristic/scheduling evidence; forecast skill, optimality and observing utility remain uncalibrated."
+    },
+    {
+      "area": "Transit calculations",
+      "exit_gates": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06"
+      ],
+      "experiments": [
+        "M35",
+        "M38",
+        "M39",
+        "M40",
+        "M41",
+        "M42",
+        "M43",
+        "M44",
+        "M45",
+        "M46",
+        "M47",
+        "M48",
+        "M49",
+        "M50",
+        "M54",
+        "M60",
+        "M61"
+      ],
+      "id": "P2-07",
+      "packages": [
+        "W03",
+        "W06",
+        "X01"
+      ],
+      "supported_boundary": "Scalar/nominal arithmetic plus separate research conversion evidence. All strict observing consumers remain blocked; TC01\u2013TC26 crosswalk retained. Mission 61 covers assumed nominal density/depth/circular exterior-orbit arithmetic and educational flux; no physical transit fit."
+    },
+    {
+      "area": "Light-curve analysis",
+      "exit_gates": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06"
+      ],
+      "experiments": [
+        "M56",
+        "M57",
+        "M58"
+      ],
+      "id": "P2-08",
+      "packages": [
+        "W05",
+        "W06"
+      ],
+      "supported_boundary": "Frozen 252-trial production acceptance with ten required recoveries; historical failures preserved; no universal FAP, discovery or physical timing qualification."
+    }
+  ],
+  "decision": "LIMITED_SCOPE_EXIT_PROPOSED",
+  "excluded_claims": [
+    {
+      "claim": "Universal original-environment reconstruction",
+      "enforcement": "Documentary claim restriction; original records immutable.",
+      "id": "L62-01",
+      "owner": "Experiment provenance; Phase 8 archival packaging",
+      "reason": "14 canonical OS fields absent; 13 dedicated architecture entries absent; M49/M50 package inventories absent.",
+      "reopen": "Obtain contemporaneous receipts or label new replay as a new execution; never backfill history from current CI."
+    },
+    {
+      "claim": "Fully vendored raw-reference regeneration or cross-platform equivalence",
+      "enforcement": "Hash-checked acquisition and separate generator locks; M45 precision rejection is executable.",
+      "id": "L62-02",
+      "owner": "Experiment source acquisition; Phase 8 packaging",
+      "reason": "Pinned kernels/tools may need separate acquisition; M45 requires >=64 significand guard bits.",
+      "reopen": "Provision legal/checksummed sources and exact tools, validate target-platform precision and rerun under a versioned protocol."
+    },
+    {
+      "claim": "Archive completeness, maintained preset accuracy, and calibrated catalogue inference",
+      "enforcement": "Documentary claim restriction plus existing educational notes; interface access remains enabled.",
+      "id": "L62-03",
+      "owner": "Phase 3 input protocol; Phase 7 interoperability",
+      "reason": "Mutable responses lack a durable retrieval envelope; static presets lack maintained epoch/source provenance; nominal units are assumptions.",
+      "reopen": "Before use in a quantitative Phase 3 benchmark, freeze input bytes, units, epoch/frame, provenance, transforms and uncertainties or explicit unknowns."
+    },
+    {
+      "claim": "Physically qualified observer-arrival UTC, ranking, schedule or calendar products from strict predictions",
+      "enforcement": "reject_unresolved_timing and legacy-type/export gates; no production resolver.",
+      "id": "L62-04",
+      "owner": "Separate X01 research gate; no automatic future-phase deferral",
+      "reason": "X01: 18 unestablished requirements, six unknown components, 48 unqualified clocks, 288 blocked arrivals.",
+      "reopen": "Applicable physical evidence, model qualification and independent full reference; no synthetic substitute."
+    },
+    {
+      "claim": "Operational, autonomous, publication-grade or calibrated observing performance",
+      "enforcement": "Research-scope restriction; no operational/control implementation is introduced.",
+      "id": "L62-05",
+      "owner": "Phases 3-8 within their roadmap scope",
+      "reason": "Heuristic characterization and finite reference corpora do not measure observing utility, hardware performance or universal false-alarm behavior.",
+      "reopen": "Predeclared datasets, baselines, outcomes, uncertainty and prospective evaluation appropriate to each later phase."
+    }
+  ],
+  "exit_gates": [
+    {
+      "id": "E01",
+      "rationale": "Eight original areas and C01-C08 map to explicit claims and exclusions; no completion percentage.",
+      "status": "qualified_within_proposed_scope"
+    },
+    {
+      "id": "E02",
+      "rationale": "Bounded independent dossiers support accepted supplied-input claims; X01 and observational calibration excluded, not passed.",
+      "status": "qualified_within_proposed_scope"
+    },
+    {
+      "id": "E03",
+      "rationale": "Original failures and denominators retained; current M58/M61 corrections pass separately; no universal robustness claim.",
+      "status": "qualified_within_proposed_scope"
+    },
+    {
+      "id": "E04",
+      "rationale": "28 source commits recovered; 185 recorded file hashes match. Original OS/dependency gaps and external raw kernels remain explicit restrictions.",
+      "status": "qualified_for_current_frozen_fixture_replay_only"
+    },
+    {
+      "id": "E05",
+      "rationale": "Strict arrival consumers and unsupported catalogue geometry reject; uncalibrated/preset/transport claims remain documentary limits, not technical access controls.",
+      "status": "qualified_with_enforced_and_documentary_exclusions"
+    },
+    {
+      "id": "E06",
+      "rationale": "TC01-TC26 retain 13 boundary, 5 partial, 8 deferred; none physically observing-enabled. No strict catalogue adapter.",
+      "status": "qualified_with_deferred_contracts"
+    },
+    {
+      "id": "E07",
+      "rationale": "Mission 61 merge CI: 8356 passed, 26 historical xfails; all 28 archives verified. Mission 62 needs its own final-head CI and artifact receipt.",
+      "status": "baseline_passed_final_head_required"
+    },
+    {
+      "id": "E08",
+      "rationale": "Recommend a limited-scope exit only. Merge after successful final-head verification records owner acceptance of this explicit scope; Phase 3 work needs a separate mission.",
+      "status": "review_pending"
+    }
+  ],
+  "experiments": [
+    {
+      "artifact_name": "observer-time-validation-record",
+      "canonical_record": "validation/results/observer_time_reference_run.json",
+      "claim": "Pinned civil-time offsets; no celestial calculation",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M25"
+      },
+      "current_execution_class": "bounded_current_acceptance",
+      "dependency_disposition": "Use original recorded inventory/locks; current CI metadata is a separate execution record.",
+      "dossier": "docs/research/validation/observer_time_validation.md",
+      "historical_environment_reconstruction": "recorded fields available; no full clean-room recreation performed here",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M25"
+      },
+      "id": "M25",
+      "manifests": [
+        "validation/manifests/observer_time_v1.json"
+      ],
+      "mission": 25,
+      "notes": [],
+      "original_metadata_missing_fields": [
+        "randomness"
+      ],
+      "provenance": {
+        "architecture": {
+          "pointer": "/environment/architecture",
+          "status": "recorded",
+          "value": "arm64"
+        },
+        "dependencies": {
+          "pointer": "/environment/installed_dependencies",
+          "status": "recorded",
+          "value_sha256": "7e435690efbbc79096a5987aba52b9776df6d4faf692cc03035d6e73d4c65a30"
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/environment/git/implementation_commit",
+          "status": "recorded",
+          "value": "fd21cdabaadc80f84dd36eae9b9eed70e48195ed"
+        },
+        "operating_system": {
+          "pointer": "/environment/operating_system",
+          "status": "recorded",
+          "value": {
+            "release": "25.5.0",
+            "system": "Darwin",
+            "version": "Darwin Kernel Version 25.5.0: Tue Jun  9 22:26:46 PDT 2026; root:xnu-12377.121.10~1/RELEASE_ARM64_T8103"
+          }
+        },
+        "python": {
+          "pointer": "/environment/python",
+          "status": "recorded",
+          "value": {
+            "executable": "/private/tmp/astroscope-m25-canonical.3fixSS/bin/python",
+            "implementation": "CPython",
+            "version": "3.12.10"
+          }
+        },
+        "randomness": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Absent dedicated field does not imply stochastic ambiguity: existing fixture/generator/settings remain authoritative. No seed invented.",
+      "replay_command": "python -m validation.observer_time --manifest validation/manifests/observer_time_v1.json --output /tmp/observer_time_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/observer_time.py"
+    },
+    {
+      "artifact_name": "civil-time-validation-record",
+      "canonical_record": "validation/results/civil_time_reference_run.json",
+      "claim": "Strict IANA folds/gaps and rejection policy",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M27"
+      },
+      "current_execution_class": "bounded_current_acceptance",
+      "dependency_disposition": "Use original recorded inventory/locks; current CI metadata is a separate execution record.",
+      "dossier": "docs/research/validation/civil_time_validation.md",
+      "historical_environment_reconstruction": "recorded fields available; no full clean-room recreation performed here",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M27"
+      },
+      "id": "M27",
+      "manifests": [
+        "validation/manifests/civil_time_v2.json"
+      ],
+      "mission": 27,
+      "notes": [],
+      "original_metadata_missing_fields": [
+        "randomness"
+      ],
+      "provenance": {
+        "architecture": {
+          "pointer": "/environment/architecture",
+          "status": "recorded",
+          "value": "arm64"
+        },
+        "dependencies": {
+          "pointer": "/environment/package_versions",
+          "status": "recorded",
+          "value_sha256": "9119757f7ab079e77493b6ed966562fbd847107cc1465de6c528903fa6e6450d"
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/environment/git/implementation_commit",
+          "status": "recorded",
+          "value": "e3a7006aa55f1548add8f0aac31811852a220286"
+        },
+        "operating_system": {
+          "pointer": "/environment/operating_system",
+          "status": "recorded",
+          "value": {
+            "release": "25.5.0",
+            "system": "Darwin",
+            "version": "Darwin Kernel Version 25.5.0: Tue Jun  9 22:26:46 PDT 2026; root:xnu-12377.121.10~1/RELEASE_ARM64_T8103"
+          }
+        },
+        "python": {
+          "pointer": "/environment/python",
+          "status": "recorded",
+          "value": {
+            "executable": "/Users/sirichetsriamontham/Documents/Codex/2026-08-03/repository-wolfchil345-astroscope-ai-observatory-current/work/.mission27-canonical-evidence-env/venv/bin/python",
+            "implementation": "CPython",
+            "version": "3.12.10"
+          }
+        },
+        "randomness": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Absent dedicated field does not imply stochastic ambiguity: existing fixture/generator/settings remain authoritative. No seed invented.",
+      "replay_command": "python -m validation.civil_time --manifest validation/manifests/civil_time_v2.json --output /tmp/civil_time_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/civil_time.py"
+    },
+    {
+      "artifact_name": "schedule-interval-validation-record",
+      "canonical_record": "validation/results/schedule_interval_reference_run.json",
+      "claim": "Civil interval/grid/occupancy semantics",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M32"
+      },
+      "current_execution_class": "bounded_current_acceptance",
+      "dependency_disposition": "Use original recorded inventory/locks; current CI metadata is a separate execution record.",
+      "dossier": "docs/research/validation/schedule_interval_validation.md",
+      "historical_environment_reconstruction": "recorded fields available; no full clean-room recreation performed here",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M32"
+      },
+      "id": "M32",
+      "manifests": [
+        "validation/manifests/schedule_interval_v1.json"
+      ],
+      "mission": 32,
+      "notes": [],
+      "original_metadata_missing_fields": [
+        "randomness"
+      ],
+      "provenance": {
+        "architecture": {
+          "pointer": "/environment/architecture",
+          "status": "recorded",
+          "value": "arm64"
+        },
+        "dependencies": {
+          "pointer": "/environment/package_versions",
+          "status": "recorded",
+          "value_sha256": "9119757f7ab079e77493b6ed966562fbd847107cc1465de6c528903fa6e6450d"
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/environment/git/implementation_commit",
+          "status": "recorded",
+          "value": "9f5d8e8129f7378e6775a0e4ad57c8cd74711537"
+        },
+        "operating_system": {
+          "pointer": "/environment/operating_system",
+          "status": "recorded",
+          "value": {
+            "release": "25.5.0",
+            "system": "Darwin",
+            "version": "Darwin Kernel Version 25.5.0: Tue Jun  9 22:26:46 PDT 2026; root:xnu-12377.121.10~1/RELEASE_ARM64_T8103"
+          }
+        },
+        "python": {
+          "pointer": "/environment/python",
+          "status": "recorded",
+          "value": {
+            "executable": "/Users/sirichetsriamontham/Documents/Codex/2026-08-03/repository-wolfchil345-astroscope-ai-observatory-current/work/astroscope-ai-observatory/.venv/bin/python",
+            "implementation": "CPython",
+            "version": "3.12.10"
+          }
+        },
+        "randomness": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Absent dedicated field does not imply stochastic ambiguity: existing fixture/generator/settings remain authoritative. No seed invented.",
+      "replay_command": "python -m validation.schedule_interval --manifest validation/manifests/schedule_interval_v1.json --output /tmp/schedule_interval_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/schedule_interval.py"
+    },
+    {
+      "artifact_name": "celestial-coordinate-validation-record",
+      "canonical_record": "validation/results/celestial_coordinates_reference_run.json",
+      "claim": "Bounded fixed-direction coordinates and unrefracted geometry",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M33"
+      },
+      "current_execution_class": "bounded_current_acceptance",
+      "dependency_disposition": "Use original recorded inventory/locks; current CI metadata is a separate execution record.",
+      "dossier": "docs/research/validation/celestial_coordinate_validation.md",
+      "historical_environment_reconstruction": "recorded fields available; no full clean-room recreation performed here",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M33"
+      },
+      "id": "M33",
+      "manifests": [
+        "validation/manifests/celestial_coordinates_v1.json"
+      ],
+      "mission": 33,
+      "notes": [],
+      "original_metadata_missing_fields": [
+        "randomness"
+      ],
+      "provenance": {
+        "architecture": {
+          "pointer": "/environment/platform",
+          "status": "recorded",
+          "value": "macOS-26.5.2-arm64-arm-64bit"
+        },
+        "dependencies": {
+          "pointer": "/environment/installed_dependencies",
+          "status": "recorded",
+          "value_sha256": "c1e16ab0576ff39307352a5f8bb4ec806c00048e5b432612a5e8c67128d924fc"
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/environment/implementation_commit",
+          "status": "recorded",
+          "value": "f33d116b473ca0732f699b2d814f7f423bd642d7"
+        },
+        "operating_system": {
+          "pointer": "/environment/platform",
+          "status": "recorded",
+          "value": "macOS-26.5.2-arm64-arm-64bit"
+        },
+        "python": {
+          "pointer": "/environment/python",
+          "status": "recorded",
+          "value": "3.12.10"
+        },
+        "randomness": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Absent dedicated field does not imply stochastic ambiguity: existing fixture/generator/settings remain authoritative. No seed invented.",
+      "replay_command": "python -m validation.celestial_coordinates --output /tmp/celestial_coordinates_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/celestial_coordinates.py"
+    },
+    {
+      "artifact_name": "solar-lunar-twilight-validation-record",
+      "canonical_record": "validation/results/solar_lunar_twilight_reference_run.json",
+      "claim": "Bounded Sun/Moon geometry and validation-derived crossings",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M34"
+      },
+      "current_execution_class": "bounded_current_acceptance",
+      "dependency_disposition": "Use original recorded inventory/locks; current CI metadata is a separate execution record.",
+      "dossier": "docs/research/validation/solar_lunar_twilight_validation.md",
+      "historical_environment_reconstruction": "recorded fields available; no full clean-room recreation performed here",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M34"
+      },
+      "id": "M34",
+      "manifests": [
+        "validation/manifests/solar_lunar_twilight_policy_v1.json",
+        "validation/manifests/solar_lunar_twilight_v1.json"
+      ],
+      "mission": 34,
+      "notes": [],
+      "original_metadata_missing_fields": [
+        "randomness"
+      ],
+      "provenance": {
+        "architecture": {
+          "pointer": "/environment/platform",
+          "status": "recorded",
+          "value": "macOS-26.5.2-arm64-arm-64bit"
+        },
+        "dependencies": {
+          "pointer": "/environment/installed_dependencies",
+          "status": "recorded",
+          "value_sha256": "c1e16ab0576ff39307352a5f8bb4ec806c00048e5b432612a5e8c67128d924fc"
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/environment/implementation_commit",
+          "status": "recorded",
+          "value": "8099a86e534e47dad4a0f9992f3146462c018557"
+        },
+        "operating_system": {
+          "pointer": "/environment/platform",
+          "status": "recorded",
+          "value": "macOS-26.5.2-arm64-arm-64bit"
+        },
+        "python": {
+          "pointer": "/environment/python",
+          "status": "recorded",
+          "value": "3.12.10"
+        },
+        "randomness": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Absent dedicated field does not imply stochastic ambiguity: existing fixture/generator/settings remain authoritative. No seed invented.",
+      "replay_command": "python -m validation.solar_lunar_twilight --output /tmp/solar_lunar_twilight_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/solar_lunar_twilight.py"
+    },
+    {
+      "artifact_name": "transit-ephemeris-validation-record",
+      "canonical_record": "validation/results/transit_ephemeris_reference_run.json",
+      "claim": "Scalar legacy ephemeris arithmetic, with retained boundary limitations",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M35"
+      },
+      "current_execution_class": "bounded_current_acceptance",
+      "dependency_disposition": "Use original recorded inventory/locks; current CI metadata is a separate execution record.",
+      "dossier": "docs/research/validation/transit_ephemeris_validation.md",
+      "historical_environment_reconstruction": "recorded fields available; no full clean-room recreation performed here",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M35"
+      },
+      "id": "M35",
+      "manifests": [
+        "validation/manifests/transit_ephemeris_policy_v1.json",
+        "validation/manifests/transit_ephemeris_v1.json"
+      ],
+      "mission": 35,
+      "notes": [],
+      "original_metadata_missing_fields": [],
+      "provenance": {
+        "architecture": {
+          "pointer": "/environment/platform",
+          "status": "recorded",
+          "value": "Linux-6.18.44-x86_64-with-glibc2.39"
+        },
+        "dependencies": {
+          "pointer": "/environment/dependencies",
+          "status": "recorded",
+          "value_sha256": "a1f6972fa2d0201c6d274bf578f6b5a0a262916e3c7f2f9ae320bb474e2d8374"
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/environment/implementation_commit",
+          "status": "recorded",
+          "value": "8a1891f38963c2f81abd3c2c1a8f4b5b4ead32da"
+        },
+        "operating_system": {
+          "pointer": "/environment/platform",
+          "status": "recorded",
+          "value": "Linux-6.18.44-x86_64-with-glibc2.39"
+        },
+        "python": {
+          "pointer": "/environment/python",
+          "status": "recorded",
+          "value": "3.12.14"
+        },
+        "randomness": {
+          "pointer": "/environment/randomness",
+          "status": "recorded",
+          "value": "none"
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Retain recorded randomness settings.",
+      "replay_command": "python -m validation.transit_ephemeris --output /tmp/transit_ephemeris_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/transit_ephemeris.py"
+    },
+    {
+      "artifact_name": "observer-arrival-validation-record",
+      "canonical_record": "validation/results/observer_arrival_reference_run.json",
+      "claim": "Research geometric inversion and historical leap pairs; physical model incomplete",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M38"
+      },
+      "current_execution_class": "research_only_not_physical_qualification",
+      "dependency_disposition": "Use original recorded inventory/locks; current CI metadata is a separate execution record.",
+      "dossier": "docs/research/validation/observer_arrival_validation.md",
+      "historical_environment_reconstruction": "not established",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M38"
+      },
+      "id": "M38",
+      "manifests": [
+        "validation/manifests/observer_arrival_error_ledger_v1.json",
+        "validation/manifests/observer_arrival_policy_v1.json",
+        "validation/manifests/observer_arrival_v1.json"
+      ],
+      "mission": 38,
+      "notes": [],
+      "original_metadata_missing_fields": [
+        "architecture",
+        "operating_system",
+        "randomness"
+      ],
+      "provenance": {
+        "architecture": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "dependencies": {
+          "pointer": "/environment/packages",
+          "status": "recorded",
+          "value_sha256": "4a1a8769df86435258cc47e00a8e8bebb9f02ec1b5a8ac5b28ecd61a2542552d"
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/implementation_commit",
+          "status": "recorded",
+          "value": "ff0729d481a446df5ad84b2ff7a11d2fd052a487"
+        },
+        "operating_system": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "python": {
+          "pointer": "/environment/python",
+          "status": "recorded",
+          "value": "3.12.14"
+        },
+        "randomness": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Absent dedicated field does not imply stochastic ambiguity: existing fixture/generator/settings remain authoritative. No seed invented.",
+      "replay_command": "python -m validation.observer_arrival --output /tmp/observer_arrival_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/observer_arrival.py"
+    },
+    {
+      "artifact_name": "arrival-budget-audit-record",
+      "canonical_record": "validation/results/arrival_budget_reference_run.json",
+      "claim": "Error-budget bookkeeping and prospective resolved-event contract; physical bound unknown",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M39"
+      },
+      "current_execution_class": "research_only_not_physical_qualification",
+      "dependency_disposition": "Audit replay has only standard-library imports; package inventory is not applicable to that replay. Separate external reference-generation environments retain their own locks and provenance.",
+      "dossier": "docs/research/validation/observer_arrival_error_budget.md",
+      "historical_environment_reconstruction": "not established",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M39"
+      },
+      "id": "M39",
+      "manifests": [
+        "validation/manifests/arrival_budget_policy_v1.json",
+        "validation/manifests/arrival_budget_v1.json",
+        "validation/manifests/observer_arrival_error_ledger_v1.json",
+        "validation/manifests/resolved_event_contract_v1.json"
+      ],
+      "mission": 39,
+      "notes": [],
+      "original_metadata_missing_fields": [
+        "architecture",
+        "dependencies",
+        "operating_system",
+        "randomness"
+      ],
+      "provenance": {
+        "architecture": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "dependencies": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/implementation_commit",
+          "status": "recorded",
+          "value": "5db627692860fd18cfb5ae8f733a5b182c65512f"
+        },
+        "operating_system": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "python": {
+          "pointer": "/environment/python",
+          "status": "recorded",
+          "value": "3.12.14"
+        },
+        "randomness": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Absent dedicated field does not imply stochastic ambiguity: existing fixture/generator/settings remain authoritative. No seed invented.",
+      "replay_command": "python -m validation.arrival_budget --output /tmp/arrival_budget_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/arrival_budget.py"
+    },
+    {
+      "artifact_name": "source-reference-qualification-record",
+      "canonical_record": "validation/results/source_reference_reference_run.json",
+      "claim": "Supplied-input solar-component comparison; full timing reference unqualified",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M40"
+      },
+      "current_execution_class": "research_only_not_physical_qualification",
+      "dependency_disposition": "Audit replay has only standard-library imports; package inventory is not applicable to that replay. Separate external reference-generation environments retain their own locks and provenance.",
+      "dossier": "docs/research/validation/source_reference_qualification.md",
+      "historical_environment_reconstruction": "not established",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M40"
+      },
+      "id": "M40",
+      "manifests": [
+        "validation/manifests/source_reference_policy_v1.json",
+        "validation/manifests/source_reference_v1.json"
+      ],
+      "mission": 40,
+      "notes": [],
+      "original_metadata_missing_fields": [
+        "architecture",
+        "dependencies",
+        "operating_system",
+        "randomness"
+      ],
+      "provenance": {
+        "architecture": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "dependencies": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/implementation_commit",
+          "status": "recorded",
+          "value": "37ce0ea036727b1c280ba4c95af06c38a6e18716"
+        },
+        "operating_system": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "python": {
+          "pointer": "/environment/python",
+          "status": "recorded",
+          "value": "3.12.14"
+        },
+        "randomness": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Absent dedicated field does not imply stochastic ambiguity: existing fixture/generator/settings remain authoritative. No seed invented.",
+      "replay_command": "python -m validation.source_reference --output /tmp/source_reference_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/source_reference.py"
+    },
+    {
+      "artifact_name": "clock-reference-qualification-record",
+      "canonical_record": "validation/results/clock_reference_reference_run.json",
+      "claim": "Successful audit of unsuccessful independent clock qualification",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M41"
+      },
+      "current_execution_class": "research_only_not_physical_qualification",
+      "dependency_disposition": "Audit replay has only standard-library imports; package inventory is not applicable to that replay. Separate external reference-generation environments retain their own locks and provenance.",
+      "dossier": "docs/research/validation/clock_reference_validation.md",
+      "historical_environment_reconstruction": "not established",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M41"
+      },
+      "id": "M41",
+      "manifests": [
+        "validation/manifests/clock_reference_policy_v1.json",
+        "validation/manifests/clock_reference_v1.json"
+      ],
+      "mission": 41,
+      "notes": [],
+      "original_metadata_missing_fields": [
+        "architecture",
+        "dependencies",
+        "operating_system",
+        "randomness"
+      ],
+      "provenance": {
+        "architecture": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "dependencies": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/implementation_commit",
+          "status": "recorded",
+          "value": "7a49cd724a20f4fa8c64ac27d777027faf72b0c3"
+        },
+        "operating_system": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "python": {
+          "pointer": "/python_version",
+          "status": "recorded",
+          "value": "3.12.14"
+        },
+        "randomness": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Absent dedicated field does not imply stochastic ambiguity: existing fixture/generator/settings remain authoritative. No seed invented.",
+      "replay_command": "python -m validation.clock_reference --output /tmp/clock_reference_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/clock_reference.py"
+    },
+    {
+      "artifact_name": "time-ephemeris-clock-mapping-record",
+      "canonical_record": "validation/results/time_ephemeris_reference_run.json",
+      "claim": "Kernel reader and geocentric mapping evidence; physical site mapping unqualified",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M42"
+      },
+      "current_execution_class": "research_only_not_physical_qualification",
+      "dependency_disposition": "Use original recorded inventory/locks; current CI metadata is a separate execution record.",
+      "dossier": "docs/research/validation/time_ephemeris_clock_mapping.md",
+      "historical_environment_reconstruction": "not established",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M42"
+      },
+      "id": "M42",
+      "manifests": [
+        "validation/manifests/time_ephemeris_policy_v1.json",
+        "validation/manifests/time_ephemeris_v1.json"
+      ],
+      "mission": 42,
+      "notes": [],
+      "original_metadata_missing_fields": [
+        "architecture",
+        "operating_system",
+        "randomness"
+      ],
+      "provenance": {
+        "architecture": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "dependencies": {
+          "pointer": "/candidate_packages",
+          "status": "recorded",
+          "value_sha256": "4a1a8769df86435258cc47e00a8e8bebb9f02ec1b5a8ac5b28ecd61a2542552d"
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/implementation_commit",
+          "status": "recorded",
+          "value": "99145db6da914e849e8cce7842b42036c9837882"
+        },
+        "operating_system": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "python": {
+          "pointer": "/python_version",
+          "status": "recorded",
+          "value": "3.12.14"
+        },
+        "randomness": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Absent dedicated field does not imply stochastic ambiguity: existing fixture/generator/settings remain authoritative. No seed invented.",
+      "replay_command": "python -m validation.time_ephemeris --output /tmp/time_ephemeris_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/time_ephemeris.py"
+    },
+    {
+      "artifact_name": "site-clock-qualification-record",
+      "canonical_record": "validation/results/site_clock_reference_run.json",
+      "claim": "Site-clock diagnostics and conditional sensitivity; no physical bound",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M43"
+      },
+      "current_execution_class": "research_only_not_physical_qualification",
+      "dependency_disposition": "Use original recorded inventory/locks; current CI metadata is a separate execution record.",
+      "dossier": "docs/research/validation/site_clock_mapping.md",
+      "historical_environment_reconstruction": "not established",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M43"
+      },
+      "id": "M43",
+      "manifests": [
+        "validation/manifests/site_clock_policy_v1.json",
+        "validation/manifests/site_clock_v1.json"
+      ],
+      "mission": 43,
+      "notes": [],
+      "original_metadata_missing_fields": [
+        "architecture",
+        "operating_system",
+        "randomness"
+      ],
+      "provenance": {
+        "architecture": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "dependencies": {
+          "pointer": "/candidate_packages",
+          "status": "recorded",
+          "value_sha256": "4a1a8769df86435258cc47e00a8e8bebb9f02ec1b5a8ac5b28ecd61a2542552d"
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/implementation_commit",
+          "status": "recorded",
+          "value": "d942a93165b702abadacb7b5244a4f3e3b4f7015"
+        },
+        "operating_system": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "python": {
+          "pointer": "/python_version",
+          "status": "recorded",
+          "value": "3.12.14"
+        },
+        "randomness": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Absent dedicated field does not imply stochastic ambiguity: existing fixture/generator/settings remain authoritative. No seed invented.",
+      "replay_command": "python -m validation.site_clock --output /tmp/site_clock_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/site_clock.py"
+    },
+    {
+      "artifact_name": "site-frame-mapping-record",
+      "canonical_record": "validation/results/site_frame_reference_run.json",
+      "claim": "Polynomial spatial inverse certificate; no physical clock qualification",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M44"
+      },
+      "current_execution_class": "research_only_not_physical_qualification",
+      "dependency_disposition": "Use original recorded inventory/locks; current CI metadata is a separate execution record.",
+      "dossier": "docs/research/validation/site_frame_mapping.md",
+      "historical_environment_reconstruction": "not established",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M44"
+      },
+      "id": "M44",
+      "manifests": [
+        "validation/manifests/site_frame_policy_v1.json",
+        "validation/manifests/site_frame_v1.json"
+      ],
+      "mission": 44,
+      "notes": [],
+      "original_metadata_missing_fields": [
+        "architecture",
+        "operating_system",
+        "randomness"
+      ],
+      "provenance": {
+        "architecture": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "dependencies": {
+          "pointer": "/numpy_version",
+          "status": "recorded",
+          "value_sha256": "ebf817273c0c80b2889f7b6396b90c51a8ea5df546c4d396cbfecf66f139d107"
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/implementation_commit",
+          "status": "recorded",
+          "value": "ce57f47332f70652d8bc58e6cc2da19da673a71f"
+        },
+        "operating_system": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "python": {
+          "pointer": "/python_version",
+          "status": "recorded",
+          "value": "3.12.14"
+        },
+        "randomness": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Absent dedicated field does not imply stochastic ambiguity: existing fixture/generator/settings remain authoritative. No seed invented.",
+      "replay_command": "python -m validation.site_frame --output /tmp/site_frame_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/site_frame.py"
+    },
+    {
+      "artifact_name": "coupled-site-clock-record",
+      "canonical_record": "validation/results/coupled_clock_reference_run.json",
+      "claim": "Coupled model numerical/causal controls; physical components unresolved",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M45"
+      },
+      "current_execution_class": "research_only_not_physical_qualification",
+      "dependency_disposition": "Use original recorded inventory/locks; current CI metadata is a separate execution record.",
+      "dossier": "docs/research/validation/coupled_site_clock.md",
+      "historical_environment_reconstruction": "not established",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M45"
+      },
+      "id": "M45",
+      "manifests": [
+        "validation/manifests/coupled_clock_policy_v1.json",
+        "validation/manifests/coupled_clock_v1.json"
+      ],
+      "mission": 45,
+      "notes": [],
+      "original_metadata_missing_fields": [
+        "architecture",
+        "operating_system",
+        "randomness"
+      ],
+      "provenance": {
+        "architecture": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "dependencies": {
+          "pointer": "/candidate_packages",
+          "status": "recorded",
+          "value_sha256": "4a1a8769df86435258cc47e00a8e8bebb9f02ec1b5a8ac5b28ecd61a2542552d"
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/implementation_commit",
+          "status": "recorded",
+          "value": "fb4f1da4bfaa95912f292f8b8920a970b28e9653"
+        },
+        "operating_system": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "python": {
+          "pointer": "/python_version",
+          "status": "recorded",
+          "value": "3.12.14"
+        },
+        "randomness": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Absent dedicated field does not imply stochastic ambiguity: existing fixture/generator/settings remain authoritative. No seed invented.",
+      "replay_command": "python -m validation.coupled_clock --output /tmp/coupled_clock_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/coupled_clock.py"
+    },
+    {
+      "artifact_name": "time-normalization-evidence-record",
+      "canonical_record": "validation/results/time_normalization_reference_run.json",
+      "claim": "Normalization and synthetic controls; no physical uncertainty established",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M46"
+      },
+      "current_execution_class": "research_only_not_physical_qualification",
+      "dependency_disposition": "Use original recorded inventory/locks; current CI metadata is a separate execution record.",
+      "dossier": "docs/research/validation/time_ephemeris_normalization.md",
+      "historical_environment_reconstruction": "not established",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M46"
+      },
+      "id": "M46",
+      "manifests": [
+        "validation/manifests/time_normalization_policy_v1.json",
+        "validation/manifests/time_normalization_v1.json"
+      ],
+      "mission": 46,
+      "notes": [],
+      "original_metadata_missing_fields": [
+        "architecture",
+        "operating_system",
+        "randomness"
+      ],
+      "provenance": {
+        "architecture": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "dependencies": {
+          "pointer": "/candidate_packages",
+          "status": "recorded",
+          "value_sha256": "4a1a8769df86435258cc47e00a8e8bebb9f02ec1b5a8ac5b28ecd61a2542552d"
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/implementation_commit",
+          "status": "recorded",
+          "value": "f6cc15bb7206e19d3f97fa16c35faa74ffc1c861"
+        },
+        "operating_system": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "python": {
+          "pointer": "/python_version",
+          "status": "recorded",
+          "value": "3.12.14"
+        },
+        "randomness": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Absent dedicated field does not imply stochastic ambiguity: existing fixture/generator/settings remain authoritative. No seed invented.",
+      "replay_command": "python -m validation.time_normalization --output /tmp/time_normalization_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/time_normalization.py"
+    },
+    {
+      "artifact_name": "cross-model-time-ephemeris-record",
+      "canonical_record": "validation/results/cross_model_time_reference_run.json",
+      "claim": "Cross-model diagnostics; not a physical uncertainty bound",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M47"
+      },
+      "current_execution_class": "research_only_not_physical_qualification",
+      "dependency_disposition": "Use original recorded inventory/locks; current CI metadata is a separate execution record.",
+      "dossier": "docs/research/validation/cross_model_time_ephemeris.md",
+      "historical_environment_reconstruction": "not established",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M47"
+      },
+      "id": "M47",
+      "manifests": [
+        "validation/manifests/cross_model_time_policy_v1.json",
+        "validation/manifests/cross_model_time_v1.json"
+      ],
+      "mission": 47,
+      "notes": [],
+      "original_metadata_missing_fields": [
+        "architecture",
+        "operating_system",
+        "randomness"
+      ],
+      "provenance": {
+        "architecture": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "dependencies": {
+          "pointer": "/candidate_packages",
+          "status": "recorded",
+          "value_sha256": "4a1a8769df86435258cc47e00a8e8bebb9f02ec1b5a8ac5b28ecd61a2542552d"
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/implementation_commit",
+          "status": "recorded",
+          "value": "9d8f18aa34a35870374a481db612adaf04007ae8"
+        },
+        "operating_system": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "python": {
+          "pointer": "/python_version",
+          "status": "recorded",
+          "value": "3.12.14"
+        },
+        "randomness": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Absent dedicated field does not imply stochastic ambiguity: existing fixture/generator/settings remain authoritative. No seed invented.",
+      "replay_command": "python -m validation.cross_model_time --output /tmp/cross_model_time_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/cross_model_time.py"
+    },
+    {
+      "artifact_name": "clock-sensitivity-uncertainty-record",
+      "canonical_record": "validation/results/clock_sensitivity_reference_run.json",
+      "claim": "Sensitivity and synthetic covariance propagation; physical covariance absent",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M48"
+      },
+      "current_execution_class": "research_only_not_physical_qualification",
+      "dependency_disposition": "Use original recorded inventory/locks; current CI metadata is a separate execution record.",
+      "dossier": "docs/research/validation/clock_sensitivity_uncertainty.md",
+      "historical_environment_reconstruction": "not established",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M48"
+      },
+      "id": "M48",
+      "manifests": [
+        "validation/manifests/clock_sensitivity_policy_v1.json",
+        "validation/manifests/clock_sensitivity_v1.json"
+      ],
+      "mission": 48,
+      "notes": [],
+      "original_metadata_missing_fields": [
+        "architecture",
+        "operating_system",
+        "randomness"
+      ],
+      "provenance": {
+        "architecture": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "dependencies": {
+          "pointer": "/candidate_packages",
+          "status": "recorded",
+          "value_sha256": "4a1a8769df86435258cc47e00a8e8bebb9f02ec1b5a8ac5b28ecd61a2542552d"
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/implementation_commit",
+          "status": "recorded",
+          "value": "c28a4629633169d77f1a62005ded3122c76d3481"
+        },
+        "operating_system": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "python": {
+          "pointer": "/python_version",
+          "status": "recorded",
+          "value": "3.12.14"
+        },
+        "randomness": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Absent dedicated field does not imply stochastic ambiguity: existing fixture/generator/settings remain authoritative. No seed invented.",
+      "replay_command": "python -m validation.clock_sensitivity --output /tmp/clock_sensitivity_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/clock_sensitivity.py"
+    },
+    {
+      "artifact_name": "ephemeris-covariance-qualification-record",
+      "canonical_record": "validation/results/ephemeris_covariance_reference_run.json",
+      "claim": "Evidence receipt review and synthetic controls; 18 requirements unestablished",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M49"
+      },
+      "current_execution_class": "research_only_not_physical_qualification",
+      "dependency_disposition": "Canonical package inventory is absent; absolute import closure includes Astropy and NumPy via reused validators. Current same-job CI versions supplement current replay only; original versions remain unestablished.",
+      "dossier": "docs/research/validation/ephemeris_covariance_qualification.md",
+      "historical_environment_reconstruction": "not established",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M49"
+      },
+      "id": "M49",
+      "manifests": [
+        "validation/manifests/ephemeris_covariance_policy_v1.json",
+        "validation/manifests/ephemeris_covariance_v1.json"
+      ],
+      "mission": 49,
+      "notes": [],
+      "original_metadata_missing_fields": [
+        "architecture",
+        "dependencies",
+        "operating_system",
+        "randomness"
+      ],
+      "provenance": {
+        "architecture": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "dependencies": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/implementation_commit",
+          "status": "recorded",
+          "value": "ef7417ef4118086fc9201856f42722e7737bc804"
+        },
+        "operating_system": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "python": {
+          "pointer": "/python_version",
+          "status": "recorded",
+          "value": "3.12.14"
+        },
+        "randomness": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Absent dedicated field does not imply stochastic ambiguity: existing fixture/generator/settings remain authoritative. No seed invented.",
+      "replay_command": "python -m validation.ephemeris_covariance --output /tmp/ephemeris_covariance_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/ephemeris_covariance.py"
+    },
+    {
+      "artifact_name": "integrated-clock-parameter-response-record",
+      "canonical_record": "validation/results/integrated_clock_response_reference_run.json",
+      "claim": "Integrated synthetic parameter response; physical covariance absent",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M50"
+      },
+      "current_execution_class": "research_only_not_physical_qualification",
+      "dependency_disposition": "Canonical package inventory is absent; absolute import closure includes Astropy and NumPy via reused validators. Current same-job CI versions supplement current replay only; original versions remain unestablished.",
+      "dossier": "docs/research/validation/integrated_clock_response_validation.md",
+      "historical_environment_reconstruction": "not established",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M50"
+      },
+      "id": "M50",
+      "manifests": [
+        "validation/manifests/integrated_clock_response_policy_v1.json",
+        "validation/manifests/integrated_clock_response_v1.json"
+      ],
+      "mission": 50,
+      "notes": [],
+      "original_metadata_missing_fields": [
+        "architecture",
+        "dependencies",
+        "operating_system",
+        "randomness"
+      ],
+      "provenance": {
+        "architecture": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "dependencies": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/implementation_commit",
+          "status": "recorded",
+          "value": "209da4bcc9c406dc25bf9f555bd4ba10a5ae5530"
+        },
+        "operating_system": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "python": {
+          "pointer": "/python_version",
+          "status": "recorded",
+          "value": "3.12.14"
+        },
+        "randomness": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Absent dedicated field does not imply stochastic ambiguity: existing fixture/generator/settings remain authoritative. No seed invented.",
+      "replay_command": "python -m validation.integrated_clock_response --output /tmp/integrated_clock_response_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/integrated_clock_response.py"
+    },
+    {
+      "artifact_name": "telescope-imaging-validation-record",
+      "canonical_record": "validation/results/telescope_imaging_reference_run.json",
+      "claim": "Ideal optical/imaging geometry; empirical heuristics uncalibrated",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M52"
+      },
+      "current_execution_class": "bounded_current_acceptance",
+      "dependency_disposition": "Use original recorded inventory/locks; current CI metadata is a separate execution record.",
+      "dossier": "docs/research/validation/telescope_imaging_validation.md",
+      "historical_environment_reconstruction": "recorded fields available; no full clean-room recreation performed here",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M52"
+      },
+      "id": "M52",
+      "manifests": [
+        "validation/manifests/telescope_imaging_v1.json"
+      ],
+      "mission": 52,
+      "notes": [],
+      "original_metadata_missing_fields": [],
+      "provenance": {
+        "architecture": {
+          "pointer": "/environment/machine",
+          "status": "recorded",
+          "value": "x86_64"
+        },
+        "dependencies": {
+          "pointer": "/environment/dependencies",
+          "status": "recorded",
+          "value_sha256": "e08629f9698fc2bf30c314130befc10b00bf303de6aa498fc9b1d6b219f96296"
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/environment/implementation_commit",
+          "status": "recorded",
+          "value": "ee89c33d924be20eae6f113fa49f9c03d77ad12a"
+        },
+        "operating_system": {
+          "pointer": "/environment/platform",
+          "status": "recorded",
+          "value": "Linux-6.18.55-x86_64-with-glibc2.39"
+        },
+        "python": {
+          "pointer": "/environment/python",
+          "status": "recorded",
+          "value": "3.12.14"
+        },
+        "randomness": {
+          "pointer": "/environment/randomness",
+          "status": "recorded",
+          "value": "none"
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Retain recorded randomness settings.",
+      "replay_command": "python -m validation.telescope_imaging --output /tmp/telescope_imaging_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/telescope_imaging.py"
+    },
+    {
+      "artifact_name": "planetary-position-validation-record",
+      "canonical_record": "validation/results/planetary_positions_reference_run.json",
+      "claim": "623 bounded 2024 planetary cases; not a universal astrometric error bound",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M53"
+      },
+      "current_execution_class": "bounded_current_acceptance",
+      "dependency_disposition": "Use original recorded inventory/locks; current CI metadata is a separate execution record.",
+      "dossier": "docs/research/validation/planetary_position_validation.md",
+      "historical_environment_reconstruction": "recorded fields available; no full clean-room recreation performed here",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M53"
+      },
+      "id": "M53",
+      "manifests": [
+        "validation/manifests/planetary_positions_policy_v1.json",
+        "validation/manifests/planetary_positions_v1.json"
+      ],
+      "mission": 53,
+      "notes": [],
+      "original_metadata_missing_fields": [],
+      "provenance": {
+        "architecture": {
+          "pointer": "/environment/machine",
+          "status": "recorded",
+          "value": "x86_64"
+        },
+        "dependencies": {
+          "pointer": "/environment/versions",
+          "status": "recorded",
+          "value_sha256": "23cf9d2eca063bc595db4532cbc3e55f112af9118abe479706ee9bb6e72a2f95"
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/environment/implementation_commit",
+          "status": "recorded",
+          "value": "b4586a5d9e044324375a231948f0e45df3ff7713"
+        },
+        "operating_system": {
+          "pointer": "/environment/platform",
+          "status": "recorded",
+          "value": "Linux-6.18.55-x86_64-with-glibc2.39"
+        },
+        "python": {
+          "pointer": "/environment/python",
+          "status": "recorded",
+          "value": "3.12.14"
+        },
+        "randomness": {
+          "pointer": "/environment/randomness",
+          "status": "recorded",
+          "value": "none"
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Retain recorded randomness settings.",
+      "replay_command": "python -m validation.planetary_positions --output /tmp/planetary_positions_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/planetary_positions.py"
+    },
+    {
+      "artifact_name": "visibility-sampling-validation-record",
+      "canonical_record": "validation/results/visibility_sampling_reference_run.json",
+      "claim": "48 sampled-window cases; continuous coverage not certified",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M54"
+      },
+      "current_execution_class": "bounded_current_acceptance",
+      "dependency_disposition": "Use original recorded inventory/locks; current CI metadata is a separate execution record.",
+      "dossier": "docs/research/validation/visibility_sampling_validation.md",
+      "historical_environment_reconstruction": "recorded fields available; no full clean-room recreation performed here",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M54"
+      },
+      "id": "M54",
+      "manifests": [
+        "validation/manifests/visibility_sampling_policy_v1.json",
+        "validation/manifests/visibility_sampling_v1.json"
+      ],
+      "mission": 54,
+      "notes": [],
+      "original_metadata_missing_fields": [
+        "randomness"
+      ],
+      "provenance": {
+        "architecture": {
+          "pointer": "/environment/platform",
+          "status": "recorded",
+          "value": "Linux-6.18.55-x86_64-with-glibc2.39"
+        },
+        "dependencies": {
+          "pointer": "/environment/versions",
+          "status": "recorded",
+          "value_sha256": "52ddca524569c5fcf779d2c75f45e02cc552ea947ca5d5bb3738918f907f3c28"
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/environment/implementation_commit",
+          "status": "recorded",
+          "value": "55621739d469e02b28b4c8d9d9fc89b925f742b9"
+        },
+        "operating_system": {
+          "pointer": "/environment/platform",
+          "status": "recorded",
+          "value": "Linux-6.18.55-x86_64-with-glibc2.39"
+        },
+        "python": {
+          "pointer": "/environment/python",
+          "status": "recorded",
+          "value": "3.12.14"
+        },
+        "randomness": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Absent dedicated field does not imply stochastic ambiguity: existing fixture/generator/settings remain authoritative. No seed invented.",
+      "replay_command": "python -m validation.visibility_sampling --output /tmp/visibility_sampling_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/visibility_sampling.py"
+    },
+    {
+      "artifact_name": "heuristic-characterisation-validation-record",
+      "canonical_record": "validation/results/heuristic_characterisation_reference_run.json",
+      "claim": "355 heuristic controls; no observing-utility calibration",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M55"
+      },
+      "current_execution_class": "bounded_current_acceptance",
+      "dependency_disposition": "Use original recorded inventory/locks; current CI metadata is a separate execution record.",
+      "dossier": "docs/research/validation/heuristic_characterisation.md",
+      "historical_environment_reconstruction": "recorded fields available; no full clean-room recreation performed here",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M55"
+      },
+      "id": "M55",
+      "manifests": [
+        "validation/manifests/heuristic_characterisation_policy_v1.json",
+        "validation/manifests/heuristic_characterisation_v1.json"
+      ],
+      "mission": 55,
+      "notes": [],
+      "original_metadata_missing_fields": [],
+      "provenance": {
+        "architecture": {
+          "pointer": "/environment/platform",
+          "status": "recorded",
+          "value": "Linux-6.18.55-x86_64-with-glibc2.39"
+        },
+        "dependencies": {
+          "pointer": "/environment/versions",
+          "status": "recorded",
+          "value_sha256": "aff6a16a1eae7e1d241c22201f0fc708ab12d6e175c443dd27718c63b572e1a3"
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/environment/implementation_commit",
+          "status": "recorded",
+          "value": "e7e5756e635c28cc53fcb3cadeda1dd33589a1ca"
+        },
+        "operating_system": {
+          "pointer": "/environment/platform",
+          "status": "recorded",
+          "value": "Linux-6.18.55-x86_64-with-glibc2.39"
+        },
+        "python": {
+          "pointer": "/environment/python",
+          "status": "recorded",
+          "value": "3.12.14"
+        },
+        "randomness": {
+          "pointer": "/environment/randomness",
+          "status": "recorded",
+          "value": "none"
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Retain recorded randomness settings.",
+      "replay_command": "python -m validation.heuristic_characterisation --output /tmp/heuristic_characterisation_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/heuristic_characterisation.py"
+    },
+    {
+      "artifact_name": "light-curve-validation-record",
+      "canonical_record": "validation/results/light_curve_campaign_reference_run.json",
+      "claim": "Historical 252-trial replay with nine scientific failures, not acceptance",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M56"
+      },
+      "current_execution_class": "historical_reproduction",
+      "dependency_disposition": "Use original recorded inventory/locks; current CI metadata is a separate execution record.",
+      "dossier": "docs/research/validation/light_curve_validation.md",
+      "historical_environment_reconstruction": "recorded fields available; no full clean-room recreation performed here",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M56"
+      },
+      "id": "M56",
+      "manifests": [
+        "validation/manifests/light_curve_campaign_policy_v1.json",
+        "validation/manifests/light_curve_campaign_v1.json"
+      ],
+      "mission": 56,
+      "notes": [],
+      "original_metadata_missing_fields": [
+        "randomness"
+      ],
+      "provenance": {
+        "architecture": {
+          "pointer": "/environment/machine",
+          "status": "recorded",
+          "value": "x86_64"
+        },
+        "dependencies": {
+          "pointer": "/environment/versions",
+          "status": "recorded",
+          "value_sha256": "8b4a331d62171e1b5e9fcde65bc18f39140d9331d121aade049937404cce8409"
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/environment/implementation_commit",
+          "status": "recorded",
+          "value": "89ee45f4a93da199e5b0f12e3f7d89bfc0dfec85"
+        },
+        "operating_system": {
+          "pointer": "/environment/platform",
+          "status": "recorded",
+          "value": "Linux-6.18.55-x86_64-with-glibc2.39"
+        },
+        "python": {
+          "pointer": "/environment/python",
+          "status": "recorded",
+          "value": "3.12.14"
+        },
+        "randomness": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Absent dedicated field does not imply stochastic ambiguity: existing fixture/generator/settings remain authoritative. No seed invented.",
+      "replay_command": "python -m validation.light_curve_campaign --audit-observed-baseline --output /tmp/light_curve_campaign_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/light_curve_campaign.py"
+    },
+    {
+      "artifact_name": "bls-discrepancy-investigation-record",
+      "canonical_record": "validation/results/bls_discrepancy_reference_run.json",
+      "claim": "Historical 95-measurement mechanism audit; 22 fast-bound violations",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M57"
+      },
+      "current_execution_class": "historical_reproduction",
+      "dependency_disposition": "Use original recorded inventory/locks; current CI metadata is a separate execution record.",
+      "dossier": "docs/research/validation/bls_discrepancy_investigation.md",
+      "historical_environment_reconstruction": "not established",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M57"
+      },
+      "id": "M57",
+      "manifests": [
+        "validation/manifests/bls_discrepancy_policy_v1.json"
+      ],
+      "mission": 57,
+      "notes": [],
+      "original_metadata_missing_fields": [
+        "operating_system",
+        "randomness"
+      ],
+      "provenance": {
+        "architecture": {
+          "pointer": "/environment/machine",
+          "status": "recorded",
+          "value": "x86_64"
+        },
+        "dependencies": {
+          "pointer": "/environment/versions",
+          "status": "recorded",
+          "value_sha256": "8b4a331d62171e1b5e9fcde65bc18f39140d9331d121aade049937404cce8409"
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/environment/implementation_commit",
+          "status": "recorded",
+          "value": "010ea438b310c76cb73404d62691fd822c4cb446"
+        },
+        "operating_system": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        },
+        "python": {
+          "pointer": "/environment/python",
+          "status": "recorded",
+          "value": "3.12.14"
+        },
+        "randomness": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Absent dedicated field does not imply stochastic ambiguity: existing fixture/generator/settings remain authoritative. No seed invented.",
+      "replay_command": "python -m validation.bls_discrepancy --output /tmp/bls_discrepancy_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/bls_discrepancy.py"
+    },
+    {
+      "artifact_name": "physical-bls-validation-record",
+      "canonical_record": "validation/results/physical_bls_reference_run.json",
+      "claim": "Current production 252-trial scientific acceptance; finite-grid BLS only",
+      "conventions_and_source_terms": "Original dossier and linked manifests are authoritative for units/scales/frames/settings/source attribution and exclusions; this crosswalk creates no new licence grant.",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M58"
+      },
+      "current_execution_class": "bounded_current_acceptance",
+      "dependency_disposition": "Use original recorded inventory/locks; current CI metadata is a separate execution record.",
+      "dossier": "docs/research/validation/physical_bls_validation.md",
+      "historical_environment_reconstruction": "recorded fields available; no full clean-room recreation performed here",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M58"
+      },
+      "id": "M58",
+      "manifests": [
+        "validation/manifests/light_curve_campaign_policy_v1.json",
+        "validation/manifests/light_curve_campaign_v1.json",
+        "validation/manifests/physical_bls_policy_v1.json"
+      ],
+      "mission": 58,
+      "notes": [],
+      "original_metadata_missing_fields": [
+        "randomness"
+      ],
+      "provenance": {
+        "architecture": {
+          "pointer": "/environment/machine",
+          "status": "recorded",
+          "value": "x86_64"
+        },
+        "dependencies": {
+          "pointer": "/environment/versions",
+          "status": "recorded",
+          "value_sha256": "8b4a331d62171e1b5e9fcde65bc18f39140d9331d121aade049937404cce8409"
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/environment/implementation_commit",
+          "status": "recorded",
+          "value": "74e397b0093284a23ba1940d1cb3ae35b0b06b1c"
+        },
+        "operating_system": {
+          "pointer": "/environment/platform",
+          "status": "recorded",
+          "value": "Linux-6.18.55-x86_64-with-glibc2.39"
+        },
+        "python": {
+          "pointer": "/environment/python",
+          "status": "recorded",
+          "value": "3.12.14"
+        },
+        "randomness": {
+          "pointer": null,
+          "status": "not_recorded",
+          "value": null
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Absent dedicated field does not imply stochastic ambiguity: existing fixture/generator/settings remain authoritative. No seed invented.",
+      "replay_command": "python -m validation.physical_bls_campaign --output /tmp/physical_bls_replay.json",
+      "replay_scope": "Committed frozen evidence after dependency installation; full reference regeneration may require separately acquired pinned kernels/tools.",
+      "runner": "validation/physical_bls_campaign.py"
+    },
+    {
+      "artifact_name": "catalogue-quantities-validation-record",
+      "canonical_record": "validation/results/catalogue_quantities_reference_run.json",
+      "claim": "Historical catalogue baseline including 17 retained failures",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M60"
+      },
+      "current_execution_class": "historical_reproduction",
+      "dependency_disposition": "Use original recorded inventory/locks; current CI metadata is a separate execution record.",
+      "dossier": "docs/research/validation/catalogue_quantities_validation.md",
+      "historical_environment_reconstruction": "recorded fields available; no full clean-room recreation performed here",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M60"
+      },
+      "id": "M60",
+      "manifests": [
+        "validation/manifests/catalogue_quantities_policy_v1.json",
+        "validation/manifests/catalogue_quantities_v2.json"
+      ],
+      "mission": 60,
+      "notes": [],
+      "original_metadata_missing_fields": [],
+      "provenance": {
+        "architecture": {
+          "pointer": "/environment/machine",
+          "status": "recorded",
+          "value": "x86_64"
+        },
+        "dependencies": {
+          "pointer": "/environment/versions",
+          "status": "recorded",
+          "value": {
+            "astropy": "8.0.2",
+            "numpy": "2.5.4",
+            "plotly": "7.1.0"
+          }
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/environment/implementation_commit",
+          "status": "recorded",
+          "value": "105a7ace4e423966bf95365a8f235cddd56df21f"
+        },
+        "operating_system": {
+          "pointer": "/environment/platform",
+          "status": "recorded",
+          "value": "Linux-6.18.55-x86_64-with-glibc2.39"
+        },
+        "python": {
+          "pointer": "/environment/python",
+          "status": "recorded",
+          "value": "3.12.14"
+        },
+        "randomness": {
+          "pointer": "/environment/randomness",
+          "status": "recorded",
+          "value": "none"
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Retain recorded randomness settings.",
+      "replay_command": "python -m validation.catalogue_quantities --audit-known-discrepancies --output /tmp/catalogue_quantities_replay.json",
+      "runner": "validation/catalogue_quantities.py"
+    },
+    {
+      "artifact_name": "catalogue-correction-validation-record",
+      "canonical_record": "validation/results/catalogue_correction_reference_run.json",
+      "claim": "Current nominal catalogue/model arithmetic and enforced small-field domain",
+      "current_ci_receipt": {
+        "file": "docs/research/evidence/mission61_merge_ci_v1.json",
+        "id": "M61"
+      },
+      "current_execution_class": "bounded_current_acceptance",
+      "dependency_disposition": "Use original recorded inventory/locks; current CI metadata is a separate execution record.",
+      "dossier": "docs/research/validation/catalogue_correction_validation.md",
+      "historical_environment_reconstruction": "recorded fields available; no full clean-room recreation performed here",
+      "historical_source_receipt": {
+        "file": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+        "id": "M61"
+      },
+      "id": "M61",
+      "manifests": [
+        "validation/manifests/catalogue_correction_policy_v1.json",
+        "validation/manifests/catalogue_correction_v1.json"
+      ],
+      "mission": 61,
+      "notes": [],
+      "original_metadata_missing_fields": [],
+      "provenance": {
+        "architecture": {
+          "pointer": "/environment/platform",
+          "status": "recorded",
+          "value": "Linux-6.18.55-x86_64-with-glibc2.39"
+        },
+        "dependencies": {
+          "pointer": "/environment/versions",
+          "status": "recorded",
+          "value": {
+            "astropy": "8.0.2",
+            "numpy": "2.5.4",
+            "plotly": "7.1.0"
+          }
+        },
+        "implementation_commit": {
+          "ancestor_of_baseline": false,
+          "object_present_in_audit_checkout": true,
+          "pointer": "/environment/implementation_commit",
+          "status": "recorded",
+          "value": "ce0cc2983939dc1e1a84eec175a07abfabf07ae8"
+        },
+        "operating_system": {
+          "pointer": "/environment/platform",
+          "status": "recorded",
+          "value": "Linux-6.18.55-x86_64-with-glibc2.39"
+        },
+        "python": {
+          "pointer": "/environment/python",
+          "status": "recorded",
+          "value": "3.12.14"
+        },
+        "randomness": {
+          "pointer": "/environment/randomness",
+          "status": "recorded",
+          "value": "none"
+        }
+      },
+      "provenance_disposition": "Current frozen-fixture replay accepted within recorded science domain; original environment, raw-reference regeneration and broader physical accuracy are not inferred.",
+      "recorded_randomness_disposition": "Retain recorded randomness settings.",
+      "replay_command": "python -m validation.catalogue_correction --output /tmp/catalogue_correction_replay.json",
+      "runner": "validation/catalogue_correction.py"
+    }
+  ],
+  "final_pr_ci_evidence_location": "Mission 62 pull-request body; exact head, tests, 28 artifact identities and archive receipts recorded before handoff",
+  "g59_01": "bounded closure confirmed by Mission 61 merge; original failed evidence retained",
+  "g59_02": "proposed acceptance of explicit historical-provenance limitations for current frozen-fixture replay only",
+  "g59_03": "proposed explicit transport/static-input scope restriction; no maintained-source or strict-promotion claim",
+  "historical_provenance": "docs/research/evidence/phase_2_historical_provenance_v1.json",
+  "historical_provenance_sha256": "4f1d7abf9ad982928bf889722a3d8b1356ab63c7e08ad3e6dbe6aebe3d8a7c52",
+  "inherited_physical_status": {
+    "combined_counts": {
+      "blocked": 288,
+      "candidates": 288,
+      "executed": 0,
+      "solar_eligible": 240,
+      "solar_excluded": 48
+    },
+    "full_reference_status": "unqualified",
+    "inherited_unestablished_receipt_requirements": 18,
+    "observing_eligible": false,
+    "physical_arrival_bound_seconds": null,
+    "physical_covariance_acquired": false,
+    "physical_covariance_propagated": false,
+    "physical_geocentric_clock_bound_seconds": null,
+    "physical_linearization_domain_established": false,
+    "physical_site_clock_bound_seconds": null,
+    "site_clocks_unqualified": 48,
+    "unresolved_components": [
+      "geocentric_time_ephemeris",
+      "earth_state",
+      "station_coordinates",
+      "earth_orientation",
+      "omitted_physics_and_coefficient_model",
+      "higher_order_remainder"
+    ]
+  },
+  "kind": "documentary_exit_readiness_and_scope_proposal",
+  "mission": 62,
+  "new_ci_artifacts": 0,
+  "new_numerical_experiments": 0,
+  "new_scientific_tests": 0,
+  "phase_2_exit_approved": false,
+  "phase_2_status": "active_pending_owner_review",
+  "phase_3_scope": {
+    "allowed_after_scope_approval": [
+      "Freeze an offline observation-optimisation protocol and supplied-input baseline.",
+      "Compare established heuristics and candidate optimisers on controlled scenarios with explicit observation times, budgets and constraints.",
+      "Retain missing-data, sensitivity, adversarial and uncertainty limitations; report measured results only."
+    ],
+    "next_mission": {
+      "number": 63,
+      "status": "proposed; depends on explicit Mission 62 scope approval and final CI; not started",
+      "title": "Phase 3 Entry Protocol and Observation-Optimisation Baseline Definition"
+    },
+    "prohibited": [
+      "Automatic physical transit-arrival conversion or strict observing promotion.",
+      "Treating live archive results/static presets as validated benchmark truth.",
+      "Calibration, optimality, observing-success or operational claims before appropriate independent evaluation.",
+      "Starting Phase 4-8 features or changing frozen Phase 2 references to favour a new method."
+    ],
+    "status": "not_started"
+  },
+  "phase_3_started": false,
+  "preserved_tree_oids": {
+    ".github": "699bac9c97d1a6723eba01296179cfb27db19879",
+    "pyproject.toml": "ab6791f4de46d013cb7adaaa622609949052b3d3",
+    "src": "0af17381eb88b2094a15829f958dd9247e202d6c",
+    "tests": "cc04304b9053c7295715cf128dda8bbddf30354f",
+    "validation": "87083cdf96b587f47f81e40370fff136fb59c4d8"
+  },
+  "production_changes": false,
+  "review_date_jst": "2026-10-26",
+  "review_rule": "Merging the Mission 62 PR after final-head checks approves only the explicitly documented bounded scope. The next mission must verify the merge and record the accepted transition; this ledger remains a pre-approval decision record.",
+  "schema_version": 1,
+  "supplemental_records": [
+    {
+      "dossier": "docs/research/validation/weather_provider_contract.md",
+      "mission": 31,
+      "provenance_status": "Static contract-result summary omits runtime environment and commit; manifest/dossier identify inputs and policy. It is not a 27th CI benchmark artifact.",
+      "record": "validation/results/weather_provider_contract_reference_run.json"
+    },
+    {
+      "mission": 37,
+      "provenance_status": "Implementation coverage record, not a numerical conversion result; original 13/5/8 categories retained.",
+      "record": "validation/manifests/transit_timing_boundary_coverage_v1.json"
+    }
+  ],
+  "transit_production_counts": {
+    "deferred": 8,
+    "implemented_boundary": 13,
+    "partial_boundary": 5
+  },
+  "transit_scenarios": [
+    {
+      "current_production_coverage": "implemented_boundary",
+      "evidence_paths": [
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py"
+      ],
+      "id": "TC01",
+      "input_class": "Missing scale or reference position",
+      "mission37_coverage": "implemented_boundary",
+      "observing_enabled": false,
+      "production_limit": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim.",
+      "requirement": "Keep legacy arithmetic labelled; reject strict prediction and observing export",
+      "research_supplement": "No later production expansion; original nominal/boundary evidence remains the applicable claim.",
+      "test_selectors": [
+        "tests/test_transit_timing.py::test_source_and_validity_contracts_are_explicit_and_immutable",
+        "tests/test_transit_timing.py::test_direct_unresolved_consumer_bypasses_reject"
+      ]
+    },
+    {
+      "current_production_coverage": "implemented_boundary",
+      "evidence_paths": [
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py"
+      ],
+      "id": "TC02",
+      "input_class": "Complete BJD TDB epoch with TDB period",
+      "mission37_coverage": "implemented_boundary",
+      "observing_enabled": false,
+      "production_limit": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim.",
+      "requirement": "Allow source-coordinate arithmetic; require validated arrival resolver for observing use",
+      "research_supplement": "No later production expansion; original nominal/boundary evidence remains the applicable claim.",
+      "test_selectors": [
+        "tests/test_transit_timing.py::test_nominal_contacts_against_independent_rationals",
+        "tests/test_transit_timing.py::test_observer_tai_arithmetic_does_not_enable_utc_export"
+      ]
+    },
+    {
+      "current_production_coverage": "implemented_boundary",
+      "evidence_paths": [
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py"
+      ],
+      "id": "TC03",
+      "input_class": "BJD with no scale or offset date with no zero point",
+      "mission37_coverage": "implemented_boundary",
+      "observing_enabled": false,
+      "production_limit": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim.",
+      "requirement": "Reject strict interpretation; do not infer from magnitude or label",
+      "research_supplement": "No later production expansion; original nominal/boundary evidence remains the applicable claim.",
+      "test_selectors": [
+        "tests/test_transit_timing.py::test_zero_point_cannot_be_inferred_or_changed",
+        "tests/test_transit_timing.py::test_unsupported_coordinates_retained_but_not_predicted"
+      ]
+    },
+    {
+      "current_production_coverage": "implemented_boundary",
+      "evidence_paths": [
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py"
+      ],
+      "id": "TC04",
+      "input_class": "HJD with a stated scale",
+      "mission37_coverage": "implemented_boundary",
+      "observing_enabled": false,
+      "production_limit": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim.",
+      "requirement": "Retain source metadata; strict prediction/resolution unsupported in initial implementation",
+      "research_supplement": "No later production expansion; original nominal/boundary evidence remains the applicable claim.",
+      "test_selectors": [
+        "tests/test_transit_timing.py::test_unsupported_coordinates_retained_but_not_predicted"
+      ]
+    },
+    {
+      "current_production_coverage": "deferred",
+      "evidence_paths": [
+        "docs/research/validation/observer_arrival_error_budget.md",
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py",
+        "validation/manifests/resolved_event_contract_v1.json"
+      ],
+      "id": "TC05",
+      "input_class": "UTC observing query against BJD ephemeris",
+      "mission37_coverage": "deferred",
+      "observing_enabled": false,
+      "production_limit": "All unresolved observing queries reject; coordinate-aware candidate selection is not implemented.",
+      "requirement": "Do not compare raw numbers; coordinate-aware candidate selection then arrival-midpoint filtering",
+      "research_supplement": "M39 defines a prospective converted-query contract; no production range selector.",
+      "test_selectors": [
+        "tests/test_transit_timing.py::test_direct_unresolved_consumer_bypasses_reject"
+      ]
+    },
+    {
+      "current_production_coverage": "deferred",
+      "evidence_paths": [
+        "docs/research/validation/observer_arrival_validation.md",
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py",
+        "tests/validation/test_observer_arrival.py",
+        "validation/observer_arrival.py"
+      ],
+      "id": "TC06",
+      "input_class": "Both correction signs, sites, seasons and sky directions",
+      "mission37_coverage": "deferred",
+      "observing_enabled": false,
+      "production_limit": "No converter or independent timing-pair corpus exists in Mission 37.",
+      "requirement": "Later converter must match independent pinned references within a predeclared bound",
+      "research_supplement": "M38 independently compares 288 geometric cases across signs/sites/seasons/directions. M40\u201350 investigate missing physical components; no complete physical qualification.",
+      "test_selectors": [
+        "tests/validation/test_observer_arrival.py::test_independent_reference_benchmark",
+        "tests/validation/test_observer_arrival.py::test_cartesian_coverage_and_contact_probes"
+      ]
+    },
+    {
+      "current_production_coverage": "partial_boundary",
+      "evidence_paths": [
+        "docs/research/validation/observer_arrival_validation.md",
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py",
+        "tests/validation/test_observer_arrival.py",
+        "validation/observer_arrival.py"
+      ],
+      "id": "TC07",
+      "input_class": "Missing site, target, required motion evidence, data coverage or failed solver",
+      "mission37_coverage": "partial_boundary",
+      "observing_enabled": false,
+      "production_limit": "Observer metadata bounds and universal unresolved gate tested; conversion coverage/nonconvergence deferred.",
+      "requirement": "Structured unresolved result; no UTC export or visibility",
+      "research_supplement": "M38 rejects missing context/data coverage and failed/nonfinite solves in research code. Full production failure plumbing and physical motion evidence remain absent.",
+      "test_selectors": [
+        "tests/test_transit_timing.py::test_invalid_observer_context_is_rejected",
+        "tests/test_transit_timing.py::test_observer_context_round_trips_but_never_enables_arrival_resolution",
+        "tests/validation/test_observer_arrival.py::test_incomplete_or_unsupported_context",
+        "tests/validation/test_observer_arrival.py::test_solver_nonconvergence",
+        "tests/validation/test_observer_arrival.py::test_nonfinite_solver_rejected",
+        "tests/validation/test_observer_arrival.py::test_outside_historical_domain"
+      ]
+    },
+    {
+      "current_production_coverage": "deferred",
+      "evidence_paths": [
+        "docs/research/validation/observer_arrival_error_budget.md",
+        "docs/research/validation/observer_arrival_validation.md",
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py",
+        "tests/validation/test_observer_arrival.py",
+        "validation/manifests/resolved_event_contract_v1.json",
+        "validation/observer_arrival.py"
+      ],
+      "id": "TC08",
+      "input_class": "Already-corrected event or midpoint-only correction copied to contacts",
+      "mission37_coverage": "deferred",
+      "observing_enabled": false,
+      "production_limit": "No arrival adapter exists; double-correction and endpoint conversion cases remain deferred.",
+      "requirement": "Reject double correction; resolve endpoints individually or demonstrate a frozen error bound",
+      "research_supplement": "M38 rejects an explicit already-corrected state and resolves separate endpoint probes. This is not authenticated provenance or an integrated production contact pipeline.",
+      "test_selectors": [
+        "tests/test_transit_timing.py::test_direct_unresolved_consumer_bypasses_reject",
+        "tests/validation/test_observer_arrival.py::test_coordinate_contract",
+        "tests/validation/test_observer_arrival.py::test_cartesian_coverage_and_contact_probes"
+      ]
+    },
+    {
+      "current_production_coverage": "deferred",
+      "evidence_paths": [
+        "docs/research/validation/observer_arrival_error_budget.md",
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py",
+        "validation/manifests/resolved_event_contract_v1.json"
+      ],
+      "id": "TC09",
+      "input_class": "Closed exact point interval and exact dyadic endpoints",
+      "mission37_coverage": "deferred",
+      "observing_enabled": false,
+      "production_limit": "Only one-cycle nominal prediction is implemented; strict range selection is deferred.",
+      "requirement": "Exact same-coordinate midpoint inclusion; no duplicate cycles",
+      "research_supplement": "M35 retains exact dyadic legacy arithmetic controls; no strict range selector.",
+      "test_selectors": []
+    },
+    {
+      "current_production_coverage": "deferred",
+      "evidence_paths": [
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py"
+      ],
+      "id": "TC10",
+      "input_class": "Whole selected UTC dates",
+      "mission37_coverage": "deferred",
+      "observing_enabled": false,
+      "production_limit": "Strict calendar-date request path is not enabled; legacy inclusive request stays unchanged.",
+      "requirement": "Half-open range ending at next midnight; exclude next day, preserve source request policy",
+      "research_supplement": "M32 validates civil schedule intervals; it does not implement a strict converted-transit date query.",
+      "test_selectors": []
+    },
+    {
+      "current_production_coverage": "deferred",
+      "evidence_paths": [
+        "docs/research/validation/observer_arrival_error_budget.md",
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py",
+        "validation/manifests/resolved_event_contract_v1.json"
+      ],
+      "id": "TC11",
+      "input_class": "Non-dyadic or sub-ULP boundary within numerical error",
+      "mission37_coverage": "deferred",
+      "observing_enabled": false,
+      "production_limit": "Strict converted-boundary classification is not implemented; Mission 35 evidence is unchanged.",
+      "requirement": "Explicit boundary_indeterminate with candidates/reasons; excluded from eligible pass denominator",
+      "research_supplement": "M35 retains non-dyadic boundary disclosures; M39 specifies future indeterminate membership. Neither supplies production converted-boundary classification.",
+      "test_selectors": []
+    },
+    {
+      "current_production_coverage": "implemented_boundary",
+      "evidence_paths": [
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py"
+      ],
+      "id": "TC12",
+      "input_class": "Both uncertainty inputs absent",
+      "mission37_coverage": "implemented_boundary",
+      "observing_enabled": false,
+      "production_limit": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim.",
+      "requirement": "Unknown total; never zero or maximum timing score",
+      "research_supplement": "No later production expansion; original nominal/boundary evidence remains the applicable claim.",
+      "test_selectors": [
+        "tests/test_transit_timing.py::test_unknown_is_not_zero"
+      ]
+    },
+    {
+      "current_production_coverage": "implemented_boundary",
+      "evidence_paths": [
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py",
+        "tests/test_transit_timing_dashboard.py"
+      ],
+      "id": "TC13",
+      "input_class": "Both uncertainties and covariance explicitly zero with recorded source or assumption",
+      "mission37_coverage": "implemented_boundary",
+      "observing_enabled": false,
+      "production_limit": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim.",
+      "requirement": "Known zero model value distinguishable from missing; no perfect-knowledge claim",
+      "research_supplement": "No later production expansion; original nominal/boundary evidence remains the applicable claim.",
+      "test_selectors": [
+        "tests/test_transit_timing.py::test_zero_covariance_requires_explicit_assumption",
+        "tests/test_transit_timing_dashboard.py::test_known_zero_is_distinct_from_unknown_in_preview"
+      ]
+    },
+    {
+      "current_production_coverage": "implemented_boundary",
+      "evidence_paths": [
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py"
+      ],
+      "id": "TC14",
+      "input_class": "Known epoch sigma and missing period sigma at cycle zero",
+      "mission37_coverage": "implemented_boundary",
+      "observing_enabled": false,
+      "production_limit": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim.",
+      "requirement": "Known epoch sigma; zero-coefficient missing terms do not contaminate the result",
+      "research_supplement": "No later production expansion; original nominal/boundary evidence remains the applicable claim.",
+      "test_selectors": [
+        "tests/test_transit_timing.py::test_cycle_zero_does_not_need_period_covariance_or_joint_fit"
+      ]
+    },
+    {
+      "current_production_coverage": "implemented_boundary",
+      "evidence_paths": [
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py"
+      ],
+      "id": "TC15",
+      "input_class": "Missing contributing uncertainty at a nonzero cycle",
+      "mission37_coverage": "implemented_boundary",
+      "observing_enabled": false,
+      "production_limit": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim.",
+      "requirement": "Unknown total; retain known components separately",
+      "research_supplement": "No later production expansion; original nominal/boundary evidence remains the applicable claim.",
+      "test_selectors": [
+        "tests/test_transit_timing.py::test_missing_epoch_is_unknown_even_when_period_is_known",
+        "tests/test_transit_timing.py::test_unknown_is_not_zero"
+      ]
+    },
+    {
+      "current_production_coverage": "implemented_boundary",
+      "evidence_paths": [
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py"
+      ],
+      "id": "TC16",
+      "input_class": "Nonzero cycle with missing covariance",
+      "mission37_coverage": "implemented_boundary",
+      "observing_enabled": false,
+      "production_limit": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim.",
+      "requirement": "Unknown unless explicit zero-covariance assumption is recorded",
+      "research_supplement": "No later production expansion; original nominal/boundary evidence remains the applicable claim.",
+      "test_selectors": [
+        "tests/test_transit_timing.py::test_zero_covariance_requires_explicit_assumption"
+      ]
+    },
+    {
+      "current_production_coverage": "implemented_boundary",
+      "evidence_paths": [
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py"
+      ],
+      "id": "TC17",
+      "input_class": "Known covariance with positive and negative cycles",
+      "mission37_coverage": "implemented_boundary",
+      "observing_enabled": false,
+      "production_limit": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim.",
+      "requirement": "Independent analytic variance includes signed 2*n*covariance term",
+      "research_supplement": "No later production expansion; original nominal/boundary evidence remains the applicable claim.",
+      "test_selectors": [
+        "tests/test_transit_timing.py::test_signed_covariance_against_perfect_square_cases"
+      ]
+    },
+    {
+      "current_production_coverage": "implemented_boundary",
+      "evidence_paths": [
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py"
+      ],
+      "id": "TC18",
+      "input_class": "Nonfinite, negative marginal variance or non-PSD covariance",
+      "mission37_coverage": "implemented_boundary",
+      "observing_enabled": false,
+      "production_limit": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim.",
+      "requirement": "Reject; no silent repair or clamping",
+      "research_supplement": "No later production expansion; original nominal/boundary evidence remains the applicable claim.",
+      "test_selectors": [
+        "tests/test_transit_timing.py::test_non_psd_and_nonfinite_covariance_rejected_without_clamping"
+      ]
+    },
+    {
+      "current_production_coverage": "partial_boundary",
+      "evidence_paths": [
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py"
+      ],
+      "id": "TC19",
+      "input_class": "Asymmetric errors, limits, unknown confidence meaning or unrelated fit parameters",
+      "mission37_coverage": "partial_boundary",
+      "observing_enabled": false,
+      "production_limit": "Unsupported errors retain original description and yield unknown; unrelated-fit declaration prevents total propagation. No catalogue adapter.",
+      "requirement": "Preserve semantics and references; unsupported for symmetric joint propagation",
+      "research_supplement": "M49 physical ephemeris covariance receipt review does not supply a catalogue-to-strict transit-ephemeris adapter or joint-fit covariance.",
+      "test_selectors": [
+        "tests/test_transit_timing.py::test_unsupported_uncertainty_semantics_preserved"
+      ]
+    },
+    {
+      "current_production_coverage": "implemented_boundary",
+      "evidence_paths": [
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py"
+      ],
+      "id": "TC20",
+      "input_class": "Unknown total with requested nonzero sigma padding or timing ranking",
+      "mission37_coverage": "implemented_boundary",
+      "observing_enabled": false,
+      "production_limit": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim.",
+      "requirement": "Reject strict padded/ranked schedule; optional nominal preview remains unquantified",
+      "research_supplement": "No later production expansion; original nominal/boundary evidence remains the applicable claim.",
+      "test_selectors": [
+        "tests/test_transit_timing.py::test_unknown_padding_and_serialized_null_are_explicit",
+        "tests/test_transit_timing.py::test_none_cannot_enter_timing_score"
+      ]
+    },
+    {
+      "current_production_coverage": "deferred",
+      "evidence_paths": [
+        "docs/research/validation/observer_arrival_validation.md",
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py",
+        "tests/validation/test_observer_arrival.py",
+        "validation/observer_arrival.py"
+      ],
+      "id": "TC21",
+      "input_class": "Coordinate duration versus observer SI baseline across leap second",
+      "mission37_coverage": "deferred",
+      "observing_enabled": false,
+      "production_limit": "Duration basis is enforced for nominal arithmetic; elapsed observing margins/leap seconds deferred.",
+      "requirement": "Resolve declared contact basis then apply SI margins on continuous time scale",
+      "research_supplement": "M38 tests a continuous-TAI elapsed margin through the historical leap; production contacts/baselines are still unresolved.",
+      "test_selectors": [
+        "tests/test_transit_timing.py::test_nominal_contacts_against_independent_rationals",
+        "tests/validation/test_observer_arrival.py::test_elapsed_si_margin_through_leap"
+      ]
+    },
+    {
+      "current_production_coverage": "deferred",
+      "evidence_paths": [
+        "docs/research/validation/observer_arrival_validation.md",
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py",
+        "tests/validation/test_observer_arrival.py",
+        "validation/observer_arrival.py"
+      ],
+      "id": "TC22",
+      "input_class": "Leap-second instant in datetime/calendar format that cannot encode it",
+      "mission37_coverage": "deferred",
+      "observing_enabled": false,
+      "production_limit": "Strict UTC/calendar export is gated entirely; no resolved leap-second exporter is implemented.",
+      "requirement": "Explicit export error; do not shift the event",
+      "research_supplement": "M38 research datetime adapter rejects leap instants; no resolved production calendar exporter.",
+      "test_selectors": [
+        "tests/test_transit_timing.py::test_direct_unresolved_consumer_bypasses_reject",
+        "tests/validation/test_observer_arrival.py::test_leap_datetime_rejects"
+      ]
+    },
+    {
+      "current_production_coverage": "partial_boundary",
+      "evidence_paths": [
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_schedule_exports.py",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py",
+        "tests/test_transit_timing_dashboard.py"
+      ],
+      "id": "TC23",
+      "input_class": "Legacy schema-v1 schedule with UTC labels but no source metadata",
+      "mission37_coverage": "partial_boundary",
+      "observing_enabled": false,
+      "production_limit": "Legacy export labels and rejection of promotion tested; no legacy file reader/migration added.",
+      "requirement": "Keep legacy identity; no automatic strict promotion; require metadata and recomputation",
+      "research_supplement": "Legacy export labels remain unvalidated; no migration/import reader was added.",
+      "test_selectors": [
+        "tests/test_transit_timing.py::test_explicit_legacy_constructor_requires_acknowledgement",
+        "tests/test_transit_timing_dashboard.py::test_legacy_exports_are_labelled_without_promoting_schema"
+      ]
+    },
+    {
+      "current_production_coverage": "partial_boundary",
+      "evidence_paths": [
+        "docs/research/validation/observer_arrival_error_budget.md",
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_schedule_exports.py",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py",
+        "tests/test_transit_timing_dashboard.py",
+        "validation/manifests/resolved_event_contract_v1.json"
+      ],
+      "id": "TC24",
+      "input_class": "Metadata and unknown uncertainty through JSON/CSV/UI/export paths",
+      "mission37_coverage": "partial_boundary",
+      "observing_enabled": false,
+      "production_limit": "Nominal JSON preserves metadata/null and UI state is tested in four languages. No resolved-event parser/round trip.",
+      "requirement": "Round-trip source and conversion identity; null plus reason; gate every direct strict consumer",
+      "research_supplement": "M37 nominal JSON/UI/null evidence remains; M39 resolved-event schema is prospective, not an implemented parser or round trip.",
+      "test_selectors": [
+        "tests/test_transit_timing.py::test_unknown_padding_and_serialized_null_are_explicit",
+        "tests/test_transit_timing.py::test_direct_unresolved_consumer_bypasses_reject",
+        "tests/test_transit_timing_dashboard.py::test_strict_default_and_unknown_state_survive_form_submission"
+      ]
+    },
+    {
+      "current_production_coverage": "implemented_boundary",
+      "evidence_paths": [
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py"
+      ],
+      "id": "TC25",
+      "input_class": "Ephemeris outside declared fit validity or validity unknown",
+      "mission37_coverage": "implemented_boundary",
+      "observing_enabled": false,
+      "production_limit": "Covered by strict nominal/domain and eligibility tests; no observer timing accuracy claim.",
+      "requirement": "Retain explicit model-validity status; no observed-accuracy claim from small propagated sigma",
+      "research_supplement": "No later production expansion; original nominal/boundary evidence remains the applicable claim.",
+      "test_selectors": [
+        "tests/test_transit_timing.py::test_source_and_validity_contracts_are_explicit_and_immutable"
+      ]
+    },
+    {
+      "current_production_coverage": "partial_boundary",
+      "evidence_paths": [
+        "docs/research/validation/observer_arrival_validation.md",
+        "docs/research/validation/strict_transit_timing_boundary.md",
+        "src/astroscope/transit_timing.py",
+        "tests/test_transit_timing.py",
+        "tests/validation/test_observer_arrival.py",
+        "validation/observer_arrival.py"
+      ],
+      "id": "TC26",
+      "input_class": "Wrong correction sign, scale-only conversion, omitted site or unknown-to-zero mutation",
+      "mission37_coverage": "partial_boundary",
+      "observing_enabled": false,
+      "production_limit": "Unknown-to-zero and covariance-sign contract assertions exist. No converter mutation experiment is claimed.",
+      "requirement": "Future validation must detect each injected fault, not just round-trip consistency",
+      "research_supplement": "M38 detects wrong-sign, scale-only and omitted-site faults. End-to-end conversion/uncertainty/export mutation validation remains absent.",
+      "test_selectors": [
+        "tests/test_transit_timing.py::test_unknown_is_not_zero",
+        "tests/test_transit_timing.py::test_signed_covariance_against_perfect_square_cases",
+        "tests/validation/test_observer_arrival.py::test_independent_reference_benchmark"
+      ]
+    }
+  ],
+  "x01": "blocked; not closed or automatically deferred"
+}

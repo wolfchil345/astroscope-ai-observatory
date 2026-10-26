@@ -57,7 +57,8 @@
 
 - Mission 59: Complete — Phase 2 Coverage and Provenance Reconciliation (W06), [PR #59](https://github.com/wolfchil345/astroscope-ai-observatory/pull/59); merged at `9303287a591026b63921844630e90b772bfa0226`; post-merge Quality Gate 40213548200 passed. Bounded W05 closure confirmed; Phase 2 remains active.
 - Mission 60: Complete — [PR #60](https://github.com/wolfchil345/astroscope-ai-observatory/pull/60) merged at `e94271ad`; post-merge CI passed (7,066 tests, 26 historical xfails). Its 17 catalogue failures remain isolated historical evidence.
-- Mission 61: Active — [PR #61](https://github.com/wolfchil345/astroscope-ai-observatory/pull/61), Catalogue Numerical-Domain and Convention Correction; 1,252 current acceptance cases pass. G60-01–G60-07 and G59-01 bounded closure recommended on review/merge; Phase 2 exit remains pending.
+- Mission 61: Complete — [PR #61](https://github.com/wolfchil345/astroscope-ai-observatory/pull/61) merged at `ef21bc7cbec61a0f8b9b389e88683368dfcd42ed`; post-merge Quality Gate 40256448851 passed (8,356 tests, 26 historical xfails), and all 28 artifact archives were downloaded and checked. G60-01–G60-07 and G59-01 have bounded closure.
+- Mission 62: Active — Phase 2 Exit Readiness and Provenance Disposition; limited-scope exit proposed, owner review pending. Historical provenance and catalogue limitations remain explicit; X01 stays blocked. Phase 3 has not started.
 
 ## Phase Progress
 
@@ -83,19 +84,22 @@ within their original domains; no completion percentage is inferred.
 
 | Gate | Current assessment |
 |---|---|
-| E01 Coverage inventory | Mission 59 reconciles eight areas and catalogue/display claims; exit review pending |
-| E02 Independent reference qualification | Partial; W01–W05 bounded evidence credited, G59-01 and X01 remain |
-| E03 Robustness and integration | Mission 61 corrects the bounded catalogue findings; review/merge and W07 disposition pending |
-| E04 Reproducibility and provenance | Reconciled in Mission 59 with explicit G59-02/G59-03 gaps; exit disposition pending |
-| E05 Claims and uncertainty | Restrictions preserved; physical arrival qualification blocked |
-| E06 Workflow and contract traceability | All 26 strict-transit scenarios mapped; production 13 boundary / 5 partial / 8 deferred; catalogue gaps remain |
-| E07 Software acceptance | Mission 60 merge CI passed (7,066 tests, 26 historical xfails); Mission 61 final-head evidence recorded in its PR; future exit commit needs fresh CI |
-| E08 Reviewed Phase 2 exit decision | Not performed |
+| E01 Coverage inventory | Mission 62 reconciles eight areas and C01–C08; limited scope awaits owner review |
+| E02 Independent reference qualification | Qualified only within bounded dossiers, including M61; X01 and broader calibration excluded |
+| E03 Robustness and integration | M61 merged; bounded findings closed, frozen domains and historical failures retained |
+| E04 Reproducibility and provenance | Current frozen-fixture replay supported; original-environment and raw-regeneration gaps explicitly retained in the proposed disposition |
+| E05 Claims and uncertainty | Technical guards and documentary claim restrictions distinguished; physical arrival qualification blocked |
+| E06 Workflow and contract traceability | All 26 strict-transit scenarios retained: 13 boundary / 5 partial / 8 deferred; no strict catalogue adapter or physical observing promotion |
+| E07 Software acceptance | Mission 61 merge CI passed (8,356 tests, 26 historical xfails); final Mission 62 head and 28 downloaded artifacts require fresh verification recorded in its PR |
+| E08 Reviewed Phase 2 exit decision | Limited-scope proposal delivered in Mission 62; owner review/merge pending |
 
 The [acceptance requirements](phase_2_coverage_audit.md#phase-2-exit-gates) define
 what closes each gate. Unknown physical bounds cannot be relabelled as zero or
-closed by synthetic tests. Any limited-scope exit requires an explicit reviewed
-scope decision with enforced exclusions; this audit grants no such exit.
+closed by synthetic tests. The [Mission 62 proposal](phase_2_exit_readiness.md)
+defines the limited scope, existing executable guards and documentary research
+restrictions separately. An unrestricted exit is unsupported. Merging that mission
+after its final-head checks accepts only the stated scope; the next mission must
+verify the merge before recording the transition. CI success alone is not approval.
 
 | Package | Remaining deliverable | Status |
 |---|---|---|
@@ -104,8 +108,8 @@ scope decision with enforced exclusions; this audit grants no such exit.
 | W03 | Visibility and transit-window sampling sensitivity | Mission 54 merged; bounded W03 dossier complete |
 | W04 | Planner/schedule/weather/ranking heuristic characterisation | Mission 55 merged; bounded W04 dossier complete; calibration remains Phase 3 |
 | W05 | Light-curve recovery, null/noise/alias/gap and published-data validation | Missions 56–58 merged; bounded evidence complete; bounded closure confirmed by Mission 59 merge within recorded limits |
-| W06 | Coverage, provenance and deferred-contract reconciliation | Mission 59 merged; G59-01/02/03 remain explicit |
-| W07 | Formal Phase 2 exit review | Pending G59-01 evidence and explicit provenance/scope/X01 disposition |
+| W06 | Coverage, provenance and deferred-contract reconciliation | G59-01 bounded closure confirmed by M61; M62 proposes explicit G59-02/G59-03 dispositions |
+| W07 | Formal Phase 2 exit review | M62 limited-scope review delivered; owner review/merge pending |
 | X01 | Physical clock/site/arrival qualification | Blocked by applicable evidence and model qualification |
 
 Packages are bounded deliverables, not a promise of one PR each or a fixed
@@ -702,8 +706,9 @@ completion date. Their dependencies and stop conditions are specified in the
 - [x] Merge Mission 59 and confirm its bounded documentary dispositions — `9303287a591026b63921844630e90b772bfa0226`; post-merge CI passed
 
 Mission 60 delivers the historical G59-01 dossier with 17 retained failures.
-Mission 61 corrects the bounded findings and recommends closure on review/merge;
-its enforced projection domain and convention limits remain explicit. G59-02/G59-03 require explicit provenance/scope review.
+Mission 61's merge confirms bounded closure; its enforced projection domain and
+convention limits remain explicit. Mission 62 proposes G59-02/G59-03 dispositions
+with retained original-environment, raw-regeneration and catalogue limitations.
 These findings do not grant Phase 2 exit or begin Phase 3.
 
 ## Mission 60 — Catalogue-Derived Quantity and Educational-Model Validation
@@ -733,15 +738,41 @@ below; the original findings and failed record remain historical. Phase 2 remain
 - [x] Verify offline regeneration, mutation detection, CSV semantics and four-language dashboards
 - [x] Record clean canonical result and add the 28th CI artifact
 - [x] Open [PR #61](https://github.com/wolfchil345/astroscope-ai-observatory/pull/61); final-head CI and artifact checks recorded there before handoff
-- [ ] Review and merge Mission 61; confirm bounded G59-01 closure
+- [x] Review and merge Mission 61; confirm bounded G59-01 closure — `ef21bc7cbec61a0f8b9b389e88683368dfcd42ed`; post-merge CI passed
 
 The [Mission 61 report](validation/catalogue_correction_validation.md) and
-[ledger](evidence/catalogue_correction_findings_v1.json) recommend bounded closure
-of G60-01–G60-07 and G59-01. G59-02/G59-03 and W07 formal exit remain pending;
-X01 physical qualification is unchanged. Proposed Mission 62 — Phase 2 Exit
-Readiness and Provenance Disposition — is not started.
+[ledger](evidence/catalogue_correction_findings_v1.json) support bounded closure
+of G60-01–G60-07 and G59-01, confirmed by merge. Mission 62 now addresses the
+remaining provenance/scope disposition and W07 review. X01 is unchanged.
+
+## Mission 62 — Phase 2 Exit Readiness and Provenance Disposition
+
+- [x] Verify Mission 61 merge, successful post-merge CI and all 28 downloaded archives
+- [x] Reconcile the original eight areas, E01–E08, C01–C08 and TC01–TC26
+- [x] Recover all 28 implementation commits and verify 185 recorded file hashes
+- [x] Distinguish current offline replay from incomplete historical-environment/raw-regeneration evidence
+- [x] Propose explicit G59-02/G59-03 dispositions and five excluded-claim/reopening entries
+- [x] Preserve X01, null physical bounds, 13/5/8 contract categories and all historical failures
+- [x] Verify 182 baseline hashes, five protected trees and six documentary negative controls
+- [ ] Review and merge the limited-scope exit proposal after final-head CI and artifact verification
+
+The [Mission 62 review](phase_2_exit_readiness.md),
+[ledger](evidence/phase_2_exit_readiness_v1.json),
+[historical receipt](evidence/phase_2_historical_provenance_v1.json) and
+[Mission 61 merge-CI receipt](evidence/mission61_merge_ci_v1.json) preserve the
+decision boundary. Final-head Quality Gate and downloaded-artifact receipts are
+recorded in the Mission 62 PR before handoff; baseline success is not substituted.
+There is no new scientific experiment, test, artifact or production change.
+Phase 2 remains active pending owner review; Phase 3 has not started.
+
+After explicit scope approval and merge verification, proposed **Mission 63 —
+Phase 3 Entry Protocol and Observation-Optimisation Baseline Definition** freezes
+controlled inputs, constraints, metrics and evaluation policy. It is not started
+by Mission 62 and cannot promote an excluded capability without reopening its gate.
 
 ## Phase 2 Deliverables
+
+- [Phase 2 Exit Readiness and Provenance Disposition — Mission 62](phase_2_exit_readiness.md)
 
 - [Catalogue Numerical-Domain and Convention Correction — Mission 61](validation/catalogue_correction_validation.md)
 

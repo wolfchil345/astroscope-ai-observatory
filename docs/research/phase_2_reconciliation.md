@@ -2,11 +2,14 @@
 
 **Subsequent status:** Mission 59 merged at `9303287a591026b63921844630e90b772bfa0226`;
 Mission 60 merged at `e94271adfaf90c22c986fe2433f91b2a0b844489`, both with passing
-post-merge CI. [Mission 61](validation/catalogue_correction_validation.md) corrects
-the bounded catalogue findings with 1,252 passing current acceptance cases and an
-enforced chart domain; bounded G59-01 closure is recommended on review/merge.
+post-merge CI. [Mission 61](validation/catalogue_correction_validation.md) merged
+at `ef21bc7cbec61a0f8b9b389e88683368dfcd42ed`, confirming bounded G59-01 closure
+with 1,252 passing current acceptance cases and an enforced chart domain.
+Post-merge CI passed 8,356 tests with 26 historical xfails.
+[Mission 62](phase_2_exit_readiness.md) proposes explicit G59-02/G59-03 dispositions
+and a limited-scope exit; owner review is pending and X01 remains blocked.
 Mission 60's original 17 failures remain isolated historical evidence. The original
-audit below and its baseline ledger remain historical; no Phase 2 exit is granted.
+audit below and its baseline ledger remain historical; this note grants no Phase 2 exit.
 
 ## Decision
 
