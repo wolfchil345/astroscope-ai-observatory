@@ -1,0 +1,23 @@
+{
+  "B2_implemented": false,
+  "baseline_commit": "0577e5461797491ce3578b03ed94cbcc331b22a6",
+  "file_sha256": {
+    ".github/workflows/quality-gate.yml": "1aa45c70285ad214a58f8576c79cbad459b7e48e921da1bc7a0412492591b6cd",
+    "src/astroscope/observer.py": "bd0819a973629dfe14f520dbdc5d30bfefcdbecbca774e680f12b69bc9fd2ac1",
+    "src/astroscope/planner.py": "07ac6f6ab794ba0bb575b29adf4dc763c707573a7d00af2db36c0430358e5c15",
+    "src/astroscope/schedule.py": "103aae4ec513917269db7738a834692dc2d5e4af1ba5bbdf116960cc2efba63c",
+    "tests/validation/test_schedule_baselines.py": "78fe5f1d5da402d02f99b2e9c9690a49ae72684e766365f6b0e53c372dda3c6f",
+    "validation/manifests/schedule_baselines_v1.json": "6c66835ee6f07497fb20a521cae2f5c85cf39bf42795432e4284b0522bc0f56a",
+    "validation/schedule_baseline_audit.py": "30e03961021bfd1278036f5005f3b0a784b4db15d347268dc47ce542a6b3ee82",
+    "validation/schedule_baseline_checks.py": "0dd60d94abc0a2135b720d0228170f7fedc7d26197b30693aa445510f0412d3e",
+    "validation/schedule_baselines.py": "aec660e9d8c9441a6d8f7bde11d112febdc04e4e5899c1b9987190d2ff294762",
+    "validation/schedule_corpus.py": "874f08fa6b0ec34a999060b7891cfcef3ec79818988a22e62a5c838ebb4488bc"
+  },
+  "mission": 65,
+  "reason": "Environment reporting selected a shadowed local NumPy distribution; resolve metadata lookup and record actual imported versions. B0/B1 policies, inputs and thresholds unchanged; no reserved candidate exposure.",
+  "reserved_candidate_outputs_inspected": 0,
+  "schema_version": 2,
+  "source_commit": "3627d475c839a407a9d3b055fb850db81e63fb24",
+  "source_scope": "B0/B1 development-only; evaluation-reserved access is forbidden",
+  "supersedes": "validation/manifests/schedule_baselines_freeze_v1.json"
+}
