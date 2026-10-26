@@ -1,5 +1,11 @@
 # Mission 62 — Phase 2 Exit Readiness and Provenance Disposition
 
+**Subsequent status:** PR #62 merged at `cbc054d1cd5cf65d9750137743c54c8d435ea114`,
+accepting this explicit limited scope after its final-head checks. Post-merge
+Quality Gate 40271565621 passed; [Mission 63](phase_3_entry_protocol.md) records the
+transition and separately requested Phase 3 entry protocol. The original proposal
+and its pre-approval ledger below remain historical; exclusions and X01 persist.
+
 **Decision: LIMITED-SCOPE EXIT PROPOSED; owner review is pending.** The accumulated
 evidence supports closing the bounded scientific-validation programme for the
 supplied-input claims below. It does **not** support an unrestricted scientific,

@@ -6,8 +6,10 @@ post-merge CI. [Mission 61](validation/catalogue_correction_validation.md) merge
 at `ef21bc7cbec61a0f8b9b389e88683368dfcd42ed`, confirming bounded G59-01 closure
 with 1,252 passing current acceptance cases and an enforced chart domain.
 Post-merge CI passed 8,356 tests with 26 historical xfails.
-[Mission 62](phase_2_exit_readiness.md) proposes explicit G59-02/G59-03 dispositions
-and a limited-scope exit; owner review is pending and X01 remains blocked.
+[Mission 62](phase_2_exit_readiness.md) merged at `cbc054d1`, accepting explicit
+G59-02/G59-03 dispositions and a limited-scope exit. Post-merge CI passed;
+[Mission 63](phase_3_entry_protocol.md) records the subsequent transition.
+X01 remains blocked.
 Mission 60's original 17 failures remain isolated historical evidence. The original
 audit below and its baseline ledger remain historical; this note grants no Phase 2 exit.
 
