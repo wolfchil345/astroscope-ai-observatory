@@ -1,0 +1,1968 @@
+{
+  "baseline_commit": "ef21bc7cbec61a0f8b9b389e88683368dfcd42ed",
+  "changed_runner_explanation": "Reviewed retargeting to retained historical implementations; current corrected acceptance is separate in M58 and M61.",
+  "changed_runner_ids": [
+    "M56",
+    "M57",
+    "M60"
+  ],
+  "mission": 62,
+  "previously_missing_local_objects_fetched": 15,
+  "recorded_file_hash_checks": 185,
+  "recorded_file_hash_mismatches": 0,
+  "records": [
+    {
+      "ancestor_of_baseline": false,
+      "commit": "fd21cdabaadc80f84dd36eae9b9eed70e48195ed",
+      "commit_object_present": true,
+      "commit_tree": "8952193fc93e51b3867c51538133e358652a2d02",
+      "current_runner_sha256": "90f7f7fce84f3fafee702c93334d8964f991f427861380d9366b1f33018475ca",
+      "id": "M25",
+      "import_closure_sha256": {
+        "src/astroscope/observer.py": "2d61dca4c29b4929be7b91a51bf6b1858197968244afc1a6e63cc3ca48158dff",
+        "validation/observer_time.py": "90f7f7fce84f3fafee702c93334d8964f991f427861380d9366b1f33018475ca"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [
+        "astropy"
+      ],
+      "original_runner_sha256": "90f7f7fce84f3fafee702c93334d8964f991f427861380d9366b1f33018475ca",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "78664bccda8a25604dba58799efa01c95c36beda6581d063d95043dadfd50c34",
+          "expected_sha256": "78664bccda8a25604dba58799efa01c95c36beda6581d063d95043dadfd50c34",
+          "matched": true,
+          "path": "pyproject.toml",
+          "pointer": "/benchmark_inputs/files/0/sha256"
+        },
+        {
+          "actual_sha256": "2d61dca4c29b4929be7b91a51bf6b1858197968244afc1a6e63cc3ca48158dff",
+          "expected_sha256": "2d61dca4c29b4929be7b91a51bf6b1858197968244afc1a6e63cc3ca48158dff",
+          "matched": true,
+          "path": "src/astroscope/observer.py",
+          "pointer": "/benchmark_inputs/files/1/sha256"
+        },
+        {
+          "actual_sha256": "4f8e7654e854f210bebbb74095444de4214472c7f994d389ea00c183bc2e5af5",
+          "expected_sha256": "4f8e7654e854f210bebbb74095444de4214472c7f994d389ea00c183bc2e5af5",
+          "matched": true,
+          "path": "validation/fixtures/observer_time_reference_v1.json",
+          "pointer": "/benchmark_inputs/files/2/sha256"
+        },
+        {
+          "actual_sha256": "314fcdb8a2a25ec9a32c381b68efc9f71e836d290a68c82b592a1e1a7df7d1aa",
+          "expected_sha256": "314fcdb8a2a25ec9a32c381b68efc9f71e836d290a68c82b592a1e1a7df7d1aa",
+          "matched": true,
+          "path": "validation/manifests/observer_time_v1.json",
+          "pointer": "/benchmark_inputs/files/3/sha256"
+        },
+        {
+          "actual_sha256": "90f7f7fce84f3fafee702c93334d8964f991f427861380d9366b1f33018475ca",
+          "expected_sha256": "90f7f7fce84f3fafee702c93334d8964f991f427861380d9366b1f33018475ca",
+          "matched": true,
+          "path": "validation/observer_time.py",
+          "pointer": "/benchmark_inputs/files/4/sha256"
+        }
+      ],
+      "runner": "validation/observer_time.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "e3a7006aa55f1548add8f0aac31811852a220286",
+      "commit_object_present": true,
+      "commit_tree": "d8f3106f5cdb1259e7f9ff75544f11927fd3ea9c",
+      "current_runner_sha256": "6a5203a64c4a06bc265a202127c40e4649301dccaf56f1147bd66b3bb58eff90",
+      "id": "M27",
+      "import_closure_sha256": {
+        "src/astroscope/observer.py": "bd0819a973629dfe14f520dbdc5d30bfefcdbecbca774e680f12b69bc9fd2ac1",
+        "validation/civil_time.py": "6a5203a64c4a06bc265a202127c40e4649301dccaf56f1147bd66b3bb58eff90"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [
+        "astropy"
+      ],
+      "original_runner_sha256": "6a5203a64c4a06bc265a202127c40e4649301dccaf56f1147bd66b3bb58eff90",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "78664bccda8a25604dba58799efa01c95c36beda6581d063d95043dadfd50c34",
+          "expected_sha256": "78664bccda8a25604dba58799efa01c95c36beda6581d063d95043dadfd50c34",
+          "matched": true,
+          "path": "pyproject.toml",
+          "pointer": "/benchmark_inputs/files/0/sha256"
+        },
+        {
+          "actual_sha256": "bd0819a973629dfe14f520dbdc5d30bfefcdbecbca774e680f12b69bc9fd2ac1",
+          "expected_sha256": "bd0819a973629dfe14f520dbdc5d30bfefcdbecbca774e680f12b69bc9fd2ac1",
+          "matched": true,
+          "path": "src/astroscope/observer.py",
+          "pointer": "/benchmark_inputs/files/1/sha256"
+        },
+        {
+          "actual_sha256": "6a5203a64c4a06bc265a202127c40e4649301dccaf56f1147bd66b3bb58eff90",
+          "expected_sha256": "6a5203a64c4a06bc265a202127c40e4649301dccaf56f1147bd66b3bb58eff90",
+          "matched": true,
+          "path": "validation/civil_time.py",
+          "pointer": "/benchmark_inputs/files/2/sha256"
+        },
+        {
+          "actual_sha256": "ef0a8d76851d8c8701f4583f79848b30463941673981a60d0f4d2444afb33a2a",
+          "expected_sha256": "ef0a8d76851d8c8701f4583f79848b30463941673981a60d0f4d2444afb33a2a",
+          "matched": true,
+          "path": "validation/fixtures/civil_time_reference_v2.json",
+          "pointer": "/benchmark_inputs/files/3/sha256"
+        },
+        {
+          "actual_sha256": "a041cfdd5494b858354d2b028abc4c888ad79ff71be3265750bbc9cba1e617a2",
+          "expected_sha256": "a041cfdd5494b858354d2b028abc4c888ad79ff71be3265750bbc9cba1e617a2",
+          "matched": true,
+          "path": "validation/manifests/civil_time_v2.json",
+          "pointer": "/benchmark_inputs/files/4/sha256"
+        }
+      ],
+      "runner": "validation/civil_time.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "9f5d8e8129f7378e6775a0e4ad57c8cd74711537",
+      "commit_object_present": true,
+      "commit_tree": "2550eee190d7ff7ae50c392460d8390050f4c4ea",
+      "current_runner_sha256": "482aecf72bc128711cad00111bf019ac83931b5b0788a809c491be9f85b74f22",
+      "id": "M32",
+      "import_closure_sha256": {
+        "src/astroscope/coordinates.py": "bb53f0991ba135e6c5d5f67510bc2986e73442318ffe6b44a2155ab800eb08e9",
+        "src/astroscope/observer.py": "bd0819a973629dfe14f520dbdc5d30bfefcdbecbca774e680f12b69bc9fd2ac1",
+        "src/astroscope/planner.py": "07ac6f6ab794ba0bb575b29adf4dc763c707573a7d00af2db36c0430358e5c15",
+        "src/astroscope/schedule.py": "103aae4ec513917269db7738a834692dc2d5e4af1ba5bbdf116960cc2efba63c",
+        "src/astroscope/schedule_visuals.py": "d41a91de9ec2c1733e7d9ae5469f76e93fedd1795ee262b1b556254256f86fd4",
+        "src/astroscope/solar_system.py": "88b75c5b58c039053f11040cdc83bba4e63729bd3874729a911caa75a1093b4e",
+        "src/astroscope/visibility.py": "b4360787d7c0678808196f31ca658a7c6b31bc8adc4eebfd4ec172b18a969b94",
+        "validation/schedule_interval.py": "482aecf72bc128711cad00111bf019ac83931b5b0788a809c491be9f85b74f22"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [
+        "astropy",
+        "plotly"
+      ],
+      "original_runner_sha256": "482aecf72bc128711cad00111bf019ac83931b5b0788a809c491be9f85b74f22",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "78664bccda8a25604dba58799efa01c95c36beda6581d063d95043dadfd50c34",
+          "expected_sha256": "78664bccda8a25604dba58799efa01c95c36beda6581d063d95043dadfd50c34",
+          "matched": true,
+          "path": "pyproject.toml",
+          "pointer": "/benchmark_inputs/files/0/sha256"
+        },
+        {
+          "actual_sha256": "bd0819a973629dfe14f520dbdc5d30bfefcdbecbca774e680f12b69bc9fd2ac1",
+          "expected_sha256": "bd0819a973629dfe14f520dbdc5d30bfefcdbecbca774e680f12b69bc9fd2ac1",
+          "matched": true,
+          "path": "src/astroscope/observer.py",
+          "pointer": "/benchmark_inputs/files/1/sha256"
+        },
+        {
+          "actual_sha256": "07ac6f6ab794ba0bb575b29adf4dc763c707573a7d00af2db36c0430358e5c15",
+          "expected_sha256": "07ac6f6ab794ba0bb575b29adf4dc763c707573a7d00af2db36c0430358e5c15",
+          "matched": true,
+          "path": "src/astroscope/planner.py",
+          "pointer": "/benchmark_inputs/files/2/sha256"
+        },
+        {
+          "actual_sha256": "103aae4ec513917269db7738a834692dc2d5e4af1ba5bbdf116960cc2efba63c",
+          "expected_sha256": "103aae4ec513917269db7738a834692dc2d5e4af1ba5bbdf116960cc2efba63c",
+          "matched": true,
+          "path": "src/astroscope/schedule.py",
+          "pointer": "/benchmark_inputs/files/3/sha256"
+        },
+        {
+          "actual_sha256": "fcd0d715aef9d809b150e0f39606bd2ce9fbea8648f5d8b93815afa3dc3b00dd",
+          "expected_sha256": "fcd0d715aef9d809b150e0f39606bd2ce9fbea8648f5d8b93815afa3dc3b00dd",
+          "matched": true,
+          "path": "validation/fixtures/schedule_interval_reference_v1.json",
+          "pointer": "/benchmark_inputs/files/4/sha256"
+        },
+        {
+          "actual_sha256": "4619a66978a4c5fe544f7a255e06bcb67dc3c657e0b60bcdcb56bce7d327f351",
+          "expected_sha256": "4619a66978a4c5fe544f7a255e06bcb67dc3c657e0b60bcdcb56bce7d327f351",
+          "matched": true,
+          "path": "validation/manifests/schedule_interval_v1.json",
+          "pointer": "/benchmark_inputs/files/5/sha256"
+        },
+        {
+          "actual_sha256": "482aecf72bc128711cad00111bf019ac83931b5b0788a809c491be9f85b74f22",
+          "expected_sha256": "482aecf72bc128711cad00111bf019ac83931b5b0788a809c491be9f85b74f22",
+          "matched": true,
+          "path": "validation/schedule_interval.py",
+          "pointer": "/benchmark_inputs/files/6/sha256"
+        }
+      ],
+      "runner": "validation/schedule_interval.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "f33d116b473ca0732f699b2d814f7f423bd642d7",
+      "commit_object_present": true,
+      "commit_tree": "8f522d38ad57b1c3738f0caf8a94cf47bb8a4e97",
+      "current_runner_sha256": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+      "id": "M33",
+      "import_closure_sha256": {
+        "src/astroscope/coordinates.py": "bb53f0991ba135e6c5d5f67510bc2986e73442318ffe6b44a2155ab800eb08e9",
+        "src/astroscope/observer.py": "bd0819a973629dfe14f520dbdc5d30bfefcdbecbca774e680f12b69bc9fd2ac1",
+        "src/astroscope/visibility.py": "b4360787d7c0678808196f31ca658a7c6b31bc8adc4eebfd4ec172b18a969b94",
+        "validation/celestial_coordinates.py": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [
+        "astropy"
+      ],
+      "original_runner_sha256": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "8b28845fa5677e9d65e81e5734ef2ccdcc830ed390ed8f0b9a6f6afae8977c75",
+          "expected_sha256": "8b28845fa5677e9d65e81e5734ef2ccdcc830ed390ed8f0b9a6f6afae8977c75",
+          "matched": true,
+          "path": "validation/fixtures/celestial_coordinates_v1.json",
+          "pointer": "/input_sha256/validation~1fixtures~1celestial_coordinates_v1.json"
+        },
+        {
+          "actual_sha256": "ffda18b8f596f8735fc8436ce25eab863a3d2c4c6af49f699922b20d8c90ad55",
+          "expected_sha256": "ffda18b8f596f8735fc8436ce25eab863a3d2c4c6af49f699922b20d8c90ad55",
+          "matched": true,
+          "path": "validation/fixtures/celestial_eop_v1.json",
+          "pointer": "/input_sha256/validation~1fixtures~1celestial_eop_v1.json"
+        },
+        {
+          "actual_sha256": "78664bccda8a25604dba58799efa01c95c36beda6581d063d95043dadfd50c34",
+          "expected_sha256": "78664bccda8a25604dba58799efa01c95c36beda6581d063d95043dadfd50c34",
+          "matched": true,
+          "path": "pyproject.toml",
+          "pointer": "/input_sha256/pyproject.toml"
+        },
+        {
+          "actual_sha256": "bd0819a973629dfe14f520dbdc5d30bfefcdbecbca774e680f12b69bc9fd2ac1",
+          "expected_sha256": "bd0819a973629dfe14f520dbdc5d30bfefcdbecbca774e680f12b69bc9fd2ac1",
+          "matched": true,
+          "path": "src/astroscope/observer.py",
+          "pointer": "/input_sha256/src~1astroscope~1observer.py"
+        },
+        {
+          "actual_sha256": "b4360787d7c0678808196f31ca658a7c6b31bc8adc4eebfd4ec172b18a969b94",
+          "expected_sha256": "b4360787d7c0678808196f31ca658a7c6b31bc8adc4eebfd4ec172b18a969b94",
+          "matched": true,
+          "path": "src/astroscope/visibility.py",
+          "pointer": "/input_sha256/src~1astroscope~1visibility.py"
+        },
+        {
+          "actual_sha256": "bb53f0991ba135e6c5d5f67510bc2986e73442318ffe6b44a2155ab800eb08e9",
+          "expected_sha256": "bb53f0991ba135e6c5d5f67510bc2986e73442318ffe6b44a2155ab800eb08e9",
+          "matched": true,
+          "path": "src/astroscope/coordinates.py",
+          "pointer": "/input_sha256/src~1astroscope~1coordinates.py"
+        },
+        {
+          "actual_sha256": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+          "expected_sha256": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+          "matched": true,
+          "path": "validation/celestial_coordinates.py",
+          "pointer": "/input_sha256/validation~1celestial_coordinates.py"
+        },
+        {
+          "actual_sha256": "d9a5d2c37cea081243c6ea9a3267408d323ae662af77d5e35be1d59fdfff39e8",
+          "expected_sha256": "d9a5d2c37cea081243c6ea9a3267408d323ae662af77d5e35be1d59fdfff39e8",
+          "matched": true,
+          "path": "validation/manifests/celestial_coordinates_v1.json",
+          "pointer": "/input_sha256/validation~1manifests~1celestial_coordinates_v1.json"
+        },
+        {
+          "actual_sha256": "fcedd6a7b624c3081d67a3a960ac3c7049e9a49cbae97472027a309072aa4fa7",
+          "expected_sha256": "fcedd6a7b624c3081d67a3a960ac3c7049e9a49cbae97472027a309072aa4fa7",
+          "matched": true,
+          "path": "validation/reference_generation/celestial_coordinates.py",
+          "pointer": "/input_sha256/validation~1reference_generation~1celestial_coordinates.py"
+        },
+        {
+          "actual_sha256": "ccd608d782fb11b05f29a82545d070aae64d3cfc1b53b7e970ec556fe2003ff6",
+          "expected_sha256": "ccd608d782fb11b05f29a82545d070aae64d3cfc1b53b7e970ec556fe2003ff6",
+          "matched": true,
+          "path": "validation/requirements-celestial.txt",
+          "pointer": "/input_sha256/validation~1requirements-celestial.txt"
+        }
+      ],
+      "runner": "validation/celestial_coordinates.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "8099a86e534e47dad4a0f9992f3146462c018557",
+      "commit_object_present": true,
+      "commit_tree": "d69e244abdc6f8a1126fae55a7514e450f6cbbfd",
+      "current_runner_sha256": "f2417efb2ca1a3b4e5856d565fd26cddc92eccdd5ad0b75607dcfd227e057ea0",
+      "id": "M34",
+      "import_closure_sha256": {
+        "src/astroscope/coordinates.py": "bb53f0991ba135e6c5d5f67510bc2986e73442318ffe6b44a2155ab800eb08e9",
+        "src/astroscope/observer.py": "bd0819a973629dfe14f520dbdc5d30bfefcdbecbca774e680f12b69bc9fd2ac1",
+        "src/astroscope/planner.py": "07ac6f6ab794ba0bb575b29adf4dc763c707573a7d00af2db36c0430358e5c15",
+        "src/astroscope/solar_system.py": "88b75c5b58c039053f11040cdc83bba4e63729bd3874729a911caa75a1093b4e",
+        "src/astroscope/transit_scheduler.py": "8ed6a28746a055accf1256911421a6dd5c77f1b8e54e0401524261969768897b",
+        "src/astroscope/transit_visibility.py": "1dbeb51afa6ce5d63fe16a051d6eef33637f5500087ff37c20df3de81ff53e3f",
+        "src/astroscope/visibility.py": "b4360787d7c0678808196f31ca658a7c6b31bc8adc4eebfd4ec172b18a969b94",
+        "validation/celestial_coordinates.py": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+        "validation/solar_lunar_twilight.py": "f2417efb2ca1a3b4e5856d565fd26cddc92eccdd5ad0b75607dcfd227e057ea0"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [
+        "astropy",
+        "numpy",
+        "scipy"
+      ],
+      "original_runner_sha256": "f2417efb2ca1a3b4e5856d565fd26cddc92eccdd5ad0b75607dcfd227e057ea0",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "c4e457c137e2ef43c809099660b600e635d830279f5af141c4850586ed66fe76",
+          "expected_sha256": "c4e457c137e2ef43c809099660b600e635d830279f5af141c4850586ed66fe76",
+          "matched": true,
+          "path": "validation/fixtures/solar_lunar_twilight_v1.json",
+          "pointer": "/input_sha256/validation~1fixtures~1solar_lunar_twilight_v1.json"
+        },
+        {
+          "actual_sha256": "6372ac20b566dc5e9b4f106caaef2751a624c7bb46e161252e3208f4b906c1fa",
+          "expected_sha256": "6372ac20b566dc5e9b4f106caaef2751a624c7bb46e161252e3208f4b906c1fa",
+          "matched": true,
+          "path": "validation/fixtures/solar_lunar_eop_v1.json",
+          "pointer": "/input_sha256/validation~1fixtures~1solar_lunar_eop_v1.json"
+        },
+        {
+          "actual_sha256": "e3c1ae38bc1115687528c22bce74b623aa1f10162b55459e9787bf9d3228a11d",
+          "expected_sha256": "e3c1ae38bc1115687528c22bce74b623aa1f10162b55459e9787bf9d3228a11d",
+          "matched": true,
+          "path": "validation/manifests/solar_lunar_twilight_policy_v1.json",
+          "pointer": "/input_sha256/validation~1manifests~1solar_lunar_twilight_policy_v1.json"
+        },
+        {
+          "actual_sha256": "88b75c5b58c039053f11040cdc83bba4e63729bd3874729a911caa75a1093b4e",
+          "expected_sha256": "88b75c5b58c039053f11040cdc83bba4e63729bd3874729a911caa75a1093b4e",
+          "matched": true,
+          "path": "src/astroscope/solar_system.py",
+          "pointer": "/input_sha256/src~1astroscope~1solar_system.py"
+        },
+        {
+          "actual_sha256": "1dbeb51afa6ce5d63fe16a051d6eef33637f5500087ff37c20df3de81ff53e3f",
+          "expected_sha256": "1dbeb51afa6ce5d63fe16a051d6eef33637f5500087ff37c20df3de81ff53e3f",
+          "matched": true,
+          "path": "src/astroscope/transit_visibility.py",
+          "pointer": "/input_sha256/src~1astroscope~1transit_visibility.py"
+        },
+        {
+          "actual_sha256": "07ac6f6ab794ba0bb575b29adf4dc763c707573a7d00af2db36c0430358e5c15",
+          "expected_sha256": "07ac6f6ab794ba0bb575b29adf4dc763c707573a7d00af2db36c0430358e5c15",
+          "matched": true,
+          "path": "src/astroscope/planner.py",
+          "pointer": "/input_sha256/src~1astroscope~1planner.py"
+        },
+        {
+          "actual_sha256": "bd0819a973629dfe14f520dbdc5d30bfefcdbecbca774e680f12b69bc9fd2ac1",
+          "expected_sha256": "bd0819a973629dfe14f520dbdc5d30bfefcdbecbca774e680f12b69bc9fd2ac1",
+          "matched": true,
+          "path": "src/astroscope/observer.py",
+          "pointer": "/input_sha256/src~1astroscope~1observer.py"
+        },
+        {
+          "actual_sha256": "b4360787d7c0678808196f31ca658a7c6b31bc8adc4eebfd4ec172b18a969b94",
+          "expected_sha256": "b4360787d7c0678808196f31ca658a7c6b31bc8adc4eebfd4ec172b18a969b94",
+          "matched": true,
+          "path": "src/astroscope/visibility.py",
+          "pointer": "/input_sha256/src~1astroscope~1visibility.py"
+        },
+        {
+          "actual_sha256": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+          "expected_sha256": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+          "matched": true,
+          "path": "validation/celestial_coordinates.py",
+          "pointer": "/input_sha256/validation~1celestial_coordinates.py"
+        },
+        {
+          "actual_sha256": "f2417efb2ca1a3b4e5856d565fd26cddc92eccdd5ad0b75607dcfd227e057ea0",
+          "expected_sha256": "f2417efb2ca1a3b4e5856d565fd26cddc92eccdd5ad0b75607dcfd227e057ea0",
+          "matched": true,
+          "path": "validation/solar_lunar_twilight.py",
+          "pointer": "/input_sha256/validation~1solar_lunar_twilight.py"
+        },
+        {
+          "actual_sha256": "bb30200dd02c68d9e30177f42da3c4a2c4a4e10370ef0d4dabbe756c7f103246",
+          "expected_sha256": "bb30200dd02c68d9e30177f42da3c4a2c4a4e10370ef0d4dabbe756c7f103246",
+          "matched": true,
+          "path": "validation/reference_generation/solar_lunar_twilight.py",
+          "pointer": "/input_sha256/validation~1reference_generation~1solar_lunar_twilight.py"
+        },
+        {
+          "actual_sha256": "f5938576fd0fc445e117b61c7e8fb0587911f272a39afd9cca95c7c937847041",
+          "expected_sha256": "f5938576fd0fc445e117b61c7e8fb0587911f272a39afd9cca95c7c937847041",
+          "matched": true,
+          "path": "validation/manifests/solar_lunar_twilight_v1.json",
+          "pointer": "/input_sha256/validation~1manifests~1solar_lunar_twilight_v1.json"
+        },
+        {
+          "actual_sha256": "ccd608d782fb11b05f29a82545d070aae64d3cfc1b53b7e970ec556fe2003ff6",
+          "expected_sha256": "ccd608d782fb11b05f29a82545d070aae64d3cfc1b53b7e970ec556fe2003ff6",
+          "matched": true,
+          "path": "validation/requirements-celestial.txt",
+          "pointer": "/input_sha256/validation~1requirements-celestial.txt"
+        }
+      ],
+      "runner": "validation/solar_lunar_twilight.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "8a1891f38963c2f81abd3c2c1a8f4b5b4ead32da",
+      "commit_object_present": true,
+      "commit_tree": "3a4240cc38def18bd76f92362f597afe8f76d7b2",
+      "current_runner_sha256": "5cea18479f2c9be061d5f7bc869c04ec25e479b71afd7c33ff07d9adc31f3c47",
+      "id": "M35",
+      "import_closure_sha256": {
+        "src/astroscope/transit_scheduler.py": "8ed6a28746a055accf1256911421a6dd5c77f1b8e54e0401524261969768897b",
+        "validation/transit_ephemeris.py": "5cea18479f2c9be061d5f7bc869c04ec25e479b71afd7c33ff07d9adc31f3c47"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [],
+      "original_runner_sha256": "5cea18479f2c9be061d5f7bc869c04ec25e479b71afd7c33ff07d9adc31f3c47",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "d319c5d380413e40fc4d161acc3862430f48ad952acbb4ab9cc32ad07437b768",
+          "expected_sha256": "d319c5d380413e40fc4d161acc3862430f48ad952acbb4ab9cc32ad07437b768",
+          "matched": true,
+          "path": "validation/fixtures/transit_ephemeris_sources_v1.json",
+          "pointer": "/environment/input_sha256/validation~1fixtures~1transit_ephemeris_sources_v1.json"
+        },
+        {
+          "actual_sha256": "e88f5dee136d7540e784f434e699e377fd749ca69e59688b9be3bcb0f2adfedf",
+          "expected_sha256": "e88f5dee136d7540e784f434e699e377fd749ca69e59688b9be3bcb0f2adfedf",
+          "matched": true,
+          "path": "validation/fixtures/transit_ephemeris_v1.json",
+          "pointer": "/environment/input_sha256/validation~1fixtures~1transit_ephemeris_v1.json"
+        },
+        {
+          "actual_sha256": "4492d571d482c0483ce69e7fe05d6f53ba9fa4f0cb0bc1abaedbcbc0e80be287",
+          "expected_sha256": "4492d571d482c0483ce69e7fe05d6f53ba9fa4f0cb0bc1abaedbcbc0e80be287",
+          "matched": true,
+          "path": "validation/manifests/transit_ephemeris_policy_v1.json",
+          "pointer": "/environment/input_sha256/validation~1manifests~1transit_ephemeris_policy_v1.json"
+        },
+        {
+          "actual_sha256": "41c3059129eaf8278091e78535c548d60614101ada958f4c75d4a616c3de9900",
+          "expected_sha256": "41c3059129eaf8278091e78535c548d60614101ada958f4c75d4a616c3de9900",
+          "matched": true,
+          "path": "validation/manifests/transit_ephemeris_v1.json",
+          "pointer": "/environment/input_sha256/validation~1manifests~1transit_ephemeris_v1.json"
+        },
+        {
+          "actual_sha256": "f7088e3a395f2d48d57054854abbdbb407ef8b7cb2d1f4e71e17f153beb980a4",
+          "expected_sha256": "f7088e3a395f2d48d57054854abbdbb407ef8b7cb2d1f4e71e17f153beb980a4",
+          "matched": true,
+          "path": "validation/reference_generation/transit_ephemeris.py",
+          "pointer": "/environment/input_sha256/validation~1reference_generation~1transit_ephemeris.py"
+        },
+        {
+          "actual_sha256": "7750edc0f30ef001e2e086e3c786869c72c4216c74cd2ff9ef7682b0dbc5f9cc",
+          "expected_sha256": "7750edc0f30ef001e2e086e3c786869c72c4216c74cd2ff9ef7682b0dbc5f9cc",
+          "matched": true,
+          "path": "src/astroscope/transit_schedule_application.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1transit_schedule_application.py"
+        },
+        {
+          "actual_sha256": "992fcc34a540dd8f21ba71ae5eb1fd19ebb3c978ac4af5a391b70fd20a2f24b2",
+          "expected_sha256": "992fcc34a540dd8f21ba71ae5eb1fd19ebb3c978ac4af5a391b70fd20a2f24b2",
+          "matched": true,
+          "path": "src/astroscope/transit_schedule_exports.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1transit_schedule_exports.py"
+        },
+        {
+          "actual_sha256": "8ed6a28746a055accf1256911421a6dd5c77f1b8e54e0401524261969768897b",
+          "expected_sha256": "8ed6a28746a055accf1256911421a6dd5c77f1b8e54e0401524261969768897b",
+          "matched": true,
+          "path": "src/astroscope/transit_scheduler.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1transit_scheduler.py"
+        },
+        {
+          "actual_sha256": "1dbeb51afa6ce5d63fe16a051d6eef33637f5500087ff37c20df3de81ff53e3f",
+          "expected_sha256": "1dbeb51afa6ce5d63fe16a051d6eef33637f5500087ff37c20df3de81ff53e3f",
+          "matched": true,
+          "path": "src/astroscope/transit_visibility.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1transit_visibility.py"
+        },
+        {
+          "actual_sha256": "842a3002fed28d4417cca3ce193fdf3de512681138b388872a6602041888632d",
+          "expected_sha256": "842a3002fed28d4417cca3ce193fdf3de512681138b388872a6602041888632d",
+          "matched": true,
+          "path": "validation/requirements-transit.txt",
+          "pointer": "/environment/source_sha256/validation~1requirements-transit.txt"
+        },
+        {
+          "actual_sha256": "5cea18479f2c9be061d5f7bc869c04ec25e479b71afd7c33ff07d9adc31f3c47",
+          "expected_sha256": "5cea18479f2c9be061d5f7bc869c04ec25e479b71afd7c33ff07d9adc31f3c47",
+          "matched": true,
+          "path": "validation/transit_ephemeris.py",
+          "pointer": "/environment/source_sha256/validation~1transit_ephemeris.py"
+        }
+      ],
+      "runner": "validation/transit_ephemeris.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "ff0729d481a446df5ad84b2ff7a11d2fd052a487",
+      "commit_object_present": true,
+      "commit_tree": "360e993f6de40d7c3888270a997f1c4823683067",
+      "current_runner_sha256": "a608624a16d6e1478798384522d4ecbc8933caaf09e66c6c91cba832155dc244",
+      "id": "M38",
+      "import_closure_sha256": {
+        "validation/observer_arrival.py": "a608624a16d6e1478798384522d4ecbc8933caaf09e66c6c91cba832155dc244",
+        "validation/observer_arrival_model.py": "a324728ed10acbf47e7d35bff4892b180d3e75e55dfa71a8bfca3e8448694622"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [
+        "astropy",
+        "erfa",
+        "numpy"
+      ],
+      "original_runner_sha256": "a608624a16d6e1478798384522d4ecbc8933caaf09e66c6c91cba832155dc244",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "a608624a16d6e1478798384522d4ecbc8933caaf09e66c6c91cba832155dc244",
+          "expected_sha256": "a608624a16d6e1478798384522d4ecbc8933caaf09e66c6c91cba832155dc244",
+          "matched": true,
+          "path": "validation/observer_arrival.py",
+          "pointer": "/source_sha256/validation~1observer_arrival.py"
+        },
+        {
+          "actual_sha256": "a324728ed10acbf47e7d35bff4892b180d3e75e55dfa71a8bfca3e8448694622",
+          "expected_sha256": "a324728ed10acbf47e7d35bff4892b180d3e75e55dfa71a8bfca3e8448694622",
+          "matched": true,
+          "path": "validation/observer_arrival_model.py",
+          "pointer": "/source_sha256/validation~1observer_arrival_model.py"
+        }
+      ],
+      "runner": "validation/observer_arrival.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "5db627692860fd18cfb5ae8f733a5b182c65512f",
+      "commit_object_present": true,
+      "commit_tree": "fb74218a494a9eecbe10af929b401cd97cba0175",
+      "current_runner_sha256": "16cebb1b89a94c5c56a87783d1e4a861d17a532b8163cbd8e9bb1d9128d974e6",
+      "id": "M39",
+      "import_closure_sha256": {
+        "validation/arrival_budget.py": "16cebb1b89a94c5c56a87783d1e4a861d17a532b8163cbd8e9bb1d9128d974e6"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [],
+      "original_runner_sha256": "16cebb1b89a94c5c56a87783d1e4a861d17a532b8163cbd8e9bb1d9128d974e6",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "38b716c50b4a8fecf3f65b8da6be04d038daedeafb7ab0ee766daaff17d35285",
+          "expected_sha256": "38b716c50b4a8fecf3f65b8da6be04d038daedeafb7ab0ee766daaff17d35285",
+          "matched": true,
+          "path": "validation/manifests/arrival_budget_v1.json",
+          "pointer": "/manifest_sha256"
+        },
+        {
+          "actual_sha256": "16cebb1b89a94c5c56a87783d1e4a861d17a532b8163cbd8e9bb1d9128d974e6",
+          "expected_sha256": "16cebb1b89a94c5c56a87783d1e4a861d17a532b8163cbd8e9bb1d9128d974e6",
+          "matched": true,
+          "path": "validation/arrival_budget.py",
+          "pointer": "/implementation_sha256"
+        }
+      ],
+      "runner": "validation/arrival_budget.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "37ce0ea036727b1c280ba4c95af06c38a6e18716",
+      "commit_object_present": true,
+      "commit_tree": "b0c5fa8b6b4de5fe913ef699c0d47750669bc6db",
+      "current_runner_sha256": "b15e5f520007a50a671946cf03595ca461668179367de7f5cbc0dba57bed4e19",
+      "id": "M40",
+      "import_closure_sha256": {
+        "validation/source_reference.py": "b15e5f520007a50a671946cf03595ca461668179367de7f5cbc0dba57bed4e19"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [],
+      "original_runner_sha256": "b15e5f520007a50a671946cf03595ca461668179367de7f5cbc0dba57bed4e19",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "416188065b985415c0f6e560eae138910e2d0a1dd39c504f6a1b013a9bdee454",
+          "expected_sha256": "416188065b985415c0f6e560eae138910e2d0a1dd39c504f6a1b013a9bdee454",
+          "matched": true,
+          "path": "validation/manifests/source_reference_v1.json",
+          "pointer": "/manifest_sha256"
+        },
+        {
+          "actual_sha256": "b15e5f520007a50a671946cf03595ca461668179367de7f5cbc0dba57bed4e19",
+          "expected_sha256": "b15e5f520007a50a671946cf03595ca461668179367de7f5cbc0dba57bed4e19",
+          "matched": true,
+          "path": "validation/source_reference.py",
+          "pointer": "/implementation_sha256"
+        }
+      ],
+      "runner": "validation/source_reference.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "7a49cd724a20f4fa8c64ac27d777027faf72b0c3",
+      "commit_object_present": true,
+      "commit_tree": "a36d778d18f531184f5a699b2eabf3bb0956995d",
+      "current_runner_sha256": "19f665da63e1fd6630cefa7e50f4812e28fab03d6d06db525f55a7d5d24f8a55",
+      "id": "M41",
+      "import_closure_sha256": {
+        "validation/clock_reference.py": "19f665da63e1fd6630cefa7e50f4812e28fab03d6d06db525f55a7d5d24f8a55"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [],
+      "original_runner_sha256": "19f665da63e1fd6630cefa7e50f4812e28fab03d6d06db525f55a7d5d24f8a55",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "22183f6735d3237db5de337da5ab5498a0546c59d4d05d51957d94d1c7264c4f",
+          "expected_sha256": "22183f6735d3237db5de337da5ab5498a0546c59d4d05d51957d94d1c7264c4f",
+          "matched": true,
+          "path": "validation/manifests/clock_reference_policy_v1.json",
+          "pointer": "/policy_sha256"
+        },
+        {
+          "actual_sha256": "04677f587607412cd000da2fe64983d8c971b85ca890f17f1e613b9387d21c8a",
+          "expected_sha256": "04677f587607412cd000da2fe64983d8c971b85ca890f17f1e613b9387d21c8a",
+          "matched": true,
+          "path": "validation/fixtures/clock_reference_v1.json",
+          "pointer": "/fixture_sha256"
+        },
+        {
+          "actual_sha256": "901e8e323427ed0c15c3be66731c3e23ca241e170e003c25a868fd6f4e2eb3c7",
+          "expected_sha256": "901e8e323427ed0c15c3be66731c3e23ca241e170e003c25a868fd6f4e2eb3c7",
+          "matched": true,
+          "path": "validation/manifests/clock_reference_v1.json",
+          "pointer": "/manifest_sha256"
+        }
+      ],
+      "runner": "validation/clock_reference.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "99145db6da914e849e8cce7842b42036c9837882",
+      "commit_object_present": true,
+      "commit_tree": "4cebe9eb89b95ea039ae3f5db639eb2210a5e0b0",
+      "current_runner_sha256": "890f115aa01326d28fadfa74ae930babcfd82477f2ad14bdd1960fc10d140c24",
+      "id": "M42",
+      "import_closure_sha256": {
+        "validation/time_ephemeris.py": "890f115aa01326d28fadfa74ae930babcfd82477f2ad14bdd1960fc10d140c24"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [
+        "astropy"
+      ],
+      "original_runner_sha256": "890f115aa01326d28fadfa74ae930babcfd82477f2ad14bdd1960fc10d140c24",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "4d8bd7af1422874d7984bb4fba2bde981485709e70fb38d53a357c67e9e38231",
+          "expected_sha256": "4d8bd7af1422874d7984bb4fba2bde981485709e70fb38d53a357c67e9e38231",
+          "matched": true,
+          "path": "validation/manifests/time_ephemeris_policy_v1.json",
+          "pointer": "/policy_sha256"
+        },
+        {
+          "actual_sha256": "f4d087bb1c53269f7f2e490a50067f2a1a72d2abed2bbf2b6d0d6cc1094cb540",
+          "expected_sha256": "f4d087bb1c53269f7f2e490a50067f2a1a72d2abed2bbf2b6d0d6cc1094cb540",
+          "matched": true,
+          "path": "validation/fixtures/time_ephemeris_v1.json",
+          "pointer": "/fixture_sha256"
+        },
+        {
+          "actual_sha256": "0f185bd28ed24bfa30ea71dc0743b1fb9f6110ad602f92963491e2a8ab386519",
+          "expected_sha256": "0f185bd28ed24bfa30ea71dc0743b1fb9f6110ad602f92963491e2a8ab386519",
+          "matched": true,
+          "path": "validation/manifests/time_ephemeris_v1.json",
+          "pointer": "/manifest_sha256"
+        }
+      ],
+      "runner": "validation/time_ephemeris.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "d942a93165b702abadacb7b5244a4f3e3b4f7015",
+      "commit_object_present": true,
+      "commit_tree": "002e328268a2d58f8102ad0a368efe97dfcf3307",
+      "current_runner_sha256": "1780e46573681a242436e6898ec47049679d898a194ce12c87a6ff57d65986d0",
+      "id": "M43",
+      "import_closure_sha256": {
+        "validation/observer_arrival_model.py": "a324728ed10acbf47e7d35bff4892b180d3e75e55dfa71a8bfca3e8448694622",
+        "validation/site_clock.py": "1780e46573681a242436e6898ec47049679d898a194ce12c87a6ff57d65986d0"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [
+        "astropy",
+        "erfa",
+        "numpy"
+      ],
+      "original_runner_sha256": "1780e46573681a242436e6898ec47049679d898a194ce12c87a6ff57d65986d0",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "13711d101822d702f75951297df2af6072f15ac1bd9eea92045840761072af91",
+          "expected_sha256": "13711d101822d702f75951297df2af6072f15ac1bd9eea92045840761072af91",
+          "matched": true,
+          "path": "validation/manifests/site_clock_policy_v1.json",
+          "pointer": "/policy_sha256"
+        },
+        {
+          "actual_sha256": "1c0e6e47bc5b1fdc8af97082961b469647e220bd67419b657960d4489de214ac",
+          "expected_sha256": "1c0e6e47bc5b1fdc8af97082961b469647e220bd67419b657960d4489de214ac",
+          "matched": true,
+          "path": "validation/fixtures/site_clock_v1.json",
+          "pointer": "/fixture_sha256"
+        },
+        {
+          "actual_sha256": "58fcf843f88f16f23f0e9c694a029ae61fdc9e531532d6f77241384d4aee8579",
+          "expected_sha256": "58fcf843f88f16f23f0e9c694a029ae61fdc9e531532d6f77241384d4aee8579",
+          "matched": true,
+          "path": "validation/manifests/site_clock_v1.json",
+          "pointer": "/manifest_sha256"
+        }
+      ],
+      "runner": "validation/site_clock.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "ce57f47332f70652d8bc58e6cc2da19da673a71f",
+      "commit_object_present": true,
+      "commit_tree": "87e5708d6a09b56f6b0f2fd90e5cdee814230d26",
+      "current_runner_sha256": "20e6ab9c829900a01515f2cabf80d3ba902b8866a5920a3d2c6884ffefe27a34",
+      "id": "M44",
+      "import_closure_sha256": {
+        "validation/site_frame.py": "20e6ab9c829900a01515f2cabf80d3ba902b8866a5920a3d2c6884ffefe27a34"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [
+        "numpy"
+      ],
+      "original_runner_sha256": "20e6ab9c829900a01515f2cabf80d3ba902b8866a5920a3d2c6884ffefe27a34",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "d40d995c719f832cfef19b3aa60b5e5c72bd4243c4ad4fb127dc60f89f4ecb03",
+          "expected_sha256": "d40d995c719f832cfef19b3aa60b5e5c72bd4243c4ad4fb127dc60f89f4ecb03",
+          "matched": true,
+          "path": "validation/manifests/site_frame_policy_v1.json",
+          "pointer": "/policy_sha256"
+        },
+        {
+          "actual_sha256": "b3930ec2e163015199254c2acbb0393fa6fd2336d80776e1cbb2946c44e87b57",
+          "expected_sha256": "b3930ec2e163015199254c2acbb0393fa6fd2336d80776e1cbb2946c44e87b57",
+          "matched": true,
+          "path": "validation/fixtures/site_frame_v1.json",
+          "pointer": "/fixture_sha256"
+        },
+        {
+          "actual_sha256": "0348cbaf4482789341ea3b58ad01748b0b7ca21a0eef0c9bf7d20ddf8155998f",
+          "expected_sha256": "0348cbaf4482789341ea3b58ad01748b0b7ca21a0eef0c9bf7d20ddf8155998f",
+          "matched": true,
+          "path": "validation/manifests/site_frame_v1.json",
+          "pointer": "/manifest_sha256"
+        }
+      ],
+      "runner": "validation/site_frame.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "fb4f1da4bfaa95912f292f8b8920a970b28e9653",
+      "commit_object_present": true,
+      "commit_tree": "8f8269aaaeaf7e2adad1fd505cbc6e72d7255070",
+      "current_runner_sha256": "55c84bc1ec1dd08ffda364133785458e98d798b5b694815bc647bbf5cc220441",
+      "id": "M45",
+      "import_closure_sha256": {
+        "validation/coupled_clock.py": "55c84bc1ec1dd08ffda364133785458e98d798b5b694815bc647bbf5cc220441",
+        "validation/observer_arrival_model.py": "a324728ed10acbf47e7d35bff4892b180d3e75e55dfa71a8bfca3e8448694622",
+        "validation/site_clock.py": "1780e46573681a242436e6898ec47049679d898a194ce12c87a6ff57d65986d0"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [
+        "astropy",
+        "erfa",
+        "numpy"
+      ],
+      "original_runner_sha256": "55c84bc1ec1dd08ffda364133785458e98d798b5b694815bc647bbf5cc220441",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "165631bcedc9614e996734d17c711d6ae349ef13d9eeb4b137c21bbcda020081",
+          "expected_sha256": "165631bcedc9614e996734d17c711d6ae349ef13d9eeb4b137c21bbcda020081",
+          "matched": true,
+          "path": "validation/manifests/coupled_clock_policy_v1.json",
+          "pointer": "/policy_sha256"
+        },
+        {
+          "actual_sha256": "7e2908d034599ff67da79399f6c1dbac9c18aae8bd98ef47cb0e8d4312c6e870",
+          "expected_sha256": "7e2908d034599ff67da79399f6c1dbac9c18aae8bd98ef47cb0e8d4312c6e870",
+          "matched": true,
+          "path": "validation/fixtures/coupled_clock_v1.json",
+          "pointer": "/fixture_sha256"
+        },
+        {
+          "actual_sha256": "f206e6b26ac7133300cb98ab3f0025e4d822001affa7670d4c9c0d85557eb6cb",
+          "expected_sha256": "f206e6b26ac7133300cb98ab3f0025e4d822001affa7670d4c9c0d85557eb6cb",
+          "matched": true,
+          "path": "validation/manifests/coupled_clock_v1.json",
+          "pointer": "/manifest_sha256"
+        }
+      ],
+      "runner": "validation/coupled_clock.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "f6cc15bb7206e19d3f97fa16c35faa74ffc1c861",
+      "commit_object_present": true,
+      "commit_tree": "2eccc5552bf0340a6fa71fd40f98f2043141c978",
+      "current_runner_sha256": "d12a6bc41d9766d8311c42cb5333f709a6bb8a98bc144d8e32ab9844976727ef",
+      "id": "M46",
+      "import_closure_sha256": {
+        "validation/time_normalization.py": "d12a6bc41d9766d8311c42cb5333f709a6bb8a98bc144d8e32ab9844976727ef"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [
+        "astropy",
+        "erfa"
+      ],
+      "original_runner_sha256": "d12a6bc41d9766d8311c42cb5333f709a6bb8a98bc144d8e32ab9844976727ef",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "c19f09e5c996c06000c66e168dc547e799ee31d49df0a2061a63e77db5029850",
+          "expected_sha256": "c19f09e5c996c06000c66e168dc547e799ee31d49df0a2061a63e77db5029850",
+          "matched": true,
+          "path": "validation/manifests/time_normalization_policy_v1.json",
+          "pointer": "/policy_sha256"
+        },
+        {
+          "actual_sha256": "a2d71cea44f36fa650a7560d556c1505ace637bdbb20feffbb7f02f751d78717",
+          "expected_sha256": "a2d71cea44f36fa650a7560d556c1505ace637bdbb20feffbb7f02f751d78717",
+          "matched": true,
+          "path": "validation/fixtures/time_normalization_v1.json",
+          "pointer": "/fixture_sha256"
+        },
+        {
+          "actual_sha256": "f506128fff21768ec72c8247e60dcc0740771164a71898e3021ae10c01ace391",
+          "expected_sha256": "f506128fff21768ec72c8247e60dcc0740771164a71898e3021ae10c01ace391",
+          "matched": true,
+          "path": "docs/research/evidence/time_normalization_evidence_v1.json",
+          "pointer": "/evidence_sha256"
+        },
+        {
+          "actual_sha256": "87d5ee056efc868c7e921e2e71bc10cbb1d107cce46c5554381f2361269ccba5",
+          "expected_sha256": "87d5ee056efc868c7e921e2e71bc10cbb1d107cce46c5554381f2361269ccba5",
+          "matched": true,
+          "path": "validation/manifests/time_normalization_v1.json",
+          "pointer": "/manifest_sha256"
+        }
+      ],
+      "runner": "validation/time_normalization.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "9d8f18aa34a35870374a481db612adaf04007ae8",
+      "commit_object_present": true,
+      "commit_tree": "fac9867b263826a097fa2fb7eecc4fc13105373c",
+      "current_runner_sha256": "3b5170bb1fa40a9486e7e62dab04c424f6693df65b597264b9e7bf2ce20d4680",
+      "id": "M47",
+      "import_closure_sha256": {
+        "validation/cross_model_time.py": "3b5170bb1fa40a9486e7e62dab04c424f6693df65b597264b9e7bf2ce20d4680",
+        "validation/time_ephemeris.py": "890f115aa01326d28fadfa74ae930babcfd82477f2ad14bdd1960fc10d140c24"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [
+        "astropy"
+      ],
+      "original_runner_sha256": "3b5170bb1fa40a9486e7e62dab04c424f6693df65b597264b9e7bf2ce20d4680",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "db6cb4a33af6870308a25cdc5501bc589e6462f9bf511dd16153fce1f74fb19e",
+          "expected_sha256": "db6cb4a33af6870308a25cdc5501bc589e6462f9bf511dd16153fce1f74fb19e",
+          "matched": true,
+          "path": "validation/manifests/cross_model_time_policy_v1.json",
+          "pointer": "/policy_sha256"
+        },
+        {
+          "actual_sha256": "32a4217b5af383313cdb584e563c8efe578d2dbda98c6ffbba6da6d512411a93",
+          "expected_sha256": "32a4217b5af383313cdb584e563c8efe578d2dbda98c6ffbba6da6d512411a93",
+          "matched": true,
+          "path": "validation/fixtures/cross_model_time_v1.json",
+          "pointer": "/fixture_sha256"
+        },
+        {
+          "actual_sha256": "6eac9b8f7294e4207c7ef1a8f31e3d56a2957ca9b0472784bc7bb4109419353d",
+          "expected_sha256": "6eac9b8f7294e4207c7ef1a8f31e3d56a2957ca9b0472784bc7bb4109419353d",
+          "matched": true,
+          "path": "validation/manifests/cross_model_time_v1.json",
+          "pointer": "/manifest_sha256"
+        }
+      ],
+      "runner": "validation/cross_model_time.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "c28a4629633169d77f1a62005ded3122c76d3481",
+      "commit_object_present": true,
+      "commit_tree": "b7ce0f15f109469016bd4573176884f2f486fd44",
+      "current_runner_sha256": "3502676c56efa263d14eff5a393c903f3e6e98073de33749a4f40714a5ac707a",
+      "id": "M48",
+      "import_closure_sha256": {
+        "validation/clock_sensitivity.py": "3502676c56efa263d14eff5a393c903f3e6e98073de33749a4f40714a5ac707a",
+        "validation/time_ephemeris.py": "890f115aa01326d28fadfa74ae930babcfd82477f2ad14bdd1960fc10d140c24"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [
+        "astropy",
+        "numpy"
+      ],
+      "original_runner_sha256": "3502676c56efa263d14eff5a393c903f3e6e98073de33749a4f40714a5ac707a",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "96541902017ea9d4455c18ff8dcacd76ff0fe00cc3ca2235008c3b6c453042dd",
+          "expected_sha256": "96541902017ea9d4455c18ff8dcacd76ff0fe00cc3ca2235008c3b6c453042dd",
+          "matched": true,
+          "path": "validation/manifests/clock_sensitivity_policy_v1.json",
+          "pointer": "/policy_sha256"
+        },
+        {
+          "actual_sha256": "0dbb5737725ee1395ac67c6121634f2f2f0b6d9bdd3ed377c1028e5af5a9368b",
+          "expected_sha256": "0dbb5737725ee1395ac67c6121634f2f2f0b6d9bdd3ed377c1028e5af5a9368b",
+          "matched": true,
+          "path": "validation/fixtures/clock_sensitivity_v1.json",
+          "pointer": "/fixture_sha256"
+        },
+        {
+          "actual_sha256": "19a99e72f5d4ace6031b0bad206b6c1eb76d74245258ff70a157a24054d833ed",
+          "expected_sha256": "19a99e72f5d4ace6031b0bad206b6c1eb76d74245258ff70a157a24054d833ed",
+          "matched": true,
+          "path": "validation/manifests/clock_sensitivity_v1.json",
+          "pointer": "/manifest_sha256"
+        }
+      ],
+      "runner": "validation/clock_sensitivity.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "ef7417ef4118086fc9201856f42722e7737bc804",
+      "commit_object_present": true,
+      "commit_tree": "669eb0e53368b425dd923e686aa50c9ba03f80bf",
+      "current_runner_sha256": "ab503342fbe48d89c0f089d605d4d73a4d3c24a284f00011b71cb0119a78c678",
+      "id": "M49",
+      "import_closure_sha256": {
+        "validation/clock_sensitivity.py": "3502676c56efa263d14eff5a393c903f3e6e98073de33749a4f40714a5ac707a",
+        "validation/ephemeris_covariance.py": "ab503342fbe48d89c0f089d605d4d73a4d3c24a284f00011b71cb0119a78c678",
+        "validation/time_ephemeris.py": "890f115aa01326d28fadfa74ae930babcfd82477f2ad14bdd1960fc10d140c24"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [
+        "astropy",
+        "numpy"
+      ],
+      "original_runner_sha256": "ab503342fbe48d89c0f089d605d4d73a4d3c24a284f00011b71cb0119a78c678",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "a968d2dab7e51e2c3dffdd08c41f0b5d6ad326f9e0a6aaa9128f83cd4ef565ad",
+          "expected_sha256": "a968d2dab7e51e2c3dffdd08c41f0b5d6ad326f9e0a6aaa9128f83cd4ef565ad",
+          "matched": true,
+          "path": "validation/manifests/ephemeris_covariance_policy_v1.json",
+          "pointer": "/policy_sha256"
+        },
+        {
+          "actual_sha256": "ddf3b3c86e5a7eb867a1ba66d92b03bf865104ae4527514a57b6ea3cfa6b372b",
+          "expected_sha256": "ddf3b3c86e5a7eb867a1ba66d92b03bf865104ae4527514a57b6ea3cfa6b372b",
+          "matched": true,
+          "path": "validation/fixtures/ephemeris_covariance_v1.json",
+          "pointer": "/fixture_sha256"
+        },
+        {
+          "actual_sha256": "ed60c3b8fb8f52db05030b934d017ec8f8b88125c562c8d18ed057171d57e38a",
+          "expected_sha256": "ed60c3b8fb8f52db05030b934d017ec8f8b88125c562c8d18ed057171d57e38a",
+          "matched": true,
+          "path": "docs/research/evidence/ephemeris_covariance_evidence_v1.json",
+          "pointer": "/evidence_sha256"
+        },
+        {
+          "actual_sha256": "2effc0268a24542bfb3ac119a0e219aaa21932ce758747fbc85c2f9a780633f3",
+          "expected_sha256": "2effc0268a24542bfb3ac119a0e219aaa21932ce758747fbc85c2f9a780633f3",
+          "matched": true,
+          "path": "validation/manifests/ephemeris_covariance_v1.json",
+          "pointer": "/manifest_sha256"
+        }
+      ],
+      "runner": "validation/ephemeris_covariance.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "209da4bcc9c406dc25bf9f555bd4ba10a5ae5530",
+      "commit_object_present": true,
+      "commit_tree": "7d9352790d861208ab0baf26d4baf916817831e2",
+      "current_runner_sha256": "d23fbcc62c27bfa3eb532bf565117be34f705aa39d91aaccbe3a10a6faa6f542",
+      "id": "M50",
+      "import_closure_sha256": {
+        "validation/clock_sensitivity.py": "3502676c56efa263d14eff5a393c903f3e6e98073de33749a4f40714a5ac707a",
+        "validation/integrated_clock_response.py": "d23fbcc62c27bfa3eb532bf565117be34f705aa39d91aaccbe3a10a6faa6f542",
+        "validation/time_ephemeris.py": "890f115aa01326d28fadfa74ae930babcfd82477f2ad14bdd1960fc10d140c24"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [
+        "astropy",
+        "numpy"
+      ],
+      "original_runner_sha256": "d23fbcc62c27bfa3eb532bf565117be34f705aa39d91aaccbe3a10a6faa6f542",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "7e6d6596d032786b6fe87834f7541c785c118cd5018aee40df4c6096ad79dd3d",
+          "expected_sha256": "7e6d6596d032786b6fe87834f7541c785c118cd5018aee40df4c6096ad79dd3d",
+          "matched": true,
+          "path": "validation/manifests/integrated_clock_response_policy_v1.json",
+          "pointer": "/policy_sha256"
+        },
+        {
+          "actual_sha256": "bd6542c42a8d3319a3c462641ac51ecd33297ddfb8b2c1fe264d6a4ccc2ac075",
+          "expected_sha256": "bd6542c42a8d3319a3c462641ac51ecd33297ddfb8b2c1fe264d6a4ccc2ac075",
+          "matched": true,
+          "path": "validation/fixtures/integrated_clock_response_v1.json",
+          "pointer": "/fixture_sha256"
+        },
+        {
+          "actual_sha256": "42d14f1f1bec9c1e1f64494d559db7e40242fa1add1d690433f24274f9d2a197",
+          "expected_sha256": "42d14f1f1bec9c1e1f64494d559db7e40242fa1add1d690433f24274f9d2a197",
+          "matched": true,
+          "path": "docs/research/evidence/integrated_clock_response_evidence_v1.json",
+          "pointer": "/evidence_sha256"
+        },
+        {
+          "actual_sha256": "650ecae469f622fc208b65a6e085592e126808e0a863fa3590384122286d34ab",
+          "expected_sha256": "650ecae469f622fc208b65a6e085592e126808e0a863fa3590384122286d34ab",
+          "matched": true,
+          "path": "validation/manifests/integrated_clock_response_v1.json",
+          "pointer": "/manifest_sha256"
+        }
+      ],
+      "runner": "validation/integrated_clock_response.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "ee89c33d924be20eae6f113fa49f9c03d77ad12a",
+      "commit_object_present": true,
+      "commit_tree": "41b0050b8b1f7e678d43e9abda0a33d273482b54",
+      "current_runner_sha256": "4ec12294c938cf3702b257172e28761c008436bbb806dc17ec24bbf78cad623f",
+      "id": "M52",
+      "import_closure_sha256": {
+        "src/astroscope/imaging.py": "756841cf8218b15ba16f250ed95d4ce8916063fc2d5516c9a335be08ed9bd43f",
+        "src/astroscope/telescope.py": "9ecbc328fc61080014607cc8c67972b3265ca2cb0094662431c1778a7cb7b983",
+        "validation/telescope_imaging.py": "4ec12294c938cf3702b257172e28761c008436bbb806dc17ec24bbf78cad623f"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [],
+      "original_runner_sha256": "4ec12294c938cf3702b257172e28761c008436bbb806dc17ec24bbf78cad623f",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "756841cf8218b15ba16f250ed95d4ce8916063fc2d5516c9a335be08ed9bd43f",
+          "expected_sha256": "756841cf8218b15ba16f250ed95d4ce8916063fc2d5516c9a335be08ed9bd43f",
+          "matched": true,
+          "path": "src/astroscope/imaging.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1imaging.py"
+        },
+        {
+          "actual_sha256": "9ecbc328fc61080014607cc8c67972b3265ca2cb0094662431c1778a7cb7b983",
+          "expected_sha256": "9ecbc328fc61080014607cc8c67972b3265ca2cb0094662431c1778a7cb7b983",
+          "matched": true,
+          "path": "src/astroscope/telescope.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1telescope.py"
+        },
+        {
+          "actual_sha256": "5dce6007255aabfdb1cfaa49768a63ff451643467426d132a61eede65617ed97",
+          "expected_sha256": "5dce6007255aabfdb1cfaa49768a63ff451643467426d132a61eede65617ed97",
+          "matched": true,
+          "path": "validation/fixtures/telescope_imaging_v1.json",
+          "pointer": "/environment/source_sha256/validation~1fixtures~1telescope_imaging_v1.json"
+        },
+        {
+          "actual_sha256": "5e27a79431022355680925300fadea5a2419ba90aa2e84861bb87653294573f6",
+          "expected_sha256": "5e27a79431022355680925300fadea5a2419ba90aa2e84861bb87653294573f6",
+          "matched": true,
+          "path": "validation/manifests/telescope_imaging_v1.json",
+          "pointer": "/environment/source_sha256/validation~1manifests~1telescope_imaging_v1.json"
+        },
+        {
+          "actual_sha256": "4ec12294c938cf3702b257172e28761c008436bbb806dc17ec24bbf78cad623f",
+          "expected_sha256": "4ec12294c938cf3702b257172e28761c008436bbb806dc17ec24bbf78cad623f",
+          "matched": true,
+          "path": "validation/telescope_imaging.py",
+          "pointer": "/environment/source_sha256/validation~1telescope_imaging.py"
+        }
+      ],
+      "runner": "validation/telescope_imaging.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "b4586a5d9e044324375a231948f0e45df3ff7713",
+      "commit_object_present": true,
+      "commit_tree": "c2d7ae5cfc610d2d07b26ec7a06039d8ece53a52",
+      "current_runner_sha256": "580416319d2448d84a8cf45fbfc2b60f946bef070556c544d7b9b0d06321e8b7",
+      "id": "M53",
+      "import_closure_sha256": {
+        "src/astroscope/coordinates.py": "bb53f0991ba135e6c5d5f67510bc2986e73442318ffe6b44a2155ab800eb08e9",
+        "src/astroscope/observer.py": "bd0819a973629dfe14f520dbdc5d30bfefcdbecbca774e680f12b69bc9fd2ac1",
+        "src/astroscope/planner.py": "07ac6f6ab794ba0bb575b29adf4dc763c707573a7d00af2db36c0430358e5c15",
+        "src/astroscope/solar_system.py": "88b75c5b58c039053f11040cdc83bba4e63729bd3874729a911caa75a1093b4e",
+        "src/astroscope/transit_scheduler.py": "8ed6a28746a055accf1256911421a6dd5c77f1b8e54e0401524261969768897b",
+        "src/astroscope/transit_timing.py": "7d1f72807a5991f94be66cface374162fd3ebb10c1cf2cdf0b18a5d7d716d27e",
+        "src/astroscope/transit_visibility.py": "066d24f172fe41ebc364342cf56bcb964c65dba0fd223c41a3f777e47e7ef718",
+        "src/astroscope/visibility.py": "b4360787d7c0678808196f31ca658a7c6b31bc8adc4eebfd4ec172b18a969b94",
+        "validation/celestial_coordinates.py": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+        "validation/planetary_positions.py": "580416319d2448d84a8cf45fbfc2b60f946bef070556c544d7b9b0d06321e8b7",
+        "validation/solar_lunar_twilight.py": "f2417efb2ca1a3b4e5856d565fd26cddc92eccdd5ad0b75607dcfd227e057ea0"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [
+        "astropy",
+        "numpy",
+        "scipy"
+      ],
+      "original_runner_sha256": "580416319d2448d84a8cf45fbfc2b60f946bef070556c544d7b9b0d06321e8b7",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "dfc38266dca6b5b45673dc8e72057aa1a84331bd2d405ed1ce7682dfe4afd072",
+          "expected_sha256": "dfc38266dca6b5b45673dc8e72057aa1a84331bd2d405ed1ce7682dfe4afd072",
+          "matched": true,
+          "path": "validation/fixtures/planetary_positions_v1.json",
+          "pointer": "/environment/input_sha256/validation~1fixtures~1planetary_positions_v1.json"
+        },
+        {
+          "actual_sha256": "6372ac20b566dc5e9b4f106caaef2751a624c7bb46e161252e3208f4b906c1fa",
+          "expected_sha256": "6372ac20b566dc5e9b4f106caaef2751a624c7bb46e161252e3208f4b906c1fa",
+          "matched": true,
+          "path": "validation/fixtures/solar_lunar_eop_v1.json",
+          "pointer": "/environment/input_sha256/validation~1fixtures~1solar_lunar_eop_v1.json"
+        },
+        {
+          "actual_sha256": "fc689af200c829b8d5d858d9dc6a2d37b6033ba30d6e86bfdabbf7c947b3339d",
+          "expected_sha256": "fc689af200c829b8d5d858d9dc6a2d37b6033ba30d6e86bfdabbf7c947b3339d",
+          "matched": true,
+          "path": "validation/manifests/planetary_positions_policy_v1.json",
+          "pointer": "/environment/input_sha256/validation~1manifests~1planetary_positions_policy_v1.json"
+        },
+        {
+          "actual_sha256": "cea2d25e82f965e88ac0cfbafa8083385f3370c67354bc1a5694a148db4a17d8",
+          "expected_sha256": "cea2d25e82f965e88ac0cfbafa8083385f3370c67354bc1a5694a148db4a17d8",
+          "matched": true,
+          "path": "validation/manifests/planetary_positions_v1.json",
+          "pointer": "/environment/input_sha256/validation~1manifests~1planetary_positions_v1.json"
+        },
+        {
+          "actual_sha256": "fde75e02a0ab765faf7a2d0452ba290b3c3cb80e1400322cf111da9d6d0e1762",
+          "expected_sha256": "fde75e02a0ab765faf7a2d0452ba290b3c3cb80e1400322cf111da9d6d0e1762",
+          "matched": true,
+          "path": "validation/reference_generation/planetary_positions.py",
+          "pointer": "/environment/input_sha256/validation~1reference_generation~1planetary_positions.py"
+        },
+        {
+          "actual_sha256": "c795c399b6d84aa137aeebafc30e8814ce92a07eed8277db5da5742cbea9c25e",
+          "expected_sha256": "c795c399b6d84aa137aeebafc30e8814ce92a07eed8277db5da5742cbea9c25e",
+          "matched": true,
+          "path": "validation/reference_generation/reference-requirements.txt",
+          "pointer": "/environment/input_sha256/validation~1reference_generation~1reference-requirements.txt"
+        },
+        {
+          "actual_sha256": "bd0819a973629dfe14f520dbdc5d30bfefcdbecbca774e680f12b69bc9fd2ac1",
+          "expected_sha256": "bd0819a973629dfe14f520dbdc5d30bfefcdbecbca774e680f12b69bc9fd2ac1",
+          "matched": true,
+          "path": "src/astroscope/observer.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1observer.py"
+        },
+        {
+          "actual_sha256": "88b75c5b58c039053f11040cdc83bba4e63729bd3874729a911caa75a1093b4e",
+          "expected_sha256": "88b75c5b58c039053f11040cdc83bba4e63729bd3874729a911caa75a1093b4e",
+          "matched": true,
+          "path": "src/astroscope/solar_system.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1solar_system.py"
+        },
+        {
+          "actual_sha256": "b4360787d7c0678808196f31ca658a7c6b31bc8adc4eebfd4ec172b18a969b94",
+          "expected_sha256": "b4360787d7c0678808196f31ca658a7c6b31bc8adc4eebfd4ec172b18a969b94",
+          "matched": true,
+          "path": "src/astroscope/visibility.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1visibility.py"
+        },
+        {
+          "actual_sha256": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+          "expected_sha256": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+          "matched": true,
+          "path": "validation/celestial_coordinates.py",
+          "pointer": "/environment/source_sha256/validation~1celestial_coordinates.py"
+        },
+        {
+          "actual_sha256": "580416319d2448d84a8cf45fbfc2b60f946bef070556c544d7b9b0d06321e8b7",
+          "expected_sha256": "580416319d2448d84a8cf45fbfc2b60f946bef070556c544d7b9b0d06321e8b7",
+          "matched": true,
+          "path": "validation/planetary_positions.py",
+          "pointer": "/environment/source_sha256/validation~1planetary_positions.py"
+        },
+        {
+          "actual_sha256": "f2417efb2ca1a3b4e5856d565fd26cddc92eccdd5ad0b75607dcfd227e057ea0",
+          "expected_sha256": "f2417efb2ca1a3b4e5856d565fd26cddc92eccdd5ad0b75607dcfd227e057ea0",
+          "matched": true,
+          "path": "validation/solar_lunar_twilight.py",
+          "pointer": "/environment/source_sha256/validation~1solar_lunar_twilight.py"
+        }
+      ],
+      "runner": "validation/planetary_positions.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "55621739d469e02b28b4c8d9d9fc89b925f742b9",
+      "commit_object_present": true,
+      "commit_tree": "234b30b34d806d30f4831b2b6d675fc4f3315edf",
+      "current_runner_sha256": "6b35ec60d37e3abecc3e77dc520c9f63d4e329f46d7fdacbdffae538f384ef4f",
+      "id": "M54",
+      "import_closure_sha256": {
+        "src/astroscope/coordinates.py": "bb53f0991ba135e6c5d5f67510bc2986e73442318ffe6b44a2155ab800eb08e9",
+        "src/astroscope/observer.py": "bd0819a973629dfe14f520dbdc5d30bfefcdbecbca774e680f12b69bc9fd2ac1",
+        "src/astroscope/planner.py": "07ac6f6ab794ba0bb575b29adf4dc763c707573a7d00af2db36c0430358e5c15",
+        "src/astroscope/solar_system.py": "88b75c5b58c039053f11040cdc83bba4e63729bd3874729a911caa75a1093b4e",
+        "src/astroscope/transit_scheduler.py": "8ed6a28746a055accf1256911421a6dd5c77f1b8e54e0401524261969768897b",
+        "src/astroscope/transit_timing.py": "7d1f72807a5991f94be66cface374162fd3ebb10c1cf2cdf0b18a5d7d716d27e",
+        "src/astroscope/transit_visibility.py": "066d24f172fe41ebc364342cf56bcb964c65dba0fd223c41a3f777e47e7ef718",
+        "src/astroscope/visibility.py": "b4360787d7c0678808196f31ca658a7c6b31bc8adc4eebfd4ec172b18a969b94",
+        "validation/celestial_coordinates.py": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+        "validation/solar_lunar_twilight.py": "f2417efb2ca1a3b4e5856d565fd26cddc92eccdd5ad0b75607dcfd227e057ea0",
+        "validation/visibility_sampling.py": "6b35ec60d37e3abecc3e77dc520c9f63d4e329f46d7fdacbdffae538f384ef4f"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [
+        "astropy",
+        "numpy",
+        "scipy"
+      ],
+      "original_runner_sha256": "6b35ec60d37e3abecc3e77dc520c9f63d4e329f46d7fdacbdffae538f384ef4f",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "3b63651777f2e66de59fafc63144363c884a5c38f0a1e39520d8a805422a0e5a",
+          "expected_sha256": "3b63651777f2e66de59fafc63144363c884a5c38f0a1e39520d8a805422a0e5a",
+          "matched": true,
+          "path": "validation/fixtures/visibility_sampling_v1.json",
+          "pointer": "/environment/input_sha256/validation~1fixtures~1visibility_sampling_v1.json"
+        },
+        {
+          "actual_sha256": "1af68cdb03286788b86d9a1f24a857a7a1709ff3f9afa6afde9f2f595dabbb82",
+          "expected_sha256": "1af68cdb03286788b86d9a1f24a857a7a1709ff3f9afa6afde9f2f595dabbb82",
+          "matched": true,
+          "path": "validation/manifests/visibility_sampling_policy_v1.json",
+          "pointer": "/environment/input_sha256/validation~1manifests~1visibility_sampling_policy_v1.json"
+        },
+        {
+          "actual_sha256": "873ca587c322a7c7932b6b6da44ee2f503c4a27cbe3f7e04a3276453250ab55d",
+          "expected_sha256": "873ca587c322a7c7932b6b6da44ee2f503c4a27cbe3f7e04a3276453250ab55d",
+          "matched": true,
+          "path": "validation/manifests/visibility_sampling_v1.json",
+          "pointer": "/environment/input_sha256/validation~1manifests~1visibility_sampling_v1.json"
+        },
+        {
+          "actual_sha256": "8ed6a28746a055accf1256911421a6dd5c77f1b8e54e0401524261969768897b",
+          "expected_sha256": "8ed6a28746a055accf1256911421a6dd5c77f1b8e54e0401524261969768897b",
+          "matched": true,
+          "path": "src/astroscope/transit_scheduler.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1transit_scheduler.py"
+        },
+        {
+          "actual_sha256": "7d1f72807a5991f94be66cface374162fd3ebb10c1cf2cdf0b18a5d7d716d27e",
+          "expected_sha256": "7d1f72807a5991f94be66cface374162fd3ebb10c1cf2cdf0b18a5d7d716d27e",
+          "matched": true,
+          "path": "src/astroscope/transit_timing.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1transit_timing.py"
+        },
+        {
+          "actual_sha256": "066d24f172fe41ebc364342cf56bcb964c65dba0fd223c41a3f777e47e7ef718",
+          "expected_sha256": "066d24f172fe41ebc364342cf56bcb964c65dba0fd223c41a3f777e47e7ef718",
+          "matched": true,
+          "path": "src/astroscope/transit_visibility.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1transit_visibility.py"
+        },
+        {
+          "actual_sha256": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+          "expected_sha256": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+          "matched": true,
+          "path": "validation/celestial_coordinates.py",
+          "pointer": "/environment/source_sha256/validation~1celestial_coordinates.py"
+        },
+        {
+          "actual_sha256": "f2417efb2ca1a3b4e5856d565fd26cddc92eccdd5ad0b75607dcfd227e057ea0",
+          "expected_sha256": "f2417efb2ca1a3b4e5856d565fd26cddc92eccdd5ad0b75607dcfd227e057ea0",
+          "matched": true,
+          "path": "validation/solar_lunar_twilight.py",
+          "pointer": "/environment/source_sha256/validation~1solar_lunar_twilight.py"
+        },
+        {
+          "actual_sha256": "6b35ec60d37e3abecc3e77dc520c9f63d4e329f46d7fdacbdffae538f384ef4f",
+          "expected_sha256": "6b35ec60d37e3abecc3e77dc520c9f63d4e329f46d7fdacbdffae538f384ef4f",
+          "matched": true,
+          "path": "validation/visibility_sampling.py",
+          "pointer": "/environment/source_sha256/validation~1visibility_sampling.py"
+        }
+      ],
+      "runner": "validation/visibility_sampling.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "e7e5756e635c28cc53fcb3cadeda1dd33589a1ca",
+      "commit_object_present": true,
+      "commit_tree": "af2af8954867ddcb7ce2aceca28b92b396afee7d",
+      "current_runner_sha256": "fd3f34fc746c60fc31aae0fe4a54f23f4a07a15d21320fedbec4adee636e4d05",
+      "id": "M55",
+      "import_closure_sha256": {
+        "src/astroscope/coordinates.py": "bb53f0991ba135e6c5d5f67510bc2986e73442318ffe6b44a2155ab800eb08e9",
+        "src/astroscope/observer.py": "bd0819a973629dfe14f520dbdc5d30bfefcdbecbca774e680f12b69bc9fd2ac1",
+        "src/astroscope/planner.py": "07ac6f6ab794ba0bb575b29adf4dc763c707573a7d00af2db36c0430358e5c15",
+        "src/astroscope/schedule.py": "103aae4ec513917269db7738a834692dc2d5e4af1ba5bbdf116960cc2efba63c",
+        "src/astroscope/schedule_visuals.py": "d41a91de9ec2c1733e7d9ae5469f76e93fedd1795ee262b1b556254256f86fd4",
+        "src/astroscope/solar_system.py": "88b75c5b58c039053f11040cdc83bba4e63729bd3874729a911caa75a1093b4e",
+        "src/astroscope/transit_ranking.py": "1538c902216c34d30ce3a656fae52eafe406f82ab5f1c5fbfd2bd9b9f47fdbb6",
+        "src/astroscope/transit_scheduler.py": "8ed6a28746a055accf1256911421a6dd5c77f1b8e54e0401524261969768897b",
+        "src/astroscope/transit_timing.py": "7d1f72807a5991f94be66cface374162fd3ebb10c1cf2cdf0b18a5d7d716d27e",
+        "src/astroscope/transit_visibility.py": "066d24f172fe41ebc364342cf56bcb964c65dba0fd223c41a3f777e47e7ef718",
+        "src/astroscope/visibility.py": "b4360787d7c0678808196f31ca658a7c6b31bc8adc4eebfd4ec172b18a969b94",
+        "src/astroscope/weather.py": "12b75decc193c7b2ef503b4d440665e872db6412e3cb354a9da600f068934fed",
+        "validation/celestial_coordinates.py": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+        "validation/heuristic_characterisation.py": "fd3f34fc746c60fc31aae0fe4a54f23f4a07a15d21320fedbec4adee636e4d05"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [
+        "astropy",
+        "numpy",
+        "plotly"
+      ],
+      "original_runner_sha256": "fd3f34fc746c60fc31aae0fe4a54f23f4a07a15d21320fedbec4adee636e4d05",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "e224eea3b1ff65c174266969b26ed0296ee1022f03f6820589ce341f12df87e4",
+          "expected_sha256": "e224eea3b1ff65c174266969b26ed0296ee1022f03f6820589ce341f12df87e4",
+          "matched": true,
+          "path": "validation/fixtures/heuristic_characterisation_v1.json",
+          "pointer": "/environment/input_sha256/validation~1fixtures~1heuristic_characterisation_v1.json"
+        },
+        {
+          "actual_sha256": "1ef060f424092c12e8173bb955def1526ea980818e135e62bfc54cb8ce4f2681",
+          "expected_sha256": "1ef060f424092c12e8173bb955def1526ea980818e135e62bfc54cb8ce4f2681",
+          "matched": true,
+          "path": "validation/manifests/heuristic_characterisation_policy_v1.json",
+          "pointer": "/environment/input_sha256/validation~1manifests~1heuristic_characterisation_policy_v1.json"
+        },
+        {
+          "actual_sha256": "074f2294a6b2442f144b2abeda8f41093431eb2eaa3fbe24315641a677426621",
+          "expected_sha256": "074f2294a6b2442f144b2abeda8f41093431eb2eaa3fbe24315641a677426621",
+          "matched": true,
+          "path": "validation/manifests/heuristic_characterisation_v1.json",
+          "pointer": "/environment/input_sha256/validation~1manifests~1heuristic_characterisation_v1.json"
+        },
+        {
+          "actual_sha256": "07ac6f6ab794ba0bb575b29adf4dc763c707573a7d00af2db36c0430358e5c15",
+          "expected_sha256": "07ac6f6ab794ba0bb575b29adf4dc763c707573a7d00af2db36c0430358e5c15",
+          "matched": true,
+          "path": "src/astroscope/planner.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1planner.py"
+        },
+        {
+          "actual_sha256": "103aae4ec513917269db7738a834692dc2d5e4af1ba5bbdf116960cc2efba63c",
+          "expected_sha256": "103aae4ec513917269db7738a834692dc2d5e4af1ba5bbdf116960cc2efba63c",
+          "matched": true,
+          "path": "src/astroscope/schedule.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1schedule.py"
+        },
+        {
+          "actual_sha256": "1538c902216c34d30ce3a656fae52eafe406f82ab5f1c5fbfd2bd9b9f47fdbb6",
+          "expected_sha256": "1538c902216c34d30ce3a656fae52eafe406f82ab5f1c5fbfd2bd9b9f47fdbb6",
+          "matched": true,
+          "path": "src/astroscope/transit_ranking.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1transit_ranking.py"
+        },
+        {
+          "actual_sha256": "7d1f72807a5991f94be66cface374162fd3ebb10c1cf2cdf0b18a5d7d716d27e",
+          "expected_sha256": "7d1f72807a5991f94be66cface374162fd3ebb10c1cf2cdf0b18a5d7d716d27e",
+          "matched": true,
+          "path": "src/astroscope/transit_timing.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1transit_timing.py"
+        },
+        {
+          "actual_sha256": "12b75decc193c7b2ef503b4d440665e872db6412e3cb354a9da600f068934fed",
+          "expected_sha256": "12b75decc193c7b2ef503b4d440665e872db6412e3cb354a9da600f068934fed",
+          "matched": true,
+          "path": "src/astroscope/weather.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1weather.py"
+        },
+        {
+          "actual_sha256": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+          "expected_sha256": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+          "matched": true,
+          "path": "validation/celestial_coordinates.py",
+          "pointer": "/environment/source_sha256/validation~1celestial_coordinates.py"
+        },
+        {
+          "actual_sha256": "fd3f34fc746c60fc31aae0fe4a54f23f4a07a15d21320fedbec4adee636e4d05",
+          "expected_sha256": "fd3f34fc746c60fc31aae0fe4a54f23f4a07a15d21320fedbec4adee636e4d05",
+          "matched": true,
+          "path": "validation/heuristic_characterisation.py",
+          "pointer": "/environment/source_sha256/validation~1heuristic_characterisation.py"
+        }
+      ],
+      "runner": "validation/heuristic_characterisation.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "89ee45f4a93da199e5b0f12e3f7d89bfc0dfec85",
+      "commit_object_present": true,
+      "commit_tree": "9de2aed88832b8e4a49f9a05b8dff51d4f04a109",
+      "current_runner_sha256": "07402030156ebbc266efca75657d41ffdd351812bbdb207eaeb4cf370d2a6340",
+      "id": "M56",
+      "import_closure_sha256": {
+        "src/astroscope/coordinates.py": "bb53f0991ba135e6c5d5f67510bc2986e73442318ffe6b44a2155ab800eb08e9",
+        "src/astroscope/light_curve.py": "f6fd35435b552627d53155d2dca3fc558ea5edcb5dc58aa896c7dc23f040b3ef",
+        "src/astroscope/light_curve_period.py": "50b305831bbdb0f7d5c2afe5db5f367ac3e76261dc283aecaa0e5991d0fc7ee0",
+        "src/astroscope/light_curve_processing.py": "9fa1e6ddffbc2f2a7454c67d24ffd3bb6fe6a26beed9643492b838d8a714893e",
+        "src/astroscope/light_curve_transit_search.py": "daa92537c91274c774379385de85dfce3862fda73ccd891c2001054ecd2fd55a",
+        "src/astroscope/observer.py": "bd0819a973629dfe14f520dbdc5d30bfefcdbecbca774e680f12b69bc9fd2ac1",
+        "src/astroscope/visibility.py": "b4360787d7c0678808196f31ca658a7c6b31bc8adc4eebfd4ec172b18a969b94",
+        "validation/celestial_coordinates.py": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+        "validation/light_curve_campaign.py": "ec0b8da31818540a5b680849afff989af8fcd3bc8869d1655867d0fb0ef15499",
+        "validation/light_curve_references.py": "7489dcf46af96056d4d071b3419e44802d26b7f9f8b71efc701f9c0891b4f2fc"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [
+        "astropy",
+        "numpy"
+      ],
+      "original_runner_sha256": "ec0b8da31818540a5b680849afff989af8fcd3bc8869d1655867d0fb0ef15499",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "43c2c700ed2647d4bcd8a1484fe4521c9b7d25b65c12450624a19de6e7ac8de3",
+          "expected_sha256": "43c2c700ed2647d4bcd8a1484fe4521c9b7d25b65c12450624a19de6e7ac8de3",
+          "matched": true,
+          "path": "validation/fixtures/light_curve_campaign_v1.json",
+          "pointer": "/environment/input_sha256/validation~1fixtures~1light_curve_campaign_v1.json"
+        },
+        {
+          "actual_sha256": "d246d911f0efe70a6f018c7ca7f1e1fe0fa25c16e0523fa8daae5eb78aec54b7",
+          "expected_sha256": "d246d911f0efe70a6f018c7ca7f1e1fe0fa25c16e0523fa8daae5eb78aec54b7",
+          "matched": true,
+          "path": "validation/manifests/light_curve_campaign_policy_v1.json",
+          "pointer": "/environment/input_sha256/validation~1manifests~1light_curve_campaign_policy_v1.json"
+        },
+        {
+          "actual_sha256": "7b10d257df73967fb1e08b128e1f46fca003a9ee704992323cb9bd717c37aa1f",
+          "expected_sha256": "7b10d257df73967fb1e08b128e1f46fca003a9ee704992323cb9bd717c37aa1f",
+          "matched": true,
+          "path": "validation/manifests/light_curve_campaign_v1.json",
+          "pointer": "/environment/input_sha256/validation~1manifests~1light_curve_campaign_v1.json"
+        },
+        {
+          "actual_sha256": "f6fd35435b552627d53155d2dca3fc558ea5edcb5dc58aa896c7dc23f040b3ef",
+          "expected_sha256": "f6fd35435b552627d53155d2dca3fc558ea5edcb5dc58aa896c7dc23f040b3ef",
+          "matched": true,
+          "path": "src/astroscope/light_curve.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1light_curve.py"
+        },
+        {
+          "actual_sha256": "50b305831bbdb0f7d5c2afe5db5f367ac3e76261dc283aecaa0e5991d0fc7ee0",
+          "expected_sha256": "50b305831bbdb0f7d5c2afe5db5f367ac3e76261dc283aecaa0e5991d0fc7ee0",
+          "matched": true,
+          "path": "src/astroscope/light_curve_period.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1light_curve_period.py"
+        },
+        {
+          "actual_sha256": "9fa1e6ddffbc2f2a7454c67d24ffd3bb6fe6a26beed9643492b838d8a714893e",
+          "expected_sha256": "9fa1e6ddffbc2f2a7454c67d24ffd3bb6fe6a26beed9643492b838d8a714893e",
+          "matched": true,
+          "path": "src/astroscope/light_curve_processing.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1light_curve_processing.py"
+        },
+        {
+          "actual_sha256": "daa92537c91274c774379385de85dfce3862fda73ccd891c2001054ecd2fd55a",
+          "expected_sha256": "daa92537c91274c774379385de85dfce3862fda73ccd891c2001054ecd2fd55a",
+          "matched": true,
+          "path": "src/astroscope/light_curve_transit_search.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1light_curve_transit_search.py"
+        },
+        {
+          "actual_sha256": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+          "expected_sha256": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+          "matched": true,
+          "path": "validation/celestial_coordinates.py",
+          "pointer": "/environment/source_sha256/validation~1celestial_coordinates.py"
+        },
+        {
+          "actual_sha256": "ec0b8da31818540a5b680849afff989af8fcd3bc8869d1655867d0fb0ef15499",
+          "expected_sha256": "ec0b8da31818540a5b680849afff989af8fcd3bc8869d1655867d0fb0ef15499",
+          "matched": true,
+          "path": "validation/light_curve_campaign.py",
+          "pointer": "/environment/source_sha256/validation~1light_curve_campaign.py"
+        },
+        {
+          "actual_sha256": "7489dcf46af96056d4d071b3419e44802d26b7f9f8b71efc701f9c0891b4f2fc",
+          "expected_sha256": "7489dcf46af96056d4d071b3419e44802d26b7f9f8b71efc701f9c0891b4f2fc",
+          "matched": true,
+          "path": "validation/light_curve_references.py",
+          "pointer": "/environment/source_sha256/validation~1light_curve_references.py"
+        },
+        {
+          "actual_sha256": "d55c60aa1a931aeb843ca175aa3fcdfcb7d732933452ca3f02157d60be36f183",
+          "expected_sha256": "d55c60aa1a931aeb843ca175aa3fcdfcb7d732933452ca3f02157d60be36f183",
+          "matched": true,
+          "path": "validation/fixtures/light_curve_observed_baseline_v1.json",
+          "pointer": "/observation_audit/baseline_sha256/validation~1fixtures~1light_curve_observed_baseline_v1.json"
+        },
+        {
+          "actual_sha256": "663ee61f68d27a63e63fe8d9bb98fd3683a46e9461c127ee2cb25c3fc419f296",
+          "expected_sha256": "663ee61f68d27a63e63fe8d9bb98fd3683a46e9461c127ee2cb25c3fc419f296",
+          "matched": true,
+          "path": "validation/fixtures/light_curve_observed_haswell_v1.json",
+          "pointer": "/observation_audit/baseline_sha256/validation~1fixtures~1light_curve_observed_haswell_v1.json"
+        }
+      ],
+      "runner": "validation/light_curve_campaign.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "010ea438b310c76cb73404d62691fd822c4cb446",
+      "commit_object_present": true,
+      "commit_tree": "90a10804ac1e1605596be4b90fbe70923b1954f2",
+      "current_runner_sha256": "494d5768d4572849056930a99229899de1513495394c7812b1d582dcba8e04b6",
+      "id": "M57",
+      "import_closure_sha256": {
+        "src/astroscope/coordinates.py": "bb53f0991ba135e6c5d5f67510bc2986e73442318ffe6b44a2155ab800eb08e9",
+        "src/astroscope/light_curve.py": "f6fd35435b552627d53155d2dca3fc558ea5edcb5dc58aa896c7dc23f040b3ef",
+        "src/astroscope/light_curve_period.py": "50b305831bbdb0f7d5c2afe5db5f367ac3e76261dc283aecaa0e5991d0fc7ee0",
+        "src/astroscope/light_curve_processing.py": "9fa1e6ddffbc2f2a7454c67d24ffd3bb6fe6a26beed9643492b838d8a714893e",
+        "src/astroscope/light_curve_transit_search.py": "daa92537c91274c774379385de85dfce3862fda73ccd891c2001054ecd2fd55a",
+        "src/astroscope/observer.py": "bd0819a973629dfe14f520dbdc5d30bfefcdbecbca774e680f12b69bc9fd2ac1",
+        "src/astroscope/visibility.py": "b4360787d7c0678808196f31ca658a7c6b31bc8adc4eebfd4ec172b18a969b94",
+        "validation/bls_discrepancy.py": "67254a6de1701b2b253d0deaaa23dc2ef22669baa2ed5bebf14c8fb22200e286",
+        "validation/celestial_coordinates.py": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+        "validation/light_curve_campaign.py": "ec0b8da31818540a5b680849afff989af8fcd3bc8869d1655867d0fb0ef15499",
+        "validation/light_curve_references.py": "7489dcf46af96056d4d071b3419e44802d26b7f9f8b71efc701f9c0891b4f2fc"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [
+        "astropy",
+        "numpy"
+      ],
+      "original_runner_sha256": "67254a6de1701b2b253d0deaaa23dc2ef22669baa2ed5bebf14c8fb22200e286",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "1a8321a825004402f70a7fd6a3260d965a6579ea2c39b0a22eb05b6a53ca42bc",
+          "expected_sha256": "1a8321a825004402f70a7fd6a3260d965a6579ea2c39b0a22eb05b6a53ca42bc",
+          "matched": true,
+          "path": "validation/manifests/bls_discrepancy_policy_v1.json",
+          "pointer": "/environment/input_sha256/validation~1manifests~1bls_discrepancy_policy_v1.json"
+        },
+        {
+          "actual_sha256": "7b10d257df73967fb1e08b128e1f46fca003a9ee704992323cb9bd717c37aa1f",
+          "expected_sha256": "7b10d257df73967fb1e08b128e1f46fca003a9ee704992323cb9bd717c37aa1f",
+          "matched": true,
+          "path": "validation/manifests/light_curve_campaign_v1.json",
+          "pointer": "/environment/input_sha256/validation~1manifests~1light_curve_campaign_v1.json"
+        },
+        {
+          "actual_sha256": "c8bf66029a52a0698b2dcad5c75a9f5e4ab2ade214628eafc29d9f97da199173",
+          "expected_sha256": "c8bf66029a52a0698b2dcad5c75a9f5e4ab2ade214628eafc29d9f97da199173",
+          "matched": true,
+          "path": "validation/results/light_curve_campaign_reference_run.json",
+          "pointer": "/environment/input_sha256/validation~1results~1light_curve_campaign_reference_run.json"
+        },
+        {
+          "actual_sha256": "9fa1e6ddffbc2f2a7454c67d24ffd3bb6fe6a26beed9643492b838d8a714893e",
+          "expected_sha256": "9fa1e6ddffbc2f2a7454c67d24ffd3bb6fe6a26beed9643492b838d8a714893e",
+          "matched": true,
+          "path": "src/astroscope/light_curve_processing.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1light_curve_processing.py"
+        },
+        {
+          "actual_sha256": "daa92537c91274c774379385de85dfce3862fda73ccd891c2001054ecd2fd55a",
+          "expected_sha256": "daa92537c91274c774379385de85dfce3862fda73ccd891c2001054ecd2fd55a",
+          "matched": true,
+          "path": "src/astroscope/light_curve_transit_search.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1light_curve_transit_search.py"
+        },
+        {
+          "actual_sha256": "67254a6de1701b2b253d0deaaa23dc2ef22669baa2ed5bebf14c8fb22200e286",
+          "expected_sha256": "67254a6de1701b2b253d0deaaa23dc2ef22669baa2ed5bebf14c8fb22200e286",
+          "matched": true,
+          "path": "validation/bls_discrepancy.py",
+          "pointer": "/environment/source_sha256/validation~1bls_discrepancy.py"
+        },
+        {
+          "actual_sha256": "ec0b8da31818540a5b680849afff989af8fcd3bc8869d1655867d0fb0ef15499",
+          "expected_sha256": "ec0b8da31818540a5b680849afff989af8fcd3bc8869d1655867d0fb0ef15499",
+          "matched": true,
+          "path": "validation/light_curve_campaign.py",
+          "pointer": "/environment/source_sha256/validation~1light_curve_campaign.py"
+        },
+        {
+          "actual_sha256": "7489dcf46af96056d4d071b3419e44802d26b7f9f8b71efc701f9c0891b4f2fc",
+          "expected_sha256": "7489dcf46af96056d4d071b3419e44802d26b7f9f8b71efc701f9c0891b4f2fc",
+          "matched": true,
+          "path": "validation/light_curve_references.py",
+          "pointer": "/environment/source_sha256/validation~1light_curve_references.py"
+        }
+      ],
+      "runner": "validation/bls_discrepancy.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "74e397b0093284a23ba1940d1cb3ae35b0b06b1c",
+      "commit_object_present": true,
+      "commit_tree": "e6e18ec060f6eb2efea0af396ab1bda868e333eb",
+      "current_runner_sha256": "6ec1e30ea0b02e95cd6117af28de64ced2c398335dd2646766dfc702fd00f9e8",
+      "id": "M58",
+      "import_closure_sha256": {
+        "src/astroscope/_physical_bls.py": "0acff1b4de61ea8c289522472f8266892a5152d90ba61b25bab8e5a6407acd80",
+        "src/astroscope/coordinates.py": "bb53f0991ba135e6c5d5f67510bc2986e73442318ffe6b44a2155ab800eb08e9",
+        "src/astroscope/light_curve.py": "f6fd35435b552627d53155d2dca3fc558ea5edcb5dc58aa896c7dc23f040b3ef",
+        "src/astroscope/light_curve_period.py": "50b305831bbdb0f7d5c2afe5db5f367ac3e76261dc283aecaa0e5991d0fc7ee0",
+        "src/astroscope/light_curve_processing.py": "9fa1e6ddffbc2f2a7454c67d24ffd3bb6fe6a26beed9643492b838d8a714893e",
+        "src/astroscope/light_curve_transit_search.py": "0590cee65c546fa36bef18ae5d30eaa830313779e098d3f95f421b9640635647",
+        "src/astroscope/observer.py": "bd0819a973629dfe14f520dbdc5d30bfefcdbecbca774e680f12b69bc9fd2ac1",
+        "src/astroscope/visibility.py": "b4360787d7c0678808196f31ca658a7c6b31bc8adc4eebfd4ec172b18a969b94",
+        "validation/celestial_coordinates.py": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+        "validation/historical/mission57_light_curve_transit_search.py": "daa92537c91274c774379385de85dfce3862fda73ccd891c2001054ecd2fd55a",
+        "validation/light_curve_campaign.py": "07402030156ebbc266efca75657d41ffdd351812bbdb207eaeb4cf370d2a6340",
+        "validation/light_curve_references.py": "7489dcf46af96056d4d071b3419e44802d26b7f9f8b71efc701f9c0891b4f2fc",
+        "validation/physical_bls_campaign.py": "6ec1e30ea0b02e95cd6117af28de64ced2c398335dd2646766dfc702fd00f9e8"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [
+        "astropy",
+        "numpy"
+      ],
+      "original_runner_sha256": "6ec1e30ea0b02e95cd6117af28de64ced2c398335dd2646766dfc702fd00f9e8",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "43c2c700ed2647d4bcd8a1484fe4521c9b7d25b65c12450624a19de6e7ac8de3",
+          "expected_sha256": "43c2c700ed2647d4bcd8a1484fe4521c9b7d25b65c12450624a19de6e7ac8de3",
+          "matched": true,
+          "path": "validation/fixtures/light_curve_campaign_v1.json",
+          "pointer": "/environment/input_sha256/validation~1fixtures~1light_curve_campaign_v1.json"
+        },
+        {
+          "actual_sha256": "d246d911f0efe70a6f018c7ca7f1e1fe0fa25c16e0523fa8daae5eb78aec54b7",
+          "expected_sha256": "d246d911f0efe70a6f018c7ca7f1e1fe0fa25c16e0523fa8daae5eb78aec54b7",
+          "matched": true,
+          "path": "validation/manifests/light_curve_campaign_policy_v1.json",
+          "pointer": "/environment/input_sha256/validation~1manifests~1light_curve_campaign_policy_v1.json"
+        },
+        {
+          "actual_sha256": "7b10d257df73967fb1e08b128e1f46fca003a9ee704992323cb9bd717c37aa1f",
+          "expected_sha256": "7b10d257df73967fb1e08b128e1f46fca003a9ee704992323cb9bd717c37aa1f",
+          "matched": true,
+          "path": "validation/manifests/light_curve_campaign_v1.json",
+          "pointer": "/environment/input_sha256/validation~1manifests~1light_curve_campaign_v1.json"
+        },
+        {
+          "actual_sha256": "1d43ee7baabc0bd350b0ef5570c1af4b51f380af43fe8c408d743cd3252f891c",
+          "expected_sha256": "1d43ee7baabc0bd350b0ef5570c1af4b51f380af43fe8c408d743cd3252f891c",
+          "matched": true,
+          "path": "validation/manifests/physical_bls_policy_v1.json",
+          "pointer": "/environment/input_sha256/validation~1manifests~1physical_bls_policy_v1.json"
+        },
+        {
+          "actual_sha256": "c8bf66029a52a0698b2dcad5c75a9f5e4ab2ade214628eafc29d9f97da199173",
+          "expected_sha256": "c8bf66029a52a0698b2dcad5c75a9f5e4ab2ade214628eafc29d9f97da199173",
+          "matched": true,
+          "path": "validation/results/light_curve_campaign_reference_run.json",
+          "pointer": "/environment/input_sha256/validation~1results~1light_curve_campaign_reference_run.json"
+        },
+        {
+          "actual_sha256": "0acff1b4de61ea8c289522472f8266892a5152d90ba61b25bab8e5a6407acd80",
+          "expected_sha256": "0acff1b4de61ea8c289522472f8266892a5152d90ba61b25bab8e5a6407acd80",
+          "matched": true,
+          "path": "src/astroscope/_physical_bls.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1_physical_bls.py"
+        },
+        {
+          "actual_sha256": "f6fd35435b552627d53155d2dca3fc558ea5edcb5dc58aa896c7dc23f040b3ef",
+          "expected_sha256": "f6fd35435b552627d53155d2dca3fc558ea5edcb5dc58aa896c7dc23f040b3ef",
+          "matched": true,
+          "path": "src/astroscope/light_curve.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1light_curve.py"
+        },
+        {
+          "actual_sha256": "50b305831bbdb0f7d5c2afe5db5f367ac3e76261dc283aecaa0e5991d0fc7ee0",
+          "expected_sha256": "50b305831bbdb0f7d5c2afe5db5f367ac3e76261dc283aecaa0e5991d0fc7ee0",
+          "matched": true,
+          "path": "src/astroscope/light_curve_period.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1light_curve_period.py"
+        },
+        {
+          "actual_sha256": "9fa1e6ddffbc2f2a7454c67d24ffd3bb6fe6a26beed9643492b838d8a714893e",
+          "expected_sha256": "9fa1e6ddffbc2f2a7454c67d24ffd3bb6fe6a26beed9643492b838d8a714893e",
+          "matched": true,
+          "path": "src/astroscope/light_curve_processing.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1light_curve_processing.py"
+        },
+        {
+          "actual_sha256": "0590cee65c546fa36bef18ae5d30eaa830313779e098d3f95f421b9640635647",
+          "expected_sha256": "0590cee65c546fa36bef18ae5d30eaa830313779e098d3f95f421b9640635647",
+          "matched": true,
+          "path": "src/astroscope/light_curve_transit_search.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1light_curve_transit_search.py"
+        },
+        {
+          "actual_sha256": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+          "expected_sha256": "0bae0795c4149f5f16b404e89fe51389475e9bed9f1d84dec82226c35e48b912",
+          "matched": true,
+          "path": "validation/celestial_coordinates.py",
+          "pointer": "/environment/source_sha256/validation~1celestial_coordinates.py"
+        },
+        {
+          "actual_sha256": "daa92537c91274c774379385de85dfce3862fda73ccd891c2001054ecd2fd55a",
+          "expected_sha256": "daa92537c91274c774379385de85dfce3862fda73ccd891c2001054ecd2fd55a",
+          "matched": true,
+          "path": "validation/historical/mission57_light_curve_transit_search.py",
+          "pointer": "/environment/source_sha256/validation~1historical~1mission57_light_curve_transit_search.py"
+        },
+        {
+          "actual_sha256": "07402030156ebbc266efca75657d41ffdd351812bbdb207eaeb4cf370d2a6340",
+          "expected_sha256": "07402030156ebbc266efca75657d41ffdd351812bbdb207eaeb4cf370d2a6340",
+          "matched": true,
+          "path": "validation/light_curve_campaign.py",
+          "pointer": "/environment/source_sha256/validation~1light_curve_campaign.py"
+        },
+        {
+          "actual_sha256": "7489dcf46af96056d4d071b3419e44802d26b7f9f8b71efc701f9c0891b4f2fc",
+          "expected_sha256": "7489dcf46af96056d4d071b3419e44802d26b7f9f8b71efc701f9c0891b4f2fc",
+          "matched": true,
+          "path": "validation/light_curve_references.py",
+          "pointer": "/environment/source_sha256/validation~1light_curve_references.py"
+        },
+        {
+          "actual_sha256": "6ec1e30ea0b02e95cd6117af28de64ced2c398335dd2646766dfc702fd00f9e8",
+          "expected_sha256": "6ec1e30ea0b02e95cd6117af28de64ced2c398335dd2646766dfc702fd00f9e8",
+          "matched": true,
+          "path": "validation/physical_bls_campaign.py",
+          "pointer": "/environment/source_sha256/validation~1physical_bls_campaign.py"
+        }
+      ],
+      "runner": "validation/physical_bls_campaign.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "105a7ace4e423966bf95365a8f235cddd56df21f",
+      "commit_object_present": true,
+      "commit_tree": "288f5aa3e500c9474d7973cb8da7b2545c857f5b",
+      "current_runner_sha256": "ecc4e6b1391c91917852553a3ab430a9d62d9c3c76929485a17fbf7b918cd615",
+      "id": "M60",
+      "import_closure_sha256": {
+        "src/astroscope/exoplanet_catalog.py": "990c411fe9660acc83e77fce0fa98febd9f2fcc61d3855d38aaf2087567f10cb",
+        "src/astroscope/exoplanet_visuals.py": "a5e6b6b9bc71269a90a76237338619bb1569afbb47a453de0e41f4029bed9c90",
+        "src/astroscope/gaia_catalog.py": "60aa0ed7a37b00f995b66ac67bd2fc750aec1fecf95d496919ede84ce1ca2974",
+        "src/astroscope/gaia_visuals.py": "42d1c763a325cf932f6294ec08ace95b6b88db84099c74b06299f1f82c6dc8fb",
+        "validation/catalogue_quantities.py": "f7977bc752125436016d595c796650f1485946d15ff46b572e5c269f33c58378"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [
+        "plotly"
+      ],
+      "original_runner_sha256": "f7977bc752125436016d595c796650f1485946d15ff46b572e5c269f33c58378",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "2335f3e88e8f254ab4366d585a83a3dac12558951df37db76c9ee1037fa200f0",
+          "expected_sha256": "2335f3e88e8f254ab4366d585a83a3dac12558951df37db76c9ee1037fa200f0",
+          "matched": true,
+          "path": "validation/fixtures/catalogue_binary_inputs_v2.json",
+          "pointer": "/environment/input_sha256/validation~1fixtures~1catalogue_binary_inputs_v2.json"
+        },
+        {
+          "actual_sha256": "2e899f03ebef8ef9e68aa3e3a6a5b38dce15ea3eff61c68622fedc8cd311b576",
+          "expected_sha256": "2e899f03ebef8ef9e68aa3e3a6a5b38dce15ea3eff61c68622fedc8cd311b576",
+          "matched": true,
+          "path": "validation/fixtures/catalogue_quantities_v1.json",
+          "pointer": "/environment/input_sha256/validation~1fixtures~1catalogue_quantities_v1.json"
+        },
+        {
+          "actual_sha256": "9d0f17e31511037bf0a3ae3ba5af94c138b1cc8a983d5c095daa62aedb5201fe",
+          "expected_sha256": "9d0f17e31511037bf0a3ae3ba5af94c138b1cc8a983d5c095daa62aedb5201fe",
+          "matched": true,
+          "path": "validation/manifests/catalogue_quantities_policy_v1.json",
+          "pointer": "/environment/input_sha256/validation~1manifests~1catalogue_quantities_policy_v1.json"
+        },
+        {
+          "actual_sha256": "5d5a1b87e3ae582232e2b59f146e7a23edd6f270cee34f2ce74ffa2f6cc6cef0",
+          "expected_sha256": "5d5a1b87e3ae582232e2b59f146e7a23edd6f270cee34f2ce74ffa2f6cc6cef0",
+          "matched": true,
+          "path": "validation/manifests/catalogue_quantities_v2.json",
+          "pointer": "/environment/input_sha256/validation~1manifests~1catalogue_quantities_v2.json"
+        },
+        {
+          "actual_sha256": "990c411fe9660acc83e77fce0fa98febd9f2fcc61d3855d38aaf2087567f10cb",
+          "expected_sha256": "990c411fe9660acc83e77fce0fa98febd9f2fcc61d3855d38aaf2087567f10cb",
+          "matched": true,
+          "path": "src/astroscope/exoplanet_catalog.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1exoplanet_catalog.py"
+        },
+        {
+          "actual_sha256": "a5e6b6b9bc71269a90a76237338619bb1569afbb47a453de0e41f4029bed9c90",
+          "expected_sha256": "a5e6b6b9bc71269a90a76237338619bb1569afbb47a453de0e41f4029bed9c90",
+          "matched": true,
+          "path": "src/astroscope/exoplanet_visuals.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1exoplanet_visuals.py"
+        },
+        {
+          "actual_sha256": "60aa0ed7a37b00f995b66ac67bd2fc750aec1fecf95d496919ede84ce1ca2974",
+          "expected_sha256": "60aa0ed7a37b00f995b66ac67bd2fc750aec1fecf95d496919ede84ce1ca2974",
+          "matched": true,
+          "path": "src/astroscope/gaia_catalog.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1gaia_catalog.py"
+        },
+        {
+          "actual_sha256": "42d1c763a325cf932f6294ec08ace95b6b88db84099c74b06299f1f82c6dc8fb",
+          "expected_sha256": "42d1c763a325cf932f6294ec08ace95b6b88db84099c74b06299f1f82c6dc8fb",
+          "matched": true,
+          "path": "src/astroscope/gaia_visuals.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1gaia_visuals.py"
+        },
+        {
+          "actual_sha256": "f7977bc752125436016d595c796650f1485946d15ff46b572e5c269f33c58378",
+          "expected_sha256": "f7977bc752125436016d595c796650f1485946d15ff46b572e5c269f33c58378",
+          "matched": true,
+          "path": "validation/catalogue_quantities.py",
+          "pointer": "/environment/source_sha256/validation~1catalogue_quantities.py"
+        }
+      ],
+      "runner": "validation/catalogue_quantities.py"
+    },
+    {
+      "ancestor_of_baseline": false,
+      "commit": "ce0cc2983939dc1e1a84eec175a07abfabf07ae8",
+      "commit_object_present": true,
+      "commit_tree": "03d8315ca99b3f24561820666300878a8e240f2c",
+      "current_runner_sha256": "c66057db734c3c9961a01bf6d9f52efb88ddc742226a2d726d7af97d490c5110",
+      "id": "M61",
+      "import_closure_sha256": {
+        "src/astroscope/_catalogue_numerics.py": "b4fe797bad593490c085331f2705e91fdc1ce3e6438effb339831d82be09e04f",
+        "src/astroscope/exoplanet_catalog.py": "f436aada18cb09341469b2dd1e5c075957c63485be9a2eba4f23e5e19c09f8b1",
+        "src/astroscope/exoplanet_visuals.py": "2d1902997f1a529bd49df26d073ee176ee72776a43e848f9c71b85454797afbb",
+        "src/astroscope/gaia_catalog.py": "0f15dbf90041de019b5c22b0f6ef0d46368fc2d712e5ae92d4faa409a1635dd3",
+        "src/astroscope/gaia_visuals.py": "3d6ed1350ee314b9c599e7464dc1d6e89a6fc24e2cb6c426a85d9132ef4de65c",
+        "validation/catalogue_correction.py": "c66057db734c3c9961a01bf6d9f52efb88ddc742226a2d726d7af97d490c5110",
+        "validation/catalogue_quantities.py": "ecc4e6b1391c91917852553a3ab430a9d62d9c3c76929485a17fbf7b918cd615",
+        "validation/historical/mission60_catalogue/exoplanet_catalog.py": "990c411fe9660acc83e77fce0fa98febd9f2fcc61d3855d38aaf2087567f10cb",
+        "validation/historical/mission60_catalogue/exoplanet_visuals.py": "6cd6684e39a908510d395893b943984fdcde2c40037d279d125839cb318b1b15",
+        "validation/historical/mission60_catalogue/gaia_catalog.py": "60aa0ed7a37b00f995b66ac67bd2fc750aec1fecf95d496919ede84ce1ca2974",
+        "validation/historical/mission60_catalogue/gaia_visuals.py": "6c37d8b637eccd6aa8c631f3131dccdad9fc5aa204ef1c9a2df55516346acc34"
+      },
+      "import_inspection_limit": "Static absolute imports only; not dynamic import tracing or an environment lock.",
+      "nonstdlib_import_roots": [
+        "plotly"
+      ],
+      "original_runner_sha256": "c66057db734c3c9961a01bf6d9f52efb88ddc742226a2d726d7af97d490c5110",
+      "recorded_hash_checks": [
+        {
+          "actual_sha256": "044323514ac8890a72cca16a67d69d44c85b0581a46079a0d9943a33ca1ae939",
+          "expected_sha256": "044323514ac8890a72cca16a67d69d44c85b0581a46079a0d9943a33ca1ae939",
+          "matched": true,
+          "path": "validation/fixtures/catalogue_correction_v1.json",
+          "pointer": "/environment/input_sha256/validation~1fixtures~1catalogue_correction_v1.json"
+        },
+        {
+          "actual_sha256": "1b62d65a51574c84ffc0bbc8330837ce9fdda125b3b07814596df22017be927c",
+          "expected_sha256": "1b62d65a51574c84ffc0bbc8330837ce9fdda125b3b07814596df22017be927c",
+          "matched": true,
+          "path": "validation/manifests/catalogue_correction_policy_v1.json",
+          "pointer": "/environment/input_sha256/validation~1manifests~1catalogue_correction_policy_v1.json"
+        },
+        {
+          "actual_sha256": "5518992485a9cbd11293f89a3822717f2196be3fa830d92361f63760d3215c6a",
+          "expected_sha256": "5518992485a9cbd11293f89a3822717f2196be3fa830d92361f63760d3215c6a",
+          "matched": true,
+          "path": "validation/manifests/catalogue_correction_v1.json",
+          "pointer": "/environment/input_sha256/validation~1manifests~1catalogue_correction_v1.json"
+        },
+        {
+          "actual_sha256": "b4fe797bad593490c085331f2705e91fdc1ce3e6438effb339831d82be09e04f",
+          "expected_sha256": "b4fe797bad593490c085331f2705e91fdc1ce3e6438effb339831d82be09e04f",
+          "matched": true,
+          "path": "src/astroscope/_catalogue_numerics.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1_catalogue_numerics.py"
+        },
+        {
+          "actual_sha256": "f436aada18cb09341469b2dd1e5c075957c63485be9a2eba4f23e5e19c09f8b1",
+          "expected_sha256": "f436aada18cb09341469b2dd1e5c075957c63485be9a2eba4f23e5e19c09f8b1",
+          "matched": true,
+          "path": "src/astroscope/exoplanet_catalog.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1exoplanet_catalog.py"
+        },
+        {
+          "actual_sha256": "86b7ca35adce1481568ef92ad0a3a22325860f05b42185cb25f1260c85e2fbcb",
+          "expected_sha256": "86b7ca35adce1481568ef92ad0a3a22325860f05b42185cb25f1260c85e2fbcb",
+          "matched": true,
+          "path": "src/astroscope/exoplanet_dashboard.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1exoplanet_dashboard.py"
+        },
+        {
+          "actual_sha256": "e11aab06b60f48476455aa1f2945c6e23558ae1536d316f5232047d2e37e6033",
+          "expected_sha256": "e11aab06b60f48476455aa1f2945c6e23558ae1536d316f5232047d2e37e6033",
+          "matched": true,
+          "path": "src/astroscope/exoplanet_export.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1exoplanet_export.py"
+        },
+        {
+          "actual_sha256": "15c87357012a5bece3a02f9f5da94a32560c5567d5cde6fdf0a3bf5a3cddc38f",
+          "expected_sha256": "15c87357012a5bece3a02f9f5da94a32560c5567d5cde6fdf0a3bf5a3cddc38f",
+          "matched": true,
+          "path": "src/astroscope/exoplanet_messages.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1exoplanet_messages.py"
+        },
+        {
+          "actual_sha256": "2d1902997f1a529bd49df26d073ee176ee72776a43e848f9c71b85454797afbb",
+          "expected_sha256": "2d1902997f1a529bd49df26d073ee176ee72776a43e848f9c71b85454797afbb",
+          "matched": true,
+          "path": "src/astroscope/exoplanet_visuals.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1exoplanet_visuals.py"
+        },
+        {
+          "actual_sha256": "0f15dbf90041de019b5c22b0f6ef0d46368fc2d712e5ae92d4faa409a1635dd3",
+          "expected_sha256": "0f15dbf90041de019b5c22b0f6ef0d46368fc2d712e5ae92d4faa409a1635dd3",
+          "matched": true,
+          "path": "src/astroscope/gaia_catalog.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1gaia_catalog.py"
+        },
+        {
+          "actual_sha256": "bde520e440e3252fd8738bf2d305b07eddd004c4854358a5c530e9ec7849390e",
+          "expected_sha256": "bde520e440e3252fd8738bf2d305b07eddd004c4854358a5c530e9ec7849390e",
+          "matched": true,
+          "path": "src/astroscope/gaia_dashboard.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1gaia_dashboard.py"
+        },
+        {
+          "actual_sha256": "561fee1ac1f2a5e99e40eee7e873930ded56ccbb9617880b683940b29d4784ab",
+          "expected_sha256": "561fee1ac1f2a5e99e40eee7e873930ded56ccbb9617880b683940b29d4784ab",
+          "matched": true,
+          "path": "src/astroscope/gaia_messages.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1gaia_messages.py"
+        },
+        {
+          "actual_sha256": "3d6ed1350ee314b9c599e7464dc1d6e89a6fc24e2cb6c426a85d9132ef4de65c",
+          "expected_sha256": "3d6ed1350ee314b9c599e7464dc1d6e89a6fc24e2cb6c426a85d9132ef4de65c",
+          "matched": true,
+          "path": "src/astroscope/gaia_visuals.py",
+          "pointer": "/environment/source_sha256/src~1astroscope~1gaia_visuals.py"
+        },
+        {
+          "actual_sha256": "c66057db734c3c9961a01bf6d9f52efb88ddc742226a2d726d7af97d490c5110",
+          "expected_sha256": "c66057db734c3c9961a01bf6d9f52efb88ddc742226a2d726d7af97d490c5110",
+          "matched": true,
+          "path": "validation/catalogue_correction.py",
+          "pointer": "/environment/source_sha256/validation~1catalogue_correction.py"
+        },
+        {
+          "actual_sha256": "ecc4e6b1391c91917852553a3ab430a9d62d9c3c76929485a17fbf7b918cd615",
+          "expected_sha256": "ecc4e6b1391c91917852553a3ab430a9d62d9c3c76929485a17fbf7b918cd615",
+          "matched": true,
+          "path": "validation/catalogue_quantities.py",
+          "pointer": "/environment/source_sha256/validation~1catalogue_quantities.py"
+        }
+      ],
+      "runner": "validation/catalogue_correction.py"
+    }
+  ],
+  "recovered_commit_count": 28,
+  "review_date_jst": "2026-10-26",
+  "scope": "Git source recovery and hash inspection, not historical program execution or original-environment recreation."
+}
