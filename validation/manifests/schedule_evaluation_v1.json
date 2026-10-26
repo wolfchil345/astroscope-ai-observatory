@@ -1,0 +1,53 @@
+{
+  "access_labels": [
+    "first_frozen_evaluation",
+    "exposed_regression_replay"
+  ],
+  "adapter": "Identical frozen code objects with private guard globals; no changes to original module guards",
+  "allow_case_dropping": false,
+  "baseline_commit": "7f9f4d0276fc998224f9ba1d0e03ce24f0551b20",
+  "case_order": "development_then_controls_then_reserved",
+  "counts": {
+    "controls": 16,
+    "development": 216,
+    "evaluation_reserved": 216,
+    "total": 448
+  },
+  "development_preflight_required": true,
+  "execution_cap": {
+    "ci_step_timeout_minutes": 10,
+    "timeout_result": "incomplete_not_pass"
+  },
+  "failure_rule": "Retain failed or incomplete rows and first-exposure journals; repairs require a new version and exposed-regression labels. No reroll, dropped case or changed threshold.",
+  "input_sha256": {
+    "docs/research/protocols/observation_optimisation_v1.json": "fc379a617fecf29400fb9cc999c009067a13154efb2b20e51529e0a6a57408ff",
+    "validation/fixtures/schedule_corpus_v1.json": "c658972b68f445b335b9f3dfe6058faea999db98b5c26dfd40c603d0423f5825",
+    "validation/fixtures/schedule_exhaustive_v1.json": "8bf31aee227e3beddeca4262dfc7706860f6fa1fee25daecd69b2a8ed8430a01",
+    "validation/manifests/schedule_baselines_freeze_v2.json": "aac233486b0145f340e87ac481675d04e25e7601cc0adcbedb30a72a3e6decd2",
+    "validation/manifests/schedule_candidate_freeze_v1.json": "cd3602ecf3fa03e326652967cc0d68cf20fa66c67b0276c59589167c006d6608",
+    "validation/results/schedule_candidate_reference_run.json": "bc9e33f4c706a4cc8f99720dce7907c2f2a756beaa9fb04625173142beaf9ad7"
+  },
+  "methods": [
+    "B0",
+    "B1",
+    "B2"
+  ],
+  "mission": 67,
+  "objective_tolerance": 0,
+  "phase_3_exit_approved": false,
+  "physical_qualification": false,
+  "production_changes": false,
+  "protocol_id": "P3-SCHEDULE-001-v1",
+  "require_all_cases": true,
+  "require_canonical_candidate_path": true,
+  "require_optimal_baselines": false,
+  "require_policy_faithfulness": true,
+  "runtime": {
+    "acceptance_threshold_seconds": null,
+    "clock": "perf_counter_ns",
+    "repetitions": 5,
+    "warmups": 1
+  },
+  "schema_version": 1,
+  "scope": "Complete frozen finite supplied-input corpus comparison; no observational calibration or production promotion"
+}
