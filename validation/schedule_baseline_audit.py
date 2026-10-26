@@ -14,13 +14,16 @@ from pathlib import Path
 from time import perf_counter_ns
 from unittest.mock import patch
 
+import astropy
+import numpy
+
 from astroscope import planner
 from validation.schedule_baseline_checks import check_result
 from validation.schedule_baselines import b0, b1
 from validation.schedule_corpus import CORPUS, REFERENCE, ROOT, read_json, require, serialize, sha
 
 CONFIG = "validation/manifests/schedule_baselines_v1.json"
-FREEZE = "validation/manifests/schedule_baselines_freeze_v1.json"
+FREEZE = "validation/manifests/schedule_baselines_freeze_v2.json"
 SOURCES = [
     "validation/schedule_baselines.py",
     "validation/schedule_baseline_checks.py",
@@ -155,6 +158,12 @@ def git(*args):
     return subprocess.check_output(["git", *args], cwd=ROOT, text=True).strip()
 
 
+def dependency_versions():
+    """Resolve each name through metadata lookup; do not let a shadowed install win."""
+    names = {d.metadata["Name"] for d in importlib.metadata.distributions() if d.metadata["Name"]}
+    return {name: importlib.metadata.version(name) for name in sorted(names)}
+
+
 def run_benchmark():
     config, cases, references = load_inputs()
     freeze = read_json(ROOT / FREEZE)
@@ -170,11 +179,8 @@ def run_benchmark():
         python=platform.python_version(),
         platform=platform.platform(),
         machine=platform.machine(),
-        versions={
-            d.metadata["Name"]: d.version
-            for d in importlib.metadata.distributions()
-            if d.metadata["Name"]
-        },
+        versions=dependency_versions(),
+        imported_versions=dict(astropy=astropy.__version__, numpy=numpy.__version__),
         source_sha256={p: sha((ROOT / p).read_bytes()) for p in SOURCES},
         input_sha256={p: sha((ROOT / p).read_bytes()) for p in [CONFIG, FREEZE, CORPUS, REFERENCE]},
         timezone="UTC; no local-zone transition in this synthetic study",

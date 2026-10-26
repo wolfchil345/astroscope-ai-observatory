@@ -6,11 +6,12 @@ import inspect
 import socket
 from dataclasses import replace
 from datetime import timedelta
+from types import SimpleNamespace
 
 import pytest
 
 from astroscope import planner, schedule
-from validation.schedule_baseline_audit import load_inputs, offline_adapter
+from validation.schedule_baseline_audit import dependency_versions, load_inputs, offline_adapter
 from validation.schedule_baseline_checks import check_policy, check_result
 from validation.schedule_baselines import b0, b1, decode_blocks, development_case
 from validation.schedule_corpus import CORPUS, ROOT, read_json
@@ -287,3 +288,13 @@ def test_b1_code_mutants_detected_on_development_only(fault):
         except ValueError:
             detected.append(case["case_id"])
     assert detected, fault
+
+
+def test_environment_uses_resolved_version_not_last_shadowed_distribution(monkeypatch):
+    import importlib.metadata
+
+    first = SimpleNamespace(metadata={"Name": "numpy"}, version="2.5.4")
+    shadowed = SimpleNamespace(metadata={"Name": "numpy"}, version="2.3.5")
+    monkeypatch.setattr(importlib.metadata, "distributions", lambda: [first, shadowed])
+    monkeypatch.setattr(importlib.metadata, "version", lambda name: first.version)
+    assert dependency_versions() == {"numpy": "2.5.4"}
