@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -507,4 +509,21 @@ jobs:
         with:
           name: catalogue-correction-validation-record
           path: ${{ runner.temp }}/catalogue_correction_reference_run.json
+          if-no-files-found: error
+
+      - name: Replay controlled schedule corpus and independent exhaustive reference
+        timeout-minutes: 10
+        env:
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: |
+          python -m validation.schedule_corpus_audit \
+            --output "$RUNNER_TEMP/schedule_corpus_reference_run.json"
+
+      - name: Upload controlled schedule corpus reference audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: schedule-corpus-validation-record
+          path: ${{ runner.temp }}/schedule_corpus_reference_run.json
           if-no-files-found: error
