@@ -1,0 +1,22 @@
+{
+  "independence": "Source-informed computational contract; not blinded nor observationally calibrated.",
+  "mission": 61,
+  "prior_sources": "validation/manifests/catalogue_quantities_sources_v1.json",
+  "sources": [
+    {
+      "id": "IAU2015B3",
+      "url": "https://arxiv.org/html/1510.07674v1",
+      "use": "Exact nominal radii and Earth GM; distinguish spherical planet calculation from ellipsoidal nominal Earth volume."
+    },
+    {
+      "id": "JPL-Astro-Parameters",
+      "url": "https://ssd.jpl.nasa.gov/astro_par.html",
+      "use": "Exact au and CODATA2018 G=6.67430e-11, uncertainty 0.00015e-11; numerical reference does not propagate that uncertainty."
+    },
+    {
+      "id": "NASA-Composite-Calculations",
+      "url": "https://exoplanetarchive.ipac.caltech.edu/docs/pscp_calc.html",
+      "use": "Mass/volume density; composite entries may mix references. No assertion that all archive rows share assumed nominal units."
+    }
+  ]
+}

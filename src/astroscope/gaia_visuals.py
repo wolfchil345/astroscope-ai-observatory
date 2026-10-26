@@ -2,11 +2,20 @@
 
 from collections.abc import Sequence
 from dataclasses import dataclass
-from math import cos, isfinite, radians
+from math import asin, cos, degrees, isfinite, radians, sin, sqrt
 
 import plotly.graph_objects as go
 
 from astroscope.gaia_catalog import GaiaSource
+
+
+class LocalSkyProjectionError(ValueError):
+    """A source or field is outside the supported small-field chart domain."""
+
+
+LOCAL_SKY_MAX_SEPARATION_DEG = 0.25
+LOCAL_SKY_BOUNDARY_PAD_DEG = 1e-10
+LOCAL_SKY_MAX_CENTER_DECLINATION_DEG = 60.0
 
 
 @dataclass(frozen=True, slots=True)
@@ -39,10 +48,15 @@ def _validate_center(
     """Validate a chart centre."""
 
     if not isfinite(center_ra_deg) or not 0.0 <= center_ra_deg < 360.0:
-        raise ValueError("Chart right ascension must be at least 0 and below 360 degrees.")
+        raise LocalSkyProjectionError(
+            "Chart right ascension must be at least 0 and below 360 degrees."
+        )
 
     if not isfinite(center_dec_deg) or not -90.0 <= center_dec_deg <= 90.0:
-        raise ValueError("Chart declination must be between -90 and 90 degrees.")
+        raise LocalSkyProjectionError("Chart declination must be between -90 and 90 degrees.")
+
+    if abs(center_dec_deg) > LOCAL_SKY_MAX_CENTER_DECLINATION_DEG:
+        raise LocalSkyProjectionError("Small-field chart requires center |Dec| <= 60 degrees.")
 
 
 def calculate_local_offsets_deg(
@@ -58,7 +72,26 @@ def calculate_local_offsets_deg(
         center_dec_deg,
     )
 
+    if (
+        not isfinite(source.ra_deg)
+        or not 0.0 <= source.ra_deg < 360.0
+        or not isfinite(source.dec_deg)
+        or not -90.0 <= source.dec_deg <= 90.0
+    ):
+        raise LocalSkyProjectionError("Source coordinates must be finite and within RA/Dec bounds.")
+
     delta_ra = ((source.ra_deg - center_ra_deg + 180.0) % 360.0) - 180.0
+
+    # Haversine is stable in the enforced small-angle domain, including RA wrap.
+    haversine = (
+        sin(radians(source.dec_deg - center_dec_deg) / 2.0) ** 2
+        + cos(radians(source.dec_deg))
+        * cos(radians(center_dec_deg))
+        * sin(radians(delta_ra) / 2.0) ** 2
+    )
+    separation = degrees(2.0 * asin(sqrt(min(1.0, max(0.0, haversine)))))
+    if separation > LOCAL_SKY_MAX_SEPARATION_DEG + LOCAL_SKY_BOUNDARY_PAD_DEG:
+        raise LocalSkyProjectionError("Small-field chart requires separation <= 0.25 degrees.")
 
     ra_offset = delta_ra * cos(radians(center_dec_deg))
 

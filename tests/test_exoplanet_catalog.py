@@ -142,7 +142,7 @@ def test_earth_density_reference() -> None:
         1.0,
     )
 
-    assert density == pytest.approx(5.514)
+    assert density == pytest.approx(5.495021865555213, rel=2e-12)
 
 
 def test_earth_sun_transit_depth() -> None:
@@ -152,8 +152,8 @@ def test_earth_sun_transit_depth() -> None:
     )
 
     assert depth == pytest.approx(
-        83.86,
-        rel=1e-3,
+        84.05017877225195,
+        rel=2e-12,
     )
 
 

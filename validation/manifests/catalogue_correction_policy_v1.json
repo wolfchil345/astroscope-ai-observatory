@@ -1,0 +1,31 @@
+{
+  "constant_conventions": "IAU 2015 B3 nominal equatorial Earth radius 6378100 m and Sun 695700000 m; au 149597870700 m. Spherical planet density normalization uses Earth GM 3.986004e14 / CODATA 2018 G 6.67430e-11, divided by spherical volume at equatorial radius. Not measured terrestrial density or nominal ellipsoidal Earth volume. These are assumed calculation units, not qualified archive input provenance.",
+  "depth_physical_domain": "The area-ratio formula requires planet radius no larger than stellar radius for the represented full-disk depth. Larger ratios must return null or controlled ValueError, not a depth greater than 1000000 ppm.",
+  "failure_policy": "All current acceptance cases must pass; no expected current failures. Original 17 failures survive only in isolated historical Mission 60 source replay.",
+  "flux_absolute_tolerance": 2e-12,
+  "heuristic": "Closed radius interval [0.5,2] Earth; closed temperature interval [180,310] K OR closed insolation interval [0.25,2] Earth. Boundary/OR/invalid handling only; no habitable-zone model, terrestrial composition inference, habitability probability or empirical calibration.",
+  "independence": "Pure stdlib Decimal references on exact binary64 inputs, spherical dot product domain check distinct from production haversine; 1600-digit Decimal normalized clipped flux distinct from Fraction contact arithmetic. No physical calibration.",
+  "ingestion": "Preserve missing values. Parsed exoplanet records and CSV identify assumed calculation_convention nominal_spherical_v1; manual/legacy records default unknown. Composite provenance and covariance remain unqualified.",
+  "mission": 61,
+  "numeric_absolute_tolerance": 2e-12,
+  "numeric_domain": "Finite positive parallax; finite magnitude. Positive finite masses/radii/axes in the frozen bounded grids. Missing, nonfinite and nonpositive required physical inputs give null. Gaia magnitude can be negative. The screen requires finite positive radius; temperature or insolation must be finite positive to count as present.",
+  "numeric_relative_tolerance": 2e-12,
+  "observational_calibration_established": false,
+  "offset_absolute_tolerance_deg": 2e-10,
+  "phase_2_exit_approved": false,
+  "physical_arrival_qualification_changed": false,
+  "probability_domain": "Positive finite circular exterior orbit: a > Rstar + Rp. Non-exterior geometry returns null; no capping to a physical probability.",
+  "projection": "Source RA in [0,360), Dec in [-90,90]. Center absolute Dec <=60 degrees and great-circle source separation <=0.25 degrees plus explicit 1e-10 degree numerical boundary pad. Unsupported fields reject with ValueError; translated dashboard notice preserves other catalogue views. Conservative analytic coordinate error bound below 10 arcsec only in this domain.",
+  "randomness": "none",
+  "robustness_domain": "Finite positive representable density/depth/probability values must agree, including extreme binary64 inputs. Unrepresentable positive outputs return null. Derived Gaia overflow returns null. Required CSV sky coordinates reject outside legal ranges. Trapezoid direct API covers all positive finite durations; figure rejects unresolved grids explicitly.",
+  "scope": [
+    "C02",
+    "C03",
+    "C05",
+    "C06",
+    "C07"
+  ],
+  "status": "Frozen before corrected production evaluation",
+  "tolerance_basis": "Binary64 arithmetic allowance against 60-digit Decimal or exact Fraction references. Offset allowance covers input rounding and cancellation near RA wrap/poles. These are computational goals, not observational error bounds. Rounded constant checks use one half of the final stated decimal place; no empirical tuning.",
+  "trapezoid": "Total duration is first-to-fourth contact; ingress fraction is each ramp divided by total duration. Positive finite depth up to 1000000 ppm, positive finite duration, 0<ingress_fraction<0.5, finite sample times. Greater-than-unit depth must reject. Finite valid model flux stays in [0,1]. No limb darkening, impact parameter, eccentric geometry, exposure integration, physical contact derivation or fit."
+}

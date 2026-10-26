@@ -31,6 +31,7 @@ EXOPLANET_CSV_FIELDS: Final[tuple[str, ...]] = (
     "transit_depth_ppm",
     "transit_probability_percent",
     "temperate_status",
+    "calculation_convention",
 )
 
 
@@ -84,6 +85,7 @@ def exoplanets_to_csv(
                 "transit_depth_ppm": _csv_value(planet.transit_depth_ppm),
                 "transit_probability_percent": _csv_value(planet.transit_probability_percent),
                 "temperate_status": planet.temperate_status,
+                "calculation_convention": planet.calculation_convention,
             }
         )
 

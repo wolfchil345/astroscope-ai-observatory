@@ -15,3 +15,13 @@ engine; Mission 58 has its own non-xfailed scientific replay and CI artifact.
 
 Do not format or repair this frozen source. Any future historical reproduction
 change must be explicitly versioned and reviewed.
+
+
+## Mission 60 catalogue baseline
+
+`mission60_catalogue/` retains the four source modules evaluated in Mission 60.
+Only the visuals' two catalogue import prefixes change to keep replay isolated.
+`validation/manifests/mission60_retained_sources_v1.json` pins original and retained
+hashes; reversing those prefixes reconstructs the original bytes. Do not format
+or modernize these snapshots. The historical runner keeps all 17 failed goals;
+`validation.catalogue_correction` evaluates current production separately.

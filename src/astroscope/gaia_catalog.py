@@ -11,6 +11,8 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
+from astroscope._catalogue_numerics import finite_or_none
+
 GAIA_TAP_SYNC_URL: Final[str] = "https://gea.esac.esa.int/tap-server/tap/sync"
 GAIA_SOURCE_TABLE: Final[str] = "gaiadr3.gaia_source"
 DEFAULT_USER_AGENT: Final[str] = "AstroScope-AI-Observatory/1.0"
@@ -165,7 +167,7 @@ def estimate_naive_distance_parsecs(
     if parallax_mas is None or not isfinite(parallax_mas) or parallax_mas <= 0.0:
         return None
 
-    return 1000.0 / parallax_mas
+    return finite_or_none(1000.0 / parallax_mas)
 
 
 def calculate_absolute_g_magnitude(
@@ -180,7 +182,7 @@ def calculate_absolute_g_magnitude(
     if parallax_mas is None or not isfinite(parallax_mas) or parallax_mas <= 0.0:
         return None
 
-    return apparent_g_magnitude + 5.0 * log10(parallax_mas) - 10.0
+    return finite_or_none(apparent_g_magnitude + 5.0 * log10(parallax_mas) - 10.0)
 
 
 def build_gaia_adql(
@@ -309,17 +311,14 @@ def _source_from_row(
         and parallax_error is not None
         and parallax_error > 0.0
     ):
-        parallax_snr = parallax / parallax_error
+        parallax_snr = finite_or_none(parallax / parallax_error)
 
     pmra = _parse_optional_float(row.get("pmra"))
 
     pmdec = _parse_optional_float(row.get("pmdec"))
 
     if pmra is not None and pmdec is not None:
-        proper_motion_total = hypot(
-            pmra,
-            pmdec,
-        )
+        proper_motion_total = finite_or_none(hypot(pmra, pmdec))
     else:
         proper_motion_total = None
 
@@ -332,7 +331,7 @@ def _source_from_row(
     bp_rp = _parse_optional_float(row.get("bp_rp"))
 
     if bp_rp is None and bp_magnitude is not None and rp_magnitude is not None:
-        bp_rp = bp_magnitude - rp_magnitude
+        bp_rp = finite_or_none(bp_magnitude - rp_magnitude)
 
     designation = row.get(
         "designation",
@@ -342,17 +341,16 @@ def _source_from_row(
     if not designation:
         designation = f"Gaia DR3 {source_id}"
 
+    ra = _required_float(row, "ra")
+    dec = _required_float(row, "dec")
+    if not 0.0 <= ra < 360.0 or not -90.0 <= dec <= 90.0:
+        raise GaiaCatalogError("Gaia source coordinates are outside RA/Dec bounds.")
+
     return GaiaSource(
         source_id=source_id,
         designation=designation,
-        ra_deg=_required_float(
-            row,
-            "ra",
-        ),
-        dec_deg=_required_float(
-            row,
-            "dec",
-        ),
+        ra_deg=ra,
+        dec_deg=dec,
         angular_distance_deg=_required_float(
             row,
             "angular_distance_deg",
