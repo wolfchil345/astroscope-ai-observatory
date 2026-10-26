@@ -822,9 +822,10 @@ endpoint/block behavior without changing production or physical qualification.
 - [x] Check all 216 development cases + 16 controls against independent policies and frozen E0
 - [x] Exercise C13 endpoint exclusion, UTC date crossing, idle gaps, block continuity and faults
 - [x] Reject all 216 reserved cases before candidate execution, including relabelling attempts
-- [x] Pass 529 new tests; retain 48 malformed-input variants and all five metamorphic relation types
+- [x] Pass 530 new tests; retain 48 malformed-input variants and all five metamorphic relation types
 - [x] Detect ten block-output faults and seven mutated B1 implementations
 - [x] Freeze source/configuration and record a clean canonical audit with all adverse outcomes
+- [x] Correct shadowed-installation environment reporting in v2; retain original evidence and unchanged method outputs
 - [x] Preserve historical scientific files and all old CI steps; add artifact 30
 - [x] Record exact-final-head CI and archive receipts in the PR before handoff
 - [ ] Review and merge Mission 65 development acceptance

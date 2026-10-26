@@ -67,11 +67,11 @@ def validate(d):
             sha(git("show", f"{d['baseline_commit']}:{path}")) == digest, f"baseline hash {path}"
         )
         require(sha((ROOT / path).read_bytes()) == digest, f"historical bytes changed {path}")
-    freeze = read("validation/manifests/schedule_baselines_freeze_v1.json")
+    freeze = read("validation/manifests/schedule_baselines_freeze_v2.json")
     require(freeze["source_commit"] == d["source_commit"], "source identity")
     require(
         git("show", "-s", "--format=%P", d["source_commit"]).decode().strip()
-        == d["baseline_commit"],
+        == d["source_parent_commit"],
         "source order",
     )
     require(
@@ -82,6 +82,12 @@ def validate(d):
         require(sha(git("show", f"{d['source_commit']}:{path}")) == digest, f"frozen source {path}")
         require(sha((ROOT / path).read_bytes()) == digest, f"source changed {path}")
     run = read("validation/results/schedule_baselines_reference_run.json")
+    original = read("validation/results/schedule_baselines_initial_environment_record.json")
+    require(run["aggregates"] == original["aggregates"], "results changed with metadata correction")
+    require(
+        run["environment"]["versions"]["numpy"] == run["environment"]["imported_versions"]["numpy"],
+        "imported NumPy provenance",
+    )
     require(run["overall_passed"] and not run["environment"]["git_dirty"], "canonical execution")
     require(run["environment"]["implementation_commit"] == d["freeze_commit"], "canonical revision")
     require(

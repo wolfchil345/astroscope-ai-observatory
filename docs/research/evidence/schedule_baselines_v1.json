@@ -48,22 +48,25 @@
   "file_sha256": {
     ".github/workflows/quality-gate.yml": "1aa45c70285ad214a58f8576c79cbad459b7e48e921da1bc7a0412492591b6cd",
     "docs/research/evidence/mission64_merge_ci_v1.json": "99c33c12840f458d3a4ac780f47dbad291b785210e1101dcb645a2f0b368adbb",
-    "docs/research/evidence/schedule_baselines_access_v1.json": "24b92f4ed8ed968fbc47cac96068d7500577b619e02a13fae9428dfd71f4c3d4",
-    "docs/research/validation/controlled_scheduler_baselines.md": "59409f9552e583d062bb1dcd9c9fae316756eaf728bcf2f8a281c0909e2f4815",
+    "docs/research/evidence/schedule_baselines_access_v1.json": "ce5cedc30631cbf51f1c1e4c1621561b1048220db1d0d4c15f9a4452e2324242",
+    "docs/research/validation/controlled_scheduler_baselines.md": "046d58e303f82db4e76369e3adfcbfca3d4de044a79672a361e591703a89b195",
     "src/astroscope/observer.py": "bd0819a973629dfe14f520dbdc5d30bfefcdbecbca774e680f12b69bc9fd2ac1",
     "src/astroscope/planner.py": "07ac6f6ab794ba0bb575b29adf4dc763c707573a7d00af2db36c0430358e5c15",
     "src/astroscope/schedule.py": "103aae4ec513917269db7738a834692dc2d5e4af1ba5bbdf116960cc2efba63c",
-    "tests/validation/test_schedule_baselines.py": "ec89995649da2b215bcb3dd356236d2656a6e0c6367e5eadb9153dbeab4a115f",
+    "tests/validation/test_schedule_baselines.py": "78fe5f1d5da402d02f99b2e9c9690a49ae72684e766365f6b0e53c372dda3c6f",
     "validation/manifests/schedule_baselines_freeze_v1.json": "7038d530e0ce75db24899e2eb2f4a7a17e3e87068a6954ce76a3d6c52e54a57f",
+    "validation/manifests/schedule_baselines_freeze_v2.json": "aac233486b0145f340e87ac481675d04e25e7601cc0adcbedb30a72a3e6decd2",
     "validation/manifests/schedule_baselines_v1.json": "6c66835ee6f07497fb20a521cae2f5c85cf39bf42795432e4284b0522bc0f56a",
     "validation/reference_generation/schedule_baselines_history_v1.bundle": "12bb5a5f98c4f477d95eae65b1c014dd85897dee0d125057dff51190f432fba7",
-    "validation/results/schedule_baselines_reference_run.json": "3cb52af5aeef1994bc1d1e289ee87f9ec6abacda9f7dce51ba56307b41109e4f",
-    "validation/schedule_baseline_audit.py": "43b42b9e812b023fcd93dbc603de6140c1b67015a36232f4eecf110aa77f7185",
+    "validation/reference_generation/schedule_baselines_history_v2.bundle": "f7328144861e03defbcee9fab71cb5a496b0b9ae353013a429806ab52f3dc7cf",
+    "validation/results/schedule_baselines_initial_environment_record.json": "3cb52af5aeef1994bc1d1e289ee87f9ec6abacda9f7dce51ba56307b41109e4f",
+    "validation/results/schedule_baselines_reference_run.json": "8eb001ea84fb993864db04f7618c777c18b029b86537a6d1bbb27510a5095824",
+    "validation/schedule_baseline_audit.py": "30e03961021bfd1278036f5005f3b0a784b4db15d347268dc47ce542a6b3ee82",
     "validation/schedule_baseline_checks.py": "0dd60d94abc0a2135b720d0228170f7fedc7d26197b30693aa445510f0412d3e",
     "validation/schedule_baselines.py": "aec660e9d8c9441a6d8f7bde11d112febdc04e4e5899c1b9987190d2ff294762",
     "validation/schedule_corpus.py": "874f08fa6b0ec34a999060b7891cfcef3ec79818988a22e62a5c838ebb4488bc"
   },
-  "freeze_commit": "1c886c99205cd0d292c86249d3ca3c0d21d8619c",
+  "freeze_commit": "f5222bb413b3ce16adf056a12996ddf99bb9e520",
   "inherited_physical_status": {
     "combined_counts": {
       "blocked": 288,
@@ -95,7 +98,7 @@
   "method_case_count": 464,
   "mission": 65,
   "new_ci_artifact": "schedule-baselines-validation-record",
-  "new_tests": 529,
+  "new_tests": 530,
   "next_mission": {
     "number": 66,
     "status": "proposed_not_started",
@@ -482,8 +485,10 @@
     "validation/visibility_sampling.py": "6b35ec60d37e3abecc3e77dc520c9f63d4e329f46d7fdacbdffae538f384ef4f",
     "validation/weather_provider.py": "b4a03e401da107891b8ce589ff94144934176505e995ce2dbd8d91d91661c5be"
   },
+  "provenance_correction": "v2 dependency version resolution; original v1 source, manifest and raw record retained; no method-output change or reserved exposure",
   "review_status": "pending_merge",
-  "source_commit": "92f3c7322fbb757ffb4d9034dfe4f7f1cb4251fa",
+  "source_commit": "3627d475c839a407a9d3b055fb850db81e63fb24",
+  "source_parent_commit": "830450939ee75cc0946e9091ef10c66daaa40792",
   "transit_production_counts": {
     "deferred": 8,
     "implemented_boundary": 13,

@@ -27,7 +27,7 @@ records the later state; Mission 65 itself awaits review and merge.
 | Independent objective | M64's retained path scorer filters non-idle IDs before counting changes |
 | Independent optimum | M64's frozen E0 output; no oracle import or lookup inside either policy |
 | [Audit](../../../validation/schedule_baseline_audit.py) | Complete development inventory, per-method failures, metrics, timing and grouped denominators |
-| [Tests](../../../tests/validation/test_schedule_baselines.py) | 529 cases, including genuine scheduler block mutations and seven B1 code mutants |
+| [Tests](../../../tests/validation/test_schedule_baselines.py) | 530 cases, including genuine scheduler block mutations and seven B1 code mutants |
 
 B0 supplies N+1 snapshots at exact aware UTC times, including the terminal
 snapshot. Date crossing uses explicit dates rather than hour-only indexing.
@@ -101,13 +101,14 @@ points and costs are not physical slew time or calibrated scientific yield.
 
 ## Fault sensitivity and measurements
 
-All 529 new tests passed locally before the source freeze. They cover 232
+All 530 new tests passed locally before the corrected source freeze, including
+a regression check for shadowed dependency installations. They cover 232
 development/control cases, 216 reserved-input rejection cases, 48 malformed-input
 variants, real scheduler invocation/patch restoration, ten block-output fault
 types, wrong ties and missing/unknown eligibility, all five preregistered
 metamorphic relation types, live-planner/network/oracle isolation, and seven
 mutated B1 implementations. Test counts include parametrizations; they are not
-529 independent scientific experiments.
+530 independent scientific experiments.
 
 The B1 mutants erase idle history, omit or double change cost, charge first
 acquisition, admit unknown eligibility, treat missing scores as zero, or reverse
@@ -127,10 +128,23 @@ as failures, and remaining cases are attempted.
 
 ## Freeze, access and offline reproduction
 
-Source, tests and configuration were frozen at
-`92f3c7322fbb757ffb4d9034dfe4f7f1cb4251fa`, followed by the
-[hash manifest](../../../validation/manifests/schedule_baselines_freeze_v1.json)
-at `1c886c99205cd0d292c86249d3ca3c0d21d8619c`.
+The corrected source, tests and configuration are frozen at
+`3627d475c839a407a9d3b055fb850db81e63fb24`, followed by the
+[v2 hash manifest](../../../validation/manifests/schedule_baselines_freeze_v2.json)
+at `f5222bb413b3ce16adf056a12996ddf99bb9e520`.
+The initial source and manifest checkpoints (`92f3c732` and `1c886c99`) are
+retained in the v1 history bundle. Their
+[original audit record](../../../validation/results/schedule_baselines_initial_environment_record.json)
+reported NumPy 2.3.5 because a duplicate installed-distribution listing overwrote
+the imported environment's version. Inspection found the imported NumPy was
+2.5.4. The v2 runner resolves each distribution name through metadata lookup and
+also records actual imported Astropy/NumPy versions. The original record is
+retained as evidence with a known environment-reporting defect. All 464 method
+outputs, integer metrics, operation counts and aggregates are unchanged in the
+corrected run; timing samples differ normally. No policy, input, threshold or
+reserved-access rule changed. This is a provenance repair, not an optimization
+result repair or a new confirmatory sample.
+
 The canonical audit ran from that clean checkpoint. Development outputs were
 inspected while implementing and testing the baselines; this is disclosed in the
 [access record](../evidence/schedule_baselines_access_v1.json). No reserved
@@ -155,13 +169,13 @@ Python, platform, architecture, installed dependency versions, source/input hash
 commands and UTC convention. Ephemerides/EOP are explicitly unused, and geometry
 is explicitly synthetic. Imported astronomy packages do not qualify those fields.
 
-The [local Git history bundle](../../../validation/reference_generation/schedule_baselines_history_v1.bundle)
+The [local Git history bundle](../../../validation/reference_generation/schedule_baselines_history_v2.bundle)
 preserves both freeze commits after squash merge/branch deletion. With the complete
 main history and the ledger's verified bundle hash, restore missing objects offline:
 
 ```bash
-git bundle verify validation/reference_generation/schedule_baselines_history_v1.bundle
-git fetch validation/reference_generation/schedule_baselines_history_v1.bundle refs/research/mission65-freeze
+git bundle verify validation/reference_generation/schedule_baselines_history_v2.bundle
+git fetch validation/reference_generation/schedule_baselines_history_v2.bundle refs/research/mission65-freeze-v2
 ```
 
 All prior CI steps/artifacts remain; the baseline audit is artifact 30. The full
