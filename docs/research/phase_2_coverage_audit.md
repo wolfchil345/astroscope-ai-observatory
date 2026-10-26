@@ -1,6 +1,6 @@
 # Mission 51 — Phase 2 Coverage and Exit-Criteria Audit
 
-> Historical Mission 51 audit. [Mission 59 reconciliation](phase_2_reconciliation.md) records the later W01–W05 evidence and all 26 strict-transit scenarios. [Mission 62](phase_2_exit_readiness.md) incorporates merged M60–61 evidence and proposes a limited-scope exit with explicit provenance/catalogue restrictions. The original audits and ledgers remain historical. Owner review is pending; Phase 3 has not started.
+> Historical Mission 51 audit. [Mission 59 reconciliation](phase_2_reconciliation.md) records the later W01–W05 evidence and all 26 strict-transit scenarios. [Mission 62](phase_2_exit_readiness.md) merged with an accepted limited-scope exit and explicit provenance/catalogue restrictions. [Mission 63](phase_3_entry_protocol.md) records the subsequent transition. The original audit and ledger remain historical; X01 stays blocked.
 
 ## Decision
 

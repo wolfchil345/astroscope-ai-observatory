@@ -1,0 +1,5678 @@
+{
+  "acceptance": {
+    "aggregate": "Per family/split/cost denominators, failures, mean/median/max regret, paired win/tie/loss; cost profiles are correlated, not independent samples.",
+    "allow_case_dropping": false,
+    "integer_objective_tolerance": 0,
+    "metrics": [
+      "gross_score",
+      "switch_count",
+      "net_objective",
+      "oracle_objective",
+      "regret",
+      "regret_over_100N",
+      "observed_minutes",
+      "idle_minutes",
+      "block_count",
+      "feasibility_violations",
+      "exact_path_match",
+      "runtime_ns"
+    ],
+    "missing_or_timeout": "incomplete_not_pass",
+    "negative_controls": [
+      "erase_last_target_on_idle",
+      "omit_switch_cost",
+      "double_switch_cost",
+      "charge_first_acquisition",
+      "admit_unknown_eligibility",
+      "treat_missing_score_as_known_zero",
+      "wrong_canonical_tie",
+      "select_terminal_snapshot",
+      "off_by_one_time_membership"
+    ],
+    "require_all_cases": true,
+    "required_B1_improvement_over_B0": null,
+    "required_B2_canonical_path_match": true,
+    "required_B2_regret": 0,
+    "required_feasibility_violations": 0,
+    "runtime": {
+      "acceptance_threshold_seconds": null,
+      "clock": "perf_counter_ns",
+      "repetitions": 5,
+      "report": "median/range, environment and operation counts; no portable speed claim",
+      "same_process_and_machine": true,
+      "warmups": 1
+    }
+  },
+  "adapter": {
+    "canonicalize": "sort by exact target ID before injection",
+    "category": "catalog",
+    "decode": "one action per half-open slot; gaps -> IDLE; reject overlaps and out-of-range block times",
+    "endpoint": "all recommended false except explicit diagnostic endpoint_override",
+    "geometry": "equal altitude 45 deg, azimuth 90 deg, airmass 1.4, Moon separation 90 deg; all synthetic placeholders",
+    "interval": "explicit aware UTC endpoints; slot_minutes=60",
+    "known_zero": "eligible true and zero score remains recommended",
+    "network": "blocked",
+    "null_score": "map to zero only in unrecommended injected entry; preserve missing mask in record",
+    "patched_function": "astroscope.schedule.calculate_observation_plan",
+    "production_changes": false,
+    "production_function": "astroscope.schedule.calculate_observation_schedule_strict",
+    "site": "latitude=0, longitude=0, elevation=0; no physical interpretation",
+    "snapshot_count": "N+1"
+  },
+  "controls": [
+    {
+      "eligibility": [
+        []
+      ],
+      "id": "P3-C01",
+      "name": "empty_target_set",
+      "purpose": "Idle is feasible with no targets.",
+      "scores": [
+        []
+      ],
+      "slots": 1,
+      "split": "development_control",
+      "status": "specified_not_executed",
+      "switch_cost": 20,
+      "targets": 0
+    },
+    {
+      "eligibility": [
+        [
+          true
+        ]
+      ],
+      "id": "P3-C02",
+      "name": "known_zero",
+      "purpose": "Known zero remains usable; canonical tie prefers target over idle.",
+      "scores": [
+        [
+          0
+        ]
+      ],
+      "slots": 1,
+      "split": "development_control",
+      "status": "specified_not_executed",
+      "switch_cost": 20,
+      "targets": 1
+    },
+    {
+      "eligibility": [
+        [
+          true,
+          true
+        ],
+        [
+          true,
+          true
+        ],
+        [
+          true,
+          true
+        ]
+      ],
+      "id": "P3-C03",
+      "name": "all_scores_missing",
+      "purpose": "Missing score is never rewarded or admitted.",
+      "scores": [
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ]
+      ],
+      "slots": 3,
+      "split": "development_control",
+      "status": "specified_not_executed",
+      "switch_cost": 5,
+      "targets": 2
+    },
+    {
+      "eligibility": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "id": "P3-C04",
+      "name": "all_ineligible",
+      "purpose": "False eligibility forces idle.",
+      "scores": [
+        [
+          50,
+          60
+        ],
+        [
+          50,
+          60
+        ],
+        [
+          50,
+          60
+        ]
+      ],
+      "slots": 3,
+      "split": "development_control",
+      "status": "specified_not_executed",
+      "switch_cost": 5,
+      "targets": 2
+    },
+    {
+      "eligibility": [
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ]
+      ],
+      "id": "P3-C05",
+      "name": "all_eligibility_unknown",
+      "purpose": "Unknown eligibility forces idle.",
+      "scores": [
+        [
+          50,
+          60
+        ],
+        [
+          50,
+          60
+        ],
+        [
+          50,
+          60
+        ]
+      ],
+      "slots": 3,
+      "split": "development_control",
+      "status": "specified_not_executed",
+      "switch_cost": 5,
+      "targets": 2
+    },
+    {
+      "eligibility": [
+        [
+          true,
+          true
+        ],
+        [
+          true,
+          true
+        ],
+        [
+          true,
+          true
+        ]
+      ],
+      "id": "P3-C06",
+      "name": "exact_ties",
+      "purpose": "Canonical optimum and immediate ties use ID order.",
+      "scores": [
+        [
+          70,
+          70
+        ],
+        [
+          70,
+          70
+        ],
+        [
+          70,
+          70
+        ]
+      ],
+      "slots": 3,
+      "split": "development_control",
+      "status": "specified_not_executed",
+      "switch_cost": 5,
+      "targets": 2
+    },
+    {
+      "eligibility": [
+        [
+          true,
+          true
+        ],
+        [
+          true,
+          true
+        ],
+        [
+          true,
+          true
+        ]
+      ],
+      "id": "P3-C07",
+      "name": "retained_M55_switch_cost",
+      "original_reference": "validation/fixtures/heuristic_characterisation_v1.json#schedules/alternating-cost20",
+      "purpose": "Reuse the published M55 example; not held out.",
+      "scores": [
+        [
+          90,
+          89
+        ],
+        [
+          89,
+          90
+        ],
+        [
+          90,
+          89
+        ]
+      ],
+      "slots": 3,
+      "split": "development_control",
+      "status": "specified_not_executed",
+      "switch_cost": 20,
+      "targets": 2
+    },
+    {
+      "eligibility": [
+        [
+          true,
+          false
+        ],
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          true
+        ]
+      ],
+      "id": "P3-C08",
+      "name": "idle_retains_last_target",
+      "purpose": "A-idle-B still charges one change.",
+      "scores": [
+        [
+          50,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          50
+        ]
+      ],
+      "slots": 3,
+      "split": "development_control",
+      "status": "specified_not_executed",
+      "switch_cost": 20,
+      "targets": 2
+    },
+    {
+      "eligibility": [
+        [
+          true,
+          false
+        ],
+        [
+          false,
+          false
+        ],
+        [
+          true,
+          false
+        ]
+      ],
+      "id": "P3-C09",
+      "name": "same_target_after_idle",
+      "purpose": "A-idle-A does not charge a change.",
+      "scores": [
+        [
+          50,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          0
+        ]
+      ],
+      "slots": 3,
+      "split": "development_control",
+      "status": "specified_not_executed",
+      "switch_cost": 20,
+      "targets": 2
+    },
+    {
+      "eligibility": [
+        [
+          true
+        ]
+      ],
+      "id": "P3-C10",
+      "name": "free_first_acquisition",
+      "purpose": "No initial acquisition charge.",
+      "scores": [
+        [
+          1
+        ]
+      ],
+      "slots": 1,
+      "split": "development_control",
+      "status": "specified_not_executed",
+      "switch_cost": 20,
+      "targets": 1
+    },
+    {
+      "eligibility": [
+        [
+          true,
+          true
+        ],
+        [
+          true,
+          true
+        ],
+        [
+          true,
+          true
+        ]
+      ],
+      "id": "P3-C11",
+      "name": "zero_cost_alternation",
+      "purpose": "Uncoupled per-slot objective and enumeration agree.",
+      "scores": [
+        [
+          90,
+          89
+        ],
+        [
+          89,
+          90
+        ],
+        [
+          90,
+          89
+        ]
+      ],
+      "slots": 3,
+      "split": "development_control",
+      "status": "specified_not_executed",
+      "switch_cost": 0,
+      "targets": 2
+    },
+    {
+      "eligibility": [
+        [
+          true,
+          false
+        ],
+        [
+          false,
+          true
+        ],
+        [
+          true,
+          false
+        ]
+      ],
+      "id": "P3-C12",
+      "name": "optional_idle",
+      "purpose": "Candidate may idle even when a target is available; B0 remains policy-faithful.",
+      "scores": [
+        [
+          100,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          100,
+          0
+        ]
+      ],
+      "slots": 3,
+      "split": "development_control",
+      "status": "specified_not_executed",
+      "switch_cost": 20,
+      "targets": 2
+    },
+    {
+      "eligibility": [
+        [
+          true,
+          true
+        ]
+      ],
+      "endpoint_override": {
+        "eligibility": [
+          true,
+          true
+        ],
+        "scores": [
+          0,
+          100
+        ]
+      },
+      "id": "P3-C13",
+      "name": "terminal_snapshot_excluded",
+      "purpose": "Endpoint planner snapshot never contributes a slot.",
+      "scores": [
+        [
+          10,
+          9
+        ]
+      ],
+      "slots": 1,
+      "split": "development_control",
+      "status": "specified_not_executed",
+      "switch_cost": 0,
+      "targets": 2
+    },
+    {
+      "eligibility": [
+        [
+          true
+        ],
+        [
+          false
+        ],
+        [
+          true
+        ]
+      ],
+      "id": "P3-C14",
+      "name": "one_target_gaps",
+      "purpose": "Single-target gaps and block decoding.",
+      "scores": [
+        [
+          40
+        ],
+        [
+          80
+        ],
+        [
+          60
+        ]
+      ],
+      "slots": 3,
+      "split": "development_control",
+      "status": "specified_not_executed",
+      "switch_cost": 5,
+      "targets": 1
+    },
+    {
+      "eligibility": [
+        [
+          true,
+          true
+        ],
+        [
+          true,
+          true
+        ],
+        [
+          true,
+          true
+        ]
+      ],
+      "id": "P3-C15",
+      "name": "utc_date_crossing",
+      "purpose": "UTC half-open slots cross midnight without changing the matrix.",
+      "scores": [
+        [
+          40,
+          50
+        ],
+        [
+          60,
+          50
+        ],
+        [
+          40,
+          70
+        ]
+      ],
+      "slots": 3,
+      "split": "development_control",
+      "start_utc": "2024-03-20T23:00:00Z",
+      "status": "specified_not_executed",
+      "switch_cost": 5,
+      "targets": 2
+    },
+    {
+      "eligibility": [
+        [
+          true,
+          true
+        ],
+        [
+          true,
+          true
+        ],
+        [
+          true,
+          true
+        ]
+      ],
+      "id": "P3-C16",
+      "name": "score_domain_edges",
+      "purpose": "Closed integer score bounds and zero ties.",
+      "scores": [
+        [
+          0,
+          100
+        ],
+        [
+          100,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "slots": 3,
+      "split": "development_control",
+      "status": "specified_not_executed",
+      "switch_cost": 5,
+      "targets": 2
+    }
+  ],
+  "current_execution": {
+    "generated_primary_cases": 0,
+    "optimizer_implemented": false,
+    "reference_oracle_implemented": false,
+    "scientific_acceptance": null,
+    "scientific_evaluations": 0
+  },
+  "input_schema": {
+    "dimensions": "slots is int 1..9, targets is int 0..3; bool excluded; matrices exactly slots x targets",
+    "eligibility": "literal bool or null; reject integer coercion",
+    "provenance": "source kind synthetic_project_definition, protocol ID/hash, generator commit/hash, input construction and transformation identifiers; no unqualified real observations",
+    "required_keys": [
+      "case_id",
+      "core_id",
+      "family",
+      "split",
+      "replicate",
+      "slots",
+      "targets",
+      "start_utc",
+      "slot_minutes",
+      "target_ids",
+      "scores",
+      "eligibility",
+      "switch_cost",
+      "provenance"
+    ],
+    "score": "literal int 0..100 or null, bool excluded",
+    "switch_cost": "literal nonnegative int, bool excluded; frozen campaign profiles are 0,5,20",
+    "target_ids": "unique ASCII target_[0-9]{2}; ordered columns correspond to IDs; canonical sort remaps both matrices; gaps in IDs allowed for removal controls",
+    "time": "canonical YYYY-MM-DDTHH:MM:SSZ with no leap-second input; slot_minutes exactly integer 60; UTC-aware parse",
+    "transform_controls": "may update IDs/dimensions/times consistently but may not silently alter scientific input values or split labels",
+    "unknown_keys": "reject"
+  },
+  "invalid_input_classes": [
+    {
+      "id": "P3-I01",
+      "name": "zero_horizon",
+      "rejection": "N=0",
+      "status": "specified_not_executed"
+    },
+    {
+      "id": "P3-I02",
+      "name": "negative_target_count",
+      "rejection": "M=-1",
+      "status": "specified_not_executed"
+    },
+    {
+      "id": "P3-I03",
+      "name": "duplicate_target_id",
+      "rejection": "Repeated ID",
+      "status": "specified_not_executed"
+    },
+    {
+      "id": "P3-I04",
+      "name": "noncanonical_target_id",
+      "rejection": "Non-ASCII or unexpected ID; input order itself may be canonicalized",
+      "status": "specified_not_executed"
+    },
+    {
+      "id": "P3-I05",
+      "name": "ragged_score_matrix",
+      "rejection": "Wrong row/column count",
+      "status": "specified_not_executed"
+    },
+    {
+      "id": "P3-I06",
+      "name": "ragged_eligibility_matrix",
+      "rejection": "Wrong row/column count",
+      "status": "specified_not_executed"
+    },
+    {
+      "id": "P3-I07",
+      "name": "negative_score",
+      "rejection": "Score=-1",
+      "status": "specified_not_executed"
+    },
+    {
+      "id": "P3-I08",
+      "name": "oversized_score",
+      "rejection": "Score=101",
+      "status": "specified_not_executed"
+    },
+    {
+      "id": "P3-I09",
+      "name": "boolean_score",
+      "rejection": "Score=true",
+      "status": "specified_not_executed"
+    },
+    {
+      "id": "P3-I10",
+      "name": "noninteger_score",
+      "rejection": "Score=1.5, NaN or Infinity; all noninteger numbers rejected",
+      "status": "specified_not_executed"
+    },
+    {
+      "id": "P3-I11",
+      "name": "invalid_eligibility",
+      "rejection": "Eligibility=0, 1 or string instead of literal bool/null",
+      "status": "specified_not_executed"
+    },
+    {
+      "id": "P3-I12",
+      "name": "negative_cost",
+      "rejection": "Cost=-1",
+      "status": "specified_not_executed"
+    },
+    {
+      "id": "P3-I13",
+      "name": "noninteger_cost",
+      "rejection": "Cost=true or 1.5",
+      "status": "specified_not_executed"
+    },
+    {
+      "id": "P3-I14",
+      "name": "invalid_time",
+      "rejection": "Naive/non-UTC/noncanonical timestamp or non-60-minute cadence",
+      "status": "specified_not_executed"
+    },
+    {
+      "id": "P3-I15",
+      "name": "oversized_horizon",
+      "rejection": "N>9 in the v1 exhaustive input schema",
+      "status": "specified_not_executed"
+    },
+    {
+      "id": "P3-I16",
+      "name": "unknown_field",
+      "rejection": "Unrecognized input keys; no silent ignored constraint",
+      "status": "specified_not_executed"
+    }
+  ],
+  "metamorphic_controls": [
+    "consistent_target_permutation_after_canonicalization",
+    "UTC_translation_preserving_grid",
+    "remove_unusable_target_preserving_other_ID_order",
+    "append_fully_idle_slots_preserving_objective",
+    "positive_integer_score_and_cost_scaling_within_domain"
+  ],
+  "methods": [
+    {
+      "id": "B0",
+      "implementation": "src/astroscope/schedule.py:calculate_observation_schedule_strict",
+      "name": "unchanged_production_greedy",
+      "policy": "max(score,altitude), stable input order; no recommendation means idle",
+      "status": "production exists; new adapter not implemented"
+    },
+    {
+      "id": "B1",
+      "name": "immediate_cost_aware_greedy",
+      "policy": "max immediate net reward over usable targets and idle, canonical action tie",
+      "status": "specified_not_implemented"
+    },
+    {
+      "id": "B2",
+      "name": "finite_horizon_dp",
+      "policy": "backward recurrence; exact integer values and canonical maximizing tie",
+      "status": "specified_not_implemented"
+    },
+    {
+      "id": "E0",
+      "name": "independent_exhaustive_oracle",
+      "policy": "Cartesian-product enumeration, direct feasibility and objective traversal; no DP or candidate helper imports",
+      "status": "specified_not_implemented"
+    }
+  ],
+  "mission": 63,
+  "model": {
+    "action_order": "ascending target ID then idle",
+    "candidate": "backward finite-horizon DP over (slot,last_non_idle_target)",
+    "candidate_tie": "lexicographically smallest maximizing action sequence",
+    "cost_units": "nominal score points per target change",
+    "eligibility_type": "literal_bool_or_null",
+    "first_acquisition_cost": 0,
+    "idle_always_allowed": true,
+    "idle_preserves_last_target": true,
+    "idle_reward": 0,
+    "idle_symbol": "IDLE",
+    "initial_last_target": null,
+    "objective": "sum_known_selected_scores - switch_cost * changes_between_successive_non_idle_targets",
+    "physical_cost_model": false,
+    "resource_count": 1,
+    "score_type": "integer_0_to_100_or_null_bool_excluded",
+    "slot_interval": "half_open",
+    "slot_minutes": 60,
+    "start_utc": "2024-03-20T00:00:00Z",
+    "target_id_format": "target_{j:02d}",
+    "terminal_reward": 0,
+    "usable_rule": "eligibility is true AND score is not null",
+    "visibility_model": "supplied whole-slot eligibility, not sampled astronomy"
+  },
+  "next_mission": {
+    "number": 64,
+    "scope": "Implement/freeze input and independent exhaustive oracle only; no B2 evaluation or production change.",
+    "status": "proposed_not_started",
+    "title": "Controlled Schedule Corpus and Independent Oracle"
+  },
+  "preregistration": {
+    "changes": "New protocol version, reason, affected case IDs, outputs already inspected and approval before dependent work.",
+    "freeze_rule": "Merge Mission 63 before Mission 64 input/oracle work; freeze versioned input and independent reference releases before candidate evaluation.",
+    "result_status": "No optimizer or reference outcomes generated by Mission 63."
+  },
+  "primary_corpus": {
+    "cases": [
+      {
+        "core_id": "P3-F1-N03-M02-R00",
+        "family": "F1",
+        "id": "P3-F1-N03-M02-R00-C00",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N03-M02-R00",
+        "family": "F1",
+        "id": "P3-F1-N03-M02-R00-C05",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N03-M02-R00",
+        "family": "F1",
+        "id": "P3-F1-N03-M02-R00-C20",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N03-M02-R01",
+        "family": "F1",
+        "id": "P3-F1-N03-M02-R01-C00",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N03-M02-R01",
+        "family": "F1",
+        "id": "P3-F1-N03-M02-R01-C05",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N03-M02-R01",
+        "family": "F1",
+        "id": "P3-F1-N03-M02-R01-C20",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N03-M02-R02",
+        "family": "F1",
+        "id": "P3-F1-N03-M02-R02-C00",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N03-M02-R02",
+        "family": "F1",
+        "id": "P3-F1-N03-M02-R02-C05",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N03-M02-R02",
+        "family": "F1",
+        "id": "P3-F1-N03-M02-R02-C20",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N03-M02-R03",
+        "family": "F1",
+        "id": "P3-F1-N03-M02-R03-C00",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N03-M02-R03",
+        "family": "F1",
+        "id": "P3-F1-N03-M02-R03-C05",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N03-M02-R03",
+        "family": "F1",
+        "id": "P3-F1-N03-M02-R03-C20",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N03-M03-R00",
+        "family": "F1",
+        "id": "P3-F1-N03-M03-R00-C00",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N03-M03-R00",
+        "family": "F1",
+        "id": "P3-F1-N03-M03-R00-C05",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N03-M03-R00",
+        "family": "F1",
+        "id": "P3-F1-N03-M03-R00-C20",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N03-M03-R01",
+        "family": "F1",
+        "id": "P3-F1-N03-M03-R01-C00",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N03-M03-R01",
+        "family": "F1",
+        "id": "P3-F1-N03-M03-R01-C05",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N03-M03-R01",
+        "family": "F1",
+        "id": "P3-F1-N03-M03-R01-C20",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N03-M03-R02",
+        "family": "F1",
+        "id": "P3-F1-N03-M03-R02-C00",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N03-M03-R02",
+        "family": "F1",
+        "id": "P3-F1-N03-M03-R02-C05",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N03-M03-R02",
+        "family": "F1",
+        "id": "P3-F1-N03-M03-R02-C20",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N03-M03-R03",
+        "family": "F1",
+        "id": "P3-F1-N03-M03-R03-C00",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N03-M03-R03",
+        "family": "F1",
+        "id": "P3-F1-N03-M03-R03-C05",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N03-M03-R03",
+        "family": "F1",
+        "id": "P3-F1-N03-M03-R03-C20",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N06-M02-R00",
+        "family": "F1",
+        "id": "P3-F1-N06-M02-R00-C00",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N06-M02-R00",
+        "family": "F1",
+        "id": "P3-F1-N06-M02-R00-C05",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N06-M02-R00",
+        "family": "F1",
+        "id": "P3-F1-N06-M02-R00-C20",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N06-M02-R01",
+        "family": "F1",
+        "id": "P3-F1-N06-M02-R01-C00",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N06-M02-R01",
+        "family": "F1",
+        "id": "P3-F1-N06-M02-R01-C05",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N06-M02-R01",
+        "family": "F1",
+        "id": "P3-F1-N06-M02-R01-C20",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N06-M02-R02",
+        "family": "F1",
+        "id": "P3-F1-N06-M02-R02-C00",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N06-M02-R02",
+        "family": "F1",
+        "id": "P3-F1-N06-M02-R02-C05",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N06-M02-R02",
+        "family": "F1",
+        "id": "P3-F1-N06-M02-R02-C20",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N06-M02-R03",
+        "family": "F1",
+        "id": "P3-F1-N06-M02-R03-C00",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N06-M02-R03",
+        "family": "F1",
+        "id": "P3-F1-N06-M02-R03-C05",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N06-M02-R03",
+        "family": "F1",
+        "id": "P3-F1-N06-M02-R03-C20",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N06-M03-R00",
+        "family": "F1",
+        "id": "P3-F1-N06-M03-R00-C00",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N06-M03-R00",
+        "family": "F1",
+        "id": "P3-F1-N06-M03-R00-C05",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N06-M03-R00",
+        "family": "F1",
+        "id": "P3-F1-N06-M03-R00-C20",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N06-M03-R01",
+        "family": "F1",
+        "id": "P3-F1-N06-M03-R01-C00",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N06-M03-R01",
+        "family": "F1",
+        "id": "P3-F1-N06-M03-R01-C05",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N06-M03-R01",
+        "family": "F1",
+        "id": "P3-F1-N06-M03-R01-C20",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N06-M03-R02",
+        "family": "F1",
+        "id": "P3-F1-N06-M03-R02-C00",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N06-M03-R02",
+        "family": "F1",
+        "id": "P3-F1-N06-M03-R02-C05",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N06-M03-R02",
+        "family": "F1",
+        "id": "P3-F1-N06-M03-R02-C20",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N06-M03-R03",
+        "family": "F1",
+        "id": "P3-F1-N06-M03-R03-C00",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N06-M03-R03",
+        "family": "F1",
+        "id": "P3-F1-N06-M03-R03-C05",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N06-M03-R03",
+        "family": "F1",
+        "id": "P3-F1-N06-M03-R03-C20",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N09-M02-R00",
+        "family": "F1",
+        "id": "P3-F1-N09-M02-R00-C00",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N09-M02-R00",
+        "family": "F1",
+        "id": "P3-F1-N09-M02-R00-C05",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N09-M02-R00",
+        "family": "F1",
+        "id": "P3-F1-N09-M02-R00-C20",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N09-M02-R01",
+        "family": "F1",
+        "id": "P3-F1-N09-M02-R01-C00",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N09-M02-R01",
+        "family": "F1",
+        "id": "P3-F1-N09-M02-R01-C05",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N09-M02-R01",
+        "family": "F1",
+        "id": "P3-F1-N09-M02-R01-C20",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N09-M02-R02",
+        "family": "F1",
+        "id": "P3-F1-N09-M02-R02-C00",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N09-M02-R02",
+        "family": "F1",
+        "id": "P3-F1-N09-M02-R02-C05",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N09-M02-R02",
+        "family": "F1",
+        "id": "P3-F1-N09-M02-R02-C20",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N09-M02-R03",
+        "family": "F1",
+        "id": "P3-F1-N09-M02-R03-C00",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N09-M02-R03",
+        "family": "F1",
+        "id": "P3-F1-N09-M02-R03-C05",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N09-M02-R03",
+        "family": "F1",
+        "id": "P3-F1-N09-M02-R03-C20",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F1-N09-M03-R00",
+        "family": "F1",
+        "id": "P3-F1-N09-M03-R00-C00",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N09-M03-R00",
+        "family": "F1",
+        "id": "P3-F1-N09-M03-R00-C05",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N09-M03-R00",
+        "family": "F1",
+        "id": "P3-F1-N09-M03-R00-C20",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N09-M03-R01",
+        "family": "F1",
+        "id": "P3-F1-N09-M03-R01-C00",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N09-M03-R01",
+        "family": "F1",
+        "id": "P3-F1-N09-M03-R01-C05",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N09-M03-R01",
+        "family": "F1",
+        "id": "P3-F1-N09-M03-R01-C20",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N09-M03-R02",
+        "family": "F1",
+        "id": "P3-F1-N09-M03-R02-C00",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N09-M03-R02",
+        "family": "F1",
+        "id": "P3-F1-N09-M03-R02-C05",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N09-M03-R02",
+        "family": "F1",
+        "id": "P3-F1-N09-M03-R02-C20",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N09-M03-R03",
+        "family": "F1",
+        "id": "P3-F1-N09-M03-R03-C00",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N09-M03-R03",
+        "family": "F1",
+        "id": "P3-F1-N09-M03-R03-C05",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F1-N09-M03-R03",
+        "family": "F1",
+        "id": "P3-F1-N09-M03-R03-C20",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N03-M02-R00",
+        "family": "F2",
+        "id": "P3-F2-N03-M02-R00-C00",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N03-M02-R00",
+        "family": "F2",
+        "id": "P3-F2-N03-M02-R00-C05",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N03-M02-R00",
+        "family": "F2",
+        "id": "P3-F2-N03-M02-R00-C20",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N03-M02-R01",
+        "family": "F2",
+        "id": "P3-F2-N03-M02-R01-C00",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N03-M02-R01",
+        "family": "F2",
+        "id": "P3-F2-N03-M02-R01-C05",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N03-M02-R01",
+        "family": "F2",
+        "id": "P3-F2-N03-M02-R01-C20",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N03-M02-R02",
+        "family": "F2",
+        "id": "P3-F2-N03-M02-R02-C00",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N03-M02-R02",
+        "family": "F2",
+        "id": "P3-F2-N03-M02-R02-C05",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N03-M02-R02",
+        "family": "F2",
+        "id": "P3-F2-N03-M02-R02-C20",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N03-M02-R03",
+        "family": "F2",
+        "id": "P3-F2-N03-M02-R03-C00",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N03-M02-R03",
+        "family": "F2",
+        "id": "P3-F2-N03-M02-R03-C05",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N03-M02-R03",
+        "family": "F2",
+        "id": "P3-F2-N03-M02-R03-C20",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N03-M03-R00",
+        "family": "F2",
+        "id": "P3-F2-N03-M03-R00-C00",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N03-M03-R00",
+        "family": "F2",
+        "id": "P3-F2-N03-M03-R00-C05",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N03-M03-R00",
+        "family": "F2",
+        "id": "P3-F2-N03-M03-R00-C20",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N03-M03-R01",
+        "family": "F2",
+        "id": "P3-F2-N03-M03-R01-C00",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N03-M03-R01",
+        "family": "F2",
+        "id": "P3-F2-N03-M03-R01-C05",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N03-M03-R01",
+        "family": "F2",
+        "id": "P3-F2-N03-M03-R01-C20",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N03-M03-R02",
+        "family": "F2",
+        "id": "P3-F2-N03-M03-R02-C00",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N03-M03-R02",
+        "family": "F2",
+        "id": "P3-F2-N03-M03-R02-C05",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N03-M03-R02",
+        "family": "F2",
+        "id": "P3-F2-N03-M03-R02-C20",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N03-M03-R03",
+        "family": "F2",
+        "id": "P3-F2-N03-M03-R03-C00",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N03-M03-R03",
+        "family": "F2",
+        "id": "P3-F2-N03-M03-R03-C05",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N03-M03-R03",
+        "family": "F2",
+        "id": "P3-F2-N03-M03-R03-C20",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N06-M02-R00",
+        "family": "F2",
+        "id": "P3-F2-N06-M02-R00-C00",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N06-M02-R00",
+        "family": "F2",
+        "id": "P3-F2-N06-M02-R00-C05",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N06-M02-R00",
+        "family": "F2",
+        "id": "P3-F2-N06-M02-R00-C20",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N06-M02-R01",
+        "family": "F2",
+        "id": "P3-F2-N06-M02-R01-C00",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N06-M02-R01",
+        "family": "F2",
+        "id": "P3-F2-N06-M02-R01-C05",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N06-M02-R01",
+        "family": "F2",
+        "id": "P3-F2-N06-M02-R01-C20",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N06-M02-R02",
+        "family": "F2",
+        "id": "P3-F2-N06-M02-R02-C00",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N06-M02-R02",
+        "family": "F2",
+        "id": "P3-F2-N06-M02-R02-C05",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N06-M02-R02",
+        "family": "F2",
+        "id": "P3-F2-N06-M02-R02-C20",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N06-M02-R03",
+        "family": "F2",
+        "id": "P3-F2-N06-M02-R03-C00",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N06-M02-R03",
+        "family": "F2",
+        "id": "P3-F2-N06-M02-R03-C05",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N06-M02-R03",
+        "family": "F2",
+        "id": "P3-F2-N06-M02-R03-C20",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N06-M03-R00",
+        "family": "F2",
+        "id": "P3-F2-N06-M03-R00-C00",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N06-M03-R00",
+        "family": "F2",
+        "id": "P3-F2-N06-M03-R00-C05",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N06-M03-R00",
+        "family": "F2",
+        "id": "P3-F2-N06-M03-R00-C20",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N06-M03-R01",
+        "family": "F2",
+        "id": "P3-F2-N06-M03-R01-C00",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N06-M03-R01",
+        "family": "F2",
+        "id": "P3-F2-N06-M03-R01-C05",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N06-M03-R01",
+        "family": "F2",
+        "id": "P3-F2-N06-M03-R01-C20",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N06-M03-R02",
+        "family": "F2",
+        "id": "P3-F2-N06-M03-R02-C00",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N06-M03-R02",
+        "family": "F2",
+        "id": "P3-F2-N06-M03-R02-C05",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N06-M03-R02",
+        "family": "F2",
+        "id": "P3-F2-N06-M03-R02-C20",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N06-M03-R03",
+        "family": "F2",
+        "id": "P3-F2-N06-M03-R03-C00",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N06-M03-R03",
+        "family": "F2",
+        "id": "P3-F2-N06-M03-R03-C05",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N06-M03-R03",
+        "family": "F2",
+        "id": "P3-F2-N06-M03-R03-C20",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N09-M02-R00",
+        "family": "F2",
+        "id": "P3-F2-N09-M02-R00-C00",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N09-M02-R00",
+        "family": "F2",
+        "id": "P3-F2-N09-M02-R00-C05",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N09-M02-R00",
+        "family": "F2",
+        "id": "P3-F2-N09-M02-R00-C20",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N09-M02-R01",
+        "family": "F2",
+        "id": "P3-F2-N09-M02-R01-C00",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N09-M02-R01",
+        "family": "F2",
+        "id": "P3-F2-N09-M02-R01-C05",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N09-M02-R01",
+        "family": "F2",
+        "id": "P3-F2-N09-M02-R01-C20",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N09-M02-R02",
+        "family": "F2",
+        "id": "P3-F2-N09-M02-R02-C00",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N09-M02-R02",
+        "family": "F2",
+        "id": "P3-F2-N09-M02-R02-C05",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N09-M02-R02",
+        "family": "F2",
+        "id": "P3-F2-N09-M02-R02-C20",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N09-M02-R03",
+        "family": "F2",
+        "id": "P3-F2-N09-M02-R03-C00",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N09-M02-R03",
+        "family": "F2",
+        "id": "P3-F2-N09-M02-R03-C05",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N09-M02-R03",
+        "family": "F2",
+        "id": "P3-F2-N09-M02-R03-C20",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F2-N09-M03-R00",
+        "family": "F2",
+        "id": "P3-F2-N09-M03-R00-C00",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N09-M03-R00",
+        "family": "F2",
+        "id": "P3-F2-N09-M03-R00-C05",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N09-M03-R00",
+        "family": "F2",
+        "id": "P3-F2-N09-M03-R00-C20",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N09-M03-R01",
+        "family": "F2",
+        "id": "P3-F2-N09-M03-R01-C00",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N09-M03-R01",
+        "family": "F2",
+        "id": "P3-F2-N09-M03-R01-C05",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N09-M03-R01",
+        "family": "F2",
+        "id": "P3-F2-N09-M03-R01-C20",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N09-M03-R02",
+        "family": "F2",
+        "id": "P3-F2-N09-M03-R02-C00",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N09-M03-R02",
+        "family": "F2",
+        "id": "P3-F2-N09-M03-R02-C05",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N09-M03-R02",
+        "family": "F2",
+        "id": "P3-F2-N09-M03-R02-C20",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N09-M03-R03",
+        "family": "F2",
+        "id": "P3-F2-N09-M03-R03-C00",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N09-M03-R03",
+        "family": "F2",
+        "id": "P3-F2-N09-M03-R03-C05",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F2-N09-M03-R03",
+        "family": "F2",
+        "id": "P3-F2-N09-M03-R03-C20",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N03-M02-R00",
+        "family": "F3",
+        "id": "P3-F3-N03-M02-R00-C00",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N03-M02-R00",
+        "family": "F3",
+        "id": "P3-F3-N03-M02-R00-C05",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N03-M02-R00",
+        "family": "F3",
+        "id": "P3-F3-N03-M02-R00-C20",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N03-M02-R01",
+        "family": "F3",
+        "id": "P3-F3-N03-M02-R01-C00",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N03-M02-R01",
+        "family": "F3",
+        "id": "P3-F3-N03-M02-R01-C05",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N03-M02-R01",
+        "family": "F3",
+        "id": "P3-F3-N03-M02-R01-C20",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N03-M02-R02",
+        "family": "F3",
+        "id": "P3-F3-N03-M02-R02-C00",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N03-M02-R02",
+        "family": "F3",
+        "id": "P3-F3-N03-M02-R02-C05",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N03-M02-R02",
+        "family": "F3",
+        "id": "P3-F3-N03-M02-R02-C20",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N03-M02-R03",
+        "family": "F3",
+        "id": "P3-F3-N03-M02-R03-C00",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N03-M02-R03",
+        "family": "F3",
+        "id": "P3-F3-N03-M02-R03-C05",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N03-M02-R03",
+        "family": "F3",
+        "id": "P3-F3-N03-M02-R03-C20",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N03-M03-R00",
+        "family": "F3",
+        "id": "P3-F3-N03-M03-R00-C00",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N03-M03-R00",
+        "family": "F3",
+        "id": "P3-F3-N03-M03-R00-C05",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N03-M03-R00",
+        "family": "F3",
+        "id": "P3-F3-N03-M03-R00-C20",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N03-M03-R01",
+        "family": "F3",
+        "id": "P3-F3-N03-M03-R01-C00",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N03-M03-R01",
+        "family": "F3",
+        "id": "P3-F3-N03-M03-R01-C05",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N03-M03-R01",
+        "family": "F3",
+        "id": "P3-F3-N03-M03-R01-C20",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N03-M03-R02",
+        "family": "F3",
+        "id": "P3-F3-N03-M03-R02-C00",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N03-M03-R02",
+        "family": "F3",
+        "id": "P3-F3-N03-M03-R02-C05",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N03-M03-R02",
+        "family": "F3",
+        "id": "P3-F3-N03-M03-R02-C20",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N03-M03-R03",
+        "family": "F3",
+        "id": "P3-F3-N03-M03-R03-C00",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N03-M03-R03",
+        "family": "F3",
+        "id": "P3-F3-N03-M03-R03-C05",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N03-M03-R03",
+        "family": "F3",
+        "id": "P3-F3-N03-M03-R03-C20",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N06-M02-R00",
+        "family": "F3",
+        "id": "P3-F3-N06-M02-R00-C00",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N06-M02-R00",
+        "family": "F3",
+        "id": "P3-F3-N06-M02-R00-C05",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N06-M02-R00",
+        "family": "F3",
+        "id": "P3-F3-N06-M02-R00-C20",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N06-M02-R01",
+        "family": "F3",
+        "id": "P3-F3-N06-M02-R01-C00",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N06-M02-R01",
+        "family": "F3",
+        "id": "P3-F3-N06-M02-R01-C05",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N06-M02-R01",
+        "family": "F3",
+        "id": "P3-F3-N06-M02-R01-C20",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N06-M02-R02",
+        "family": "F3",
+        "id": "P3-F3-N06-M02-R02-C00",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N06-M02-R02",
+        "family": "F3",
+        "id": "P3-F3-N06-M02-R02-C05",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N06-M02-R02",
+        "family": "F3",
+        "id": "P3-F3-N06-M02-R02-C20",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N06-M02-R03",
+        "family": "F3",
+        "id": "P3-F3-N06-M02-R03-C00",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N06-M02-R03",
+        "family": "F3",
+        "id": "P3-F3-N06-M02-R03-C05",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N06-M02-R03",
+        "family": "F3",
+        "id": "P3-F3-N06-M02-R03-C20",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N06-M03-R00",
+        "family": "F3",
+        "id": "P3-F3-N06-M03-R00-C00",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N06-M03-R00",
+        "family": "F3",
+        "id": "P3-F3-N06-M03-R00-C05",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N06-M03-R00",
+        "family": "F3",
+        "id": "P3-F3-N06-M03-R00-C20",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N06-M03-R01",
+        "family": "F3",
+        "id": "P3-F3-N06-M03-R01-C00",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N06-M03-R01",
+        "family": "F3",
+        "id": "P3-F3-N06-M03-R01-C05",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N06-M03-R01",
+        "family": "F3",
+        "id": "P3-F3-N06-M03-R01-C20",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N06-M03-R02",
+        "family": "F3",
+        "id": "P3-F3-N06-M03-R02-C00",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N06-M03-R02",
+        "family": "F3",
+        "id": "P3-F3-N06-M03-R02-C05",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N06-M03-R02",
+        "family": "F3",
+        "id": "P3-F3-N06-M03-R02-C20",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N06-M03-R03",
+        "family": "F3",
+        "id": "P3-F3-N06-M03-R03-C00",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N06-M03-R03",
+        "family": "F3",
+        "id": "P3-F3-N06-M03-R03-C05",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N06-M03-R03",
+        "family": "F3",
+        "id": "P3-F3-N06-M03-R03-C20",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N09-M02-R00",
+        "family": "F3",
+        "id": "P3-F3-N09-M02-R00-C00",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N09-M02-R00",
+        "family": "F3",
+        "id": "P3-F3-N09-M02-R00-C05",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N09-M02-R00",
+        "family": "F3",
+        "id": "P3-F3-N09-M02-R00-C20",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N09-M02-R01",
+        "family": "F3",
+        "id": "P3-F3-N09-M02-R01-C00",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N09-M02-R01",
+        "family": "F3",
+        "id": "P3-F3-N09-M02-R01-C05",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N09-M02-R01",
+        "family": "F3",
+        "id": "P3-F3-N09-M02-R01-C20",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N09-M02-R02",
+        "family": "F3",
+        "id": "P3-F3-N09-M02-R02-C00",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N09-M02-R02",
+        "family": "F3",
+        "id": "P3-F3-N09-M02-R02-C05",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N09-M02-R02",
+        "family": "F3",
+        "id": "P3-F3-N09-M02-R02-C20",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N09-M02-R03",
+        "family": "F3",
+        "id": "P3-F3-N09-M02-R03-C00",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N09-M02-R03",
+        "family": "F3",
+        "id": "P3-F3-N09-M02-R03-C05",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N09-M02-R03",
+        "family": "F3",
+        "id": "P3-F3-N09-M02-R03-C20",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F3-N09-M03-R00",
+        "family": "F3",
+        "id": "P3-F3-N09-M03-R00-C00",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N09-M03-R00",
+        "family": "F3",
+        "id": "P3-F3-N09-M03-R00-C05",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N09-M03-R00",
+        "family": "F3",
+        "id": "P3-F3-N09-M03-R00-C20",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N09-M03-R01",
+        "family": "F3",
+        "id": "P3-F3-N09-M03-R01-C00",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N09-M03-R01",
+        "family": "F3",
+        "id": "P3-F3-N09-M03-R01-C05",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N09-M03-R01",
+        "family": "F3",
+        "id": "P3-F3-N09-M03-R01-C20",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N09-M03-R02",
+        "family": "F3",
+        "id": "P3-F3-N09-M03-R02-C00",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N09-M03-R02",
+        "family": "F3",
+        "id": "P3-F3-N09-M03-R02-C05",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N09-M03-R02",
+        "family": "F3",
+        "id": "P3-F3-N09-M03-R02-C20",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N09-M03-R03",
+        "family": "F3",
+        "id": "P3-F3-N09-M03-R03-C00",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N09-M03-R03",
+        "family": "F3",
+        "id": "P3-F3-N09-M03-R03-C05",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F3-N09-M03-R03",
+        "family": "F3",
+        "id": "P3-F3-N09-M03-R03-C20",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N03-M02-R00",
+        "family": "F4",
+        "id": "P3-F4-N03-M02-R00-C00",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N03-M02-R00",
+        "family": "F4",
+        "id": "P3-F4-N03-M02-R00-C05",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N03-M02-R00",
+        "family": "F4",
+        "id": "P3-F4-N03-M02-R00-C20",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N03-M02-R01",
+        "family": "F4",
+        "id": "P3-F4-N03-M02-R01-C00",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N03-M02-R01",
+        "family": "F4",
+        "id": "P3-F4-N03-M02-R01-C05",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N03-M02-R01",
+        "family": "F4",
+        "id": "P3-F4-N03-M02-R01-C20",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N03-M02-R02",
+        "family": "F4",
+        "id": "P3-F4-N03-M02-R02-C00",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N03-M02-R02",
+        "family": "F4",
+        "id": "P3-F4-N03-M02-R02-C05",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N03-M02-R02",
+        "family": "F4",
+        "id": "P3-F4-N03-M02-R02-C20",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N03-M02-R03",
+        "family": "F4",
+        "id": "P3-F4-N03-M02-R03-C00",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N03-M02-R03",
+        "family": "F4",
+        "id": "P3-F4-N03-M02-R03-C05",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N03-M02-R03",
+        "family": "F4",
+        "id": "P3-F4-N03-M02-R03-C20",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N03-M03-R00",
+        "family": "F4",
+        "id": "P3-F4-N03-M03-R00-C00",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N03-M03-R00",
+        "family": "F4",
+        "id": "P3-F4-N03-M03-R00-C05",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N03-M03-R00",
+        "family": "F4",
+        "id": "P3-F4-N03-M03-R00-C20",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N03-M03-R01",
+        "family": "F4",
+        "id": "P3-F4-N03-M03-R01-C00",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N03-M03-R01",
+        "family": "F4",
+        "id": "P3-F4-N03-M03-R01-C05",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N03-M03-R01",
+        "family": "F4",
+        "id": "P3-F4-N03-M03-R01-C20",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N03-M03-R02",
+        "family": "F4",
+        "id": "P3-F4-N03-M03-R02-C00",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N03-M03-R02",
+        "family": "F4",
+        "id": "P3-F4-N03-M03-R02-C05",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N03-M03-R02",
+        "family": "F4",
+        "id": "P3-F4-N03-M03-R02-C20",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N03-M03-R03",
+        "family": "F4",
+        "id": "P3-F4-N03-M03-R03-C00",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N03-M03-R03",
+        "family": "F4",
+        "id": "P3-F4-N03-M03-R03-C05",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N03-M03-R03",
+        "family": "F4",
+        "id": "P3-F4-N03-M03-R03-C20",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N06-M02-R00",
+        "family": "F4",
+        "id": "P3-F4-N06-M02-R00-C00",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N06-M02-R00",
+        "family": "F4",
+        "id": "P3-F4-N06-M02-R00-C05",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N06-M02-R00",
+        "family": "F4",
+        "id": "P3-F4-N06-M02-R00-C20",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N06-M02-R01",
+        "family": "F4",
+        "id": "P3-F4-N06-M02-R01-C00",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N06-M02-R01",
+        "family": "F4",
+        "id": "P3-F4-N06-M02-R01-C05",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N06-M02-R01",
+        "family": "F4",
+        "id": "P3-F4-N06-M02-R01-C20",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N06-M02-R02",
+        "family": "F4",
+        "id": "P3-F4-N06-M02-R02-C00",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N06-M02-R02",
+        "family": "F4",
+        "id": "P3-F4-N06-M02-R02-C05",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N06-M02-R02",
+        "family": "F4",
+        "id": "P3-F4-N06-M02-R02-C20",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N06-M02-R03",
+        "family": "F4",
+        "id": "P3-F4-N06-M02-R03-C00",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N06-M02-R03",
+        "family": "F4",
+        "id": "P3-F4-N06-M02-R03-C05",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N06-M02-R03",
+        "family": "F4",
+        "id": "P3-F4-N06-M02-R03-C20",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N06-M03-R00",
+        "family": "F4",
+        "id": "P3-F4-N06-M03-R00-C00",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N06-M03-R00",
+        "family": "F4",
+        "id": "P3-F4-N06-M03-R00-C05",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N06-M03-R00",
+        "family": "F4",
+        "id": "P3-F4-N06-M03-R00-C20",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N06-M03-R01",
+        "family": "F4",
+        "id": "P3-F4-N06-M03-R01-C00",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N06-M03-R01",
+        "family": "F4",
+        "id": "P3-F4-N06-M03-R01-C05",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N06-M03-R01",
+        "family": "F4",
+        "id": "P3-F4-N06-M03-R01-C20",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N06-M03-R02",
+        "family": "F4",
+        "id": "P3-F4-N06-M03-R02-C00",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N06-M03-R02",
+        "family": "F4",
+        "id": "P3-F4-N06-M03-R02-C05",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N06-M03-R02",
+        "family": "F4",
+        "id": "P3-F4-N06-M03-R02-C20",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N06-M03-R03",
+        "family": "F4",
+        "id": "P3-F4-N06-M03-R03-C00",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N06-M03-R03",
+        "family": "F4",
+        "id": "P3-F4-N06-M03-R03-C05",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N06-M03-R03",
+        "family": "F4",
+        "id": "P3-F4-N06-M03-R03-C20",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N09-M02-R00",
+        "family": "F4",
+        "id": "P3-F4-N09-M02-R00-C00",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N09-M02-R00",
+        "family": "F4",
+        "id": "P3-F4-N09-M02-R00-C05",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N09-M02-R00",
+        "family": "F4",
+        "id": "P3-F4-N09-M02-R00-C20",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N09-M02-R01",
+        "family": "F4",
+        "id": "P3-F4-N09-M02-R01-C00",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N09-M02-R01",
+        "family": "F4",
+        "id": "P3-F4-N09-M02-R01-C05",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N09-M02-R01",
+        "family": "F4",
+        "id": "P3-F4-N09-M02-R01-C20",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N09-M02-R02",
+        "family": "F4",
+        "id": "P3-F4-N09-M02-R02-C00",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N09-M02-R02",
+        "family": "F4",
+        "id": "P3-F4-N09-M02-R02-C05",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N09-M02-R02",
+        "family": "F4",
+        "id": "P3-F4-N09-M02-R02-C20",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N09-M02-R03",
+        "family": "F4",
+        "id": "P3-F4-N09-M02-R03-C00",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N09-M02-R03",
+        "family": "F4",
+        "id": "P3-F4-N09-M02-R03-C05",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N09-M02-R03",
+        "family": "F4",
+        "id": "P3-F4-N09-M02-R03-C20",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F4-N09-M03-R00",
+        "family": "F4",
+        "id": "P3-F4-N09-M03-R00-C00",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N09-M03-R00",
+        "family": "F4",
+        "id": "P3-F4-N09-M03-R00-C05",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N09-M03-R00",
+        "family": "F4",
+        "id": "P3-F4-N09-M03-R00-C20",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N09-M03-R01",
+        "family": "F4",
+        "id": "P3-F4-N09-M03-R01-C00",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N09-M03-R01",
+        "family": "F4",
+        "id": "P3-F4-N09-M03-R01-C05",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N09-M03-R01",
+        "family": "F4",
+        "id": "P3-F4-N09-M03-R01-C20",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N09-M03-R02",
+        "family": "F4",
+        "id": "P3-F4-N09-M03-R02-C00",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N09-M03-R02",
+        "family": "F4",
+        "id": "P3-F4-N09-M03-R02-C05",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N09-M03-R02",
+        "family": "F4",
+        "id": "P3-F4-N09-M03-R02-C20",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N09-M03-R03",
+        "family": "F4",
+        "id": "P3-F4-N09-M03-R03-C00",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N09-M03-R03",
+        "family": "F4",
+        "id": "P3-F4-N09-M03-R03-C05",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F4-N09-M03-R03",
+        "family": "F4",
+        "id": "P3-F4-N09-M03-R03-C20",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N03-M02-R00",
+        "family": "F5",
+        "id": "P3-F5-N03-M02-R00-C00",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N03-M02-R00",
+        "family": "F5",
+        "id": "P3-F5-N03-M02-R00-C05",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N03-M02-R00",
+        "family": "F5",
+        "id": "P3-F5-N03-M02-R00-C20",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N03-M02-R01",
+        "family": "F5",
+        "id": "P3-F5-N03-M02-R01-C00",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N03-M02-R01",
+        "family": "F5",
+        "id": "P3-F5-N03-M02-R01-C05",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N03-M02-R01",
+        "family": "F5",
+        "id": "P3-F5-N03-M02-R01-C20",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N03-M02-R02",
+        "family": "F5",
+        "id": "P3-F5-N03-M02-R02-C00",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N03-M02-R02",
+        "family": "F5",
+        "id": "P3-F5-N03-M02-R02-C05",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N03-M02-R02",
+        "family": "F5",
+        "id": "P3-F5-N03-M02-R02-C20",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N03-M02-R03",
+        "family": "F5",
+        "id": "P3-F5-N03-M02-R03-C00",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N03-M02-R03",
+        "family": "F5",
+        "id": "P3-F5-N03-M02-R03-C05",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N03-M02-R03",
+        "family": "F5",
+        "id": "P3-F5-N03-M02-R03-C20",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N03-M03-R00",
+        "family": "F5",
+        "id": "P3-F5-N03-M03-R00-C00",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N03-M03-R00",
+        "family": "F5",
+        "id": "P3-F5-N03-M03-R00-C05",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N03-M03-R00",
+        "family": "F5",
+        "id": "P3-F5-N03-M03-R00-C20",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N03-M03-R01",
+        "family": "F5",
+        "id": "P3-F5-N03-M03-R01-C00",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N03-M03-R01",
+        "family": "F5",
+        "id": "P3-F5-N03-M03-R01-C05",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N03-M03-R01",
+        "family": "F5",
+        "id": "P3-F5-N03-M03-R01-C20",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N03-M03-R02",
+        "family": "F5",
+        "id": "P3-F5-N03-M03-R02-C00",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N03-M03-R02",
+        "family": "F5",
+        "id": "P3-F5-N03-M03-R02-C05",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N03-M03-R02",
+        "family": "F5",
+        "id": "P3-F5-N03-M03-R02-C20",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N03-M03-R03",
+        "family": "F5",
+        "id": "P3-F5-N03-M03-R03-C00",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N03-M03-R03",
+        "family": "F5",
+        "id": "P3-F5-N03-M03-R03-C05",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N03-M03-R03",
+        "family": "F5",
+        "id": "P3-F5-N03-M03-R03-C20",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N06-M02-R00",
+        "family": "F5",
+        "id": "P3-F5-N06-M02-R00-C00",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N06-M02-R00",
+        "family": "F5",
+        "id": "P3-F5-N06-M02-R00-C05",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N06-M02-R00",
+        "family": "F5",
+        "id": "P3-F5-N06-M02-R00-C20",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N06-M02-R01",
+        "family": "F5",
+        "id": "P3-F5-N06-M02-R01-C00",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N06-M02-R01",
+        "family": "F5",
+        "id": "P3-F5-N06-M02-R01-C05",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N06-M02-R01",
+        "family": "F5",
+        "id": "P3-F5-N06-M02-R01-C20",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N06-M02-R02",
+        "family": "F5",
+        "id": "P3-F5-N06-M02-R02-C00",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N06-M02-R02",
+        "family": "F5",
+        "id": "P3-F5-N06-M02-R02-C05",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N06-M02-R02",
+        "family": "F5",
+        "id": "P3-F5-N06-M02-R02-C20",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N06-M02-R03",
+        "family": "F5",
+        "id": "P3-F5-N06-M02-R03-C00",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N06-M02-R03",
+        "family": "F5",
+        "id": "P3-F5-N06-M02-R03-C05",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N06-M02-R03",
+        "family": "F5",
+        "id": "P3-F5-N06-M02-R03-C20",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N06-M03-R00",
+        "family": "F5",
+        "id": "P3-F5-N06-M03-R00-C00",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N06-M03-R00",
+        "family": "F5",
+        "id": "P3-F5-N06-M03-R00-C05",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N06-M03-R00",
+        "family": "F5",
+        "id": "P3-F5-N06-M03-R00-C20",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N06-M03-R01",
+        "family": "F5",
+        "id": "P3-F5-N06-M03-R01-C00",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N06-M03-R01",
+        "family": "F5",
+        "id": "P3-F5-N06-M03-R01-C05",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N06-M03-R01",
+        "family": "F5",
+        "id": "P3-F5-N06-M03-R01-C20",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N06-M03-R02",
+        "family": "F5",
+        "id": "P3-F5-N06-M03-R02-C00",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N06-M03-R02",
+        "family": "F5",
+        "id": "P3-F5-N06-M03-R02-C05",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N06-M03-R02",
+        "family": "F5",
+        "id": "P3-F5-N06-M03-R02-C20",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N06-M03-R03",
+        "family": "F5",
+        "id": "P3-F5-N06-M03-R03-C00",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N06-M03-R03",
+        "family": "F5",
+        "id": "P3-F5-N06-M03-R03-C05",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N06-M03-R03",
+        "family": "F5",
+        "id": "P3-F5-N06-M03-R03-C20",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N09-M02-R00",
+        "family": "F5",
+        "id": "P3-F5-N09-M02-R00-C00",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N09-M02-R00",
+        "family": "F5",
+        "id": "P3-F5-N09-M02-R00-C05",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N09-M02-R00",
+        "family": "F5",
+        "id": "P3-F5-N09-M02-R00-C20",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N09-M02-R01",
+        "family": "F5",
+        "id": "P3-F5-N09-M02-R01-C00",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N09-M02-R01",
+        "family": "F5",
+        "id": "P3-F5-N09-M02-R01-C05",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N09-M02-R01",
+        "family": "F5",
+        "id": "P3-F5-N09-M02-R01-C20",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N09-M02-R02",
+        "family": "F5",
+        "id": "P3-F5-N09-M02-R02-C00",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N09-M02-R02",
+        "family": "F5",
+        "id": "P3-F5-N09-M02-R02-C05",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N09-M02-R02",
+        "family": "F5",
+        "id": "P3-F5-N09-M02-R02-C20",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N09-M02-R03",
+        "family": "F5",
+        "id": "P3-F5-N09-M02-R03-C00",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N09-M02-R03",
+        "family": "F5",
+        "id": "P3-F5-N09-M02-R03-C05",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N09-M02-R03",
+        "family": "F5",
+        "id": "P3-F5-N09-M02-R03-C20",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F5-N09-M03-R00",
+        "family": "F5",
+        "id": "P3-F5-N09-M03-R00-C00",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N09-M03-R00",
+        "family": "F5",
+        "id": "P3-F5-N09-M03-R00-C05",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N09-M03-R00",
+        "family": "F5",
+        "id": "P3-F5-N09-M03-R00-C20",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N09-M03-R01",
+        "family": "F5",
+        "id": "P3-F5-N09-M03-R01-C00",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N09-M03-R01",
+        "family": "F5",
+        "id": "P3-F5-N09-M03-R01-C05",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N09-M03-R01",
+        "family": "F5",
+        "id": "P3-F5-N09-M03-R01-C20",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N09-M03-R02",
+        "family": "F5",
+        "id": "P3-F5-N09-M03-R02-C00",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N09-M03-R02",
+        "family": "F5",
+        "id": "P3-F5-N09-M03-R02-C05",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N09-M03-R02",
+        "family": "F5",
+        "id": "P3-F5-N09-M03-R02-C20",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N09-M03-R03",
+        "family": "F5",
+        "id": "P3-F5-N09-M03-R03-C00",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N09-M03-R03",
+        "family": "F5",
+        "id": "P3-F5-N09-M03-R03-C05",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F5-N09-M03-R03",
+        "family": "F5",
+        "id": "P3-F5-N09-M03-R03-C20",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N03-M02-R00",
+        "family": "F6",
+        "id": "P3-F6-N03-M02-R00-C00",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N03-M02-R00",
+        "family": "F6",
+        "id": "P3-F6-N03-M02-R00-C05",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N03-M02-R00",
+        "family": "F6",
+        "id": "P3-F6-N03-M02-R00-C20",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N03-M02-R01",
+        "family": "F6",
+        "id": "P3-F6-N03-M02-R01-C00",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N03-M02-R01",
+        "family": "F6",
+        "id": "P3-F6-N03-M02-R01-C05",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N03-M02-R01",
+        "family": "F6",
+        "id": "P3-F6-N03-M02-R01-C20",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N03-M02-R02",
+        "family": "F6",
+        "id": "P3-F6-N03-M02-R02-C00",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N03-M02-R02",
+        "family": "F6",
+        "id": "P3-F6-N03-M02-R02-C05",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N03-M02-R02",
+        "family": "F6",
+        "id": "P3-F6-N03-M02-R02-C20",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N03-M02-R03",
+        "family": "F6",
+        "id": "P3-F6-N03-M02-R03-C00",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N03-M02-R03",
+        "family": "F6",
+        "id": "P3-F6-N03-M02-R03-C05",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N03-M02-R03",
+        "family": "F6",
+        "id": "P3-F6-N03-M02-R03-C20",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N03-M03-R00",
+        "family": "F6",
+        "id": "P3-F6-N03-M03-R00-C00",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N03-M03-R00",
+        "family": "F6",
+        "id": "P3-F6-N03-M03-R00-C05",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N03-M03-R00",
+        "family": "F6",
+        "id": "P3-F6-N03-M03-R00-C20",
+        "replicate": 0,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N03-M03-R01",
+        "family": "F6",
+        "id": "P3-F6-N03-M03-R01-C00",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N03-M03-R01",
+        "family": "F6",
+        "id": "P3-F6-N03-M03-R01-C05",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N03-M03-R01",
+        "family": "F6",
+        "id": "P3-F6-N03-M03-R01-C20",
+        "replicate": 1,
+        "slots": 3,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N03-M03-R02",
+        "family": "F6",
+        "id": "P3-F6-N03-M03-R02-C00",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N03-M03-R02",
+        "family": "F6",
+        "id": "P3-F6-N03-M03-R02-C05",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N03-M03-R02",
+        "family": "F6",
+        "id": "P3-F6-N03-M03-R02-C20",
+        "replicate": 2,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N03-M03-R03",
+        "family": "F6",
+        "id": "P3-F6-N03-M03-R03-C00",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N03-M03-R03",
+        "family": "F6",
+        "id": "P3-F6-N03-M03-R03-C05",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N03-M03-R03",
+        "family": "F6",
+        "id": "P3-F6-N03-M03-R03-C20",
+        "replicate": 3,
+        "slots": 3,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N06-M02-R00",
+        "family": "F6",
+        "id": "P3-F6-N06-M02-R00-C00",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N06-M02-R00",
+        "family": "F6",
+        "id": "P3-F6-N06-M02-R00-C05",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N06-M02-R00",
+        "family": "F6",
+        "id": "P3-F6-N06-M02-R00-C20",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N06-M02-R01",
+        "family": "F6",
+        "id": "P3-F6-N06-M02-R01-C00",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N06-M02-R01",
+        "family": "F6",
+        "id": "P3-F6-N06-M02-R01-C05",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N06-M02-R01",
+        "family": "F6",
+        "id": "P3-F6-N06-M02-R01-C20",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N06-M02-R02",
+        "family": "F6",
+        "id": "P3-F6-N06-M02-R02-C00",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N06-M02-R02",
+        "family": "F6",
+        "id": "P3-F6-N06-M02-R02-C05",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N06-M02-R02",
+        "family": "F6",
+        "id": "P3-F6-N06-M02-R02-C20",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N06-M02-R03",
+        "family": "F6",
+        "id": "P3-F6-N06-M02-R03-C00",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N06-M02-R03",
+        "family": "F6",
+        "id": "P3-F6-N06-M02-R03-C05",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N06-M02-R03",
+        "family": "F6",
+        "id": "P3-F6-N06-M02-R03-C20",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N06-M03-R00",
+        "family": "F6",
+        "id": "P3-F6-N06-M03-R00-C00",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N06-M03-R00",
+        "family": "F6",
+        "id": "P3-F6-N06-M03-R00-C05",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N06-M03-R00",
+        "family": "F6",
+        "id": "P3-F6-N06-M03-R00-C20",
+        "replicate": 0,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N06-M03-R01",
+        "family": "F6",
+        "id": "P3-F6-N06-M03-R01-C00",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N06-M03-R01",
+        "family": "F6",
+        "id": "P3-F6-N06-M03-R01-C05",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N06-M03-R01",
+        "family": "F6",
+        "id": "P3-F6-N06-M03-R01-C20",
+        "replicate": 1,
+        "slots": 6,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N06-M03-R02",
+        "family": "F6",
+        "id": "P3-F6-N06-M03-R02-C00",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N06-M03-R02",
+        "family": "F6",
+        "id": "P3-F6-N06-M03-R02-C05",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N06-M03-R02",
+        "family": "F6",
+        "id": "P3-F6-N06-M03-R02-C20",
+        "replicate": 2,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N06-M03-R03",
+        "family": "F6",
+        "id": "P3-F6-N06-M03-R03-C00",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N06-M03-R03",
+        "family": "F6",
+        "id": "P3-F6-N06-M03-R03-C05",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N06-M03-R03",
+        "family": "F6",
+        "id": "P3-F6-N06-M03-R03-C20",
+        "replicate": 3,
+        "slots": 6,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N09-M02-R00",
+        "family": "F6",
+        "id": "P3-F6-N09-M02-R00-C00",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N09-M02-R00",
+        "family": "F6",
+        "id": "P3-F6-N09-M02-R00-C05",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N09-M02-R00",
+        "family": "F6",
+        "id": "P3-F6-N09-M02-R00-C20",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N09-M02-R01",
+        "family": "F6",
+        "id": "P3-F6-N09-M02-R01-C00",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N09-M02-R01",
+        "family": "F6",
+        "id": "P3-F6-N09-M02-R01-C05",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N09-M02-R01",
+        "family": "F6",
+        "id": "P3-F6-N09-M02-R01-C20",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N09-M02-R02",
+        "family": "F6",
+        "id": "P3-F6-N09-M02-R02-C00",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N09-M02-R02",
+        "family": "F6",
+        "id": "P3-F6-N09-M02-R02-C05",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N09-M02-R02",
+        "family": "F6",
+        "id": "P3-F6-N09-M02-R02-C20",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N09-M02-R03",
+        "family": "F6",
+        "id": "P3-F6-N09-M02-R03-C00",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N09-M02-R03",
+        "family": "F6",
+        "id": "P3-F6-N09-M02-R03-C05",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N09-M02-R03",
+        "family": "F6",
+        "id": "P3-F6-N09-M02-R03-C20",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 2
+      },
+      {
+        "core_id": "P3-F6-N09-M03-R00",
+        "family": "F6",
+        "id": "P3-F6-N09-M03-R00-C00",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N09-M03-R00",
+        "family": "F6",
+        "id": "P3-F6-N09-M03-R00-C05",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N09-M03-R00",
+        "family": "F6",
+        "id": "P3-F6-N09-M03-R00-C20",
+        "replicate": 0,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N09-M03-R01",
+        "family": "F6",
+        "id": "P3-F6-N09-M03-R01-C00",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N09-M03-R01",
+        "family": "F6",
+        "id": "P3-F6-N09-M03-R01-C05",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N09-M03-R01",
+        "family": "F6",
+        "id": "P3-F6-N09-M03-R01-C20",
+        "replicate": 1,
+        "slots": 9,
+        "split": "development",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N09-M03-R02",
+        "family": "F6",
+        "id": "P3-F6-N09-M03-R02-C00",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N09-M03-R02",
+        "family": "F6",
+        "id": "P3-F6-N09-M03-R02-C05",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N09-M03-R02",
+        "family": "F6",
+        "id": "P3-F6-N09-M03-R02-C20",
+        "replicate": 2,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N09-M03-R03",
+        "family": "F6",
+        "id": "P3-F6-N09-M03-R03-C00",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 0,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N09-M03-R03",
+        "family": "F6",
+        "id": "P3-F6-N09-M03-R03-C05",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 5,
+        "targets": 3
+      },
+      {
+        "core_id": "P3-F6-N09-M03-R03",
+        "family": "F6",
+        "id": "P3-F6-N09-M03-R03-C20",
+        "replicate": 3,
+        "slots": 9,
+        "split": "evaluation_reserved",
+        "status": "planned_not_generated",
+        "switch_cost": 20,
+        "targets": 3
+      }
+    ],
+    "core_count": 144,
+    "development_count": 216,
+    "evaluation_reserved_count": 216,
+    "families": [
+      {
+        "eligibility": "true",
+        "id": "F1",
+        "name": "constant",
+        "score": "H(0,j,score,101)"
+      },
+      {
+        "eligibility": "true",
+        "id": "F2",
+        "name": "alternating",
+        "score": "40 + H(0,0,base,41) + (1 + H(0,0,gap,5) if j == (t+r) % M else 0)"
+      },
+      {
+        "eligibility": "true",
+        "id": "F3",
+        "name": "integer_trend",
+        "score": "clip(H(0,j,base,101) + t*(H(0,j,slope,21)-10),0,100)"
+      },
+      {
+        "eligibility": "H(t,j,eligibility,4) == 0",
+        "id": "F4",
+        "name": "sparse_eligibility",
+        "score": "H(t,j,score,101)"
+      },
+      {
+        "eligibility": "t != N // 2",
+        "id": "F5",
+        "name": "forced_blackout",
+        "score": "H(t,j,score,101)"
+      },
+      {
+        "eligibility": "[true,false,null][H(t,j,eligibility,3)]",
+        "id": "F6",
+        "name": "missing_and_unknown",
+        "score": "null if H(t,j,score_missing,4) == 0 else H(t,j,score,101)"
+      }
+    ],
+    "max_enumerated_paths_per_case": 262144,
+    "profile_case_count": 432,
+    "replicates": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "slot_counts": [
+      3,
+      6,
+      9
+    ],
+    "switch_costs": [
+      0,
+      5,
+      20
+    ],
+    "synthesis": {
+      "H": "H(t,j,channel,b) = int.from_bytes(SHA256(UTF8(\"astroscope-p3-v1|{family}|{N}|{M}|{r}|{t}|{j}|{channel}\")).digest()[:8], \"big\") % b",
+      "clip": "clip(x,lo,hi)=min(hi,max(lo,x))",
+      "cost_excluded_from_hash": true,
+      "domain": "astroscope-p3-v1",
+      "encoding": "ASCII field contents, UTF-8 bytes, unpadded decimal nonnegative indices, literal F1..F6 and lowercase channel, no spaces/newline",
+      "frozen_input_serialization": "UTF-8 JSON, sort_keys=True, indent=2, ensure_ascii=True, allow_nan=False, exactly one terminal LF; schema/content frozen in Mission 64 before evaluation",
+      "randomness": "No RNG; public deterministic counter construction. Modulo bias is not claimed absent; no distributional sampling claim.",
+      "slot_index": "0..N-1",
+      "target_index": "0..M-1"
+    },
+    "target_counts": [
+      2,
+      3
+    ]
+  },
+  "protocol_id": "P3-SCHEDULE-001-v1",
+  "research_question": "Compare selection policies under fixed nominal slot scores, eligibility and a last-non-idle switching cost; independently verify the finite-model optimum.",
+  "schema_version": 1,
+  "scope": "Synthetic supplied-input selection only; no calibrated astronomical utility or physical scheduling qualification.",
+  "source_access": {
+    "read_date_jst": "2026-10-26",
+    "redistributed_source_files": false,
+    "runtime_downloads": false
+  },
+  "source_references": [
+    {
+      "author": "Dimitri P. Bertsekas",
+      "id": "R1",
+      "locations": "PDF pages 17, 20-23, 25-26",
+      "role": "Method background only; model and experimental choices are project definitions.",
+      "title": "MIT 6.231 Dynamic Programming and Stochastic Control, Fall 2015 lecture slides",
+      "url": "https://ocw.mit.edu/courses/6-231-dynamic-programming-and-stochastic-control-fall-2015/dae6c8dca97f89b45bd0d7877a5433c9_MIT6_231F15_Notes.pdf"
+    },
+    {
+      "author": "Python Software Foundation",
+      "id": "R2",
+      "locations": "itertools.product",
+      "role": "Enumeration API and ordering, not scientific reference outputs.",
+      "title": "Python 3.12 itertools.product documentation",
+      "url": "https://docs.python.org/3.12/library/itertools.html#itertools.product"
+    }
+  ],
+  "splits": {
+    "access_rule": "Candidate evaluation-reserved outputs remain unopened until candidate source/config, independent reference and thresholds are frozen. Log accesses. Public inputs are not a blind holdout.",
+    "blind": false,
+    "development_replicates": [
+      0,
+      1
+    ],
+    "evaluation_reserved_replicates": [
+      2,
+      3
+    ],
+    "failure_rule": "Retain failures; any repair produces new source/results, and repeated evaluation is labelled exposed regression evidence. No rerolls, denominator changes or post-hoc thresholds.",
+    "trained_model": false
+  },
+  "status": "frozen_for_review_not_evaluated"
+}

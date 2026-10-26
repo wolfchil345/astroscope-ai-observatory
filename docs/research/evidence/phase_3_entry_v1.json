@@ -1,0 +1,175 @@
+{
+  "authorization": "Separate user instruction: Start mission 63",
+  "baseline_ci_evidence": "docs/research/evidence/mission62_merge_ci_v1.json",
+  "baseline_ci_evidence_sha256": "fc8b8d3b9fc413e0ddf8fab350e7d2ce98896ed397d288b67a2194094cc00fd0",
+  "baseline_commit": "cbc054d1cd5cf65d9750137743c54c8d435ea114",
+  "baseline_file_sha256": {
+    ".github/workflows/quality-gate.yml": "8240b8eb215a54c0ac3a3afd4322c06c6907fd63e2f537e2bd3d7c711455490d",
+    "docs/research/evidence/phase_2_exit_readiness_v1.json": "127efcda30d5c0078e5642b46a8d33b09a4e596a716217390772aeb3516c5d5b",
+    "docs/research/evidence/phase_2_historical_provenance_v1.json": "4f1d7abf9ad982928bf889722a3d8b1356ab63c7e08ad3e6dbe6aebe3d8a7c52",
+    "docs/research/phase_1_exit_audit.md": "3886a03415d5b5f8c8e1d16a58289f1dc7ca23a3263d625886af3caddee2a156",
+    "docs/research/phase_2_exit_readiness.md": "2ac05ada95323511c8a59d0a4f1e147363a186905a33d207d709e187851cc2a4",
+    "docs/research/v0.2.0_research_baseline.md": "16f177b90960300470e42234625084dc48ecb3eaaf949e3166e75653c83f9cb5",
+    "docs/research/validation/heuristic_characterisation.md": "e46ced87d245eda6e23147af73db3c5cc34b935e64f7e65f92fcde12520359c5",
+    "docs/research/validation/schedule_interval_validation.md": "fdb3be81a9a4e5e46427091f795cbd7128adfee2bd9eaa908fa9e9bbe983db0f",
+    "docs/research/validation/visibility_sampling_validation.md": "06fa840d1cac11b25142b82934672abce5f8a1dcc7b718f957b2a461ced06ca0",
+    "pyproject.toml": "79fc6ed0ba841ad6d17a122df9ccec014a027143ac6d24e0099372ea16fc5c53",
+    "src/astroscope/planner.py": "07ac6f6ab794ba0bb575b29adf4dc763c707573a7d00af2db36c0430358e5c15",
+    "src/astroscope/schedule.py": "103aae4ec513917269db7738a834692dc2d5e4af1ba5bbdf116960cc2efba63c",
+    "src/astroscope/transit_ranking.py": "1538c902216c34d30ce3a656fae52eafe406f82ab5f1c5fbfd2bd9b9f47fdbb6",
+    "src/astroscope/transit_schedule.py": "7e9281110afe82eedd54bfb1e0a24d76c0dbf9c5461eed75215a1914838ad5d0",
+    "src/astroscope/transit_schedule_exports.py": "8d9050090190ed219a378e266acc869cb58fa64baefe2b18a3b83111c7b8558c",
+    "src/astroscope/transit_timing.py": "7d1f72807a5991f94be66cface374162fd3ebb10c1cf2cdf0b18a5d7d716d27e",
+    "src/astroscope/transit_visibility.py": "066d24f172fe41ebc364342cf56bcb964c65dba0fd223c41a3f777e47e7ef718",
+    "tests/test_schedule.py": "7e4a5d713e4dc6b1824f005ea1a8b3ed845864d36c3cf49f1f7359ba0eca05de",
+    "tests/test_schedule_interval_resolution.py": "0ea6e45417505006838e68a822d7ef0ad80ab804a78cdb4f71154ece649c4e46",
+    "tests/test_transit_timing.py": "b80ab93bb1819879b8c1508a1c8d5cef004c9c3b5df7c2c1feeea67d68cbb2fa",
+    "tests/validation/test_heuristic_characterisation.py": "55a5661e785b6122a67501ecc352606e3fe34238b635dcf6117ab5e5bb5d6140",
+    "validation/fixtures/heuristic_characterisation_v1.json": "e224eea3b1ff65c174266969b26ed0296ee1022f03f6820589ce341f12df87e4",
+    "validation/heuristic_characterisation.py": "fd3f34fc746c60fc31aae0fe4a54f23f4a07a15d21320fedbec4adee636e4d05",
+    "validation/manifests/heuristic_characterisation_policy_v1.json": "1ef060f424092c12e8173bb955def1526ea980818e135e62bfc54cb8ce4f2681",
+    "validation/manifests/heuristic_characterisation_v1.json": "074f2294a6b2442f144b2abeda8f41093431eb2eaa3fbe24315641a677426621",
+    "validation/reference_generation/heuristic_characterisation.py": "86d53677d2836b86b4ec8511cb965d1bc108a85593fc5ae4c2b091e641bc2c25",
+    "validation/results/heuristic_characterisation_reference_run.json": "04028e30c3138842bd69f631639a9ec6a3a9c3e9e61bae6102ccb4cdef18dd86"
+  },
+  "excluded_claims": [
+    {
+      "claim": "Universal original-environment reconstruction",
+      "enforcement": "Documentary claim restriction; original records immutable.",
+      "id": "L62-01",
+      "owner": "Experiment provenance; Phase 8 archival packaging",
+      "reason": "14 canonical OS fields absent; 13 dedicated architecture entries absent; M49/M50 package inventories absent.",
+      "reopen": "Obtain contemporaneous receipts or label new replay as a new execution; never backfill history from current CI."
+    },
+    {
+      "claim": "Fully vendored raw-reference regeneration or cross-platform equivalence",
+      "enforcement": "Hash-checked acquisition and separate generator locks; M45 precision rejection is executable.",
+      "id": "L62-02",
+      "owner": "Experiment source acquisition; Phase 8 packaging",
+      "reason": "Pinned kernels/tools may need separate acquisition; M45 requires >=64 significand guard bits.",
+      "reopen": "Provision legal/checksummed sources and exact tools, validate target-platform precision and rerun under a versioned protocol."
+    },
+    {
+      "claim": "Archive completeness, maintained preset accuracy, and calibrated catalogue inference",
+      "enforcement": "Documentary claim restriction plus existing educational notes; interface access remains enabled.",
+      "id": "L62-03",
+      "owner": "Phase 3 input protocol; Phase 7 interoperability",
+      "reason": "Mutable responses lack a durable retrieval envelope; static presets lack maintained epoch/source provenance; nominal units are assumptions.",
+      "reopen": "Before use in a quantitative Phase 3 benchmark, freeze input bytes, units, epoch/frame, provenance, transforms and uncertainties or explicit unknowns."
+    },
+    {
+      "claim": "Physically qualified observer-arrival UTC, ranking, schedule or calendar products from strict predictions",
+      "enforcement": "reject_unresolved_timing and legacy-type/export gates; no production resolver.",
+      "id": "L62-04",
+      "owner": "Separate X01 research gate; no automatic future-phase deferral",
+      "reason": "X01: 18 unestablished requirements, six unknown components, 48 unqualified clocks, 288 blocked arrivals.",
+      "reopen": "Applicable physical evidence, model qualification and independent full reference; no synthetic substitute."
+    },
+    {
+      "claim": "Operational, autonomous, publication-grade or calibrated observing performance",
+      "enforcement": "Research-scope restriction; no operational/control implementation is introduced.",
+      "id": "L62-05",
+      "owner": "Phases 3-8 within their roadmap scope",
+      "reason": "Heuristic characterization and finite reference corpora do not measure observing utility, hardware performance or universal false-alarm behavior.",
+      "reopen": "Predeclared datasets, baselines, outcomes, uncertainty and prospective evaluation appropriate to each later phase."
+    }
+  ],
+  "final_ci_evidence": "Mission 63 PR body: exact final head, full suite and all 28 downloaded archive receipts required before handoff",
+  "gates": [
+    {
+      "id": "P3-E01",
+      "status": "entry_verified_protocol_review_pending"
+    },
+    {
+      "id": "P3-E02",
+      "status": "input_oracle_specification_only"
+    },
+    {
+      "id": "P3-E03",
+      "status": "methods_defined_not_evaluated"
+    },
+    {
+      "id": "P3-E04",
+      "status": "comparative_evidence_not_executed"
+    },
+    {
+      "id": "P3-E05",
+      "status": "observational_calibration_deferred_with_evidence_prerequisite"
+    },
+    {
+      "id": "P3-E06",
+      "status": "integration_and_exit_not_approved"
+    }
+  ],
+  "inherited_physical_status": {
+    "combined_counts": {
+      "blocked": 288,
+      "candidates": 288,
+      "executed": 0,
+      "solar_eligible": 240,
+      "solar_excluded": 48
+    },
+    "full_reference_status": "unqualified",
+    "inherited_unestablished_receipt_requirements": 18,
+    "observing_eligible": false,
+    "physical_arrival_bound_seconds": null,
+    "physical_covariance_acquired": false,
+    "physical_covariance_propagated": false,
+    "physical_geocentric_clock_bound_seconds": null,
+    "physical_linearization_domain_established": false,
+    "physical_site_clock_bound_seconds": null,
+    "site_clocks_unqualified": 48,
+    "unresolved_components": [
+      "geocentric_time_ephemeris",
+      "earth_state",
+      "station_coordinates",
+      "earth_orientation",
+      "omitted_physics_and_coefficient_model",
+      "higher_order_remainder"
+    ]
+  },
+  "kind": "phase_transition_and_protocol_definition",
+  "mission": 63,
+  "new_ci_artifacts": 0,
+  "new_scientific_results": 0,
+  "new_scientific_tests": 0,
+  "next_mission": {
+    "number": 64,
+    "status": "proposed_not_started",
+    "title": "Controlled Schedule Corpus and Independent Oracle"
+  },
+  "phase_2_exit_approved": true,
+  "phase_2_exit_scope": "limited_to_M62_documented_claims_and_exclusions",
+  "phase_3_exit_approved": false,
+  "phase_3_started": true,
+  "phase_3_status": "active_entry_protocol_only",
+  "predecessor": {
+    "head_commit": "d32d98ae462ea3b45fd416cc4c8253e28ad9dd28",
+    "merged_at": "2026-10-26T04:55:49Z",
+    "merged_commit": "cbc054d1cd5cf65d9750137743c54c8d435ea114",
+    "pr": 62,
+    "scope_acceptance": "M62 merge accepted only its explicitly limited scope after successful final-head checks",
+    "url": "https://github.com/wolfchil345/astroscope-ai-observatory/pull/62"
+  },
+  "preserved_tree_oids": {
+    ".github": "699bac9c97d1a6723eba01296179cfb27db19879",
+    "pyproject.toml": "ab6791f4de46d013cb7adaaa622609949052b3d3",
+    "src": "0af17381eb88b2094a15829f958dd9247e202d6c",
+    "tests": "cc04304b9053c7295715cf128dda8bbddf30354f",
+    "validation": "87083cdf96b587f47f81e40370fff136fb59c4d8"
+  },
+  "production_changes": false,
+  "protocol": "docs/research/protocols/observation_optimisation_v1.json",
+  "protocol_approval": "pending_review_merge",
+  "protocol_sha256": "fc379a617fecf29400fb9cc999c009067a13154efb2b20e51529e0a6a57408ff",
+  "report": "docs/research/phase_3_entry_protocol.md",
+  "report_sha256": "1bc6bac02da19d06cd9a6c74aa9bfb018066b69544a2a26213251c56acb5264e",
+  "review_date_jst": "2026-10-26",
+  "schema_version": 1,
+  "transit_production_counts": {
+    "deferred": 8,
+    "implemented_boundary": 13,
+    "partial_boundary": 5
+  },
+  "x01": "blocked; not closed or automatically deferred"
+}
