@@ -11,7 +11,7 @@
 - Mission 24: Complete — Sky Map Visualization Boundary Extraction, merged in PR #15
 - Phase 1 Exit Audit: PASS — Phase 1 complete
 - Phase 2: Complete within the explicitly accepted Mission 62 scope; physical qualification X01 remains blocked
-- Phase 3: Active — Controlled synthetic corpus and exhaustive reference release; no optimizer comparison yet
+- Phase 3: Active — B0/B1 development validation; B2 and evaluation-reserved comparison pending
 - Mission 25: Complete — Observer-Time Validation Baseline, merged in PR #17
 - Mission 26: Complete — Observer-Instant Civil-Time Transition Policy and Correction, merged in PR #19
 - Mission 27: Complete — Strict Civil-Time Resolution Validation Evidence, merged in PR #21
@@ -61,7 +61,8 @@
 - Mission 61: Complete — [PR #61](https://github.com/wolfchil345/astroscope-ai-observatory/pull/61) merged at `ef21bc7cbec61a0f8b9b389e88683368dfcd42ed`; post-merge Quality Gate 40256448851 passed (8,356 tests, 26 historical xfails), and all 28 artifact archives were downloaded and checked. G60-01–G60-07 and G59-01 have bounded closure.
 - Mission 62: Complete — [PR #62](https://github.com/wolfchil345/astroscope-ai-observatory/pull/62) merged at `cbc054d1cd5cf65d9750137743c54c8d435ea114`, accepting its limited-scope exit. Post-merge Quality Gate 40271565621 passed (8,356 tests, 26 historical xfails); all 28 archives verified. Historical provenance, catalogue and X01 exclusions remain.
 - Mission 63: Complete — [PR #63](https://github.com/wolfchil345/astroscope-ai-observatory/pull/63) merged at `c489863badae5d28e6ae05e3b5d2f65565a0b1aa`; entry protocol accepted. Post-merge Quality Gate 40283019178 passed (8,356 tests, 26 historical xfails), all 28 archives verified.
-- Mission 64: Implemented; review/merge pending — [Controlled Schedule Corpus and Independent Oracle](validation/controlled_schedule_corpus.md): 432 primary cases, 16 controls and frozen exhaustive references; no B0/B1/B2 evaluation or production change.
+- Mission 64: Complete — [PR #64](https://github.com/wolfchil345/astroscope-ai-observatory/pull/64) merged at `0577e5461797491ce3578b03ed94cbcc331b22a6`; post-merge Quality Gate 40300307076 passed (8,377 tests, 26 historical xfails), all 29 archives verified. Frozen input/E0 release accepted.
+- Mission 65: Implemented; review/merge pending — [Controlled Scheduler Baselines and Adapter Validation](validation/controlled_scheduler_baselines.md): 216 development cases + 16 controls, B0/B1 policy and real-adapter checks passed; zero evaluation-reserved candidate executions.
 
 ## Phase Progress
 
@@ -70,7 +71,7 @@
 | 0 | Feature Freeze & Research Baseline | ✅ Complete |
 | 1 | Research Software Architecture | ✅ Complete |
 | 2 | Scientific Validation | ✅ Limited-scope exit accepted; exclusions retained |
-| 3 | Observation Optimisation | 🚧 Active: frozen corpus/E0 release; M64 review pending |
+| 3 | Observation Optimisation | 🚧 Active: B0/B1 development evidence; M65 review pending |
 | 4 | Real AI Layer | ⏳ Planned |
 | 5 | Uncertainty-Aware Planning | ⏳ Planned |
 | 6 | Robotic Observatory Control | ⏳ Planned |
@@ -804,23 +805,46 @@ subsequent implementation under the accepted protocol.
 - [x] Pass 21 new local tests and byte-identical replay in a fresh interpreter without site packages
 - [x] Preserve prior scientific records, production, tests, thresholds and X01 restrictions
 - [x] Add a complete offline audit and 29th CI artifact; record exact-final-head CI receipts in the PR before handoff
-- [ ] Review and merge the Mission 64 input/reference release
+- [x] Review and merge the Mission 64 input/reference release
 
 The [report](validation/controlled_schedule_corpus.md),
 [release ledger](evidence/schedule_corpus_release_v1.json) and
 [access record](evidence/schedule_corpus_access_v1.json) distinguish corpus/reference
-acceptance from optimizer performance. P3-E02 has implemented evidence pending
-review; P3-E03–P3-E06 remain open. Production and physical timing qualification
-are unchanged. The C13 real-scheduler endpoint and block tests remain pending.
+acceptance from optimizer performance. P3-E02 is accepted through M64 merge.
+P3-E03–P3-E06 remain open; M65 adds development evidence for B0/B1 and actual
+endpoint/block behavior without changing production or physical qualification.
 
-**Proposed Mission 65 — Controlled Scheduler Baselines and Adapter Validation**:
-after M64 merge, implement the validation-only real B0 adapter and B1 policy,
-check development cases and actual endpoint/block semantics, then freeze their
-source/configuration before evaluation-reserved candidate access. B2 and comparative
-evaluation remain later work. Mission 65 has not started.
+## Mission 65 — Controlled Scheduler Baselines and Adapter Validation
+
+- [x] Verify Mission 64 merge, post-merge CI and all 29 archive receipts
+- [x] Implement validation-only B0 adapter calling the real unchanged strict scheduler
+- [x] Implement B1 immediate cost-aware greedy with canonical ties and retained idle history
+- [x] Check all 216 development cases + 16 controls against independent policies and frozen E0
+- [x] Exercise C13 endpoint exclusion, UTC date crossing, idle gaps, block continuity and faults
+- [x] Reject all 216 reserved cases before candidate execution, including relabelling attempts
+- [x] Pass 529 new tests; retain 48 malformed-input variants and all five metamorphic relation types
+- [x] Detect ten block-output faults and seven mutated B1 implementations
+- [x] Freeze source/configuration and record a clean canonical audit with all adverse outcomes
+- [x] Preserve historical scientific files and all old CI steps; add artifact 30
+- [x] Record exact-final-head CI and archive receipts in the PR before handoff
+- [ ] Review and merge Mission 65 development acceptance
+
+The [report](validation/controlled_scheduler_baselines.md),
+[ledger](evidence/schedule_baselines_v1.json) and
+[access record](evidence/schedule_baselines_access_v1.json) retain B1's six losses
+against B0 alongside 44 wins and 166 ties on primary development cases. No
+reserved candidate output exists. B2, calibrated observing performance and
+Phase 3 exit remain pending; X01 is still blocked.
+
+**Proposed Mission 66 — Finite-Horizon Candidate Development Validation**:
+after M65 review/merge, implement B2 and validate exact development objectives and
+canonical paths against E0; freeze its source/configuration before any reserved
+candidate-output access. Complete reserved comparison remains separate later work.
+Mission 66 has not started.
 
 ## Phase 3 Deliverables
 
+- [Controlled Scheduler Baselines and Adapter Validation — Mission 65](validation/controlled_scheduler_baselines.md)
 - [Controlled Schedule Corpus and Independent Oracle — Mission 64](validation/controlled_schedule_corpus.md)
 - [Entry Protocol and Observation-Optimisation Baseline Definition — Mission 63](phase_3_entry_protocol.md)
 

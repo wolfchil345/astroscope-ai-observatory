@@ -1,0 +1,45 @@
+{
+  "blind": false,
+  "events": [
+    {
+      "cases": "16 development controls",
+      "id": "M65-A01",
+      "methods": [
+        "B0",
+        "B1"
+      ],
+      "outputs": "paths and net objectives inspected",
+      "reserved_candidate_outputs": 0,
+      "stage": "manual control preflight before source freeze"
+    },
+    {
+      "cases": "216 development primary plus 16 controls; derived unit/mutation cases",
+      "id": "M65-A02",
+      "reserved_candidate_outputs": 0,
+      "reserved_cases": "216 guard rejection attempts, including relabelling, with no chosen output",
+      "runs": [
+        "514 tests passed",
+        "529 tests passed after adding B1 code mutants and remaining metamorphic relations"
+      ],
+      "stage": "local development test runs before source freeze"
+    },
+    {
+      "baseline_invocations": 2784,
+      "case_count": 232,
+      "command": "python -m validation.schedule_baseline_audit --output /tmp/mission65_canonical_run.json",
+      "id": "M65-A03",
+      "implementation_commit": "1c886c99205cd0d292c86249d3ca3c0d21d8619c",
+      "method_case_count": 464,
+      "outputs": "all development paths and metrics; adverse outcomes retained",
+      "reserved_candidate_outputs": 0,
+      "stage": "clean frozen canonical audit"
+    }
+  ],
+  "freeze_commit": "1c886c99205cd0d292c86249d3ca3c0d21d8619c",
+  "future_replays": "Prepublication checks and PR/post-merge CI repeat these development tests and audit. Their run/head/artifact receipts record access. M64 public E0 replays remain separate from candidate evaluation.",
+  "future_reserved_policy": "No execution in Mission65. Separate reviewed scope, complete candidate freeze and access record required before future evaluation-reserved outputs; retain failures and label reused outcomes exposed regression.",
+  "mission": 65,
+  "public_inputs": true,
+  "reserved_candidate_outputs_inspected": 0,
+  "source_commit": "92f3c7322fbb757ffb4d9034dfe4f7f1cb4251fa"
+}
