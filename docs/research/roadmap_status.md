@@ -11,7 +11,7 @@
 - Mission 24: Complete — Sky Map Visualization Boundary Extraction, merged in PR #15
 - Phase 1 Exit Audit: PASS — Phase 1 complete
 - Phase 2: Complete within the explicitly accepted Mission 62 scope; physical qualification X01 remains blocked
-- Phase 3: Active — B0/B1 accepted; B2 development validation implemented, review pending; reserved comparison pending
+- Phase 3: Active — B0/B1/B2 development accepted; complete frozen reserved comparison implemented, M67 review pending
 - Mission 25: Complete — Observer-Time Validation Baseline, merged in PR #17
 - Mission 26: Complete — Observer-Instant Civil-Time Transition Policy and Correction, merged in PR #19
 - Mission 27: Complete — Strict Civil-Time Resolution Validation Evidence, merged in PR #21
@@ -63,7 +63,8 @@
 - Mission 63: Complete — [PR #63](https://github.com/wolfchil345/astroscope-ai-observatory/pull/63) merged at `c489863badae5d28e6ae05e3b5d2f65565a0b1aa`; entry protocol accepted. Post-merge Quality Gate 40283019178 passed (8,356 tests, 26 historical xfails), all 28 archives verified.
 - Mission 64: Complete — [PR #64](https://github.com/wolfchil345/astroscope-ai-observatory/pull/64) merged at `0577e5461797491ce3578b03ed94cbcc331b22a6`; post-merge Quality Gate 40300307076 passed (8,377 tests, 26 historical xfails), all 29 archives verified. Frozen input/E0 release accepted.
 - Mission 65: Complete — [PR #65](https://github.com/wolfchil345/astroscope-ai-observatory/pull/65) merged at `b4e6cd13282ab2b87715aa659d74446f1ccab5a4`; post-merge Quality Gate 40313315784 passed (8,907 tests, 26 historical xfails), all 30 archives verified. B0/B1 development acceptance retained.
-- Mission 66: Implemented; review/merge pending — [Finite-Horizon Candidate Development Validation](validation/finite_horizon_candidate_validation.md): B2 exact objective and canonical path match all 216 development cases + 16 controls; zero evaluation-reserved candidate executions.
+- Mission 66: Complete — [PR #66](https://github.com/wolfchil345/astroscope-ai-observatory/pull/66) merged at `7f9f4d0276fc998224f9ba1d0e03ce24f0551b20`; both post-merge workflows passed (9,670 tests, 26 historical xfails), all 31 archives verified. B2 development acceptance retained.
+- Mission 67: Implemented; review/merge pending — [Frozen Evaluation-Reserved Scheduler Comparison](validation/frozen_scheduler_evaluation.md): B2 exact objective and canonical path match all 216 reserved cases; complete 448-case / 1,344-method-case audit passed with first-exposure journal retained.
 
 ## Phase Progress
 
@@ -72,7 +73,7 @@
 | 0 | Feature Freeze & Research Baseline | ✅ Complete |
 | 1 | Research Software Architecture | ✅ Complete |
 | 2 | Scientific Validation | ✅ Limited-scope exit accepted; exclusions retained |
-| 3 | Observation Optimisation | 🚧 Active: B2 development evidence; M66 review pending |
+| 3 | Observation Optimisation | 🚧 Active: complete finite-corpus comparison; M67 review pending |
 | 4 | Real AI Layer | ⏳ Planned |
 | 5 | Uncertainty-Aware Planning | ⏳ Planned |
 | 6 | Robotic Observatory Control | ⏳ Planned |
@@ -834,8 +835,9 @@ endpoint/block behavior without changing production or physical qualification.
 The [report](validation/controlled_scheduler_baselines.md),
 [ledger](evidence/schedule_baselines_v1.json) and
 [access record](evidence/schedule_baselines_access_v1.json) retain B1's six losses
-against B0 alongside 44 wins and 166 ties on primary development cases. No
-reserved candidate output exists. M66 adds B2 development evidence below; calibrated
+against B0 alongside 44 wins and 166 ties on primary development cases. At the
+M65 checkpoint no reserved candidate output existed; M67 records later exposure.
+M66 adds B2 development evidence below; calibrated
 observing performance and Phase 3 exit remain pending, and X01 is still blocked.
 
 ## Mission 66 — Finite-Horizon Candidate Development Validation
@@ -849,8 +851,8 @@ observing performance and Phase 3 exit remain pending, and X01 is still blocked.
 - [x] Retain all M65 files and its original environment-reporting history
 - [x] Preserve the frozen Quality Gate and add a separate candidate audit/artifact workflow
 - [x] Document bounded results, access, independent checks and remaining gates
-- [ ] Verify both exact-final-head CI runs and all 31 archives in the PR before handoff
-- [ ] Review and merge Mission 66 development acceptance
+- [x] Verify both exact-final-head CI runs and all 31 archives in the PR before handoff
+- [x] Review and merge Mission 66 development acceptance
 
 The [report](validation/finite_horizon_candidate_validation.md),
 [ledger](evidence/schedule_candidate_v1.json) and
@@ -858,17 +860,47 @@ The [report](validation/finite_horizon_candidate_validation.md),
 records. B2 has zero regret on all 232 development/control cases. On the 216
 primary development cases, B2 versus B0 is 52 wins / 164 ties / zero losses;
 B2 versus B1 is 16 wins / 200 ties / zero losses. These are bounded designed-corpus
-results. P3-E03 has development evidence, P3-E04 reserved comparison remains
-incomplete, and P3-E05/P3-E06 calibration/integration/exit remain open.
+results. At M66, P3-E03 had development evidence and P3-E04 reserved comparison
+was incomplete; M67 adds the complete finite-corpus evidence below.
+P3-E05/P3-E06 calibration/integration/exit remain open.
 
-**Proposed Mission 67 — Frozen Evaluation-Reserved Scheduler Comparison**:
-after M66 review/merge, record a separate execution configuration and access gate,
-freeze any necessary evaluation adapter before first reserved output, then compare
-all methods on the complete reserved inventory under the unchanged M63 protocol.
-Preserve all failures and label repaired replays exposed regression. No physical
-promotion or Phase 3 exit. Mission 67 has not started.
+## Mission 67 — Frozen Evaluation-Reserved Scheduler Comparison
+
+- [x] Verify M66 merge, both post-merge workflows and all 31 archives
+- [x] Preserve all prior source, algorithms, development guards, fixtures and workflows
+- [x] Freeze the exact-input adapter, execution plan/configuration, tests and journal checker before reserved output
+- [x] Pass 531 new preflight tests using development computations and reserved input-only checks
+- [x] Reproduce all 696 development/control method records before reserved execution
+- [x] Evaluate all 216 reserved cases / 648 method-case records with exact B2/E0 acceptance
+- [x] Retain all seven reserved B1 losses plus six development B1 losses
+- [x] Preserve first-exposure results and the 16,133-event invocation journal
+- [x] Recover frozen source offline and reproduce all 1,344 method records as exposed regression
+- [x] Add a separate third workflow and 32nd artifact containing replay result and access journal
+- [ ] Verify all three exact-final-head CI runs and all 32 archives in the PR before handoff
+- [ ] Review and merge Mission 67 bounded finite-study acceptance
+
+The [report](validation/frozen_scheduler_evaluation.md),
+[ledger](evidence/schedule_evaluation_v1.json),
+[execution plan](protocols/schedule_evaluation_execution_v1.md) and
+[access record](evidence/schedule_evaluation_access_v1.json) separate first reserved
+exposure from later exposed regression. B2 matches E0 on all 448 cases including
+controls. Reserved B2 versus B0: 40 wins / 176 ties / zero losses; versus B1:
+15 wins / 201 ties / zero losses. Reserved B1 versus B0: 34 wins / 175 ties /
+seven losses. No case rerolls, threshold changes or post-exposure repairs.
+P3-E03/P3-E04 now have complete evidence within the frozen finite study, pending
+review; observational calibration, production integration and Phase 3 exit remain open.
+
+**Proposed Mission 68 — Observation-Utility Calibration Study Design**:
+after M67 review/merge, define provenance-bearing inputs/outcomes, score
+interpretation, missingness, independent references, prospective splits,
+uncertainty, acceptance and stop rules. Dataset acquisition/evaluation and
+production changes require separate scope. Preserve X01 restrictions; synthetic
+optimizer correctness cannot qualify physical observing predictions.
+Mission 68 has not started.
 
 ## Phase 3 Deliverables
+
+- [Frozen Evaluation-Reserved Scheduler Comparison — Mission 67](validation/frozen_scheduler_evaluation.md)
 
 - [Finite-Horizon Candidate Development Validation — Mission 66](validation/finite_horizon_candidate_validation.md)
 

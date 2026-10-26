@@ -1,0 +1,66 @@
+{
+  "blind": false,
+  "events": [
+    {
+      "cases": "232 development/control adapter equivalence; 216 reserved guard checks and input-only mocked-session admission",
+      "id": "M67-A01",
+      "reserved_candidate_outputs": 0,
+      "runs": [
+        "531 new tests passed",
+        "1845 M64-M67 regression tests and 1004 subtests passed"
+      ],
+      "stage": "Pre-freeze development preflight"
+    },
+    {
+      "acceptance_failures": 0,
+      "access_label": "first_frozen_evaluation",
+      "case_count": 448,
+      "id": "M67-A02",
+      "implementation_commit": "a30ee60e6d119ee12df8364cbf4e0533941b294c",
+      "journal_events": 16133,
+      "method_case_count": 1344,
+      "method_invocations": 8064,
+      "post_exposure_repairs": 0,
+      "reserved_case_count": 216,
+      "reserved_method_case_count": 648,
+      "reserved_method_invocations": 3888,
+      "stage": "First clean frozen complete evaluation"
+    },
+    {
+      "GitHub_fetch": false,
+      "access_label": "exposed_regression_replay",
+      "all_outputs_metrics_counts_aggregates_match": true,
+      "case_count": 448,
+      "id": "M67-A03",
+      "implementation_commit": "a30ee60e6d119ee12df8364cbf4e0533941b294c",
+      "initial_source_objects_absent": true,
+      "journal_verified": true,
+      "method_case_count": 1344,
+      "method_invocations": 8064,
+      "reserved_method_invocations": 3888,
+      "stage": "Offline source recovery and replay"
+    }
+  ],
+  "failure_policy": "Retain original first-exposure outputs and any failures; repairs require a new version and exposed-regression labels. No unseen claim, reroll, denominator change or post-hoc threshold.",
+  "first_journal": "validation/results/schedule_evaluation_first_access.jsonl",
+  "first_journal_sha256": "94be290c4ab4931f48bd076274097ab724dfee108b79f3124897d7a427ab589e",
+  "first_record": "validation/results/schedule_evaluation_reference_run.json",
+  "first_reserved_method_start": {
+    "case_id": "P3-F1-N03-M02-R02-C00",
+    "event": "method_start",
+    "invocation": 4177,
+    "method": "B0",
+    "phase": "warmup",
+    "repetition": 0,
+    "sequence": 8356,
+    "split": "evaluation_reserved",
+    "timestamp_utc": "2026-10-26T12:13:10.687725+00:00"
+  },
+  "freeze_commit": "a30ee60e6d119ee12df8364cbf4e0533941b294c",
+  "future_replays": "Every CI/offline replay uses exposed_regression_replay. Run/head/artifact receipts and per-call journals identify each execution. Public E0 replay remains separate from candidate execution.",
+  "mission": 67,
+  "public_inputs": true,
+  "reserved_candidate_outputs_before_freeze": 0,
+  "source_commit": "c2e55b1c12c0ecba2f292aa31bfe5fc2530fe312",
+  "trained_model": false
+}
