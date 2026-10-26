@@ -1,0 +1,57 @@
+{
+  "baseline_commit": "c489863badae5d28e6ae05e3b5d2f65565a0b1aa",
+  "endpoint_control_scope": "C13 oracle covers N=1; real scheduler sentinel test remains pending",
+  "execution_cap": {
+    "ci_step_timeout_minutes": 10,
+    "early_stop": false,
+    "max_paths_per_case": 262144,
+    "max_slots": 9,
+    "max_targets": 3,
+    "timeout_result": "incomplete, never accepted"
+  },
+  "expected_counts": {
+    "controls": 16,
+    "cores": 144,
+    "development": 216,
+    "evaluation_reserved": 216,
+    "invalid_classes": 16,
+    "invalid_variants": 48,
+    "metamorphic": 59,
+    "mutations": 9,
+    "primary": 432
+  },
+  "file_sha256": {
+    "docs/research/protocols/observation_optimisation_v1.json": "fc379a617fecf29400fb9cc999c009067a13154efb2b20e51529e0a6a57408ff",
+    "validation/fixtures/schedule_corpus_v1.json": "c658972b68f445b335b9f3dfe6058faea999db98b5c26dfd40c603d0423f5825",
+    "validation/fixtures/schedule_exhaustive_v1.json": "8bf31aee227e3beddeca4262dfc7706860f6fa1fee25daecd69b2a8ed8430a01"
+  },
+  "license": "MIT; project-generated synthetic values; primary method sources linked only",
+  "optimizer_acceptance": null,
+  "performance": {
+    "comparative_timing_performed": false,
+    "policy": "M63 warmup/five-repeat timing reserved for method comparison"
+  },
+  "phase_3_exit_approved": false,
+  "physical_qualification": false,
+  "protocol_id": "P3-SCHEDULE-001-v1",
+  "protocol_sha256": "fc379a617fecf29400fb9cc999c009067a13154efb2b20e51529e0a6a57408ff",
+  "randomness": "none; exact public SHA256 counter, no distributional sampling claim",
+  "release_id": "P3-SCHEDULE-RELEASE-v1",
+  "reserved_access": {
+    "blind": false,
+    "candidate_outputs_inspected": 0,
+    "later_candidate_access_requires_separate_frozen_source_and_config": true,
+    "oracle_results_generated": true,
+    "public_inputs": true
+  },
+  "schema_version": 1,
+  "scientific_acceptance": "bounded synthetic corpus and exhaustive reference only",
+  "scope": "Inputs and independent oracle only; no candidate implementation or evaluation",
+  "source_commit": "ef71cec709a775e76f2c21bcbdb4aa156b1fd47c",
+  "source_sha256": {
+    "validation/reference_generation/schedule_exhaustive.py": "a747138c3448d3b0953ae38533dd9b67a76c91bdfa3cd8789950a2e0feaa851e",
+    "validation/schedule_corpus.py": "874f08fa6b0ec34a999060b7891cfcef3ec79818988a22e62a5c838ebb4488bc",
+    "validation/schedule_corpus_audit.py": "ae7d244875ca7d30931a060ec81cdc43df3525280305ade62497b656c03e65c4",
+    "validation/schedule_corpus_checks.py": "ef5d1ef6c85cee09c589b375bb32dd4c041ffac43f3ed02312d71f63b3db90cc"
+  }
+}
