@@ -1,0 +1,43 @@
+{
+  "B2_implemented": true,
+  "allow_case_dropping": false,
+  "baseline_commit": "b4e6cd13282ab2b87715aa659d74446f1ccab5a4",
+  "controls": 16,
+  "development_primary_cases": 216,
+  "evaluation_reserved_executions": 0,
+  "execution_cap": {
+    "ci_step_timeout_minutes": 10,
+    "timeout_result": "incomplete_not_pass"
+  },
+  "input_sha256": {
+    "docs/research/protocols/observation_optimisation_v1.json": "fc379a617fecf29400fb9cc999c009067a13154efb2b20e51529e0a6a57408ff",
+    "validation/fixtures/schedule_corpus_v1.json": "c658972b68f445b335b9f3dfe6058faea999db98b5c26dfd40c603d0423f5825",
+    "validation/fixtures/schedule_exhaustive_v1.json": "8bf31aee227e3beddeca4262dfc7706860f6fa1fee25daecd69b2a8ed8430a01",
+    "validation/manifests/schedule_baselines_freeze_v2.json": "aac233486b0145f340e87ac481675d04e25e7601cc0adcbedb30a72a3e6decd2",
+    "validation/results/schedule_baselines_reference_run.json": "8eb001ea84fb993864db04f7618c777c18b029b86537a6d1bbb27510a5095824"
+  },
+  "methods": [
+    "B0",
+    "B1",
+    "B2"
+  ],
+  "mission": 66,
+  "objective_tolerance": 0,
+  "phase_3_exit_approved": false,
+  "physical_qualification": false,
+  "production_changes": false,
+  "protocol_id": "P3-SCHEDULE-001-v1",
+  "require_all_cases": true,
+  "require_canonical_candidate_path": true,
+  "require_exact_candidate_objective": true,
+  "require_optimal_baselines": false,
+  "require_policy_faithfulness": true,
+  "runtime": {
+    "acceptance_threshold_seconds": null,
+    "clock": "perf_counter_ns",
+    "repetitions": 5,
+    "warmups": 1
+  },
+  "schema_version": 1,
+  "scope": "Development-only exact finite-model candidate acceptance; reserved comparison deferred"
+}

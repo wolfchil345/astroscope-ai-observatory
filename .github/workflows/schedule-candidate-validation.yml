@@ -1,0 +1,45 @@
+name: Schedule Candidate Validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: schedule-candidate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  candidate-audit:
+    name: B2 development validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+      - name: Install project
+        run: python -m pip install -e ".[dev,validation]"
+      - name: Validate finite-horizon candidate on development inputs
+        timeout-minutes: 10
+        env:
+          ASTROSCOPE_IMPLEMENTATION_COMMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ASTROSCOPE_CHECKOUT_COMMIT: ${{ github.sha }}
+        run: python -m validation.schedule_candidate_audit --output "$RUNNER_TEMP/schedule_candidate_reference_run.json"
+      - name: Upload candidate validation record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: schedule-candidate-validation-record
+          path: ${{ runner.temp }}/schedule_candidate_reference_run.json
+          if-no-files-found: error

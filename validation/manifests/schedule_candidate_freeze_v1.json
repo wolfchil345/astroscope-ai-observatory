@@ -1,0 +1,28 @@
+{
+  "baseline_commit": "b4e6cd13282ab2b87715aa659d74446f1ccab5a4",
+  "file_sha256": {
+    ".github/workflows/quality-gate.yml": "1aa45c70285ad214a58f8576c79cbad459b7e48e921da1bc7a0412492591b6cd",
+    ".github/workflows/schedule-candidate-validation.yml": "1ecddf5c94e657000b15ae9d1c8af4d3885937c2160d9bc7a574b70499766304",
+    "src/astroscope/observer.py": "bd0819a973629dfe14f520dbdc5d30bfefcdbecbca774e680f12b69bc9fd2ac1",
+    "src/astroscope/planner.py": "07ac6f6ab794ba0bb575b29adf4dc763c707573a7d00af2db36c0430358e5c15",
+    "src/astroscope/schedule.py": "103aae4ec513917269db7738a834692dc2d5e4af1ba5bbdf116960cc2efba63c",
+    "tests/validation/test_schedule_baselines.py": "78fe5f1d5da402d02f99b2e9c9690a49ae72684e766365f6b0e53c372dda3c6f",
+    "tests/validation/test_schedule_candidate.py": "1dc5be655658152ebd4e52d4e4ca65cb7db03ff1505814eba3cfd148d9e326ee",
+    "validation/manifests/schedule_baselines_v1.json": "6c66835ee6f07497fb20a521cae2f5c85cf39bf42795432e4284b0522bc0f56a",
+    "validation/manifests/schedule_candidate_v1.json": "caba67f8ef7b7dc16cd12af5547c5d33387394646d6f0214bbd4d8a039886cec",
+    "validation/schedule_baseline_audit.py": "30e03961021bfd1278036f5005f3b0a784b4db15d347268dc47ce542a6b3ee82",
+    "validation/schedule_baseline_checks.py": "0dd60d94abc0a2135b720d0228170f7fedc7d26197b30693aa445510f0412d3e",
+    "validation/schedule_baselines.py": "aec660e9d8c9441a6d8f7bde11d112febdc04e4e5899c1b9987190d2ff294762",
+    "validation/schedule_candidate.py": "57422c42623714c32fb0730b46ced1ff6de983d299ef17ca4ddd72c946c385d1",
+    "validation/schedule_candidate_audit.py": "c090146e2cede889426aafbdef36791fd6cc486e4a0411fa7ee3b112b5ea2297",
+    "validation/schedule_candidate_checks.py": "a21d46959ffcba2fc460d89b4cc10e1910363f7139d96dd23e56bf13773da9e7",
+    "validation/schedule_corpus.py": "874f08fa6b0ec34a999060b7891cfcef3ec79818988a22e62a5c838ebb4488bc"
+  },
+  "mission": 66,
+  "objective_tolerance": 0,
+  "require_canonical_path": true,
+  "reserved_candidate_outputs_inspected": 0,
+  "schema_version": 1,
+  "source_commit": "c2b09e0a1eb3983e4eab216398811ae9d9a252b2",
+  "source_scope": "B2 development only; B0/B1 frozen, reserved comparison deferred"
+}
