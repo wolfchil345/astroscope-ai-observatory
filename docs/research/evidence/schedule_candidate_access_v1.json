@@ -1,0 +1,45 @@
+{
+  "blind": false,
+  "events": [
+    {
+      "cases": "216 development plus 16 controls and derived metamorphic/mutation inputs",
+      "id": "M66-A01",
+      "reserved_candidate_outputs": 0,
+      "reserved_cases": "216 input rejection checks including relabelling; recurrence trapped before execution",
+      "runs": [
+        "763 new tests passed",
+        "763 new tests passed within 1314 M64-M66 regression tests and 1004 subtests"
+      ],
+      "stage": "Pre-freeze development tests"
+    },
+    {
+      "B2_invocations": 1392,
+      "case_count": 232,
+      "id": "M66-A02",
+      "implementation_commit": "671b1b88504063842b5b625f88b56dbdc64a8047",
+      "method_case_count": 696,
+      "method_invocations": 4176,
+      "outputs": "All development paths and metrics inspected; frozen B0/B1 outcomes preserved",
+      "reserved_candidate_outputs": 0,
+      "stage": "Clean source-frozen canonical audit"
+    },
+    {
+      "GitHub_fetch": false,
+      "all_outputs_metrics_counts_aggregates_match": true,
+      "id": "M66-A03",
+      "implementation_commit": "671b1b88504063842b5b625f88b56dbdc64a8047",
+      "initial_source_objects_absent": true,
+      "method_case_count": 696,
+      "reserved_candidate_outputs": 0,
+      "stage": "Offline source recovery and canonical replay"
+    }
+  ],
+  "freeze_commit": "671b1b88504063842b5b625f88b56dbdc64a8047",
+  "future_replays": "Local checks and PR/post-merge CI repeat development tests/audit; exact run/head/artifact receipts record executions. M64 public E0 replays remain distinct from candidate execution.",
+  "future_reserved_policy": "No reserved candidate execution in Mission 66. Separate execution scope/configuration freeze and access record required; failures retained and repaired replays labelled exposed regression.",
+  "mission": 66,
+  "public_inputs": true,
+  "reserved_candidate_outputs_inspected": 0,
+  "source_commit": "c2b09e0a1eb3983e4eab216398811ae9d9a252b2",
+  "trained_model": false
+}
