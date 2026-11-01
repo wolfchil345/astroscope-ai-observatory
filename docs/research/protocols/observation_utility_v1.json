@@ -1,0 +1,480 @@
+{
+  "acceptance": {
+    "all_readiness_gates_required": true,
+    "delta": null,
+    "design_review": "pending_merge",
+    "evaluation_ready": false,
+    "max_interval_width": null,
+    "min_class_support": null,
+    "min_nights": null,
+    "optional_stopping": false,
+    "outcome_coverage_min": null,
+    "phase_3_exit": false,
+    "predictor_coverage_min": null,
+    "production_promotion": false,
+    "reliability_tolerance": null,
+    "scientific_acceptance": null,
+    "skill_rule": "qualified_upper95_worst_case_paired_difference_below_negative_delta_and_precision_met"
+  },
+  "cohort": {
+    "allow_outcome_based_dropping": false,
+    "allow_score_based_roster_selection": false,
+    "denominator": "all_registered_opportunities_in_frozen_cohort",
+    "include_cancellations": true,
+    "include_instrument_failures": true,
+    "primary_weighting": "equal_night_then_equal_opportunity_within_night",
+    "source": "complete_roster_before_forecast_inspection",
+    "study_predictions_control_acquisition": false,
+    "unit": "predecision_planned_exposure_request"
+  },
+  "controls": [
+    {
+      "expected": "reject_prospective_predictor_keep_row",
+      "fault": "late_forecast",
+      "id": "U68-C01",
+      "status": "specified_not_executed"
+    },
+    {
+      "expected": "reject_prospective_qualification",
+      "fault": "stitched_or_reanalysis",
+      "id": "U68-C02",
+      "status": "specified_not_executed"
+    },
+    {
+      "expected": "reject_misalignment",
+      "fault": "valid_time_shift",
+      "id": "U68-C03",
+      "status": "specified_not_executed"
+    },
+    {
+      "expected": "fallback_keep_denominator",
+      "fault": "invalid_units_or_values",
+      "id": "U68-C04",
+      "status": "specified_not_executed"
+    },
+    {
+      "expected": "reject_reference",
+      "fault": "circular_labels",
+      "id": "U68-C05",
+      "status": "specified_not_executed"
+    },
+    {
+      "expected": "distinguish_label_states",
+      "fault": "zero_null_partial_failure",
+      "id": "U68-C06",
+      "status": "specified_not_executed"
+    },
+    {
+      "expected": "reject_roster_mismatch",
+      "fault": "dropped_cancellation",
+      "id": "U68-C07",
+      "status": "specified_not_executed"
+    },
+    {
+      "expected": "reject_replication_inflation",
+      "fault": "duplicate_exposure",
+      "id": "U68-C08",
+      "status": "specified_not_executed"
+    },
+    {
+      "expected": "reject_or_predeclared_purge",
+      "fault": "split_lineage_leakage",
+      "id": "U68-C09",
+      "status": "specified_not_executed"
+    },
+    {
+      "expected": "reject_method",
+      "fault": "test_label_fit_leakage",
+      "id": "U68-C10",
+      "status": "specified_not_executed"
+    },
+    {
+      "expected": "exact_partition_fallback",
+      "fault": "bin_edges_and_support",
+      "id": "U68-C11",
+      "status": "specified_not_executed"
+    },
+    {
+      "expected": "independent_exact_reference",
+      "fault": "brier_arithmetic",
+      "id": "U68-C12",
+      "status": "specified_not_executed"
+    },
+    {
+      "expected": "independent_full_roster_bounds",
+      "fault": "missing_label_bounds",
+      "id": "U68-C13",
+      "status": "specified_not_executed"
+    },
+    {
+      "expected": "preserve_calendar_denominators",
+      "fault": "night_weights",
+      "id": "U68-C14",
+      "status": "specified_not_executed"
+    },
+    {
+      "expected": "retain_qualification_failures",
+      "fault": "paired_block_coverage",
+      "id": "U68-C15",
+      "status": "specified_not_executed"
+    },
+    {
+      "expected": "reject_release",
+      "fault": "hash_network_fault",
+      "id": "U68-C16",
+      "status": "specified_not_executed"
+    },
+    {
+      "expected": "retain_borderline_sensitivity",
+      "fault": "measurement_uncertainty",
+      "id": "U68-C17",
+      "status": "specified_not_executed"
+    },
+    {
+      "expected": "retain_drift_exposed_incomplete",
+      "fault": "drift_reveal_shortfall",
+      "id": "U68-C18",
+      "status": "specified_not_executed"
+    }
+  ],
+  "current_execution": {
+    "hardware_control": false,
+    "labels_generated": 0,
+    "models_fitted": 0,
+    "observational_rows_acquired": 0,
+    "production_changes": false,
+    "scientific_acceptance": null,
+    "scientific_evaluations": 0
+  },
+  "forecast": {
+    "availability_evidence_required": true,
+    "chronology": [
+      "initialization",
+      "availability",
+      "capture",
+      "decision",
+      "planned_start"
+    ],
+    "decision_lead_hours": 24,
+    "initialization_alone_sufficient": false,
+    "missing_policy": "U1_equals_U0_with_reason",
+    "model": "explicit_named_version_required",
+    "ordering": "initialization<=availability<=capture<=decision<planned_start",
+    "raw_capture_by_decision_required": true,
+    "reanalysis_as_predictor": false,
+    "stitched_history_as_prospective": false,
+    "unknown_input_imputation": false,
+    "variable_mapping": "freeze_per_variable_valid_instant_or_interval_and_units"
+  },
+  "methods": [
+    {
+      "fit_split": "training_only",
+      "formula": "(k+1)/(n+2)",
+      "id": "U0",
+      "kind": "training_constant",
+      "training_weighting": "each_resolved_row_weight_1_over_resolved_rows_in_its_night"
+    },
+    {
+      "edges": [
+        0,
+        20,
+        40,
+        60,
+        80,
+        100
+      ],
+      "enforce_monotonicity": false,
+      "fit_split": "training_only",
+      "formula": "(k_b+1)/(n_b+2)",
+      "id": "U1",
+      "intervals": "left_closed_right_open_except_final_right_closed",
+      "kind": "fixed_weather_bins",
+      "low_support_or_missing": "U0",
+      "minimum_resolved_training_bin_nights": 20,
+      "training_weighting": "same_U0_row_weights_restricted_to_bin"
+    },
+    {
+      "calibrated_claim": false,
+      "formula": "weather_score/100",
+      "id": "D0",
+      "kind": "diagnostic_only",
+      "missing": "null"
+    }
+  ],
+  "metrics": {
+    "bound_labels": [
+      0,
+      1
+    ],
+    "complete_case_primary": false,
+    "empty_bins_retained": true,
+    "loss": "(p-y)^2",
+    "primary": "night_balanced_mean_paired_Brier_U1_minus_U0",
+    "reliability_edges": [
+      0,
+      0.2,
+      0.4,
+      0.6,
+      0.8,
+      1
+    ],
+    "secondary": [
+      "exposure_weighted_Brier",
+      "reliability_counts_mean_prediction_event_frequency",
+      "raw_D0_diagnostic_with_coverage",
+      "missingness_by_reason_split_night_score_bin"
+    ],
+    "unknown_outcome_policy": "full_roster_binary_extremal_bounds"
+  },
+  "mission": 68,
+  "next_mission": {
+    "bulk_acquisition": false,
+    "hardware_control": false,
+    "model_fitting": false,
+    "number": 69,
+    "outcome_evaluation": false,
+    "scope": "source_metadata_rights_temporal_provenance_and_concrete_acquisition_specification_or_no_go",
+    "status": "proposed_not_started",
+    "title": "Observation-Utility Source Feasibility and Acquisition Specification"
+  },
+  "offline": {
+    "archive_access_journal_required": true,
+    "independent_references_required": true,
+    "network_during_analysis": false,
+    "raw_hashes_required": true,
+    "restricted_raw_data_limitation_required": true,
+    "source_and_environment_required": true
+  },
+  "outcome": {
+    "acquisition_tolerance_seconds": null,
+    "adjudicator_prediction_masking_required": true,
+    "fwhm_max_arcsec": null,
+    "independent_of_scores": true,
+    "measurements": [
+      "net_signal",
+      "positive_finite_standard_uncertainty",
+      "snr",
+      "psf_fwhm_arcsec",
+      "acquisition_time",
+      "configuration"
+    ],
+    "name": "delivered_image_meets_task_contract",
+    "negative": "verified_nondelivery_or_at_least_one_conclusive_contract_failure",
+    "positive": "all_independent_delivery_configuration_measurement_criteria_pass",
+    "reference_candidate_imports_allowed": false,
+    "snr_min": null,
+    "unknown": "insufficient_or_conflicting_evidence_without_conclusive_failure",
+    "unknown_as_zero": false,
+    "values": [
+      0,
+      1,
+      null
+    ]
+  },
+  "protocol_id": "P3-UTILITY-001-v1",
+  "readiness": {
+    "ready": false,
+    "unresolved": [
+      {
+        "field": "task_configuration",
+        "gate": "U68-G01",
+        "id": "U68-R01",
+        "person_assigned": null,
+        "required_evidence": "Site/setup/filter/exposure/target population and independent scientific reason for task",
+        "responsible_role": "Task owner",
+        "status": "unresolved",
+        "value": null
+      },
+      {
+        "field": "quality_thresholds_and_uncertainty_rule",
+        "gate": "U68-G01",
+        "id": "U68-R02",
+        "person_assigned": null,
+        "required_evidence": "SNR/FWHM/time tolerances, finite domains and point-estimate or conservative-bound label policy",
+        "responsible_role": "Measurement reviewer",
+        "status": "unresolved",
+        "value": null
+      },
+      {
+        "field": "roster_and_operating_policy",
+        "gate": "U68-G01",
+        "id": "U68-R03",
+        "person_assigned": null,
+        "required_evidence": "Complete preforecast requests, night definition, selection and cancellation policy",
+        "responsible_role": "Data custodian",
+        "status": "unresolved",
+        "value": null
+      },
+      {
+        "field": "source_rights_and_raw_release",
+        "gate": "U68-G02",
+        "id": "U68-R04",
+        "person_assigned": null,
+        "required_evidence": "Source licences, access/redistribution, immutable raw bytes and rejection ledger",
+        "responsible_role": "Data custodian",
+        "status": "unresolved",
+        "value": null
+      },
+      {
+        "field": "forecast_identity_availability_and_mapping",
+        "gate": "U68-G02",
+        "id": "U68-R05",
+        "person_assigned": null,
+        "required_evidence": "Named model/version, initialization/publication/capture evidence, per-variable units/interval/grid transforms",
+        "responsible_role": "Forecast reviewer",
+        "status": "unresolved",
+        "value": null
+      },
+      {
+        "field": "independent_outcome_pipeline",
+        "gate": "U68-G03",
+        "id": "U68-R06",
+        "person_assigned": null,
+        "required_evidence": "Raw/calibration provenance, error model, independent reduction and adjudication/masking",
+        "responsible_role": "Measurement reviewer",
+        "status": "unresolved",
+        "value": null
+      },
+      {
+        "field": "exact_splits_and_group_purge",
+        "gate": "U68-G04",
+        "id": "U68-R07",
+        "person_assigned": null,
+        "required_evidence": "Chronological UTC boundaries, night/lineage graph, purge-gap and no overlap",
+        "responsible_role": "Study maintainer",
+        "status": "unresolved",
+        "value": null
+      },
+      {
+        "field": "evaluation_access_custodian",
+        "gate": "U68-G04",
+        "id": "U68-R08",
+        "person_assigned": null,
+        "required_evidence": "Named access responsibility, append-only audit and future sealed outcomes",
+        "responsible_role": "Study owner",
+        "status": "unresolved",
+        "value": null
+      },
+      {
+        "field": "sample_size_and_calendar_stop",
+        "gate": "U68-G05",
+        "id": "U68-R09",
+        "person_assigned": null,
+        "required_evidence": "Fixed end/roster/count rule, minimum nights/class support and development-only precision justification",
+        "responsible_role": "Statistical reviewer",
+        "status": "unresolved",
+        "value": null
+      },
+      {
+        "field": "effect_precision_and_missingness_limits",
+        "gate": "U68-G05",
+        "id": "U68-R10",
+        "person_assigned": null,
+        "required_evidence": "Positive effect margin, maximum interval width and predictor/outcome coverage limits",
+        "responsible_role": "Statistical reviewer",
+        "status": "unresolved",
+        "value": null
+      },
+      {
+        "field": "resampling_and_coverage_qualification",
+        "gate": "U68-G05",
+        "id": "U68-R11",
+        "person_assigned": null,
+        "required_evidence": "Block length/starts/gaps, RNG/seed/replicates/quantiles/empty-block policy and development coverage evidence",
+        "responsible_role": "Statistical reviewer",
+        "status": "unresolved",
+        "value": null
+      },
+      {
+        "field": "reliability_and_label_sensitivity_acceptance",
+        "gate": "U68-G05",
+        "id": "U68-R12",
+        "person_assigned": null,
+        "required_evidence": "Reliability tolerances/simultaneous intervals and borderline-measurement sensitivity rules",
+        "responsible_role": "Statistical and measurement reviewers",
+        "status": "unresolved",
+        "value": null
+      },
+      {
+        "field": "offline_implementations_and_references",
+        "gate": "U68-G06",
+        "id": "U68-R13",
+        "person_assigned": null,
+        "required_evidence": "Frozen raw package, environment, independent expected outputs and 18 control results",
+        "responsible_role": "Implementation reviewer",
+        "status": "unresolved",
+        "value": null
+      }
+    ]
+  },
+  "scope": {
+    "instrument_configurations": 1,
+    "phase_3_exit_approved": false,
+    "phase_4_started": false,
+    "physical_qualification": false,
+    "planner": "exploratory_only",
+    "primary_predictors": [
+      "unchanged_weather_score"
+    ],
+    "primary_task": "planned_imaging_opportunity_delivery",
+    "scheduler_policy_effect": "not_identified",
+    "sites": 1,
+    "transit": "excluded_X01"
+  },
+  "sources": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6"
+  ],
+  "splits": {
+    "chronological": true,
+    "evaluation_access_logged": true,
+    "exact_dates": null,
+    "group_keys": [
+      "opportunity",
+      "observing_night",
+      "leakage_bearing_calibration_lineage",
+      "leakage_bearing_forecast_lineage"
+    ],
+    "order": [
+      "training",
+      "development",
+      "sealed_evaluation"
+    ],
+    "post_repair_label": "exposed_regression",
+    "public_archive_is_blind": false,
+    "purge_gap": null,
+    "random_row_shuffle": false,
+    "refit_on_development": false,
+    "training_only_fit": true
+  },
+  "status": "design_for_review_not_execution_ready",
+  "stop_rules": [
+    "retain_incomplete_at_fixed_end",
+    "stop_prospective_claim_on_leakage",
+    "stop_claim_on_unqualified_labels_or_provenance",
+    "retain_model_or_setup_drift",
+    "retain_original_results_on_versioned_repair",
+    "no_rerolls_no_posthoc_thresholds"
+  ],
+  "uncertainty": {
+    "block_length": null,
+    "bridge_campaign_gaps": false,
+    "condition_on_training_fit": true,
+    "development_coverage_checks_required": true,
+    "method": "paired_moving_block_bootstrap_calendar_nights",
+    "nominal_confidence": 0.95,
+    "paired": true,
+    "qualified": false,
+    "quantile_rule": null,
+    "replicates": null,
+    "resample_rows_independently": false,
+    "retain_empty_calendar_nights": true,
+    "rng": null,
+    "unqualified_action": "descriptive_only",
+    "wrap_end_to_start": false
+  }
+}
