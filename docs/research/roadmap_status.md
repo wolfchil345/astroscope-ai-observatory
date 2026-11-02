@@ -11,7 +11,7 @@
 - Mission 24: Complete — Sky Map Visualization Boundary Extraction, merged in PR #15
 - Phase 1 Exit Audit: PASS — Phase 1 complete
 - Phase 2: Complete within the explicitly accepted Mission 62 scope; physical qualification X01 remains blocked
-- Phase 3: Active — M67 finite-study comparison accepted; M68 observation-utility design submitted, calibration execution blocked
+- Phase 3: Active — M67 finite-study comparison and M68 design accepted; M69 source feasibility no-go submitted, acquisition/calibration blocked
 - Mission 25: Complete — Observer-Time Validation Baseline, merged in PR #17
 - Mission 26: Complete — Observer-Instant Civil-Time Transition Policy and Correction, merged in PR #19
 - Mission 27: Complete — Strict Civil-Time Resolution Validation Evidence, merged in PR #21
@@ -65,7 +65,8 @@
 - Mission 65: Complete — [PR #65](https://github.com/wolfchil345/astroscope-ai-observatory/pull/65) merged at `b4e6cd13282ab2b87715aa659d74446f1ccab5a4`; post-merge Quality Gate 40313315784 passed (8,907 tests, 26 historical xfails), all 30 archives verified. B0/B1 development acceptance retained.
 - Mission 66: Complete — [PR #66](https://github.com/wolfchil345/astroscope-ai-observatory/pull/66) merged at `7f9f4d0276fc998224f9ba1d0e03ce24f0551b20`; both post-merge workflows passed (9,670 tests, 26 historical xfails), all 31 archives verified. B2 development acceptance retained.
 - Mission 67: Complete — [PR #67](https://github.com/wolfchil345/astroscope-ai-observatory/pull/67) merged at `3fd937baca1e78c24d3d6a3a637b19a963251d6e`; all three post-merge workflows passed (10,201 tests, 26 historical xfails), all 32 archives verified. Bounded finite-study acceptance; first-exposure evidence retained.
-- Mission 68: Design implemented; review/merge pending — [Observation-Utility Calibration Study Design](observation_utility_calibration_design.md). No observations acquired, labels generated, models fitted or scientific evaluations; execution blocked by 13 explicit prerequisites.
+- Mission 68: Complete — [PR #68](https://github.com/wolfchil345/astroscope-ai-observatory/pull/68) merged at `38c0b5e44a2fee647653574d75c995ea0abd27dd`; all three post-merge workflows passed (10,201 tests, 26 historical xfails), all 32 archives verified. Design accepted; observational execution remains blocked by 13 prerequisites.
+- Mission 69: Source feasibility review implemented; review/merge pending — [Observation-Utility Source Feasibility and Acquisition Specification](observation_utility_source_feasibility.md). Documented no-go for current evidence; conditional intake/pilot specification, no observations acquired or models fitted.
 
 ## Phase Progress
 
@@ -74,7 +75,7 @@
 | 0 | Feature Freeze & Research Baseline | ✅ Complete |
 | 1 | Research Software Architecture | ✅ Complete |
 | 2 | Scientific Validation | ✅ Limited-scope exit accepted; exclusions retained |
-| 3 | Observation Optimisation | 🚧 Active: finite-study comparison accepted; M68 calibration design, execution blocked |
+| 3 | Observation Optimisation | 🚧 Active: finite-study comparison and calibration design accepted; M69 feasibility no-go, acquisition blocked |
 | 4 | Real AI Layer | ⏳ Planned |
 | 5 | Uncertainty-Aware Planning | ⏳ Planned |
 | 6 | Robotic Observatory Control | ⏳ Planned |
@@ -904,8 +905,8 @@ The original M67 ledger/report remain historical pre-merge records; the
 - [x] Specify paired Brier/reliability measures, missing-outcome bounds and conditional uncertainty
 - [x] Record six primary-source reviews and 13 unresolved execution prerequisites
 - [x] Specify 18 future qualification controls; implement offline documentary checks separately
-- [ ] Verify all three exact-final-head workflows and 32 archives in the PR before handoff
-- [ ] Review and merge the Mission 68 design, without approving observational execution
+- [x] Verify all three exact-final-head workflows and 32 archives in the PR before handoff
+- [x] Review and merge the Mission 68 design, without approving observational execution
 
 The [design](observation_utility_calibration_design.md),
 [protocol](protocols/observation_utility_v1.json),
@@ -916,13 +917,36 @@ than inventing a qualified site, instrument, dataset or measurement threshold.
 P3-E05/P3-E06 remain open. X01, all five M62 exclusions and the 13/5/8 transit
 categories remain unchanged. Phases 4–8 remain planned.
 
-**Proposed Mission 69 — Observation-Utility Source Feasibility and Acquisition
-Specification**: after M68 review/merge, assess source schemas, rights, coverage,
-independent outcomes and temporal provenance, then prepare a concrete acquisition
-specification or no-go. Bulk acquisition, fitting, evaluation and hardware control
-require separate scope. Mission 69 has not started.
+## Mission 69 — Observation-Utility Source Feasibility and Acquisition Specification
+
+- [x] Verify M68 merge, all three post-merge workflows and all 32 downloaded archives
+- [x] Preserve all baseline scientific/source/test/workflow evidence and M68 protocol bytes
+- [x] Review 16 primary source pages across two observatory and three forecast routes
+- [x] Record source schema, roster, rights, outcome and forecast-provenance gaps
+- [x] Document a no-go for current acquisition evidence; retain all 13 unresolved prerequisites
+- [x] Specify owner intake, bounded development pilot, offline package and stop rules
+- [x] Add an offline documentary checker with targeted corruption controls
+- [ ] Verify all three exact-final-head workflows and 32 archives in the PR before handoff
+- [ ] Review and merge M69 feasibility disposition, without approving acquisition
+
+The [report](observation_utility_source_feasibility.md),
+[source register](evidence/observation_utility_feasibility_sources_v1.json),
+[acquisition specification](protocols/observation_utility_acquisition_spec_v1.md),
+[machine-readable disposition](protocols/observation_utility_acquisition_v1.json)
+and [ledger](evidence/observation_utility_feasibility_v1.json) record zero
+observational acquisition, labels, fits or evaluations. Public delivered images
+do not establish the full planned-opportunity roster; historical run initialization
+does not prove timely forecast capture. No source combination is qualified by
+this bounded review. P3-E05/P3-E06, X01 and all retained exclusions remain open.
+
+**Proposed Mission 70 — Source-owner Evidence Intake and Go/No-go Review** is
+conditional on a named source owner/programme and the specified evidence packet.
+Without that input, pause this workstream. No new observational acquisition,
+fitting, evaluation or hardware action is authorized by M69. M70 has not started.
 
 ## Phase 3 Deliverables
+
+- [Observation-Utility Source Feasibility and Acquisition Specification — Mission 69](observation_utility_source_feasibility.md)
 
 - [Observation-Utility Calibration Study Design — Mission 68](observation_utility_calibration_design.md)
 
