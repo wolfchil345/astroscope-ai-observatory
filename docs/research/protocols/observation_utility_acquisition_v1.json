@@ -1,0 +1,311 @@
+{
+  "acquisition_authorized": false,
+  "coverage": {
+    "actual_nights": null,
+    "actual_rows": null,
+    "class_balance": null,
+    "forecast_qualified_fraction": null,
+    "missingness": null,
+    "provider_claims_are_cohort_coverage": false
+  },
+  "current_execution": {
+    "hardware_control": false,
+    "labels_generated": 0,
+    "models_fitted": 0,
+    "observational_rows_acquired": 0,
+    "production_changes": false,
+    "scientific_evaluations": 0
+  },
+  "decision": "no_go_current_evidence",
+  "execution_ready": false,
+  "forecast_model": null,
+  "forecast_version": null,
+  "licence_discrepancy": {
+    "applicable_version": null,
+    "reported_versions": [
+      "CC BY-NC 4.0",
+      "CC BY-NC 2.0"
+    ],
+    "resolved": false,
+    "source_ids": [
+      "S06",
+      "S07"
+    ]
+  },
+  "mission": 69,
+  "next_mission": {
+    "bulk_acquisition": false,
+    "condition": "named_source_owner_programme_and_evidence_packet",
+    "hardware_control": false,
+    "model_fitting": false,
+    "number": 70,
+    "outcome_evaluation": false,
+    "status": "conditional_not_started",
+    "title": "Source-owner Evidence Intake and Go/No-go Review",
+    "without_condition": "pause_workstream"
+  },
+  "parent_protocol": "P3-UTILITY-001-v1",
+  "phase_3_exit_approved": false,
+  "phase_4_started": false,
+  "physical_qualification": false,
+  "pilot": {
+    "all_inspected_outcomes": "development_exposed",
+    "cap_is_scientific_sample_size": false,
+    "incomplete_roster_disposition": "failed_feasibility_not_accepted_cohort",
+    "max_bytes": 2147483648,
+    "max_concurrent_requests": 1,
+    "max_consecutive_nights": 7,
+    "max_objects": 500,
+    "max_opportunities": 100,
+    "max_programmes": 1,
+    "max_requests_per_second": 1,
+    "max_setups": 1,
+    "max_sites": 1,
+    "requires_owner_packet": true,
+    "requires_separate_scope": true,
+    "status": "proposed_not_executed"
+  },
+  "prerequisites": [
+    {
+      "field": "task_configuration",
+      "gate": "U68-G01",
+      "id": "U68-R01",
+      "person_assigned": null,
+      "required_evidence": "Site/setup/filter/exposure/target population and independent scientific reason for task",
+      "status": "unresolved",
+      "value": null
+    },
+    {
+      "field": "quality_thresholds_and_uncertainty_rule",
+      "gate": "U68-G01",
+      "id": "U68-R02",
+      "person_assigned": null,
+      "required_evidence": "SNR/FWHM/time tolerances, finite domains and point-estimate or conservative-bound label policy",
+      "status": "unresolved",
+      "value": null
+    },
+    {
+      "field": "roster_and_operating_policy",
+      "gate": "U68-G01",
+      "id": "U68-R03",
+      "person_assigned": null,
+      "required_evidence": "Complete preforecast requests, night definition, selection and cancellation policy",
+      "status": "unresolved",
+      "value": null
+    },
+    {
+      "field": "source_rights_and_raw_release",
+      "gate": "U68-G02",
+      "id": "U68-R04",
+      "person_assigned": null,
+      "required_evidence": "Source licences, access/redistribution, immutable raw bytes and rejection ledger",
+      "status": "unresolved",
+      "value": null
+    },
+    {
+      "field": "forecast_identity_availability_and_mapping",
+      "gate": "U68-G02",
+      "id": "U68-R05",
+      "person_assigned": null,
+      "required_evidence": "Named model/version, initialization/publication/capture evidence, per-variable units/interval/grid transforms",
+      "status": "unresolved",
+      "value": null
+    },
+    {
+      "field": "independent_outcome_pipeline",
+      "gate": "U68-G03",
+      "id": "U68-R06",
+      "person_assigned": null,
+      "required_evidence": "Raw/calibration provenance, error model, independent reduction and adjudication/masking",
+      "status": "unresolved",
+      "value": null
+    },
+    {
+      "field": "exact_splits_and_group_purge",
+      "gate": "U68-G04",
+      "id": "U68-R07",
+      "person_assigned": null,
+      "required_evidence": "Chronological UTC boundaries, night/lineage graph, purge-gap and no overlap",
+      "status": "unresolved",
+      "value": null
+    },
+    {
+      "field": "evaluation_access_custodian",
+      "gate": "U68-G04",
+      "id": "U68-R08",
+      "person_assigned": null,
+      "required_evidence": "Named access responsibility, append-only audit and future sealed outcomes",
+      "status": "unresolved",
+      "value": null
+    },
+    {
+      "field": "sample_size_and_calendar_stop",
+      "gate": "U68-G05",
+      "id": "U68-R09",
+      "person_assigned": null,
+      "required_evidence": "Fixed end/roster/count rule, minimum nights/class support and development-only precision justification",
+      "status": "unresolved",
+      "value": null
+    },
+    {
+      "field": "effect_precision_and_missingness_limits",
+      "gate": "U68-G05",
+      "id": "U68-R10",
+      "person_assigned": null,
+      "required_evidence": "Positive effect margin, maximum interval width and predictor/outcome coverage limits",
+      "status": "unresolved",
+      "value": null
+    },
+    {
+      "field": "resampling_and_coverage_qualification",
+      "gate": "U68-G05",
+      "id": "U68-R11",
+      "person_assigned": null,
+      "required_evidence": "Block length/starts/gaps, RNG/seed/replicates/quantiles/empty-block policy and development coverage evidence",
+      "status": "unresolved",
+      "value": null
+    },
+    {
+      "field": "reliability_and_label_sensitivity_acceptance",
+      "gate": "U68-G05",
+      "id": "U68-R12",
+      "person_assigned": null,
+      "required_evidence": "Reliability tolerances/simultaneous intervals and borderline-measurement sensitivity rules",
+      "status": "unresolved",
+      "value": null
+    },
+    {
+      "field": "offline_implementations_and_references",
+      "gate": "U68-G06",
+      "id": "U68-R13",
+      "person_assigned": null,
+      "required_evidence": "Frozen raw package, environment, independent expected outputs and 18 control results",
+      "status": "unresolved",
+      "value": null
+    }
+  ],
+  "preserved_rules": {
+    "actual_time_as_planned_time_allowed": false,
+    "complete_predecision_roster_required": true,
+    "historical_public_as_sealed_evaluation": false,
+    "include_cancellations": true,
+    "initialization_proves_capture": false,
+    "one_opportunity_per_planned_exposure": true,
+    "raw_capture_by_decision_required": true,
+    "restricted_raw_claimed_public_offline": false,
+    "score_derived_outcomes_allowed": false,
+    "seven_field_lineage_required": true,
+    "stitched_or_reanalysis_substitution": false,
+    "study_predictions_control_acquisition": false,
+    "unknown_as_zero": false,
+    "unqualified_forecast": "retain_opportunity_U1_equals_U0_D0_null"
+  },
+  "review_status": "pending_review_merge",
+  "routes": [
+    {
+      "blockers": [
+        "predecision_exposure_roster",
+        "fixed_start_site_setup",
+        "independent_target_measurement",
+        "licence_version_and_log_release",
+        "timely_forecast_capture"
+      ],
+      "complete_roster_verified": false,
+      "id": "LCO",
+      "independent_outcomes_qualified": false,
+      "primary_predictor_admissible": false,
+      "rights_qualified": false,
+      "source_ids": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "S07"
+      ],
+      "status": "conditional_not_qualified"
+    },
+    {
+      "blockers": [
+        "predecision_exposure_roster",
+        "actual_schema_and_joins",
+        "independent_target_measurement",
+        "programme_log_release",
+        "timely_forecast_capture"
+      ],
+      "complete_roster_verified": false,
+      "id": "ESO",
+      "independent_outcomes_qualified": false,
+      "primary_predictor_admissible": false,
+      "rights_qualified": false,
+      "source_ids": [
+        "S08",
+        "S09",
+        "S10",
+        "S11",
+        "S12"
+      ],
+      "status": "conditional_not_qualified"
+    },
+    {
+      "blockers": [
+        "stitched_not_fixed_decision_run"
+      ],
+      "complete_roster_verified": false,
+      "id": "OM_HISTORY",
+      "independent_outcomes_qualified": false,
+      "primary_predictor_admissible": false,
+      "rights_qualified": false,
+      "source_ids": [
+        "S13",
+        "S16"
+      ],
+      "status": "excluded_primary_predictor"
+    },
+    {
+      "blockers": [
+        "no_historical_capture_receipts",
+        "seven_field_model_lineage"
+      ],
+      "complete_roster_verified": false,
+      "id": "OM_RUN",
+      "independent_outcomes_qualified": false,
+      "primary_predictor_admissible": false,
+      "rights_qualified": false,
+      "source_ids": [
+        "S14",
+        "S15",
+        "S16"
+      ],
+      "status": "insufficient_without_contemporaneous_receipts"
+    },
+    {
+      "blockers": [
+        "no_selected_model_site",
+        "no_capture_process",
+        "seven_field_model_lineage",
+        "no_release"
+      ],
+      "complete_roster_verified": false,
+      "id": "OM_PROSPECTIVE",
+      "independent_outcomes_qualified": false,
+      "primary_predictor_admissible": false,
+      "rights_qualified": false,
+      "source_ids": [
+        "S14",
+        "S15",
+        "S16"
+      ],
+      "status": "conditional_not_started"
+    }
+  ],
+  "scientific_acceptance": null,
+  "scope": "documentation_source_feasibility_only",
+  "selected_instrument": null,
+  "selected_programme": null,
+  "selected_site": null,
+  "selected_source": null,
+  "source_owner": null,
+  "specification_id": "P3-UTILITY-ACQUISITION-001-v1"
+}

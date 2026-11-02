@@ -1,0 +1,179 @@
+{
+  "mission": 69,
+  "kind": "bounded_primary_source_feasibility_review",
+  "reviewed_date_utc": "2026-11-02",
+  "data_acquired": false,
+  "source_bytes_vendored": false,
+  "offline_runtime_downloads": false,
+  "sources": [
+    {
+      "id": "S01",
+      "title": "LCO Developer API",
+      "url": "https://developers.lco.global/",
+      "locator": "RequestGroup/Request/InstrumentConfig; Archive frame model",
+      "support": "Requests have states, windows and configurations; exposure_count can exceed one. Frame metadata links request_id/observation_id and related/versioned products. Authenticated endpoints require tokens.",
+      "limitation": "Examples do not prove complete accessible roster/history or per-exposure planned starts. No authenticated endpoint queried.",
+      "reviewed_date_utc": "2026-11-02",
+      "status": "documentation_read_not_dataset_qualified"
+    },
+    {
+      "id": "S02",
+      "title": "LCO Data Archive",
+      "url": "https://lco.global/documentation/data/archive/",
+      "locator": "Science Data Archive; Raw and Quicklook Data",
+      "support": "Raw data, master calibrations and processed products are described. Science data normally have a one-year proprietary period; educational data are public.",
+      "limitation": "No programme, actual date range, raw completeness or rights for request logs verified.",
+      "reviewed_date_utc": "2026-11-02",
+      "status": "documentation_read_not_dataset_qualified"
+    },
+    {
+      "id": "S03",
+      "title": "LCO Network Capabilities",
+      "url": "https://lco.global/observatory/proposals/network-capabilities/",
+      "locator": "Scheduling Observations; Monitoring Observations",
+      "support": "Dynamic scheduling can reassign requests to resources and respond to weather closures.",
+      "limitation": "A final resource/start cannot stand in for the predecision planned site/start.",
+      "reviewed_date_utc": "2026-11-02",
+      "status": "documentation_read_not_dataset_qualified"
+    },
+    {
+      "id": "S04",
+      "title": "LCO BANZAI pipeline",
+      "url": "https://lco.global/documentation/data/BANZAIpipeline/",
+      "locator": "BANZAI pipeline; final data products",
+      "support": "Processing records parameters/software versions. Products include SCI, BPM, ERR and CAT; source catalogues include FLUX and FLUXERR.",
+      "limitation": "Generic pipeline products are not qualified task outcomes; error semantics and target measurement require demonstration.",
+      "reviewed_date_utc": "2026-11-02",
+      "status": "documentation_read_not_dataset_qualified"
+    },
+    {
+      "id": "S05",
+      "title": "LCO FITS headers",
+      "url": "https://lco.global/documentation/data/fits-headers/",
+      "locator": "REQNUM; L1FWHM; L1 calibration identifiers",
+      "support": "REQNUM tracks a sub-request; L1FWHM is a frame source-summary measure in arcseconds. L1 fields belong to processed frames.",
+      "limitation": "Not a guaranteed one-exposure key or target PSF; no actual header or measurement acquired.",
+      "reviewed_date_utc": "2026-11-02",
+      "status": "documentation_read_not_dataset_qualified"
+    },
+    {
+      "id": "S06",
+      "title": "LCO Acknowledgments",
+      "url": "https://lco.global/observatory/acknowledgments/",
+      "locator": "Licensing of images and data",
+      "support": "States CC BY-NC 4.0 for scientific/educational images/data, subject to proprietary restrictions and attribution.",
+      "limitation": "Disagrees in version with S07; applicability to selected data and non-image records remains unresolved.",
+      "reviewed_date_utc": "2026-11-02",
+      "status": "documentation_read_not_dataset_qualified"
+    },
+    {
+      "id": "S07",
+      "title": "LCO Terms of Service",
+      "url": "https://lco.global/observatory/termsofservice/",
+      "locator": "Data Use Policy",
+      "support": "States CC BY-NC 2.0, proprietary restrictions, attribution and header preservation.",
+      "limitation": "Disagrees in version with S06; no choice of applicable licence or blanket roster/log redistribution permission inferred.",
+      "reviewed_date_utc": "2026-11-02",
+      "status": "documentation_read_not_dataset_qualified"
+    },
+    {
+      "id": "S08",
+      "title": "ESO Data Access Policy",
+      "url": "https://www.eso.org/cms/eso-data-access-policy.html",
+      "locator": "Published 2022-11-07; Data access; Third-party distribution",
+      "support": "Raw data and calibrations are archived; headers normally public immediately, with exceptions. Data distributed CC BY 4.0; retain headers and provenance attribution. Proprietary protection applies.",
+      "limitation": "No selected programme access, release of private operational records or cohort completeness demonstrated.",
+      "reviewed_date_utc": "2026-11-02",
+      "status": "documentation_read_not_dataset_qualified"
+    },
+    {
+      "id": "S09",
+      "title": "ESO programmatic access",
+      "url": "https://archive.eso.org/programmatic/",
+      "locator": "Query a TAP Service; Learn dataset actions",
+      "support": "Documents TAP/ADQL and dataset actions, with raw/reduced examples.",
+      "limitation": "Interactive documentation is not a retrieved raw schema or successful dataset join.",
+      "reviewed_date_utc": "2026-11-02",
+      "status": "documentation_read_not_dataset_qualified"
+    },
+    {
+      "id": "S10",
+      "title": "ESO Archive FAQ: programmatic access",
+      "url": "https://support.eso.org/en-US/kb/articles/archive-faq-getting-data-programmatic",
+      "locator": "Standard VO protocols; current supported methods",
+      "support": "Documents TAP raw/reduced/ambient metadata, DataLink calibrations/provenance and token access. Older unlisted scripts deprecated after July 2026.",
+      "limitation": "No unverified historical download recipe is prescribed; concrete schema/version must be pinned in intake.",
+      "reviewed_date_utc": "2026-11-02",
+      "status": "documentation_read_not_dataset_qualified"
+    },
+    {
+      "id": "S11",
+      "title": "ESO observation-quality FAQ",
+      "url": "https://archive.eso.org/cms/faq/how-can-i-check-the-quality-of-science-observations.html",
+      "locator": "Service Mode Night Log",
+      "support": "Associated night logs accompany requested science frames and describe issues and ambient conditions.",
+      "limitation": "Delivered-frame-associated logs do not establish a complete planned exposure roster.",
+      "reviewed_date_utc": "2026-11-02",
+      "status": "documentation_read_not_dataset_qualified"
+    },
+    {
+      "id": "S12",
+      "title": "ESO QC0 OB grading",
+      "url": "https://www.eso.org/sci/facilities/paranal/quality-control/qc0-ob-grading.html",
+      "locator": "Basic OB grading policy",
+      "support": "Grades compare measured conditions with programme constraints and aggregate parameter grades.",
+      "limitation": "Not M68 target-level delivery/SNR/FWHM labels, and not a qualified threshold source.",
+      "reviewed_date_utc": "2026-11-02",
+      "status": "documentation_read_not_dataset_qualified"
+    },
+    {
+      "id": "S13",
+      "title": "Open-Meteo Historical Forecast API",
+      "url": "https://open-meteo.com/en/docs/historical-forecast-api",
+      "locator": "Introduction",
+      "support": "Early hours from successive runs are stitched into a continuous hourly series.",
+      "limitation": "Excluded as fixed-decision predictor under unchanged M68; not original full-run capture evidence.",
+      "reviewed_date_utc": "2026-11-02",
+      "status": "documentation_read_not_dataset_qualified"
+    },
+    {
+      "id": "S14",
+      "title": "Open-Meteo Single Runs API",
+      "url": "https://open-meteo.com/en/docs/single-runs-api",
+      "locator": "Introduction; Data availability; API endpoint and run parameter",
+      "support": "run selects initialization and full horizon. Provider lists ECMWF IFS HRES from 2024-03-14 and most other models from 2026-04-02.",
+      "limitation": "Availability dates are not audited completeness. Later retrieval does not prove capture at historical decision; model/version and fields unqualified.",
+      "reviewed_date_utc": "2026-11-02",
+      "status": "documentation_read_not_dataset_qualified"
+    },
+    {
+      "id": "S15",
+      "title": "Open-Meteo GFS & HRRR API",
+      "url": "https://open-meteo.com/en/docs/gfs-api",
+      "locator": "Variable Per Model Availability; Hourly Parameter Definition",
+      "support": "Field support differs by product; GFS probability is calculated, and some high-resolution fields use other resolution products. Precipitation and gusts have interval semantics.",
+      "limitation": "Seven fields in a generic selector do not qualify a single model/run. Exact product version, contributing lineage and returned units require future evidence.",
+      "reviewed_date_utc": "2026-11-02",
+      "status": "documentation_read_not_dataset_qualified"
+    },
+    {
+      "id": "S16",
+      "title": "Open-Meteo Terms",
+      "url": "https://open-meteo.com/en/terms",
+      "locator": "Non-Commercial Use; API Subscription",
+      "support": "API data use CC BY 4.0; free service is restricted to noncommercial use and request limits.",
+      "limitation": "Data licence and hosted service access are distinct; selected access mode and attribution not yet established.",
+      "reviewed_date_utc": "2026-11-02",
+      "status": "documentation_read_not_dataset_qualified"
+    }
+  ],
+  "failed_retrievals": [
+    {
+      "url": "https://archive.eso.org/tap_obs/tables/eso.raw",
+      "date_utc": "2026-11-02",
+      "method": "web_retrieval",
+      "result": "not_accessible_via_tool",
+      "inference": "No schema or data completeness claim; this is not proof the provider endpoint is unavailable."
+    }
+  ]
+}
