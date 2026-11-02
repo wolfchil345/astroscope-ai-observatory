@@ -11,7 +11,7 @@
 - Mission 24: Complete — Sky Map Visualization Boundary Extraction, merged in PR #15
 - Phase 1 Exit Audit: PASS — Phase 1 complete
 - Phase 2: Complete within the explicitly accepted Mission 62 scope; physical qualification X01 remains blocked
-- Phase 3: Active — B0/B1/B2 development accepted; complete frozen reserved comparison implemented, M67 review pending
+- Phase 3: Active — M67 finite-study comparison accepted; M68 observation-utility design submitted, calibration execution blocked
 - Mission 25: Complete — Observer-Time Validation Baseline, merged in PR #17
 - Mission 26: Complete — Observer-Instant Civil-Time Transition Policy and Correction, merged in PR #19
 - Mission 27: Complete — Strict Civil-Time Resolution Validation Evidence, merged in PR #21
@@ -64,7 +64,8 @@
 - Mission 64: Complete — [PR #64](https://github.com/wolfchil345/astroscope-ai-observatory/pull/64) merged at `0577e5461797491ce3578b03ed94cbcc331b22a6`; post-merge Quality Gate 40300307076 passed (8,377 tests, 26 historical xfails), all 29 archives verified. Frozen input/E0 release accepted.
 - Mission 65: Complete — [PR #65](https://github.com/wolfchil345/astroscope-ai-observatory/pull/65) merged at `b4e6cd13282ab2b87715aa659d74446f1ccab5a4`; post-merge Quality Gate 40313315784 passed (8,907 tests, 26 historical xfails), all 30 archives verified. B0/B1 development acceptance retained.
 - Mission 66: Complete — [PR #66](https://github.com/wolfchil345/astroscope-ai-observatory/pull/66) merged at `7f9f4d0276fc998224f9ba1d0e03ce24f0551b20`; both post-merge workflows passed (9,670 tests, 26 historical xfails), all 31 archives verified. B2 development acceptance retained.
-- Mission 67: Implemented; review/merge pending — [Frozen Evaluation-Reserved Scheduler Comparison](validation/frozen_scheduler_evaluation.md): B2 exact objective and canonical path match all 216 reserved cases; complete 448-case / 1,344-method-case audit passed with first-exposure journal retained.
+- Mission 67: Complete — [PR #67](https://github.com/wolfchil345/astroscope-ai-observatory/pull/67) merged at `3fd937baca1e78c24d3d6a3a637b19a963251d6e`; all three post-merge workflows passed (10,201 tests, 26 historical xfails), all 32 archives verified. Bounded finite-study acceptance; first-exposure evidence retained.
+- Mission 68: Design implemented; review/merge pending — [Observation-Utility Calibration Study Design](observation_utility_calibration_design.md). No observations acquired, labels generated, models fitted or scientific evaluations; execution blocked by 13 explicit prerequisites.
 
 ## Phase Progress
 
@@ -73,7 +74,7 @@
 | 0 | Feature Freeze & Research Baseline | ✅ Complete |
 | 1 | Research Software Architecture | ✅ Complete |
 | 2 | Scientific Validation | ✅ Limited-scope exit accepted; exclusions retained |
-| 3 | Observation Optimisation | 🚧 Active: complete finite-corpus comparison; M67 review pending |
+| 3 | Observation Optimisation | 🚧 Active: finite-study comparison accepted; M68 calibration design, execution blocked |
 | 4 | Real AI Layer | ⏳ Planned |
 | 5 | Uncertainty-Aware Planning | ⏳ Planned |
 | 6 | Robotic Observatory Control | ⏳ Planned |
@@ -876,8 +877,8 @@ P3-E05/P3-E06 calibration/integration/exit remain open.
 - [x] Preserve first-exposure results and the 16,133-event invocation journal
 - [x] Recover frozen source offline and reproduce all 1,344 method records as exposed regression
 - [x] Add a separate third workflow and 32nd artifact containing replay result and access journal
-- [ ] Verify all three exact-final-head CI runs and all 32 archives in the PR before handoff
-- [ ] Review and merge Mission 67 bounded finite-study acceptance
+- [x] Verify all three exact-final-head CI runs and all 32 archives in the PR before handoff
+- [x] Review and merge Mission 67 bounded finite-study acceptance — PR #67; all three post-merge workflows and 32 archives verified
 
 The [report](validation/frozen_scheduler_evaluation.md),
 [ledger](evidence/schedule_evaluation_v1.json),
@@ -887,18 +888,43 @@ exposure from later exposed regression. B2 matches E0 on all 448 cases including
 controls. Reserved B2 versus B0: 40 wins / 176 ties / zero losses; versus B1:
 15 wins / 201 ties / zero losses. Reserved B1 versus B0: 34 wins / 175 ties /
 seven losses. No case rerolls, threshold changes or post-exposure repairs.
-P3-E03/P3-E04 now have complete evidence within the frozen finite study, pending
-review; observational calibration, production integration and Phase 3 exit remain open.
+P3-E03/P3-E04 are accepted within the frozen finite study through M67 merge;
+observational calibration, production integration and Phase 3 exit remain open.
+The original M67 ledger/report remain historical pre-merge records; the
+[M68 transition ledger](evidence/observation_utility_design_v1.json) and
+[M67 merge receipt](evidence/mission67_merge_ci_v1.json) record later acceptance.
 
-**Proposed Mission 68 — Observation-Utility Calibration Study Design**:
-after M67 review/merge, define provenance-bearing inputs/outcomes, score
-interpretation, missingness, independent references, prospective splits,
-uncertainty, acceptance and stop rules. Dataset acquisition/evaluation and
-production changes require separate scope. Preserve X01 restrictions; synthetic
-optimizer correctness cannot qualify physical observing predictions.
-Mission 68 has not started.
+## Mission 68 — Observation-Utility Calibration Study Design
+
+- [x] Verify M67 merge, all three post-merge workflows and all 32 downloaded archives
+- [x] Preserve M67 first exposure and all existing scientific/source/test/workflow bytes
+- [x] Define a bounded imaging-delivery estimand distinct from nominal scheduler utility
+- [x] Specify independent labels, forecast availability, missingness and complete-roster accounting
+- [x] Define training-only U0/U1, diagnostic D0, chronological groups and prospective access rules
+- [x] Specify paired Brier/reliability measures, missing-outcome bounds and conditional uncertainty
+- [x] Record six primary-source reviews and 13 unresolved execution prerequisites
+- [x] Specify 18 future qualification controls; implement offline documentary checks separately
+- [ ] Verify all three exact-final-head workflows and 32 archives in the PR before handoff
+- [ ] Review and merge the Mission 68 design, without approving observational execution
+
+The [design](observation_utility_calibration_design.md),
+[protocol](protocols/observation_utility_v1.json),
+[data contract](protocols/observation_utility_data_contract_v1.md) and
+[ledger](evidence/observation_utility_design_v1.json) contain no new observational
+result, model fit, science test or CI artifact. M68 defines prerequisites rather
+than inventing a qualified site, instrument, dataset or measurement threshold.
+P3-E05/P3-E06 remain open. X01, all five M62 exclusions and the 13/5/8 transit
+categories remain unchanged. Phases 4–8 remain planned.
+
+**Proposed Mission 69 — Observation-Utility Source Feasibility and Acquisition
+Specification**: after M68 review/merge, assess source schemas, rights, coverage,
+independent outcomes and temporal provenance, then prepare a concrete acquisition
+specification or no-go. Bulk acquisition, fitting, evaluation and hardware control
+require separate scope. Mission 69 has not started.
 
 ## Phase 3 Deliverables
+
+- [Observation-Utility Calibration Study Design — Mission 68](observation_utility_calibration_design.md)
 
 - [Frozen Evaluation-Reserved Scheduler Comparison — Mission 67](validation/frozen_scheduler_evaluation.md)
 

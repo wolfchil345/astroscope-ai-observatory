@@ -1,0 +1,70 @@
+{
+  "data_acquired": false,
+  "kind": "primary_method_and_provider_documentation_review",
+  "mission": 68,
+  "offline_runtime_downloads": false,
+  "reviewed_date_jst": "2026-11-02",
+  "source_bytes_vendored": false,
+  "sources": [
+    {
+      "id": "R1",
+      "limitation": "ESO site/instrument policy does not supply AstroScope thresholds, labels or qualification.",
+      "locator": "Basic OB grading; Image Quality; Transparency",
+      "reviewed_date_jst": "2026-11-02",
+      "status": "read_not_dataset_qualified",
+      "support": "Detector PSF FWHM is distinguished from atmospheric seeing; observation constraints and independent measurements matter.",
+      "title": "ESO QC0 OB grading",
+      "url": "https://www.eso.org/sci/facilities/paranal/quality-control/qc0-ob-grading.html"
+    },
+    {
+      "id": "R2",
+      "limitation": "Not a full per-run history or proof of information available at an earlier decision instant; coverage not acquired.",
+      "locator": "Introduction",
+      "reviewed_date_jst": "2026-11-02",
+      "status": "read_not_dataset_qualified",
+      "support": "The product stitches initial hours of successive forecast runs.",
+      "title": "Open-Meteo Historical Forecast API",
+      "url": "https://open-meteo.com/en/docs/historical-forecast-api"
+    },
+    {
+      "id": "R3",
+      "limitation": "Documentation alone does not verify publication/receipt timing, model applicability, permissions or archive completeness.",
+      "locator": "Introduction and run parameter",
+      "reviewed_date_jst": "2026-11-02",
+      "status": "read_not_dataset_qualified",
+      "support": "An initialization-time parameter selects an individual model run and its forecast horizon.",
+      "title": "Open-Meteo Single Runs API",
+      "url": "https://open-meteo.com/en/docs/single-runs-api"
+    },
+    {
+      "id": "R4",
+      "limitation": "Method background only; neither a fit of U1 nor evidence that a heuristic score is a calibrated probability.",
+      "locator": "JASA 102:359–378, section 3, example 1, p. 363; DOI 10.1198/016214506000001437",
+      "reviewed_date_jst": "2026-11-02",
+      "status": "read_not_dataset_qualified",
+      "support": "The quadratic/Brier score is a proper rule for probabilistic predictions.",
+      "title": "Gneiting and Raftery (2007), Strictly Proper Scoring Rules, Prediction, and Estimation",
+      "url": "https://sites.stat.washington.edu/raftery/Research/PDF/Gneiting2007jasa.pdf"
+    },
+    {
+      "id": "R5",
+      "limitation": "Empirical methodological evidence, not proof of independence, universal split correctness or applicability to an unacquired cohort.",
+      "locator": "Machine Learning 109:1997–2028, sections 1–2; DOI 10.1007/s10994-020-05910-7",
+      "reviewed_date_jst": "2026-11-02",
+      "status": "read_not_dataset_qualified",
+      "support": "Chronological out-of-sample methods preserve past-to-future evaluation; dependence and nonstationarity complicate assessment.",
+      "title": "Cerqueira, Torgo and Mozetič (2020), Evaluating time series forecasting models",
+      "url": "https://kt.ijs.si/igor_mozetic/papers/CerTorMoz-TimeSer-MACH-20.pdf"
+    },
+    {
+      "id": "R6",
+      "limitation": "Does not set a valid block length, power, coverage or stationarity assumption for AstroScope.",
+      "locator": "ETH Research Report 87; introduction and block-bootstrap discussion",
+      "reviewed_date_jst": "2026-11-02",
+      "status": "read_not_dataset_qualified",
+      "support": "Time-series resampling needs a dependence-aware construction with theoretical and finite-sample limitations.",
+      "title": "Bühlmann (1999), Bootstraps for Time Series",
+      "url": "https://stat.ethz.ch/Research-Reports/87.pdf"
+    }
+  ]
+}
